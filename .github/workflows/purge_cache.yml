@@ -1,0 +1,13 @@
+name: ☁️ Purge Cloudflare Cache
+on: [workflow_dispatch]
+
+jobs:
+  purge-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - name: '☁️ Purge cache'
+        uses: jakejarvis/cloudflare-purge-action@master
+        env:
+          CLOUDFLARE_ZONE: ${{ secrets.CF_ZONE }}
+          CLOUDFLARE_TOKEN: ${{ secrets.CF_PURGE_CACHE }}
+          PURGE_URLS: '["https://z.digitalclouds.dev"]'

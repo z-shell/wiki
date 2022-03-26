@@ -1,0 +1,38 @@
+documentation 📝:
+  - any: ['blog/**.md', 'docs/**/*.md', 'community/**/*.md']
+    all: ['!i18n/**/*.md']
+dependencies 📦:
+  - 'package.json'
+enhancement ✨:
+  - 'functions/**'
+  - 'src/**'
+maintenance 📈:
+  - '.github/CODEOWNERS'
+  - '.github/*.md'
+  - '.github/*.yml'
+  - '.github/*.json'
+  - '.vscode'
+  - 'tsconfig.json'
+  - 'babel.config.js'
+  - 'docusaurus.config.js'
+  - '.prettierrc'
+  - '.prettierignore'
+  - '.markdownlint.json'
+  - 'pnpm-lock.yaml'
+  - 'yarn.lock'
+i18n 🌐:
+  - 'i18n/**'
+annex 💠:
+  - 'docs/ecosystem/annexes/*.md'
+  - 'i18n/**/docusaurus-plugin-content-docs/current/ecosystem/annexes/*.md'
+package 📦:
+  - 'docs/ecosystem/packages*.md'
+  - 'i18n/**/docusaurus-plugin-content-docs/current/ecosystem/packages/*.md'
+plugin 🧿:
+  - 'docs/ecosystem/plugins/*.md'
+  - 'i18n/**/docusaurus-plugin-content-docs/current/ecosystem/plugins/*.md'
+ci 🤖:
+  - '.github/workflows/*.yml'
+  - '.all-contributorsrc'
+  - 'crowdin.yml'
+  - 'netlify.toml'

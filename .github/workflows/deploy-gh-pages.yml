@@ -1,0 +1,42 @@
+---
+name: '🚀 GH Pages [ Deploy ]'
+
+on:
+  workflow_dispatch:
+#  push:
+#    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    strategy:
+      matrix:
+        node-version: [16]
+    steps:
+      - uses: actions/checkout@v3
+      - name: '♻️ Deployment [ install ]'
+        uses: pnpm/action-setup@v2.2.1
+        with:
+          version: 6.32.1
+          run_install: |
+            - recursive: true
+              args: [--strict-peer-dependencies]
+      - name: '♻️  Node.js ${{ matrix.node-version }}'
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      - name: '♻️ Deployment [ build ]'
+        run: pnpm build
+      - name: '🚀 Deploy GH Pages'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./build
+          user_name: digital-teams[bot]
+          user_email: digital-teams@pm.me
+      - name: '🚀 Deploy to Cloudflare'
+        run: curl -X POST "${{ secrets.CF_WEBHOOK }}"
