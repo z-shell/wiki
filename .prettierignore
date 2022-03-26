@@ -1,0 +1,13 @@
+dist
+build
+coverage
+node_modules
+.yarn
+.vscode
+.docusaurus
+.github/CODE_OF_CONDUCT.md
+.github/SECURITY.md
+versions.json
+versioned_sidebars/*.json
+.github/CODE_OF_CONDUCT.md
+pnpm-lock.yaml

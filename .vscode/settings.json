@@ -1,0 +1,16 @@
+{
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.markdownlint": true
+  },
+  "conventionalCommits.scopes": [
+    "workspace",
+    "community",
+    "general",
+    "docs",
+    "theme"
+  ]
+}

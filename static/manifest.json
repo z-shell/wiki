@@ -1,0 +1,92 @@
+{
+  "name": "Z Wiki",
+  "short_name": "ZW",
+  "theme_color": "#23b898",
+  "background_color": "#0d1117",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./index.html",
+  "description": "Z Wiki PWA App",
+  "orientation": "any",
+  "prefer_related_applications": false,
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://z.digitalclouds.dev/manifest.json"
+    }
+  ],
+  "icons": [
+    {
+      "src": "zw/logo.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192"
+    },
+    {
+      "src": "zw/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "48x48"
+    },
+    {
+      "src": "zw/logo/36x36.png",
+      "sizes": "36x36",
+      "type": "image/png",
+      "density": "0.75"
+    },
+    {
+      "src": "zw/logo/48x48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "density": "1.0"
+    },
+    {
+      "src": "zw/logo/72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "density": "1.5"
+    },
+    {
+      "src": "zw/logo/96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "density": "2.0"
+    },
+    {
+      "src": "zw/logo/128x128.png",
+      "type": "image/png",
+      "sizes": "128x128",
+      "density": "2.5"
+    },
+    {
+      "src": "zw/logo/144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "density": "3.0"
+    },
+    {
+      "src": "zw/logo/192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "density": "4.0"
+    },
+    {
+      "src": "zw/logo/320x320.png",
+      "type": "image/png",
+      "sizes": "320x320",
+      "density": "4.5"
+    },
+    {
+      "src": "zw/logo/501x501.png",
+      "type": "image/png",
+      "sizes": "501x501",
+      "density": "5.0"
+    },
+    {
+      "src": "zw/logo/512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "density": "5.5"
+    }
+  ],
+  "features": ["Cross Platform", "fast", "simple"],
+  "categories": ["website", "utility", "wiki"]
+}

@@ -1,0 +1,20 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.217.4/containers/javascript-node
+{
+  "name": "ZW-Docker",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "16-bullseye"
+    }
+  },
+  "settings": {},
+  "extensions": ["dbaeumer.vscode-eslint", "silvenon.mdx", "mgmcdermott.vscode-language-babel"],
+  // "forwardPorts": [],
+  "postCreateCommand": "curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm",
+  "remoteUser": "node",
+  "features": {
+    "github-cli": "latest",
+    "sshd": "latest"
+  }
+}

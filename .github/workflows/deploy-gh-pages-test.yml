@@ -1,0 +1,26 @@
+---
+name: '🚀 GH Pages [ Test ]'
+
+on:
+  workflow_dispatch:
+#  pull_request:
+#    branches: [main]
+
+jobs:
+  test-deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    strategy:
+      matrix:
+        node-version: [16]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.1
+        with:
+          version: 6.32.3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      - run: pnpm install --strict-peer-dependencies --prefer-frozen-lockfile

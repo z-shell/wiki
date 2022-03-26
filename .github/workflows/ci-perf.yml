@@ -1,0 +1,70 @@
+---
+name: '📊 Build Performance'
+
+# Note! you can't safely use "pull_request_target" here
+# This workflow is mostly useful for "internal PRs"
+# External PRs won't be able to post a PR comment
+#
+# See https://github.com/preactjs/compressed-size-action/issues/54
+# See https://securitylab.github.com/research/github-actions-preventing-pwn-requests
+on:
+  pull_request:
+    branches: ['main']
+    paths-ignore: ['docs/**', 'community/**', 'blog/**', 'src/pages/**', 'package.json', 'pnpm-lock.yaml']
+
+jobs:
+  build-size:
+    name: ' 📊 Build Size Report'
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    strategy:
+      matrix:
+        node-version: [16]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.1
+        with:
+          version: 6.32.3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      - run: pnpm install --strict-peer-dependencies --no-prefer-frozen-lockfile
+      - uses: preactjs/compressed-size-action@v2
+        with:
+          build-script: 'build:en'
+          pattern: '{build/assets/js/main*js,build/assets/css/styles*css,.docusaurus/globalData.json,build/index.html,build/blog/index.html,build/blog/**/swiss-army-knife-for-zsh/*,build/docs/index.html,build/docs/getting_started/installation.html}'
+          exclude: '{./build/manifest.json,**/*.map,**/node_modules/**}'
+          strip-hash: '\.([^;]\w{7})\.'
+          minimum-change-threshold: 30
+          compression: none
+
+  build-time:
+    name: 💹 Build Time Perf
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    strategy:
+      matrix:
+        node-version: [16]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.1
+        with:
+          version: 6.32.3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      - run: pnpm install --strict-peer-dependencies --no-prefer-frozen-lockfile
+      # Ensure build with a cold cache does not increase too much
+      - name: 'Build (cold cache)'
+        run: pnpm build:en
+        timeout-minutes: 8
+      # Ensure build with a warm cache does not increase too much
+      - name: 'Build (warm cache)'
+        run: pnpm build:en
+        timeout-minutes: 2
