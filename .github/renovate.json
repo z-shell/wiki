@@ -1,16 +1,10 @@
 {
   "extends": ["config:base"],
   "dependencyDashboardApproval": true,
-  "lockFileMaintenance": {"enabled": true},
+  "lockFileMaintenance": {
+    "enabled": true
+  },
   "packageRules": [
-    {
-      "matchSourceUrlPrefixes": ["https://github.com/facebook/docusaurus"]
-    },
-    {
-      "extends": "monorepo:docusaurus",
-      "matchUpdateTypes": ["digest", "patch", "minor", "major"],
-      "groupName": "docusaurus monorepo"
-    },
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
