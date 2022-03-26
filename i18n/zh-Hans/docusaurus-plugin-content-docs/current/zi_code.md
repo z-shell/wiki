@@ -30,10 +30,10 @@ import APITable from '@site/src/components/APITable';
 </APITable>
 <APITable>
 
-| File                      | Description                                                                                                                                                                                                                                   |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| File                      | Description                                                                                                                                                                 |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Zsh Plugin Standart][22] | Proposed enhancements and codifications of the definition of a "Zsh the plugin" and the actions of plugin managers – standardization. 该文档涵盖了如何编写 Zsh 插件的信息。 The document covers the information on how to write a Zsh plugin. |
-| [Zsh 原生脚本手册][23]    | 手册保证 Zsh 脚本结构快速，健壮，不依赖外部工具。 这样的代码类似于 Ruby 或 Perl，而不像过程式的 shell 脚本。                                                                                                                                  |
+| [Zsh 原生脚本手册][23]    | 手册保证 Zsh 脚本结构快速，健壮，不依赖外部工具。 这样的代码类似于 Ruby 或 Perl，而不像过程式的 shell 脚本。                                  |
 
 </APITable>
 

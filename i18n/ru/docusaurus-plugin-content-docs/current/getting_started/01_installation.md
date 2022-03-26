@@ -13,7 +13,7 @@ keywords:
 [![⚙️ Install Library][1]][2] | [Status page: :heavy_check_mark:](https://digitalclouds.dev/status)
 
 | Service             | URL                                                                       |
-| :------------------ | ------------------------------------------------------------------------- |
+|:------------------- | ------------------------------------------------------------------------- |
 | [Git.io][3]:        | <https://git.io/get-zi>                                                   |
 | [GitHub][4]:        | <https://z-shell.pages.dev/i-hub>                                         |
 | [GitLab Mirror][5]: | <https://z-shell.pages.dev/i-lab>                                         |

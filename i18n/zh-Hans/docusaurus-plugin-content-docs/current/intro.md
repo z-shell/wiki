@@ -3,7 +3,7 @@ id: intro
 title: '🎉 介绍'
 sidebar_position: 1
 image: zw/logo/320x320.png
-description: Introduction to a Swiss Army Knife for Zsh, formerly known as zplugin, zinit.
+description: 对 Zsh 上的瑞士军刀的介绍，正式名称为 zplugin 或 zinit。
 keywords:
   - introduction
 ---
@@ -16,7 +16,7 @@ import ZGitImg from '@site/static/zw/img/z_git.png';
   <img
     className="ScreenView"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin.svg"
-    alt="Z-Shell Organization"
+    alt="Z-Shell 组织"
   />
 </a>
 
