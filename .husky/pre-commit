@@ -3,3 +3,4 @@
 
 pnpm check
 pnpm -s -r trunk check
+pnpm -s -r trunk check
