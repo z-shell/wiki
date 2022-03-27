@@ -1,7 +1,10 @@
+---
+name: '🚀 Google Cloud Storage [ Upload ]'
+
 on:
   push:
     paths: ['static']
-
+  workflow_dispatch:
 jobs:
   job_id:
     permissions:
