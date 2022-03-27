@@ -5,7 +5,8 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import loadable from '@loadable/component'
+import FeaturesList from '@site/src/components/FeaturesList';
+import {SocialHome} from '@site/src/components//SocialHome';
 import styles from './index.module.css';
 
 function HomepageHeader() {
@@ -27,9 +28,7 @@ function HomepageHeader() {
 }
 
 export default function Home() {
-  const FeaturesList = loadable(() => import('@site/src/components/FeaturesList'))
-  const {SocialHome} = loadable(() => import('../components/SocialHome'))
-  const { siteConfig } = useDocusaurusContext();
+  const {siteConfig} = useDocusaurusContext();
   return (
     <Layout title={`${siteConfig.tagline}`} description="The Open Source Society with Link passion for Zsh <head />">
       <HomepageHeader />

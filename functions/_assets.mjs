@@ -1,4 +1,4 @@
-import { getAssetFromKV, NotFoundError, MethodNotAllowedError } from '@cloudflare/kv-asset-handler';
+import {getAssetFromKV, NotFoundError, MethodNotAllowedError} from '@cloudflare/kv-asset-handler';
 import manifestJSON from '__STATIC_CONTENT_MANIFEST';
 const assetManifest = JSON.parse(manifestJSON);
 
@@ -24,7 +24,7 @@ export default {
         } else if (e instanceof MethodNotAllowedError) {
           // ...
         } else {
-          return new Response('An unexpected error occurred', { status: 500 });
+          return new Response('An unexpected error occurred', {status: 500});
         }
       }
     } else return fetch(request);
