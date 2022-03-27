@@ -88,7 +88,7 @@ Zsh Sourceforge docs: [Prompt Exapansion][1]
 Place at the bottom of `.zshrc`
 
 ```shell title="~/.zshrc"
-if [["$PROFILE_STARTUP" == true]]; then unsetopt xtrace exec 2>&3 3>&- zprof > ~/zshprofile$(date +'%s') fi
+if [["$PROFILE_STARTUP" == true]]; then unsetopt xtrace; exec 2>&3 3>&-; zprof > ~/zshprofile$(date +'%s'); fi
 ```
 
 The next time your `.zshrc` is sourced it will generate 2 files in the `$HOME` directory.
