@@ -1,48 +1,12 @@
 // @ts-nocheck
 import React from 'react';
 import clsx from 'clsx';
-import FeaturesList from '@site/src/components/FeaturesList';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import loadable from '@loadable/component'
 import styles from './index.module.css';
-
-function SocialHome() {
-  return (
-    <div className={styles.SocialHome}>
-      <div width="90%">
-        <Link href="https://github.com/z-shell/community/discussions">
-          <p>
-            <img
-              className="ScreenViewMedium"
-              src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin.discussions.svg"
-              alt="Discussions"
-            />
-          </p>
-        </Link>
-        <Link href="https://twitter.com/zshell_zi">
-          <p>
-            <img
-              className="ScreenViewMedium"
-              src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin.tweets.svg"
-              alt="Recent Tweets"
-            />
-          </p>
-        </Link>
-        <Link href="https://dev.to/tag/zsh">
-          <p>
-            <img
-              className="ScreenViewMedium"
-              src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin.dev.tag.zsh.rss.svg"
-              alt="RSS-DEV-TAG-ZSH"
-            />
-          </p>
-        </Link>
-      </div>
-    </div>
-  );
-}
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -63,7 +27,9 @@ function HomepageHeader() {
 }
 
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
+  const FeaturesList = loadable(() => import('@site/src/components/FeaturesList'))
+  const {SocialHome} = loadable(() => import('../components/SocialHome'))
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout title={`${siteConfig.tagline}`} description="The Open Source Society with Link passion for Zsh <head />">
       <HomepageHeader />
