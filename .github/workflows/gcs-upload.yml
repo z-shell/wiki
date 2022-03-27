@@ -6,17 +6,16 @@ on:
     paths: ['static']
   workflow_dispatch:
 jobs:
-  job_id:
+  gcs-upload:
+    runs-on: ubuntu-latest
     permissions:
       contents: 'read'
       id-token: 'write'
-    runs-on: ubuntu-latest
     steps:
     - id: 'auth'
       uses: 'google-github-actions/auth@v0'
       with:
-        workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
-        service_account: 'my-service-account@my-project.iam.gserviceaccount.com'
+        service_account: 'github-actions@digital-clouds.iam.gserviceaccount.com'
 
     - id: 'upload-folder'
       uses: 'google-github-actions/upload-cloud-storage@v0'
@@ -24,7 +23,7 @@ jobs:
         path: 'static'
         destination: 'digital-clouds'
 
-    - id: 'uploaded-files'
-      uses: 'foo/bar@main'
-      env:
-        files: '${{ steps.upload-folder.outputs.uploaded }}'
+#    - id: 'uploaded-files'
+#      uses: 'foo/bar@main'
+#      env:
+#        files: '${{ steps.upload-folder.outputs.uploaded }}'
