@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@algolia/client-search": "4.13.0",
+    "@awesome-crowdin/crowdin-contributors": "^0.0.4",
     "@babel/core": "7.17.8",
     "@cloudflare/kv-asset-handler": "0.2.0",
     "@cloudflare/workers-types": "3.4.0",
