@@ -6,7 +6,7 @@ overrides:
   minimist@<=1.2.5: <0.0.0
 
 specifiers:
-  '@algolia/client-search': ^4.13.0
+  '@algolia/client-search': 4.13.0
   '@babel/core': 7.17.8
   '@cloudflare/kv-asset-handler': 0.2.0
   '@cloudflare/workers-types': 3.4.0
