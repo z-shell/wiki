@@ -1,6 +1,6 @@
-import { getAssetFromKV } from '@cloudflare/kv-asset-handler';
+import {getAssetFromKV} from '@cloudflare/kv-asset-handler';
 
-addEventListener('fetch', event => {
+addEventListener('fetch', (event) => {
   event.respondWith(handleEvent(event));
 });
 
