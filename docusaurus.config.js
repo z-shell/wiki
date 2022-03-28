@@ -27,7 +27,7 @@ const config = {
       crossorigin: 'anonymous',
     },*/
   ],
-  clientModules: [require.resolve('./src/js/all.js'), require.resolve('/src/css/all.css')],
+  clientModules: [require.resolve('./src/js/all.js'), require.resolve('./src/css/all.css')],
   plugins: [
     [
       'content-docs',
