@@ -39,7 +39,7 @@ const config = {
         id: 'community',
         path: 'community',
         routeBasePath: 'community',
-        editUrl: ({ locale, versionDocsDirPath, docPath }) => {
+        editUrl: ({locale, versionDocsDirPath, docPath}) => {
           if (locale !== 'en') {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
           }
@@ -122,7 +122,7 @@ const config = {
         },
         docs: {
           sidebarPath: require.resolve('./lib/js/sidebars_1.js'),
-          editUrl: ({ locale, versionDocsDirPath, docPath }) => {
+          editUrl: ({locale, versionDocsDirPath, docPath}) => {
             if (locale !== 'en') {
               return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
             }
@@ -133,7 +133,7 @@ const config = {
         },
         blog: {
           showReadingTime: true,
-          editUrl: ({ locale, blogDirPath, blogPath }) => {
+          editUrl: ({locale, blogDirPath, blogPath}) => {
             if (locale !== 'en') {
               return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
             }
@@ -165,7 +165,7 @@ const config = {
         indexName: 'z-digitalclouds',
         contextualSearch: true,
       },
-      metadata: [{ name: 'twitter:card', content: 'summary' }],
+      metadata: [{name: 'twitter:card', content: 'summary'}],
       autoCollapseSidebarCategories: true,
       hideableSidebar: true,
       colorMode: {

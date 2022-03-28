@@ -6,8 +6,9 @@
 @import 'functions';
 @import 'variables';
 
-:root, :host {
-  --#{$fa-css-prefix}-font-regular: normal 400 1em/1 "#{ $fa-style-family }";
+:root,
+:host {
+  --#{$fa-css-prefix}-font-regular: normal 400 1em/1 '#{ $fa-style-family }';
 }
 
 @font-face {
