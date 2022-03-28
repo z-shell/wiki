@@ -12,3 +12,10 @@ lint:
     - shfmt@3.4.0
     - taplo@release-cli-0.5.0
     - taplo-fmt@release-cli-0.5.0
+  ignore:
+    - linters: [ALL]
+      paths:
+        - src/**
+        - i18n/**
+        - build/**
+        - .docusaurus/**

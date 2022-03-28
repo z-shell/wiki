@@ -21,17 +21,13 @@ const config = {
     locales: ['en', 'ja', 'ru', 'zh-Hans'],
   },
   scripts: [
-    {
-      src: 'https://cdn.digitalclouds.dev/fa/js/all.js',
+    /**{
+      async: true,
+      src: 'https://kit.fontawesome.com/a6c194e645.j',
       crossorigin: 'anonymous',
-    },
+    },*/
   ],
-  stylesheets: [
-    {
-      href: 'https://cdn.digitalclouds.dev/fa/css/all.css',
-      rel: 'stylesheet',
-    },
-  ],
+  clientModules: [require.resolve('./src/js/all.js'), require.resolve('/src/css/all.css')],
   plugins: [
     [
       'content-docs',
@@ -250,7 +246,7 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'GitHub Organization',
+                label: 't Organization',
                 href: 'https://github.com/z-shell/',
               },
               {

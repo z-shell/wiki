@@ -1,0 +1,9 @@
+$fa-font-path: "../webfonts";
+
+@import "./fontawesome/scss/fontawesome.scss";
+@import "./fontawesome/scss/solid.scss";
+@import "./fontawesome/scss/brands.scss";
+
+// for Duotones need both files
+@import "./fontawesome/scss/duotone.scss";
+@import "./fontawesome/scss/_duotone-icons.scss";
