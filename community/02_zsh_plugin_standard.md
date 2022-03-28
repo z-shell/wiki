@@ -184,7 +184,7 @@ if [[ $PMSPEC != *b* ]] {
 
 > [ unload-function ]
 
-If a plugin is named e.g. `kalc` (and is available via `an-user/kalc` plugin-ID), then it can provide a function,
+If a plugin is named e.g. `kalc` (and is available via `any-user/kalc` plugin-ID), then it can provide a function,
 `kalc_plugin_unload`, that can be called by a plugin manager to undo the effects of loading that plugin.
 
 A plugin manager can implement its tracking of changes made by a plugin so this is in general optional. However, to
