@@ -63,7 +63,7 @@ devDependencies:
   prop-types: 15.8.1
   typescript: 4.6.3
   webpack: 5.70.0
-  wrangler: 0.0.23
+  wrangler: 0.0.24
 
 packages:
 
@@ -203,7 +203,7 @@ packages:
       '@oclif/command': 1.8.16
       '@oclif/config': 1.18.3
       '@oclif/plugin-help': 3.3.1
-      axios: 0.25.0
+      axios: 0.26.1
       cli-ux: 5.6.7
     transitivePeerDependencies:
       - debug
@@ -3560,6 +3560,15 @@ packages:
       follow-redirects: 1.14.9
     transitivePeerDependencies:
       - debug
+    dev: false
+
+  /axios/0.26.1:
+    resolution: {integrity: sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==}
+    dependencies:
+      follow-redirects: 1.14.9
+    transitivePeerDependencies:
+      - debug
+    dev: true
 
   /babel-loader/8.2.4_fa907c5a4f16ccc493e21649ccc59574:
     resolution: {integrity: sha512-8dytA3gcvPPPv4Grjhnt8b5IIiTcq/zeXOPk4iTYI0SVXcsmuGg7JtBRDp8S9X+gJfhQ8ektjXZlDu1Bb33U8A==}
@@ -3898,7 +3907,7 @@ packages:
   /cheerio-select/1.5.0:
     resolution: {integrity: sha512-qocaHPv5ypefh6YNxvnbABM07KMxExbtbfuJoIie3iZXX1ERwYmJcIiRrr9H05ucQP1k28dav8rpdDgjQd8drg==}
     dependencies:
-      css-select: 4.2.1
+      css-select: 4.3.0
       css-what: 5.1.0
       domelementtype: 2.2.0
       domhandler: 4.3.1
@@ -4405,11 +4414,11 @@ packages:
       nth-check: 2.0.1
     dev: false
 
-  /css-select/4.2.1:
-    resolution: {integrity: sha512-/aUslKhzkTNCQUB2qTX84lVmfia9NyjP3WpDGtj/WxhwBzWBYUV3DgUpurHTme8UTPcPlAD1DJ+b0nN/t50zDQ==}
+  /css-select/4.3.0:
+    resolution: {integrity: sha512-wPpOYtnsVontu2mODhA19JrqWxNsfdatRKd64kmpRbQgh1KtItko5sTnEpPdpSaJszTOhEMlF/RPz28qj4HqhQ==}
     dependencies:
       boolbase: 1.0.0
-      css-what: 5.1.0
+      css-what: 6.0.1
       domhandler: 4.3.1
       domutils: 2.8.0
       nth-check: 2.0.1
@@ -4429,6 +4438,11 @@ packages:
 
   /css-what/5.1.0:
     resolution: {integrity: sha512-arSMRWIIFY0hV8pIxZMEfmMI47Wj3R/aWpZDDxWYCPEiOMv6tfOrnpDtgxBYPEQD4V0Y/958+1TdC3iWTFcUPw==}
+    engines: {node: '>= 6'}
+    dev: false
+
+  /css-what/6.0.1:
+    resolution: {integrity: sha512-z93ZGFLNc6yaoXAmVhqoSIb+BduplteCt1fepvwhBUQK6MNE4g6fgjpuZKJKp0esUe+vXWlIkwZZjNWoOKw0ZA==}
     engines: {node: '>= 6'}
     dev: false
 
@@ -4869,8 +4883,8 @@ packages:
       is-arrayish: 0.2.1
     dev: false
 
-  /es-abstract/1.19.1:
-    resolution: {integrity: sha512-2vJ6tjA/UfqLm2MPs7jxVybLoB8i1t1Jd9R3kISld20sIxPcTbLuggQOUxeWeAvIUkduv/CfMjuh4WmiXr2v9w==}
+  /es-abstract/1.19.2:
+    resolution: {integrity: sha512-gfSBJoZdlL2xRiOCy0g8gLMryhoe1TlimjzU99L/31Z8QEGIhVQI+EWwt5lT+AuU9SnorVupXFqqOGqGfsyO6w==}
     engines: {node: '>= 0.4'}
     dependencies:
       call-bind: 1.0.2
@@ -6966,8 +6980,8 @@ packages:
     hasBin: true
     dev: true
 
-  /nanoid/3.3.1:
-    resolution: {integrity: sha512-n6Vs/3KGyxPQd6uO0eH4Bv0ojGSUvuLlIHtC3Y0kEO23YRge8H9x1GCzLn28YX0H66pMkxuaeESFq4tKISKwdw==}
+  /nanoid/3.3.2:
+    resolution: {integrity: sha512-CuHBogktKwpm5g2sRgv83jEy2ijFzBwMoYA60orPDR7ynsLijJDqgsi4RDGj3OJpy3Ieb+LYwiRmIOGyytgITA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
     dev: false
@@ -7806,7 +7820,7 @@ packages:
     resolution: {integrity: sha512-lg6eITwYe9v6Hr5CncVbK70SoioNQIq81nsaG86ev5hAidQvmOeETBqs7jm43K2F5/Ley3ytDtriImV6TpNiSg==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
-      nanoid: 3.3.1
+      nanoid: 3.3.2
       picocolors: 1.0.0
       source-map-js: 1.0.2
     dev: false
@@ -8372,7 +8386,7 @@ packages:
   /renderkid/3.0.0:
     resolution: {integrity: sha512-q/7VIQA8lmM1hF+jn+sFSPWGlMkSAeNYcPLmDQx2zzuiDfaLrOmumR8iaUKlenFgh0XRPIUeSPlH3A+AW3Z5pg==}
     dependencies:
-      css-select: 4.2.1
+      css-select: 4.3.0
       dom-converter: 0.2.0
       htmlparser2: 6.1.0
       lodash: 4.17.21
@@ -8938,7 +8952,7 @@ packages:
     dependencies:
       call-bind: 1.0.2
       define-properties: 1.1.3
-      es-abstract: 1.19.1
+      es-abstract: 1.19.2
       get-intrinsic: 1.1.1
       has-symbols: 1.0.3
       internal-slot: 1.0.3
@@ -9084,7 +9098,7 @@ packages:
     dependencies:
       '@trysound/sax': 0.2.0
       commander: 7.2.0
-      css-select: 4.2.1
+      css-select: 4.3.0
       css-tree: 1.1.3
       csso: 4.2.0
       picocolors: 1.0.0
@@ -9979,8 +9993,8 @@ packages:
       workbox-core: 6.5.2
     dev: false
 
-  /wrangler/0.0.23:
-    resolution: {integrity: sha512-MfWgHKsHlfF2jMo44RBO3pkifYl/tIZQGs4nuhQGWgcKEx0c2CO1AYoNKbBQxQHHx5FelyV6SvuL8xkv2nQb/Q==}
+  /wrangler/0.0.24:
+    resolution: {integrity: sha512-rvDAy9mz4PJpp38/uUOd9Kcg8lL+1TRPaCiOp8TgN1h9V+NNSog1oCJ0KbXhT5rxuC6FSXUzUl06zirzoC0BXg==}
     engines: {node: '>=16.7.0'}
     hasBin: true
     dependencies:

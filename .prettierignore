@@ -1,3 +1,4 @@
+i18n
 dist
 build
 coverage
@@ -5,6 +6,7 @@ node_modules
 .yarn
 .vscode
 .docusaurus
+.trunk/out
 .github/CODE_OF_CONDUCT.md
 .github/SECURITY.md
 versions.json
