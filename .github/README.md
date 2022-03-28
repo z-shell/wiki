@@ -1,11 +1,11 @@
 <table align="justify" margin-left="auto" margin-right="auto">
  <tr><td align="center">
-  <h1><a title="❮ ZW ❯" target="_self" href="https://github.com/z-shell/zi">
+  <h1><a title="❮ ZW ❯" target="_self" href="https://github.com/z-shell/zw">
   <img
     src="https://raw.githubusercontent.com/z-shell/zi/main/docs/images/favicon.svg"
     alt="Logo"
-    width="80"
-    height="80" /></a>❮ ZW ❯
+    width="60"
+    height="60" /></a>❮ ZW ❯
   </h1>
   <h2>
     ZI Wiki - A Swiss Army Knife for <a href="https://zsh.sourceforge.io/">Zsh</a> -
@@ -133,8 +133,8 @@ If you want to say **thank you** or/and support the active development of ZI.
 
 ## Security
 
-- Z-Shell ZI follows good practices of security, but 100% security cannot be assured.
-- Z-Shell ZI is provided **"as is"** without any **warranty**. Use at your own risk.
+- Z-Shell ZW follows good practices of security, but 100% security cannot be assured.
+- Z-Shell ZW is provided **"as is"** without any **warranty**. Use at your own risk.
 
 ## Acknowledgements
 
