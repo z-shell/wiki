@@ -20,12 +20,8 @@ const config = {
     defaultLocale: 'en',
     locales: ['en', 'ja', 'ru', 'zh-Hans'],
   },
-  scripts: [
-    {
-      src: 'https://kit.fontawesome.com/a6c194e645.js',
-      crossorigin: 'anonymous',
-    },
-  ],
+  scripts: ['https://cdn.digitalclouds.dev/fa/js/all.js'],
+  stylesheets: ['https://cdn.digitalclouds.dev/fa/css/all.css'],
   plugins: [
     [
       'content-docs',
@@ -33,7 +29,7 @@ const config = {
         id: 'community',
         path: 'community',
         routeBasePath: 'community',
-        editUrl: ({locale, versionDocsDirPath, docPath}) => {
+        editUrl: ({ locale, versionDocsDirPath, docPath }) => {
           if (locale !== 'en') {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
           }
@@ -116,7 +112,7 @@ const config = {
         },
         docs: {
           sidebarPath: require.resolve('./lib/js/sidebars_1.js'),
-          editUrl: ({locale, versionDocsDirPath, docPath}) => {
+          editUrl: ({ locale, versionDocsDirPath, docPath }) => {
             if (locale !== 'en') {
               return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
             }
@@ -127,7 +123,7 @@ const config = {
         },
         blog: {
           showReadingTime: true,
-          editUrl: ({locale, blogDirPath, blogPath}) => {
+          editUrl: ({ locale, blogDirPath, blogPath }) => {
             if (locale !== 'en') {
               return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
             }
@@ -159,7 +155,7 @@ const config = {
         indexName: 'z-digitalclouds',
         contextualSearch: true,
       },
-      metadata: [{name: 'twitter:card', content: 'summary'}],
+      metadata: [{ name: 'twitter:card', content: 'summary' }],
       autoCollapseSidebarCategories: true,
       hideableSidebar: true,
       colorMode: {
@@ -259,6 +255,23 @@ const config = {
               {
                 label: 'Privacy Policy',
                 to: 'legal/privacy_policy/',
+              },
+              {
+                html: `
+              <script
+                type="text/javascript"
+                src="https://enterprise.crowdin.com/crowdjet/crowdjet.js">
+              </script>
+              <div
+                id="crowdjet-container"
+                data-organization-domain="digitalclouds"
+                data-project-id="2"
+                style="bottom: 90px; right: 20px;">
+              </div>
+              <div
+                id="crowdjet-expand-container"
+                style="bottom: 10px; right: 20px;">
+              </div>`,
               },
             ],
           },

@@ -5,4 +5,4 @@ site.bucket = 'build'
 main = "functions/_assets.mjs"
 compatibility_date = "2022-03-10"
 workers_dev = false
-routes = ["z.digitalclouds.dev", "z.digitalclouds.dev/*"]
+routes = ["z.digitalclouds.dev/*"]
