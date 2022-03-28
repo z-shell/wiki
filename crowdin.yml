@@ -3,12 +3,20 @@ api_token_env: CROWDIN_TOKEN
 base_url: 'https://digitalclouds.crowdin.com'
 preserve_hierarchy: true
 files:
-  - source: /i18n/en/**/*.json
+  - source: /i18n/en/**/*
     translation: /i18n/%two_letters_code%/**/%original_file_name%
   - source: /docs/**/*
     ignore_settings: 1
-    ignore:
-      - /docs/ecosystem/**
-      - /docs/gallery/**
-      - /docs/guides/**
+    ignore: [/docs/ecosystem/**, /docs/gallery/**, /docs/guides/**]
     translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs/current/**/%original_file_name%
+  - source: /community/**/*
+    ignore: [/community/01_intro.md, /community/03_zsh_native_scripting_handbook.md]
+    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs-community/current/**/%original_file_name%
+  - source: /versioned_docs/**/*
+    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs/**/%original_file_name%
+# - source: /blog/**/*
+#   translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog/**/%original_file_name%
+# - source: /src/pages/**/*
+#   ignore: [/src/pages/legal/**]
+#   translation: /i18n/%two_letters_code%/docusaurus-plugin-content-pages/**/%original_file_name%
+#   ignore: [/**/*.js, /**/*.jsx, /**/*.ts, /**/*.tsx, /**/*.css]
