@@ -246,11 +246,11 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 't Organization',
+                label: 'GitHub Organization',
                 href: 'https://github.com/z-shell/',
               },
               {
-                label: 'Crowdin Translations',
+                label: 'Crowdin Enterprice',
                 href: 'https://digitalclouds.crowdin.com/z-shell/',
               },
             ],

@@ -26,7 +26,6 @@ html[data-theme='dark'] {
   --ifm-background-surface-color: #161b22;
 }
 
-/* stylelint-disable */
 .footer--dark {
   --ifm-footer-background-color: #161b22;
   --ifm-footer-color: var(--ifm-footer-link-color);
@@ -43,8 +42,6 @@ html[data-theme='dark'] {
   color: #3ba0e6;
   transition: 0.8s all;
 }
-
-/* stylelint-enable */
 
 .docusaurus-highlight-code-line {
   background-color: rgba(0 0 0 / 10%);
@@ -93,7 +90,6 @@ html[data-theme='dark'] div[class^='announcementBar_'] {
   background: #161b22;
 }
 
-/* stylelint-disable */
 .IceLogo {
   width: 30%;
   height: auto;
