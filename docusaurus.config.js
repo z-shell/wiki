@@ -20,8 +20,18 @@ const config = {
     defaultLocale: 'en',
     locales: ['en', 'ja', 'ru', 'zh-Hans'],
   },
-  scripts: ['https://cdn.digitalclouds.dev/fa/js/all.js'],
-  stylesheets: ['https://cdn.digitalclouds.dev/fa/css/all.css'],
+  scripts: [
+    {
+      src: 'https://cdn.digitalclouds.dev/fa/js/all.js',
+      crossorigin: 'anonymous',
+    },
+  ],
+  stylesheets: [
+    {
+      href: 'https://cdn.digitalclouds.dev/fa/css/all.css',
+      rel: 'stylesheet',
+    },
+  ],
   plugins: [
     [
       'content-docs',
@@ -258,20 +268,20 @@ const config = {
               },
               {
                 html: `
-              <script
-                type="text/javascript"
-                src="https://enterprise.crowdin.com/crowdjet/crowdjet.js">
-              </script>
-              <div
-                id="crowdjet-container"
-                data-organization-domain="digitalclouds"
-                data-project-id="2"
-                style="bottom: 90px; right: 20px;">
-              </div>
-              <div
-                id="crowdjet-expand-container"
-                style="bottom: 10px; right: 20px;">
-              </div>`,
+                  <script
+                    type="text/javascript"
+                    src="https://enterprise.crowdin.com/crowdjet/crowdjet.js">
+                  </script>
+                  <div
+                    id="crowdjet-container"
+                    data-organization-domain="digitalclouds"
+                    data-project-id="2"
+                    style="bottom: 30px; left: 90px;">
+                  </div>
+                  <div
+                    id="crowdjet-expand-container"
+                    style="bottom: 30px; left: 20px;">
+                  </div>`,
               },
             ],
           },
