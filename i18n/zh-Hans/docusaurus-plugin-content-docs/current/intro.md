@@ -43,8 +43,7 @@ import ZGitImg from '@site/static/zw/img/z_git.png';
   </TabItem>
   <TabItem value="github" label="GitHub" default>
 
-Install and control almost everything from [GitHub](https://github.com): [Annexes][5], [Packages][6], [Gallery of
-Invocations][7].
+从 [GitHub]（https://github.com）安装和控制几乎所有东西。[Annexes][5]、[包管理][6]、[用例示范][7]。
 
 </TabItem>
 </Tabs>
@@ -69,12 +68,12 @@ Invocations][7].
 ## 📈 熟悉和控制
 
 - 可视化数据：包含 **aliases**, **functions**, **bindkeys**, **Zle widgets**, **zstyles**, **completions**, **variables**, `$PATH`, 以及 `$FPATH` 的插件已经预装。
-- Quickly familiarize oneself with a new plugin and provides rich and easy-to-digest information that might be helpful on various occasions.
-- [Load or unload][14] plugins, use the ability to [manage][15] completions.
+- 快速熟悉一个新的插件，并提供丰富和容易理解的信息，在各种场合下都会有帮助。
+- [加载或卸载][14]插件，使用该功能[管理][15]补全。
 
-- Docker [playground](https://github.com/z-shell/playground), test or propose configurations, preview at [asciinema.org](https://asciinema.org/a/459358).
+- Docker [试验场](https://github.com/z-shell/playground)，测试或提交配置，通过 [asciinema.org](https://asciinema.org/a/459358) 预览.
 
-## 🥇 贡献者
+## 📢 摘要
 
 <!-- markdownlint-disable -->
 
@@ -82,7 +81,7 @@ Invocations][7].
   <img
     className="ScreenView"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin.projects.svg"
-    alt="Z-Shell Projects"
+    alt="Z-Shell 项目"
   />
 </a>
 <a href="https://github.com/orgs/z-shell/projects">

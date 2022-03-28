@@ -1,5 +1,5 @@
 ---
-title: '☑️概览'
+title: '☑️ 概览'
 image: zw/logo/320x320.png
 description: 对 Z-Shell ZI 的用例概览。
 keywords:
@@ -22,9 +22,9 @@ zi light zsh-users/zsh-syntax-highlighting
 
 以上命令展示了两种基本插件加载方式。
 
-Using `load` causes reporting to be enabled – you can track what plugin does, view the information with `zi report {plugin-name}` and then also unload the plugin with `zi unload {plugin-name}`.
+使用 `load` 加载会打开报告——你可以知道插件做了什么，通过`zi report {插件名}` 查看信息，通过 `zi unload {插件名}` 卸载插件。
 
-Using `light` is a significantly faster loading without tracking and reporting, by using which user resigns of the ability to view the plugin report and to unload it.
+使用 `light` 加载会快很多，没有额外的追踪和报告。用户将不能查看报告或卸载。
 
 :::note
 
@@ -34,7 +34,7 @@ Using `light` is a significantly faster loading without tracking and reporting, 
 
 ## Oh My Zsh, Prezto
 
-要加载 Oh My Zsh 和 Prezto 插件，请使用 `snippet` 功能。 Snippets are single files downloaded by `curl`, `wget`, etc., automatic detection of the download tool is being performed, directly from the URL. 例如： For example:
+要加载 Oh My Zsh 和 Prezto 插件，请使用 `snippet` 功能。 Snippet 是通过 `curl`、`wget` 等工具下载的单个文件， 支持从 URL 推断，自动选择下载工具。 For example:
 
 ```shell
 zi snippet 'https://github.com/robbyrussell/oh-my-zsh/raw/master/plugins/git/git.plugin.zsh'
@@ -48,7 +48,7 @@ zi snippet OMZ::plugins/git/git.plugin.zsh
 zi snippet PZT::modules/helper/init.zsh
 ```
 
-此外，snippet 支持 Subversion 协议，Github 也支持该协议。 This allows loading snippets that are multi-file (for example, a Prezto module can consist of two or more files, e.g. `init.zsh` and `alias.zsh`).
+此外，snippet 支持 Subversion 协议，Github 也支持该协议。 这允许加载多个文件构成的 snippet（例如，Prezto 模块可能包含两个或多个文件，就像 `init.zsh` 和 `alias.zsh`）。
 
 默认会 source 以下文件：`*.plugin.zsh`, `init.zsh`, `*.zsh-theme`：
 
@@ -61,15 +61,15 @@ zi snippet PZT::modules/docker
 
 ## Snippet 和性能
 
-Using `curl`, `wget`, etc. along with Subversion allows to almost completely avoid code dedicated to Oh My Zsh and Prezto, and also to other frameworks.
+通过 `curl`、`wget` 等等下载工具以及 Subverion，可以直接使用 Oh My Zsh、Prezto 等等的功能，而非特定于框架。
 
-This gives profits in performance of `ZI`, it is really fast and also compact (causing low memory footprint and short loading time).
+这对 `ZI` 的性能带来了好处，它真的很快且紧凑（低内存占用、短加载时间）.
 
 ## Ice 修饰符
 
 `zi ice` 命令可以对下个命令添加 [ice 修饰符][1].
 
-The logic is that "ice" is something that’s added, e.g. to a drink or a coffee, and in the ZI sense this means that ice is a modifier added to the next ZI command, and also something that melts, so it doesn’t last long, – and in the ZI use it means that the modifier lasts for only single next ZI command.
+其逻辑是，「冰」是被添加的东西，例如添加到饮料或咖啡中，在 ZI 意义上，这意味着冰是添加到下一个 ZI 命令中的修饰符，也是会融化的东西，所以它不会持续很久，——而在 ZI 使用中，这意味着修饰符只持续到下一条 ZI 命令。
 
 使用 "**pick**" 修饰符，用户可以**显式 source 文件**:
 
@@ -78,32 +78,32 @@ zi ice svn pick"init.zsh"
 zi snippet PZT::modules/git
 ```
 
-ice 修饰符的参数可用以下方式添加：`"…"`, `'…'`, or `$'…'`。 No need for `":"` after the ice-mod name (although it's allowed, so as the equal sign `=`, so e.g. `pick="init.zsh"` or `pick=init.zsh` are being correctly recognized).
+ice 修饰符的参数可用以下方式添加：`"…"`, `'…'`, or `$'…'`。 不需要在 ice 修饰符后面添加 `":"`（虽然不会产生错误，就像 `=` 一样，例如 `pick="init.zsh"` 或者 `pick=init.zsh` 都会被正确识别）。
 
-This way editors like `vim` and `emacs` and also `zsh-users/zsh-syntax-highlighting` and `z-shell/F-Sy-H` will highlight contents of ice-modifiers.
+这样，像 `vim`、`emacs`、`zsh-users/zsh-syntax-highlighting`、`z-shell/F-Sy-H` 都会高亮 ice 修饰符。
 
 ## 关于 as"program"
 
-A plugin might not be a file for sourcing, but a command to be added to `$PATH`. To obtain this effect, use ice-modifier `as` with value `program` (or an alias value `command`). To obtain this effect, use ice-modifier `as` with value `program` (or an alias value `command`).
+也许有的插件不作为 source 但作为添加到 `$PATH` 的命令。如果想要达到这个效果，使用 ice 修饰符 `as` 以及参数 `program` （或者别名 `command`）。 为了获得这种效果，使用 ice 修饰符 `as` 以及参数 `program`（或者别名 `command`）。
 
 ```shell
 zi ice as"program" cp"httpstat.sh -> httpstat" pick"httpstat"
 zi light b4b4r07/httpstat
 ```
 
-The above command will add plugin directory to `$PATH`, copy file `httpstat.sh` into `httpstat` and add execution rights (`+x`) to the file selected with `pick`, i.e. to `httpstat`. Another ice-mod exists, `mv`, which works like `cp` but **moves** a file instead of **copying** it. `mv` is ran before `cp`. Another ice-mod exists, `mv`, which works like `cp` but **moves** a file instead of **copying** it. `mv` is ran before `cp`.
+上面的命令将会添加插件目录到 `$PATH`，复制文件 `httpstat.sh` 到 `httpstat` 并且添加执行权限 (`+x`) 到通过 `pick` 选中的文件，这里是添加给 `httpstat`。 Another ice-mod exists, `mv`, which works like `cp` but **moves** a file instead of **copying** it. `mv` is ran before `cp`.
 
 :::tip
 
-The `cp` and `mv` ices (and also as some other ones, like `atclone`) are being run when the plugin or snippet is being _installed_.s
+`cp` 和 `mv` ice 修饰符（或者其他类似的，就像 `atclone`）是在插件或 snippet _安装时_运行的。
 
-To test them again first delete the plugin or snippet by `zi delete PZT::modules/osx` (for example).
+要再次测试它们，请首先通过 `zi delete PZT::modules/osx` 删除（此处用 osx 插件举例）。
 
 :::
 
 ## About - atpull"…"
 
-Copying file is safe for doing later updates – original files of the repository are unmodified and `Git` will report no conflicts.
+复制文件对以后的更新是安全的——仓库的原始文件没有被修改， `Git` 不会产生冲突。
 
 However, `mv` also can be used, if a proper `atpull`, an ice–modifier ran at **update** of the plugin, will be used:
 
