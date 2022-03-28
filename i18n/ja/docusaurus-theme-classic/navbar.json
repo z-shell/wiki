@@ -1,1 +1,6 @@
-{}
+{
+  "title": {
+    "message": "❮ ZI ❯",
+    "description": "The title in the navbar"
+  }
+}

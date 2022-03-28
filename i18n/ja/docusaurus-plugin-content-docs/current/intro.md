@@ -78,7 +78,7 @@ Invocations][7].
 
 - Docker [playground](https://github.com/z-shell/playground), test or propose configurations, preview at [asciinema.org](https://asciinema.org/a/459358).
 
-## 📢 Summary
+## 🥇 コントリビューターの皆様
 
 <!-- markdownlint-disable -->
 
@@ -86,7 +86,7 @@ Invocations][7].
   <img
     className="ScreenView"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin.projects.svg"
-    alt="Z-Shell Projects"
+    alt="Z-Shell プロジェクト"
   />
 </a>
 <a href="https://github.com/orgs/z-shell/projects">

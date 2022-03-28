@@ -1,1 +1,6 @@
-{}
+{
+  "sidebar.title": {
+    "message": "最近の投稿",
+    "description": "The label for the left sidebar"
+  }
+}

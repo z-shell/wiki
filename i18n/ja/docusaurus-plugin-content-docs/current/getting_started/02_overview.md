@@ -67,7 +67,7 @@ This gives profits in performance of `ZI`, it is really fast and also compact (c
 
 ## Ice Modifiers
 
-The command `zi ice` provides [ice modifiers][1] for the single next command.
+`zi ice`コマンドは、直後のコマンドに対してのみ [ice修飾子][1] を提供します。
 
 The logic is that "ice" is something that’s added, e.g. to a drink or a coffee, and in the ZI sense this means that ice is a modifier added to the next ZI command, and also something that melts, so it doesn’t last long, – and in the ZI use it means that the modifier lasts for only single next ZI command.
 
