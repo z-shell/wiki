@@ -9,6 +9,20 @@ import FeaturesList from '@site/src/components/FeaturesList';
 import {SocialHome} from '@site/src/components//SocialHome';
 import styles from './index.module.css';
 
+function Crowjet() {
+  return (
+    <div className="container">
+      <div
+        id="crowdjet-container"
+        data-organization-domain="digitalclouds"
+        data-project-id="2"
+        style="bottom: 30px; left: 90px;"
+      ></div>
+      <div id="crowdjet-expand-container" style="bottom: 30px; left: 20px;"></div>
+    </div>
+  );
+}
+
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -36,6 +50,7 @@ export default function Home() {
         <FeaturesList />
         <SocialHome />
       </main>
+      <Crowjet />
     </Layout>
   );
 }

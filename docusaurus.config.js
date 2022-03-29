@@ -21,13 +21,16 @@ const config = {
     locales: ['en', 'ja', 'ru', 'zh-Hans'],
   },
   scripts: [
-    /**{
+    {
       async: true,
       src: 'https://kit.fontawesome.com/a6c194e645.j',
       crossorigin: 'anonymous',
-    },*/
+    },
+    {
+      src: 'https://enterprise.crowdin.com/crowdjet/crowdjet.js',
+    },
   ],
-  clientModules: [require.resolve('./src/js/all.js'), require.resolve('./src/css/all.css')],
+  /*clientModules: [require.resolve('./src/js/all.js'), require.resolve('./src/css/all.css')],*/
   plugins: [
     [
       'content-docs',
@@ -261,23 +264,6 @@ const config = {
               {
                 label: 'Privacy Policy',
                 to: 'legal/privacy_policy/',
-              },
-              {
-                html: `
-                  <script
-                    type="text/javascript"
-                    src="https://enterprise.crowdin.com/crowdjet/crowdjet.js">
-                  </script>
-                  <div
-                    id="crowdjet-container"
-                    data-organization-domain="digitalclouds"
-                    data-project-id="2"
-                    style="bottom: 30px; left: 90px;">
-                  </div>
-                  <div
-                    id="crowdjet-expand-container"
-                    style="bottom: 30px; left: 20px;">
-                  </div>`,
               },
             ],
           },

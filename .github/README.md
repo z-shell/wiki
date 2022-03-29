@@ -148,5 +148,3 @@ For a full list of all authors and contributors, see [the contributors page](htt
 </td>
 </tr>
 </table>
-
-
