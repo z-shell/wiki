@@ -23,11 +23,8 @@ const config = {
   scripts: [
     {
       async: true,
-      src: 'https://kit.fontawesome.com/a6c194e645.j',
+      src: 'https://kit.fontawesome.com/a6c194e645.js',
       crossorigin: 'anonymous',
-    },
-    {
-      src: 'https://enterprise.crowdin.com/crowdjet/crowdjet.js',
     },
   ],
   /*clientModules: [require.resolve('./src/js/all.js'), require.resolve('./src/css/all.css')],*/
