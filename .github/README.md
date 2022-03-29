@@ -8,17 +8,15 @@
     height="60" /></a>❮ ZW ❯
   </h1>
   <h2>
-    ZI Wiki - A Swiss Army Knife for <a href="https://zsh.sourceforge.io/">Zsh</a> -
-    <a href="https://en.wikipedia.org/wiki/Unix_shell">Unix Shell</a>
+    Z-Shell Wiki
   </h2>
 <h3>
   <a href="https://github.com/z-shell/community/discussions/">《❔》Ask a Question </a>
   <a href="https://z.digitalclouds.dev/search/">《💡》Search Wiki </a>
   <a href="https://github.com/z-shell/community/issues/new?assignees=&labels=%F0%9F%91%A5+member&template=membership.yml&title=team%3A+">《💜》Join </a>
   <a href="https://digitalclouds.crowdin.com/z-shell/">《🌐》Localize </a>
-  </h3>
-  </td>
-</tr>
+</h3>
+  </td></tr>
 <tr>
 <td align="center">
   <a title="Crowdin" target="_self" href="https://digitalclouds.crowdin.com/z-shell">
@@ -80,14 +78,6 @@
 </tr>
 <tr>
 <td align="center">
-<a title="Community Discussions" target="_self" href="https://github.com/z-shell/community/discussions">
-  <img
-    align="center"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin.discussions.svg"
-    width="80%"
-    height="auto"
-  />
-</a>
 <a title="ZI" target="_self" href="https://twitter.com/zshell_zi">
   <img
     align="center"
