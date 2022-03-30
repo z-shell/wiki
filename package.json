@@ -16,9 +16,8 @@
     "write-docs-version": "docusaurus docs:version",
     "write-community-version": "docusaurus docs:version:community",
     "crowdin:sync": "docusaurus write-translations && crowdin upload && crowdin download",
-    "build:cf": "npm i -g pnpm && pnpm install && pnpm run build",
-    "build:cf:strict": "npm i -g pnpm && pnpm install --strict-peer-dependencies --no-prefer-frozen-lockfile",
-    "w:pub": "pnpm run build && wrangler publish",
+    "build:cf": "test \"$CF_PAGES\" = 1 && npx pnpm install -r || echo skipping pnpm install",
+    "prebuild": "test \"$CI\" = true && pnpm install -r --no-prefer-frozen-lockfile || echo skipping pnpm install",
     "check": "trunk check",
     "clean": "pnpm -s exec rm -rf node_modules build",
     "preinstall": "npx only-allow pnpm",
@@ -76,8 +75,12 @@
       "last 1 safari version"
     ]
   },
-  "peerDependencies": {
-    "@algolia/client-search": "^4.13.0",
-    "webpack": "^5.70.0"
+    "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  },
+  "peerDependenciesMeta": {
+    "react": { "optional": true },
+    "react-dom": { "optional": true }
   }
 }
