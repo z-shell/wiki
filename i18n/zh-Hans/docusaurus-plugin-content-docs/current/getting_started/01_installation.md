@@ -24,7 +24,7 @@ keywords:
 
 ## 快速安装
 
-Add minimal configuration:
+添加最小的配置。
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" --

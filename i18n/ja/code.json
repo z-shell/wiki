@@ -23,10 +23,6 @@
     "message": "Oh-My-ZshとPreztoをサポート - これはフレームワークに依存しません。プラグイン、ライブラリ、テーマを簡単に作成できます。",
     "description": "Description of third featured banner in homepage"
   },
-  "homepage.button": {
-    "message": "効率よく、正しく、素早く。",
-    "description": "The homepage button to wiki introduction"
-  },
   "theme.ErrorPageContent.title": {
     "message": "ページがクラッシュしました。",
     "description": "The title of the fallback page when the page crashed"

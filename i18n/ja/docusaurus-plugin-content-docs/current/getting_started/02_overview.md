@@ -78,7 +78,7 @@ zi ice svn pick"init.zsh"
 zi snippet PZT::modules/git
 ```
 
-Content of ice-modifier is simply put into `"… "`, `'… '`, or `$'… '`. No need for `":"` after the ice-mod name (although it's allowed, so as the equal sign `=`, so e.g. `pick="init.zsh"` or `pick=init.zsh` are being correctly recognized).
+Content of ice-modifier is simply put into `"…"`, `'…'`, or `$'…'`. No need for `":"` after the ice-mod name (although it's allowed, so as the equal sign `=`, so e.g. `pick="init.zsh"` or `pick=init.zsh` are being correctly recognized).
 
 This way editors like `vim` and `emacs` and also `zsh-users/zsh-syntax-highlighting` and `z-shell/F-Sy-H` will highlight contents of ice-modifiers.
 
@@ -101,7 +101,7 @@ To test them again first delete the plugin or snippet by `zi delete PZT::modules
 
 :::
 
-## About - atpull"… "
+## About - atpull"…"
 
 Copying file is safe for doing later updates – original files of the repository are unmodified and `Git` will report no conflicts.
 
@@ -121,11 +121,11 @@ This way the `mv` ice can be used to induce permanent changes into the plugin's 
 
 :::info
 
-For exclamation marks to not be expanded by Zsh an interactive session, use `'… '` not `"… "` to enclose contents of `atpull` [ice-modifier](/search?q=ice-modifier).
+For exclamation marks to not be expanded by Zsh an interactive session, use `'…'` not `"…"` to enclose contents of `atpull` [ice-modifier](/search?q=ice-modifier).
 
 :::
 
-## Snippets as'… ' commands
+## Snippets as'…' commands
 
 Commands can also be added to `$PATH` using **snippets**. For example:
 
@@ -144,7 +144,7 @@ There’s also an `atinit` ice-modifier, executed before each loading of plugin 
 
 :::
 
-## Snippets as'… ' completions
+## Snippets as'…' completions
 
 By using the `as''` ice modifier with value `completion` you can point the `snippet` subcommand directly to a completion file:
 
@@ -305,7 +305,7 @@ The ice `lucid` causes the under-prompt message saying `Loaded zsh-users/zsh-aut
 
 ## A Quick Glance At [`for`][14] syntax
 
-This introduction is based on the classic, two-command syntax (`zi ice … ; zi load/light/snippet … `) of ZI. However, there's also available a recently added so-called _for-syntax_.
+This introduction is based on the classic, two-command syntax (`zi ice …; zi load/light/snippet …`) of ZI. However, there's also available a recently added so-called _for-syntax_.
 
 It is the right moment to take a glance at it, by rewriting the above autosuggestions invocation using it:
 
@@ -340,7 +340,7 @@ zi ice wait'!' lucid nocd \
 zi load robobenklein/zinc
 ```
 
-The exclamation mark in `atload'!… '` is to track the functions allowing the plugin to be unloaded, as described [here][11]. It might be useful for the multi-prompt setup described next.
+The exclamation mark in `atload'!…'` is to track the functions allowing the plugin to be unloaded, as described [here][11]. It might be useful for the multi-prompt setup described next.
 
 ## Automatic load/unload based on condition {#automatic-loadunload-based-on-condition}
 
@@ -367,7 +367,7 @@ Two prompts, each active in different directories. This technique can be used to
 
 - The difference with `wait` is that `load` / `unload` are constantly active, not only till the first activation.
 
-- Note that for the unloading of a plugin to work the plugin needs to be loaded with tracking, so `zi load … ` and not `zi light … `.
+- Note that for the unloading of a plugin to work the plugin needs to be loaded with tracking, so `zi load …` and not `zi light …`.
 
 Tracking causes a slight slowdown, however, this doesn’t influence Zsh startup time when using Turbo mode.
 
@@ -615,7 +615,8 @@ zi creinstall %HOME/my_completions
 For GNU ls the binaries can be gls, gdircolors, but not on OS X when installing the coreutils package from Homebrew.
 
 ```shell title="~/.zshrc"
-zi ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh" nocompile'!' zi light trapd00r/LS_COLORS
+zi ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh" nocompile'!'
+zi light trapd00r/LS_COLORS
 ```
 
 `make'!'` -> run make before `atclone` & `atpull`.
