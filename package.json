@@ -16,7 +16,7 @@
     "write-docs-version": "docusaurus docs:version",
     "write-community-version": "docusaurus docs:version:community",
     "crowdin:sync": "docusaurus write-translations && crowdin upload && crowdin download",
-    "build:cf": "npm i -g pnpm && pnpm -s install --strict-peer-dependencies --prefer-frozen-lockfile && pnpm -s run w:pub",
+    "build:cf": "npm i -g pnpm && pnpm install --strict-peer-dependencies --no-prefer-frozen-lockfile && pnpm -s run w:pub",
     "w:pub": "pnpm -s --parallel build && wrangler publish",
     "check": "trunk check",
     "clean": "pnpm -s exec rm -rf node_modules build",
@@ -34,8 +34,7 @@
     "clsx": "1.1.1",
     "prism-react-renderer": "1.3.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "recursive": "^0.0.2"
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
     "@algolia/client-search": "4.13.0",
@@ -62,14 +61,9 @@
     "overrides": {
       "nth-check@<2.0.1": ">=2.0.1",
       "trim@<0.0.3": ">=0.0.3",
-      "minimist@<=1.2.5": "<0.0.0",
+      "minimist@<=1.2.5": ">0.0.0",
       "axios@<=0.21.1": ">=0.21.2",
       "axios@<0.21.1": ">=0.21.1"
-    },
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "docusaurus-plugin-sass"
-      ]
     }
   },
   "browserslist": {
