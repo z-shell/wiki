@@ -3,25 +3,13 @@
     "message": "次へ",
     "description": "The label for version current"
   },
-  "sidebar.autoSideBar_1.category.🚀 Getting Started": {
-    "message": "🚀 はじめに",
-    "description": "The label for category 🚀 Getting Started in sidebar autoSideBar_1"
-  },
-  "sidebar.autoSideBar_1.category.💡 Guides": {
-    "message": "💡 ガイド",
-    "description": "The label for category 💡 Guides in sidebar autoSideBar_1"
-  },
-  "sidebar.autoSideBar_1.category.✍️ Syntax": {
-    "message": "✍️ 構文",
-    "description": "The label for category ✍️ Syntax in sidebar autoSideBar_1"
+  "sidebar.autoSideBar_1.category.✨ Collection": {
+    "message": "✨ 収録内容",
+    "description": "The label for category ✨ Collection in sidebar autoSideBar_1"
   },
   "sidebar.autoSideBar_1.category.🌐 Ecosystem": {
     "message": "🌐 エコシステム",
     "description": "The label for category 🌐 Ecosystem in sidebar autoSideBar_1"
-  },
-  "sidebar.autoSideBar_1.category.📦 Packages": {
-    "message": "📦 パッケージ",
-    "description": "The label for category 📦 Packages in sidebar autoSideBar_1"
   },
   "sidebar.autoSideBar_1.category.⚙️ Plugins & Modules": {
     "message": "⚙️ プラグインとモジュール",

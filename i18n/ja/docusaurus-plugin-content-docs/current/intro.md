@@ -3,7 +3,7 @@ id: intro
 title: '🎉 Introduction'
 sidebar_position: 1
 image: zw/logo/320x320.png
-description: Introduction to a Swiss Army Knife for Zsh, formerly known as zplugin, zinit.
+description: Zshのためのスイスアーミーナイフ ― かつての zplugin, zinit ― の紹介です。
 keywords:
   - introduction
 ---
@@ -78,7 +78,7 @@ Invocations][7].
 
 - Docker [playground](https://github.com/z-shell/playground), test or propose configurations, preview at [asciinema.org](https://asciinema.org/a/459358).
 
-## 🥇 コントリビューターの皆様
+## 📢 Summary
 
 <!-- markdownlint-disable -->
 
@@ -106,10 +106,10 @@ Invocations][7].
 <!-- markdownlint-restore -->
 
 [5]: /docs/ecosystem/annexes
+[6]: /docs/ecosystem/packages/packages-overview
 [8]: /docs/getting_started/overview#turbo-mode-zsh--53
 [9]: /docs/guides/customization#customizing-paths
 [10]: /docs/guides/customization#multiple-prompts
-[6]: /docs/ecosystem/packages/packages-overview
 [11]: /docs/guides/customization#non-github-local-plugins
 [12]: /docs/getting_started/overview#oh-my-zsh-prezto
 [12]: /docs/getting_started/overview#oh-my-zsh-prezto
