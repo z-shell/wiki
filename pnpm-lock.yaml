@@ -9,7 +9,7 @@ overrides:
 
 specifiers:
   '@algolia/client-search': 4.13.0
-  '@awesome-crowdin/crowdin-contributors': ^0.0.4
+  '@awesome-crowdin/crowdin-contributors': 0.0.4
   '@babel/core': 7.17.8
   '@cloudflare/kv-asset-handler': 0.2.0
   '@cloudflare/workers-types': 3.4.0
@@ -31,7 +31,7 @@ specifiers:
   react: 17.0.2
   react-dom: 17.0.2
   typescript: 4.6.3
-  webpack: ^5.70.0
+  webpack: 5.70.0
   wrangler: beta
 
 dependencies:
@@ -9813,7 +9813,7 @@ packages:
   /wide-align/1.1.5:
     resolution: {integrity: sha512-eDMORYaPNZ4sQIuuYPDHdQvf4gyCF9rEEV/yPxGfwPkRodwEgiMUUXTx/dex+Me0wxx53S+NgUHaP7y3MGlDmg==}
     dependencies:
-      string-width: 1.0.2
+      string-width: 4.2.3
     dev: false
 
   /widest-line/3.1.0:
