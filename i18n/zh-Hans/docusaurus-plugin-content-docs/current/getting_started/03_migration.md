@@ -7,7 +7,7 @@ keywords:
   - setup
 ---
 
-## OMZ Basics
+## OMZ 基础知识
 
 Raw Syntax with URL:
 
@@ -47,9 +47,9 @@ OMZT:
 zi snippet OMZT::<PATH>
 ```
 
-### OMZ Library
+### OMZ 库
 
-Importing the [clipboard][1] and [termsupport][2] from the OMZ library sample:
+从OMZ库样本中导入 [剪贴板][1] 和 [term 支持][2] 。
 
 Raw Syntax:
 
@@ -72,7 +72,7 @@ zi snippet OMZL::clipboard.zsh
 zi snippet OMZL::termsupport.zsh
 ```
 
-### OMZ Plugins
+### OMZ 插件
 
 ```diff
 - plugins=(
@@ -184,7 +184,7 @@ ZSH_THEME="robbyrussell"
 
 However, ZI doesn't support the `ZSH_THEME` variable natively.
 
-To use **themes** created for OMZ, it requires loading shown below as it would be the same as OMZ does in the background.
+要使用为 OMZ 创建的**主题**，它需要装入这些，这与 OMZ 在幕后做的相同。
 
 > Some themes may require additional configuration it can be determined from the theme configuration file.
 

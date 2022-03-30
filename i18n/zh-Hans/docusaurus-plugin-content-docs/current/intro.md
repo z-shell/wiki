@@ -18,7 +18,7 @@ import ZGitImg from '@site/static/zw/img/z_git.png';
   <img
     className="ScreenViewFull"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
-    alt="Z-Shell Organization"
+    alt="Z-Shell 组织"
   />
 </a>
 </div>
@@ -85,21 +85,21 @@ import ZGitImg from '@site/static/zw/img/z_git.png';
   <img
     className="ScreenView"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/projects/projects.svg"
-    alt="Z-Shell Projects"
+    alt="Z-Shell 项目"
   />
 </a>
 <a href="https://github.com/z-shell/">
   <img
     className="ScreenViewFull"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg"
-    alt="Z-Shell Indepth"
+    alt="Z-Shell 深入"
   />
 </a>
 <a href="https://github.com/z-shell/zw">
   <img
     className="ScreenViewFull"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/pagespeed/detailed.svg"
-    alt="ZW PageSpeed"
+    alt="ZW 页面速度"
   />
 </a>
 </div>
