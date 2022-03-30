@@ -1,9 +1,9 @@
 name: '☁️ Cloudflare Workers'
 on: 
   workflow_dispatch:
-  push: 
-    branches: ['main']
-    paths: ['docs/**', 'community/**', 'src/pages/**', 'blog/**']
+#  push: 
+#    branches: ['main']
+#    paths: ['docs/**', 'community/**', 'src/pages/**', 'blog/**']
 
 env:
   CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
