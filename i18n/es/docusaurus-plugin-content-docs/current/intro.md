@@ -15,7 +15,7 @@ import ZGitImg from '@site/static/zw/img/z_git.png';
 <a href="https://github.com/z-shell">
   <img
     className="ScreenView"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin.svg"
+    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
     alt="Z-Shell Organization"
   />
 </a>
@@ -85,20 +85,20 @@ Invocations][7].
 <a href="https://github.com/orgs/z-shell/projects">
   <img
     className="ScreenView"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin.projects.svg"
+    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/projects/projects.svg"
     alt="Z-Shell Projects"
   />
 </a>
 <a href="https://github.com/orgs/z-shell/projects">
   <img
     className="ScreenView"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin.followup.indepth.svg"
+    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/indepth.svg"
     alt="Z-Shell Indepth"
   />
 </a><a href="https://github.com/z-shell/zw">
   <img
     className="ScreenView"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin.pagespeed.detailed.svg"
+    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/pagespeed/detailed.svg"
     alt="ZW PageSpeed"
   />
 </a>
