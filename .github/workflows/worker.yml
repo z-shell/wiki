@@ -1,7 +1,7 @@
 name: '☁️ Cloudflare Workers'
-on: 
+on:
   workflow_dispatch:
-#  push: 
+#  push:
 #    branches: ['main']
 #    paths: ['docs/**', 'community/**', 'src/pages/**', 'blog/**']
 

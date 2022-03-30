@@ -12,13 +12,16 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Ima
 import ZGitImg from '@site/static/zw/img/z_git.png';
 
 <Image className="ScreenView" img={ZGitImg} alt='Install almost everything from GitHub' />
+
+<div align="center">
 <a href="https://github.com/z-shell">
   <img
-    className="ScreenView"
+    className="ScreenViewFull"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
     alt="Z-Shell Organization"
   />
 </a>
+</div>
 
 <Tabs>
   <TabItem value="gems" label="RubyGems">
@@ -86,6 +89,7 @@ Invocations][7].
 
 <!-- markdownlint-disable -->
 
+<div align="center">
 <a href="https://github.com/orgs/z-shell/projects">
   <img
     className="ScreenView"
@@ -93,19 +97,21 @@ Invocations][7].
     alt="Z-Shell Projects"
   />
 </a>
-<a href="https://github.com/orgs/z-shell/projects">
+<a href="https://github.com/z-shell/">
   <img
-    className="ScreenView"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/indepth.svg"
+    className="ScreenViewFull"
+    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg"
     alt="Z-Shell Indepth"
   />
-</a><a href="https://github.com/z-shell/zw">
+</a>
+<a href="https://github.com/z-shell/zw">
   <img
-    className="ScreenView"
+    className="ScreenViewFull"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/pagespeed/detailed.svg"
     alt="ZW PageSpeed"
   />
 </a>
+</div>
 
 <!-- markdownlint-restore -->
 

@@ -27,7 +27,6 @@ const config = {
       crossorigin: 'anonymous',
     },
   ],
-  /*clientModules: [require.resolve('./src/js/all.js'), require.resolve('./src/css/all.css')],*/
   plugins: [
     [
       'content-docs',
@@ -186,7 +185,14 @@ const config = {
             position: 'left',
             label: 'Docs',
           },
-          /*{to: '/community/intro', label: 'Knowledge Base', position: 'left'}, */
+          /**{
+              to: 'docs/ecosystem/annexes',
+              label: 'Annexes', position: 'left',
+            },
+            {
+              to: 'docs/ecosystem/packages/packages-overview',
+              label: 'Packages', position: 'left',
+            },*/
           {
             type: 'localeDropdown',
             position: 'right',
@@ -251,7 +257,7 @@ const config = {
               },
               {
                 label: 'Crowdin Enterprice',
-                href: 'https://digitalclouds.crowdin.com/z-shell/',
+                href: 'https://crowdin.digitalclouds.dev/z-shell/',
               },
             ],
           },
