@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      - run: pnpm install --strict-peer-dependencies --no-prefer-frozen-lockfile
+      - run: pnpm install
       - uses: preactjs/compressed-size-action@v2
         with:
           build-script: 'build:en'
@@ -59,7 +59,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      - run: pnpm install --strict-peer-dependencies --no-prefer-frozen-lockfile
+      - run: pnpm install
       # Ensure build with a cold cache does not increase too much
       - name: 'Build (cold cache)'
         run: pnpm build:en
