@@ -1,11 +1,10 @@
-<table align="justify" margin-left="auto" margin-right="auto">
- <tr><td align="center">
-  <h1><a title="❮ ZW ❯" target="_self" href="https://github.com/z-shell/zw">
-  <img
+<table style="width:100%;height:auto">
+ <tr align="justify" margin-left="auto" margin-right="auto"><td align="center">
+  <h1>
+   <a title="❮ ZW ❯" target="_self" href="https://github.com/z-shell/zw">
+  <img style="width:60;height:60px"
     src="https://raw.githubusercontent.com/z-shell/zi/main/docs/images/favicon.svg"
-    alt="Logo"
-    width="60"
-    height="60" /></a>❮ ZW ❯
+    alt="Logo" /></a>❮ ZW ❯
   </h1>
   <h2>
     Z-Shell Wiki
@@ -19,7 +18,7 @@
   </td></tr>
 <tr>
 <td align="center">
-  <a title="Crowdin" target="_self" href="https://digitalclouds.crowdin.com/z-shell">
+  <a title="Crowdin" target="_self" href="https://crowdin.digitalclouds.dev/z-shell">
     <img align="center" src="https://badges.crowdin.net/e/f108c12713ee8526ac878d5671ad6e29/localized.svg" />
   </a>
   <!--
@@ -45,22 +44,16 @@
 <tr>
   <td align="center">
   <img
-    align="center"
+    align="center" style="width:80%;height:auto"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/zw_followup.svg"
-    width="80%"
-    height="auto"
   />
   <img
-    align="center"
+    align="center" style="width:80%;height:auto"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
-    width="80%"
-    height="auto"
   />
   <img
-    align="center"
+    align="center" style="width:80%;height:auto"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/projects/projects.svg"
-    width="80%"
-    height="auto"
   />
   </td>
 </tr>
@@ -68,10 +61,8 @@
 <td align="center">
 <a title="ZI WIKI" target="_self" href="https://github.com/z-shell/zw">
   <img
-    align="center"
+    align="center" style="width:80%;height:auto"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/pagespeed/detailed.svg"
-    width="80%"
-    height="auto"
   />
 </a>
 </td>
@@ -80,33 +71,27 @@
 <td align="center">
 <a title="ZI" target="_self" href="https://twitter.com/zshell_zi">
   <img
-    align="center"
+    align="center" style="width:80%;height:auto"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/tweets/tweets.svg"
-    width="80%"
-    height="auto"
   />
 </a>
 <a href="https://dev.to/z-shell/">
   <img
-    align="center"
+    align="center" style="width:80%;height:auto"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/rss/dev.zshell.rss.svg"
-    width="80%"
-    height="auto"
   />
 </a>
 <a href="https://dev.to/tag/zsh/">
   <img
-    align="center"
+    align="center" style="width:80%;height:auto"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/rss/dev.tag.zsh.rss.svg"
-    width="80%"
-    height="auto"
   />
 </a>
 </td>
 </tr>
 <tr>
 <td align="center">
-  <a href="https://asciinema.org/a/459358" target="_blank"><img src="https://asciinema.org/a/459358.svg" /></a>
+  <a href="https://asciinema.org/a/459358" target="_blank"><img style="width:100%;height:100%" src="https://asciinema.org/a/459358.svg" /></a>
 </td>
 </tr>
 <tr>
@@ -136,14 +121,21 @@ For a full list of all authors and contributors, see [the contributors page](htt
   </td>
 </tr>
 <tr><td align="center"><h2 align="left">Credits</h2>
- <a href="https://cloudflare.com">
-  <img style="width:140;height:35px" src="https://space.ss-o.workers.dev/img/brand/cloudflare/cf-logo-v-rgb.png" alt="Cloudflare" />
+ <a href="https://cloudflare.com" rel="nofollow">
+  <img style="width:140;height:40px" 
+       src="https://space.ss-o.workers.dev/img/brand/cloudflare/cf-logo-v-rgb.png" 
+       alt="Cloudflare" />
  </a>
  <a href="https://crowdin.com/?utm_source=badge&utm_medium=referral&utm_campaign=badge-add-on" rel="nofollow">
-  <img style="width:140;height:35px" src="https://space.ss-o.workers.dev/img/brand/crowdin/localization-at-dark-rounded@2x.png" srcset="https://badges.crowdin.net/badge/light/crowdin-on-dark.png 1x,https://badges.crowdin.net/badge/light/crowdin-on-dark@2x.png 2x"alt="Crowdin | Agile localization for tech companies" />
+  <img style="width:140;height:40px" 
+       src="https://space.ss-o.workers.dev/img/brand/crowdin/localization-at-dark-rounded@2x.png" 
+       srcset="https://badges.crowdin.net/badge/light/crowdin-on-dark.png 1x,https://badges.crowdin.net/badge/light/crowdin-on-dark@2x.png 2x"
+       alt="Crowdin | Agile localization for tech companies" />
  </a>
- <a href="https://www.digitalocean.com/?refcode=090bdb63f800&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
-  <img style="width:140;height:35px" src="https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg" alt="DigitalOcean Referral Badge" />
+ <a href="https://www.digitalocean.com/?refcode=090bdb63f800&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" rel="nofollow">
+  <img style="width:140;height:40px" 
+       src="https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg" 
+       alt="DigitalOcean Referral Badge" />
  </a>
  </td></tr>
 </table>
