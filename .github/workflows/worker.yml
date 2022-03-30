@@ -1,5 +1,8 @@
-name: ☁️ Cloudflare Workers
-on: [workflow_dispatch]
+name: '☁️ Cloudflare Workers'
+on: 
+  workflow_dispatch:
+  push: 
+    branches: ['main']
 
 env:
   CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
@@ -11,9 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
-    strategy:
-      matrix:
-        node-version: [16]
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2.2.1
@@ -21,8 +21,8 @@ jobs:
           version: 6.32.3
       - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 16
           cache: 'pnpm'
       - run: pnpm install --strict-peer-dependencies --no-prefer-frozen-lockfile
-      - run: pnpm build
-      - run: pnpm w:pub
+      - run: pnpm run build
+      - run: pnpm run w:pub
