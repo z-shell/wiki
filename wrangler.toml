@@ -1,8 +1,0 @@
-name = 'zw'
-account_id = '2db2112b269ed3616ed3a863a222f3e8'
-usage_model = 'unbound'
-site.bucket = 'build'
-compatibility_date = '2022-03-27'
-workers_dev = false
-main = 'functions/api/[kv].ts'
-routes = ['z.digitalclouds.dev/*']
