@@ -46,19 +46,19 @@
   <td align="center">
   <img
     align="center"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/zw/indepth.repository.svg"
+    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/zw_followup.svg"
     width="80%"
     height="auto"
   />
   <img
     align="center"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin.svg"
+    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
     width="80%"
     height="auto"
   />
   <img
     align="center"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin.projects.svg"
+    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/projects/projects.svg"
     width="80%"
     height="auto"
   />
@@ -69,7 +69,7 @@
 <a title="ZI WIKI" target="_self" href="https://github.com/z-shell/zw">
   <img
     align="center"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin.pagespeed.detailed.svg"
+    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/pagespeed/detailed.svg"
     width="80%"
     height="auto"
   />
@@ -81,7 +81,7 @@
 <a title="ZI" target="_self" href="https://twitter.com/zshell_zi">
   <img
     align="center"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin.tweets.svg"
+    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/tweets/tweets.svg"
     width="80%"
     height="auto"
   />
@@ -89,7 +89,7 @@
 <a href="https://dev.to/z-shell/">
   <img
     align="center"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin.dev.zshell.rss.svg"
+    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/rss/dev.zshell.rss.svg"
     width="80%"
     height="auto"
   />
@@ -97,7 +97,7 @@
 <a href="https://dev.to/tag/zsh/">
   <img
     align="center"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin.dev.tag.zsh.rss.svg"
+    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/rss/dev.tag.zsh.rss.svg"
     width="80%"
     height="auto"
   />
@@ -138,12 +138,12 @@ For a full list of all authors and contributors, see [the contributors page](htt
 <tr>
 <td align="center"><h2 align="left">Credits</h2>
   <a href="https://cloudflare.com">
-    <img src="https://space.ss-o.workers.dev/img/brand/cloudflare/cf-logo-v-rgb.png" alt="Cloudflare" height="40" /></a>
+    <img src="https://space.ss-o.workers.dev/img/brand/cloudflare/cf-logo-v-rgb.png" alt="Cloudflare" height="35" /></a>
       <a href="https://digitalclouds.crowdin.com">
-    <img src="https://space.ss-o.workers.dev/img/brand/crowdin/localization-at-dark-rounded@2x.png" alt="Crowdin" height="40" />
+    <img src="https://space.ss-o.workers.dev/img/brand/crowdin/localization-at-dark-rounded@2x.png" alt="Crowdin" height="35" />
   </a>
   <a href="https://www.digitalocean.com/?refcode=090bdb63f800&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
-    <img src="https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg" alt="DigitalOcean Referral Badge" height="40" />
+    <img src="https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg" alt="DigitalOcean Referral Badge" height="35" />
   </a>
 </td>
 </tr>
