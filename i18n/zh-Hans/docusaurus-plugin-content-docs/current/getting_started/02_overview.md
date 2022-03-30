@@ -91,7 +91,7 @@ zi ice as"program" cp"httpstat.sh -> httpstat" pick"httpstat"
 zi light b4b4r07/httpstat
 ```
 
-上面的命令将会添加插件目录到 `$PATH`，复制文件 `httpstat.sh` 到 `httpstat` 并且添加执行权限 (`+x`) 到通过 `pick` 选中的文件，这里是添加给 `httpstat`。 Another ice-mod exists, `mv`, which works like `cp` but **moves** a file instead of **copying** it. `mv` is ran before `cp`.
+上面的命令将会添加插件目录到 `$PATH`，复制文件 `httpstat.sh` 到 `httpstat` 并且添加执行权限 (`+x`) 到通过 `pick` 选中的文件，这里是添加给 `httpstat`。 另一个修饰符是 `mv`。类似 `cp` 但是**移动**而非**复制**文件。`mv` 在 `cp` 之前运行。 `mv` 在 `cp` 之前运行。
 
 :::tip
 
@@ -101,7 +101,7 @@ zi light b4b4r07/httpstat
 
 :::
 
-## About - atpull"…"
+## 关于 atpull"..."
 
 复制文件对以后的更新是安全的——仓库的原始文件没有被修改， `Git` 不会产生冲突。
 
@@ -113,15 +113,15 @@ zi ice as"program" mv"httpstat.sh -> httpstat" \
 zi light b4b4r07/httpstat
 ```
 
-If `atpull` starts with an exclamation mark, then it will be run before `git pull`, and before `mv`. Nevertheless, `atpull`, `mv`, `cp` are run **only if new commits are to be fetched**. Nevertheless, `atpull`, `mv`, `cp` are run **only if new commits are to be fetched**.
+如果 `atpull` 有感叹号前缀，那么它会在 `git pull` 之前执行，同时也在 `mv` 之前。总之，`atpull`、 `mv`、`cp` **只会在有新 commit 被拉取时**运行。 Nevertheless, `atpull`, `mv`, `cp` are run **only if new commits are to be fetched**.
 
-So in summary, when the user runs `zi update b4b4r07/httpstat` to update this plugin, and there are new commits, what happens first is that `git reset --hard` is run – and it **restores** original `httpstat.sh`, **then** `git pull` is ran and it downloads new commits (doing fast-forward), **then** `mv` is running again so that the command is `httpstat` not `httpstat.sh`.
+总的来说，当用户运行 `zi update b4b4r07/httpstat` 更新插件时，并且有新 commit 加入，首先 `git reset --hard` 被运行——他 **复原**原始的 `httpstat.sh`，**然后** `git pull` 被运行，这下载了 commit（使用 fast-forward）， **之后** `mv` 再次被运行。所以命令叫 `httpstat` 而不是 `httpstat.sh`。
 
 This way the `mv` ice can be used to induce permanent changes into the plugin's contents without blocking the ability to update it with `git` (or with `subversion` in case of snippets, more on this below).
 
 :::info
 
-For exclamation marks to not be expanded by Zsh an interactive session, use `'…'` not `"…"` to enclose contents of `atpull` [ice-modifier](/search?q=ice-modifier).
+为了避免被 Zsh 交互对话展开感叹号，使用 `'…'` 而不是 `"…"` 包裹 `atpull` [ice 修饰符](/search?q=ice-modifier)。
 
 :::
 
@@ -146,7 +146,7 @@ There’s also an `atinit` ice-modifier, executed before each loading of plugin 
 
 ## Snippets as'…' completions
 
-By using the `as''` ice modifier with value `completion` you can point the `snippet` subcommand directly to a completion file:
+通过使用 `as''` ice 修饰符与参数 `completion` 你可以将 `snippet` 子命令直接指向补全文件。
 
 ```shell {2}
 zi ice as"completion"
@@ -155,14 +155,14 @@ zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_doc
 
 ## The completion management
 
-ZI allows to disable and enable each completion in every plugin. Try installing a popular plugin that provides completions: Try installing a popular plugin that provides completions:
+ZI 允许关闭或打开每一个插件的补全。试试安装提供补全的热门插件： Try installing a popular plugin that provides completions:
 
 ```shell {1}
 zi ice blockf
 zi light zsh-users/zsh-completions
 ```
 
-The first command, the `blockf` ice, will block the traditional method of adding completions. The first command, the `blockf` ice, will block the traditional method of adding completions. ZI uses its method, based on symlinks instead of adding several directories to `$fpath`.
+第一个命令，`blockf` ice 修饰符，将会阻止添加补全的传统方式。 ZI 将会使用自己的命令，基于软链接而非添加数个目录到 `$fpath`。
 
 ZI will automatically **install** completions of a newly downloaded plugin.
 
@@ -588,7 +588,7 @@ zi load docker/compose
 
 Vim repository on GitHub – a typical source code that needs compilation, ZI can manage it for you if you like, run `./configure` and other `make` stuff.
 
-Ice modifier `pick` selects a binary program to add to $PATH. You could also install the package under the path $ZPFX. You could also install the package under the path $ZPFX.
+Ice modifier `pick` selects a binary program to add to $PATH. You could also install the package under the path $ZPFX. Ice 修饰符 `pick` 选择并添加二进制程序到 $PATH。你也能在 $ZPFX 下安装包。
 
 ```shell title="~/.zshrc"
 zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
