@@ -424,7 +424,7 @@ For the `location`: refer [selection of files][17]
 - `from` => `from`
 - `at` => `ver`
 - `rename-to` => `mv`, `cp`
-- `dir` => Selection(`pick`, … ) with rename
+- `dir` => Selection(`pick`, …) with rename
 - `if` => `if`
 - `hook-build` => `atclone`, `atpull`
 - `hook-load` => `atload`

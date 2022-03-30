@@ -1,32 +1,4 @@
 {
-  "theme.ErrorPageContent.title": {
-    "message": "此頁已當機。",
-    "description": "The title of the fallback page when the page crashed"
-  },
-  "theme.ErrorPageContent.tryAgain": {
-    "message": "重試",
-    "description": "The label of the button to try again when the page crashed"
-  },
-  "theme.NotFound.title": {
-    "message": "找不到頁面",
-    "description": "The title of the 404 page"
-  },
-  "theme.NotFound.p1": {
-    "message": "我們沒有您要找的頁面。",
-    "description": "The first paragraph of the 404 page"
-  },
-  "theme.NotFound.p2": {
-    "message": "請聯絡原始連結來源網站的所有者，並通知他們連結已毀損。",
-    "description": "The 2nd paragraph of the 404 page"
-  },
-  "theme.blog.archive.title": {
-    "message": "歷史文章",
-    "description": "The page & hero title of the blog archive page"
-  },
-  "theme.blog.archive.description": {
-    "message": "歷史文章",
-    "description": "The page & hero description of the blog archive page"
-  },
   "theme.BackToTopButton.buttonAriaLabel": {
     "message": "回到頂部",
     "description": "The ARIA label for the back to top button"

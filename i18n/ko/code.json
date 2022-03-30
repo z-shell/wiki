@@ -1,8 +1,4 @@
 {
-  "theme.ErrorPageContent.title": {
-    "message": "페이지에 오류가 발생하였습니다.",
-    "description": "The title of the fallback page when the page crashed"
-  },
   "theme.ErrorPageContent.tryAgain": {
     "message": "다시 시도해 보세요",
     "description": "The label of the button to try again when the page crashed"
