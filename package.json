@@ -16,7 +16,7 @@
     "write-docs-version": "docusaurus docs:version",
     "write-community-version": "docusaurus docs:version:community",
     "crowdin:sync": "docusaurus write-translations && crowdin upload && crowdin download",
-    "build:cf": "test \"$CF_PAGES\" = 1 && npx pnpm install -r || echo skipping pnpm install",
+    "build:cf": "test \"$CF_PAGES\" = 1 && npx pnpm install -r && pnpm build",
     "prebuild": "test \"$CI\" = true && pnpm install -r --no-prefer-frozen-lockfile || echo skipping pnpm install",
     "check": "trunk check",
     "clean": "pnpm -s exec rm -rf node_modules build",
