@@ -6,15 +6,15 @@ sidebar_position: 2
 
 ## 什么是 Zsh 插件？
 
-从历史上看，Zsh 插件是由 Oh My Zsh 首先定义的。 它们提供了一种将文件打包的方式，这些文件可以扩展或以特定方式配置 shell 的功能。
+从历史上看，Zsh 插件是由 Oh My Zsh 首先定义的。 They provide for a way to package together files that extend or configure the shell’s functionality in a particular way.
 
 简单来说，一个插件：
 
-1. 必须将其目录添加到 `$fpath`([Zsh 文档](http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions))。 这被插件管理器或插件本身完成（见[第五节](#run-on-unload-call)查看更多信息）。
+1. Has its directory added to `$fpath` ([Zsh documentation](http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions)). This is being done either by a plugin manager or by the plugin itself (see [5th section](#run-on-unload-call) for more information).
 
 2. 必须首先 source `*.plugin.zsh` 文件（或 `*.zsh`, `init.zsh`, `*.sh`，这些是非标准的）。
 
-   2.1 第一点允许插件提供通过 Zsh 的 `autoload` 机制加载的补全和函数（每个文件只有一个函数）。
+   2.1 The first point allows plugins to provide completions and functions that are loaded via Zsh’s `autoload` mechanism (a single function per file).
 
 3. From a more broad perspective, a plugin consists of:
 
