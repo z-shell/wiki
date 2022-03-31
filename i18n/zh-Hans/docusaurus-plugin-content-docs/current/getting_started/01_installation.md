@@ -20,7 +20,7 @@ keywords:
 | [Direct][6]:        | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
 - 如果你遇到了任何问题，请发起 [issue][7]。
-- 协助我们[翻译](https://digitalclouds.crowdin.com/z-shell).
+- [Translate](https://digitalclouds.crowdin.com/z-shell).
 
 ## 快速安装
 
@@ -98,7 +98,7 @@ autoload -Uz _zi
 通过 `exec zsh` 重载 shell，通过 `zi self-update` 编译 ZI。
 
 > - 需要贡献者：[Gitee.com/z-shell](https://gitee.com/z-shell)。
-> - Join [/r/gitee](https://www.reddit.com/r/gitee/) or start a [discussion](https://github.com/z-shell/zi/discussions/new) on GitHub.
+> - 加入 [/r/gitee](https://www.reddit.com/r/gitee/) 或者在 GitHub 上[发起讨论](https://github.com/z-shell/zi/discussions/new)。
 
 [1]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml/badge.svg?branch=main
 [2]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml
