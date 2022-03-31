@@ -38,13 +38,13 @@ zi as"null" wait"2" lucid from"gh-r" for \
 
 :::note
 
-- `sbin'…'` is an [ice][4] added by the [bin-gem-node][5] [annex][6], it provides the command to the command line
+- `sbin'…'` is an [ice][3] added by the [bin-gem-node][4] [annex][5], it provides the command to the command line
   without altering `$PATH`.
 - If the name of the command is the same as the name of the plugin, the ice contents can be skipped.
 
 :::
 
-[Turbo][7] load some plugins, without any plugin-specific ices:
+[Turbo][6] load some plugins, without any plugin-specific ices:
 
 ```shell
 zi wait lucid for \
@@ -52,7 +52,7 @@ zi wait lucid for \
   urbainvaes/fzf-marks
 ```
 
-Load two [Oh My Zsh][8] files as [snippets][9], in turbo mode:
+Load two [Oh My Zsh][7] files as [snippets][8], in turbo mode:
 
 ```shell
 zi wait lucid for \
@@ -60,7 +60,7 @@ zi wait lucid for \
   atload"unalias grv" OMZ::plugins/git/git.plugin.zsh
 ```
 
-### With [turbo mode][7] and the [for][8] syntax
+### With [turbo mode][6] and the [for][10] syntax
 
 ```shell {1}
 zi wait lucid light-mode for \
@@ -80,7 +80,7 @@ zi wait lucid light-mode for \
 
 | Syntax       | Description                                                                                                                                                                                                                                                                                                                                                            |
 |--------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `wait`       | Load 0 seconds (about 5 ms exactly) after prompt ([turbo mode][7]). |
+| `wait`       | Load 0 seconds (about 5 ms exactly) after prompt ([turbo mode][6]). |
 | `lucid`      | Silence the under-prompt messages ("`Loaded {name of the plugin}`"). |
 | `light-mode` | Load the plugin in `light` mode. More below (1). |
 | `atpull'…'`  | Execute after updating the plugin – the command in the ice will install any new completions. |
@@ -102,7 +102,7 @@ zi wait lucid light-mode for \
 
 #### Summarized
 
-Syntax-highlighting plugins, like [F-Sy-H][9] or [zsh-syntax-highlighting][10], theoretically expect to be loaded last,
+Syntax-highlighting plugins, like [F-Sy-H][11] or [zsh-syntax-highlighting][12], theoretically expect to be loaded last,
 even after the completion initialization as `compinit` function. However in practice, you just have to ensure that such
 plugin is loaded after plugins that are issuing `compdef` – which basically means completions that aren't using the
 underscore-starting function file; the completion initialization still has to be performed before syntax-highlighting
@@ -111,7 +111,7 @@ and suggestions plugins are loaded early for a better user experience.
 
 ### Oh-My-Zsh
 
-#### With [turbo mode][7] and [for][8] syntax
+#### With [turbo mode][6] and [for][10] syntax
 
 ```shell
 # A.
@@ -186,17 +186,17 @@ zi ice atinit"zicompinit; zicdreplay"
 zi light z-shell/F-Sy-H
 ```
 
-In general, [turbo mode][7] can be optionally enabled only for a subset of plugins or for all plugins.
+In general, [turbo mode][6] can be optionally enabled only for a subset of plugins or for all plugins.
 
 [1]: /search/?q=GH-R
 [2]: /search/?q=git+ext
-[4]: /search/?q=ice
-[5]: /search/?q=bin+gem+node
-[6]: /search/?q=annex
-[7]: /search/?q=turbo+mode
-[8]: /search/?q=oh+my+zsh
-[9]: /search/?q=snippets
-[7]: /docs/getting_started/overview#turbo-mode-zsh--53
-[8]: /docs/guides/syntax#the-for-syntax
-[9]: https://github.com/z-shell/F-Sy-H
-[10]: https://github.com/zsh-users/zsh-syntax-highlighting
+[3]: /search/?q=ice
+[4]: /search/?q=bin+gem+node
+[5]: /search/?q=annex
+[6]: /search/?q=turbo+mode
+[7]: /search/?q=oh+my+zsh
+[8]: /search/?q=snippets
+[9]: /docs/getting_started/overview#turbo-mode-zsh--53
+[10]: /docs/guides/syntax/for
+[11]: https://github.com/z-shell/F-Sy-H
+[12]: https://github.com/zsh-users/zsh-syntax-highlighting
