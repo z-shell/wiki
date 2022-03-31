@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## What Is A Zsh Plugin?
 
-Historically, Zsh plugins were first defined by Oh My Zsh. They provide for a way to package together files that extend or configure the shell’s functionality in a particular way.
+Historically, Zsh plugins were first defined by Oh My Zsh. 它们提供了一种将文件打包的方式，这些文件可以扩展或以特定方式配置 shell 的功能。 They provide for a way to package together files that extend or configure the shell’s functionality in a particular way.
 
 At a simple level, a plugin:
 

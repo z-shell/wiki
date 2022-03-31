@@ -127,7 +127,7 @@ For exclamation marks to not be expanded by Zsh an interactive session, use `'�
 
 ## Snippet as'…' 命令
 
-Commands can also be added to `$PATH` using **snippets**. 例如： 例如：
+修饰符 `load` 和 `unload` 允许定义你希望插件何时激活或不激活。 例如：
 
 ```shell {2,4}
 zi ice mv"httpstat.sh -> httpstat" \

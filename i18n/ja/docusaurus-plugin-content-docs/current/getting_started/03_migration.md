@@ -7,7 +7,7 @@ keywords:
   - setup
 ---
 
-## OMZ Basics
+## Oh-My-Zsh の基本的な使い方
 
 Raw Syntax with URL:
 
