@@ -12,7 +12,6 @@ specifiers:
   '@awesome-crowdin/crowdin-contributors': 0.0.4
   '@babel/core': 7.17.8
   '@crowdin/cli': 3.7.8
-  '@crowdin/ota-client': ^0.7.0
   '@docusaurus/core': 0.0.0-4814
   '@docusaurus/module-type-aliases': 0.0.0-4814
   '@docusaurus/plugin-ideal-image': 0.0.0-4814
@@ -33,7 +32,6 @@ specifiers:
   webpack: 5.70.0
 
 dependencies:
-  '@crowdin/ota-client': 0.7.0
   '@docusaurus/core': 0.0.0-4814_6627d66156befd5774ba02504e41a2a5
   '@docusaurus/plugin-ideal-image': 0.0.0-4814_6602ce026ef17dc2e923bc5cfc9a7757
   '@docusaurus/plugin-pwa': 0.0.0-4814_6627d66156befd5774ba02504e41a2a5
@@ -1535,15 +1533,6 @@ packages:
     transitivePeerDependencies:
       - debug
     dev: true
-
-  /@crowdin/ota-client/0.7.0:
-    resolution: {integrity: sha512-RNFnR2ter5dsFJlyQysT8jswDn/TBF/ALosiDRpaj2tcOlAk/amQOoqEMJrCdR46xWqMUNwz/hJ4YIlcN51kPQ==}
-    engines: {node: '>=12.9.0'}
-    dependencies:
-      axios: 0.25.0
-    transitivePeerDependencies:
-      - debug
-    dev: false
 
   /@docsearch/css/3.0.0:
     resolution: {integrity: sha512-1kkV7tkAsiuEd0shunYRByKJe3xQDG2q7wYg24SOw1nV9/2lwEd4WrUYRJC/ukGTl2/kHeFxsaUvtiOy0y6fFA==}
