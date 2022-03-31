@@ -23,6 +23,10 @@
     "message": "Oh-My-ZshとPreztoをサポート - これはフレームワークに依存しません。プラグイン、ライブラリ、テーマを簡単に作成できます。",
     "description": "Description of third featured banner in homepage"
   },
+  "homepage.button": {
+    "message": "💢 Make it work, make it right, make it Fast 💢",
+    "description": "The homepage button to wiki introduction"
+  },
   "theme.ErrorPageContent.title": {
     "message": "ページがクラッシュしました。",
     "description": "The title of the fallback page when the page crashed"
@@ -42,6 +46,14 @@
   "theme.NotFound.p2": {
     "message": "このページにリンクしているサイトの所有者に連絡をしてリンクが壊れていることを伝えてください。",
     "description": "The 2nd paragraph of the 404 page"
+  },
+  "theme.blog.archive.title": {
+    "message": "アーカイブ",
+    "description": "The page & hero title of the blog archive page"
+  },
+  "theme.blog.archive.description": {
+    "message": "アーカイブ",
+    "description": "The page & hero description of the blog archive page"
   },
   "theme.BackToTopButton.buttonAriaLabel": {
     "message": "ページトップへ戻る",

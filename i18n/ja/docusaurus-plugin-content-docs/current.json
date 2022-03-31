@@ -15,6 +15,10 @@
     "message": "✍️ 構文",
     "description": "The label for category ✍️ Syntax in sidebar autoSideBar_1"
   },
+  "sidebar.autoSideBar_1.category.✨ Gallery of Invocations": {
+    "message": "✨ Gallery of Invocations",
+    "description": "The label for category ✨ Gallery of Invocations in sidebar autoSideBar_1"
+  },
   "sidebar.autoSideBar_1.category.✨ Collection": {
     "message": "✨ 収録内容",
     "description": "The label for category ✨ Collection in sidebar autoSideBar_1"
@@ -22,6 +26,10 @@
   "sidebar.autoSideBar_1.category.🌐 Ecosystem": {
     "message": "🌐 エコシステム",
     "description": "The label for category 🌐 Ecosystem in sidebar autoSideBar_1"
+  },
+  "sidebar.autoSideBar_1.category.💠 Annexes": {
+    "message": "💠 Annexes",
+    "description": "The label for category 💠 Annexes in sidebar autoSideBar_1"
   },
   "sidebar.autoSideBar_1.category.📦 Packages": {
     "message": "📦 パッケージ",

@@ -176,7 +176,7 @@ zi snippet OMZP::fd/_fd
 
 ### OMZ 主题
 
-Themes are stored in the `themes` directory. All and loaded in the background. with the simple syntax: 全部都在后台加载。 使用简单语法：
+主题存储在 `themes` 目录中。全部都在后台加载，使用简单语法： 全部都在后台加载。 使用简单语法：
 
 ```shell
 ZSH_THEME="robbyrussell"
@@ -195,7 +195,7 @@ ZSH_THEME="robbyrussell"
 如果上述任何一项不符合顺序或缺失，主题就会出现类似的中断，如下图所示。
 
 ```shell
-… … $(build_prompt) …
+… $(build_prompt) …
 ```
 
 如果 `Git` 库没有被加载或加载顺序错误，那么可能会出现类似下面的情况。

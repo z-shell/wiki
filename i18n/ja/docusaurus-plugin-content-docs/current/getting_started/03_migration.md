@@ -47,9 +47,9 @@ OMZT:
 zi snippet OMZT::<PATH>
 ```
 
-### ライブラリ
+### OMZ Library
 
-OMZライブラリサンプルから、[クリップボード][1] と [ターミナル支援][2]の機能を読み込みます。
+Importing the [clipboard][1] and [termsupport][2] from the OMZ library sample:
 
 Raw Syntax:
 
@@ -72,7 +72,7 @@ zi snippet OMZL::clipboard.zsh
 zi snippet OMZL::termsupport.zsh
 ```
 
-### プラグイン
+### OMZ Plugins
 
 ```diff
 - plugins=(

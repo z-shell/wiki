@@ -1,4 +1,40 @@
 {
+  "homepage.feature1.title": {
+    "message": "Zsh Startup 50-80% Faster",
+    "description": "Title of feature 1 (left) on the home page"
+  },
+  "home.fetaure1": {
+    "message": "Instant prompt postponing plugins loading to a moment when the processing of .zshrc file is finished.",
+    "description": "Description of first featured banner in homepage"
+  },
+  "homepage.feature2.title": {
+    "message": "Focus on What Matters",
+    "description": "Title of feature 2 (middle) on the home page"
+  },
+  "home.fetaure2": {
+    "message": "Statistics about the plugins, describing what functions, bindkeys, completions, and other elements a plugin has set up.",
+    "description": "Description of second featured banner in homepage"
+  },
+  "homepage.feature3.title": {
+    "message": "Wide Range of Features",
+    "description": "Title of feature 3 (right) on the home page"
+  },
+  "home.fetaure3": {
+    "message": "Supports Oh-My-Zsh and Prezto - not framework-specific. Produce your plugins, libraries, and themes effortlessly.",
+    "description": "Description of third featured banner in homepage"
+  },
+  "homepage.button": {
+    "message": "💢 Make it work, make it right, make it Fast 💢",
+    "description": "The homepage button to wiki introduction"
+  },
+  "theme.ErrorPageContent.title": {
+    "message": "This page crashed.",
+    "description": "The title of the fallback page when the page crashed"
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "Try again",
+    "description": "The label of the button to try again when the page crashed"
+  },
   "theme.NotFound.title": {
     "message": "Sayfa Bulunamadı",
     "description": "The title of the 404 page"
@@ -42,6 +78,10 @@
   "theme.blog.post.readingTime.plurals": {
     "message": "{readingTime} dakikalık okuma|{readingTime} dakikalık okuma",
     "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": "Read more about {title}",
+    "description": "The ARIA label for the link to full blog posts from excerpts"
   },
   "theme.blog.post.readMore": {
     "message": "Daha Fazla",
@@ -87,6 +127,10 @@
     "message": "Kopyala",
     "description": "The copy button label on code blocks"
   },
+  "theme.docs.DocCard.categoryDescription": {
+    "message": "{count} items",
+    "description": "The default description for a category card in the generated index about how many items this category includes"
+  },
   "theme.docs.sidebar.expandButtonTitle": {
     "message": "Kenar çubuğunu genişlet",
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
@@ -115,6 +159,10 @@
     "message": "Kenar çubuğunu daralt",
     "description": "The title attribute for collapse button of doc sidebar"
   },
+  "theme.DocSidebarItem.toggleCollapsedCategoryAriaLabel": {
+    "message": "Toggle the collapsible sidebar category '{label}'",
+    "description": "The ARIA label to toggle the collapsible sidebar category"
+  },
   "theme.docs.tagDocListPageTitle.nDocsTagged": {
     "message": "Bir doküman etiketlendi|{count} doküman etiketlendi",
     "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
@@ -122,6 +170,9 @@
   "theme.docs.tagDocListPageTitle": {
     "message": "\"{tagName}\" ile etiketlenmiş {nDocsTagged}",
     "description": "The title of the page for a docs tag"
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "Version: {versionLabel}"
   },
   "theme.docs.versions.unreleasedVersionLabel": {
     "message": "Bu, {siteTitle} {versionLabel} sürümü için yayınlanmamış dokümantasyondur.",
@@ -179,6 +230,22 @@
     "message": "Etiketler:",
     "description": "The label alongside a tag list"
   },
+  "theme.colorToggle.ariaLabel": {
+    "message": "Switch between dark and light mode (currently {mode})",
+    "description": "The ARIA label for the navbar color mode toggle"
+  },
+  "theme.colorToggle.ariaLabel.mode.dark": {
+    "message": "dark mode",
+    "description": "The name for the dark color mode"
+  },
+  "theme.colorToggle.ariaLabel.mode.light": {
+    "message": "light mode",
+    "description": "The name for the light color mode"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "Languages",
+    "description": "The label for the mobile language switcher dropdown"
+  },
   "theme.SearchPage.documentsFound.plurals": {
     "message": "Bir döküman bulundu|{count} döküman bulundu",
     "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
@@ -211,6 +278,9 @@
     "message": "Yeni sonuçlar getiriliyor...",
     "description": "The paragraph for fetching new search results"
   },
+  "theme.SearchBar.seeAll": {
+    "message": "See all {count} results"
+  },
   "theme.SearchBar.label": {
     "message": "Ara",
     "description": "The ARIA label and placeholder for search button"
@@ -226,6 +296,26 @@
   "theme.PwaReloadPopup.closeButtonAriaLabel": {
     "message": "Kapat",
     "description": "The ARIA label for close button of PWA reload popup"
+  },
+  "theme.IdealImageMessage.loading": {
+    "message": "Loading...",
+    "description": "When the full-scale image is loading"
+  },
+  "theme.IdealImageMessage.load": {
+    "message": "Click to load{sizeMessage}",
+    "description": "To prompt users to load the full image. sizeMessage is a parenthesized size figure."
+  },
+  "theme.IdealImageMessage.offline": {
+    "message": "Your browser is offline. Image not loaded",
+    "description": "When the user is viewing an offline document"
+  },
+  "theme.IdealImageMessage.404error": {
+    "message": "404. Image not found",
+    "description": "When the image is not found"
+  },
+  "theme.IdealImageMessage.error": {
+    "message": "Error. Click to reload",
+    "description": "When the image fails to load for unknown error"
   },
   "theme.tags.tagsPageTitle": {
     "message": "Etiketler",

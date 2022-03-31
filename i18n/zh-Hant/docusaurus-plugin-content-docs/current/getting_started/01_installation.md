@@ -1,14 +1,14 @@
 ---
-title: '⚡️ Installation'
+title: '⚡️ 安裝'
 sidebar_position: 1
 image: zw/logo/320x320.png
-description: Installation Guide
+description: 安裝指導
 keywords:
   - installation
   - setup
 ---
 
-## Available installer links
+## 可用的安裝鏈接
 
 [![⚙️ Install Library][1]][2] | [Status page: :heavy_check_mark:](https://digitalclouds.dev/status)
 
@@ -22,7 +22,7 @@ keywords:
 - Report an [issue][7].
 - [Translate](https://digitalclouds.crowdin.com/z-shell).
 
-## Quick installation
+## 快速安裝
 
 Add minimal configuration:
 
@@ -30,7 +30,7 @@ Add minimal configuration:
 sh -c "$(curl -fsSL https://git.io/get-zi)" --
 ```
 
-Skip configuration. Just clone or update repository:
+跳過配置。 Just clone or update repository:
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip
