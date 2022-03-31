@@ -184,7 +184,7 @@ ZSH_THEME="robbyrussell"
 
 但是， ZI 不支持 `ZSH_THEME` 变量。
 
-要使用为 OMZ 创建的**主题**，它需要装入这些，这与 OMZ 在幕后做的相同。
+To use **themes** created for OMZ, it requires loading shown below as it would be the same as OMZ does in the background.
 
 > 有些主题可能需要额外的配置，它可以从主题配置文件中确定。
 

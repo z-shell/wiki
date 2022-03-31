@@ -1,4 +1,40 @@
 {
+  "homepage.feature1.title": {
+    "message": "Zsh Startup 50-80% Faster",
+    "description": "Title of feature 1 (left) on the home page"
+  },
+  "home.fetaure1": {
+    "message": "Instant prompt postponing plugins loading to a moment when the processing of .zshrc file is finished.",
+    "description": "Description of first featured banner in homepage"
+  },
+  "homepage.feature2.title": {
+    "message": "Focus on What Matters",
+    "description": "Title of feature 2 (middle) on the home page"
+  },
+  "home.fetaure2": {
+    "message": "Statistics about the plugins, describing what functions, bindkeys, completions, and other elements a plugin has set up.",
+    "description": "Description of second featured banner in homepage"
+  },
+  "homepage.feature3.title": {
+    "message": "Wide Range of Features",
+    "description": "Title of feature 3 (right) on the home page"
+  },
+  "home.fetaure3": {
+    "message": "Supports Oh-My-Zsh and Prezto - not framework-specific. Produce your plugins, libraries, and themes effortlessly.",
+    "description": "Description of third featured banner in homepage"
+  },
+  "homepage.button": {
+    "message": "💢 Make it work, make it right, make it Fast 💢",
+    "description": "The homepage button to wiki introduction"
+  },
+  "theme.ErrorPageContent.title": {
+    "message": "This page crashed.",
+    "description": "The title of the fallback page when the page crashed"
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "Try again",
+    "description": "The label of the button to try again when the page crashed"
+  },
   "theme.NotFound.title": {
     "message": "Strona nie została znaleziona",
     "description": "The title of the 404 page"
@@ -10,6 +46,18 @@
   "theme.NotFound.p2": {
     "message": "Proszę skontaktuj się z właścielem strony, z której link doprowadził Cię tutaj i poinformuj ich, że odnośnik jest nieprawidłowy.",
     "description": "The 2nd paragraph of the 404 page"
+  },
+  "theme.blog.archive.title": {
+    "message": "Archive",
+    "description": "The page & hero title of the blog archive page"
+  },
+  "theme.blog.archive.description": {
+    "message": "Archive",
+    "description": "The page & hero description of the blog archive page"
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "Scroll back to top",
+    "description": "The ARIA label for the back to top button"
   },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
     "message": "Zamknij",
@@ -31,6 +79,10 @@
     "message": "{readingTime} min aby przeczytać|{readingTime} min aby przeczytać|{readingTime} min aby przeczytać",
     "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
+  "theme.blog.post.readMoreLabel": {
+    "message": "Read more about {title}",
+    "description": "The ARIA label for the link to full blog posts from excerpts"
+  },
   "theme.blog.post.readMore": {
     "message": "Czytaj więcej",
     "description": "The label used in blog post item excerpts to link to full blog posts"
@@ -46,6 +98,10 @@
   "theme.blog.post.paginator.olderPost": {
     "message": "Starszy posty",
     "description": "The blog post button label to navigate to the older/next post"
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": "Blog recent posts navigation",
+    "description": "The ARIA label for recent posts in the blog sidebar"
   },
   "theme.blog.post.plurals": {
     "message": "Jeden post|{count} posty|{count} postów",
@@ -70,6 +126,10 @@
   "theme.CodeBlock.copy": {
     "message": "Kopiuj",
     "description": "The copy button label on code blocks"
+  },
+  "theme.docs.DocCard.categoryDescription": {
+    "message": "{count} items",
+    "description": "The default description for a category card in the generated index about how many items this category includes"
   },
   "theme.docs.sidebar.expandButtonTitle": {
     "message": "Rozszerz boczny panel",
@@ -98,6 +158,21 @@
   "theme.docs.sidebar.collapseButtonAriaLabel": {
     "message": "Zwiń boczny panel",
     "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.DocSidebarItem.toggleCollapsedCategoryAriaLabel": {
+    "message": "Toggle the collapsible sidebar category '{label}'",
+    "description": "The ARIA label to toggle the collapsible sidebar category"
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "One doc tagged|{count} docs tagged",
+    "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": "{nDocsTagged} with \"{tagName}\"",
+    "description": "The title of the page for a docs tag"
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "Version: {versionLabel}"
   },
   "theme.docs.versions.unreleasedVersionLabel": {
     "message": "Ta dokumentacja dotyczy najnowszej i nieopublikowanej jeszce wersji {siteTitle} ({versionLabel}).",
@@ -135,13 +210,45 @@
     "message": "Ostatnia aktualizacja{atDate}{byUser}",
     "description": "The sentence used to display when a page has been last updated, and by who"
   },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "message": "← Back to main menu",
+    "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
+  },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "message": "Versions",
+    "description": "The label for the navbar versions dropdown on mobile view"
+  },
   "theme.common.skipToMainContent": {
     "message": "Przejdź do głównej zawartości",
     "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
   },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "On this page",
+    "description": "The label used by the button on the collapsible TOC component"
+  },
   "theme.tags.tagsListLabel": {
     "message": "Tagi:",
     "description": "The label alongside a tag list"
+  },
+  "theme.colorToggle.ariaLabel": {
+    "message": "Switch between dark and light mode (currently {mode})",
+    "description": "The ARIA label for the navbar color mode toggle"
+  },
+  "theme.colorToggle.ariaLabel.mode.dark": {
+    "message": "dark mode",
+    "description": "The name for the dark color mode"
+  },
+  "theme.colorToggle.ariaLabel.mode.light": {
+    "message": "light mode",
+    "description": "The name for the light color mode"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "Languages",
+    "description": "The label for the mobile language switcher dropdown"
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "One document found|{count} documents found",
+    "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
   "theme.SearchPage.existingResultsTitle": {
     "message": "Wyniki wyszukiwania dla \"{query}\"",
@@ -171,6 +278,9 @@
     "message": "Pobieranie nowych wyników…",
     "description": "The paragraph for fetching new search results"
   },
+  "theme.SearchBar.seeAll": {
+    "message": "See all {count} results"
+  },
   "theme.SearchBar.label": {
     "message": "Szukaj",
     "description": "The ARIA label and placeholder for search button"
@@ -186,6 +296,26 @@
   "theme.PwaReloadPopup.closeButtonAriaLabel": {
     "message": "Zamknij",
     "description": "The ARIA label for close button of PWA reload popup"
+  },
+  "theme.IdealImageMessage.loading": {
+    "message": "Loading...",
+    "description": "When the full-scale image is loading"
+  },
+  "theme.IdealImageMessage.load": {
+    "message": "Click to load{sizeMessage}",
+    "description": "To prompt users to load the full image. sizeMessage is a parenthesized size figure."
+  },
+  "theme.IdealImageMessage.offline": {
+    "message": "Your browser is offline. Image not loaded",
+    "description": "When the user is viewing an offline document"
+  },
+  "theme.IdealImageMessage.404error": {
+    "message": "404. Image not found",
+    "description": "When the image is not found"
+  },
+  "theme.IdealImageMessage.error": {
+    "message": "Error. Click to reload",
+    "description": "When the image fails to load for unknown error"
   },
   "theme.tags.tagsPageTitle": {
     "message": "Tagi",
