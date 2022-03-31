@@ -27,6 +27,14 @@
     "message": "GitHub 讨论",
     "description": "The label of footer link with label=GitHub Discussions linking to https://github.com/z-shell/community/discussions"
   },
+  "link.item.label.Matrix.org": {
+    "message": "Matrix.org",
+    "description": "The label of footer link with label=Matrix.org linking to https://matrix.to/#/#zi:matrix.org"
+  },
+  "link.item.label.Twitter.com": {
+    "message": "Twitter.com",
+    "description": "The label of footer link with label=Twitter.com linking to https://twitter.com/zshell_zi/"
+  },
   "link.item.label.GitHub Organization": {
     "message": "GitHub 组织",
     "description": "The label of footer link with label=GitHub Organization linking to https://github.com/z-shell/"
@@ -42,5 +50,9 @@
   "copyright": {
     "message": "Copyright © 2022 Digital Clouds, Z-Shell ❮ ZI ❯ Community.",
     "description": "The footer copyright"
+  },
+  "link.item.label.Crowdin Enterprice": {
+    "message": "Crowdin 企业版",
+    "description": "The label of footer link with label=Crowdin Enterprice linking to https://digitalclouds.crowdin.com/z-shell/"
   }
 }
