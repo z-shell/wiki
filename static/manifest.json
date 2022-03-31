@@ -13,6 +13,10 @@
     {
       "platform": "webapp",
       "url": "https://z.digitalclouds.dev/manifest.json"
+    },
+    {
+      "platform": "webapp",
+      "url": "https://distributions.crowdin.net/e-fb044b4ddbd7ca7159bc3b30oa/manifest.json"
     }
   ],
   "icons": [

@@ -16,18 +16,11 @@ const config = {
   projectName: 'zw',
   organizationName: 'z-shell',
   staticDirectories: ['static'],
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'ja', 'ru', 'zh-Hans'],
-  },
-  scripts: [
-    {
-      async: true,
-      src: 'https://kit.fontawesome.com/a6c194e645.js',
-      crossorigin: 'anonymous',
-    },
-  ],
+  i18n: {defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans']},
+  scripts: [{async: true, src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous'}],
+  clientModules: [require.resolve('./src/OTAClient.ts')],
   plugins: [
+    ['ideal-image', {max: 1030, min: 640, disableInDev: false}],
     [
       'content-docs',
       {
@@ -49,60 +42,16 @@ const config = {
         debug: false,
         offlineModeActivationStrategies: ['appInstalled', 'standalone', 'queryString'],
         pwaHead: [
-          {
-            tagName: 'link',
-            rel: 'icon',
-            href: '/zw/logo.svg',
-          },
-          {
-            tagName: 'link',
-            rel: 'manifest',
-            href: '/manifest.json',
-          },
-          {
-            tagName: 'link',
-            rel: 'browserconfig',
-            href: '/browserconfig.xml',
-          },
-          {
-            tagName: 'meta',
-            name: 'theme-color',
-            content: 'rgb(35, 184, 152)',
-          },
-          {
-            tagName: 'meta',
-            name: 'apple-mobile-web-app-capable',
-            content: 'yes',
-          },
-          {
-            tagName: 'meta',
-            name: 'apple-mobile-web-app-status-bar-style',
-            content: '#000',
-          },
-          {
-            tagName: 'link',
-            rel: 'apple-touch-icon',
-            href: '/zw/logo.png',
-          },
-          {
-            tagName: 'meta',
-            name: 'msapplication-TileImage',
-            content: '/zw/logo.png',
-          },
-          {
-            tagName: 'meta',
-            name: 'msapplication-TileColor',
-            content: '#000',
-          },
+          {tagName: 'link', rel: 'icon', href: '/zw/logo.svg'},
+          {tagName: 'link', rel: 'manifest', href: '/manifest.json'},
+          {tagName: 'link', rel: 'browserconfig', href: '/browserconfig.xml'},
+          {tagName: 'meta', name: 'theme-color', content: 'rgb(35, 184, 152)'},
+          {tagName: 'meta', name: 'apple-mobile-web-app-capable', content: 'yes'},
+          {tagName: 'meta', name: 'apple-mobile-web-app-status-bar-style', content: '#000'},
+          {tagName: 'link', rel: 'apple-touch-icon', href: '/zw/logo.png'},
+          {tagName: 'meta', name: 'msapplication-TileImage', content: '/zw/logo.png'},
+          {tagName: 'meta', name: 'msapplication-TileColor', content: '#000'},
         ],
-      },
-    ],
-    [
-      'ideal-image',
-      {
-        max: 1030,
-        min: 640,
-        disableInDev: false,
       },
     ],
   ],
@@ -135,14 +84,8 @@ const config = {
             return `https://github.com/z-shell/zw/tree/main/${blogDirPath}/${blogPath}`;
           },
         },
-        googleAnalytics: {
-          trackingID: 'G-MT10GVL59X',
-          anonymizeIP: true,
-        },
-        gtag: {
-          trackingID: 'G-MT10GVL59X',
-          anonymizeIP: true,
-        },
+        googleAnalytics: {trackingID: 'G-MT10GVL59X', anonymizeIP: true},
+        gtag: {trackingID: 'G-MT10GVL59X', anonymizeIP: true},
       },
     ],
   ],
@@ -163,11 +106,7 @@ const config = {
       metadata: [{name: 'twitter:card', content: 'summary'}],
       autoCollapseSidebarCategories: true,
       hideableSidebar: true,
-      colorMode: {
-        defaultMode: 'dark',
-        disableSwitch: false,
-        respectPrefersColorScheme: true,
-      },
+      colorMode: {defaultMode: 'dark', disableSwitch: false, respectPrefersColorScheme: true},
       navbar: {
         hideOnScroll: true,
         title: '❮ ZI ❯',
@@ -198,7 +137,7 @@ const config = {
             position: 'right',
             dropdownItemsAfter: [
               {
-                href: 'https://digitalclouds.crowdin.com/z-shell',
+                href: 'https://crowdin.digitalclouds.dev/z-shell',
                 label: 'Help Us Translate',
               },
             ],
@@ -256,7 +195,7 @@ const config = {
                 href: 'https://github.com/z-shell/',
               },
               {
-                label: 'Crowdin Enterprice',
+                label: 'Crowdin Enterprise',
                 href: 'https://crowdin.digitalclouds.dev/z-shell/',
               },
             ],
