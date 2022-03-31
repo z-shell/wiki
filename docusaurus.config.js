@@ -18,7 +18,7 @@ const config = {
   staticDirectories: ['static'],
   i18n: {defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans']},
   scripts: [{async: true, src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous'}],
-  clientModules: [require.resolve('./src/OTAClient.ts')],
+  /*clientModules: [require.resolve('./src/OTAClient.ts')],*/
   plugins: [
     ['ideal-image', {max: 1030, min: 640, disableInDev: false}],
     [
