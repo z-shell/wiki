@@ -1,7 +1,6 @@
 import otaClient, {ClientConfig} from '@crowdin/ota-client';
 
 const config: ClientConfig = {
-  httpClient: customHttpClient,
   disableManifestCache: true,
   languageCode: 'en',
   disableStringsCache: true,

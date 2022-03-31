@@ -24,7 +24,6 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@crowdin/ota-client": "^0.7.0",
     "@docusaurus/core": "0.0.0-4814",
     "@docusaurus/plugin-ideal-image": "0.0.0-4814",
     "@docusaurus/plugin-pwa": "0.0.0-4814",
