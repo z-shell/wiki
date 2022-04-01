@@ -5,9 +5,7 @@ description: The Collection of Programs
 keywords: [collection, programs]
 ---
 
-:::info
-
-Related:
+:::info Related
 
 1. [Overview: as'program'][100]
 2. [Turbo and Lucid][101]
@@ -21,12 +19,26 @@ Related:
 
 :::
 
-:::tip
+:::tip Secure with specific version
 
-You can create your own syntax e.g:
+The `ver'…'` - allows to select specific version, branch or commit hash,
+also know as [permalink](https://docs.github.com/en/repositories/working-with-files/using-files/getting-permanent-links-to-files).
 
-> - The ver'master' - allows to select specific version or branch.
-> - It's optional and can be removed if not required.
+> It is recommended but not required (HEAD branch auto selected).
+
+Example:
+
+```shell
+zi wait lucid for \
+  ver'88f3dae4f5391db589257ea069ab8fe4717c22c6' \
+    z-shell/F-Sy-H
+```
+
+:::
+
+:::tip Your own style
+
+Command wrap example for cleaner or prefered syntax.
 
 ```shell
 z_lucid() {
@@ -44,7 +56,7 @@ zi_program() {
 
 Then load as:
 
-```shell
+```shel
 zi_program has'…'
 zi light …
 
@@ -157,77 +169,77 @@ zi ice as'program' from'gh-r' mv'gotcha_* -> gotcha'
 zi light b4b4r07/gotcha
 ```
 
-### SC: [molovo/revolver](https://github.com/molovo/revolver) {#sc-molovorevolver}
+### SC: [zdharma/revolver](https://github.com/zdharma/revolver)
 
 ```shell
 zi ice wait lucid as'program' pick'revolver'
-zi light molovo/revolver
+zi light zdharma/revolver
 ```
 
-### SC: [zunit-zsh/zunit](https://github.com/zunit-zsh/zunit) {#sc-zunit-zshzunit}
+### SC: [zdharma/zunit](https://github.com/zdharma/zunit)
 
 ```shell
 zi ice wait lucid as'program' pick'zunit' atclone'./build.zsh' atpull'%atclone'
-zi load @zunit-zsh/zunit
+zi load @zdharma/zunit
 ```
 
-### SC: [Osse/git-scripts/git-unique](https://github.com/Osse/git-scripts/blob/master/git-unique) {#sc-ossegit-scriptsgit-unique}
+### SC: [Osse/git-scripts/git-unique](https://github.com/Osse/git-scripts/blob/master/git-unique)
 
 ```shell
 zi ice as'program' id-as'git-unique' pick'git-unique'
 zi snippet https://github.com/Osse/git-scripts/blob/master/git-unique
 ```
 
-### SC: [mfaerevaag/wd](https://github.com/mfaerevaag/wd) {#sc-mfaerevaagwd}
+### SC: [mfaerevaag/wd](https://github.com/mfaerevaag/wd) 
 
 ```shell
 zi ice wait lucid as'program' cp'wd.sh -> wd' mv'_wd.sh -> _wd' atpull'!git reset --hard' pick'wd'
 zi light mfaerevaag/wd
 ```
 
-### SC: [z-shell/zsh-diff-so-fancy](https://github.com/z-shell/zsh-diff-so-fancy) {#sc-z-shellzsh-diff-so-fancy}
+### SC: [z-shell/zsh-diff-so-fancy](https://github.com/z-shell/zsh-diff-so-fancy) 
 
 ```shell
 zi ice wait lucid as'program' pick'bin/git-dsf'
 zi load z-shell/zsh-diff-so-fancy
 ```
 
-### SC: [obihann/archey-osx](https://github.com/obihann/archey-osx) {#sc-obihannarchey-osx}
+### SC: [obihann/archey-osx](https://github.com/obihann/archey-osx)
 
 ```shell
 zi ice wait lucid as'program' pick'bin/archey'
 zi light obihann/archey-osx
 ```
 
-### SC: [eth-p/bat-extras](https://github.com/eth-p/bat-extras) {#sc-eth-pbat-extras}
+### SC: [eth-p/bat-extras](https://github.com/eth-p/bat-extras)
 
 ```shell
 zi ice lucid wait as'program' has'bat' pick'src/*'
 zi light eth-p/bat-extras
 ```
 
-### SC: [paulirish/git-open](https://github.com/paulirish/git-open) {#sc-paulirishgit-open}
+### SC: [paulirish/git-open](https://github.com/paulirish/git-open)
 
 ```shell
 zi ice lucid wait as'program' has'git' atclone"cp git-open.1.md $ZPFX/man/man1/git-open.1" atpull'%atclone'
 zi light paulirish/git-open
 ```
 
-### SC: [LuRsT/hr](https://github.com/LuRsT/hr) {#sc-lursthr}
+### SC: [LuRsT/hr](https://github.com/LuRsT/hr)
 
 ```shell
 zi ice lucid wait as'program' atclone"cp hr.1 $ZPFX/man/man1" atpull'%atclone'
 zi light LuRsT/hr
 ```
 
-### SC: [z-shell/imgur-album-downloader](https://github.com/z-shell/imgur-album-downloader) {#sc-z-shellimgur-album-downloader}
+### SC: [z-shell/imgur-album-downloader](https://github.com/z-shell/imgur-album-downloader)
 
 ```shell
 zi ice lucid wait as'program' has'python3' pick'imguralbum.py'
 zi light z-shell/imgur-album-downloader
 ```
 
-### SC: [Seirdy/stpv](https://github.com/Seirdy/stpv) {#sc-seirdystpv}
+### SC: [Seirdy/stpv](https://github.com/Seirdy/stpv)
 
 ```shell
 zi ice lucid wait as'program' has'fzf' pick'fzfp'
@@ -244,14 +256,14 @@ zi ice lucid wait as'program' pick'stpv'
 zi light Seirdy/stpv
 ```
 
-### SC: [exiftool/exiftool](https://github.com/exiftool/exiftool) {#sc-exiftoolexiftool}
+### SC: [exiftool/exiftool](https://github.com/exiftool/exiftool)
 
 ```shell
 zi ice lucid wait as'program' has'perl' has'convert' pick'exiftool'
 zi light exiftool/exiftool
 ```
 
-### SC: [smxi/inxi](https://github.com/smxi/inxi) {#sc-smxiinxi}
+### SC: [smxi/inxi](https://github.com/smxi/inxi)
 
 ```shell
 if [ -z "$SSH_CONNECTION" ]; then
@@ -260,28 +272,28 @@ if [ -z "$SSH_CONNECTION" ]; then
 fi
 ```
 
-### SC: [dylanaraps/pash](https://github.com/dylanaraps/pash) {#sc-dylanarapspash}
+### SC: [dylanaraps/pash](https://github.com/dylanaraps/pash)
 
 ```shell
 zi ice lucid wait as'program' has'gpg'
 zi light dylanaraps/pash
 ```
 
-### SC: [hackerb9/lsix](https://github.com/hackerb9/lsix) {#sc-hackerb9lsix}
+### SC: [hackerb9/lsix](https://github.com/hackerb9/lsix)
 
 ```shell
 zi ice lucid wait as'program' has'mogrify'
 zi light hackerb9/lsix
 ```
 
-### SC: [denilsonsa/prettyping](https://github.com/denilsonsa/prettyping) {#sc-denilsonsaprettyping}
+### SC: [denilsonsa/prettyping](https://github.com/denilsonsa/prettyping)
 
 ```shell
 zi ice lucid wait as'program' pick'prettyping' has'ping'
 zi light denilsonsa/prettyping
 ```
 
-### SC: [greymd/tmux-xpanes](https://github.com/greymd/tmux-xpanes) {#sc-greymdtmux-xpanes}
+### SC: [greymd/tmux-xpanes](https://github.com/greymd/tmux-xpanes)
 
 ```shell
 zi ice lucid wait as'program' has'tmux' pick'bin/xpanes'
@@ -474,16 +486,24 @@ zi from"gh-r" as"null" for \
   sbin"**/exa -> exa" atclone"cp -vf completions/exa.zsh _exa" ogham/exa
 ```
 
-### SC: [molovo/revolver](https://github.com/molovo/revolver), [zunit-zsh/zunit](https://github.com/zunit-zsh/zunit)
+### SC: [zdharma/revolver](https://github.com/zdharma/revolver), [zdharma/zunit](https://github.com/zdharma/zunit)
 
 ```shell
 zi wait lucid for \
   as'program' atclone'ln -sfv revolver.zsh-completion _revolver' \
   atpull'%atclone' pick'revolver' \
-    @molovo/revolver \
+    @zdharma/revolver \
   as'completion' atclone'./build.zsh; ln -sfv zunit.zsh-completion _zunit' \
   atpull'%atclone' sbin'zunit' \
     @zunit-zsh/zunit
+```
+
+### GH-R: [yarnpkg/yarn](https://github.com/pnpm/pnpm)
+
+```shell
+zi light-mode for from'gh-r' as'program' atinit'export PNPM_HOME="$PWD"; export PATH="$PNPM_HOME:$PATH"' \
+  mv'pnpm* -> pnpm' pick'pnpm' bpick'*-linux-x64' atclone'pnpm add -g pnpm' atpull'%atclone' \
+    pnpm/pnpm
 ```
 
 ### GH-R: [yarnpkg/yarn](https://github.com/yarnpkg/yarn)
@@ -497,7 +517,7 @@ zi light-mode for from'gh-r' as'program' \
 ### SC: [tj/n](https://github.com/tj/n)
 
 ```shell
-zi light-mode for as'program' atinit'export N_PREFIX="$HOME/n"; \
+zi light-mode for as'program' atinit'export N_PREFIX="$PWD/n"; \
 [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"' pick"bin/n" \
     tj/n
 ```
