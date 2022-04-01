@@ -10,13 +10,17 @@ on:
     paths: ['docs/**', 'community/**', 'src/**', 'blog/**']
 
 jobs:
-  crowdin-push:
+  crowdin:
     runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
     steps:
       - name: '⤵️ Check out code from GitHub'
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
       - name: '🚀 Run Crowdin action'
         uses: crowdin/github-action@1.4.7
         with:
