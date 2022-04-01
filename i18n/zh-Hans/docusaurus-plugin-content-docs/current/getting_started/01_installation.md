@@ -20,7 +20,7 @@ keywords:
 | [Direct][6]:        | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
 - 如果你遇到了任何问题，请发起 [issue][7]。
-- [Translate](https://digitalclouds.crowdin.com/z-shell).
+- [Translate](https://crowdin.digitalclouds.dev/z-shell).
 
 ## 快速安装
 

@@ -68,7 +68,7 @@ In such case you can directly use the function that implements the ice – it is
 
 It recognizes the following options:
 
-1. `--auto` – runs the automatic extraction.
+1. If no archive files will be discovered then no action is being performed and also no warning message is being printed.
 2. `--move` – performs the one-directory-level-up move of the files after unpacking.
 3. `--norm` - prevents the archive file removal.
 4. And also one option specific only to the function: `--nobkp`, which prevents clearing of the plugin's dir before the extraction – normally all the files except the archive are being moved into `._backup` directory and after that the extraction is performed. - `extract` ice also skips creating the backup **if** more than one archive is found or given as the argument.
@@ -241,7 +241,7 @@ zi ice wait'0' # or just: zi ice wait
 zi light wfxr/forgit
 ```
 
-- waits for prompt,
+- The directory-level limit is to skip extraction of some helper archive files, which are typically located somewhere deeper in the directory tree.
 - instantly ("0" seconds) after prompt loads given plugin.
 
 ```shell
@@ -249,11 +249,11 @@ zi ice wait'[[ -n ${ZLAST_COMMANDS[(r)cras*]} ]]'
 zi light z-shell/zi-crasis
 ```
 
-- `$ZLAST_COMMANDS` is an array build by [**F-Sy-H**][2], it contains commands currently entered at prompt,
+- The directory-level requirement is imposed also during this stage - files located deeper in the tree than in a sub-directory are omitted.
 - `(r)` searches for element that matches given pattern (`cras*`) and returns it,
 - `-n` means: not-empty, so it will be true when users enters "cras",
 - after 1 second or less, ZI will detect that `wait'…'` condition is true, and load the plugin, which provides command _crasis_,
-- Screencast that presents the feature: [![screencast][3]][4]
+- Screencast that presents the feature: [![screencast][2]][4]
 
 ```shell
 zi ice wait'[[ $PWD = */github || $PWD = */github/* ]]'
@@ -419,7 +419,7 @@ zi snippet OMZ::lib
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
-- (1) Note that `atload'…'` uses apostrophes not double quotes, to literally put `$f` into the string, `atload`'s code is automatically being run **within the snippet's (or plugin's) directory**.
+- waits for prompt,
 - (2) Unless you load a plugin (not a snippet) with `zi load …` and prepend the value of the ice with exclamation mark. Example: `atload'!local f; for …'`.
 
 ### The `multisrc'…'` ice
@@ -595,10 +595,9 @@ zi ice load'![[ $MYPROMPT = 4 ]]' unload'![[ $MYPROMPT != 4 ]]' \
 zi load romkatv/powerlevel10k
 ```
 
-[3]: https://asciinema.org/a/149725.svg
+[2]: https://asciinema.org/a/149725.svg
 
 [1]: https://github.com/docker/compose
-[2]: https://github.com/z-shell/F-Sy-H
 [4]: https://asciinema.org/a/149725
 [5]: https://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions
 [6]: https://github.com/romkatv/powerlevel10k
