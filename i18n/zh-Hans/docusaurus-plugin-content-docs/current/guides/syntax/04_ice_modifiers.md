@@ -11,16 +11,26 @@ import APITable from '@site/src/components/APITable';
 
 Following ice modifiers are to be [passed](#alternate-syntax) to `zi ice …` to obtain described effects.
 
-The word `ice` means something that's added (like ice to a drink) – and in ZI it means adding a modifier to a next `zi` command, and also something that's temporary because it melts – and this means that the modification will last only for a **single** next `zi` command.
+The word `ice` means something that's added, like ice to a drink – and in ZI it means adding a modifier to a next `zi` command, and also something that's temporary because it melts – and this means that the modification will last only for a **single** next `zi` command.
 
-Some Ice-modifiers are highlighted and clicking on them will take you to the appropriate Wiki page for an extended explanation.
+Some ice modifiers are highlighted and clicking on them will take you to the appropriate Wiki page for an extended explanation.
 
 You may safely assume given ice works with both plugins and snippets unless explicitly stated otherwise.
 
-## Cloning options
+## Order of execution
 
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
+Order of execution of related ice modifiers is as follows:
+
+`atinit` -> `atpull!` -> `make'!!'` -> `mv` -> `cp` -> `make!` -> `atclone`/`atpull` -> `make` -> `(plugin script loading)` -> `src` -> `multisrc` -> `atload`.
+
+## A few remarks
+
+- The syntax automatically detects if the object is a snippet or a plugin, by checking if the object is an URL, i.e.: if it starts with `http*://` or `OMZ::`, etc.
+- To load a local-file snippet (which will be treaten as a local-directory plugin by default) use the `is-snippet` ice,
+- To load a plugin in `light` mode use the `light-mode` ice.
+- If the plugin name collides with an ice name, precede the plugin name with `@`, e.g.: `@sharkdp/fd` (collides with the `sh` ice, ZI will take the plugin name as `sh"arkdp/fd"`), see the next section for an example.
+
+## Cloning options
 
 <APITable>
 
@@ -80,7 +90,7 @@ You may safely assume given ice works with both plugins and snippets unless expl
 <APITable>
 
 | Modifier | Description                                                                                                                                                                                                                                                                                                 |
-|:--------:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| :------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `silent` | Mute plugin's or snippet's `stderr` & `stdout`. Also skip `Loaded …` message under prompt for `wait`, etc. loaded plugins, and completion-installation messages.                                                                                                                                            |
 | `lucid`  | Skip `Loaded …` message under prompt for `wait`, etc. loaded plugins (a subset of `silent`).                                                                                                                                                                                                                |
 | `notify` | Output given message under-prompt after successfully loading a plugin/snippet. In case of problems with the loading, output a warning message and the return code. If starts with `!` it will then always output the given message. Hint: if the message is empty, then it will just notify about problems. |
@@ -92,7 +102,7 @@ You may safely assume given ice works with both plugins and snippets unless expl
 <APITable>
 
 |    Modifier     | Description                                                                                                                                                                      |
-|:---------------:|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| :-------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |    `blockf`     | Disallow plugin to modify `fpath`. Useful when a plugin wants to provide completions in traditional way. ZI can manage completions and plugin can be blocked from exposing them. |
 | `nocompletions` | Don't detect, install and manage completions for this plugin. Completions can be installed later with `zi creinstall {plugin-spec}`.                                             |
 
@@ -103,7 +113,7 @@ You may safely assume given ice works with both plugins and snippets unless expl
 <APITable>
 
 |    Modifier    | Description                                                                                                                                                                                                                                                                                                  |
-|:--------------:|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| :------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |      `mv`      | Move file after cloning or after update (then, only if new commits were downloaded). Example: `mv "fzf-* -> fzf"`. It uses `->` as separator for old and new file names. Works also with snippets.                                                                                                           |
 |      `cp`      | Copy file after cloning or after update (then, only if new commits were downloaded). Example: `cp "docker-c* -> dcompose"`. Ran after `mv`.                                                                                                                                                                  |
 | [`atclone`][4] | Run command after cloning, within plugin's directory, e.g. `zi ice atclone"echo Cloned"`. Ran also after downloading snippet.                                                                                                                                                                                |
@@ -123,10 +133,12 @@ You may safely assume given ice works with both plugins and snippets unless expl
 <APITable>
 
 |    Modifier     | Description                                                                                                                                                                                                                                                                                                                                  |
-|:---------------:|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| :-------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |   `sh`, `!sh`   | Source the plugin's (or snippet's) script with `sh` emulation so that also all functions declared within the file will get a **sticky** emulation assigned – when invoked they'll execute also with the `sh` emulation set-up. The `!sh` version switches additional options that are rather not important from the portability perspective. |
 | `bash`, `!bash` | The same as `sh`, but with the `SH_GLOB` option disabled, so that Bash regular expressions work.                                                                                                                                                                                                                                             |
 |  `ksh`, `!ksh`  | The same as `sh`, but emulating `ksh` shell.                                                                                                                                                                                                                                                                                                 |
 |  `csh`, `!csh`  | The same as `sh`, but emulating `csh` shell.                                                                                                                                                                                                                                                                                                 |
 
 </APITable>
+
+<!-- End of 04_ice_modifiers.md -->
