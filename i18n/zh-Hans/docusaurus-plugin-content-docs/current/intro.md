@@ -55,7 +55,7 @@ import ZGitImg from '@site/static/zw/img/z_git.png';
 
 ## ⚡️ 快速且功能丰富
 
-- Copying files is safe for doing later updates – original files of the repository are unmodified and `Git` will report no conflicts.
+- [Meta plugins][16] allow installing groups of plugins via a single, friendly label.
 - [Packages][6] offload the user from providing long and complex commands.
 - [Annexes][5] allow to extend the plugin manager with new commands.
 - [Turbo][8] mode yields **50-80%** faster Zsh startup.
@@ -117,3 +117,4 @@ import ZGitImg from '@site/static/zw/img/z_git.png';
 [13]: /docs/getting_started/migration
 [14]: /docs/guides/commands#loading-and-unloading
 [15]: /docs/guides/commands#completions-management
+[16]: /search?q=meta+plugins
