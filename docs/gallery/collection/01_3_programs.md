@@ -56,7 +56,7 @@ zi_program() {
 
 Then load as:
 
-```shel
+```shell
 zi_program has'…'
 zi light …
 
