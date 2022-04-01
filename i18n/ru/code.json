@@ -136,7 +136,7 @@
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
   },
   "theme.docs.sidebar.expandButtonAriaLabel": {
-    "message": "Развернуть сайдбар",
+    "message": "Expand sidebar",
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
   },
   "theme.docs.paginator.navAriaLabel": {
@@ -156,7 +156,7 @@
     "description": "The title attribute for collapse button of doc sidebar"
   },
   "theme.docs.sidebar.collapseButtonAriaLabel": {
-    "message": "Свернуть сайдбар",
+    "message": "Collapse sidebar",
     "description": "The title attribute for collapse button of doc sidebar"
   },
   "theme.DocSidebarItem.toggleCollapsedCategoryAriaLabel": {
@@ -282,7 +282,7 @@
     "message": "See all {count} results"
   },
   "theme.SearchBar.label": {
-    "message": "Поиск",
+    "message": "Search",
     "description": "The ARIA label and placeholder for search button"
   },
   "theme.PwaReloadPopup.info": {
@@ -294,7 +294,7 @@
     "description": "The text for PWA reload button"
   },
   "theme.PwaReloadPopup.closeButtonAriaLabel": {
-    "message": "Закрыть",
+    "message": "Close",
     "description": "The ARIA label for close button of PWA reload popup"
   },
   "theme.IdealImageMessage.loading": {
