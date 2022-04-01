@@ -190,14 +190,14 @@ zi ice as'program' id-as'git-unique' pick'git-unique'
 zi snippet https://github.com/Osse/git-scripts/blob/master/git-unique
 ```
 
-### SC: [mfaerevaag/wd](https://github.com/mfaerevaag/wd) 
+### SC: [mfaerevaag/wd](https://github.com/mfaerevaag/wd)
 
 ```shell
 zi ice wait lucid as'program' cp'wd.sh -> wd' mv'_wd.sh -> _wd' atpull'!git reset --hard' pick'wd'
 zi light mfaerevaag/wd
 ```
 
-### SC: [z-shell/zsh-diff-so-fancy](https://github.com/z-shell/zsh-diff-so-fancy) 
+### SC: [z-shell/zsh-diff-so-fancy](https://github.com/z-shell/zsh-diff-so-fancy)
 
 ```shell
 zi ice wait lucid as'program' pick'bin/git-dsf'

@@ -17,7 +17,7 @@
     "write-community-version": "docusaurus docs:version:community",
     "crowdin:sync": "docusaurus write-translations && crowdin upload && crowdin download",
     "build:cf": "npm i -g pnpm && pnpm install -r --no-frozen-lockfile && pnpm build",
-    "check": "trunk check",
+    "check": "trunk check --all",
     "clean": "pnpm -s exec rm -rf node_modules build",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
