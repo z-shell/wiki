@@ -18,24 +18,8 @@ const config = {
   staticDirectories: ['static'],
   i18n: {defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans']},
   scripts: [{async: true, src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous'}],
-  /*clientModules: [require.resolve('./src/OTAClient.ts')],*/
   plugins: [
     ['ideal-image', {max: 1030, min: 640, disableInDev: false}],
-    [
-      'content-docs',
-      {
-        id: 'community',
-        path: 'community',
-        routeBasePath: 'community',
-        editUrl: ({locale, versionDocsDirPath, docPath}) => {
-          if (locale !== 'en') {
-            return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
-          }
-          return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
-        },
-        sidebarPath: require.resolve('./lib/js/sidebars_2.js'),
-      },
-    ],
     [
       'pwa',
       {
@@ -52,6 +36,21 @@ const config = {
           {tagName: 'meta', name: 'msapplication-TileImage', content: '/zw/logo.png'},
           {tagName: 'meta', name: 'msapplication-TileColor', content: '#000'},
         ],
+      },
+    ],
+    [
+      'content-docs',
+      {
+        id: 'community',
+        path: 'community',
+        routeBasePath: 'community',
+        sidebarPath: require.resolve('./lib/js/sidebars_2.js'),
+        editUrl: ({locale, versionDocsDirPath, docPath}) => {
+          if (locale !== 'en') {
+            return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
+          }
+          return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
+        },
       },
     ],
   ],
@@ -142,10 +141,10 @@ const config = {
               },
             ],
           },
-          {
+          /**{
             type: 'docsVersionDropdown',
             position: 'right',
-          },
+          },*/
           {
             href: 'https://github.com/z-shell/zi/',
             position: 'right',
