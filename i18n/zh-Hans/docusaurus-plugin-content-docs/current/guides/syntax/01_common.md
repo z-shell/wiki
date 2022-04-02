@@ -89,9 +89,9 @@ zi light tj/git-extras
 
 :::info
 
-[$ZPFX][8] is provided by ZI, it is set to `~/.zi/polaris` by default.
+[$ZPFX][8] 由 ZI 提供，默认设置为 `~/.zi/polaris`。
 
-However, it can be changed by specifying the custom `$ZPFX=` target if required.
+但是，如果需要，可以通过指定自定义 `$ZPFX=` 目标来更改它。
 
 :::
 
@@ -105,17 +105,17 @@ zi light vim/vim
 
 <APITable>
 
-| Syntax             | Description                                                                               |
+| 语法             | 描述                                                                               |
 | ------------------ | :---------------------------------------------------------------------------------------- |
-| `as'program'`      | Add file selected by `pick'…'` to `$PATH`, and do not source it.                          |
-| `atclone'…'`       | Execute code after downloading.                                                           |
-| `atpull'%atclone'` | Execute the same code `atclone'…'` is given, but after successful update.                 |
-| `make`             | Run `make` after `atclone'…'` and `atpull'…'` (note: `make'!'` will execute before them). |
-| `pick'src/vim'`    | Set executable flag on `src/vim`, hint that `src/` should be added to `$PATH`.            |
+| `as'program'`      | 添加被 `pick'…'` 选择的文件到 `$PATH` 同时不 source 它                          |
+| `atclone'…'`       | 在下载后执行代码                                                           |
+| `atpull'%atclone'` | 和 `atclone'…'` 行为类似，但仅在成功更新后执行                 |
+| `make`             | 在 `atclone'…'` 和 `atpull'…'` 之后运行 `make`（注意: `make'!'` 将会在他们之后执行)。 |
+| `pick'src/vim'`    | 在 `src/vim` 上设置可执行标签，注意 `src/` 应该被添加到 `$PATH`.            |
 
 </APITable>
 
-The same but with **installation** (`make install`) under [$ZPFX][8] by default:
+与上面的命令一样但会默认在 [$ZPFX][8] 下**安装**（`make install`）：
 
 ```shell
 zi ice as'program' atclone'rm -f src/auto/config.cache; \
@@ -123,13 +123,13 @@ zi ice as'program' atclone'rm -f src/auto/config.cache; \
 zi light vim/vim
 ```
 
-| Syntax             | Description                                                                                  |
-| ------------------ |:-------------------------------------------------------------------------------------------- |
-| `as'program'`      | As above.                                                                                    |
-| `atclone'…'`       | As above **plus** pass `--prefix=$ZPFX` to `./configure`, to set the installation directory. |
-| `atpull'%atclone'` | As above.                                                                                    |
-| `make`             | As above, but also run the `install` target.                                                 |
-| `pick'src/vim'`    | as above, but for different path `$ZPFX/bin/vim`.                                            |
+| Syntax             | Description                                                |
+| ------------------ |:---------------------------------------------------------- |
+| `as'program'`      | 如上所述。                                                      |
+| `atclone'…'`       | 和上面的一样，但**额外**传递 `--prefix=$ZPFX` 到 `./configure`，以设置安装目录。 |
+| `atpull'%atclone'` | 如上所述。                                                      |
+| `make`             | 和上面的一样，但运行 `install` 目标。                                   |
+| `pick'src/vim'`    | 和上面的一样，但使用不同的路径 `$ZPFX/bin/vim`.                           |
 
 ### LS_COLORS
 

@@ -1,21 +1,21 @@
 ---
-title: '♻️ Migration'
+title: '♻️ 迁移'
 image: zw/logo/320x320.png
-description: Migration guide to ZI
+description: 迁移到 ZI 的指南
 keywords:
   - migration
   - setup
 ---
 
-## OMZ Basics
+## OMZ 基础知识
 
-Raw Syntax with URL:
+URL 的原始语法：
 
 ```shell
 zi snippet <URL>
 ```
 
-OMZ Shorthand Syntax:
+OMZ 短语法：
 
 <https://github.com/ohmyzsh/ohmyzsh/raw/master/>
 
@@ -47,32 +47,32 @@ OMZT:
 zi snippet OMZT::<PATH>
 ```
 
-### OMZ Library
+### OMZ 库
 
-Importing the [clipboard][1] and [termsupport][2] from the OMZ library sample:
+从OMZ库样本中导入 [剪贴板][1] 和 [term 支持][2] 。
 
-Raw Syntax:
+原始语法：
 
 ```shell
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh
 ```
 
-OMZ Shorthand Syntax:
+OMZ 短语法：
 
 ```shell
 zi snippet OMZ::lib/clipboard.zsh
 zi snippet OMZ::lib/termsupport.zsh
 ```
 
-OMZL Shorthand Syntax:
+OMZL 缩写语法：
 
 ```shell
 zi snippet OMZL::clipboard.zsh
 zi snippet OMZL::termsupport.zsh
 ```
 
-### OMZ Plugins
+### OMZ 插件
 
 ```diff
 - plugins=(
@@ -92,13 +92,13 @@ zi snippet OMZL::termsupport.zsh
 
 :::tip
 
-Bundle multiple commands to a single file:
+将多个命令捆绑到单个文件：
 
 `zi snippet <some/path/or/url/bundled-snippets.zsh`
 
 :::
 
-Use `zi ice svn` if multiple files require an entire subdirectory.
+如果多个文件需要整个子目录，使用 `zi ice svn` 。
 
 - [gitfast][4]
 - [osx][5]
@@ -111,7 +111,7 @@ zi ice svn
 zi snippet OMZP::osx
 ```
 
-Use `zi ice as"completion"` to directly add single file completion snippets.
+使用 `zi ice as "completion"` 来直接添加单个文件的补全 snippet。
 
 - [docker][6]
 - [fd][7]
@@ -124,9 +124,9 @@ zi ice as"completion"
 zi snippet OMZP::fd/_fd
 ```
 
-[You can see an extended explanation of OMZ setup in the Wiki][8]
+[您可以在 Wiki 中查看 OMZ 设置的扩展说明][8]
 
-### Plugins
+### 插件
 
 ```diff
 - plugins=(
@@ -144,9 +144,9 @@ zi snippet OMZP::fd/_fd
 + zi snippet OMZP::ruby
 ```
 
-If it consists of a single file, with ZI you can just load it: `zi snippet <some/path/or/url/undled-snnippets.zsh`
+如果它由一个文件组成，用 ZI 你可以直接加载它。 `zi snippet <some/path/or/url/undled-snnippets.zsh`
 
-Use `zi ice svn` if multiple files require an entire subdirectory.
+如果多个文件需要整个子目录，使用 `zi ice svn` 。
 
 - [gitfast][4]
 - [osx][5]
@@ -159,7 +159,7 @@ zi ice svn
 zi snippet OMZP::osx
 ```
 
-Use `zi ice as"completion"` to directly add single file completion snippets.
+使用 `zi ice as "completion"` 来直接添加单个文件的补全 snippet。
 
 - [docker][6]
 - [fd][7]
@@ -172,40 +172,40 @@ zi ice as"completion"
 zi snippet OMZP::fd/_fd
 ```
 
-[You can see an extended explanation of OMZ setup in the Wiki][8]
+[您可以在 Wiki 中查看 OMZ 设置的扩展说明][8]
 
-### OMZ Themes
+### OMZ 主题
 
-Themes are stored in the `themes` directory. All and loaded in the background. with the simple syntax:
+主题存储在 `themes` 目录中。 全部都在后台加载，使用简单语法： 全部都在后台加载。 使用简单语法：
 
 ```shell
 ZSH_THEME="robbyrussell"
 ```
 
-However, ZI doesn't support the `ZSH_THEME` variable natively.
+但是， ZI 不支持 `ZSH_THEME` 变量。
 
 To use **themes** created for OMZ, it requires loading shown below as it would be the same as OMZ does in the background.
 
-> Some themes may require additional configuration it can be determined from the theme configuration file.
+> 有些主题可能需要额外的配置，它可以从主题配置文件中确定。
 
 - Load `Git` library
-- Load `Git` plugin
-- Enable `setopt promptsubst`
+- 加载 `Git` 插件
+- 启用 `setopt promptsubst`
 
-If any of the above are not in order or missing, the theme will break similar as shown below:
+如果上述任何一项不符合顺序或缺失，主题就会出现类似的中断，如下图所示。
 
 ```shell
 … $(build_prompt) …
 ```
 
-If the `Git` library is not loaded or loaded in the wrong order, then it may appear similar to the following:
+如果 `Git` 库没有被加载或加载顺序错误，那么可能会出现类似下面的情况。
 
 ```shell
 ........:1: command not found: git_prompt_status
 ........:1: command not found: git_prompt_short_sha
 ```
 
-All together it looks like this:
+总的来说看起来像这样：
 
 ```shell
 zi snippet OMZL::git.zsh
@@ -213,28 +213,28 @@ zi snippet OMZP::git
 zi cdclear -q
 ```
 
-Then load the prompt:
+然后加载提示符：
 
 ```shell
 setopt promptsubst
 zi snippet OMZT::robbyrussell
 ```
 
-### External theme sample: [NicoSantangelo/Alpharized][3]
+### 外部主题样本： [NicoSantangelo/Alpharized][3]
 
-Load with OMZ:
+使用 OMZ 加载：
 
 ```shell
 ZSH_THEME="alpharized"
 ```
 
-Load with ZI:
+使用 OMZ 加载：
 
 ```shell
 zi snippet OMZL::git.zsh
 ```
 
-Load `Git` plugin from OMZ:
+加载 `Git` 插件:
 
 ```shell
 zi snippet OMZP::git
@@ -247,58 +247,58 @@ zi light NicoSantangelo/Alpharized
 
 ## Prezto basics
 
-Raw Syntax with URL:
+URL 的原始语法：
 
 ```shell
 zi snippet <URL>
 ```
 
-Shorthand PZT: <https://github.com/sorin-ionescu/prezto/tree/master/>
+PZT 简写： <https://github.com/sorin-ionescu/prezto/tree/master/>
 
 ```shell
 zi snippet PZT::<PATH>
 ```
 
-Shorthand PZT/modules:
+PZT/modules 简称：
 
 ```shell
 zi snippet PZTM::<PATH>
 ```
 
-### Prezto modules
+### Prezto 模块
 
-Importing the [environment][9] and [terminal][10] Prezto Modules Sample:
+导入 [environment][9] 和 [terminal][10] Prezto 模块示例：
 
-Prezto Setting:
+Prezto 设置：
 
 ```shell
 zstyle ':prezto:load' pmodule 'environment' 'terminal'
 ```
 
-ZI Setting:
+ZI 设置：
 
-> Import raw syntax from URL.
+> 从 URL 导入原始语法。
 
 ```shell
 zi snippet https://github.com/sorin-ionescu/prezto/blob/master/modules/environment/init.zsh
 zi snippet https://github.com/sorin-ionescu/prezto/blob/master/modules/terminal/init.zsh
 ```
 
-PZT Shorthand Syntax:
+PZT 缩写语法：
 
 ```shell
 zi snippet PZT::modules/environment
 zi snippet PZT::modules/terminal
 ```
 
-PZTM Shorthand Syntax:
+PZTM 缩写语法：
 
 ```shell
 zi snippet PZTM::environment
 zi snippet PZTM::terminal
 ```
 
-Use `zi ice svn` if multiple files require an entire subdirectory.
+如果多个文件需要整个子目录，使用 `zi ice svn` 。
 
 - [docker][11]
 - [git][12]
@@ -311,16 +311,16 @@ zi ice svn
 zi snippet PZTM::git
 ```
 
-Use `zi ice as"null"` if don't exist `*.plugin.zsh`, `init.zsh`, `*.zsh-theme*` files in module.
+如果在模块中不存在匹配 `*.plugin.zsh`, `init.zsh`, `*.zsh-theme*` 的文件，使用 `zi ice as "null"`。
 
-- [archive][13]:
+- [归档][13]:
 
 ```shell
 zi ice svn as"null"
 zi snippet PZTM::archive
 ```
 
-Use `zi ice atclone"git clone <repo> <location>"` if module have external module.
+使用 `zi ice atclone "git clone <repo> <location>"` 如果模块有外部模块。
 
 - [completion][14]:
 
@@ -330,20 +330,20 @@ zi ice svn blockf \
 zi snippet PZTM::completion
 ```
 
-Use `blockf` to prevent any unnecessary additions to fpath, as ZI manages fpath.
+使用 `blockf` 来防止对 fpath 的任何不必要的添加，因为 ZI 管理着 fpath。
 
 :::tip
 
-What is `zstyle`?
+什么是 `zstyle`?
 
-- Official (zsh.sourceforge.net): [zstyle][15]
+- 官方 (zsh.sourceforge.net): [zstyle（英语）][15]
 - StackExchange: [What does `zstyle` do?][16]
 
 :::
 
 ## Zgen
 
-### Load OMZ library
+### 加载 OMZ 库
 
 ```diff
 - zgen oh-my-zsh
@@ -351,7 +351,7 @@ What is `zstyle`?
 + zi snippet OMZL::<ANY OF THEM>
 ```
 
-### Load OMZ plugins
+### 加载 OMZ 插件
 
 ```diff
 - zgen oh-my-zsh <PATH>
@@ -359,7 +359,7 @@ What is `zstyle`?
 + zi snippet OMZP::<PATH>
 ```
 
-### Load Prezto modules
+### 加载 Prezto 模块
 
 ```diff
 - zgen prezto
@@ -383,7 +383,7 @@ What is `zstyle`?
 + zi snippet PZTM::<modulename>
 ```
 
-Load repositories as prezto plugins:
+将库作为 Prezto 插件加载：
 
 ```diff
 - zgen pmodule <reponame> <branch>
@@ -392,11 +392,11 @@ Load repositories as prezto plugins:
 + zi load <repo/plugin>
 ```
 
-### Summarized Zgen
+### 摘要 Zgen
 
 :::info
 
-For the `location`: refer [selection of files][17]
+对于 `location`：参考 [文件的选择][17]。
 
 :::
 
@@ -407,7 +407,7 @@ For the `location`: refer [selection of files][17]
 + zi load <repo>
 ```
 
-## Zplug Basics
+## Zplug 基础知识
 
 ```diff
 - zplug <repo/plugin>, tag1:<option1>, tag2:<option2>
@@ -416,7 +416,7 @@ For the `location`: refer [selection of files][17]
 + zi load <repo/plugin>
 ```
 
-### Tag comparison
+### 标签比较
 
 - `as` => `as`
 - `use` => `pick`, `src`, `multisrc`

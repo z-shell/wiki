@@ -196,7 +196,7 @@ cask, cf, chattr zsh-users/zsh-completions
 …
 ```
 
-You can show more completions per line by providing an **argument** to `clist`, e.g. `zi clist 6`, will show:
+你可以通过提供一个**参数**让 `clist` 在每行显示更多不全，例如：`zi clist 6`，将显示：
 
 ```shell
 …
@@ -206,11 +206,11 @@ console, dad, debuild, dget, dhcpcd, diana zsh-users/zsh-completions
 …
 ```
 
-### Enabling / disabling - completions
+### 启用/禁用 - 补全
 
-Completions can be disabled so that e.g. original Zsh completion will be used.
+可以禁用补全功能，这样就可以使用原始的 Zsh 补全功能。
 
-The commands are very basic, they only need completion **name**:
+这些命令非常基本，它们只有**名称**的补全。
 
 ```shell {1,3}
 $ zi cdisable cmake
@@ -219,13 +219,13 @@ $ zi cenable cmake
 Enabled cmake completion belonging to zsh-users/zsh-completions
 ```
 
-That’s all on completions. There’s one more command, `zi csearch`, that will **search** all plugin directories for available completions, and show if they are installed:
+关于补全的信息就到这里。 There’s one more command, `zi csearch`, that will **search** all plugin directories for available completions, and show if they are installed:
 
-This sums up complete control over completions.
+至此，你已经了解了补全控制的一切。
 
-## The subversion for subdirectories
+## 对子目录的 subversion
 
-In general, to use **subdirectories** of Github projects as snippets add `/trunk/{path-to-dir}` to URL, for example:
+一般来说，要使用 **Github项目的子目录** 作为 snippet，在URL中添加 `/trunk/{path-to-dir}` ，比如说：
 
 ```shell
 zi ice svn
@@ -243,29 +243,29 @@ zi ice svn
 zi snippet PZT::modules/docker
 ```
 
-Snippets too have completions installed by default, like plugins.
+插件也有默认安装的补全，像插件一样。
 
 ## Turbo 模式（Zsh >= 5.3）
 
 The ice-mod `wait` allows the user to postpone the loading of a plugin to the moment when the processing of `.zshrc` is finished and the first prompt is being shown.
 
-It is like Windows – during startup, it shows desktop even though it still loads data in the background.
+它就像 Windows 一样——在启动过程中，它显示桌面，尽管它仍然在后台加载数据。
 
-This has drawbacks but is for sure better than a blank screen for 10 minutes. And here, in ZI, there are no drawbacks of this approach – no lags, freezes, etc. – the command line is fully usable while the plugins are being loaded, for any number of plugins.
+这有缺点，但肯定比 10 分钟的空白屏幕要好。 And here, in ZI, there are no drawbacks of this approach – no lags, freezes, etc. – the command line is fully usable while the plugins are being loaded, for any number of plugins.
 
 :::info
 
-Turbo will speed up Zsh startup by **50%–80%**. For example, instead of 200 ms, it'll be 40 ms.
+Turbo 模式会加速 Zsh 启动速度 **50%–80%**。 比如，将从 200 ms 提速到 40 ms。
 
 :::
 
 :::note
 
-Zsh 5.3 or greater is required.
+需要 Zsh 5.3 或更高版本。
 
 :::
 
-To use this Turbo mode add `wait` ice to the target plugin in one of the following ways:
+要使用 Turbo 模式，向目标插件添加 `wait` ice 修饰符是一种方式。
 
 ```shell
 PS1="READY > "
@@ -273,27 +273,27 @@ zi ice wait'!0'
 zi load halfo/lambda-mod-zsh-theme
 ```
 
-This sets plugin `halfo/lambda-mod-zsh-theme` to be loaded `0` seconds after `zshrc`.
+这设置了插件 `halfo/lambda-mod-zsh-theme` 在加载 `zshrc` 加载完毕 `0` 秒后再加载。
 
-It will fire up after c.a. 1 ms of showing the basic prompt `READY >`.
+It will fire up after c.a. 它在大约 1 ms 后启动 在大约 1 ms 后显示基本提示：`READY >`.
 
-You probably won't load the prompt in such a way, however, it is a good example in which Turbo can be directly observed.
+你可能不会以这种方式加载提示符，但是，这是使用 Turbo 模式的极佳示例。
 
-The exclamation mark causes ZI to reset the prompt after loading the plugin – it is needed for themes. The same with Prezto prompts, with a longer delay:
+感叹号让 ZI 加载完毕插件时重置提示符——主题需要该功能。 The same with Prezto prompts, with a longer delay:
 
 ```shell
 zi ice svn silent wait'!1' atload'prompt smiley'
 zi snippet PZT::modules/prompt
 ```
 
-Using `zsh-users/zsh-autosuggestions` without any drawbacks:
+使用 `zsh-users/zsh-autosuggestions` 避免任何缺点:
 
 ```shell
 zi ice wait lucid atload'_zsh_autosuggest_start'
 zi light zsh-users/zsh-autosuggestions
 ```
 
-Explanation:
+解释：
 
 Autosuggestions use the `precmd` hook, which is being called right after processing `zshrc` – `precmd` hooks are being called **right before displaying each prompt**.
 
@@ -303,11 +303,11 @@ Turbo with the empty `wait` ice will postpone the loading `1` ms after that, so 
 
 The ice `lucid` causes the under-prompt message saying `Loaded zsh-users/zsh-autosuggestions` that normally appears for every Turbo-loaded plugin to not show.
 
-## A Quick Glance At [`for`][14] syntax
+## 快速浏览 [`for`][14] 语法
 
-This introduction is based on the classic, two-command syntax (`zi ice …; zi load/light/snippet …`) of ZI. However, there's also available a recently added so-called _for-syntax_.
+该介绍基于经典的，双命令的 ZI 语法 (`zi ice …; zi load/light/snippet …`)。 However, there's also available a recently added so-called _for-syntax_.
 
-It is the right moment to take a glance at it, by rewriting the above autosuggestions invocation using it:
+是时候一瞥 for 了，可以这样重写上面的 autosuggestions 调用：
 
 ```shell
 zi wait lucid atload'_zsh_autosuggest_start' light-mode for zsh-users/zsh-autosuggestions
@@ -325,7 +325,7 @@ To make the prompt fully initialized after Turbo loading in the middle of the pr
 
 首先，通过检查 `$precmd_functions` 数组找到钩子函数的名称。
 
-For example, for the `robobenklein/zinc` theme, they'll be two functions: `prompt_zinc_setup` and `prompt_zinc_precmd`:
+例如，对于 `robobenklein/zinc` 主题，它们将是两个函数。 `prompt_zinc_setup` 和 `prompt_zinc_precmd`。
 
 ```shell
 root@sg > ~ > print $precmd_functions < ✔ < 22:21:33
@@ -346,7 +346,7 @@ The exclamation mark in `atload'!…'` is to track the functions allowing the pl
 
 修饰符 `load` 和 `unload` 允许定义你希望插件何时激活或不激活。 For example:
 
-Load when in ~/tmp
+在 ~/tmp 中加载时
 
 ```shell {1}
 zi ice load'![[ $PWD = */tmp* ]]' unload'![[ $PWD != */tmp* ]]' \
@@ -375,7 +375,7 @@ zi load russjohnson/angry-fly-zsh
 
 :::tip
 
-See: [multiple prompts][15] for more information. It contains more real-world examples of a multi-prompt setup, which is being close to what the author uses in his setup.
+参见：[多个提示符][15]以了解更多信息。 It contains more real-world examples of a multi-prompt setup, which is being close to what the author uses in his setup.
 
 :::
 
@@ -503,7 +503,7 @@ Turbo 模式是提升性能的关键。
 
 :::note
 
-The `wait` and `wait"0"` is the same
+`wait` 和 `wait"0"` 等价
 
 :::
 
@@ -512,14 +512,14 @@ zi ice wait
 zi load z-shell/history-search-multi-word
 ```
 
-Load after 2 seconds:
+2秒后加载。
 
 ```shell
 zi ice wait"2"
 zi load z-shell/history-search-multi-word
 ```
 
-Also can be used in `light` and `snippet`:
+也可用于 `light` 和 `snippet`。
 
 ```shell
 zi ice wait
@@ -528,25 +528,25 @@ zi snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
 
 ### Lucid
 
-Turbo mode is verbose, so you need an option for quiet. To achieve this the `lucid` can be used.s
+Turbo 模式详细日志，所以需要一个安静选项。 为了实现这一点，可以使用 `lucid` 。
 
 ```shell
 zi ice wait lucid
 zi load z-shell/history-search-multi-word
 ```
 
-### Some examples with ZI
+### ZI 的一些示例
 
 安装 ZI 后，你可以开始向底部的 `~/.zshrc` 添加一些动作（加载一些插件）。
 
-Some examples: Load the pure theme, with the zsh-async library that's bundled with it.
+一些例子。 加载 pure 主题，以及与之捆绑的 zsh-async 库。
 
 ```shell title="~/.zshrc"
 zi ice pick"async.zsh" src"pure.zsh"
 zi light sindresorhus/pure
 ```
 
-### As glance at the <code>for</code> syntax
+### 一瞥 <code>for</code> 语法
 
 用一个命令加载上述所有的插件。
 
@@ -565,7 +565,7 @@ zi light-mode for \
     sindresorhus/pure
 ```
 
-Binary release in the archive, from GitHub-releases page. 在自动解压之后，提供 「fzf」程序。
+归档中的二进制发行版，来自 GitHub Release 页面。 在自动解压之后，提供 「fzf」程序。
 
 ```shell title="~/.zshrc"
 zi ice from"gh-r" as"program"
@@ -597,7 +597,7 @@ zi light vim/vim
 
 > 有一个默认的 make 目标，「install」，它可以构建脚本。
 
-The `make''` ice could also be: `make"install PREFIX=$ZPFX"`, if "install" wouldn't be the only, default target.
+`make''` ice 修饰符也可以像这样： `make"install PREFIX=$ZPFX"`，如果「install」不是唯一的默认的构建目标。
 
 ```shell title="~/.zshrc"
 zi ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
@@ -619,7 +619,7 @@ zi ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh" noco
 zi light trapd00r/LS_COLORS
 ```
 
-`make'!'` -> run make before `atclone` & `atpull`.
+`make'!` -> 运行 make 之前 `atclone` & `atpull`。
 
 ```shell
 zi ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' src"zhook.zsh"

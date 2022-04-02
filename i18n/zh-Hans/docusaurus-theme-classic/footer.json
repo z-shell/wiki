@@ -40,7 +40,7 @@
     "description": "The label of footer link with label=GitHub Organization linking to https://github.com/z-shell/"
   },
   "link.item.label.Crowdin Localization": {
-    "message": "Crowdin Localization",
+    "message": "Crowdin 本地化",
     "description": "The label of footer link with label=Crowdin Localization linking to https://crowdin.digitalclouds.dev/z-shell/"
   },
   "link.item.label.Privacy Policy": {
