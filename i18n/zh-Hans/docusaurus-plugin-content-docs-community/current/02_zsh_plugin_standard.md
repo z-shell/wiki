@@ -10,7 +10,7 @@ Historically, Zsh plugins were first defined by Oh My Zsh. 它们提供了一种
 
 At a simple level, a plugin:
 
-1. Has its directory added to `$fpath` ([Zsh documentation](http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions)). This is being done either by a plugin manager or by the plugin itself (see [5th section](#run-on-unload-call) for more information).
+1. Has its directory added to `$fpath` ([Zsh documentation](http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions)). 这被插件管理器或插件本身完成（见[第五节](#run-on-unload-call)查看更多信息）。
 
 2. Has it’s first `*.plugin.zsh` file sourced (or `*.zsh`, `init.zsh`, `*.sh`, these are non-standard).
 

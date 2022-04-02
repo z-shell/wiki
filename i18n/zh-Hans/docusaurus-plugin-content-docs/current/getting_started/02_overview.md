@@ -315,7 +315,7 @@ The ice `lucid` causes the under-prompt message saying `Loaded zsh-users/zsh-aut
 zi wait lucid atload'_zsh_autosuggest_start' light-mode for zsh-users/zsh-autosuggestions
 ```
 
-这种语法更加简洁。 一条命令可以相当于经典写法下的多条命令。 It also allows solving some typical problems when using ZI, like providing common/default ices for a set of plugins or sourcing multiple files with [`src''` ice][13]. For more information refer to the page dedicated to the syntax ([here][14]).
+这种语法更加简洁。 一条命令可以相当于经典写法下的多条命令。 It also allows solving some typical problems when using ZI, like providing common/default ices for a set of plugins or sourcing multiple files with [`src''` ice][13]. 更多信息请参考专门介绍 for 语法的页面（[这里][14]）。
 
 ## 具有复杂提示的 Turbo 启动
 
