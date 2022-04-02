@@ -11,7 +11,7 @@
     Z-Shell Wiki
   </h2>
 <h3>
-  <a href="https://github.com/z-shell/community/discussions/">《❔》Ask a Question </a>
+  <a href="https://github.com/orgs/z-shell/discussions/">《❔》Ask a Question </a>
   <a href="https://z.digitalclouds.dev/search/">《💡》Search Wiki </a>
   <a href="https://github.com/z-shell/community/issues/new?assignees=&labels=%F0%9F%91%A5+member&template=membership.yml&title=team%3A+">《💜》Join </a>
   <a href="https://digitalclouds.crowdin.com/z-shell/">《🌐》Localize </a>
