@@ -9,7 +9,7 @@ keywords:
 
 import APITable from '@site/src/components/APITable';
 
-Following ice modifiers are to be [passed](#alternate-syntax) to `zi ice …` to obtain described effects.
+Following ice modifiers are to be [passed][alternate-syntax] to `zi ice …` to obtain described effects.
 
 The word `ice` means something that's added, like ice to a drink – and in ZI it means adding a modifier to a next `zi` command, and also something that's temporary because it melts – and this means that the modification will last only for a **single** next `zi` command.
 
@@ -21,7 +21,11 @@ You may safely assume given ice works with both plugins and snippets unless expl
 
 Order of execution of related ice modifiers is as follows:
 
-`atinit` -> `atpull!` -> `make'!!'` -> `mv` -> `cp` -> `make!` -> `atclone`/`atpull` -> `make` -> `(plugin script loading)` -> `src` -> `multisrc` -> `atload`.
+```shell
+  atinit'' → atpull'!' → make'!!' → mv'' → cp'' → make'!' →
+  atclone''/atpull'' → make'!' → <plugin script loading> →
+  src'' → multisrc'' → atload''
+```
 
 ## A few remarks
 
@@ -47,7 +51,7 @@ Order of execution of related ice modifiers is as follows:
 
 </APITable>
 
-## Selection of files (`source '…'`)
+## Selection of files (source '…')
 
 <APITable>
 
@@ -142,3 +146,5 @@ Order of execution of related ice modifiers is as follows:
 </APITable>
 
 <!-- End of 04_ice_modifiers.md -->
+
+[alternate-syntax]: /docs/guides/syntax/common#the-alternative-syntaxes
