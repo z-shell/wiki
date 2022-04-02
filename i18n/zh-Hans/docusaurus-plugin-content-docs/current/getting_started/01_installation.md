@@ -1,60 +1,60 @@
 ---
-title: '⚡️ Installation'
+title: '⚡️ 安装'
 sidebar_position: 1
 image: zw/logo/320x320.png
-description: Installation Guide
+description: 安装指南
 keywords:
   - installation
   - setup
 ---
 
-## Available installer links
+## 可用的安装源
 
-[![⚙️ Install Library][1]][2] | [Status page: :heavy_check_mark:](https://digitalclouds.dev/status)
+[![⚙️ 安装库][1]][2] | [状态页: :heavy_check_mark:](https://digitalclouds.dev/status)
 
-| Service             | URL                                                                       |
-|:------------------- | ------------------------------------------------------------------------- |
-| [Git.io][3]:        | <https://git.io/get-zi>                                                   |
-| [GitHub][4]:        | <https://z-shell.pages.dev/i-hub>                                         |
-| [GitLab Mirror][5]: | <https://z-shell.pages.dev/i-lab>                                         |
-| [Direct][6]:        | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
+| 域名              | URL                                                                       |
+|:--------------- | ------------------------------------------------------------------------- |
+| [Git.io][3]:    | <https://git.io/get-zi>                                                   |
+| [GitHub][4]:    | <https://z-shell.pages.dev/i-hub>                                         |
+| [GitLab 镜像][5]: | <https://z-shell.pages.dev/i-lab>                                         |
+| [直链下载][6]:      | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
-- Report an [issue][7].
-- [Translate](https://digitalclouds.crowdin.com/z-shell).
+- 如果你遇到了任何问题，请发起 [issue][7]。
+- [Translate](https://crowdin.digitalclouds.dev/z-shell).
 
-## Quick installation
+## 快速安装
 
-Add minimal configuration:
+添加最小化配置。
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" --
 ```
 
-Skip configuration. Just clone or update repository:
+跳过配置。 只克隆或更新仓库。
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip
 ```
 
-Minimal configuration + annexes:
+最小化配置 + annexes。
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a annex
 ```
 
-Minimal configuration + annexes + zunit:
+最小化配置 + annexes + zunit。
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zunit
 ```
 
-Minimal configuration with loader:
+最小化配置以及 loader。
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a loader
 ```
 
-Suggest your .zshrc configuration to: <https://github.com/z-shell/playground>
+推荐将你的 .zshrc 配置保存至：<https://github.com/z-shell/playground>
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a ???
@@ -62,7 +62,7 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a ???
 
 :::tip
 
-If required append `-b <tag>` or `-b <branch>` e.g:
+如果需要，可以添加 `-b <tag>` 或 `-b <branch>`，例如:
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip -b main
@@ -70,35 +70,35 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip -b main
 
 :::
 
-## Manual installation
+## 手动安装
 
-Clone repository:
+克隆仓库
 
 ```shell
 zi_home="${HOME}/.zi" && mkdir -p $zi_home
 git clone https://github.com/z-shell/zi.git "${zi_home}/bin"
 ```
 
-Source `zi.zsh` from your `.zshrc`:
+在 `.zshrc` 中 source `zi.zsh`。
 
 ```shell
 zi_home="${HOME}/.zi"
 source "${zi_home}/bin/zi.zsh"
 ```
 
-Next two lines must be below the above two:
+以下代码需要紧跟上方代码。
 
 ```shell
 autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 ```
 
-## Post-installation
+## 安装完毕
 
-Reload the shell with `exec zsh` and compile ZI with `zi self-update`.
+通过 `exec zsh` 重载 shell，通过 `zi self-update` 编译 ZI。
 
-> - Support required: [Gitee.com/z-shell](https://gitee.com/z-shell).
-> - Join [/r/gitee](https://www.reddit.com/r/gitee/) or start a [discussion](https://github.com/z-shell/zi/discussions/new) on GitHub.
+> - 需要贡献者：[Gitee.com/z-shell](https://gitee.com/z-shell)。
+> - 加入 [/r/gitee](https://www.reddit.com/r/gitee/) 或者在 GitHub 上发起[讨论](https://github.com/z-shell/zi/discussions/new)。
 
 [1]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml/badge.svg?branch=main
 [2]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml

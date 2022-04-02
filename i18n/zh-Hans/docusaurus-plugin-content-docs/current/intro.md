@@ -50,8 +50,7 @@ The [Rust](https://crates.io) packages are managed by the [rust annex][4].
   </TabItem>
   <TabItem value="github" label="GitHub" default>
 
-Install and control almost everything from [GitHub](https://github.com): [Annexes][5], [Packages][6], [Gallery of
-Invocations][7].
+从 [GitHub]（https://github.com）安装和控制几乎所有东西。 [Annexes][5]、[包管理][6]、[用例示范][7]。
 
 </TabItem>
 </Tabs>

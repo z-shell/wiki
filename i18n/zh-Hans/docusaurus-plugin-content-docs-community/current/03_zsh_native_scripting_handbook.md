@@ -1,6 +1,6 @@
 ---
 id: zsh_handbook
-title: Zsh Native Scripting Handbook
+title: Zsh 原生脚本手册
 ---
 
 ## Information

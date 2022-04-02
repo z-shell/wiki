@@ -1,9 +1,9 @@
 ---
 id: common
-title: '🔀 Common Syntax'
+title: '🔀 常用语法'
 sidebar_position: 1
 image: zw/logo/320x320.png
-description: The Fundamental ZI syntax
+description: 基本 ZI 语法
 keywords:
   - syntax
   - how-to-use
@@ -13,11 +13,11 @@ import APITable from '@site/src/components/APITable';
 
 :::tip
 
-It is recommended to familiarize with [getting_started/oveview][9] before this.
+建议在此之前熟悉 [getting_started/oveview][9]。
 
 :::
 
-## Standart syntax
+## 标准语法
 
 ```shell
 zi …
@@ -28,7 +28,7 @@ zi unload …
 zi snippet …
 ```
 
-The normal way of specifying ices and their values:
+指定 ice 修饰符选项和参数的一般方法：
 
 ```shell
 zi wait"1" from"gh-r" atload"print Hello World"
@@ -37,52 +37,52 @@ zi load …
 
 :::note
 
-There's no `ice` subcommand - that is currently being fully allowed.
+不需要 `ice` 子命令——这是完全允许的。
 
 :::
 
-## The alternative syntaxes
+## 可选的语法
 
-However, ZI supports also other syntaxes: the equal (`=`) syntax:
+当然，ZI 也支持其他语法，其中之一的等号（`=`）语法：
 
 ```shell
 zi wait=1 from=gh-r atload="print Hello World"
 zi load …
 ```
 
-The colon (`:`) syntax:
+冒号（`:`）语法：
 
 ```shell
 zi wait:1 from:gh-r atload:"print Hello World"
 zi load …
 ```
 
-And also – in conjunction with all of the above – the GNU syntax:
+以及，结合以上内容的，GNU 语法：
 
 ```shell
 zi --wait=1 --from=gh-r --atload="print Hello World"
 zi load …
 ```
 
-### Summary
+### 摘要
 
-It's up to the user which syntax to choose.
+选择哪种语法取决于用户。
 
-The original motivation behind the standard syntax was: to utilize the syntax highlighting of editors like Vim – and have the strings following ice names colorized with a distinct color and this way separated from them. However, with the \[zi/zi-vim-syntax\]\[11\] syntax definition this motivation can be superseded with the ZI-specific highlighting, at least for Vim.
+标准语法背后的最初动机是：支持 Vim 等编辑器的语法高亮——和让 ice 后面的字符串用不同的颜色高亮，以做区分。 但是，对 \[zi/zi-vim-syntax\]\[11\] 语法的定义，该动机可以被 ZI 特定的高亮配置所取代，至少对于 Vim 而言。
 
-### The make syntax
+### Make 语法
 
 ```shell
 zi ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
 zi light tj/git-extras
 ```
 
-The `Makefile` of the project above has only 2 tasks:
+上面项目的 `Makefile` 只有 2 个任务：
 
-1. Install the target.
-2. Build scripts that are required for installation.
+1. 安装目标。
+2. 构建安装所需的脚本。
 
-The `Makefile` with 2 tasks, can use:
+`Makefile` 有 2 个任务，可以使用：
 
 1. `make"all install PREFIX=…"`,
 2. `pick'…'` will `chmod +x` all matching files and add `$ZPFX/bin/` to `$PATH`.

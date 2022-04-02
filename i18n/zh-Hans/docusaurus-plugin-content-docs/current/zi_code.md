@@ -33,7 +33,7 @@ Documentation automatically updated every `Thursday 4:30 UTC` at [z-shell/docs][
 | File                                | Description                                                                                                                                                                                             |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Zsh Plugin Standart][22]           | Proposed enhancements and codifications of the definition of a "Zsh the plugin" and the actions of plugin managers – standardization. The document covers the information on how to write a Zsh plugin. |
-| [Zsh Native Scripting Handbook][23] | Handbook to keep Zsh constructs that are fast, robust, and do not depend on external tools. Such code is similar to Ruby or Perl and less like top-down shell scripts.                                  |
+| [Zsh 原生脚本手册][23]    | 手册保证 Zsh 脚本结构快速，健壮，不依赖外部工具。 Such code is similar to Ruby or Perl and less like top-down shell scripts.                                  |
 
 </APITable>
 

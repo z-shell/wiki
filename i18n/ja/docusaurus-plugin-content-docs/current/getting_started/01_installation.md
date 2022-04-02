@@ -12,43 +12,43 @@ keywords:
 
 [![⚙️ Install Library][1]][2] | [Status page: :heavy_check_mark:](https://digitalclouds.dev/status)
 
-| Service             | URL                                                                       |
+| サービス                | URL                                                                       |
 |:------------------- | ------------------------------------------------------------------------- |
 | [Git.io][3]:        | <https://git.io/get-zi>                                                   |
 | [GitHub][4]:        | <https://z-shell.pages.dev/i-hub>                                         |
 | [GitLab Mirror][5]: | <https://z-shell.pages.dev/i-lab>                                         |
 | [Direct][6]:        | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
-- Report an [issue][7].
+- インストール時に問題が発生した場合には、こちらに [issue][7] を立てていただけると幸いです。
 - [Translate](https://digitalclouds.crowdin.com/z-shell).
 
 ## Quick installation
 
-Add minimal configuration:
+最低限の設定:
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" --
 ```
 
-Skip configuration. Just clone or update repository:
+Skip configuration. リポジトリのクローンとアップデートのみ:
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip
 ```
 
-Minimal configuration + annexes:
+最低限の設定 + annexes:
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a annex
 ```
 
-Minimal configuration + annexes + zunit:
+最低限の設定 + annexes + zunit:
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zunit
 ```
 
-Minimal configuration with loader:
+'loader'を使った最低限の設定:
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a loader
