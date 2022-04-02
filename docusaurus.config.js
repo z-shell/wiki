@@ -17,7 +17,8 @@ const config = {
   organizationName: 'z-shell',
   staticDirectories: ['static'],
   i18n: {defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans']},
-  clientModules: [require.resolve('./src/fa/js/all.js'), require.resolve('./src/fa/css/all.css')],
+  scripts: [{src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous'}],
+  /*clientModules: [require.resolve('./src/fa/js/all.js'), require.resolve('./src/fa/css/all.css')],*/
   plugins: [
     ['ideal-image', {max: 1030, min: 640, disableInDev: false}],
     [
@@ -194,7 +195,7 @@ const config = {
                 href: 'https://github.com/z-shell/',
               },
               {
-                label: 'Crowdin Enterprise',
+                label: 'Crowdin Localization',
                 href: 'https://crowdin.digitalclouds.dev/z-shell/',
               },
             ],
