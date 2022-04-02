@@ -56,11 +56,13 @@ indent_size = 4
 charset = utf-8
 indent_style = space
 indent_size = 2
+max_line_length = 120
 
 [CHANGELOG.md]
 indent_style = tab
 indent_size = 4
-[*]
+
+[*.{c++,cc,cpp,cxx,h,h++,hh,hpp,hxx,inl,ipp,tlh,tli}]
 cpp_indent_braces=false
 cpp_indent_multi_line_relative_to=innermost_parenthesis
 cpp_indent_within_parentheses=indent
