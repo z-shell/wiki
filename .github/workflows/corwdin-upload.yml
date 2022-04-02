@@ -1,13 +1,11 @@
 ---
-name: '🌐 Crowdin'
+name: '🌐 Crowdin Upload'
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 */3 * * *'
   push:
     branches: ['main']
-    paths: ['docs/**', 'community/**', 'src/**', 'blog/**', 'i18n/**']
+    paths: ['docs/**', 'community/**', 'src/pages/**', 'blog/**']
 
 env:
   GITHUB_TOKEN: ${{ secrets.GH_PAT }}
@@ -36,25 +34,4 @@ jobs:
           # import_eq_suggestions: true
           # upload_translations_args: '--auto-approve-imported --translate-hidden'
           download_translations: false
-
-  download:
-    runs-on: ubuntu-latest
-    needs: [upload]
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
-    timeout-minutes: 30
-    steps:
-      - name: '⤵️ Check out code from GitHub'
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: '🚀 Crowdin Download'
-        uses: crowdin/github-action@1.4.7
-        with:
-          upload_sources: false
-          upload_translations: false
-          download_translations: true
-          # skip_untranslated_strings: true
-          # skip_untranslated_files: true
-          # export_only_approved: true
-          # download_translations_args: '--all --skip-untranslated-strings'
+          push_translations: false
