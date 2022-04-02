@@ -1,0 +1,42 @@
+{
+  "version.label": {
+    "message": "下一頁",
+    "description": "The label for version current"
+  },
+  "sidebar.autoSideBar_1.category.🚀 Getting Started": {
+    "message": "🚀 Getting Started",
+    "description": "The label for category 🚀 Getting Started in sidebar autoSideBar_1"
+  },
+  "sidebar.autoSideBar_1.category.💡 Guides": {
+    "message": "💡 Guides",
+    "description": "The label for category 💡 Guides in sidebar autoSideBar_1"
+  },
+  "sidebar.autoSideBar_1.category.✍️ Syntax": {
+    "message": "✍️ Syntax",
+    "description": "The label for category ✍️ Syntax in sidebar autoSideBar_1"
+  },
+  "sidebar.autoSideBar_1.category.✨ Gallery of Invocations": {
+    "message": "✨ Gallery of Invocations",
+    "description": "The label for category ✨ Gallery of Invocations in sidebar autoSideBar_1"
+  },
+  "sidebar.autoSideBar_1.category.✨ Collection": {
+    "message": "✨ Collection",
+    "description": "The label for category ✨ Collection in sidebar autoSideBar_1"
+  },
+  "sidebar.autoSideBar_1.category.🌐 Ecosystem": {
+    "message": "🌐 Ecosystem",
+    "description": "The label for category 🌐 Ecosystem in sidebar autoSideBar_1"
+  },
+  "sidebar.autoSideBar_1.category.💠 Annexes": {
+    "message": "💠 Annexes",
+    "description": "The label for category 💠 Annexes in sidebar autoSideBar_1"
+  },
+  "sidebar.autoSideBar_1.category.📦 Packages": {
+    "message": "📦 Packages",
+    "description": "The label for category 📦 Packages in sidebar autoSideBar_1"
+  },
+  "sidebar.autoSideBar_1.category.⚙️ Plugins & Modules": {
+    "message": "⚙️ Plugins & Modules",
+    "description": "The label for category ⚙️ Plugins & Modules in sidebar autoSideBar_1"
+  }
+}

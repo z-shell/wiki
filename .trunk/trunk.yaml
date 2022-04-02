@@ -18,6 +18,7 @@ lint:
         - src/**
         - i18n/**
         - build/**
+        - static/fa/**
         - .docusaurus/**
     - linters: [actionlint]
       paths:

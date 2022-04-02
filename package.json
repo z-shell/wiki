@@ -15,7 +15,7 @@
     "write-heading-ids": "docusaurus write-heading-ids",
     "write-docs-version": "docusaurus docs:version",
     "write-community-version": "docusaurus docs:version:community",
-    "crowdin:sync": "docusaurus write-translations && crowdin upload && crowdin download",
+    "crowdin:sync": "docusaurus write-translations && crowdin upload sources && crowdin download",
     "build:cf": "npm i -g pnpm && pnpm install -r --no-frozen-lockfile --strict-peer-dependencies && pnpm build",
     "check": "trunk check --all",
     "clean": "pnpm -s exec rm -rf node_modules build",
