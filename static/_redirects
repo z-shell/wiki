@@ -2,7 +2,7 @@
 /install https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
 /i-hub https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
 /i-lab https://gitlab.com/ss-o/zi-src/-/raw/main/lib/sh/install.sh
-/discussions https://github.com/z-shell/community/discussions
+/discussions https://github.com/orgs/z-shell/discussions
 /crowdin https://crowdin.digitalclouds.dev/z-shell
 /matrix https://matrix.to/#/#zi:matrix.org
 /twitter https://twitter.com/zshell_zi
