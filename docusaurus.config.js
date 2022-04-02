@@ -181,7 +181,7 @@ const config = {
             items: [
               {
                 label: 'GitHub Discussions',
-                href: 'https://github.com/orgs/z-shell/discussions',
+                href: 'https://github.com/orgs/z-shell/discussions/',
               },
               {
                 label: 'Matrix.org',
