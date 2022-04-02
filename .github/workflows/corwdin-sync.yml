@@ -29,12 +29,14 @@ jobs:
       - name: '🚀 Crowdin Upload'
         uses: crowdin/github-action@1.4.7
         with:
-          # upload_sources: true
+          upload_sources: true
           # upload_sources_args: '--no-auto-update label=web'
-          upload_translations: true
+          upload_translations: false
           # auto_approve_imported: false
           # import_eq_suggestions: true
           # upload_translations_args: '--auto-approve-imported --translate-hidden'
+          download_translations: false
+
   download:
     runs-on: ubuntu-latest
     needs: [upload]
@@ -43,6 +45,8 @@ jobs:
       - name: '🚀 Crowdin Download'
         uses: crowdin/github-action@1.4.7
         with:
+          upload_sources: false
+          upload_translations: false
           download_translations: true
           # skip_untranslated_strings: true
           # skip_untranslated_files: true
