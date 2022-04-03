@@ -10,13 +10,13 @@ keywords:
 
 ## 可用的安装源
 
-[![⚙️ 安装库][1]][2] | [状态页: :heavy_check_mark:](https://digitalclouds.dev/status)
+[![⚙️ 安装库][1]][2] | [Status page: :heavy_check_mark:](https://https://status.zshell.dev/)
 
 | 域名              | URL                                                                       |
 |:--------------- | ------------------------------------------------------------------------- |
 | [Git.io][3]:    | <https://git.io/get-zi>                                                   |
-| [GitHub][4]:    | <https://z-shell.pages.dev/i-hub>                                         |
-| [GitLab 镜像][5]: | <https://z-shell.pages.dev/i-lab>                                         |
+| [GitHub][4]:    | <https://z.digitalclouds.dev/i-hub>                                       |
+| [GitLab 镜像][5]: | <https://z.digitalclouds.dev/i-lab>                                       |
 | [直链下载][6]:      | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
 - 如果你遇到了任何问题，请发起 [issue][7]。
@@ -98,7 +98,7 @@ autoload -Uz _zi
 通过 `exec zsh` 重载 shell，通过 `zi self-update` 编译 ZI。
 
 > - 需要贡献者：[Gitee.com/z-shell](https://gitee.com/z-shell)。
-> - 加入 [/r/gitee](https://www.reddit.com/r/gitee/) 或者在 GitHub 上发起[讨论](https://github.com/z-shell/zi/discussions/new)。
+> - Join [/r/gitee](https://www.reddit.com/r/gitee/) or start a [discussion](https://github.com/orgs/z-shell/discussions/new) on GitHub.
 
 [1]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml/badge.svg?branch=main
 [2]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml

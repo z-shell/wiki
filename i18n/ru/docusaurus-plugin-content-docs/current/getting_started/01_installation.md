@@ -10,13 +10,13 @@ keywords:
 
 ## Available installer links
 
-[![⚙️ Install Library][1]][2] | [Status page: :heavy_check_mark:](https://digitalclouds.dev/status)
+[![⚙️ Install Library][1]][2] | [Status page: :heavy_check_mark:](https://https://status.zshell.dev/)
 
 | Service             | URL                                                                       |
 |:------------------- | ------------------------------------------------------------------------- |
 | [Git.io][3]:        | <https://git.io/get-zi>                                                   |
-| [GitHub][4]:        | <https://z-shell.pages.dev/i-hub>                                         |
-| [GitLab Mirror][5]: | <https://z-shell.pages.dev/i-lab>                                         |
+| [GitHub][4]:        | <https://z.digitalclouds.dev/i-hub>                                       |
+| [GitLab Mirror][5]: | <https://z.digitalclouds.dev/i-lab>                                       |
 | [Direct][6]:        | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
 - Report an [issue][7].
@@ -98,7 +98,7 @@ autoload -Uz _zi
 Reload the shell with `exec zsh` and compile ZI with `zi self-update`.
 
 > - Support required: [Gitee.com/z-shell](https://gitee.com/z-shell).
-> - Join [/r/gitee](https://www.reddit.com/r/gitee/) or start a [discussion](https://github.com/z-shell/zi/discussions/new) on GitHub.
+> - Join [/r/gitee](https://www.reddit.com/r/gitee/) or start a [discussion](https://github.com/orgs/z-shell/discussions/new) on GitHub.
 
 [1]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml/badge.svg?branch=main
 [2]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml
