@@ -36,7 +36,10 @@ function getText(node: ReactElement): string {
 
 const APITableRow = forwardRef(
   (
-    {name, children}: {name: string | undefined; children: ReactElement<ComponentProps<'tr'>>},
+    {
+      name,
+      children,
+    }: {name: string | undefined; children: ReactElement<ComponentProps<'tr'>>},
     ref: React.ForwardedRef<HTMLTableRowElement>,
   ) => {
     const entryName = getText(children);
@@ -69,16 +72,21 @@ const APITableRow = forwardRef(
  * should be generally correct in the MDX context.
  */
 export default function APITable({children, name}: Props): JSX.Element {
-  const [thead, tbody] = Children.toArray(children.props.children) as ReactElement[];
+  const [thead, tbody] = Children.toArray(
+    children.props.children,
+  ) as ReactElement[];
   const highlightedRow = useRef<HTMLTableRowElement>(null);
   useEffect(() => {
     highlightedRow.current?.focus();
   }, [highlightedRow]);
-  const rows = Children.map(tbody.props.children, (row: ReactElement<ComponentProps<'tr'>>) => (
-    <APITableRow name={name} ref={highlightedRow}>
-      {row}
-    </APITableRow>
-  ));
+  const rows = Children.map(
+    tbody.props.children,
+    (row: ReactElement<ComponentProps<'tr'>>) => (
+      <APITableRow name={name} ref={highlightedRow}>
+        {row}
+      </APITableRow>
+    ),
+  );
 
   return (
     <table className={styles.apiTable}>

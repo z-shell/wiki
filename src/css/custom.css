@@ -7,8 +7,12 @@
   --ifm-color-primary-darker: hsl(var(--site-primary-hue-saturation) 20%);
   --ifm-color-primary-darkest: hsl(var(--site-primary-hue-saturation) 17%);
   --ifm-color-primary-light: hsl(var(--site-primary-hue-saturation-light) 36%);
-  --ifm-color-primary-lighter: hsl(var(--site-primary-hue-saturation-light) 47%);
-  --ifm-color-primary-lightest: hsl(var(--site-primary-hue-saturation-light) 58%);
+  --ifm-color-primary-lighter: hsl(
+    var(--site-primary-hue-saturation-light) 47%
+  );
+  --ifm-color-primary-lightest: hsl(
+    var(--site-primary-hue-saturation-light) 58%
+  );
   --site-color-favorite-background: #f6fdfd;
   --site-color-tooltip: #fff;
   transition: 1s all;
@@ -20,8 +24,12 @@ html[data-theme='dark'] {
   --ifm-color-primary-darker: hsl(var(--site-primary-hue-saturation) 35%);
   --ifm-color-primary-darkest: hsl(var(--site-primary-hue-saturation) 30%);
   --ifm-color-primary-light: hsl(var(--site-primary-hue-saturation-light) 55%);
-  --ifm-color-primary-lighter: hsl(var(--site-primary-hue-saturation-light) 62%);
-  --ifm-color-primary-lightest: hsl(var(--site-primary-hue-saturation-light) 73%);
+  --ifm-color-primary-lighter: hsl(
+    var(--site-primary-hue-saturation-light) 62%
+  );
+  --ifm-color-primary-lightest: hsl(
+    var(--site-primary-hue-saturation-light) 73%
+  );
   --ifm-background-color: #0d1117;
   --ifm-background-surface-color: #161b22;
 }

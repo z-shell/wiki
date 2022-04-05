@@ -13,8 +13,8 @@ keywords: [installation, setup]
 | Service             | URL                                                                       |
 | :------------------ | ------------------------------------------------------------------------- |
 | [Git.io][3]:        | <https://git.io/get-zi>                                                   |
-| [GitHub][4]:        | <https://z.digitalclouds.dev/i-hub>                                         |
-| [GitLab Mirror][5]: | <https://z.digitalclouds.dev/i-lab>                                         |
+| [GitHub][4]:        | <https://z.digitalclouds.dev/i-hub>                                       |
+| [GitLab Mirror][5]: | <https://z.digitalclouds.dev/i-lab>                                       |
 | [Direct][6]:        | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
 - Report an [issue][7].
