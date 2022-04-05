@@ -33,7 +33,7 @@ You can find the available packages
 |    [firefox-dev][17]     | The Firefox Developer Edition                                                                    |
 |        [zsh][18]         | The Zsh mirror of zsh-users                                                                      |
 |         [nb][19]         | Bookmarking, and archiving with linking, tagging, search, Git syncing, Pandoc conversion, + more |
-
+|      [zsh-bin][20]       | Package of statically-linked, hermetic, relocatable - romkatv/zsh-bin                            |
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
@@ -59,3 +59,4 @@ You can find the available packages
 [17]: https://github.com/z-shell/firefox-dev
 [18]: https://github.com/z-shell/zsh
 [19]: https://github.com/z-shell/nb
+[20]: https://github.com/z-shell/zsh-bin
