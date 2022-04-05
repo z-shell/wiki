@@ -184,11 +184,11 @@ ZSH_THEME="robbyrussell"
 
 但是， ZI 不支持 `ZSH_THEME` 变量。
 
-To use **themes** created for OMZ, it requires loading shown below as it would be the same as OMZ does in the background.
+要使用为 OMZ 创建的**主题** ，需要加载这些，这与 OMZ 在幕后中所做的相同。
 
 > 有些主题可能需要额外的配置，它可以从主题配置文件中确定。
 
-- Load `Git` library
+- 加载 `Git` 插件
 - 加载 `Git` 插件
 - 启用 `setopt promptsubst`
 
@@ -245,7 +245,7 @@ setopt promptsubst
 zi light NicoSantangelo/Alpharized
 ```
 
-## Prezto basics
+## Prezto 基础知识
 
 URL 的原始语法：
 
@@ -337,7 +337,7 @@ zi snippet PZTM::completion
 什么是 `zstyle`?
 
 - 官方 (zsh.sourceforge.net): [zstyle（英语）][15]
-- StackExchange: [What does `zstyle` do?][16]
+- StackExchange: [`zstyle` 做了什么?][16]
 
 :::
 

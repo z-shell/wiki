@@ -133,11 +133,11 @@ zi light vim/vim
 
 ### LS_COLORS
 
-A repository [trapd00r/LS_COLORS][1] provides a file with color definitions for GNU `ls` command, and also for [ogham/exa][2].
+项目 [trapd00r/LS_COLORS][1] 提供了一个包含 GNU `ls` 命令以及 [ogham/exa][2] 颜色定义的文件。
 
-Typically one does `eval $( dircolors -b $HOME/LS_COLORS)` to process this file and set the environment for `ls`. This means `dircolors` is run every shell startup.
+通常会执行 `eval $( dircolors -b $HOME/LS_COLORS)` 来处理此文件并为 `ls` 设置环境。 这意味着 `dircolors` 在每次 shell 启动时运行。
 
-This costs much time because a fork has to be done and the program, i.e. `dircolors`, binary needs to be loaded and executed, and because `dircolors` loads the colors' definitions and processes them. Following ZI invocation solves this problem:
+这花费了很多时间，因为必须完成一个 fork 程序，即 `dircolors`，二进制文件需要加载和执行，因为 `dircolors` 需要加载颜色的定义并处理它们。 以下 ZI 调用解决了此问题：
 
 ```shell
 zi ice atclone'dircolors -b LS_COLORS > clrs.zsh' \
@@ -154,11 +154,11 @@ zi light trapd00r/LS_COLORS
 
 | Syntax             | Description                                                                                                 |
 |--------------------|:------------------------------------------------------------------------------------------------------------|
-| `atclone'…'`       | Generate shell script, but instead of passing it to `eval`. More below: (1)                                 |
-| `atpull'%atclone'` | Do the same at any update of the plugin. More below: (2)                                                    |
-| `pick"clrs.zsh"`   | Source the previously generated file `clrs zsh`.                                                            |
-| `nocompile'!'`     | Invokes compilation **after** the `atclone'…'` [ice-modifier][3] and the [exclamation mark][4] causes this. |
-| `atload'…'`        | Additionally sets up the Zsh completion to use the colors provided by the trapd00r package.                 |
+| `atclone'…'`       | 生成 shell 脚本，不传递给 `eval`. 更多如下: (1)                                 |
+| `atpull'%atclone'` | 在每次插件更新时操作 更多如下：（2）                                                    |
+| `pick"clrs.zsh"`   | source 先前从 `clrs zsh` 生成的文件                                                            |
+| `nocompile'!'`     | 在 `atclone'…'` [ice 修饰符][3] **之后**编译，[感叹号][4] 开启了该选项 |
+| `atload'…'` | 此外，还设置 Zsh 补全以使用 trapd00r 包提供的颜色。                 |
 
 
 <!-- markdownlint-restore -->
@@ -166,16 +166,16 @@ zi light trapd00r/LS_COLORS
 
 </APITable>
 
-- (1) Save it to file. The `atclone'…'` is being ran on the **installation** while the `atpull'…'` hook is being run on an **update** of the [**trapd00r/LS_COLORS**][1] plugin.
-- (2) The `%atclone` is just a special string that denotes the `atclone'…'` hook and is copied onto the `atpull'…'` hook.
+- (1) 保存至文件。 Ice 修饰符 `atclone'…'` 正在执行**安装**操作，同时 `atpull'…'` 钩子正在**更新** [**trapd00r/LS_COLORS**][1] 插件。
+- (2) `%atclone` 只是一个特殊的字符串，表示 `atclone'…'` 钩子，并同时复制到 `atpull'…'` 钩子上。
 
-This way, except for the plugin installation and update, `dircolors` isn't ran, just normal sourcing is done.
+这样，除了插件安装和更新，`dircolors` 不会运行，仅正常添加 source。
 
-The everyday sourced file, i.e. `clrs.zsh`, is being compiled to speed up the loading.
+每天都会被 source 的文件，也就是 `clrs.zsh`，会被编译以提升加载速度。
 
 ### Direnv
 
-The project [**direnv/direnv**][5] registers itself in Z shell to modify the environment on directory change. This registration is most often done by `eval "$(direnv hook zsh)"` added to `.zshrc`.
+项目 [**direnv/direnv**][5] 在 Z-shell 中注册自己以在目录更改时修改环境。 注册通常由 `eval "$(dienv hook zsh)"` 添加到 `.zshrc` 中。
 
 ```shell
 zi ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
@@ -183,20 +183,20 @@ zi ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
 zi light direnv/direnv
 ```
 
-- `make'!'` – execute `make` before `atclone'…'` and before `atpull'…'` (see `make` above),
-- `src'zhook.zsh'` – source file `zhook.zsh`.
+- `make'!'`——在 `atclone'…'` 和 `atpull'…'` 之前执行 `make`（参考下面的 `make`），
+- `src'zhook.zsh'`—— source `zhook.zsh` 文件。
 
-In general, direnv works by hooking up to Zsh.
+一般来说，direnv 的工作原理是 hook Zsh。
 
-The code that does this is provided by program `direnv` (built by `make'…'`).
+此代码由程序 `direnv` 提供（由 `make"…"` 构建）。
 
-Above `atclone'…'` puts this code into file `zhook.zsh`, `src''` sources it.
+上方的 `atclone'…'` 将此代码放入 `zhook.zsh`，`src''` source 它。
 
-This way `direnv hook zsh` is executed only on clone and update, and Zsh starts faster.
+这样 ` direnv hook zsh` 只在 clone 或更新时执行 ，Zsh 启动的速度会更快。
 
-#### Glance at the 'for' syntax
+#### 一瞥「for」语法
 
-The drawback of this standard procedure is that the `direnv` binary is run on every shell startup and significantly slows it down. ZI allows to solve this in the following way:
+这个标准过程的缺点是 `direnv` 二进制文件在每次 shell 启动时运行，并且极大拖慢了 Zsh 的速度。 ZI 允许通过以下方式解决此问题：
 
 ```shell
 zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \

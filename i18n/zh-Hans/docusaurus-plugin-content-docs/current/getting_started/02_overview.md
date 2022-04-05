@@ -80,30 +80,30 @@ zi snippet PZT::modules/git
 
 ice 修饰符的参数可用以下方式添加：`"…"`, `'…'`, or `$'…'`。 在 ice-mod 名称之后不需要 `":"` （虽然不会报错，所以等号 `=`，例如 `pick="init.zsh"` 或 `pick=init.zsh` 会被正确识别）。
 
-This way editors like `vim` and `emacs` and also `zsh-users/zsh-syntax-highlighting` and `z-shell/F-Sy-H` will highlight contents of ice-modifiers.
+这样，像 `vim` 和 `emacs` 以及 `zsh-users/zsh-syntax-highlighting` 和 `z-shell/F-Sy-H` 这样的编辑器将突出显示 ice 修饰符的内容。
 
-## About as"program"
+## 关于 as"program"
 
-也许有的插件不作为 source 但作为添加到 `$PATH` 的命令。 To obtain this effect, use ice-modifier `as` with value `program` (or an alias value `command`).
+也许有的插件不作为 source 但作为添加到 `$PATH` 的命令。 要获得此效果，请使用 ice 修饰符 `as` 和参数 `program`（或别名 `command`）。
 
 ```shell
 zi ice as"program" cp"httpstat.sh -> httpstat" pick"httpstat"
 zi light b4b4r07/httpstat
 ```
 
-The above command will add plugin directory to `$PATH`, copy file `httpstat.sh` into `httpstat` and add execution rights (`+x`) to the file selected with `pick`, i.e. to `httpstat`. Another ice-mod exists, `mv`, which works like `cp` but **moves** a file instead of **copying** it. `mv` is ran before `cp`.
+上述命令会将插件目录添加到 `$PATH`，将文件 `httpstat.sh` 复制到 `httpstat` 并添加执行权限 (`+x`) 到使用 `pick` 选择的文件，即到 `httpstat`。 另一个 ice 修饰符是 `mv`，它的工作方式类似于 `cp` 但**移动**文件而不是**复制**文件。 `mv` 在 `cp` 之前运行。
 
 :::tip
 
-The `cp` and `mv` ices (and also as some other ones, like `atclone`) are being run when the plugin or snippet is being _installed_.s
+当插件或 snippet 正在安装 __.s 时，会运行 `cp` 和 `mv` 修饰符（以及其他一些 ice，如 `atclone`）
 
 要再次测试它们，请首先通过 `zi delete PZT::modules/osx` 删除（此处用 osx 插件举例）。
 
 :::
 
-## About - atpull"…"
+## 关于 atpull"…"
 
-Copying file is safe for doing later updates – original files of the repository are unmodified and `Git` will report no conflicts.
+复制文件对于以后的更新是安全的——存储库的原始文件未被修改，`Git` 不会报告冲突。
 
 当然，也可以使用 `mv` 搭配 `atpull`，该 ice 修饰符在**更新时**运行，例如：
 
@@ -113,15 +113,15 @@ zi ice as"program" mv"httpstat.sh -> httpstat" \
 zi light b4b4r07/httpstat
 ```
 
-如果 `atpull` 有感叹号前缀，那么它会在 `git pull` 之前执行，同时也在 `mv` 之前。 Nevertheless, `atpull`, `mv`, `cp` are run **only if new commits are to be fetched**.
+如果 `atpull` 有感叹号前缀，那么它会在 `git pull` 之前执行，同时也在 `mv` 之前。 同时，`atpull`、`mv`、`cp` **只会在获取了新提交时运行**。
 
-So in summary, when the user runs `zi update b4b4r07/httpstat` to update this plugin, and there are new commits, what happens first is that `git reset --hard` is run – and it **restores** original `httpstat.sh`, **then** `git pull` is ran and it downloads new commits (doing fast-forward), **then** `mv` is running again so that the command is `httpstat` not `httpstat.sh`.
+所以综上所述，当用户运行 `zi update b4b4r07/httpstat` 来更新这个插件，并且有新的提交时，首先运行的是 `git reset --hard`——它 **恢复了**原始的 `httpstat.sh`，**之后**运行 `git pull` 。并下载新提交（fast-forward），**再之后** `mv` 再次运行，因此命令是 `httpstat` 而不是 `httpstat.sh`。
 
-This way the `mv` ice can be used to induce permanent changes into the plugin's contents without blocking the ability to update it with `git` (or with `subversion` in case of snippets, more on this below).
+这样， `mv` ice 可用于对插件的内容进行永久更改，而不会阻止使用 `git` （或在对于 snippet，使用 `subversion` 进行更新）的能力，更多内容见下文）。
 
 :::info
 
-For exclamation marks to not be expanded by Zsh an interactive session, use `'…'` not `"…"` to enclose contents of `atpull` [ice-modifier](/search?q=ice-modifier).
+为了使感叹号不被 Zsh 在会话中展开。使用 `'…'` 不是 `"…"` 来包裹 `atpull` 的内容 [ice 操作符](/search?q=ice-modifier)。
 
 :::
 
@@ -146,7 +146,7 @@ Snippets 也支持 `atpull`，所以可以做到例如 `atpull'!svn revert'`。
 
 ## Snippet as'…' 补全
 
-By using the `as''` ice modifier with value `completion` you can point the `snippet` subcommand directly to a completion file:
+指定 `as''` ice 修饰符的值为 `completion` ，可以将 `snippet` 子命令直接指向补全文件：
 
 ```shell {2}
 zi ice as"completion"
@@ -155,14 +155,14 @@ zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_doc
 
 ## 补全管理
 
-ZI 允许关闭或打开每一个插件的补全。 试试安装提供补全的热门插件： Try installing a popular plugin that provides completions:
+ZI 允许关闭或打开每一个插件的补全。 试试安装提供补全的热门插件：
 
 ```shell {1}
 zi ice blockf
 zi light zsh-users/zsh-completions
 ```
 
-第一个命令，`blockf` ice 修饰符，将会阻止添加补全的传统方式。 ZI uses its method, based on symlinks instead of adding several directories to `$fpath`.
+第一个命令，`blockf` ice 修饰符，将会阻止添加补全的传统方式。 ZI 使用自身的方法，基于软链接而不是将多个目录添加到 `$fpath`。
 
 ZI 将自动**安装**新下载插件的补全。
 
@@ -196,7 +196,7 @@ cask, cf, chattr zsh-users/zsh-completions
 …
 ```
 
-你可以通过提供一个**参数**让 `clist` 在每行显示更多不全，例如：`zi clist 6`，将显示：
+你可以通过提供一个**参数**让 `clist` 在每行显示更多补全，例如：`zi clist 6`，将显示：
 
 ```shell
 …
@@ -219,7 +219,7 @@ $ zi cenable cmake
 Enabled cmake completion belonging to zsh-users/zsh-completions
 ```
 
-关于补全的信息就到这里。 There’s one more command, `zi csearch`, that will **search** all plugin directories for available completions, and show if they are installed:
+关于补全的信息就到这里。 还有一个命令 `zi csearch`，它将 **搜索** 所有插件目录中的可用补全，并显示它们是否已安装：
 
 至此，你已经了解了补全控制的一切。
 
@@ -234,7 +234,7 @@ zi snippet https://github.com/zsh-users/zsh-completions/trunk/src
 
 :::tip
 
-For Oh My Zsh and Prezto, the OMZ:: and PZT:: prefixes work without the need to add the `/trunk/` infix, however, the path should point to a directory, not to a file.
+对于 Oh My Zsh 和 Prezto，OMZ:: 和 PZT:: 前缀无需添加 `/trunk/` 中缀即可工作，但是路径应指向目录，而不是文件。
 
 :::
 
@@ -247,11 +247,11 @@ zi snippet PZT::modules/docker
 
 ## Turbo 模式（Zsh >= 5.3）
 
-The ice-mod `wait` allows the user to postpone the loading of a plugin to the moment when the processing of `.zshrc` is finished and the first prompt is being shown.
+Ice 修饰符 `wait` 允许用户将插件的加载推迟到 `.zshrc` 处理完成，并显示第一个提示时。
 
 它就像 Windows 一样——在启动过程中，它显示桌面，尽管它仍然在后台加载数据。
 
-这有缺点，但肯定比 10 分钟的空白屏幕要好。 And here, in ZI, there are no drawbacks of this approach – no lags, freezes, etc. – the command line is fully usable while the plugins are being loaded, for any number of plugins.
+这有缺点，但肯定比 10 分钟的空白屏幕要好。 更何况，在 ZI 中，这种方法没有任何缺点——没有滞后、卡顿——无论加载多少插件，加载时命令行都完全可用。
 
 :::info
 
@@ -275,11 +275,11 @@ zi load halfo/lambda-mod-zsh-theme
 
 这设置了插件 `halfo/lambda-mod-zsh-theme` 在加载 `zshrc` 加载完毕 `0` 秒后再加载。
 
-It will fire up after c.a. 它在大约 1 ms 后启动 在大约 1 ms 后显示基本提示：`READY >`.
+它将在不久之后启动 它在大约 1 ms 后启动 在大约 1 ms 后显示基本提示：`READY >`.
 
 你可能不会以这种方式加载提示符，但是，这是使用 Turbo 模式的极佳示例。
 
-感叹号让 ZI 加载完毕插件时重置提示符——主题需要该功能。 The same with Prezto prompts, with a longer delay:
+感叹号让 ZI 加载完毕插件时重置提示符——主题需要该功能。 与 Prezto 提示相同，但延迟更长：
 
 ```shell
 zi ice svn silent wait'!1' atload'prompt smiley'
@@ -295,17 +295,17 @@ zi light zsh-users/zsh-autosuggestions
 
 解释：
 
-Autosuggestions use the `precmd` hook, which is being called right after processing `zshrc` – `precmd` hooks are being called **right before displaying each prompt**.
+Autosuggestion 使用 `precmd` 钩子，在处理 `zshrc` 后——`precmd` 钩子立即在每个提示显示**之前调用**。
 
-Turbo with the empty `wait` ice will postpone the loading `1` ms after that, so `precmd` will not be called at that first prompt. This makes autosuggestions inactive at the first prompt.
+带有空 `wait` ice 的 Turbo 将在此之后推迟加载 `1` ms，因此在第一个提示时不会调用 `precmd`。 这会使自动建议在第一个提示时不可用。
 
-**However** the given `atload` ice-mod fixes this, it calls the same function that `precmd` would, right after loading autosuggestions, resulting in the same behavior of the plugin.
+**然而**给定的 `atload` ice-mod 解决了这个问题，它在加载时会做 `precmd` 同样会做的，就在加载 autosuggestions 后，这让插件行为一致。
 
-The ice `lucid` causes the under-prompt message saying `Loaded zsh-users/zsh-autosuggestions` that normally appears for every Turbo-loaded plugin to not show.
+对于 Turbo 加载的插件会提示类似 `Loaded zsh-users/zsh-autosuggestions` 消息 ，而 ice `lucid` 可以会关闭该提示。
 
 ## 快速浏览 [`for`][14] 语法
 
-该介绍基于经典的，双命令的 ZI 语法 (`zi ice …; zi load/light/snippet …`)。 However, there's also available a recently added so-called _for-syntax_.
+该介绍基于经典的，双命令的 ZI 语法 (`zi ice …; zi load/light/snippet …`)。 但是，还有一个最近添加的所谓的 _for-syntax_。
 
 是时候一瞥 for 了，可以这样重写上面的 autosuggestions 调用：
 
@@ -313,15 +313,15 @@ The ice `lucid` causes the under-prompt message saying `Loaded zsh-users/zsh-aut
 zi wait lucid atload'_zsh_autosuggest_start' light-mode for zsh-users/zsh-autosuggestions
 ```
 
-The syntax is a more concise one. The single command will work the same as the previous classic-syntax invocation. It also allows solving some typical problems when using ZI, like providing common/default ices for a set of plugins or sourcing multiple files with [`src''` ice][13]. 更多信息请参考专门介绍 for 语法的页面（[这里][14]）。
+该语法是一个更简洁的语法。 单一命令的作用与之前的经典语法调用相同。 它还允许解决使用 ZI 时的一些典型问题，例如为一组插件提供通用/默认 ices 或使用 [`src''` ice][13] 选择多个文件。 更多信息请参考专门介绍 for 语法的页面（[这里][14]）。
 
 ## 具有复杂提示的 Turbo 启动
 
-For some, mostly advanced themes the initialization of the prompt is being done in a `precmd`-hook, i.e.; in a function that's gets called before each prompt.
+对于某些大多数高级主题，提示的初始化是在 `precmd` 钩子中完成的，即：在每个提示之前调用的函数中。
 
 钩子是由 [add-zsh-hook][12] Zsh 函数安装的，将其名称添加到 `$precmd_functions` 数组中。
 
-To make the prompt fully initialized after Turbo loading in the middle of the prompt the same situation as with the `zsh-autosuggestions` plugin, the hook should be called from `atload''` ice`.
+为了使提示中间的 Turbo 加载后提示完全初始化，与使用 `zsh-autosuggestions` 插件的情况相同，应该从 `atload''` ice` 调用钩子。
 
 首先，通过检查 `$precmd_functions` 数组找到钩子函数的名称。
 
@@ -340,7 +340,7 @@ zi ice wait'!' lucid nocd \
 zi load robobenklein/zinc
 ```
 
-The exclamation mark in `atload'!…'` is to track the functions allowing the plugin to be unloaded, as described [here][11]. It might be useful for the multi-prompt setup described next.
+`atload'!…'` 中的感叹号是为了允许插件被卸载，正如[这里][11]描述的。 它可能对接下来描述的多提示设置很有用。
 
 ## 基于条件的自动加载/卸载 {#automatic-loadunload-based-on-condition}
 
@@ -361,13 +361,13 @@ zi ice load'![[ $PWD != */tmp* ]]' unload'![[ $PWD = */tmp* ]]'
 zi load russjohnson/angry-fly-zsh
 ```
 
-两个提示符，它们在不同的文件夹下被激活。 This technique can be used to have plugin-sets, e.g. by defining parameter `$PLUGINS` with possible values like `cpp`, `web`, `admin` and by setting `load` / `unload` conditions to activate different plugins on `cpp`, on `web`, etc.
+两个提示符，它们在不同的文件夹下被激活。 该技术可用于设置插件集，通过定义 `$PLUGINS` 参数，像是 `cpp`、`web`、`admin`，同时为它们设定不同的激活条件。
 
 :::note
 
 - 与 `wait` 不同的是， `load` / `unload` 是持续可用的，而不是只到第一次激活。
 
-- Note that for the unloading of a plugin to work the plugin needs to be loaded with tracking, so `zi load …` and not `zi light …`.
+- 请注意，要卸载插件工作，插件需要加载跟踪，所以 `zi load …` 而不是 `zi light …`。
 
 追踪会导致轻微的减速，然而，这并不影响使用 Turbo 模式时 Zsh 的启动时间。
 
@@ -375,7 +375,7 @@ zi load russjohnson/angry-fly-zsh
 
 :::tip
 
-参见：[多个提示符][15]以了解更多信息。 It contains more real-world examples of a multi-prompt setup, which is being close to what the author uses in his setup.
+参见：[多个提示符][15]以了解更多信息。 它包含更多实际的设置示例，类似作者在其设置中使用的内容。
 
 :::
 
@@ -471,7 +471,7 @@ zi self-update
 zi update
 ```
 
-Update specific plugin. 默认为 GitHub，但也可以通过 ice 修饰符 [from''][2] 指定。
+更新特定的插件。 默认为 GitHub，但也可以通过 ice 修饰符 [from''][2] 指定。
 
 ```shell
 zi update <user>/<repo>
@@ -576,16 +576,16 @@ zi light junegunn/fzf
 
 这通过 [ice 修饰符][1]: `mv'{from} -> {to}'`。
 
-There are multiple packages per single version, for OS X, Linux, and Windows – so ice modifier `bpick` is used to select Linux package – in this case, this is not needed, ZI will grep operating system name and architecture automatically when there's no `bpick`.
+每个版本有多个包，对于 OS X、Linux 和 Windows——所以使用 ice 修饰符 `bpick` 来选择 Linux 包——在这种情况下，这不是必需的，ZI 会自动 grep 操作系统名称和架构，而不用 `bpick`。
 
 ```shell title="~/.zshrc"
 zi ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*"
 zi load docker/compose
 ```
 
-Vim repository on GitHub – a typical source code that needs compilation, ZI can manage it for you if you like, run `./configure` and other `make` stuff.
+GitHub 上的 Vim 存储库——一个需要编译的典型源代码，如果你愿意，ZI 可以为你管理它，运行 `./configure` 和 `make` 等东西。
 
-Ice modifier `pick` selects a binary program to add to $PATH. 你也能在 $ZPFX 下安装包。
+Ice 修饰符 `pick` 选择要添加到 $PATH 的二进制程序。 你也能在 $ZPFX 下安装包。
 
 ```shell title="~/.zshrc"
 zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
@@ -626,9 +626,9 @@ zi ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclon
 zi light direnv/direnv
 ```
 
-If you're interested to try out more then check out the [playground repository][19] where users have uploaded the `~/.zshrc` and other ZI configurations.
+如果您有兴趣尝试更多，请查看 [Playground 存储库][19] ，用户已上传 `~/.zshrc` 和其他 ZI 配置。
 
-如果你的`~/.zshrc` 包含 ZI 命令，请随意[提交][20]。
+如果你的 `~/.zshrc` 包含 ZI 命令，请随意[提交][20]。
 
 你也可以查看一些额外的示例：
 
