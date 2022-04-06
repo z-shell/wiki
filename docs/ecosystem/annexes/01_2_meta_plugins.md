@@ -8,7 +8,7 @@ keywords: [annex, meta-plugins]
 
 import APITable from '@site/src/components/APITable';
 
-- [z-a-meta-plugins](https://github.com/z-shell/z-a-meta-plugins) annex have the curated, optimal
+- [z-shell/z-a-meta-plugins](https://github.com/z-shell/z-a-meta-plugins) annex have the curated, optimal
   [ice](/docs/guides/syntax/ice) lists automatically applied.
 
 - It's possible to create your own group of plugins by requesting it at [annexes](https://github.com/z-shell/zannexes)
@@ -58,10 +58,6 @@ skip'vivid exa tig' @console-tools
 
 ## The list of available meta-plugins
 
-<!--markdownlint-disable MD013 -->
-
-<APITable>
-
 | Meta plugin name | Consisting plugins                                                                                                                      |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | @annexes         | [bin-gem-node][1], [readurl][2], [patch-dl][3], [rust][4]                                                                               |
@@ -83,12 +79,6 @@ skip'vivid exa tig' @console-tools
 | @rust-utils      | rust-toolchain, cargo-extensions                                                                                                        |
 | @py-utils        | [pyenv][44] (package)                                                                                                                   |
 | @prezto          | PZTM::archive, PZTM::directory, PZTM::utility                                                                                           |
-
-</APITable>
-
-<!-- markdownlint-disable MD013 -->
-
----
 
 ## Meta Plugins Summary
 
