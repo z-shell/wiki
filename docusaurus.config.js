@@ -18,13 +18,9 @@ const config = {
   staticDirectories: ['static'],
   i18n: {defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans']},
   scripts: [
-    /*{src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous'},*/
-    {defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.js'},
-    /*{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/brands.js'},*/
-    /*{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/solid.js'},*/
-    /*{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/fontawesome.js'},*/
+    {defer: 'true', src: './static/fa/js/all.js'},
   ],
-  stylesheets: ['https://z.digitalclouds.dev/fa/css/all.css'],
+  /*stylesheets: ['https://z.digitalclouds.dev/fa/css/all.css'],*/
   plugins: [
     ['ideal-image', {max: 1030, min: 640, disableInDev: false}],
     [
