@@ -24,7 +24,7 @@ const config = {
     {defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/solid.js'},
     /*{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/fontawesome.js'},*/
   ],
-  /*stylesheets: ['https://z.digitalclouds.dev/fa/css/all.css'],*/
+  stylesheets: ['https://z.digitalclouds.dev/fa/css/fontawesome.css'],
   plugins: [
     ['ideal-image', {max: 1030, min: 640, disableInDev: false}],
     [
