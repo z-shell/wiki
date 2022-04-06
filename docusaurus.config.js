@@ -19,10 +19,10 @@ const config = {
   i18n: {defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans']},
   /*scripts: [{src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous'}],*/
   scripts: [
-    {defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.js'},
-    /**{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/brands.js'},
+    /*{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.js'},*/
+    {defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/brands.js'},
     {defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/solid.js'},
-    {defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/fontawesome.js'},*/
+    {defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/fontawesome.js'},
   ],
   /*stylesheets: ['https://z.digitalclouds.dev/fa/css/all.css'],*/
   plugins: [
