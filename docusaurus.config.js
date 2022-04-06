@@ -17,7 +17,7 @@ const config = {
   organizationName: 'z-shell',
   staticDirectories: ['static'],
   i18n: {defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans']},
-  scripts: [{defer: 'true', src: './static/fa/js/all.js'}],
+  scripts: [{defer: 'true', src: '@site/static/fa/js/all.js'}],
   /*stylesheets: ['https://z.digitalclouds.dev/fa/css/all.css'],*/
   plugins: [
     ['ideal-image', {max: 1030, min: 640, disableInDev: false}],
