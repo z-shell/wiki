@@ -9,7 +9,7 @@ keywords:
 此概览包括：
 
 1. [Oh My Zsh & Prezto](/search?q=Oh+My+Zsh+%26+Prezto)
-2. [Completions](/search?q=completions)
+2. [命令补全](/search?q=completions)
 3. [Turbo 模式](/search?q=turbo+mode)
 4. [Ice 修饰符](/search?q=ice+modifiers)
 
@@ -34,7 +34,7 @@ zi light zsh-users/zsh-syntax-highlighting
 
 ## Oh My Zsh, Prezto
 
-要加载 Oh My Zsh 和 Prezto 插件，请使用 `snippet` 功能。 Snippet 是通过 `curl`、`wget` 等单独下载的文件。ZI 能够通过 URL 检测下载工具。 For example:
+要加载 Oh My Zsh 和 Prezto 插件，请使用 `snippet` 功能。 Snippet 是通过 `curl`、`wget` 等单独下载的文件。ZI 能够通过 URL 检测下载工具。 例如：
 
 ```shell
 zi snippet 'https://github.com/robbyrussell/oh-my-zsh/raw/master/plugins/git/git.plugin.zsh'
@@ -127,7 +127,7 @@ zi light b4b4r07/httpstat
 
 ## Snippet as'…' 命令
 
-修饰符 `load` 和 `unload` 允许定义你希望插件何时激活或不激活。 For example:
+修饰符 `load` 和 `unload` 允许定义你希望插件何时激活或不激活。 例如：
 
 ```shell {2,4}
 zi ice mv"httpstat.sh -> httpstat" \
@@ -344,7 +344,7 @@ zi load robobenklein/zinc
 
 ## 基于条件的自动加载/卸载 {#automatic-loadunload-based-on-condition}
 
-修饰符 `load` 和 `unload` 允许定义你希望插件何时激活或不激活。 For example:
+修饰符 `load` 和 `unload` 允许定义你希望插件何时激活或不激活。 例如：
 
 在 ~/tmp 中加载时
 
