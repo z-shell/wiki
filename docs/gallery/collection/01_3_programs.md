@@ -495,7 +495,7 @@ zi wait lucid for \
     @zdharma/revolver \
   as'completion' atclone'./build.zsh; ln -sfv zunit.zsh-completion _zunit' \
   atpull'%atclone' sbin'zunit' \
-    @zunit-zsh/zunit
+    @zdharma/zunit
 ```
 
 ### GH-R: [yarnpkg/yarn](https://github.com/pnpm/pnpm)
