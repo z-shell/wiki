@@ -44,7 +44,7 @@
     "@docusaurus/module-type-aliases": "2.0.0-beta.18",
     "@trunkio/launcher": "1.0.2",
     "@tsconfig/docusaurus": "1.0.5",
-    "@types/react": "17.0.43",
+    "@types/react": "17.0.44",
     "husky": "7.0.4",
     "prop-types": "15.8.1",
     "react": "17.0.2",
