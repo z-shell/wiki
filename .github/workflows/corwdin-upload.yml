@@ -28,10 +28,7 @@ jobs:
         uses: crowdin/github-action@1.4.7
         with:
           upload_sources: true
-          # upload_sources_args: '--no-auto-update label=web'
           upload_translations: false
-          # auto_approve_imported: false
-          # import_eq_suggestions: true
-          # upload_translations_args: '--auto-approve-imported --translate-hidden'
+          import_eq_suggestions: true
           download_translations: false
           push_translations: false
