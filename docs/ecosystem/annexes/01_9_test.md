@@ -6,6 +6,12 @@ description: Annex - Test documentation
 keywords: [annex, test, zsh]
 ---
 
+<div align="center">
+
+![https://user-images.githubusercontent.com/59910950/162143845-c44ead50-b21a-46c0-8372-18325eb1f33a.gif](https://user-images.githubusercontent.com/59910950/162143845-c44ead50-b21a-46c0-8372-18325eb1f33a.gif)
+
+</div>  
+
 - [z-shell/z-a-test](https://github.com/z-shell/z-a-test) annex runs tests (via `make test`, for example) – if it finds
   any of them – after installing and updating a plugin or snippet. Simply load it like any other plugin to make it
   active:
@@ -14,7 +20,7 @@ keywords: [annex, test, zsh]
 zi light z-shell/z-a-test
 ```
 
-## Configuration {#configuration}
+## Configuration 
 
 To run the tests in a verbose mode, issue:
 
@@ -29,12 +35,12 @@ zi ice notest
 zi load …
 ```
 
-### Examples {#examples}
+### Examples
 
 Example activation in the default quiet mode:
 
-![z-a-test activation](https://raw.githubusercontent.com/z-shell/z-a-test/main/images/z-p-test-1.png)
+![z-a-test activation](https://raw.githubusercontent.com/z-shell/z-a-test/main/docs/images/z-p-test-1.png)
 
 Example activation in non-quiet mode:
 
-![z-a-test activation](https://raw.githubusercontent.com/z-shell/z-a-test/main/images/z-p-test-2.png)
+![z-a-test activation](https://raw.githubusercontent.com/z-shell/z-a-test/main/docs/images/z-p-test-2.png)
