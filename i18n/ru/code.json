@@ -1,32 +1,4 @@
 {
-  "homepage.button": {
-    "message": "💢 Make it work, make it right, make it Fast 💢",
-    "description": "The homepage button to wiki introduction"
-  },
-  "homepage.feature1.title": {
-    "message": "Zsh Startup 50-80% Faster",
-    "description": "Title of feature 1 (left) on the home page"
-  },
-  "home.fetaure1": {
-    "message": "Instant prompt postponing plugins loading to a moment when the processing of .zshrc file is finished.",
-    "description": "Description of first featured banner in homepage"
-  },
-  "homepage.feature2.title": {
-    "message": "Focus on What Matters",
-    "description": "Title of feature 2 (middle) on the home page"
-  },
-  "home.fetaure2": {
-    "message": "Statistics about the plugins, describing what functions, bindkeys, completions, and other elements a plugin has set up.",
-    "description": "Description of second featured banner in homepage"
-  },
-  "homepage.feature3.title": {
-    "message": "Wide Range of Features",
-    "description": "Title of feature 3 (right) on the home page"
-  },
-  "home.fetaure3": {
-    "message": "Supports Oh-My-Zsh and Prezto - not framework-specific. Produce your plugins, libraries, and themes effortlessly.",
-    "description": "Description of third featured banner in homepage"
-  },
   "theme.ErrorPageContent.title": {
     "message": "На странице произошёл сбой.",
     "description": "The title of the fallback page when the page crashed"
