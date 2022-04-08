@@ -8,7 +8,10 @@ keywords:
   - introduction
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Image from '@theme/IdealImage';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
+
+import Image from '@theme/IdealImage';
+
 import ZGitImg from '@site/static/zw/img/z_git.png';
 
 <Image className="ScreenView" img={ZGitImg} alt='Install almost everything from GitHub' />
@@ -17,7 +20,7 @@ import ZGitImg from '@site/static/zw/img/z_git.png';
 <a href="https://github.com/z-shell">
   <img
     className="ScreenViewFull"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
+    src="https://github.zshell.dev/.github//metrics.svg"
     alt="Z-Shell Organization"
   />
 </a>
@@ -83,33 +86,31 @@ Invocations][7].
 
 ## 📢 Summary
 
-<!-- markdownlint-disable -->
-
 <div align="center">
-<a href="https://github.com/orgs/z-shell/projects">
+<p><a href="https://github.com/orgs/z-shell/projects">
   <img
     className="ScreenView"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/projects/projects.svg"
+    src="https://github.zshell.dev/.github/plugin/projects/projects.svg"
     alt="Z-Shell Projects"
   />
-</a>
-<a href="https://github.com/z-shell/">
+</a></p>
+<p><a href="https://github.com/z-shell/">
   <img
     className="ScreenViewFull"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg"
+    src="https://github.zshell.dev/.github/plugin/followup/followup.svg"
     alt="Z-Shell Indepth"
   />
-</a>
-<a href="https://github.com/z-shell/zw">
+</a></p>
+<p><a href="https://github.com/z-shell/zw">
   <img
     className="ScreenViewFull"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/pagespeed/detailed.svg"
+    src="https://github.zshell.dev/.github/plugin/pagespeed/detailed.svg"
     alt="ZW PageSpeed"
   />
-</a>
+</a></p>
 </div>
 
-<!-- markdownlint-restore -->
+<!-- end-of-doc -->
 
 [5]: /docs/ecosystem/annexes
 [6]: /docs/ecosystem/packages/packages-overview
