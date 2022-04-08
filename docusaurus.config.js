@@ -2,6 +2,8 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const math = require('remark-math');
+const katex = require('rehype-katex');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -12,13 +14,11 @@ const config = {
   titleDelimiter: '|',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: '/zw/favicon.ico',
+  favicon: '/img/favicon.ico',
   projectName: 'zw',
   organizationName: 'z-shell',
   staticDirectories: ['static'],
   i18n: {defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans']},
-  scripts: [{defer: 'true', src: '/fa/js/all.js'}],
-  /*stylesheets: ['https://z.digitalclouds.dev/fa/css/all.css'],*/
   plugins: [
     ['ideal-image', {max: 1030, min: 640, disableInDev: false}],
     [
@@ -27,14 +27,14 @@ const config = {
         debug: false,
         offlineModeActivationStrategies: ['appInstalled', 'standalone', 'queryString'],
         pwaHead: [
-          {tagName: 'link', rel: 'icon', href: '/zw/logo.svg'},
+          {tagName: 'link', rel: 'icon', href: '/img/logo.svg'},
           {tagName: 'link', rel: 'manifest', href: '/manifest.json'},
           {tagName: 'link', rel: 'browserconfig', href: '/browserconfig.xml'},
           {tagName: 'meta', name: 'theme-color', content: 'rgb(35, 184, 152)'},
           {tagName: 'meta', name: 'apple-mobile-web-app-capable', content: 'yes'},
           {tagName: 'meta', name: 'apple-mobile-web-app-status-bar-style', content: '#000'},
-          {tagName: 'link', rel: 'apple-touch-icon', href: '/zw/logo.png'},
-          {tagName: 'meta', name: 'msapplication-TileImage', content: '/zw/logo.png'},
+          {tagName: 'link', rel: 'apple-touch-icon', href: '/img/logo.png'},
+          {tagName: 'meta', name: 'msapplication-TileImage', content: '/img/logo.png'},
           {tagName: 'meta', name: 'msapplication-TileColor', content: '#000'},
         ],
       },
@@ -42,7 +42,7 @@ const config = {
     [
       'content-docs',
       {
-        id: 'community',
+        id: 'docs2',
         path: 'community',
         routeBasePath: 'community',
         sidebarPath: require.resolve('./lib/js/sidebars_2.js'),
@@ -52,8 +52,19 @@ const config = {
           }
           return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
         },
+        remarkPlugins: [math],
+        rehypePlugins: [katex],
       },
     ],
+  ],
+  scripts: [{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.js'}],
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+      type: 'text/css',
+      integrity: 'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+      crossorigin: 'anonymous',
+    },
   ],
   presets: [
     [
@@ -74,6 +85,8 @@ const config = {
           },
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
         },
         blog: {
           showReadingTime: true,
@@ -112,7 +125,7 @@ const config = {
         title: '❮ ZI ❯',
         logo: {
           alt: '❮ ZI ❯ Logo',
-          src: 'zw/logo.svg',
+          src: 'img/logo.svg',
           target: '_self',
           width: 32,
           height: 32,
@@ -178,12 +191,16 @@ const config = {
                 href: 'https://github.com/orgs/z-shell/discussions/',
               },
               {
+                label: 'Slack',
+                href: 'https://z-shell.slack.com',
+              },
+              {
                 label: 'Matrix.org',
                 href: 'https://matrix.to/#/#zi:matrix.org',
               },
               {
                 label: 'Twitter.com',
-                href: 'https://twitter.com/zshell_zi/',
+                href: 'https://twitter.com/zshell_zi',
               },
             ],
           },
