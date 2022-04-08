@@ -23,4 +23,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      - run: pnpm install --strict-peer-dependencies --no-frozen-lockfile
+      - run: |
+          pnpm install --strict-peer-dependencies --no-frozen-lockfile
+          pnpm run check
+          pnpm run build:en
+          pnpm run clear
+      
