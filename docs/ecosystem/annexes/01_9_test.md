@@ -10,7 +10,7 @@ keywords: [annex, test, zsh]
 
 ![https://user-images.githubusercontent.com/59910950/162143845-c44ead50-b21a-46c0-8372-18325eb1f33a.gif](https://user-images.githubusercontent.com/59910950/162143845-c44ead50-b21a-46c0-8372-18325eb1f33a.gif)
 
-</div>  
+</div>
 
 - [z-shell/z-a-test](https://github.com/z-shell/z-a-test) annex runs tests (via `make test`, for example) – if it finds
   any of them – after installing and updating a plugin or snippet. Simply load it like any other plugin to make it
@@ -20,7 +20,7 @@ keywords: [annex, test, zsh]
 zi light z-shell/z-a-test
 ```
 
-## Configuration 
+## Configuration
 
 To run the tests in a verbose mode, issue:
 
