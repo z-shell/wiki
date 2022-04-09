@@ -1,16 +1,16 @@
 ---
 id: zsh_plugin_standard
-title: Zsh Plugin Standard
+title: Zsh 插件标准
 sidebar_position: 2
 ---
 
-## What Is A Zsh Plugin?
+## Zsh 插件是什么？
 
-Historically, Zsh plugins were first defined by Oh My Zsh. They provide for a way to package together files that extend or configure the shell’s functionality in a particular way.
+从历史上看，Zsh 插件最初是由 Oh My Zsh 定义的。 他们提供了一种打包的方式，来封装扩展或以特定方式配置 shell 功能的文件。
 
-At a simple level, a plugin:
+简单来说，一个插件：
 
-1. Has its directory added to `$fpath` ([Zsh documentation](http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions)). This is being done either by a plugin manager or by the plugin itself (see [5th section](#run-on-unload-call) for more information).
+1. 会将其目录添加到 `$fpath` （[Zsh 文档](http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions)）中。 这由插件管理器或插件自己完成 ( 更多信息请阅读 [第5部分](#run-on-unload-call)) 。
 
 2. Has it’s first `*.plugin.zsh` file sourced (or `*.zsh`, `init.zsh`, `*.sh`, these are non-standard).
 

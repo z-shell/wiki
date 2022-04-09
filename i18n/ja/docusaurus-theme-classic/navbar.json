@@ -1,1 +1,6 @@
-{}
+{
+  "item.label.Docs": {
+    "message": "Docs",
+    "description": "Navbar item with label Docs"
+  }
+}
