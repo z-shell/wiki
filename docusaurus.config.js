@@ -109,7 +109,10 @@ const config = {
       image: 'img/logo/320x320.png',
       autoCollapseSidebarCategories: true,
       metadata: [{name: 'twitter:card', content: 'summary'}],
-      announcementBar: {id: 'announcemnt', content: `If you like ❮ ZI ❯ - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi">⭐️</a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell"><i class="fa-brands fa-github-alt">GitHub</i></a> or <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/zshell_zi"><i class="fa-brands fa-twitter">Twitter</i></a>`},
+      announcementBar: {
+        id: 'announcemnt',
+        content: `If you like ❮ ZI ❯ - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi">⭐️</a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell"><i class="fa-brands fa-github-alt">GitHub</i></a> or <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/zshell_zi"><i class="fa-brands fa-twitter">Twitter</i></a>`,
+      },
       colorMode: {defaultMode: 'dark', disableSwitch: false, respectPrefersColorScheme: true},
       algolia: {
         appId: '8A6CKETM6G',
