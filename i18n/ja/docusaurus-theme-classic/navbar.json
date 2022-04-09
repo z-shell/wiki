@@ -1,8 +1,4 @@
 {
-  "title": {
-    "message": "❮ ZI ❯",
-    "description": "The title in the navbar"
-  },
   "item.label.Docs": {
     "message": "Docs",
     "description": "Navbar item with label Docs"

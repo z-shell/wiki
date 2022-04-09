@@ -1,32 +1,4 @@
 {
-  "homepage.button": {
-    "message": "💢 Make it work, make it right, make it Fast 💢",
-    "description": "The homepage button to wiki introduction"
-  },
-  "homepage.feature1.title": {
-    "message": "Zsh Startup 50-80% Faster",
-    "description": "Title of feature 1 (left) on the home page"
-  },
-  "home.fetaure1": {
-    "message": "Instant prompt postponing plugins loading to a moment when the processing of .zshrc file is finished.",
-    "description": "Description of first featured banner in homepage"
-  },
-  "homepage.feature2.title": {
-    "message": "Focus on What Matters",
-    "description": "Title of feature 2 (middle) on the home page"
-  },
-  "home.fetaure2": {
-    "message": "Statistics about the plugins, describing what functions, bindkeys, completions, and other elements a plugin has set up.",
-    "description": "Description of second featured banner in homepage"
-  },
-  "homepage.feature3.title": {
-    "message": "Wide Range of Features",
-    "description": "Title of feature 3 (right) on the home page"
-  },
-  "home.fetaure3": {
-    "message": "Supports Oh-My-Zsh and Prezto - not framework-specific. Produce your plugins, libraries, and themes effortlessly.",
-    "description": "Description of third featured banner in homepage"
-  },
   "theme.ErrorPageContent.title": {
     "message": "페이지에 오류가 발생하였습니다.",
     "description": "The title of the fallback page when the page crashed"
@@ -163,9 +135,6 @@
     "message": "{nDocsTagged} \"{tagName}\" 태그에 분류되었습니다",
     "description": "The title of the page for a docs tag"
   },
-  "theme.docs.versionBadge.label": {
-    "message": "Version: {versionLabel}"
-  },
   "theme.docs.versions.unreleasedVersionLabel": {
     "message": "{siteTitle} {versionLabel} 문서는 아직 정식 공개되지 않았습니다.",
     "description": "The label used to tell the user that he's browsing an unreleased doc version"
@@ -230,10 +199,6 @@
     "message": "복사",
     "description": "The copy button label on code blocks"
   },
-  "theme.navbar.mobileLanguageDropdown.label": {
-    "message": "Languages",
-    "description": "The label for the mobile language switcher dropdown"
-  },
   "theme.docs.sidebar.collapseButtonTitle": {
     "message": "사이드바 숨기기",
     "description": "The title attribute for collapse button of doc sidebar"
@@ -245,9 +210,6 @@
   "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
     "message": "← 메인 메뉴로 돌아가기",
     "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
-  },
-  "theme.SearchBar.seeAll": {
-    "message": "See all {count} results"
   },
   "theme.SearchBar.label": {
     "message": "검색",
@@ -273,10 +235,6 @@
     "message": "검색",
     "description": "The ARIA label for search page input"
   },
-  "theme.SearchPage.algoliaLabel": {
-    "message": "Search by Algolia",
-    "description": "The ARIA label for Algolia mention"
-  },
   "theme.SearchPage.noResultsText": {
     "message": "검색 결과가 없습니다.",
     "description": "The paragraph for empty search result"
@@ -284,26 +242,6 @@
   "theme.SearchPage.fetchingNewResults": {
     "message": "새로운 검색 결과를 얻을 수 있습니다...",
     "description": "The paragraph for fetching new search results"
-  },
-  "theme.IdealImageMessage.loading": {
-    "message": "Loading...",
-    "description": "When the full-scale image is loading"
-  },
-  "theme.IdealImageMessage.load": {
-    "message": "Click to load{sizeMessage}",
-    "description": "To prompt users to load the full image. sizeMessage is a parenthesized size figure."
-  },
-  "theme.IdealImageMessage.offline": {
-    "message": "Your browser is offline. Image not loaded",
-    "description": "When the user is viewing an offline document"
-  },
-  "theme.IdealImageMessage.404error": {
-    "message": "404. Image not found",
-    "description": "When the image is not found"
-  },
-  "theme.IdealImageMessage.error": {
-    "message": "Error. Click to reload",
-    "description": "When the image fails to load for unknown error"
   },
   "theme.PwaReloadPopup.info": {
     "message": "새로운 버전이 있습니다.",
