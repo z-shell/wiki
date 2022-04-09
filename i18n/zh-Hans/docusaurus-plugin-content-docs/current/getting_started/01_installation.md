@@ -10,7 +10,7 @@ keywords:
 
 ## 可用的安装源
 
-[![⚙️ 安装库][1]][2] | [状态页: :heavy_check_mark:](https://https://status.zshell.dev/)
+[![⚙️ 安装库][1]][2] | [Status page: :heavy_check_mark:](https://status.zshell.dev/)
 
 | 域名              | URL                                                                       |
 |:--------------- | ------------------------------------------------------------------------- |

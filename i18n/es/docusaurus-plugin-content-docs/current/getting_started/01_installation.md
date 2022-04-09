@@ -10,7 +10,7 @@ keywords:
 
 ## Available installer links
 
-[![⚙️ Install Library][1]][2] | [Status page: :heavy_check_mark:](https://https://status.zshell.dev/)
+[![⚙️ Install Library][1]][2] | [Status page: :heavy_check_mark:](https://status.zshell.dev/)
 
 | Service             | URL                                                                       |
 |:------------------- | ------------------------------------------------------------------------- |
