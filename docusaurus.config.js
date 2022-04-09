@@ -42,7 +42,7 @@ const config = {
     [
       'content-docs',
       {
-        id: 'docs2',
+        id: 'community',
         path: 'community',
         routeBasePath: 'community',
         sidebarPath: require.resolve('./lib/js/sidebars_2.js'),

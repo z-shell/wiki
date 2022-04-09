@@ -25,7 +25,7 @@
   },
   "link.item.label.GitHub Discussions": {
     "message": "GitHub Discussions",
-    "description": "The label of footer link with label=GitHub Discussions linking to https://github.com/orgs/z-shell/discussions"
+    "description": "The label of footer link with label=GitHub Discussions linking to https://github.com/orgs/z-shell/discussions/"
   },
   "link.item.label.Matrix.org": {
     "message": "Matrix.org",
@@ -33,7 +33,7 @@
   },
   "link.item.label.Twitter.com": {
     "message": "Twitter.com",
-    "description": "The label of footer link with label=Twitter.com linking to https://twitter.com/zshell_zi/"
+    "description": "The label of footer link with label=Twitter.com linking to https://twitter.com/zshell_zi"
   },
   "link.item.label.GitHub Organization": {
     "message": "GitHub Organization",
@@ -50,5 +50,9 @@
   "copyright": {
     "message": "Copyright © 2022 Digital Clouds, Z-Shell ❮ ZI ❯ Community.",
     "description": "The footer copyright"
+  },
+  "link.item.label.Slack.com": {
+    "message": "Slack.com",
+    "description": "The label of footer link with label=Slack.com linking to https://z-shell.slack.com"
   }
 }
