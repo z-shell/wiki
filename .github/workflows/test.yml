@@ -16,15 +16,23 @@ jobs:
         node-version: ['16', '17']
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
       - uses: pnpm/action-setup@v2.2.1
         with:
           version: 6.32.4
+          run_install: |
+            - recursive: true
+              args: [--no-frozen-lockfile, --strict-peer-dependencies]
       - uses: trunk-io/trunk-action@v1.0.0
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
       - run: |
-          pnpm install --strict-peer-dependencies --no-frozen-lockfile
           pnpm run build:en
           pnpm run clear
