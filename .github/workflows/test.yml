@@ -19,6 +19,7 @@ jobs:
       - uses: pnpm/action-setup@v2.2.1
         with:
           version: 6.32.4
+      - uses: trunk-io/trunk-action@v1.0.0
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
