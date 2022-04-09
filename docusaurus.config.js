@@ -191,7 +191,7 @@ const config = {
                 href: 'https://github.com/orgs/z-shell/discussions/',
               },
               {
-                label: 'Slack',
+                label: 'Slack,com',
                 href: 'https://z-shell.slack.com',
               },
               {
