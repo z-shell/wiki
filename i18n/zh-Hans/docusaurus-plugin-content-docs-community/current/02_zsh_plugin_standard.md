@@ -12,7 +12,7 @@ sidebar_position: 2
 
 1. 会将其目录添加到 `$fpath` （[Zsh 文档](http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions)）中。 这由插件管理器或插件自己完成 ( 更多信息请阅读 [第5部分](#run-on-unload-call)) 。
 
-2. Has it’s first `*.plugin.zsh` file sourced (or `*.zsh`, `init.zsh`, `*.sh`, these are non-standard).
+2. 这些插件应该有统一标准的文件后缀名 `*.plugin.zsh` （而类似`*.zsh`, `init.zsh`, `*.sh`, 这些文件后缀名是非标准的）。
 
    2.1 The first point allows plugins to provide completions and functions that are loaded via Zsh’s `autoload` mechanism (a single function per file).
 
@@ -41,7 +41,7 @@ To get the plugin’s location, plugins should do:
 0="${${(M)0:#/*}:-$PWD/$0}"
 ```
 
-Then `${0:h}` to get plugin’s directory.
+然后使用`${0:h}`获取插件的目录。
 
 The one-line code above will:
 

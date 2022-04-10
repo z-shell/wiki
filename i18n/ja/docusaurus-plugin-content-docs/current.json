@@ -18,5 +18,9 @@
   "sidebar.autoSideBar_1.category.🌐 Ecosystem": {
     "message": "🌐 エコシステム",
     "description": "The label for category 🌐 Ecosystem in sidebar autoSideBar_1"
+  },
+  "sidebar.autoSideBar_1.category.⚙️ Plugins & Modules": {
+    "message": "⚙️ プラグインとモジュール",
+    "description": "The label for category ⚙️ Plugins & Modules in sidebar autoSideBar_1"
   }
 }
