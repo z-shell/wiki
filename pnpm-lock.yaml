@@ -8,77 +8,78 @@ overrides:
   axios@<0.21.1: '>=0.21.1'
   async@<2.6.4: '>=2.6.4'
 
-specifiers:
-  '@algolia/client-search': 4.13.0
-  '@awesome-crowdin/crowdin-contributors': 0.0.4
-  '@babel/core': 7.17.9
-  '@crowdin/cli': 3.7.8
-  '@docusaurus/core': 2.0.0-beta.18
-  '@docusaurus/cssnano-preset': 2.0.0-beta.18
-  '@docusaurus/module-type-aliases': 2.0.0-beta.18
-  '@docusaurus/plugin-client-redirects': 2.0.0-beta.18
-  '@docusaurus/plugin-content-blog': 2.0.0-beta.18
-  '@docusaurus/plugin-content-docs': 2.0.0-beta.18
-  '@docusaurus/plugin-content-pages': 2.0.0-beta.18
-  '@docusaurus/plugin-debug': 2.0.0-beta.18
-  '@docusaurus/plugin-ideal-image': 2.0.0-beta.18
-  '@docusaurus/plugin-pwa': 2.0.0-beta.18
-  '@docusaurus/plugin-sitemap': 2.0.0-beta.18
-  '@docusaurus/preset-classic': 2.0.0-beta.18
-  '@docusaurus/theme-search-algolia': 2.0.0-beta.18
-  '@docusaurus/theme-translations': 2.0.0-beta.18
-  '@mdx-js/react': 1.6.22
-  '@trunkio/launcher': 1.0.4
-  '@tsconfig/docusaurus': 1.0.5
-  '@types/react': 18.0.5
-  clsx: 1.1.1
-  husky: 7.0.4
-  prism-react-renderer: 1.3.1
-  prop-types: 15.8.1
-  raw-loader: 4.0.2
-  react: 17.0.2
-  react-dom: 17.0.2
-  rehype-katex: 4.0.0
-  remark-math: 3.0.1
-  typescript: 4.6.3
-  webpack: 5.72.0
+importers:
 
-dependencies:
-  '@docusaurus/core': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
-  '@docusaurus/cssnano-preset': 2.0.0-beta.18
-  '@docusaurus/plugin-client-redirects': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
-  '@docusaurus/plugin-content-blog': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
-  '@docusaurus/plugin-content-docs': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
-  '@docusaurus/plugin-content-pages': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
-  '@docusaurus/plugin-debug': 2.0.0-beta.18_b4435690203206cf26efe1b6626a8b4b
-  '@docusaurus/plugin-ideal-image': 2.0.0-beta.18_2ad7adbaefbc13fa83a738720eba1234
-  '@docusaurus/plugin-pwa': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
-  '@docusaurus/plugin-sitemap': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
-  '@docusaurus/preset-classic': 2.0.0-beta.18_1f11cf44f81a5055455b621c16c46c2c
-  '@docusaurus/theme-search-algolia': 2.0.0-beta.18_1f11cf44f81a5055455b621c16c46c2c
-  '@docusaurus/theme-translations': 2.0.0-beta.18
-  '@mdx-js/react': 1.6.22_react@17.0.2
-  clsx: 1.1.1
-  prism-react-renderer: 1.3.1_react@17.0.2
-  raw-loader: 4.0.2_webpack@5.72.0
-  rehype-katex: 4.0.0
-  remark-math: 3.0.1
-
-devDependencies:
-  '@algolia/client-search': 4.13.0
-  '@awesome-crowdin/crowdin-contributors': 0.0.4
-  '@babel/core': 7.17.9
-  '@crowdin/cli': 3.7.8
-  '@docusaurus/module-type-aliases': 2.0.0-beta.18_react-dom@17.0.2+react@17.0.2
-  '@trunkio/launcher': 1.0.4
-  '@tsconfig/docusaurus': 1.0.5
-  '@types/react': 18.0.5
-  husky: 7.0.4
-  prop-types: 15.8.1
-  react: 17.0.2
-  react-dom: 17.0.2_react@17.0.2
-  typescript: 4.6.3
-  webpack: 5.72.0
+  .:
+    specifiers:
+      '@algolia/client-search': 4.13.0
+      '@awesome-crowdin/crowdin-contributors': 0.0.4
+      '@babel/core': 7.17.9
+      '@crowdin/cli': 3.7.8
+      '@docusaurus/core': 2.0.0-beta.18
+      '@docusaurus/cssnano-preset': 2.0.0-beta.18
+      '@docusaurus/module-type-aliases': 2.0.0-beta.18
+      '@docusaurus/plugin-client-redirects': 2.0.0-beta.18
+      '@docusaurus/plugin-content-blog': 2.0.0-beta.18
+      '@docusaurus/plugin-content-docs': 2.0.0-beta.18
+      '@docusaurus/plugin-content-pages': 2.0.0-beta.18
+      '@docusaurus/plugin-debug': 2.0.0-beta.18
+      '@docusaurus/plugin-ideal-image': 2.0.0-beta.18
+      '@docusaurus/plugin-pwa': 2.0.0-beta.18
+      '@docusaurus/plugin-sitemap': 2.0.0-beta.18
+      '@docusaurus/preset-classic': 2.0.0-beta.18
+      '@docusaurus/theme-search-algolia': 2.0.0-beta.18
+      '@docusaurus/theme-translations': 2.0.0-beta.18
+      '@mdx-js/react': 1.6.22
+      '@trunkio/launcher': 1.0.4
+      '@tsconfig/docusaurus': 1.0.5
+      '@types/react': 18.0.5
+      clsx: 1.1.1
+      husky: 7.0.4
+      prism-react-renderer: 1.3.1
+      prop-types: 15.8.1
+      raw-loader: 4.0.2
+      react: 17.0.2
+      react-dom: 17.0.2
+      rehype-katex: 4.0.0
+      remark-math: 3.0.1
+      typescript: 4.6.3
+      webpack: 5.72.0
+    dependencies:
+      '@docusaurus/core': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
+      '@docusaurus/cssnano-preset': 2.0.0-beta.18
+      '@docusaurus/plugin-client-redirects': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
+      '@docusaurus/plugin-content-blog': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
+      '@docusaurus/plugin-content-docs': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
+      '@docusaurus/plugin-content-pages': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
+      '@docusaurus/plugin-debug': 2.0.0-beta.18_b4435690203206cf26efe1b6626a8b4b
+      '@docusaurus/plugin-ideal-image': 2.0.0-beta.18_2ad7adbaefbc13fa83a738720eba1234
+      '@docusaurus/plugin-pwa': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
+      '@docusaurus/plugin-sitemap': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
+      '@docusaurus/preset-classic': 2.0.0-beta.18_1f11cf44f81a5055455b621c16c46c2c
+      '@docusaurus/theme-search-algolia': 2.0.0-beta.18_1f11cf44f81a5055455b621c16c46c2c
+      '@docusaurus/theme-translations': 2.0.0-beta.18
+      '@mdx-js/react': 1.6.22_react@17.0.2
+      clsx: 1.1.1
+      prism-react-renderer: 1.3.1_react@17.0.2
+      raw-loader: 4.0.2_webpack@5.72.0
+      rehype-katex: 4.0.0
+      remark-math: 3.0.1
+    devDependencies:
+      '@algolia/client-search': 4.13.0
+      '@awesome-crowdin/crowdin-contributors': 0.0.4
+      '@babel/core': 7.17.9
+      '@crowdin/cli': 3.7.8
+      '@docusaurus/module-type-aliases': 2.0.0-beta.18_react-dom@17.0.2+react@17.0.2
+      '@trunkio/launcher': 1.0.4
+      '@tsconfig/docusaurus': 1.0.5
+      '@types/react': 18.0.5
+      husky: 7.0.4
+      prop-types: 15.8.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      typescript: 4.6.3
+      webpack: 5.72.0
 
 packages:
 
