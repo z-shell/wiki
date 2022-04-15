@@ -500,7 +500,7 @@ zi ice as"command" from"gh-r" \
 zi light starship/starship
 ```
 
-## ZI Updates & Upgrades
+## ZI Updates
 
 Self-update
 
@@ -514,7 +514,7 @@ Update all plugins
 zi update
 ```
 
-Update specific plugin. Default is GitHub but can specify any with ice [from''][2]
+Update specific plugin. Default is GitHub but can specify any with ice [from'…'][2]
 
 ```shell
 zi update <user>/<repo>
