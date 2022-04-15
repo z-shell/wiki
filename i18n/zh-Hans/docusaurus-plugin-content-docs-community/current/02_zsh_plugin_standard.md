@@ -16,15 +16,15 @@ sidebar_position: 2
 
    2.1 The first point allows plugins to provide completions and functions that are loaded via Zsh’s `autoload` mechanism (a single function per file).
 
-3. From a more broad perspective, a plugin consists of:
+3. 从更全面的角度来看，一个插件包含以下几点：
 
-   3.1. A directory containing various files (the main script, autoload functions, completions, Makefiles, backend programs, documentation).
+   3.1. 插件所需的所有文件都应该在一个的文档目录中 （主脚本，自动加载函数，补全，Makefiles，后端程序，文档）。
 
-   3.2. A sourceable script that obtains the path to its directory via `$0` (see the [next section](#zero-handling) for a related enhancement proposal).
+   3.2. 可以通过`$0`获取插件源代码脚本的所在路径 (更多相关改进建议请参阅 [下一节](#zero-handling))。
 
-   3.3. A Github (or another site) repository identified by two components **username**/**pluginname**.
+   3.3. Github（或其他网站）资源库的标识应该由两个组件（**用户名**/**插件名**）所构成的。
 
-   3.4. A software package containing any type of command line artifacts – when used with advanced plugin managers that have hooks, can run Makefiles, add directories to `$PATH`.
+   3.4. 软件包应该要支持任意类型的命令行包管理工具 —— 比如使用带有 hooks 技术的高级插件管理器在运行Makefiles安装插件时可以触发钩子, 将插件目录添加到`$PATH`。
 
 Below follow proposed enhancements and codifications of the definition of a "Zsh the plugin" and the actions of plugin managers – the proposed standardization.
 
