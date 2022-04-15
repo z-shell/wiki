@@ -13,4 +13,4 @@ jobs:
     - uses: elstudio/actions-js-build/commit@v4
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PUSH_BRANCH: 'main'
+        PUSH_BRANCH: 'stars'
