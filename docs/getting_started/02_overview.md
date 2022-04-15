@@ -500,9 +500,7 @@ zi ice as"command" from"gh-r" \
 zi light starship/starship
 ```
 
-## ZI Upgrades
-
-ZI can be updated to `self-update` and plugins to `update`.
+## ZI Updates & Upgrades
 
 Self-update
 
