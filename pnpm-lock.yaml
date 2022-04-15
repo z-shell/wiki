@@ -3413,6 +3413,10 @@ packages:
       lodash: 4.17.21
     dev: false
 
+  /async/3.2.3:
+    resolution: {integrity: sha512-spZRyzKL5l5BZQrr/6m/SqFdBN0q3OCI0f9rjfBzCMBIP4p75P620rR3gTmaksNOhmzgdxcaxdNfMy6anrbM0g==}
+    dev: false
+
   /at-least-node/1.0.0:
     resolution: {integrity: sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==}
     engines: {node: '>= 4.0.0'}
@@ -6058,7 +6062,7 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
-      async: 2.6.4
+      async: 3.2.3
       chalk: 4.1.2
       filelist: 1.0.2
       minimatch: 3.1.2
@@ -8513,8 +8517,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /std-env/3.0.1:
-    resolution: {integrity: sha512-mC1Ps9l77/97qeOZc+HrOL7TIaOboHqMZ24dGVQrlxFcpPpfCHpH+qfUT7Dz+6mlG8+JPA1KfBQo19iC/+Ngcw==}
+  /std-env/3.1.1:
+    resolution: {integrity: sha512-/c645XdExBypL01TpFKiG/3RAa/Qmu+zRi0MwAmrdEkwHNuN0ebo8ccAXBBDa5Z0QOJgBskUIbuCK91x0sCVEw==}
     dev: false
 
   /string-width/1.0.2:
@@ -9379,7 +9383,7 @@ packages:
       chalk: 4.1.2
       consola: 2.15.3
       pretty-time: 1.1.0
-      std-env: 3.0.1
+      std-env: 3.1.1
       webpack: 5.72.0
     dev: false
 
