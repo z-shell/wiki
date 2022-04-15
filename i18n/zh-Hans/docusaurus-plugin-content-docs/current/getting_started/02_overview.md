@@ -455,35 +455,33 @@ zi ice as"command" from"gh-r" \
 zi light starship/starship
 ```
 
-## ZI 升级
+## ZI Updates
 
-ZI 可以用 `self-update` 更新，插件可以用 `update` 更新。
-
-自更新
+Self-update
 
 ```shell
 zi self-update
 ```
 
-更新所有插件
+Update all plugins
 
 ```shell
 zi update
 ```
 
-更新特定的插件。 默认为 GitHub，但也可以通过 ice 修饰符 [from''][2] 指定。
+Update specific plugin. Default is GitHub but can specify any with ice [from'…'][2]
 
 ```shell
 zi update <user>/<repo>
 ```
 
-并行更新插件
+Plugin parallel update plugins
 
 ```shell
 zi update --parallel
 ```
 
-并行更新插件，并将并发量设为 40
+Increase the number of jobs in a concurrent set to 40
 
 ```shell
 zi update --parallel 40
@@ -491,19 +489,19 @@ zi update --parallel 40
 
 ## Turbo 和 Lucid
 
-Turbo 和 Lucid 是最常使用的选项。
+Turbo and lucid are the most used options.
 
 ### Turbo
 
-Turbo 模式是提升性能的关键。
+Turbo mode is the key to performance.
 
-它可以异步加载，这在插件数量增加时会产生巨变。
+It can be loaded asynchronously, which makes a huge difference when the amount of plugins increases.
 
-通常用作 `zi ice wait"<SECONDS>"`，让我们用前面的例子。
+Usually used as `zi ice wait"<SECONDS>"`, let's use the previous example:
 
 :::note
 
-`wait` 和 `wait"0"` 等价
+The `wait` and `wait"0"` is the same
 
 :::
 
@@ -512,14 +510,14 @@ zi ice wait
 zi load z-shell/history-search-multi-word
 ```
 
-2秒后加载。
+Load after 2 seconds:
 
 ```shell
 zi ice wait"2"
 zi load z-shell/history-search-multi-word
 ```
 
-也可用于 `light` 和 `snippet`。
+Also can be used in `light` and `snippet`:
 
 ```shell
 zi ice wait
@@ -528,7 +526,7 @@ zi snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
 
 ### Lucid
 
-Turbo 模式详细日志，所以需要一个安静选项。 为了实现这一点，可以使用 `lucid` 。
+Turbo mode is verbose, so you need an option for quiet. To achieve this the `lucid` can be used.s
 
 ```shell
 zi ice wait lucid
@@ -537,9 +535,9 @@ zi load z-shell/history-search-multi-word
 
 ### ZI 的一些示例
 
-安装 ZI 后，你可以开始向底部的 `~/.zshrc` 添加一些动作（加载一些插件）。
+After installing ZI you can start adding some actions (load some plugins) to `~/.zshrc`, at the bottom.
 
-一些例子。 加载 pure 主题，以及与之捆绑的 zsh-async 库。
+Some examples: Load the pure theme, with the zsh-async library that's bundled with it.
 
 ```shell title="~/.zshrc"
 zi ice pick"async.zsh" src"pure.zsh"
@@ -548,11 +546,11 @@ zi light sindresorhus/pure
 
 ### 一瞥 <code>for</code> 语法
 
-用一个命令加载上述所有的插件。
+Load all of the above plugins with a single command:
 
 :::tip
 
-要查找任何信息，请使用[搜索][3]或者直接使用 <kbd>CTRL+K</kbd>。
+To find more information about anything use [search][3] or just <kbd>CTRL+K</kbd>.
 
 :::
 
@@ -565,27 +563,27 @@ zi light-mode for \
     sindresorhus/pure
 ```
 
-归档中的二进制发行版，来自 GitHub Release 页面。 在自动解压之后，提供 「fzf」程序。
+Binary release in the archive, from GitHub-releases page. After automatic unpacking, it provides the program "fzf".
 
 ```shell title="~/.zshrc"
 zi ice from"gh-r" as"program"
 zi light junegunn/fzf
 ```
 
-另一个二进制发行 需要从 `docker-compos-Linux-x86_64` 重命名。
+One other binary release needs renaming from `docker-compose-Linux-x86_64`.
 
-这通过 [ice 修饰符][1]: `mv'{from} -> {to}'`。
+This is done by [ice modifier][1]: `mv'{from} -> {to}'`.
 
-每个版本有多个包，对于 OS X、Linux 和 Windows——所以使用 ice 修饰符 `bpick` 来选择 Linux 包——在这种情况下，这不是必需的，ZI 会自动 grep 操作系统名称和架构，而不用 `bpick`。
+There are multiple packages per single version, for OS X, Linux, and Windows – so ice modifier `bpick` is used to select Linux package – in this case, this is not needed, ZI will grep operating system name and architecture automatically when there's no `bpick`.
 
 ```shell title="~/.zshrc"
 zi ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*"
 zi load docker/compose
 ```
 
-GitHub 上的 Vim 存储库——一个需要编译的典型源代码，如果你愿意，ZI 可以为你管理它，运行 `./configure` 和 `make` 等东西。
+Vim repository on GitHub – a typical source code that needs compilation, ZI can manage it for you if you like, run `./configure` and other `make` stuff.
 
-Ice 修饰符 `pick` 选择要添加到 $PATH 的二进制程序。 你也能在 $ZPFX 下安装包。
+Ice modifier `pick` selects a binary program to add to $PATH. You could also install the package under the path $ZPFX.
 
 ```shell title="~/.zshrc"
 zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
@@ -593,47 +591,49 @@ zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
 zi light vim/vim
 ```
 
-安装时构建的脚本
+Scripts that are built at install
 
 > 有一个默认的 make 目标，「install」，它可以构建脚本。
 
-`make''` ice 修饰符也可以像这样： `make"install PREFIX=$ZPFX"`，如果「install」不是唯一的默认的构建目标。
+The `make''` ice could also be: `make"install PREFIX=$ZPFX"`, if "install" wouldn't be the only, default target.
 
 ```shell title="~/.zshrc"
 zi ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
 zi light tj/git-extras
 ```
 
-在不加载任何插件的情况下处理补全，见 `clist` 命令。
+Handle completions without loading any plugin, see `clist` command.
 
-这只会在一个会话中运行一次。
+This one is to be run just once, in an interactive session.
 
 ```shell title="~/.zshrc"
 zi creinstall %HOME/my_completions
 ```
 
-对于 GNU ls 来说，二进制文件可以名为 gls、gdircolors，但在 OS X 上从 Homebrew 安装 coreutils 包时就不可以。
+For GNU ls the binaries can be gls, gdircolors, but not on OS X when installing the coreutils package from Homebrew.
 
 ```shell title="~/.zshrc"
 zi ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh" nocompile'!'
 zi light trapd00r/LS_COLORS
 ```
 
-`make'!` -> 运行 make 之前 `atclone` & `atpull`。
+`make'!'` -> run make before `atclone` & `atpull`.
 
 ```shell
 zi ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' src"zhook.zsh"
 zi light direnv/direnv
 ```
 
-如果您有兴趣尝试更多，请查看 [Playground 存储库][19] ，用户已上传 `~/.zshrc` 和其他 ZI 配置。
+If you're interested to try out more then check out the [playground repository][19] where users have uploaded the `~/.zshrc` and other ZI configurations.
 
-如果你的 `~/.zshrc` 包含 ZI 命令，请随意[提交][20]。
+Feel free to [submit][20] your `~/.zshrc` there if it contains ZI commands.
 
-你也可以查看一些额外的示例：
+For some additional examples you can also check out the:
 
 - [收集][10]，
 - [Oh-My-Zsh][9].
+
+[1]: /search?q=ice+modifiers
 
 [1]: /search?q=ice+modifiers
 [2]: /search?q=from

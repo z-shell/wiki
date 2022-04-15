@@ -28,7 +28,7 @@ sidebar_position: 2
 
 Below follow proposed enhancements and codifications of the definition of a "Zsh the plugin" and the actions of plugin managers – the proposed standardization.
 
-They cover the information on how to write a Zsh plugin.
+它们涵盖了如何编写Zsh插件的信息。
 
 ## 1. Standardized `$0` Handling {#zero-handling}
 
@@ -51,7 +51,7 @@ The one-line code above will:
 
    - the plugin manager will be easily able to alter effective `$0` before loading a plugin,
 
-   - this allows e.g. `eval "$(<plugin)"`, which can be faster than `source` ([comparison](http://www.zsh.org/mla/workers/2017/msg01827.html) note that it’s not for a compiled script).
+   - 这允许例如 `eval "$(<plugin)"`，这可能比 `source` 更快（[查看这两种方案的比较](http://www.zsh.org/mla/workers/2017/msg01827.html) 请注意，这不适用于已经编译好的脚本）。
 
 3. Use `$0` if it doesn’t contain the path to the Zsh binary,
 

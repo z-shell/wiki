@@ -1,36 +1,36 @@
 ---
 id: zsh_plugin_standard
-title: Zsh Plugin Standard
+title: Zshプラグイン標準
 sidebar_position: 2
 ---
 
-## What Is A Zsh Plugin?
+## Zshプラグインとは？
 
-Historically, Zsh plugins were first defined by Oh My Zsh. They provide for a way to package together files that extend or configure the shell’s functionality in a particular way.
+歴史的に、ZshプラグインはOh My Zshによって最初に定義されました。 シェルの機能を特定の方法で拡張/設定するファイルをまとめてパッケージ化する方法を提供します。
 
-At a simple level, a plugin:
+簡単なレベルでは、プラグインは:
 
-1. Has its directory added to `$fpath` ([Zsh documentation](http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions)). This is being done either by a plugin manager or by the plugin itself (see [5th section](#run-on-unload-call) for more information).
+1. Has its directory added to `$fpath` ([Zsh documentation](http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions)). これは、プラグインマネージャまたはプラグイン自身によって行われています (詳細は [5 節](#run-on-unload-call) を参照)。
 
-2. Has it’s first `*.plugin.zsh` file sourced (or `*.zsh`, `init.zsh`, `*.sh`, these are non-standard).
+2. 最初の `*.plugin.zsh` ファイルがソースになります (または `*.zsh`, `init.zsh`, `*.sh`, これらは非標準です)。
 
    2.1 The first point allows plugins to provide completions and functions that are loaded via Zsh’s `autoload` mechanism (a single function per file).
 
-3. From a more broad perspective, a plugin consists of:
+3. より広い観点からは見ると、プラグインは次のもので構成されています:
 
    3.1. A directory containing various files (the main script, autoload functions, completions, Makefiles, backend programs, documentation).
 
    3.2. A sourceable script that obtains the path to its directory via `$0` (see the [next section](#zero-handling) for a related enhancement proposal).
 
-   3.3. A Github (or another site) repository identified by two components **username**/**pluginname**.
+   3.3. 2つの要素 **ユーザー名**/**プラグイン名**によって識別されるGithub(または別のサイトの) リポジトリ。
 
-   3.4. A software package containing any type of command line artifacts – when used with advanced plugin managers that have hooks, can run Makefiles, add directories to `$PATH`.
+   3.4. あらゆるタイプのコマンドライン成果物を含むソフトウェアパッケージであり、 フックを持つ高度なプラグインマネージャーで使用すると、Makefile を実行して `$PATH`にディレクトリを追加することが可能です。
 
 Below follow proposed enhancements and codifications of the definition of a "Zsh the plugin" and the actions of plugin managers – the proposed standardization.
 
-They cover the information on how to write a Zsh plugin.
+Zshプラグインの書き方に関する情報を網羅しています。
 
-## 1. Standardized `$0` Handling {#zero-handling}
+## 1. 標準化された `$0` の処理 {#zero-handling}
 
 > [ zero-handling ]
 
@@ -41,7 +41,7 @@ To get the plugin’s location, plugins should do:
 0="${${(M)0:#/*}:-$PWD/$0}"
 ```
 
-Then `${0:h}` to get plugin’s directory.
+そして、 `${0:h}` で、プラグインのディレクトリを取得します。
 
 The one-line code above will:
 
@@ -53,15 +53,15 @@ The one-line code above will:
 
    - this allows e.g. `eval "$(<plugin)"`, which can be faster than `source` ([comparison](http://www.zsh.org/mla/workers/2017/msg01827.html) note that it’s not for a compiled script).
 
-3. Use `$0` if it doesn’t contain the path to the Zsh binary,
+3. Zsh バイナリーへのパスが含まれていない場合は、 `$0` を使用します。
 
    - plugin manager will still be able to set `$0`, although more difficultly, requires `unsetopt function_argzero` before sourcing plugin script, and `0=…​` assignment after sourcing plugin script.
 
    - `unsetopt function_argzero` will be detected (it causes `$0` not to contain a plugin-script path, but the path to Zsh binary, if not overwritten by a `0=…​` assignment),
 
-   - `setopt posix_argzero` will be detected (as above).
+   - `setopt posix_argzero` が検出されます ( 上記のとおり) 。
 
-4. Use `%N` prompt expansion flag, which always gives absolute path to script,
+4. `%N` プロンプト拡張フラグを使用します。このフラグは常にスクリプトに絶対パスを指定します。
 
    - plugin manager cannot alter this (no advanced loading of plugin is possible), but simple plugin-file sourcing (without a plugin manager) will be saved from breaking caused by the mentioned `*_argzero` options, so this is a very good last-resort fallback.
 
@@ -71,7 +71,7 @@ The goal is flexibility, with essential motivation to support `eval "$(<plugin)"
 
 A plugin manager will be even able to convert a plugin to a function (author implemented such proof of concept functionality, it’s fully possible – also in an automatic fashion), but performance differences of this are yet unclear.
 
-It might however provide a use case.
+しかし、それはユースケースを提供するかもしれません。
 
 The last, 5th point also allows using the `$0` handling in scripts (i.e. runnable with the hashbang `#!…`) to get the directory in which the script file resides.
 
