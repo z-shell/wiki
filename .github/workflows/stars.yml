@@ -1,0 +1,9 @@
+---
+name: '⭐ Stars'
+on:
+  watch:
+  
+jobs:
+  labels:
+    name: '⭐ Add star'
+    uses: z-shell/.github/.github/workflows/stars.yml@main
