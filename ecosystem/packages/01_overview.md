@@ -1,9 +1,14 @@
 ---
-id: packages-overview
-title: 📦 Quick overview
-image: zw/logo/320x320.png
-description: Introduction to the packages
-keywords: [package, zsh, zpackage]
+id: packages
+slug: /packages
+title: 📦 Introduction
+sidebar_position: 1
+image: img/logo/320x320.png
+description: Packages Introduction
+keywords:
+  - package
+  - zpackage
+  - zi-package
 ---
 
 ## The [any-gem][1] and [any-node][2] packages
@@ -35,7 +40,7 @@ The so-called packages are GitHub repositories holding a `package.json` file wit
 
 This way you don't have to (but still can) specify ices, which might be handy when the ice-mod list is long and complex.
 
-## Motivation behind packages {#motivation-behind-packages}
+## Motivation behind packages
 
 The motivation for adding such functionality was:
 
@@ -53,7 +58,7 @@ The motivation for adding such functionality was:
 4. So a solution appeared: why not publish a package at GitHub with the plugin configurations (i.e.: [ice modifiers][3]
    stored in a file?
 
-## Introductory Example {#introductory-example}
+## Introductory example
 
 This way, instead of the following command used to install `fzf`:
 
@@ -85,7 +90,7 @@ You can also update the package with `zi update fzf` – it'll cause the project
 However, it'll actually be more like to `emerge` from Gentoo, because the installation will be from the source… unless…
 the user will pick up a binary installation by profile-argument specified in the `pack''` ice :)
 
-## Pros Of Using ZI Package For Regular Software Installations
+## Pros of using ZI package for regular software installations
 
 Using ZI to install software where one could use a regular package manager has several advantages:
 
@@ -120,7 +125,7 @@ have always the latest `README` downloaded by additional ice:
 into a man page by the `remark` Markdown processor or other via an `atclone''` ice, as the tool doesn't have any
 official man page).
 
-## Adding Your Own Package {#adding-your-own-package}
+## Adding your own package
 
 1. Contact the author to have the repository at the [Z-Shell][6] organization.
 
@@ -135,7 +140,7 @@ official man page).
 
 [1]: https://github.com/z-shell/any-gem
 [2]: https://github.com/z-shell/any-node
-[3]: /docs/ecosystem/annexes/bin-gem-node
+[3]: /ecosystem/annexes/bin-gem-node
 [4]: /docs/guides/ice-modifiers
 [5]: https://github.com/z-shell/ecs-cli
 [6]: https://github.com/z-shell

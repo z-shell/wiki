@@ -116,12 +116,12 @@ Invocations][7].
 
 <!-- end-of-doc -->
 
-[1]: /docs/ecosystem/annexes/bin-gem-node
+[1]: /ecosystem/annexes/bin-gem-node
 [2]: https://github.com/z-shell/any-gem
 [3]: https://github.com/z-shell/any-node
-[4]: /docs/ecosystem/annexes/rust
-[5]: /docs/ecosystem/annexes
-[6]: /docs/ecosystem/packages/packages-overview
+[4]: /ecosystem/annexes/rust
+[5]: /ecosystem/annexes
+[6]: /ecosystem/packages
 [7]: /docs/gallery/collection
 [8]: /docs/getting_started/overview#turbo-mode-zsh--53
 [9]: /docs/guides/customization#customizing-paths

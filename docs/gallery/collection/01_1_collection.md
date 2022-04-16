@@ -1,9 +1,11 @@
 ---
 slug: /gallery/collection
 title: '🔺 Quick Introduction'
-image: zw/logo/320x320.png
+image: img/logo/320x320.png
 description: The Gallery of Invocations
-keywords: [collection]
+keywords:
+  - collection
+  - gallery
 ---
 
 import APITable from '@site/src/components/APITable';
@@ -55,10 +57,10 @@ Any contributions you make will benefit everybody else and are greatly appreciat
 
 :::
 
-[1]: /docs/ecosystem/annexes
-[2]: /docs/ecosystem/annexes/rust
-[3]: /docs/ecosystem/annexes/meta-plugins
-[4]: /docs/ecosystem/packages/packages-overview
+[1]: /ecosystem/annexes
+[2]: /ecosystem/annexes/rust
+[3]: /ecosystem/annexes/meta-plugins
+[4]: /ecosystem/packages
 [5]: https://github.com/z-shell/zi/issues/new/choose
-[6]: https://github.com/z-shell/zi/discussions/categories/ideas
+[6]: https://github.com/orgs/z-shell/discussions/new
 [7]: /search/?q=GH-R

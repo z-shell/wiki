@@ -10,9 +10,11 @@ files:
   ### Docs Markdown files
   - source: '/docs/**/*'
     ignore:
-      - '/docs/ecosystem/**'
       - '/docs/gallery/**'
     translation: '/i18n/%two_letters_code%/docusaurus-plugin-content-docs/current/**/%original_file_name%'
+  ### Community Docs Markdown files
+  #- source: '/ecosystem/**/*'
+  #  translation: '/i18n/%two_letters_code%/docusaurus-plugin-content-docs-ecosystem/current/**/%original_file_name%'
   ### Community Docs Markdown files
   - source: '/community/**/*'
     translation: '/i18n/%two_letters_code%/docusaurus-plugin-content-docs-community/current/**/%original_file_name%'

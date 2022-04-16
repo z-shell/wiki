@@ -1,6 +1,6 @@
 ---
 id: intro
-title: Zsh Knowledge Base
+title: 👥 Community Docs
 ---
 
 - [Zsh PLugin Standard](02_zsh_plugin_standard.md)

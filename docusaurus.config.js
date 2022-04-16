@@ -56,6 +56,23 @@ const config = {
         rehypePlugins: [katex],
       },
     ],
+    [
+      'content-docs',
+      {
+        id: 'ecosystem',
+        path: 'ecosystem',
+        routeBasePath: 'ecosystem',
+        sidebarPath: require.resolve('./lib/js/sidebars_3.js'),
+        editUrl: ({locale, versionDocsDirPath, docPath}) => {
+          if (locale !== 'en') {
+            return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
+          }
+          return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
+        },
+        remarkPlugins: [math],
+        rehypePlugins: [katex],
+      },
+    ],
   ],
   scripts: [{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.min.js'}],
   presets: [
@@ -129,10 +146,16 @@ const config = {
             position: 'left',
             label: 'Docs',
           },
-          /**{
-              to: 'docs/ecosystem/annexes',
-              label: 'Ecosystem', position: 'left',
-            },*/
+          {
+            to: 'ecosystem/intro',
+            position: 'left',
+            label: 'Ecosystem',
+          },
+          {
+            to: 'community/intro',
+            position: 'left',
+            label: 'Community',
+          },
           {
             type: 'localeDropdown',
             position: 'right',
@@ -143,10 +166,10 @@ const config = {
               },
             ],
           },
-          /**{
+          {
             type: 'docsVersionDropdown',
             position: 'right',
-          },*/
+          },
           {
             href: 'https://github.com/z-shell/zi/',
             position: 'right',
@@ -175,20 +198,16 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'GitHub Discussions',
-                href: 'https://github.com/orgs/z-shell/discussions/',
-              },
-              {
                 label: 'Slack.com',
                 href: 'https://z-shell.slack.com',
               },
               {
                 label: 'Matrix.org',
-                href: 'https://matrix.to/#/#zi:matrix.org',
+                href: 'https://matrix.to/#/#z-shell_zi:gitter.im',
               },
               {
-                label: 'Twitter.com',
-                href: 'https://twitter.com/zshell_zi',
+                label: 'Gitter.im',
+                href: 'https://gitter.im/z-shell/zi',
               },
             ],
           },
@@ -196,11 +215,15 @@ const config = {
             title: 'More',
             items: [
               {
+                label: 'GitHub Discussions',
+                href: 'https://github.com/orgs/z-shell/discussions/',
+              },
+              {
                 label: 'GitHub Organization',
                 href: 'https://github.com/z-shell/',
               },
               {
-                label: 'Crowdin Localization',
+                label: 'Crowdin Translations',
                 href: 'https://crowdin.digitalclouds.dev/z-shell/',
               },
             ],

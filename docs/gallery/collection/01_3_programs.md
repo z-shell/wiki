@@ -162,7 +162,7 @@ zi ice as'program' from'gh-r' mv'shfmt* -> shfmt'
 zi light mvdan/sh
 ```
 
-### GH-R: [b4b4r07/gotcha](https://github.com/b4b4r07/gotcha) {#gh-r-b4b4r07gotcha}
+### GH-R: [b4b4r07/gotcha](https://github.com/b4b4r07/gotcha)
 
 ```shell
 zi ice as'program' from'gh-r' mv'gotcha_* -> gotcha'
@@ -388,7 +388,7 @@ zi ice as'program' pick'yank' make
 zi light mptre/yank
 ```
 
-### B: [pyenv/pyenv](https://github.com/pyenv/pyenv) {#b-pyenvpyenv}
+### B: [pyenv/pyenv](https://github.com/pyenv/pyenv)
 
 ```shell
 zi ice atclone'PYENV_ROOT="$PWD" ./libexec/pyenv init - > zpyenv.zsh' \
@@ -397,7 +397,7 @@ zi ice atclone'PYENV_ROOT="$PWD" ./libexec/pyenv init - > zpyenv.zsh' \
 zi light pyenv/pyenv
 ```
 
-### B: [sdkman/sdkman-cli](https://github.com/sdkman/sdkman-cli) {#b-sdkmansdkman-cli}
+### B: [sdkman/sdkman-cli](https://github.com/sdkman/sdkman-cli)
 
 ```shell
 zi ice as'program' pick'$ZPFX/sdkman/bin/sdk' id-as'sdkman' run-atpull \
@@ -407,7 +407,7 @@ zi ice as'program' pick'$ZPFX/sdkman/bin/sdk' id-as'sdkman' run-atpull \
 zi light z-shell/null
 ```
 
-### B: [asciinema/asciinema](https://github.com/asciinema/asciinema) {#b-asciinemaasciinema}
+### B: [asciinema/asciinema](https://github.com/asciinema/asciinema)
 
 ```shell
 zi ice as"program" wait lucid atinit"export PYTHONPATH=$ZPFX/lib/python3.10/site-packages/" \
@@ -416,14 +416,14 @@ zi ice as"program" wait lucid atinit"export PYTHONPATH=$ZPFX/lib/python3.10/site
 zi load asciinema/asciinema
 ```
 
-### RA: Rust and [Peltoche/lsd](https://github.com/Peltoche/lsd) {#ra-rust-and-peltochelsd}
+### RA: Rust and [Peltoche/lsd](https://github.com/Peltoche/lsd)
 
 ```shell
 zi ice rustup cargo"!lsd"
 zi load z-shell/null
 ```
 
-### RA: Rust and [ogham/exa](https://github.com/ogham/exa) {#ra-rust-and-oghamexa}
+### RA: Rust and [ogham/exa](https://github.com/ogham/exa)
 
 ```shell
 # the `ls' shim exposing the `exa' binary
@@ -452,7 +452,7 @@ zi load z-shell/null
 
 ## With [`for`][102] syntax
 
-### GH-R: [argoproj/argo-cd](https://github.com/argoproj/argo-cd) {#gh-r-argoprojargo-cd}
+### GH-R: [argoproj/argo-cd](https://github.com/argoproj/argo-cd)
 
 ```shell
 zi light-mode for \
@@ -462,7 +462,7 @@ zi light-mode for \
     argoproj/argo-cd
 ```
 
-### GH-R: [junegunn/fzf](https://github.com/junegunn/fzf) + grab extras {#gh-r-junegunnfzf--grab-extras}
+### GH-R: [junegunn/fzf](https://github.com/junegunn/fzf) + grab extras
 
 ```shell
 zi for \
@@ -567,4 +567,4 @@ export CARGO_HOME=\$PWD; export RUSTUP_HOME=\$PWD/rustup" for \
 [105]: /docs/guides/syntax/ice-modifiers
 [106]: /docs/gallery/collection#compiling-programs
 [107]: /docs/guides/customization#customizing-paths
-[108]: /docs/ecosystem/annexes/bin-gem-node#the-ice-modifiers-provided-by-the-annex
+[108]: /ecosystem/annexes/bin-gem-node#the-ice-modifiers-provided-by-the-annex

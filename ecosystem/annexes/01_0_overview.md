@@ -1,19 +1,20 @@
 ---
 id: annexes
-slug: /ecosystem/annexes
-title: 💠 Quick overview
+slug: /annexes
+title: 💠 Introduction
+sidebar_position: 1
 image: img/logo/320x320.png
-description: Annexes documentation
+description: Annex Introduction
 keywords:
   - zannex
 ---
 
-## What Are They? {#what-are-they}
+## What Are They?
 
 They are [extensions](https://github.com/z-shell/zannexes) which increase functionality. Annexes can extend the
 functionality without adding unnecessary code to main application.
 
-## What Can They Do? {#what-can-they-do}
+## What Can They Do?
 
 1. Add a new ZI subcommand (i.e. the [command](/docs/guides/commands) that’s placed after the function `zi …` when
    calling ZI).
@@ -32,23 +33,23 @@ functionality without adding unnecessary code to main application.
 
 4. Register hooks for generating help text, shown by the `zi help` subcommand.
 
-## Annex recommendation {#annex-recommendation}
+## Annex recommendations
 
-### Required for default functionality: {#required-for-default-functionality}
+### Required for default functionality
 
 1. [z-a-bin-gem-node](https://github.com/z-shell/z-a-bin-gem-node)
 2. [z-a-readurl](https://github.com/z-shell/z-a-readurl)
 3. [z-a-patch-dl](https://github.com/z-shell/z-a-patch-dl)
 4. [z-a-rust](https://github.com/z-shell/z-a-rust)
 
-### Recommeded for additional functionality: {#recommeded-for-additional-functionality}
+### Recommeded for additional functionality
 
 1. [z-a-submods](https://github.com/z-shell/z-a-submods)
 2. [z-a-unscope](https://github.com/z-shell/z-a-unscope)
 
 :::tip
 
-Install annexes as [meta plugin](/docs/ecosystem/annexes/meta-plugins)
+Install annexes as [meta plugin](/ecosystem/annexes/meta-plugins)
 
 All required:
 
@@ -64,7 +65,7 @@ zi light-mode for z-shell/z-a-meta-plugins @annexes+rec
 
 :::
 
-## How To Code Them? {#how-to-code-them}
+## How To Code Them?
 
 Below is an example body of an `atclone` hook (taken from [**submods**](https://github.com/z-shell/z-a-submods) annex).
 
@@ -110,7 +111,7 @@ done
 ```
 
 The recommended method of creating a hook is to place its body into a file that starts with a right arrow `→`
-([more information](https://z-shell.github.io/docs/zsh/Zsh-Plugin-Standard.html#_the_proposed_function_name_prefixes),
+([more information](/community/zsh_plugin_standard#the-proposed-function-name-prefixes),
 and also a `za-` prefix, e.g. `→za-myproject-atclone-hook` and then to mark it for autoloading via
 `autoload -Uz →za-myproject-atclone-hook`. Then register the hook (presumably in the `myproject.plugin.zsh` file) with
 the API call:
@@ -149,7 +150,7 @@ Checkout the project which fully implements this idea, [**z-a-submods**](https:/
 e.g. also implements the `atpull` hook, i.e. supports automatic update of the submodules. The `z-a-*` prefix is
 recommended for projects that are being annexes.
 
-## Details {#details}
+## Details
 
 There are 2 or 3 subtypes for each of the hook:
 

@@ -108,7 +108,7 @@ zi ice wait lucid
 zi load urbainvaes/fzf-marks
 ```
 
-### SC: [hlissner/zsh-autopair](https://github.com/hlissner/zsh-autopair) {#sc-hlissnerzsh-autopair}
+### SC: [hlissner/zsh-autopair](https://github.com/hlissner/zsh-autopair)
 
 ```shell
 zi ice wait lucid pick'autopair.zsh'
@@ -129,7 +129,7 @@ zi ice wait lucid
 zi light xPMo/zsh-toggle-command-prefix
 ```
 
-### SC: [leonjza/history-here](https://github.com/leonjza/history-here) {#sc-leonjzahistory-here}
+### SC: [leonjza/history-here](https://github.com/leonjza/history-here)
 
 ```shell
 zi ice wait lucid
@@ -234,7 +234,7 @@ zi wait lucid for bpick"kubectx;kubens" from"gh-r" \
     ahmetb/kubectx
 ```
 
-### B: [stedolan/jq](https://github.com/stedolan/jq) {#b-stedolanjq}
+### B: [stedolan/jq](https://github.com/stedolan/jq)
 
 ```shell
 zi wait lucid for atclone"autoreconf -fi && ./configure --with-oniguruma=builtin && make \
@@ -242,7 +242,7 @@ zi wait lucid for atclone"autoreconf -fi && ./configure --with-oniguruma=builtin
     stedolan/jq
 ```
 
-### [github/git-sizer](https://github.com/github/git-sizer) {#githubgit-sizer}
+### [github/git-sizer](https://github.com/github/git-sizer)
 
 ```shell
 zi wait lucid for as"command" from"gh-r" sbin"git-sizer" \
@@ -257,4 +257,4 @@ zi wait lucid for as"command" from"gh-r" sbin"git-sizer" \
 [6]: /docs/guides/syntax/ice-modifiers
 [7]: /docs/guides/syntax/common#compiling-programs
 [8]: /docs/guides/customization#customizing-paths
-[9]: /docs/ecosystem/annexes/bin-gem-node#the-ice-modifiers-provided-by-the-annex
+[9]: /ecosystem/annexes/bin-gem-node#the-ice-modifiers-provided-by-the-annex

@@ -1,16 +1,15 @@
 ---
-id: packages
+id: available-packages
 title: 📦 Available packages
-image: zw/logo/320x320.png
+image: img/logo/320x320.png
 description: The Z-Shell Organization packages
-keywords: [zpackage]
+keywords:
+  - zpackage
+  - zi-package
 ---
 
 You can find the available packages
 [here](https://github.com/search?q=topic%3Azpackage+org%3Az-shell&type=Repositories).
-
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
 
 |       Package Name       | Description                                                                                      |
 | :----------------------: | ------------------------------------------------------------------------------------------------ |
@@ -34,9 +33,6 @@ You can find the available packages
 |        [zsh][18]         | The Zsh mirror of zsh-users                                                                      |
 |         [nb][19]         | Bookmarking, and archiving with linking, tagging, search, Git syncing, Pandoc conversion, + more |
 |      [zsh-bin][20]       | Package of statically-linked, hermetic, relocatable - romkatv/zsh-bin                            |
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
 
 > List updated: `2021-11-11`
 

@@ -366,7 +366,7 @@ myscript () {
 **The ices can be empty**. They will then try to create the function for trailing component of the `id-as` ice and the
 other cases, in the same way as with the `fbin` ice.
 
-## Additional ZI commands {#additional-zi-commands}
+## Additional ZI commands
 
 There's an additional ZI command that's provided by this annex –`shim-list`. It searches for and displays any shims that
 are being currently stored under `$ZPFX/bin`. Example invocation:
