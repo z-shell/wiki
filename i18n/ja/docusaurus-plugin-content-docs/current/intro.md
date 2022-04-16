@@ -2,8 +2,8 @@
 id: intro
 title: '🎉 Introduction'
 sidebar_position: 1
-image: zw/logo/320x320.png
-description: Zshのためのスイスアーミーナイフ ― かつての zplugin, zinit ― の紹介です。
+image: img/logo/320x320.png
+description: Introduction to a Swiss Army Knife for Zsh, formerly known as zplugin, zinit.
 keywords:
   - introduction
 ---
