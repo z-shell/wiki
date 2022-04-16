@@ -1,6 +1,5 @@
 ---
 id: intro
-slug: /docs/intro
 title: '🎉 Introduction'
 sidebar_position: 1
 image: img/logo/320x320.png
