@@ -3,10 +3,10 @@ id: meta-plugins
 title: 💠 Meta Plugins
 image: img/logo/320x320.png
 description: Annex - meta plugins documentation
-keywords: [annex, meta-plugins]
+keywords: 
+  - annex,
+  - meta-plugins
 ---
-
-import APITable from '@site/src/components/APITable';
 
 - [z-shell/z-a-meta-plugins](https://github.com/z-shell/z-a-meta-plugins) annex have the curated, optimal
   [ice](/docs/guides/syntax/ice) lists automatically applied.
