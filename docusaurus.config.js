@@ -57,7 +57,7 @@ const config = {
       },
     ],
   ],
-  scripts: [{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.js'}],
+  scripts: [{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.min.js'}],
   stylesheets: [
     {
       href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
