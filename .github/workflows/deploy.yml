@@ -18,6 +18,7 @@ jobs:
         node-version: ['16']
     steps:
       - uses: actions/checkout@v3
+      - uses: trunk-io/trunk-action@v1.0.0
       - uses: actions/cache@v3
         with:
           path: ~/.pnpm-store
@@ -30,7 +31,6 @@ jobs:
           run_install: |
             - recursive: true
               args: [--no-frozen-lockfile, --strict-peer-dependencies]
-      - uses: trunk-io/trunk-action@v1.0.0
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
@@ -38,4 +38,4 @@ jobs:
       - run: |
           pnpm run build:en
           pnpm run clear
-      - run: ${{ secrets.BUILD_ZW }}
+      - run: ${{ secrets.CF_WEBHOOK }}
