@@ -38,4 +38,4 @@ jobs:
       - run: |
           pnpm run build:en
           pnpm run clear
-      - run: ${{ secrets.BUILD_ZI }}
+      - run: ${{ secrets.BUILD_ZW }}
