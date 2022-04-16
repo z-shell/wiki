@@ -16,7 +16,7 @@
     "write-docs-version": "docusaurus docs:version",
     "write-community-version": "docusaurus docs:version:community",
     "crowdin:sync": "docusaurus write-translations && crowdin upload sources && crowdin download",
-    "build:cf": "corepack enable && pnpm add -g pnpm && pnpm i --no-frozen-lockfile --strict-peer-dependencies && pnpm build",
+    "build:cf": "corepack enable && pnpm add -g pnpm && pnpm i && pnpm build",
     "check": "trunk check",
     "check:ci": "trunk check --ci",
     "check:all": "trunk check --all",
@@ -55,7 +55,7 @@
     "@docusaurus/module-type-aliases": "2.0.0-beta.18",
     "@trunkio/launcher": "1.0.4",
     "@tsconfig/docusaurus": "1.0.5",
-    "@types/react": "18.0.5",
+    "@types/react": "^17.0.44",
     "husky": "7.0.4",
     "prop-types": "15.8.1",
     "react": "17.0.2",
@@ -90,6 +90,7 @@
     ]
   },
   "peerDependencies": {
+    "@types/react": "17",
     "react": "17 || 18",
     "react-dom": "17 || 18"
   }
