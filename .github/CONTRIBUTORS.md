@@ -99,4 +99,4 @@
                       <b>0 words</b>
                   </sub>
               </td></tr></table>
-<!-- CROWDIN-TRANSLATORS-END -->]
+<!-- CROWDIN-TRANSLATORS-END -->
