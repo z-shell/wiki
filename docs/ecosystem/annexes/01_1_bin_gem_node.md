@@ -3,10 +3,10 @@ id: bin-gem-node
 title: 💠 Bin Gem Node
 image: img/logo/320x320.png
 description: Annex - Bin Gem Node documentation
-keywords: 
-   - zannex, 
-   - bin-gem-node
-   - z-a-bin-gem-node
+keywords:
+  - zannex,
+  - bin-gem-node
+  - z-a-bin-gem-node
 ---
 
 import APITable from '@site/src/components/APITable';

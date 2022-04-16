@@ -3,7 +3,7 @@ id: meta-plugins
 title: 💠 Meta Plugins
 image: img/logo/320x320.png
 description: Annex - meta plugins documentation
-keywords: 
+keywords:
   - annex,
   - meta-plugins
 ---

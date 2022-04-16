@@ -4,8 +4,8 @@ slug: /ecosystem/annexes
 title: 💠 Quick overview
 image: img/logo/320x320.png
 description: Annexes documentation
-keywords: 
-   - zannex
+keywords:
+  - zannex
 ---
 
 ## What Are They? {#what-are-they}
