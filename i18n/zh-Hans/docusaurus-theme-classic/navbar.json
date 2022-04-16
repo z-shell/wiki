@@ -4,7 +4,15 @@
     "description": "The title in the navbar"
   },
   "item.label.Docs": {
-    "message": "文档",
+    "message": "Docs",
     "description": "Navbar item with label Docs"
+  },
+  "item.label.Ecosystem": {
+    "message": "Ecosystem",
+    "description": "Navbar item with label Ecosystem"
+  },
+  "item.label.Community": {
+    "message": "Community",
+    "description": "Navbar item with label Community"
   }
 }

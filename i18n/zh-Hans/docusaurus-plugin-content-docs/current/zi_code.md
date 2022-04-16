@@ -1,7 +1,7 @@
 ---
 id: code
-title: '🔖 代码文档'
-description: 文档列出了所有函数，以及它们之间的交互，注释和功能。
+title: '🔖 Code documentation'
+description: The documentation lists all functions, interactions between them, their comments, and features.
 keywords:
   - code
   - documentation
@@ -9,7 +9,7 @@ keywords:
 
 :::info
 
-每周四 `4:30 UTC`，文档在 [z-shell/docs][1] 自动更新。
+Documentation automatically updated every `Thursday 4:30 UTC` at [z-shell/docs][1].
 
 :::
 
@@ -21,10 +21,10 @@ keywords:
 | [autoload.zsh][14]   | [adoc][15], [pdf][16], [html][17] | Functions used only in interactive `ZI` invocations           |
 | [additional.zsh][18] | [adoc][19], [pdf][20], [html][21] | Additonal support for functions                               |
 
-| File                      | Description                                                                                                                                                 |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Zsh Plugin Standart][22] | Proposed enhancements and codifications of the definition of a "Zsh the plugin" and the actions of plugin managers – standardization. 该文档涵盖了如何编写 Zsh 插件的信息。 |
-| [Zsh 原生脚本手册][23]          | Handbook to keep Zsh constructs that are fast, robust, and do not depend on external tools. 这样的代码类似于 Ruby 或 Perl，而不像过程式的 shell 脚本。                          |
+| File                                | Description                                                                                                                                                                                             |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Zsh Plugin Standart][22]           | Proposed enhancements and codifications of the definition of a "Zsh the plugin" and the actions of plugin managers – standardization. The document covers the information on how to write a Zsh plugin. |
+| [Zsh Native Scripting Handbook][23] | Handbook to keep Zsh constructs that are fast, robust, and do not depend on external tools. Such code is similar to Ruby or Perl and less like top-down shell scripts.                                  |
 
 [1]: https://github.com/z-shell/docs
 [2]: https://github.com/z-shell/zi/blob/main/zi.zsh

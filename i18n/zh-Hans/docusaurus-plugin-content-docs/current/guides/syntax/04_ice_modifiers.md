@@ -101,7 +101,7 @@ Order of execution of related ice modifiers is as follows:
 
 </APITable>
 
-## 命令补全
+## Completions
 
 <APITable>
 

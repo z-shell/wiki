@@ -112,8 +112,8 @@ Invocations][7].
 
 <!-- end-of-doc -->
 
-[5]: /docs/ecosystem/annexes
-[6]: /docs/ecosystem/packages/packages-overview
+[5]: /ecosystem/annexes
+[6]: /ecosystem/packages
 [8]: /docs/getting_started/overview#turbo-mode-zsh--53
 [9]: /docs/guides/customization#customizing-paths
 [10]: /docs/guides/customization#multiple-prompts

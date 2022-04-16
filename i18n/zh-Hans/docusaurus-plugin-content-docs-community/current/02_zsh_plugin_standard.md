@@ -1,34 +1,34 @@
 ---
 id: zsh_plugin_standard
-title: Zsh 插件标准
+title: ℹ️ Zsh Plugin Standard
 sidebar_position: 2
 ---
 
-## Zsh 插件是什么？
+## What Is A Zsh Plugin?
 
-从历史上看，Zsh 插件最初是由 Oh My Zsh 定义的。 他们提供了一种打包的方式，来封装扩展或以特定方式配置 shell 功能的文件。
+Historically, Zsh plugins were first defined by Oh My Zsh. They provide for a way to package together files that extend or configure the shell’s functionality in a particular way.
 
-简单来说，一个插件：
+At a simple level, a plugin:
 
-1. 会将其目录添加到 `$fpath` （[Zsh 文档](http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions)）中。 这由插件管理器或插件自己完成 ( 更多信息请阅读 [第5部分](#run-on-unload-call)) 。
+1. Has its directory added to `$fpath` ([Zsh documentation](http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions)). This is being done either by a plugin manager or by the plugin itself (see [5th section](#run-on-unload-call) for more information).
 
-2. 这些插件应该有统一标准的文件后缀名 `*.plugin.zsh` （而类似`*.zsh`, `init.zsh`, `*.sh`, 这些文件后缀名是非标准的）。
+2. Has it’s first `*.plugin.zsh` file sourced (or `*.zsh`, `init.zsh`, `*.sh`, these are non-standard).
 
    2.1 The first point allows plugins to provide completions and functions that are loaded via Zsh’s `autoload` mechanism (a single function per file).
 
-3. 从更全面的角度来看，一个插件包含以下几点：
+3. From a more broad perspective, a plugin consists of:
 
-   3.1. 插件所需的所有文件都应该在一个的文档目录中 （主脚本，自动加载函数，补全，Makefiles，后端程序，文档）。
+   3.1. A directory containing various files (the main script, autoload functions, completions, Makefiles, backend programs, documentation).
 
-   3.2. 可以通过`$0`获取插件源代码脚本的所在路径 (更多相关改进建议请参阅 [下一节](#zero-handling))。
+   3.2. A sourceable script that obtains the path to its directory via `$0` (see the [next section](#zero-handling) for a related enhancement proposal).
 
-   3.3. Github（或其他网站）资源库的标识应该由两个组件（**用户名**/**插件名**）所构成的。
+   3.3. A Github (or another site) repository identified by two components **username**/**pluginname**.
 
-   3.4. 软件包应该要支持任意类型的命令行包管理工具 —— 比如使用带有 hooks 技术的高级插件管理器在运行Makefiles安装插件时可以触发钩子, 将插件目录添加到`$PATH`。
+   3.4. A software package containing any type of command line artifacts – when used with advanced plugin managers that have hooks, can run Makefiles, add directories to `$PATH`.
 
 Below follow proposed enhancements and codifications of the definition of a "Zsh the plugin" and the actions of plugin managers – the proposed standardization.
 
-它们涵盖了如何编写Zsh插件的信息。
+They cover the information on how to write a Zsh plugin.
 
 ## 1. Standardized `$0` Handling {#zero-handling}
 
@@ -41,7 +41,7 @@ To get the plugin’s location, plugins should do:
 0="${${(M)0:#/*}:-$PWD/$0}"
 ```
 
-然后使用`${0:h}`获取插件的目录。
+Then `${0:h}` to get plugin’s directory.
 
 The one-line code above will:
 
@@ -51,7 +51,7 @@ The one-line code above will:
 
    - the plugin manager will be easily able to alter effective `$0` before loading a plugin,
 
-   - 这允许例如 `eval "$(<plugin)"`，这可能比 `source` 更快（[查看这两种方案的比较](http://www.zsh.org/mla/workers/2017/msg01827.html) 请注意，这不适用于已经编译好的脚本）。
+   - this allows e.g. `eval "$(<plugin)"`, which can be faster than `source` ([comparison](http://www.zsh.org/mla/workers/2017/msg01827.html) note that it’s not for a compiled script).
 
 3. Use `$0` if it doesn’t contain the path to the Zsh binary,
 

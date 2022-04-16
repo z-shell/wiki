@@ -1,6 +1,6 @@
 ---
 id: zsh_plugin_standard
-title: Zsh Plugin Standard
+title: ℹ️ Zsh Plugin Standard
 sidebar_position: 2
 ---
 

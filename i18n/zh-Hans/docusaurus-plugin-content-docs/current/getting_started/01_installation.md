@@ -1,68 +1,18 @@
 ---
-title: '⚡️ 安装'
+title: '⚡️ Installation'
 sidebar_position: 1
-image: zw/logo/320x320.png
-description: 安装指南
+image: img/logo/320x320.png
+description: Installation Guide
 keywords:
   - installation
   - setup
 ---
 
-## 可用的安装源
-
-[![⚙️ 安装库][1]][2] | [Status page: :heavy_check_mark:](https://status.zshell.dev/)
-
-| 域名              | URL                                                                       |
-|:--------------- | ------------------------------------------------------------------------- |
-| [Git.io][3]:    | <https://git.io/get-zi>                                                   |
-| [GitHub][4]:    | <https://z.digitalclouds.dev/i-hub>                                       |
-| [GitLab 镜像][5]: | <https://z.digitalclouds.dev/i-lab>                                       |
-| [直链下载][6]:      | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
-
-- 如果你遇到了任何问题，请发起 [issue][7]。
-- [Translate](https://crowdin.digitalclouds.dev/z-shell).
-
-## 快速安装
-
-添加最小化配置。
-
-```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" --
-```
-
-跳过配置。 只克隆或更新仓库。
-
-```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip
-```
-
-最小化配置 + annexes。
-
-```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a annex
-```
-
-最小化配置 + annexes + zunit。
-
-```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zunit
-```
-
-最小化配置以及 loader。
-
-```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a loader
-```
-
-推荐将你的 .zshrc 配置保存至：<https://github.com/z-shell/playground>
-
-```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a ???
-```
+## Quick setup
 
 :::tip
 
-如果需要，可以添加 `-b <tag>` 或 `-b <branch>`，例如:
+If required append `-b <tag>` or `-b <branch>` e.g:
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip -b main
@@ -70,40 +20,128 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip -b main
 
 :::
 
-## 手动安装
+Add minimal configuration:
 
-克隆仓库
+```shell
+sh -c "$(curl -fsSL https://git.io/get-zi)" --
+```
+
+Skip configuration. Just clone or update repository:
+
+```shell
+sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip
+```
+
+Minimal configuration + annexes:
+
+```shell
+sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a annex
+```
+
+Minimal configuration + annexes + zunit:
+
+```shell
+sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zunit
+```
+
+Minimal configuration with loader:
+
+```shell
+sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a loader
+```
+
+## Build module
+
+Without ZI:
+
+```shell
+sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
+```
+
+With ZI:
+
+:::info
+
+ZI has to be installed to build the module. Module repository: [z-shell/zpmod][8]
+
+:::
+
+```shell
+zi module build
+```
+
+To enable debug messages from the module set:
+
+```shell
+typeset -g ZI_MOD_DEBUG=1
+```
+
+## Manual installation
+
+Setup ZI directory:
 
 ```shell
 zi_home="${HOME}/.zi" && mkdir -p $zi_home
+```
+
+Clone repository:
+
+```shell
 git clone https://github.com/z-shell/zi.git "${zi_home}/bin"
 ```
 
-在 `.zshrc` 中 source `zi.zsh`。
+Source `zi.zsh` in your `.zshrc` from previously created directory:
 
 ```shell
 zi_home="${HOME}/.zi"
 source "${zi_home}/bin/zi.zsh"
 ```
 
-以下代码需要紧跟上方代码。
+Enable ZI completions:
+
+:::info
+
+Next two lines must be below the above two:
+
+:::
 
 ```shell
 autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 ```
 
-## 安装完毕
+## Post-installation
 
-通过 `exec zsh` 重载 shell，通过 `zi self-update` 编译 ZI。
+After fresh install it is recommended to reload the shell with `exec zsh` and compile ZI with `zi self-update`. Run `zi -h` before start using ZI, it will show you all available commands. To increase functionality or performance explore the wiki.
 
-> - 需要贡献者：[Gitee.com/z-shell](https://gitee.com/z-shell)。
-> - 加入 [/r/gitee](https://www.reddit.com/r/gitee/) 或者在 GitHub 上[发起讨论](https://github.com/orgs/z-shell/discussions/new)。
+If you have any issue or need help, lets [discuss][9] it or open an [issue][7] in any language. It help us to improve and make ZI better. Also don't forget to contribute or help us [translate][10] 🥰 🤓.
 
-[1]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml/badge.svg?branch=main
+## Have ideas?
+
+Suggest your .zshrc configuration to: <https://github.com/z-shell/playground>
+
+```shell
+sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a ???
+```
+
+## Available installer links
+
+[![⚙️ Install Library][5]][2] | [Status page: :heavy_check_mark:](https://status.zshell.dev/)
+
+| Service             | URL                                                                       |
+|:------------------- | ------------------------------------------------------------------------- |
+| [Git.io][3]:        | <https://git.io/get-zi>                                                   |
+| [GitHub][4]:        | <https://z.digitalclouds.dev/i-hub>                                       |
+| [GitLab Mirror][5]: | <https://z.digitalclouds.dev/i-lab>                                       |
+| [Direct][6]:        | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
+
+[5]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml/badge.svg?branch=main
 [2]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml
 [3]: https://git.io/get-zi
 [4]: https://z.digitalclouds.dev/i-hub
 [5]: https://z.digitalclouds.dev/i-lab
 [6]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
 [7]: https://github.com/z-shell/zi/issues/new/choose
+[8]: https://github.com/z-shell/zpmod
+[9]: https://github.com/orgs/z-shell/discussions/new
+[10]: https://digitalclouds.crowdin.com/z-shell

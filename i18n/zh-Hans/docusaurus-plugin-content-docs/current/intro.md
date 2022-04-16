@@ -21,7 +21,7 @@ import ZGitImg from '@site/static/zw/img/z_git.png';
   <img
     className="ScreenViewFull"
     src="https://github.zshell.dev/.github//metrics.svg"
-    alt="Z-Shell 组织"
+    alt="Z-Shell Organization"
   />
 </a>
 </div>
@@ -29,49 +29,54 @@ import ZGitImg from '@site/static/zw/img/z_git.png';
 <Tabs>
   <TabItem value="gems" label="RubyGems">
 
-[RubyGems](https://rubygems.org) 以及 [$GEM_HOME](https://guides.rubygems.org/command-reference/#gem-environment) 被 [bin-gem-node][1] annex 自动管理，或由 [any-gem][2] 包安装。
+The [RubyGems](https://rubygems.org) and [$GEM_HOME](https://guides.rubygems.org/command-reference/#gem-environment) are
+automatically managed by the [bin-gem-node][1] annex or installed by the [any-gem][2] package.
 
   </TabItem>
   <TabItem value="node" label="Node">
 
-[Node](https://www.npmjs.com) 组件和 [$NODE_PATH](https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders) 被 [bin-gem-node][1] annex 自动管理，或由 [any-node][3] 安装。
+The [Node](https://www.npmjs.com) modules and
+[$NODE_PATH](https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders) are automatically managed by
+the [bin-gem-node][1] annex or installed by the [any-node][3] package.
 
   </TabItem>
   <TabItem value="pip" label="Python">
 
-[Python](https://python.org) 组件和 [$VIRTUALENV](https://docs.python.org/3/tutorial/venv.html) 被 [bin-gem-node][1] annex 自动管理。
+The [Python](https://python.org) modules, [$VIRTUALENV](https://docs.python.org/3/tutorial/venv.html) are automatically
+managed by the [bin-gem-node][1] annex.
 
   </TabItem>
   <TabItem value="rust" label="Rust">
 
-[Rust](https://crates.io) 包被 [rust annex][4] 自动管理。
+The [Rust](https://crates.io) packages are managed by the [rust annex][4].
 
   </TabItem>
   <TabItem value="github" label="GitHub" default>
 
-从 [GitHub]（https://github.com）安装和控制几乎所有东西。 [Annexes][5]、[包管理][6]、[用例示范][7]。
+Install and control almost everything from [GitHub](https://github.com): [Annexes][5], [Packages][6], [Gallery of
+Invocations][7].
 
 </TabItem>
 </Tabs>
 
 ---
 
-## ⚡️ 快速且功能丰富
+## ⚡️ Fast and feature-rich
 
 - [Meta plugins][16] allow installing groups of plugins via a single, friendly label.
 - [Packages][6] offload the user from providing long and complex commands.
 - [Annexes][5] allow to extend the plugin manager with new commands.
 - [Turbo][8] mode yields **50-80%** faster Zsh startup.
 
-## ☑️ 整洁且灵活
+## ☑️ Neat and flexible
 
 - [Customize paths][9], use [multiple prompts][10] or create [your own][11] plugins.
 - Supports [Oh My Zsh][12] and [Prezto][12] plugins and libraries. ([migration][13]).
 - Does not use `$FPATH`, loading multiple plugins doesn't clutter `$FPATH` with the same number of entries, e.g: 10, 15, or more.
 - Code is immune to `KSH_ARRAYS` and other options typically causing compatibility problems.
-- 不需要 `sudo`，或提供所谓的变通方法，如：在本地设置 **shims**。
+- Do not require `sudo`, and provide many workarounds e.g: setting so-called **shims** locally.
 
-## 📈 熟悉和控制
+## 📈 Familiarize and control
 
 - Visualise data: **aliases**, **functions**, **bindkeys**, **Zle widgets**, **zstyles**, **completions**, **variables**, `$PATH`, and `$FPATH` elements a plugin has set up.
 - Quickly familiarize oneself with a new plugin and provides rich and easy-to-digest information that might be helpful on various occasions.
@@ -79,7 +84,7 @@ import ZGitImg from '@site/static/zw/img/z_git.png';
 
 - Docker [playground](https://github.com/z-shell/playground), test or propose configurations, preview at [asciinema.org](https://asciinema.org/a/459358).
 
-## 📢 摘要
+## 📢 Summary
 
 <div align="center">
 <p><a href="https://github.com/orgs/z-shell/projects">
@@ -107,8 +112,8 @@ import ZGitImg from '@site/static/zw/img/z_git.png';
 
 <!-- end-of-doc -->
 
-[5]: /docs/ecosystem/annexes
-[6]: /docs/ecosystem/packages/packages-overview
+[5]: /ecosystem/annexes
+[6]: /ecosystem/packages
 [8]: /docs/getting_started/overview#turbo-mode-zsh--53
 [9]: /docs/guides/customization#customizing-paths
 [10]: /docs/guides/customization#multiple-prompts
