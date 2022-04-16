@@ -1,7 +1,7 @@
 ---
 id: meta-plugins
 title: 💠 Meta Plugins
-image: zw/logo/320x320.png
+image: img/logo/320x320.png
 description: Annex - meta plugins documentation
 keywords: [annex, meta-plugins]
 ---
