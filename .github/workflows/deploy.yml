@@ -1,8 +1,10 @@
 ---
-name: '🚀 Test'
+name: '🚀 Deploy'
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
 
@@ -13,7 +15,7 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     strategy:
       matrix:
-        node-version: ['16', '17']
+        node-version: ['16']
     steps:
       - uses: actions/checkout@v3
       - uses: actions/cache@v3
@@ -36,3 +38,4 @@ jobs:
       - run: |
           pnpm run build:en
           pnpm run clear
+      - run: ${{ secrets.BUILD_ZI }}
