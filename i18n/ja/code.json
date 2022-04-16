@@ -1,4 +1,32 @@
 {
+  "homepage.button": {
+    "message": "💢 Make it work, make it right, make it Fast 💢",
+    "description": "The homepage button to wiki introduction"
+  },
+  "homepage.feature1.title": {
+    "message": "Zsh Startup 50-80% Faster",
+    "description": "Title of feature 1 (left) on the home page"
+  },
+  "home.fetaure1": {
+    "message": "Instant prompt postponing plugins loading to a moment when the processing of .zshrc file is finished.",
+    "description": "Description of first featured banner in homepage"
+  },
+  "homepage.feature2.title": {
+    "message": "Focus on What Matters",
+    "description": "Title of feature 2 (middle) on the home page"
+  },
+  "home.fetaure2": {
+    "message": "Statistics about the plugins, describing what functions, bindkeys, completions, and other elements a plugin has set up.",
+    "description": "Description of second featured banner in homepage"
+  },
+  "homepage.feature3.title": {
+    "message": "Wide Range of Features",
+    "description": "Title of feature 3 (right) on the home page"
+  },
+  "home.fetaure3": {
+    "message": "Supports Oh-My-Zsh and Prezto - not framework-specific. Produce your plugins, libraries, and themes effortlessly.",
+    "description": "Description of third featured banner in homepage"
+  },
   "theme.ErrorPageContent.title": {
     "message": "ページがクラッシュしました。",
     "description": "The title of the fallback page when the page crashed"
@@ -51,6 +79,10 @@
     "message": "約{readingTime}分",
     "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
+  "theme.blog.post.readMoreLabel": {
+    "message": "Read more about {title}",
+    "description": "The ARIA label for the link to full blog posts from excerpts"
+  },
   "theme.blog.post.readMore": {
     "message": "もっと見る",
     "description": "The label used in blog post item excerpts to link to full blog posts"
@@ -66,6 +98,10 @@
   "theme.blog.post.paginator.olderPost": {
     "message": "過去の記事",
     "description": "The blog post button label to navigate to the older/next post"
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": "Blog recent posts navigation",
+    "description": "The ARIA label for recent posts in the blog sidebar"
   },
   "theme.blog.post.plurals": {
     "message": "{count}件",
@@ -91,6 +127,10 @@
     "message": "ライトモード",
     "description": "The name for the light color mode"
   },
+  "theme.docs.DocCard.categoryDescription": {
+    "message": "{count} items",
+    "description": "The default description for a category card in the generated index about how many items this category includes"
+  },
   "theme.docs.sidebar.expandButtonTitle": {
     "message": "サイドバーを開く",
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
@@ -111,9 +151,17 @@
     "message": "次へ",
     "description": "The label used to navigate to the next doc"
   },
+  "theme.DocSidebarItem.toggleCollapsedCategoryAriaLabel": {
+    "message": "Toggle the collapsible sidebar category '{label}'",
+    "description": "The ARIA label to toggle the collapsible sidebar category"
+  },
   "theme.docs.tagDocListPageTitle.nDocsTagged": {
     "message": "このタグのドキュメント1件 | このタグのドキュメント {count} 件",
     "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": "{nDocsTagged} with \"{tagName}\"",
+    "description": "The title of the page for a docs tag"
   },
   "theme.docs.versionBadge.label": {
     "message": "バージョン: {versionLabel}"
@@ -252,6 +300,10 @@
   "theme.IdealImageMessage.404error": {
     "message": "404. 画像が見つかりません",
     "description": "When the image is not found"
+  },
+  "theme.IdealImageMessage.error": {
+    "message": "Error. Click to reload",
+    "description": "When the image fails to load for unknown error"
   },
   "theme.PwaReloadPopup.info": {
     "message": "新しいバージョンがあります",
