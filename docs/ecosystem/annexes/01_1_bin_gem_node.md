@@ -1,7 +1,7 @@
 ---
 id: bin-gem-node
 title: 💠 Bin Gem Node
-image: zw/logo/320x320.png
+image: img/logo/320x320.png
 description: Annex - Bin Gem Node documentation
 keywords: 
    - zannex, 
