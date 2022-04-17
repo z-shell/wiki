@@ -96,7 +96,7 @@ importers:
       file-loader: ^6.2.0
       fs-extra: ^10.0.1
       github-slugger: ^1.4.0
-      globby: ^11.1.0
+      globby: ^13.0.0
       gray-matter: ^4.0.3
       js-yaml: ^4.1.0
       lodash: ^4.17.21
@@ -112,7 +112,7 @@ importers:
       file-loader: 6.2.0_webpack@5.72.0
       fs-extra: 10.0.1
       github-slugger: 1.4.0
-      globby: 11.1.0
+      globby: 13.1.1
       gray-matter: 4.0.3
       js-yaml: 4.1.0
       lodash: 4.17.21
@@ -5408,6 +5408,17 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       array-union: 3.0.1
+      dir-glob: 3.0.1
+      fast-glob: 3.2.11
+      ignore: 5.2.0
+      merge2: 1.4.1
+      slash: 4.0.0
+    dev: false
+
+  /globby/13.1.1:
+    resolution: {integrity: sha512-XMzoDZbGZ37tufiv7g0N4F/zp3zkwdFtVbV3EHsVl1KQr4RPLfNoT068/97RPshz2J5xYNEjLKKBKaGHifBd3Q==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dependencies:
       dir-glob: 3.0.1
       fast-glob: 3.2.11
       ignore: 5.2.0
