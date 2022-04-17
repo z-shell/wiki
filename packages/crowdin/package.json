@@ -1,0 +1,16 @@
+{
+  "name": "@zw/crowdin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@awesome-crowdin/crowdin-contributors": "0.0.4",
+    "@crowdin/ota-client": "^0.7.0",
+    "@crowdin/cli": "3.7.8"
+  }
+}
