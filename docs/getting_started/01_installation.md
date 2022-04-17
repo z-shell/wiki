@@ -8,7 +8,7 @@ keywords:
   - setup
 ---
 
-## Quick setup
+## ☑️ Quick setup
 
 :::tip
 
@@ -50,7 +50,7 @@ Minimal configuration with loader:
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a loader
 ```
 
-## Build module
+## 🏗️ Build module
 
 Without ZI:
 
@@ -77,7 +77,7 @@ To enable debug messages from the module set:
 typeset -g ZI_MOD_DEBUG=1
 ```
 
-## Manual installation
+## 😎 Manual installation
 
 Setup ZI directory:
 
@@ -111,34 +111,45 @@ autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 ```
 
-## Post-installation
+## 🔛 Post-install
 
 After fresh install it is recommended to reload the shell with `exec zsh` and compile ZI with `zi self-update`.
 Run `zi -h` before start using ZI, it will show you all available commands. To increase functionality or performance explore the wiki.
 
-If you have any issue or need help, lets [discuss][9] it or open an [issue][7] in any language. It help us to improve and make ZI better.
-Also don't forget to contribute or help us [translate][10] 🥰 🤓.
+If you have any issue or need help 🤦‍♂️, lets [discuss][9] it or open an [issue][7] in any language. It help us to improve and make ZI better.
+Don't forget to help the project: share,contribute or [translate][10] 🌐 🥰 🤓.
 
-## Have ideas?
+Let's glue everything together - a toolchain that works for us and not against us 🚀.
 
-Suggest your .zshrc configuration to: <https://github.com/z-shell/playground>
+## 💡 Have ideas?
+
+Suggest your .zshrc configuration to: <https://github.com/z-shell/playground> 🏅
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a ???
 ```
 
-## Available installer links
+## 💫 Need warm-up?
 
-[![⚙️ Install Library][1]][2] | [Status page: :heavy_check_mark:](https://status.zshell.dev/)
+Minimal ZI - 🐋 Docker Alpine: <https://github.com/z-shell/zd/pkgs/container/zd>
+
+```shell
+docker run --rm -it ghcr.io/z-shell/zd:latest
+```
+
+## 🌍 Available installer links
+
+[⚙️ Install Library: :heavy_check_mark:][2] | [Status page: :heavy_check_mark:](https://status.zshell.dev/)
 
 | Service             | URL                                                                       |
 | :------------------ | ------------------------------------------------------------------------- |
 | [Git.io][3]:        | <https://git.io/get-zi>                                                   |
+| [Gitee][1]:         | <https://z.digitalclouds.dev/i-tee>                                       |
 | [GitHub][4]:        | <https://z.digitalclouds.dev/i-hub>                                       |
 | [GitLab Mirror][5]: | <https://z.digitalclouds.dev/i-lab>                                       |
 | [Direct][6]:        | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
-[1]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml/badge.svg?branch=main
+[1]: https://z.digitalclouds.dev/i-tee
 [2]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml
 [3]: https://git.io/get-zi
 [4]: https://z.digitalclouds.dev/i-hub
