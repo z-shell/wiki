@@ -24,7 +24,7 @@ function HomepageHeader() {
               id="homepage.button"
               description="The homepage button to wiki introduction"
             >
-              &#128162; Make it work, make it right, make it Fast &#128162;
+              &#128162; A Swiss Army Knife for Zsh - a Toolchain that Works for You &#128162;
             </Translate>
           </Link>
         </div>
