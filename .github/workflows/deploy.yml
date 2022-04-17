@@ -1,6 +1,5 @@
 ---
 name: '🚀 Deploy'
-
 on:
   workflow_dispatch:
   workflow_run:
@@ -9,31 +8,25 @@ on:
       - completed
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
+    timeout-minutes: 15
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: ['16']
+        os: [ubuntu-latest, macos-latest]
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/cache@v3
         with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-
+          fetch-depth: 2
       - uses: pnpm/action-setup@v2.2.1
         with:
           version: 6.32.8
-          run_install: |
-            - recursive: true
-              args: [--no-frozen-lockfile, --strict-peer-dependencies]
       - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
+          node-version: 16
+          cache: pnpm
       - run: |
+          pnpm install
           pnpm run build:en
-          pnpm run clear
       - run: ${{ secrets.CF_WEBHOOK }}
