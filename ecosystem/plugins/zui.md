@@ -1,16 +1,21 @@
 ---
 id: zui
 title: ⚙️ ZUI
-image: zw/logo/320x320.png
+image: img/logo/320x320.png
 toc_max_heading_level: 3
 description: The Rapid Application Development textual user interface library for Zsh.
-keywords: [zui, zsh-plugin, user interface, library]
+keywords:
+  - zui
+  - zsh-plugin
+  - user-interface
 ---
 
-import APITable from '@site/src/components/APITable'; import Image from '@theme/IdealImage'; import Screen1 from
-'@site/static/img/zui/hello-world-fs8.png'; import Screen2 from '@site/static/img/zui/zui-text-fields-fs8.png'; import
-Screen3 from '@site/static/img/zui/zui-list-boxes-fs8.png'; import Screen4 from
-'@site/static/img/zui/zui-history-fs8.png'; import Screen5 from '@site/static/img/zui/zui-edit-fs8.png';
+import Image from '@theme/IdealImage';
+import Screen1 from '@site/static/img/zui/hello-world-fs8.png';
+import Screen2 from '@site/static/img/zui/zui-text-fields-fs8.png';
+import Screen3 from '@site/static/img/zui/zui-list-boxes-fs8.png';
+import Screen4 from '@site/static/img/zui/zui-history-fs8.png';
+import Screen5 from '@site/static/img/zui/zui-edit-fs8.png';
 
 ### CGI+DHTML-like User Interface Library for Zsh / ZCurses
 
@@ -775,14 +780,6 @@ zstyle ":plugin:zui:app:zui-demo-fly" colorpair "250/17"  # 256 colors – zsh >
 
 Below is complete list of available Zstyles with ZUI default values.
 
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-
-
-
-<APITable>
-
 | ZStyle name      | Default                                                | Description                                                                                                                                                                                                                                                                                                                                                              |
 |------------------|--------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | "colorpair       | "white/black"                                          | Default text and background color. For Zsh >= 5.3, color "default" is available, it might be e.g. transparent (depends on terminal configuration)                                                                                                                                                                                                                        |
@@ -811,18 +808,13 @@ Below is complete list of available Zstyles with ZUI default values.
 | timeout          | "-1"                                                   | No calls to timeout callback. Denotes milliseconds. Minimum value is 200. Time is counted when there is no user input                                                                                                                                                                                                                                                    |
 | palette          | "black:red:green: yellow:blue:magenta: cyan:white"     | 8-color palette used by ZUI. Default is normal ANSI palette. Can be changed to indexes of 256 colors (zsh >= 5.3)"                                                                                                                                                                                                                                                       |
 
-</APITable>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
 All Zstyles are available in ZUI repository: [Zstyles][11]
 
 ### Example - Hello World
 
-```shell
-# Started from Zle or from command line
+Started from Zle or from command line
 
+```shell
 -zui_std_cleanup deserialize:"zui-demo-hello-world"
 -zui_std_init app:"zui-demo-hello-world" app_name:"ZUI Hello World"
 emulate -LR zsh -o extendedglob -o typesetsilent -o warncreateglobal

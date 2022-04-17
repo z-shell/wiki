@@ -1,9 +1,12 @@
 ---
 id: editing-workbech
 title: ⚙️ Editing Workbench
-image: zw/logo/320x320.png
+image: img/logo/320x320.png
 description: Organized shortcuts for Zsh
-keywords: [zsh-edit, workbench, organized]
+keywords:
+  - zsh-edit
+  - workbench
+  - organized
 ---
 
 - [zsh-editing-workbench](https://github.com/z-shell/zsh-editing-workbench)

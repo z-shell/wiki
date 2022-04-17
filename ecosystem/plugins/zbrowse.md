@@ -1,20 +1,24 @@
 ---
 id: zbrowse
 title: ⚙️ ZBrowse
-image: zw/logo/320x320.png
+image: img/logo/320x320.png
 description: Check variables of a possible loop.
-keywords: [zbrowse, zsh-plugin, variable]
+keywords:
+  - zbrowse
+  - variable
+  - zsh-plugin
 ---
 
-import Image from '@theme/IdealImage'; import Screen1 from '@site/static/img/plugins/zbrowse.png'; import Asciinema1
-from '@site/static/img/asciinema/122018.png';
+import Image from '@theme/IdealImage'; import Screen1 from '@site/static/img/plugins/zbrowse.png';
+
+import Asciinema1 from '@site/static/img/asciinema/122018.png';
 
 - [z-shell/zbrowse](https://github.com/z-shell/zbrowse)
 
 When doing shell work, it is often the case that `echo $variable` is invoked multiple times, to check result of a loop,
 etc.
 
-With ZBrowse, you just need to press `Ctrl-B`, which invokes the `ZBrowse` – `Zshell` variable browser:
+With ZBrowse, you just need to press <kbd>Ctrl-B</kbd>, which invokes the`ZBrowse` – `Zshell` variable browser:
 
 <Image className="ScreenView" img={Screen1} alt="ZBrowse preview" />
 
@@ -22,7 +26,7 @@ With ZBrowse, you just need to press `Ctrl-B`, which invokes the `ZBrowse` – `
 
 :::tip
 
-You can resize the video by pressing `Ctrl-+` or `Cmd-+`.
+You can resize the video by pressing <kbd>Ctrl-+</kbd> or <kbd>Cmd-+</kbd>.
 
 :::
 

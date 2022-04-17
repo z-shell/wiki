@@ -1,5 +1,3 @@
-@import '@site/static/fa/css/all.min.css';
-
 :root {
   --ifm-background-color: var(--fill);
   --site-primary-hue-saturation: 167 68%;
@@ -127,7 +125,7 @@ html[data-theme='dark'] div[class^='announcementBar_'] {
 }
 
 .ScreenViewSmall {
-  width: 40%;
+  width: 30%;
   height: auto;
   border: 0;
   padding: 0;

@@ -1,9 +1,11 @@
 ---
 id: zsh-select
 title: ⚙️ Select
-image: zw/logo/320x320.png
+image: img/logo/320x320.png
 description: A shell command that will display selection list.
-keywords: [zsh-plugin, zsh-select]
+keywords:
+  - zsh-plugin
+  - zsh-select
 ---
 
 import Image from '@theme/IdealImage'; import Asciinema1 from '@site/static/img/asciinema/48490.png';

@@ -1,9 +1,11 @@
 ---
 id: zconvey
 title: ⚙️ ZConvey
-image: zw/logo/320x320.png
+image: img/logo/320x320.png
 description: Zsh Plugin ZConvey documentation
-keywords: [zconvey, zsh-plugin]
+keywords:
+  - zconvey
+  - zsh-plugin
 ---
 
 import Image from '@theme/IdealImage'; import Asciinema1 from '@site/static/img/asciinema/156726.png';
@@ -37,9 +39,6 @@ Video source: [Asciinema](https://asciinema.org/a/156726)
 
 The values being set are the defaults. They must be set before loading the plugin.
 
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
 | Value                                             | Description                                                                         |
 |:--------------------------------------------------|-------------------------------------------------------------------------------------|
 | zstyle ":plugin:zconvey" check_interval "2"       | - How often to check if there are new commands (in seconds)                         |
@@ -53,9 +52,6 @@ The values being set are the defaults. They must be set before loading the plugi
 |                                                   | method, which currently doesn't automatically run the command – to use when e.g.    |
 |                                                   | feeder doesn't build (unlikely) or when occurring any problems with it              |
 | zstyle ":plugin:zconvey" timestamp_from "datetime | - Use zsh/datetime module for obtaining timestamp. "date" – use date command (fork) |
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
 
 ## ZConvey commands
 

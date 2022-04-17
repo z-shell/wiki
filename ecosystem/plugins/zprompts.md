@@ -1,9 +1,12 @@
 ---
 id: zprompts
 title: ⚙️ ZPrompts
-image: zw/logo/320x320.png
+image: img/logo/320x320.png
 description: Zsh themes (prompts) that use original Zsh theming subsystem
-keywords: [zsh-theme, prompt, zsh]
+keywords:
+  - zsh-theme
+  - zsh-prompt
+  - prompt
 ---
 
 import Image from '@theme/IdealImage'; import Asciinema1 from '@site/static/img/asciinema/48122.png';
