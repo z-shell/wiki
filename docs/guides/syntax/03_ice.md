@@ -1,7 +1,7 @@
 ---
 id: ice
 title: 🧊 Ice Syntax
-image: img/img/ice-239x200.png
+image: img/zw/ice-239x200.png
 description: Ice syntax documentation
 keywords: 
    - ice
