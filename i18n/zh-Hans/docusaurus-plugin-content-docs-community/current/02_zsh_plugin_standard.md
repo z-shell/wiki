@@ -4,9 +4,9 @@ title: ℹ️ Zsh Plugin Standard
 sidebar_position: 2
 ---
 
-## What Is A Zsh Plugin?
+## Zsh 插件是什么？
 
-Historically, Zsh plugins were first defined by Oh My Zsh. They provide for a way to package together files that extend or configure the shell’s functionality in a particular way.
+从历史上看，Zsh 插件最初是由 Oh My Zsh 定义的。 They provide for a way to package together files that extend or configure the shell’s functionality in a particular way.
 
 At a simple level, a plugin:
 
@@ -119,7 +119,7 @@ The existence of the `functions` subdirectory cancels the normal adding of the m
 
 1. Plugin managers: [Zpm](https://github.com/zpm-zsh/zpm), [ZI](https://github.com/z-shell/zi), [Zinit](https://github.com/zdharma-continuum/zinit), [Zgenom](https://github.com/jandamm/zgenom).
 
-## 3. Binaries Directory {#binaries-directory}
+## 3. 二进制文件目录 {#binaries-directory}
 
 > [ binaries-directory ]
 

@@ -1,8 +1,8 @@
 ---
-title: '⚡️ Installation'
+title: '⚡️ 安装'
 sidebar_position: 1
 image: img/logo/320x320.png
-description: Installation Guide
+description: 安装指南
 keywords:
   - installation
   - setup
@@ -76,7 +76,7 @@ To enable debug messages from the module set:
 typeset -g ZI_MOD_DEBUG=1
 ```
 
-## Manual installation
+## 手动安装
 
 Setup ZI directory:
 
@@ -110,7 +110,7 @@ autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 ```
 
-## Post-installation
+## 安装完毕
 
 After fresh install it is recommended to reload the shell with `exec zsh` and compile ZI with `zi self-update`. Run `zi -h` before start using ZI, it will show you all available commands. To increase functionality or performance explore the wiki.
 
@@ -128,12 +128,12 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a ???
 
 [![⚙️ Install Library][5]][2] | [Status page: :heavy_check_mark:](https://status.zshell.dev/)
 
-| Service             | URL                                                                       |
-|:------------------- | ------------------------------------------------------------------------- |
-| [Git.io][3]:        | <https://git.io/get-zi>                                                   |
-| [GitHub][4]:        | <https://z.digitalclouds.dev/i-hub>                                       |
-| [GitLab Mirror][5]: | <https://z.digitalclouds.dev/i-lab>                                       |
-| [Direct][6]:        | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
+| 域名              | URL                                                                       |
+|:--------------- | ------------------------------------------------------------------------- |
+| [Git.io][3]:    | <https://git.io/get-zi>                                                   |
+| [GitHub][4]:    | <https://z.digitalclouds.dev/i-hub>                                       |
+| [GitLab 镜像][5]: | <https://z.digitalclouds.dev/i-lab>                                       |
+| [直链下载][6]:      | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
 [5]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml/badge.svg?branch=main
 [2]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml

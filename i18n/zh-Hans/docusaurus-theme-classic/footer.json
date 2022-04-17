@@ -1,26 +1,26 @@
 {
   "link.title.Docs": {
-    "message": "Docs",
+    "message": "文档",
     "description": "The title of the footer links column with title=Docs in the footer"
   },
   "link.title.Community": {
-    "message": "Community",
+    "message": "社区",
     "description": "The title of the footer links column with title=Community in the footer"
   },
   "link.title.More": {
-    "message": "More",
+    "message": "更多",
     "description": "The title of the footer links column with title=More in the footer"
   },
   "link.title.Legal": {
-    "message": "Legal",
+    "message": "法律条款",
     "description": "The title of the footer links column with title=Legal in the footer"
   },
   "link.item.label.Introduction": {
-    "message": "Introduction",
+    "message": "介绍",
     "description": "The label of footer link with label=Introduction linking to /docs/intro"
   },
   "link.item.label.Community Docs": {
-    "message": "Community Docs",
+    "message": "社区文档",
     "description": "The label of footer link with label=Community Docs linking to /community/intro"
   },
   "link.item.label.Slack.com": {
@@ -36,11 +36,11 @@
     "description": "The label of footer link with label=Gitter.im linking to https://gitter.im/z-shell/zi"
   },
   "link.item.label.GitHub Discussions": {
-    "message": "GitHub Discussions",
+    "message": "GitHub 讨论",
     "description": "The label of footer link with label=GitHub Discussions linking to https://github.com/orgs/z-shell/discussions/"
   },
   "link.item.label.GitHub Organization": {
-    "message": "GitHub Organization",
+    "message": "GitHub 组织",
     "description": "The label of footer link with label=GitHub Organization linking to https://github.com/z-shell/"
   },
   "link.item.label.Crowdin Translations": {
@@ -48,7 +48,7 @@
     "description": "The label of footer link with label=Crowdin Translations linking to https://crowdin.digitalclouds.dev/z-shell/"
   },
   "link.item.label.Privacy Policy": {
-    "message": "Privacy Policy",
+    "message": "隐私政策",
     "description": "The label of footer link with label=Privacy Policy linking to legal/privacy_policy/"
   },
   "copyright": {
