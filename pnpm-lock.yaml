@@ -83,67 +83,6 @@ importers:
       typescript: 4.6.3
       webpack: 5.72.0
 
-  packages/docusaurus/utils:
-    specifiers:
-      '@docusaurus/logger': 2.0.0-beta.18
-      '@docusaurus/types': 2.0.0-beta.18
-      '@svgr/webpack': ^6.2.1
-      '@types/dedent': 0.7.0
-      '@types/github-slugger': 1.3.0
-      '@types/micromatch': 4.0.2
-      '@types/react-dom': 18.0.1
-      dedent: 0.7.0
-      file-loader: ^6.2.0
-      fs-extra: ^10.0.1
-      github-slugger: ^1.4.0
-      globby: ^13.0.0
-      gray-matter: ^4.0.3
-      js-yaml: ^4.1.0
-      lodash: ^4.17.21
-      micromatch: ^4.0.5
-      resolve-pathname: ^3.0.0
-      shelljs: ^0.8.5
-      tslib: ^2.3.1
-      url-loader: ^4.1.1
-      webpack: ^5.72.0
-    dependencies:
-      '@docusaurus/logger': 2.0.0-beta.18
-      '@svgr/webpack': 6.2.1
-      file-loader: 6.2.0_webpack@5.72.0
-      fs-extra: 10.0.1
-      github-slugger: 1.4.0
-      globby: 13.1.1
-      gray-matter: 4.0.3
-      js-yaml: 4.1.0
-      lodash: 4.17.21
-      micromatch: 4.0.5
-      resolve-pathname: 3.0.0
-      shelljs: 0.8.5
-      tslib: 2.3.1
-      url-loader: 4.1.1_file-loader@6.2.0+webpack@5.72.0
-      webpack: 5.72.0
-    devDependencies:
-      '@docusaurus/types': 2.0.0-beta.18
-      '@types/dedent': 0.7.0
-      '@types/github-slugger': 1.3.0
-      '@types/micromatch': 4.0.2
-      '@types/react-dom': 18.0.1
-      dedent: 0.7.0
-
-  packages/docusaurus/utils-validation:
-    specifiers:
-      '@docusaurus/logger': 2.0.0-beta.18
-      '@docusaurus/utils': 2.0.0-beta.18
-      joi: ^17.6.0
-      js-yaml: ^4.1.0
-      tslib: ^2.3.1
-    dependencies:
-      '@docusaurus/logger': 2.0.0-beta.18
-      '@docusaurus/utils': link:../utils
-      joi: 17.6.0
-      js-yaml: 4.1.0
-      tslib: 2.3.1
-
   packages/stylelint:
     specifiers:
       postcss: 8.4.12
@@ -2980,10 +2919,6 @@ packages:
       '@types/node': 17.0.24
     dev: false
 
-  /@types/braces/3.0.1:
-    resolution: {integrity: sha512-+euflG6ygo4bn0JHtn4pYqcXwRtLvElQ7/nnjDu7iYG56H0+OhCd7d6Ug0IE3WcFpZozBKW2+80FUbv5QGk5AQ==}
-    dev: true
-
   /@types/connect-history-api-fallback/1.3.5:
     resolution: {integrity: sha512-h8QJa8xSb1WD4fpKBDcATDNGXghFj6/3GRWG6dhmRcu0RX1Ubasur2Uvx5aeEwlf0MwblEC2bMzzMQntxnw/Cw==}
     dependencies:
@@ -2996,10 +2931,6 @@ packages:
     dependencies:
       '@types/node': 17.0.24
     dev: false
-
-  /@types/dedent/0.7.0:
-    resolution: {integrity: sha512-EGlKlgMhnLt/cM4DbUSafFdrkeJoC9Mvnj0PUCU7tFmTjMjNRT957kXCx0wYm3JuEq4o4ZsS5vG+NlkM2DMd2A==}
-    dev: true
 
   /@types/eslint-scope/3.7.3:
     resolution: {integrity: sha512-PB3ldyrcnAicT35TWPs5IcwKD8S333HMaa2VVv4+wdvebJkjWuW/xESoB8IwRcog8HYVYamb1g/R31Qv5Bx03g==}
@@ -3037,10 +2968,6 @@ packages:
       '@types/serve-static': 1.13.10
     dev: false
 
-  /@types/github-slugger/1.3.0:
-    resolution: {integrity: sha512-J/rMZa7RqiH/rT29TEVZO4nBoDP9XJOjnbbIofg7GQKs4JIduEO3WLpte+6WeUz/TcrXKlY+bM7FYrp8yFB+3g==}
-    dev: true
-
   /@types/hast/2.3.4:
     resolution: {integrity: sha512-wLEm0QvaoawEDoTRwzTXp4b4jpwiJDvR5KMnFnVodm3scufTlBOWRD6N1OBf9TZMhjlNsSfcO5V+7AF4+Vy+9g==}
     dependencies:
@@ -3072,12 +2999,6 @@ packages:
     dependencies:
       '@types/unist': 2.0.6
     dev: false
-
-  /@types/micromatch/4.0.2:
-    resolution: {integrity: sha512-oqXqVb0ci19GtH0vOA/U2TmHTcRY9kuZl4mqUxe0QmJAlIW13kzhuK5pi1i9+ngav8FjpSb9FVS/GE00GLX1VA==}
-    dependencies:
-      '@types/braces': 3.0.1
-    dev: true
 
   /@types/mime/1.3.2:
     resolution: {integrity: sha512-YATxVxgRqNH6nHEIsvg6k2Boc1JHI9ZbH5iWFFv/MTkchz3b1ieGDa5T0a9RznNdI0KhVbdbWSN+KWWrQZRxTw==}
@@ -3111,12 +3032,6 @@ packages:
   /@types/range-parser/1.2.4:
     resolution: {integrity: sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==}
     dev: false
-
-  /@types/react-dom/18.0.1:
-    resolution: {integrity: sha512-jCwTXvHtRLiyVvKm9aEdHXs8rflVOGd5Sl913JZrPshfXjn8NYsTNZOz70bCsA31IR0TOqwi3ad+X4tSCBoMTw==}
-    dependencies:
-      '@types/react': 17.0.44
-    dev: true
 
   /@types/react-router-config/5.0.6:
     resolution: {integrity: sha512-db1mx37a1EJDf1XeX8jJN7R3PZABmJQXR8r28yUjVMFSjkmnQo6X6pOEEmNl+Tp2gYQOGPdYbFIipBtdElZ3Yg==}
@@ -4605,10 +4520,6 @@ packages:
       mimic-response: 3.1.0
     dev: false
 
-  /dedent/0.7.0:
-    resolution: {integrity: sha1-JJXduvbrh0q7Dhvp3yLS5aVEMmw=}
-    dev: true
-
   /deep-extend/0.6.0:
     resolution: {integrity: sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==}
     engines: {node: '>=4.0.0'}
@@ -5314,15 +5225,6 @@ packages:
     resolution: {integrity: sha512-y6OAwoSIf7FyjMIv94u+b5rdheZEjzR63GTyZJm5qh4Bi+2YgwLCcI/fPFZkL5PSixOt6ZNKm+w+Hfp/Bciwow==}
     dev: false
 
-  /fs-extra/10.0.1:
-    resolution: {integrity: sha512-NbdoVMZso2Lsrn/QwLXOy6rm0ufY2zEOKCDzJR/0kBsb0E6qed0P3iYK+Ath3BfvXEeu4JhEtXLgILx5psUfag==}
-    engines: {node: '>=12'}
-    dependencies:
-      graceful-fs: 4.2.10
-      jsonfile: 6.1.0
-      universalify: 2.0.0
-    dev: false
-
   /fs-extra/10.1.0:
     resolution: {integrity: sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ==}
     engines: {node: '>=12'}
@@ -5515,17 +5417,6 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       array-union: 3.0.1
-      dir-glob: 3.0.1
-      fast-glob: 3.2.11
-      ignore: 5.2.0
-      merge2: 1.4.1
-      slash: 4.0.0
-    dev: false
-
-  /globby/13.1.1:
-    resolution: {integrity: sha512-XMzoDZbGZ37tufiv7g0N4F/zp3zkwdFtVbV3EHsVl1KQr4RPLfNoT068/97RPshz2J5xYNEjLKKBKaGHifBd3Q==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-    dependencies:
       dir-glob: 3.0.1
       fast-glob: 3.2.11
       ignore: 5.2.0
