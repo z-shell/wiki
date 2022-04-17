@@ -13,6 +13,8 @@ lint:
     - hadolint@2.8.0
     - markdownlint@0.29.0
     - prettier@2.4.1
+    - stylelint@1.0.0
+    - stylelint-fmt@1.0
     - shellcheck@0.7.2
     - shfmt@3.4.0
     - taplo@release-cli-0.5.0
