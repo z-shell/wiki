@@ -1,18 +1,16 @@
 ---
-name: '♻️ Check'
-
-on:
-  workflow_dispatch:
-  push:
-    branches: [main]
+name: '♻️ Trunk Check'
+on: 
   pull_request:
-    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
 
 jobs:
-  check-files:
+  trunk_check:
     runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v3
       - uses: trunk-io/trunk-action@v1.0.0
