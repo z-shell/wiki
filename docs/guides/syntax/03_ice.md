@@ -1,25 +1,25 @@
 ---
 id: ice
 title: 🧊 Ice Syntax
-image: zw/img/ice-239x200.png
+image: img/img/ice-239x200.png
 description: Ice syntax documentation
-keywords: [ice, syntax]
+keywords: 
+   - ice
+   - syntax
 ---
 
-import Image from '@theme/IdealImage'; import APITable from '@site/src/components/APITable'; import ZIceImg from
-'@site/static/zw/img/ice-239x200.png';
+import Image from '@theme/IdealImage';
+import ZIceImg from '@site/static/img/zw/ice-239x200.png';
 
 <div align="right">
-
-<Image className="IceLogo" img={ZIceImg} alt="What is ice" />
-
+   <Image className="IceLogo" img={ZIceImg} alt="What is ice" />
 </div>
 
 :::info FAQ: What is ice?
 
 The word **ice** means something that's added (like ice to a drink) – and in ZI syntax it means adding a modifier to a
-next zi command, and also something that's temporary because it melts – and this means that the modification will last
-only for a single next zi command.
+next zi command. Something that's temporary because it melts – and this means that the modification will last
+only for next zi command.
 
 :::
 
@@ -92,8 +92,6 @@ It recognizes the following options:
 
 ### Supported File Formats
 
-<APITable>
-
 | File formats | ✓   |
 | :----------- | --- |
 | Zip          | ✓   |
@@ -114,8 +112,6 @@ It recognizes the following options:
 | deb          | ✓   |
 | OS X (dmg)   | ✓   |
 
-</APITable>
-
 ## `from'…'`
 
 In order to install and load a plugin whose repository is private - e.g: requires providing credentials in order to log
@@ -127,8 +123,6 @@ zi load user/fsh-auto-themes
 ```
 
 Current preset:
-
-<APITable>
 
 | Ice name   | Domain name / URL                    |
 | :--------- | :----------------------------------- |
@@ -145,8 +139,6 @@ Current preset:
 | github-rel | github.com/$remote_url_path/releases |
 | gh-r       | github.com/$remote_url_path/releases |
 | cygwin     | cygwin                               |
-
-</APITable>
 
 :::note
 
@@ -422,14 +414,10 @@ zi ice pick"powerless.zsh" src"utilities.zsh"
 zi light martinrotter/powerless
 ```
 
-<APITable>
-
 |  Syntax   | Description                                                                                        |
 | :-------: | :------------------------------------------------------------------------------------------------- |
 | `pick'…'` | Provide main file to source - like `*.sh`, otherwise alphabetically first matched file is sourced. |
 | `src'…'`  | Provide second file to source - not a pattern - plain file name.                                   |
-
-</APITable>
 
 However, via `atload'…'` ice one can provide simple loop to source more files:
 
@@ -441,20 +429,10 @@ zi ice svn pick"completion.zsh" \
 zi snippet OMZ::lib
 ```
 
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<APITable>
-
 |   Syntax    | Description |
 |:-----------:|:------------|
 |    `svn`    | Use Subversion to clone `OMZ::lib` (the whole Oh My Zsh `lib/` directory). More below (1). |
 | `atload'…'` | Code isn't tracked and cannot be unloaded. The `atload'…'` is executed after loading main files `pick'…'` and `src'…'`.  More below (2). |
-
-</APITable>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
 
 - (1) Note that `atload'…'` uses apostrophes not double quotes, to literally put `$f` into the string, `atload`'s code
   is automatically being run **within the snippet's (or plugin's) directory**.
@@ -519,7 +497,7 @@ In the code be careful to not redefine any variable used internally by ZI – e.
 ```shell
 array=({functions,misc}.zsh)
 zi ice svn multisrc'); local i; for i in $array; do \
-            reply+=( ${i/.zsh/.sh} ); \
+        reply+=( ${i/.zsh/.sh} ); \
         done; ((1)' pick"/dev/null"
 zi snippet OMZ::lib
 ```
@@ -563,16 +541,12 @@ There are four code-receiving ices: `atclone'…'`, `atpull'…'`, `atinit'…'`
 
 Their role is to **receive a portion of Zsh code and execute it in certain moments of the plugin life-cycle**.
 
-<APITable>
-
 |    Syntax    | Execution moment                                                |
 | :----------: | :-------------------------------------------------------------- |
 | `atclone'…'` | **after cloning** the associated plugin or snippet to the disk. |
 | `atpull'…'`  | **after updating** the associated plugin or snippet.            |
 | `atinit'…'`  | **before loading** of the associated plugin or snippet.         |
 | `atload'…'`  | **after loading** of the associated plugin or snippet.          |
-
-</APITable>
 
 For convenience, you can use each of the ices multiple times in single `zi ice …` invocation – all the passed commands
 will be executed in the given order.
