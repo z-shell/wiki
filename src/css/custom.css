@@ -1,3 +1,5 @@
+@import '@site/static/fa/css/fontawesome.min.css';
+
 :root {
   --ifm-background-color: var(--fill);
   --site-primary-hue-saturation: 167 68%;

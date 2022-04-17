@@ -1,3 +1,4 @@
+
 // @ts-check
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
@@ -75,7 +76,6 @@ const config = {
     ],
   ],
   scripts: [{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.min.js'}],
-  clientModules: [require.resolve('./static/fa/css/all.min.css')],
   presets: [
     [
       'classic',
