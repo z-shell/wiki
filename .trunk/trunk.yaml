@@ -8,17 +8,17 @@ repo:
     name: zw
 lint:
   enabled:
-    - actionlint@1.6.4
-    - gitleaks@7.6.1
-    - hadolint@2.8.0
-    - markdownlint@0.29.0
-    - prettier@2.4.1
-    - stylelint@1.0.0
-    - stylelint-fmt@1.0
-    - shellcheck@0.7.2
+    - actionlint@1.6.12
+    - gitleaks@8.7.0
+    - hadolint@2.10.0
+    - markdownlint@0.31.1
+    - prettier@2.6.2
+    - stylelint@14.7.0
+    - stylelint-fmt@14.7.0
+    - shellcheck@0.8.0
     - shfmt@3.4.0
-    - taplo@release-cli-0.5.0
-    - taplo-fmt@release-cli-0.5.0
+    - taplo@release-cli-0.6.1
+    - taplo-fmt@release-cli-0.6.1
   ignore:
     - linters: [ALL]
       paths:
