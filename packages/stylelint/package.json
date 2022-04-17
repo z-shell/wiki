@@ -9,10 +9,10 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "postcss": "^8.3.3",
-    "stylelint": "^14.7.0",
-    "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-standard-scss": "^3.0.0"
+    "postcss": "8.4.12",
+    "stylelint": "14.7.0",
+    "stylelint-config-prettier": "9.0.3",
+    "stylelint-config-standard-scss": "3.0.0"
   },
   "peerDependencies": {
     "postcss": "^8.3.3",
