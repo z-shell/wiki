@@ -4,9 +4,9 @@ title: ⚙️ Console
 image: img/logo/320x320.png
 description: A console based on the `zsh/zcurses` Zshell module.
 keywords:
-    - console
-    - zsh-plugin
-    - zi-console
+  - console
+  - zsh-plugin
+  - zi-console
 ---
 
 - [z-shell/zi-console](https://github.com/z-shell/zi-console)

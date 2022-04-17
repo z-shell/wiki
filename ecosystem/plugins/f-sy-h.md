@@ -19,7 +19,7 @@ import Image from '@theme/IdealImage';
 
 Switch themes via `fast-theme {theme-name}`.
 
-  <Image img={require('@site/static/img/plugins/f-sy-h/theme.png')} />
+<Image img={require('@site/static/img/plugins/f-sy-h/theme.png')} />
 
 Run `fast-theme -t {theme-name}` option to obtain the snippet above.
 
@@ -29,19 +29,19 @@ Run `fast-theme -l` to list available themes.
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
-  <img
+<img
     src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/parameter.png"
     alt="image could not be loaded"
   />
 
-  <img
+<img
     src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/in_string.png"
     alt="image could not be loaded"
   />
 
 ### Brackets
 
-  <img
+<img
     src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/brackets.gif"
     alt="image could not be loaded"
   />
@@ -50,7 +50,7 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
-  <img
+<img
     src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/cplx_cond.png"
     alt="image could not be loaded"
   />
@@ -59,14 +59,14 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
 Exact highlighting that recognizes quotings.
 
-  <img
+<img
     src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/ideal-string.png"
     alt="image could not be loaded"
   />
 
 ### here-strings
 
-  <img
+<img
     src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/herestring.png"
     alt="image could not be loaded"
   />
@@ -75,14 +75,14 @@ Exact highlighting that recognizes quotings.
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
-  <img
+<img
     src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/execfd_cmp.png"
     alt="image could not be loaded"
   />
 
 ### for-loops and alternate syntax (brace `{`/`}` blocks)
 
-  <img
+<img
     src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/for-loop-cmp.png"
     alt="image could not be loaded"
   />
@@ -91,7 +91,7 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper 2 lines):
 
-  <img
+<img
     src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/function.png"
     alt="image could not be loaded"
   />
@@ -100,7 +100,7 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper 2 lines)
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
-  <img
+<img
     src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/eval_cmp.png"
     alt="image could not be loaded"
   />
@@ -109,7 +109,7 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
 Highlighting that is specific for a given command.
 
-  <img
+<img
     src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/git_chroma.png"
     alt="image could not be loaded"
   />
@@ -117,14 +117,14 @@ Highlighting that is specific for a given command.
 The [chromas](https://github.com/z-shell/F-Sy-H/tree/main/→chroma)
 that are enabled by default can be found [here](https://github.com/z-shell/F-Sy-H/blob/main/fast-highlight#L166).
 
-  <img
+<img
     src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/math.gif"
     alt="image could not be loaded"
   />
 
 ### Zcalc highlighting
 
-  <img
+<img
     src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/zcalc.png"
     alt="image could not be loaded"
   />
@@ -256,7 +256,7 @@ Someone might want to create a detailed highlighting for a **specific program** 
   basically a private copy of `$__arg`; the token can be eg.: "grep",
 
 - `$3` - a private copy of `$_start_pos`, i.e. the position of the token in the command line buffer, used to add region_highlight entry (see man),
-  because Zsh colorizes by \_ranges* applied onto command line buffer (e.g. `from-10 to-13 fg=red`),
+  because Zsh colorizes by \_ranges\* applied onto command line buffer (e.g. `from-10 to-13 fg=red`),
 
 - `$4` - a private copy of `$_end_pos` from the upper scope; denotes where current token
   ends (at which index in the string being the command line).

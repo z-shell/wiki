@@ -18,24 +18,24 @@ const config = {
   projectName: 'zw',
   organizationName: 'z-shell',
   staticDirectories: ['static'],
-  i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
+  i18n: {defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans']},
   plugins: [
-    ['ideal-image', { max: 1030, min: 480, disableInDev: false }],
+    ['ideal-image', {max: 1030, min: 480, disableInDev: false}],
     [
       'pwa',
       {
         debug: false,
         offlineModeActivationStrategies: ['appInstalled', 'standalone', 'queryString'],
         pwaHead: [
-          { tagName: 'link', rel: 'icon', href: '/img/logo.svg' },
-          { tagName: 'link', rel: 'manifest', href: '/manifest.json' },
-          { tagName: 'link', rel: 'browserconfig', href: '/browserconfig.xml' },
-          { tagName: 'link', rel: 'apple-touch-icon', href: '/img/logo.png' },
-          { tagName: 'meta', name: 'theme-color', content: 'rgb(35, 184, 152)' },
-          { tagName: 'meta', name: 'apple-mobile-web-app-capable', content: 'yes' },
-          { tagName: 'meta', name: 'apple-mobile-web-app-status-bar-style', content: '#000' },
-          { tagName: 'meta', name: 'msapplication-TileImage', content: '/img/logo.png' },
-          { tagName: 'meta', name: 'msapplication-TileColor', content: '#000' },
+          {tagName: 'link', rel: 'icon', href: '/img/logo.svg'},
+          {tagName: 'link', rel: 'manifest', href: '/manifest.json'},
+          {tagName: 'link', rel: 'browserconfig', href: '/browserconfig.xml'},
+          {tagName: 'link', rel: 'apple-touch-icon', href: '/img/logo.png'},
+          {tagName: 'meta', name: 'theme-color', content: 'rgb(35, 184, 152)'},
+          {tagName: 'meta', name: 'apple-mobile-web-app-capable', content: 'yes'},
+          {tagName: 'meta', name: 'apple-mobile-web-app-status-bar-style', content: '#000'},
+          {tagName: 'meta', name: 'msapplication-TileImage', content: '/img/logo.png'},
+          {tagName: 'meta', name: 'msapplication-TileColor', content: '#000'},
         ],
       },
     ],
@@ -46,7 +46,7 @@ const config = {
         path: 'community',
         routeBasePath: 'community',
         sidebarPath: require.resolve('./lib/js/sidebars_2.js'),
-        editUrl: ({ locale, versionDocsDirPath, docPath }) => {
+        editUrl: ({locale, versionDocsDirPath, docPath}) => {
           if (locale !== 'en') {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
           }
@@ -63,7 +63,7 @@ const config = {
         path: 'ecosystem',
         routeBasePath: 'ecosystem',
         sidebarPath: require.resolve('./lib/js/sidebars_3.js'),
-        editUrl: ({ locale, versionDocsDirPath, docPath }) => {
+        editUrl: ({locale, versionDocsDirPath, docPath}) => {
           if (locale !== 'en') {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
           }
@@ -74,10 +74,8 @@ const config = {
       },
     ],
   ],
-  scripts: [{ defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.min.js' }],
-  clientModules: [
-    require.resolve('./static/fa/css/all.min.css'),
-  ],
+  scripts: [{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.min.js'}],
+  clientModules: [require.resolve('./static/fa/css/all.min.css')],
   presets: [
     [
       'classic',
@@ -89,7 +87,7 @@ const config = {
         },
         docs: {
           sidebarPath: require.resolve('./lib/js/sidebars_1.js'),
-          editUrl: ({ locale, versionDocsDirPath, docPath }) => {
+          editUrl: ({locale, versionDocsDirPath, docPath}) => {
             if (locale !== 'en') {
               return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
             }
@@ -102,15 +100,15 @@ const config = {
         },
         blog: {
           showReadingTime: true,
-          editUrl: ({ locale, blogDirPath, blogPath }) => {
+          editUrl: ({locale, blogDirPath, blogPath}) => {
             if (locale !== 'en') {
               return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
             }
             return `https://github.com/z-shell/zw/tree/main/${blogDirPath}/${blogPath}`;
           },
         },
-        googleAnalytics: { trackingID: 'G-MT10GVL59X', anonymizeIP: true },
-        gtag: { trackingID: 'G-MT10GVL59X', anonymizeIP: true },
+        googleAnalytics: {trackingID: 'G-MT10GVL59X', anonymizeIP: true},
+        gtag: {trackingID: 'G-MT10GVL59X', anonymizeIP: true},
       },
     ],
   ],
@@ -120,12 +118,12 @@ const config = {
       hideableSidebar: true,
       image: 'img/logo/320x320.png',
       autoCollapseSidebarCategories: true,
-      metadata: [{ name: 'twitter:card', content: 'summary' }],
+      metadata: [{name: 'twitter:card', content: 'summary'}],
       announcementBar: {
         id: 'announcemnt',
         content: `If you like ❮ ZI ❯ - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi">⭐️</a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell"><i class="fa-brands fa-github-alt">GitHub</i></a> or <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/zshell_zi"><i class="fa-brands fa-twitter">Twitter</i></a>`,
       },
-      colorMode: { defaultMode: 'dark', disableSwitch: false, respectPrefersColorScheme: true },
+      colorMode: {defaultMode: 'dark', disableSwitch: false, respectPrefersColorScheme: true},
       algolia: {
         appId: '8A6CKETM6G',
         apiKey: '1750c7420e10ff8acf4d4f1f7ca0de90',

@@ -40,7 +40,7 @@ Video source: [Asciinema](https://asciinema.org/a/156726)
 The values being set are the defaults. They must be set before loading the plugin.
 
 | Value                                             | Description                                                                         |
-|:--------------------------------------------------|-------------------------------------------------------------------------------------|
+| :------------------------------------------------ | ----------------------------------------------------------------------------------- |
 | zstyle ":plugin:zconvey" check_interval "2"       | - How often to check if there are new commands (in seconds)                         |
 | zstyle ":plugin:zconvey" expire_seconds "22"      | - If shell is busy for 22 seconds, the received command will expire and not run     |
 | zstyle ":plugin:zconvey" greeting "logo"          | - Display logo at Zsh start ("text" – display text, "none" – no greeting)           |
