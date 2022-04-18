@@ -74,7 +74,7 @@ const config = {
       },
     ],
   ],
-  scripts: [{defer: 'true', src: './src/fa/js/all.js'}],
+  scripts: [{defer: 'true', src: './src/fa/js/all.min.js'}],
   presets: [
     [
       'classic',
