@@ -30,19 +30,19 @@ Run `fast-theme -l` to list available themes.
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
 <img
-    src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/parameter.png"
+    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/parameter.png"
     alt="image could not be loaded"
   />
 
 <img
-    src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/in_string.png"
+    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/in_string.png"
     alt="image could not be loaded"
   />
 
 ### Brackets
 
 <img
-    src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/brackets.gif"
+    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/brackets.gif"
     alt="image could not be loaded"
   />
 
@@ -60,14 +60,14 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 Exact highlighting that recognizes quotings.
 
 <img
-    src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/ideal-string.png"
+    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/ideal-string.png"
     alt="image could not be loaded"
   />
 
 ### here-strings
 
 <img
-    src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/herestring.png"
+    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/herestring.png"
     alt="image could not be loaded"
   />
 
@@ -76,14 +76,14 @@ Exact highlighting that recognizes quotings.
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
 <img
-    src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/execfd_cmp.png"
+    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/execfd_cmp.png"
     alt="image could not be loaded"
   />
 
 ### for-loops and alternate syntax (brace `{`/`}` blocks)
 
 <img
-    src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/for-loop-cmp.png"
+    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/for-loop-cmp.png"
     alt="image could not be loaded"
   />
 
@@ -92,7 +92,7 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper 2 lines):
 
 <img
-    src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/function.png"
+    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/function.png"
     alt="image could not be loaded"
   />
 
@@ -101,7 +101,7 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper 2 lines)
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
 <img
-    src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/eval_cmp.png"
+    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/eval_cmp.png"
     alt="image could not be loaded"
   />
 
@@ -110,7 +110,7 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 Highlighting that is specific for a given command.
 
 <img
-    src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/git_chroma.png"
+    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/git_chroma.png"
     alt="image could not be loaded"
   />
 
@@ -125,7 +125,7 @@ that are enabled by default can be found [here](https://github.com/z-shell/F-Sy-
 ### Zcalc highlighting
 
 <img
-    src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/zcalc.png"
+    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/zcalc.png"
     alt="image could not be loaded"
   />
 
@@ -192,12 +192,12 @@ secondary        = zdharma
 Secondary theme (`zdharma` in the example) will be used for highlighting of argument for `eval`
 and of `$( ... )` interior (i.e. of interior of command substitution). Basically, recursive highlighting uses alternate theme to make the highlighted code distinct:
 
-![sshot](https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/cmdsubst.png)
+![sshot](https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/cmdsubst.png)
 
 In the above screen-shot the interior of `$( ... )` uses different colors than the rest of the
 code. Example for `eval`:
 
-![image](https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/eval_cmp.png)
+![image](https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/eval_cmp.png)
 
 First line doesn't use recursive highlighting, highlights `eval` argument as regular string.
 Second line switches theme to `zdharma` and does full recursive highlighting of eval argument.
