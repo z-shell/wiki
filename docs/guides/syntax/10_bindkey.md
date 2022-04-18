@@ -1,10 +1,41 @@
 ---
 id: bindkey
 title: 🗒 Bindkeys Map
-image: zw/logo/320x320.png
+image: img/logo/320x320.png
 description: The Bindmap & Bindkey ZI syntax
-keywords: [syntax, how-to-use]
+keywords: 
+  - syntax
+  - binkey
+  - bindmap
+  - how-to-use
 ---
+
+## Bindkey
+
+The `bindkey` key mappings can be very confusing to decipher.
+It can use multiple different notations but it's smart to use the same key notation throughout your configuration.
+
+You can print all of your current key bindings in the current keymap with `bindkey`.
+To print the full `bindkey` command to add to your `.zshrc` file use `bindkey -L`.
+
+In general you'll bind a widget so a key sequence or a key with modifier.
+This can be declared in [caret notation][5] using `^`, using [escape sequences][6] using `\`, in octal (`\NNN`), hex (`\xNN`), or unicode (`\uNNNN`).
+None of these are particularly great for people to read.
+
+This is also tricky because it depends on your keyboard, operating system, and shell.
+Here are some basics
+
+* `\e`, `\E`, = Escape
+* `^[` = Alt key (on some keyboards this is the same as escape)
+* `^?` = Delete
+* `^X`, `^` = Control
+
+The keys that come after the modifier can add more confusion.
+
+## Delete key binding
+
+To delete a key binding you can use `bindkey -d $KEYS`.
+Make sure you don't delete characters you need for typing.
 
 ## The `bindmap'…'` keybindings
 
@@ -116,3 +147,5 @@ of the cursor key, so that they'll work regardless of the terminal being used.
 [2]: /search/?q=ice+modifier
 [3]: /docs/guides/syntax/ice
 [4]: /search/?q=light+mode
+[5]: https://en.wikipedia.org/wiki/Caret_notation
+[6]: https://en.wikipedia.org/wiki/Escape_sequence
