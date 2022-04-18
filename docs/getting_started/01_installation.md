@@ -49,6 +49,7 @@ Minimal configuration with loader:
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a loader
 ```
+
 Then reload shell with: `exec zsh`, verify it: `zi -h`. All done!
 
 ## 🏗️ Build module

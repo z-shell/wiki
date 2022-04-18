@@ -3,7 +3,7 @@ id: bindkey
 title: 🗒 Bindkeys Map
 image: img/logo/320x320.png
 description: The Bindmap & Bindkey ZI syntax
-keywords: 
+keywords:
   - syntax
   - binkey
   - bindmap
@@ -25,10 +25,10 @@ None of these are particularly great for people to read.
 This is also tricky because it depends on your keyboard, operating system, and shell.
 Here are some basics
 
-* `\e`, `\E`, = Escape
-* `^[` = Alt key (on some keyboards this is the same as escape)
-* `^?` = Delete
-* `^X`, `^` = Control
+- `\e`, `\E`, = Escape
+- `^[` = Alt key (on some keyboards this is the same as escape)
+- `^?` = Delete
+- `^X`, `^` = Control
 
 The keys that come after the modifier can add more confusion.
 
