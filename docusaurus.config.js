@@ -74,7 +74,7 @@ const config = {
       },
     ],
   ],
-  scripts: [{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.js'}],
+  scripts: [{defer: 'true', src: './src/fa/js/all.js'}],
   presets: [
     [
       'classic',
@@ -120,7 +120,7 @@ const config = {
       metadata: [{name: 'twitter:card', content: 'summary'}],
       announcementBar: {
         id: 'announcemnt',
-        content: `If you like ❮ ZI ❯ - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi">⭐️</a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell"><i class="fa-brands fa-github-alt">GitHub</i></a> or <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/zshell_zi"><i class="fa-brands fa-twitter">Twitter</i></a>`,
+        content: `If you like ❮ ZI ❯ - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi">⭐️</a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell"><i class="fa-brands fa-github-alt"></i>GitHub</a> or <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/zshell_zi"><i class="fa-brands fa-twitter"></i>Twitter</a>`,
       },
       colorMode: {defaultMode: 'dark', disableSwitch: false, respectPrefersColorScheme: true},
       algolia: {
