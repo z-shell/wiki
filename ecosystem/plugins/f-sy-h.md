@@ -118,7 +118,7 @@ The [chromas](https://github.com/z-shell/F-Sy-H/tree/main/→chroma)
 that are enabled by default can be found [here](https://github.com/z-shell/F-Sy-H/blob/main/fast-highlight#L166).
 
 <img
-    src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/math.gif"
+    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/math.gif"
     alt="image could not be loaded"
   />
 
