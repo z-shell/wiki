@@ -7,7 +7,7 @@ You represent that if you do not own copyright in the code that you have the aut
 
 [Should be further filled in by the project - including defining the requirements to reach maintainer status]
 
-The Project abides by the Organization's [code of conduct](/CODE_OF_CONDUCT) and [trademark policy](/TRADEMARKS).
+The Project abides by the Organization's [code of conduct](/legal/CODE_OF_CONDUCT/) and [trademark policy](/legal/TRADEMARKS/).
 
 ## Community membership
 
