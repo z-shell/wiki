@@ -9,21 +9,19 @@ keywords:
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
-
 import Image from '@theme/IdealImage';
-
 import ZGitImg from '@site/static/zw/img/z_git.png';
 
-<Image className="ScreenView" img={ZGitImg} alt='Install almost everything from GitHub' />
 
 <div align="center">
-<a href="https://github.com/z-shell">
-  <img
-    className="ScreenViewFull"
-    src="https://github.zshell.dev/.github//metrics.svg"
-    alt="Z-Shell Organization"
-  />
-</a>
+  <Image className="ScreenView" img={ZGitImg} alt='Install almost everything from GitHub' />
+  <a href="https://github.com/z-shell">
+    <img
+      className="ScreenViewFull"
+      src="https://github.zshell.dev/.github//metrics.svg"
+      alt="Z-Shell Organization"
+    />
+  </a>
 </div>
 
 <Tabs>
@@ -61,14 +59,14 @@ Invocations][7].
 
 ---
 
-## ⚡️ Fast and feature-rich
+## ⚡️ <i class="fas fa-spinner fa-spin"></i> Fast and feature-rich
 
 - [Meta plugins][16] allow installing groups of plugins via a single, friendly label.
 - [Packages][6] offload the user from providing long and complex commands.
 - [Annexes][5] allow to extend the plugin manager with new commands.
 - [Turbo][8] mode yields **50-80%** faster Zsh startup.
 
-## ☑️ Neat and flexible
+## ☑️ <i class="fas fa-spinner fa-spin"></i> Neat and flexible
 
 - [Customize paths][9], use [multiple prompts][10] or create [your own][11] plugins.
 - Supports [Oh My Zsh][12] and [Prezto][12] plugins and libraries. ([migration][13]).
@@ -77,18 +75,17 @@ Invocations][7].
 - Code is immune to `KSH_ARRAYS` and other options typically causing compatibility problems.
 - Do not require `sudo`, and provide many workarounds e.g: setting so-called **shims** locally.
 
-## 📈 Familiarize and control
+## 📈 <i class="fas fa-spinner fa-spin"></i> Familiarize and control
 
 - Visualise data: **aliases**, **functions**, **bindkeys**, **Zle widgets**, **zstyles**, **completions**,
   **variables**, `$PATH`, and `$FPATH` elements a plugin has set up.
 - Quickly familiarize oneself with a new plugin and provides rich and easy-to-digest information that might be helpful
   on various occasions.
 - [Load or unload][14] plugins, use the ability to [manage][15] completions.
-
 - Docker [playground](https://github.com/z-shell/playground), test or propose configurations, preview at
   [asciinema.org](https://asciinema.org/a/459358).
 
-## 📢 Summary
+## 📢 <i class="fas fa-spinner fa-spin"></i> Summary
 
 <div align="center">
 <p><a href="https://github.com/orgs/z-shell/projects">
