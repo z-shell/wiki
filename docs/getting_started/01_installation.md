@@ -49,6 +49,7 @@ Minimal configuration with loader:
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a loader
 ```
+Then reload shell with: `exec zsh`, verify it: `zi -h`. All done!
 
 ## 🏗️ Build module
 
@@ -119,7 +120,7 @@ Run `zi -h` before start using ZI, it will show you all available commands. To i
 If you have any issue or need help 🤦‍♂️, lets [discuss][9] it or open an [issue][7] in any language. It help us to improve and make ZI better.
 Don't forget to help the project: share,contribute or [translate][10] 🌐 🥰 🤓.
 
-Let's glue everything together - a toolchain that works for us and not against us 🚀.
+Let's glue everything together to create a toolchain that works for us and not against us 🚀.
 
 ## 💡 Have ideas?
 
