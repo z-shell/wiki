@@ -1,4 +1,3 @@
-
 // @ts-check
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
