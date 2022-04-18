@@ -145,6 +145,7 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 
 | Service             | URL                                                                       |
 | :------------------ | ------------------------------------------------------------------------- |
+| [IPFS][11]          | <https://src.zshell.dev/sh/install.sh>                                    |
 | [Git.io][3]:        | <https://git.io/get-zi>                                                   |
 | [Gitee][1]:         | <https://z.digitalclouds.dev/i-tee>                                       |
 | [GitHub][4]:        | <https://z.digitalclouds.dev/i-hub>                                       |
@@ -161,3 +162,4 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 [8]: https://github.com/z-shell/zpmod
 [9]: https://github.com/orgs/z-shell/discussions/new
 [10]: https://digitalclouds.crowdin.com/z-shell
+[11]: https://ipfs.io
