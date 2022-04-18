@@ -1677,7 +1677,7 @@ packages:
       '@docusaurus/logger': 2.0.0-beta.18
       file-loader: 6.2.0_webpack@5.72.0
       lodash: 4.17.21
-      sharp: 0.30.3
+      sharp: 0.30.4
       tslib: 2.3.1
     transitivePeerDependencies:
       - webpack
@@ -1982,14 +1982,14 @@ packages:
     dependencies:
       '@docusaurus/core': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
       '@docusaurus/lqip-loader': 2.0.0-beta.18_webpack@5.72.0
-      '@docusaurus/responsive-loader': 1.7.0_sharp@0.30.3
+      '@docusaurus/responsive-loader': 1.7.0_sharp@0.30.4
       '@docusaurus/theme-translations': 2.0.0-beta.18
       '@docusaurus/utils-validation': 2.0.0-beta.18
       '@endiliey/react-ideal-image': 0.0.11_6220701e89a7eac6943fdb2645f2cfa6
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-waypoint: 10.1.0_react@17.0.2
-      sharp: 0.30.3
+      sharp: 0.30.4
       tslib: 2.3.1
       webpack: 5.72.0
     transitivePeerDependencies:
@@ -2132,7 +2132,7 @@ packages:
       react: 17.0.2
     dev: false
 
-  /@docusaurus/responsive-loader/1.7.0_sharp@0.30.3:
+  /@docusaurus/responsive-loader/1.7.0_sharp@0.30.4:
     resolution: {integrity: sha512-N0cWuVqTRXRvkBxeMQcy/OF2l7GN8rmni5EzR3HpwR+iU2ckYPnziceojcxvvxQ5NqZg1QfEW0tycQgHp+e+Nw==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -2145,7 +2145,7 @@ packages:
         optional: true
     dependencies:
       loader-utils: 2.0.2
-      sharp: 0.30.3
+      sharp: 0.30.4
     dev: false
 
   /@docusaurus/theme-classic/2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7:
@@ -6399,8 +6399,8 @@ packages:
       thunky: 1.1.0
     dev: false
 
-  /nanoid/3.3.2:
-    resolution: {integrity: sha512-CuHBogktKwpm5g2sRgv83jEy2ijFzBwMoYA60orPDR7ynsLijJDqgsi4RDGj3OJpy3Ieb+LYwiRmIOGyytgITA==}
+  /nanoid/3.3.3:
+    resolution: {integrity: sha512-p1sjXuopFs0xg+fPASzQ28agW1oHD7xDsd9Xkf3T15H3c/cifrFHVwrh74PdoklAPi+i7MdRsE47vm2r6JoB+w==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
@@ -7227,7 +7227,7 @@ packages:
     resolution: {integrity: sha512-lg6eITwYe9v6Hr5CncVbK70SoioNQIq81nsaG86ev5hAidQvmOeETBqs7jm43K2F5/Ley3ytDtriImV6TpNiSg==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
-      nanoid: 3.3.2
+      nanoid: 3.3.3
       picocolors: 1.0.0
       source-map-js: 1.0.2
 
@@ -8154,8 +8154,8 @@ packages:
   /shallowequal/1.1.0:
     resolution: {integrity: sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ==}
 
-  /sharp/0.30.3:
-    resolution: {integrity: sha512-rjpfJFK58ZOFSG8sxYSo3/JQb4ej095HjXp9X7gVu7gEn1aqSG8TCW29h/Rr31+PXrFADo1H/vKfw0uhMQWFtg==}
+  /sharp/0.30.4:
+    resolution: {integrity: sha512-3Onig53Y6lji4NIZo69s14mERXXY/GV++6CzOYx/Rd8bnTwbhFbL09WZd7Ag/CCnA0WxFID8tkY0QReyfL6v0Q==}
     engines: {node: '>=12.13.0'}
     requiresBuild: true
     dependencies:
