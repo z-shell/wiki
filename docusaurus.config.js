@@ -74,7 +74,7 @@ const config = {
       },
     ],
   ],
-  scripts: [{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.min.js'}],
+  scripts: [{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.js'}],
   presets: [
     [
       'classic',
@@ -233,7 +233,15 @@ const config = {
             items: [
               {
                 label: 'Privacy Policy',
-                to: 'legal/privacy_policy/',
+                to: 'legal/PRIVACY/',
+              },
+              {
+                label: 'Code of Conduct',
+                to: 'legal/CODE_OF_CONDUCT/',
+              },
+              {
+                label: 'Contributing',
+                to: 'legal/CONTRIBUTING/',
               },
             ],
           },
