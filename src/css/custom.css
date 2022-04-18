@@ -1,4 +1,4 @@
-@import '@site/static/fa/css/fontawesome.min.css';
+@import 'https://z.digitalclouds.dev/fa/css/all.css';
 
 :root {
   --ifm-background-color: var(--fill);
@@ -64,10 +64,6 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0 0 0 / 10%);
 }
 
-.red > a {
-  color: red;
-}
-
 .screen-reader-only {
   border: 0;
   clip-path: polygon(0 0, 0 0, 0 0);
@@ -87,7 +83,7 @@ html[data-theme='dark'] img[src$='#gh-light-mode-only'] {
 
 div[class^='announcementBar_'] {
   font-weight: bold;
-  transition: 0.8s all;
+  transition: 1s all;
 }
 
 html[data-theme='light'] div[class^='announcementBar_'] {
@@ -115,25 +111,78 @@ html[data-theme='dark'] div[class^='announcementBar_'] {
 .ScreenView {
   width: 80%;
   height: auto;
-  border: 0;
-  padding: 0;
 }
 
 .ScreenViewMedium {
   width: 60%;
   height: auto;
-  border: 0;
-  padding: 0;
 }
 
 .ScreenViewSmall {
-  width: 30%;
+  width: 40%;
   height: auto;
-  border: 0;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+}
+
+.tippy-box {
+  border-radius: 10px;
+}
+
+.tippy-content {
+  border-radius: 10px;
+  overflow-y: hidden;
   padding: 0;
 }
 
-/* stylelint-enable */
+#table-of-contents {
+  max-height: 30em;
+  overflow-y: auto;
+}
+
+#table-of-contents > nav ul {
+  list-style-type: none;
+}
+
+#table-of-contents > nav > ul li > a {
+  text-decoration: none;
+  padding: 0.5em;
+  border-radius: 6px;
+  display: block;
+}
+
+#table-of-contents > nav ul > li {
+  margin-left: 1em;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
+}
+
+#table-of-contents > nav > ul > li {
+  margin-left: 0;
+}
+
+.pinned-item-desc img {
+  max-width: 100%;
+}
+
+img[src$="#center"] {
+  display: block;
+  margin: 0.7rem auto;
+  width: 90%;
+}
+
+img[src$="#floatleft"] {
+  float: left;
+  margin: 0.7rem;
+}
+
+img[src$="#floatright"] {
+  float: right;
+  margin: 0.7rem;
+}
 
 .header-github-link:hover {
   opacity: 0.6;
