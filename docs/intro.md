@@ -12,7 +12,6 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 import Image from '@theme/IdealImage';
 import ZGitImg from '@site/static/zw/img/z_git.png';
 
-
 <div align="center">
   <Image className="ScreenView" img={ZGitImg} alt='Install almost everything from GitHub' />
   <a href="https://github.com/z-shell">

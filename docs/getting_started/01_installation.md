@@ -52,7 +52,7 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a loader
 
 Then reload shell with: `exec zsh`, verify it: `zi -h`. All done!
 
-## 🏗️  <i class="fas fa-cog fa-pulse"></i> Build module
+## 🏗️ <i class="fas fa-cog fa-pulse"></i> Build module
 
 Without ZI:
 
