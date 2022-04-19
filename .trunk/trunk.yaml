@@ -26,6 +26,8 @@ lint:
         - 'build/**'
         - 'static/**'
         - 'src/fa/**'
+        - 'src/pages/**'
+        - 'src/components/**'
         - '.docusaurus/**'
     - linters: [actionlint]
       paths:
