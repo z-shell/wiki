@@ -1566,7 +1566,7 @@ packages:
       '@slorber/static-site-generator-webpack-plugin': 4.0.4
       '@svgr/webpack': 6.2.1
       autoprefixer: 10.4.4_postcss@8.4.12
-      babel-loader: 8.2.4_acba72ea4bf9d339cdfcd8f55cdb7006
+      babel-loader: 8.2.5_acba72ea4bf9d339cdfcd8f55cdb7006
       babel-plugin-dynamic-import-node: 2.3.0
       boxen: 6.2.1
       chokidar: 3.5.3
@@ -2005,7 +2005,7 @@ packages:
       '@docusaurus/theme-translations': 2.0.0-beta.18
       '@docusaurus/utils': 2.0.0-beta.18
       '@docusaurus/utils-validation': 2.0.0-beta.18
-      babel-loader: 8.2.4_acba72ea4bf9d339cdfcd8f55cdb7006
+      babel-loader: 8.2.5_acba72ea4bf9d339cdfcd8f55cdb7006
       clsx: 1.1.1
       core-js: 3.22.0
       react: 17.0.2
@@ -3239,8 +3239,8 @@ packages:
       - debug
     dev: false
 
-  /babel-loader/8.2.4_acba72ea4bf9d339cdfcd8f55cdb7006:
-    resolution: {integrity: sha512-8dytA3gcvPPPv4Grjhnt8b5IIiTcq/zeXOPk4iTYI0SVXcsmuGg7JtBRDp8S9X+gJfhQ8ektjXZlDu1Bb33U8A==}
+  /babel-loader/8.2.5_acba72ea4bf9d339cdfcd8f55cdb7006:
+    resolution: {integrity: sha512-OSiFfH89LrEMiWd4pLNqGz4CwJDtbs2ZVc+iGu2HrkRfPxId9F2anQj38IxWpmRfsUY0aBZYi1EFcd3mhtRMLQ==}
     engines: {node: '>= 8.9'}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -4914,8 +4914,8 @@ packages:
   /function-bind/1.1.1:
     resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
 
-  /functions-have-names/1.2.2:
-    resolution: {integrity: sha512-bLgc3asbWdwPbx2mNk2S49kmJCuQeu0nfmaOgbs8WIyzzkw3r4htszdIi9Q9EMezDPTYuJx2wvjZ/EwgAthpnA==}
+  /functions-have-names/1.2.3:
+    resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
     dev: false
 
   /gauge/2.7.4:
@@ -5384,8 +5384,8 @@ packages:
     resolution: {integrity: sha512-vDlkRPDJn93swjcjqMSaGSPABbIarsr1TLAui/gLDXzV5VsJNdXNzMYDyNBLQkjWQCJ1uizu8T2oDMhmGt0PRA==}
     dev: false
 
-  /http-proxy-middleware/2.0.4_@types+express@4.17.13:
-    resolution: {integrity: sha512-m/4FxX17SUvz4lJ5WPXOHDUuCwIqXLfLHs1s0uZ3oYjhoXlx9csYxaOa0ElDEJ+h8Q4iJ1s+lTMbiCa4EXIJqg==}
+  /http-proxy-middleware/2.0.5_@types+express@4.17.13:
+    resolution: {integrity: sha512-ORErEaxkjyrhifofwCuQttHPUSestLtiPDwV0qQOFB0ww6695H953wIGRnkakw1K+GAP+t8/RPbfDB75RFL4Fg==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       '@types/express': ^4.17.13
@@ -5599,8 +5599,8 @@ packages:
       ci-info: 2.0.0
     dev: false
 
-  /is-core-module/2.8.1:
-    resolution: {integrity: sha512-SdNCUs284hr40hFTFP6l0IfZ/RSrMXF3qgoRHd3/79unUTvrFO/JoXwkGm+5J/Oe3E/b5GsnG330uUNgRpu1PA==}
+  /is-core-module/2.9.0:
+    resolution: {integrity: sha512-+5FPy5PnwmO3lvfMb0AsoPaBG+5KHUI0wYFXOtYPnVVVspTFUuMZNfNaNVRt3FZadstu2c8x23vykRW/NBoU6A==}
     dependencies:
       has: 1.0.3
 
@@ -6401,8 +6401,8 @@ packages:
       tslib: 2.3.1
     dev: false
 
-  /node-abi/3.8.0:
-    resolution: {integrity: sha512-tzua9qWWi7iW4I42vUPKM+SfaF0vQSLAm4yO5J83mSwB7GeoWrDKC/K+8YCnYNwqP5duwazbw2X9l4m8SC2cUw==}
+  /node-abi/3.15.0:
+    resolution: {integrity: sha512-Ic6z/j6I9RLm4ov7npo1I48UQr2BEyFCqh6p7S1dhEx9jPO0GPGq/e2Rb7x7DroQrmiVMz/Bw1vJm9sPAl2nxA==}
     engines: {node: '>=10'}
     dependencies:
       semver: 7.3.7
@@ -6452,7 +6452,7 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       hosted-git-info: 4.1.0
-      is-core-module: 2.8.1
+      is-core-module: 2.9.0
       semver: 7.3.7
       validate-npm-package-license: 3.0.4
     dev: true
@@ -7211,7 +7211,7 @@ packages:
       minimist: 1.2.6
       mkdirp-classic: 0.5.3
       napi-build-utils: 1.0.2
-      node-abi: 3.8.0
+      node-abi: 3.15.0
       npmlog: 4.1.2
       pump: 3.0.0
       rc: 1.2.8
@@ -7678,7 +7678,7 @@ packages:
     dependencies:
       call-bind: 1.0.2
       define-properties: 1.1.4
-      functions-have-names: 1.2.2
+      functions-have-names: 1.2.3
     dev: false
 
   /regexpu-core/5.0.1:
@@ -7859,7 +7859,7 @@ packages:
     resolution: {integrity: sha512-Hhtrw0nLeSrFQ7phPp4OOcVjLPIeMnRlr5mcnVuMe7M/7eBn98A3hmFRLoFo3DLZkivSYwhRUJTyPyWAk56WLw==}
     hasBin: true
     dependencies:
-      is-core-module: 2.8.1
+      is-core-module: 2.9.0
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
 
@@ -9234,7 +9234,7 @@ packages:
       express: 4.17.3
       graceful-fs: 4.2.10
       html-entities: 2.3.3
-      http-proxy-middleware: 2.0.4_@types+express@4.17.13
+      http-proxy-middleware: 2.0.5_@types+express@4.17.13
       ipaddr.js: 2.0.1
       open: 8.4.0
       p-retry: 4.6.1
@@ -9381,7 +9381,7 @@ packages:
   /wide-align/1.1.5:
     resolution: {integrity: sha512-eDMORYaPNZ4sQIuuYPDHdQvf4gyCF9rEEV/yPxGfwPkRodwEgiMUUXTx/dex+Me0wxx53S+NgUHaP7y3MGlDmg==}
     dependencies:
-      string-width: 4.2.3
+      string-width: 1.0.2
     dev: false
 
   /widest-line/3.1.0:
