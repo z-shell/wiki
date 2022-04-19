@@ -14,4 +14,4 @@ module.exports = {
     'comment-empty-line-before': null,
     'value-keyword-case': ['lower', {camelCaseSvgKeywords: true}],
   },
-};
+}

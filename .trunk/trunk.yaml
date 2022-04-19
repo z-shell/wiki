@@ -6,6 +6,7 @@ repo:
     host: github.com
     owner: z-shell
     name: zw
+    trunk_branch_name: main
 lint:
   enabled:
     - actionlint@1.6.12
