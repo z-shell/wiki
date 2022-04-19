@@ -8,7 +8,7 @@ keywords:
   - setup
 ---
 
-## <i class="fas fa-spinner fa-spin"> Quick setup</i>
+## <i class="fas fa-spinner fa-spin"></i> Quick setup
 
 :::tip
 
@@ -79,7 +79,7 @@ To enable debug messages from the module set:
 typeset -g ZI_MOD_DEBUG=1
 ```
 
-## <i class="fas fa-spinner fa-spin"> Manual installation</i>
+## <i class="fas fa-spinner fa-spin"></i> Manual install
 
 Setup ZI directory:
 
@@ -113,7 +113,7 @@ autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 ```
 
-## <i class="fas fa-spinner fa-spin"> Post-install</i>
+## <i class="fas fa-spinner fa-spin"></i> Post-install
 
 After fresh install it is recommended to reload the shell with `exec zsh` and compile ZI with `zi self-update`.
 Run `zi -h` before start using ZI, it will show you all available commands. To increase functionality or performance explore the wiki.
@@ -123,7 +123,7 @@ Don't forget to help the project: share,contribute or [translate][10] 🌐 🥰 
 
 Let's glue everything together to create a toolchain that works for us and not against us 🚀.
 
-## <i class="fas fa-sync-alt fa-spin"> Have ideas?</i>
+## <i class="fas fa-sync-alt fa-spin"></i> Have ideas?
 
 Suggest your .zshrc configuration to: <https://github.com/z-shell/playground> 🏅
 
@@ -131,7 +131,7 @@ Suggest your .zshrc configuration to: <https://github.com/z-shell/playground> �
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a ???
 ```
 
-## <i class="fas fa-sync-alt fa-spin"> Need warm-up?</i>
+## <i class="fas fa-sync-alt fa-spin"></i> Need warm-up?
 
 Minimal ZI - 🐋 Docker Alpine: <https://github.com/z-shell/zd/pkgs/container/zd>
 
@@ -139,7 +139,7 @@ Minimal ZI - 🐋 Docker Alpine: <https://github.com/z-shell/zd/pkgs/container/z
 docker run --rm -it ghcr.io/z-shell/zd:latest
 ```
 
-## <i class="fas fa-sync-alt fa-spin"> Available installer links</i>
+## <i class="fas fa-sync-alt fa-spin"></i> Available installer links
 
 [⚙️ Install Library: :heavy_check_mark:][2] | [Status page: :heavy_check_mark:](https://status.zshell.dev/)
 
