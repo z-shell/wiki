@@ -52,8 +52,6 @@ const config = {
           }
           return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
         },
-        remarkPlugins: [math],
-        rehypePlugins: [katex],
       },
     ],
     [
@@ -69,12 +67,10 @@ const config = {
           }
           return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
         },
-        remarkPlugins: [math],
-        rehypePlugins: [katex],
       },
     ],
   ],
-  scripts: [{defer: 'true', src: '@site/src/fa/js/all.js'}],
+  scripts: [{defer: 'true', src: 'https://space.ss-o.workers.dev/fa/js/all.js'}],
   presets: [
     [
       'classic',
