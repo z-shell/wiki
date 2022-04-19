@@ -53,14 +53,14 @@ Invocations][7].
 
 ---
 
-## <i class="fa-solid fa-bolt"></i> <i class="fas fa-spinner fa-spin"></i> Fast and feature-rich
+## <i class="fas fa-spinner fa-spin"></i> Fast and feature-rich
 
 - [Meta plugins][16] allow installing groups of plugins via a single, friendly label.
 - [Packages][6] offload the user from providing long and complex commands.
 - [Annexes][5] allow to extend the plugin manager with new commands.
 - [Turbo][8] mode yields **50-80%** faster Zsh startup.
 
-## <i class="fa-solid fa-sparkles"></i> <i class="fas fa-spinner fa-spin"></i> Neat and flexible
+## <i class="fas fa-spinner fa-spin"></i> Neat and flexible
 
 - [Customize paths][9], use [multiple prompts][10] or create [your own][11] plugins.
 - Supports [Oh My Zsh][12] and [Prezto][12] plugins and libraries. ([migration][13]).
@@ -69,7 +69,7 @@ Invocations][7].
 - Code is immune to `KSH_ARRAYS` and other options typically causing compatibility problems.
 - Do not require `sudo`, and provide many workarounds e.g: setting so-called **shims** locally.
 
-## <i class="fa-solid fa-circle-info"></i> <i class="fas fa-spinner fa-spin"></i> Familiarize and control
+## <i class="fas fa-spinner fa-spin"></i> Familiarize and control
 
 - Visualise data: **aliases**, **functions**, **bindkeys**, **Zle widgets**, **zstyles**, **completions**,
   **variables**, `$PATH`, and `$FPATH` elements a plugin has set up.
@@ -79,7 +79,7 @@ Invocations][7].
 - Docker [playground](https://github.com/z-shell/playground), test or propose configurations, preview at
   [asciinema.org](https://asciinema.org/a/459358).
 
-## <i class="fa-solid fa-clipboard-list-check"></i> <i class="fas fa-spinner fa-spin"></i> Summary
+## <i class="fas fa-spinner fa-spin"></i> Summary
 
 [![Z-Shell Projects](https://github.zshell.dev/.github/plugin/projects/projects.svg#center)](https://github.com/orgs/z-shell/projects) <br />
 [![Z-ShellOrganization](https://github.zshell.dev/.github/plugin/followup/followup.svg#center)](https://github.com/z-shell/) <br />
