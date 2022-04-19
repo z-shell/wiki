@@ -21,3 +21,6 @@ https://z-shell.pages.dev/*
 
 https://:z-shell.pages.dev/*
   X-Robots-Tag: noindex
+
+/*
+  Cache-Control: public, max-age=3600, stale-if-error=60
