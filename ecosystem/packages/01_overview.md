@@ -4,12 +4,18 @@ slug: /packages
 title: 📦 Introduction
 sidebar_position: 1
 image: img/logo/320x320.png
-description: Packages Introduction
+description: Introduction to packages
 keywords:
   - package
   - zpackage
   - zi-package
 ---
+
+:::info
+
+The [bin-gem-node][3] is required. Otherwise, some packages will fail to install due to missing functionality.
+
+:::
 
 ## The [any-gem][1] and [any-node][2] packages
 
@@ -32,9 +38,9 @@ The Unicode arrow is allowed in ZI syntax as in example below.
 zi id-as=jekyll pack param='GEM → jekyll' for any-gem
 ```
 
-The binaries will be exposed without altering the PATH via shims ([bin-gem-node][3] annex is needed).
+The binaries will be exposed without altering the PATH via shims.
 
-Shims are correctly removed when deleting a plugin with `zi delete ……`
+Shims are correctly removed when deleting a plugin with `zi delete …`
 
 The so-called packages are GitHub repositories holding a `package.json` file with the meta-data in them.
 
@@ -88,7 +94,7 @@ You can also update the package with `zi update fzf` – it'll cause the project
 "normal" package manager such as `apt-get`.
 
 However, it'll actually be more like to `emerge` from Gentoo, because the installation will be from the source… unless…
-the user will pick up a binary installation by profile-argument specified in the `pack''` ice :)
+the user will pick up a binary installation by profile-argument specified in the `pack''` ice.
 
 ## Pros of using ZI package for regular software installations
 
