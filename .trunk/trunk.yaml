@@ -22,19 +22,19 @@ lint:
   ignore:
     - linters: [ALL]
       paths:
-        - i18n/**
-        - build/**
-        - static/**
-        - src/fa/less/**
-        - src/fa/svgs/**
-        - src/fa/sprites/**
-        - src/fa/webfonts/**
-        - src/fa/metadata/**
-        - .docusaurus/**
+        - 'i18n/**'
+        - 'build/**'
+        - 'static/**'
+        - 'src/fa/less/**'
+        - 'src/fa/svgs/**'
+        - 'src/fa/sprites/**'
+        - 'src/fa/webfonts/**'
+        - 'src/fa/metadata/**'
+        - '.docusaurus/**'
     - linters: [prettier]
       paths:
-        - src/fa/css/**
-        - src/fa/scss/**
+        - '**/*.css'
+        - '**/*.scss'
     - linters: [actionlint]
       paths:
         - .github/workflows/sync-labels.yml
