@@ -8,86 +8,71 @@ overrides:
   axios@<0.21.1: '>=0.21.1'
   async@<2.6.4: '>=2.6.4'
 
-importers:
+specifiers:
+  '@algolia/client-search': 4.13.0
+  '@babel/core': 7.17.9
+  '@docusaurus/core': 2.0.0-beta.18
+  '@docusaurus/module-type-aliases': 2.0.0-beta.18
+  '@docusaurus/plugin-client-redirects': 2.0.0-beta.18
+  '@docusaurus/plugin-content-blog': 2.0.0-beta.18
+  '@docusaurus/plugin-content-docs': 2.0.0-beta.18
+  '@docusaurus/plugin-content-pages': 2.0.0-beta.18
+  '@docusaurus/plugin-debug': 2.0.0-beta.18
+  '@docusaurus/plugin-ideal-image': 2.0.0-beta.18
+  '@docusaurus/plugin-pwa': 2.0.0-beta.18
+  '@docusaurus/plugin-sitemap': 2.0.0-beta.18
+  '@docusaurus/preset-classic': 2.0.0-beta.18
+  '@docusaurus/theme-search-algolia': 2.0.0-beta.18
+  '@mdx-js/react': 1.6.22
+  '@trunkio/launcher': 1.0.4
+  '@tsconfig/docusaurus': 1.0.5
+  '@types/react': 17.0.44
+  clsx: 1.1.1
+  prism-react-renderer: 1.3.1
+  prop-types: 15.8.1
+  raw-loader: 4.0.2
+  react: 17.0.2
+  react-dom: 17.0.2
+  rehype-katex: 4.0.0
+  remark-math: 3.0.1
+  stylelint: ^14.7.1
+  stylelint-config-prettier: ^9.0.3
+  typescript: 4.6.3
+  webpack: 5.72.0
 
-  .:
-    specifiers:
-      '@algolia/client-search': 4.13.0
-      '@babel/core': 7.17.9
-      '@docusaurus/core': 2.0.0-beta.18
-      '@docusaurus/module-type-aliases': 2.0.0-beta.18
-      '@docusaurus/plugin-client-redirects': 2.0.0-beta.18
-      '@docusaurus/plugin-content-blog': 2.0.0-beta.18
-      '@docusaurus/plugin-content-docs': 2.0.0-beta.18
-      '@docusaurus/plugin-content-pages': 2.0.0-beta.18
-      '@docusaurus/plugin-debug': 2.0.0-beta.18
-      '@docusaurus/plugin-ideal-image': 2.0.0-beta.18
-      '@docusaurus/plugin-pwa': 2.0.0-beta.18
-      '@docusaurus/plugin-sitemap': 2.0.0-beta.18
-      '@docusaurus/preset-classic': 2.0.0-beta.18
-      '@docusaurus/theme-search-algolia': 2.0.0-beta.18
-      '@mdx-js/react': 1.6.22
-      '@trunkio/launcher': 1.0.4
-      '@tsconfig/docusaurus': 1.0.5
-      '@types/react': 17.0.44
-      clsx: 1.1.1
-      prism-react-renderer: 1.3.1
-      prop-types: 15.8.1
-      raw-loader: 4.0.2
-      react: 17.0.2
-      react-dom: 17.0.2
-      rehype-katex: 4.0.0
-      remark-math: 3.0.1
-      stylelint: ^14.7.1
-      stylelint-config-prettier: ^9.0.3
-      typescript: 4.6.3
-      webpack: 5.72.0
-    dependencies:
-      '@docusaurus/core': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
-      '@docusaurus/plugin-client-redirects': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
-      '@docusaurus/plugin-content-blog': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
-      '@docusaurus/plugin-content-docs': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
-      '@docusaurus/plugin-content-pages': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
-      '@docusaurus/plugin-debug': 2.0.0-beta.18_4291f12839407dcf32142cb92cd5de4a
-      '@docusaurus/plugin-ideal-image': 2.0.0-beta.18_2ad7adbaefbc13fa83a738720eba1234
-      '@docusaurus/plugin-pwa': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
-      '@docusaurus/plugin-sitemap': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
-      '@docusaurus/preset-classic': 2.0.0-beta.18_d3366e3fb378c41c2469e8a8cd926af9
-      '@docusaurus/theme-search-algolia': 2.0.0-beta.18_d3366e3fb378c41c2469e8a8cd926af9
-      '@mdx-js/react': 1.6.22_react@17.0.2
-      clsx: 1.1.1
-      prism-react-renderer: 1.3.1_react@17.0.2
-      raw-loader: 4.0.2_webpack@5.72.0
-      rehype-katex: 4.0.0
-      remark-math: 3.0.1
-    devDependencies:
-      '@algolia/client-search': 4.13.0
-      '@babel/core': 7.17.9
-      '@docusaurus/module-type-aliases': 2.0.0-beta.18_react-dom@17.0.2+react@17.0.2
-      '@trunkio/launcher': 1.0.4
-      '@tsconfig/docusaurus': 1.0.5
-      '@types/react': 17.0.44
-      prop-types: 15.8.1
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-      stylelint: 14.7.1
-      stylelint-config-prettier: 9.0.3_stylelint@14.7.1
-      typescript: 4.6.3
-      webpack: 5.72.0
+dependencies:
+  '@docusaurus/core': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
+  '@docusaurus/plugin-client-redirects': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
+  '@docusaurus/plugin-content-blog': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
+  '@docusaurus/plugin-content-docs': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
+  '@docusaurus/plugin-content-pages': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
+  '@docusaurus/plugin-debug': 2.0.0-beta.18_4291f12839407dcf32142cb92cd5de4a
+  '@docusaurus/plugin-ideal-image': 2.0.0-beta.18_2ad7adbaefbc13fa83a738720eba1234
+  '@docusaurus/plugin-pwa': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
+  '@docusaurus/plugin-sitemap': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
+  '@docusaurus/preset-classic': 2.0.0-beta.18_d3366e3fb378c41c2469e8a8cd926af9
+  '@docusaurus/theme-search-algolia': 2.0.0-beta.18_d3366e3fb378c41c2469e8a8cd926af9
+  '@mdx-js/react': 1.6.22_react@17.0.2
+  clsx: 1.1.1
+  prism-react-renderer: 1.3.1_react@17.0.2
+  raw-loader: 4.0.2_webpack@5.72.0
+  rehype-katex: 4.0.0
+  remark-math: 3.0.1
 
-  packages/stylelint:
-    specifiers:
-      postcss: 8.4.12
-      stylelint: 14.7.1
-      stylelint-config-prettier: 9.0.3
-      stylelint-config-standard: ^25.0.0
-      stylelint-config-standard-scss: 3.0.0
-    devDependencies:
-      postcss: 8.4.12
-      stylelint: 14.7.1
-      stylelint-config-prettier: 9.0.3_stylelint@14.7.1
-      stylelint-config-standard: 25.0.0_stylelint@14.7.1
-      stylelint-config-standard-scss: 3.0.0_postcss@8.4.12+stylelint@14.7.1
+devDependencies:
+  '@algolia/client-search': 4.13.0
+  '@babel/core': 7.17.9
+  '@docusaurus/module-type-aliases': 2.0.0-beta.18_react-dom@17.0.2+react@17.0.2
+  '@trunkio/launcher': 1.0.4
+  '@tsconfig/docusaurus': 1.0.5
+  '@types/react': 17.0.44
+  prop-types: 15.8.1
+  react: 17.0.2
+  react-dom: 17.0.2_react@17.0.2
+  stylelint: 14.7.1
+  stylelint-config-prettier: 9.0.3_stylelint@14.7.1
+  typescript: 4.6.3
+  webpack: 5.72.0
 
 packages:
 
@@ -6108,6 +6093,7 @@ packages:
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: false
 
   /loose-envify/1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
@@ -7149,15 +7135,6 @@ packages:
 
   /postcss-safe-parser/6.0.0_postcss@8.4.12:
     resolution: {integrity: sha512-FARHN8pwH+WiS2OPCxJI8FuRJpTVnn6ZNFiqAM2aeW2LwTHWWmWgIyKC6cUo0L8aeKiF/14MNvnpls6R2PBeMQ==}
-    engines: {node: '>=12.0'}
-    peerDependencies:
-      postcss: ^8.3.3
-    dependencies:
-      postcss: 8.4.12
-    dev: true
-
-  /postcss-scss/4.0.3_postcss@8.4.12:
-    resolution: {integrity: sha512-j4KxzWovfdHsyxwl1BxkUal/O4uirvHgdzMKS1aWJBAV0qh2qj5qAZqpeBfVUYGWv+4iK9Az7SPyZ4fyNju1uA==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.3.3
@@ -8540,78 +8517,6 @@ packages:
     peerDependencies:
       stylelint: '>=11.0.0'
     dependencies:
-      stylelint: 14.7.1
-    dev: true
-
-  /stylelint-config-recommended-scss/5.0.2_postcss@8.4.12+stylelint@14.7.1:
-    resolution: {integrity: sha512-b14BSZjcwW0hqbzm9b0S/ScN2+3CO3O4vcMNOw2KGf8lfVSwJ4p5TbNEXKwKl1+0FMtgRXZj6DqVUe/7nGnuBg==}
-    peerDependencies:
-      stylelint: ^14.0.0
-    dependencies:
-      postcss-scss: 4.0.3_postcss@8.4.12
-      stylelint: 14.7.1
-      stylelint-config-recommended: 6.0.0_stylelint@14.7.1
-      stylelint-scss: 4.2.0_stylelint@14.7.1
-    transitivePeerDependencies:
-      - postcss
-    dev: true
-
-  /stylelint-config-recommended/6.0.0_stylelint@14.7.1:
-    resolution: {integrity: sha512-ZorSSdyMcxWpROYUvLEMm0vSZud2uB7tX1hzBZwvVY9SV/uly4AvvJPPhCcymZL3fcQhEQG5AELmrxWqtmzacw==}
-    peerDependencies:
-      stylelint: ^14.0.0
-    dependencies:
-      stylelint: 14.7.1
-    dev: true
-
-  /stylelint-config-recommended/7.0.0_stylelint@14.7.1:
-    resolution: {integrity: sha512-yGn84Bf/q41J4luis1AZ95gj0EQwRX8lWmGmBwkwBNSkpGSpl66XcPTulxGa/Z91aPoNGuIGBmFkcM1MejMo9Q==}
-    peerDependencies:
-      stylelint: ^14.4.0
-    dependencies:
-      stylelint: 14.7.1
-    dev: true
-
-  /stylelint-config-standard-scss/3.0.0_postcss@8.4.12+stylelint@14.7.1:
-    resolution: {integrity: sha512-zt3ZbzIbllN1iCmc94e4pDxqpkzeR6CJo5DDXzltshuXr+82B8ylHyMMARNnUYrZH80B7wgY7UkKTYCFM0UUyw==}
-    peerDependencies:
-      stylelint: ^14.0.0
-    dependencies:
-      stylelint: 14.7.1
-      stylelint-config-recommended-scss: 5.0.2_postcss@8.4.12+stylelint@14.7.1
-      stylelint-config-standard: 24.0.0_stylelint@14.7.1
-    transitivePeerDependencies:
-      - postcss
-    dev: true
-
-  /stylelint-config-standard/24.0.0_stylelint@14.7.1:
-    resolution: {integrity: sha512-+RtU7fbNT+VlNbdXJvnjc3USNPZRiRVp/d2DxOF/vBDDTi0kH5RX2Ny6errdtZJH3boO+bmqIYEllEmok4jiuw==}
-    peerDependencies:
-      stylelint: ^14.0.0
-    dependencies:
-      stylelint: 14.7.1
-      stylelint-config-recommended: 6.0.0_stylelint@14.7.1
-    dev: true
-
-  /stylelint-config-standard/25.0.0_stylelint@14.7.1:
-    resolution: {integrity: sha512-21HnP3VSpaT1wFjFvv9VjvOGDtAviv47uTp3uFmzcN+3Lt+RYRv6oAplLaV51Kf792JSxJ6svCJh/G18E9VnCA==}
-    peerDependencies:
-      stylelint: ^14.4.0
-    dependencies:
-      stylelint: 14.7.1
-      stylelint-config-recommended: 7.0.0_stylelint@14.7.1
-    dev: true
-
-  /stylelint-scss/4.2.0_stylelint@14.7.1:
-    resolution: {integrity: sha512-HHHMVKJJ5RM9pPIbgJ/XA67h9H0407G68Rm69H4fzFbFkyDMcTV1Byep3qdze5+fJ3c0U7mJrbj6S0Fg072uZA==}
-    peerDependencies:
-      stylelint: ^14.5.1
-    dependencies:
-      lodash: 4.17.21
-      postcss-media-query-parser: 0.2.3
-      postcss-resolve-nested-selector: 0.1.1
-      postcss-selector-parser: 6.0.10
-      postcss-value-parser: 4.2.0
       stylelint: 14.7.1
     dev: true
 
