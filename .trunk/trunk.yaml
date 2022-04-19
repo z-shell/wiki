@@ -9,7 +9,7 @@ repo:
 lint:
   enabled:
     - actionlint@1.6.12
-    - gitleaks@8.7.0
+    - gitleaks@8.7.1
     - hadolint@2.10.0
     - markdownlint@0.31.1
     - prettier@2.6.2
@@ -22,11 +22,19 @@ lint:
   ignore:
     - linters: [ALL]
       paths:
-        - src/**
         - i18n/**
         - build/**
         - static/**
+        - src/fa/less/**
+        - src/fa/svgs/**
+        - src/fa/sprites/**
+        - src/fa/webfonts/**
+        - src/fa/metadata/**
         - .docusaurus/**
+    - linters: [prettier]
+      paths:
+        - src/fa/css/**
+        - src/fa/scss/**
     - linters: [actionlint]
       paths:
         - .github/workflows/sync-labels.yml

@@ -1,23 +1,13 @@
 {
-  "name": "stylelint",
+  "name": "@zw/stylelint",
   "version": "1.0.0",
   "description": "Stylint Packages",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
   "license": "MIT",
   "devDependencies": {
     "postcss": "8.4.12",
     "stylelint": "14.7.1",
     "stylelint-config-prettier": "9.0.3",
+    "stylelint-config-standard": "^25.0.0",
     "stylelint-config-standard-scss": "3.0.0"
-  },
-  "peerDependencies": {
-    "postcss": "^8.3.3",
-    "stylelint": "^14.7.0",
-    "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-standard-scss": "^3.0.0"
   }
 }

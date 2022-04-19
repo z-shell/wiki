@@ -1,4 +1,3 @@
-
 # Contributing
 
 This Project welcomes contributions, suggestions, and feedback. All contributions, suggestions, and feedback you submitted are accepted under the [Project's license](https://github.com/z-shell/zw/blob/main/LICENSE).
@@ -26,4 +25,5 @@ Familiarity with project organization, roles, policies, procedures, conventions,
 Role-specific expectations, responsibilities.
 
 ---
+
 Licensed under the [CC-BY 4.0 License](https://creativecommons.org/licenses/by-sa/4.0/).

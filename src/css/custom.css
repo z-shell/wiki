@@ -168,18 +168,18 @@ html[data-theme='dark'] div[class^='announcementBar_'] {
   max-width: 100%;
 }
 
-img[src$="#center"] {
+img[src$='#center'] {
   display: block;
   margin: 0.7rem auto;
   width: 90%;
 }
 
-img[src$="#floatleft"] {
+img[src$='#floatleft'] {
   float: left;
   margin: 0.7rem;
 }
 
-img[src$="#floatright"] {
+img[src$='#floatright'] {
   float: right;
   margin: 0.7rem;
 }
