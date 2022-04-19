@@ -31,10 +31,6 @@ lint:
         - 'src/fa/webfonts/**'
         - 'src/fa/metadata/**'
         - '.docusaurus/**'
-    - linters: [prettier]
-      paths:
-        - '**/*.css'
-        - '**/*.scss'
     - linters: [actionlint]
       paths:
         - .github/workflows/sync-labels.yml
