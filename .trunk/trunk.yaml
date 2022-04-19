@@ -25,11 +25,7 @@ lint:
         - 'i18n/**'
         - 'build/**'
         - 'static/**'
-        - 'src/fa/less/**'
-        - 'src/fa/svgs/**'
-        - 'src/fa/sprites/**'
-        - 'src/fa/webfonts/**'
-        - 'src/fa/metadata/**'
+        - 'src/fa/**'
         - '.docusaurus/**'
     - linters: [actionlint]
       paths:
