@@ -54,12 +54,12 @@ Invocations][7].
 ---
 
 ## <i class="fa-solid fa-bolt"></i> <i class="fas fa-spinner fa-spin"></i> Fast and feature-rich
-  
+
 - [Meta plugins][16] allow installing groups of plugins via a single, friendly label.
 - [Packages][6] offload the user from providing long and complex commands.
 - [Annexes][5] allow to extend the plugin manager with new commands.
 - [Turbo][8] mode yields **50-80%** faster Zsh startup.
-  
+
 ## <i class="fa-solid fa-sparkles"></i> <i class="fas fa-spinner fa-spin"></i> Neat and flexible
 
 - [Customize paths][9], use [multiple prompts][10] or create [your own][11] plugins.
@@ -80,11 +80,11 @@ Invocations][7].
   [asciinema.org](https://asciinema.org/a/459358).
 
 ## <i class="fa-solid fa-clipboard-list-check"></i> <i class="fas fa-spinner fa-spin"></i> Summary
-    
+
 [![Z-Shell Projects](https://github.zshell.dev/.github/plugin/projects/projects.svg#center)](https://github.com/orgs/z-shell/projects) <br />
 [![Z-ShellOrganization](https://github.zshell.dev/.github/plugin/followup/followup.svg#center)](https://github.com/z-shell/) <br />
 [![ZI WIKI PageSpeed](https://github.zshell.dev/.github/plugin/pagespeed/detailed.svg#center)](https://github.com/z-shell/zw)
-  
+
 [1]: /ecosystem/annexes/bin-gem-node
 [2]: https://github.com/z-shell/any-gem
 [3]: https://github.com/z-shell/any-node
