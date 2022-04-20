@@ -47,7 +47,7 @@
     "@algolia/client-search": "4.13.0",
     "@babel/core": "7.17.9",
     "@docusaurus/module-type-aliases": "2.0.0-beta.18",
-    "@trunkio/launcher": "1.0.4",
+    "@trunkio/launcher": "1.0.5",
     "@tsconfig/docusaurus": "1.0.5",
     "@types/react": "17.0.44",
     "prop-types": "15.8.1",
