@@ -22,7 +22,7 @@ specifiers:
   '@docusaurus/plugin-pwa': 2.0.0-beta.18
   '@docusaurus/plugin-sitemap': 2.0.0-beta.18
   '@docusaurus/preset-classic': 2.0.0-beta.18
-  '@docusaurus/theme-classic': ^2.0.0-beta.18
+  '@docusaurus/theme-classic': 2.0.0-beta.18
   '@docusaurus/theme-search-algolia': 2.0.0-beta.18
   '@mdx-js/react': 1.6.22
   '@trunkio/launcher': 1.0.5
