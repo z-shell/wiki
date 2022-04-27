@@ -91,5 +91,5 @@
     "react": "17 || 18",
     "react-dom": "17 || 18"
   },
-  "packageManager": "pnpm@6.32.10"
+  "packageManager": "pnpm@6.32.11"
 }
