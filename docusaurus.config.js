@@ -70,8 +70,8 @@ const config = {
       },
     ],
   ],
-  scripts: [{defer: 'true', src: 'https://cdn.ss-o.workers.dev/fa/js/all.js'}],
-  stylesheets: [{href: 'https://cdn.ss-o.workers.dev/fa/css/all.css'}],
+  scripts: [{defer: 'true', src: 'https://space.ss-o.workers.dev/fa/js/all.js'}],
+  stylesheets: [{href: 'https://space.ss-o.workers.dev/fa/css/all.css'}],
   presets: [
     [
       'classic',
@@ -163,10 +163,10 @@ const config = {
               },
             ],
           },
-          {
+          /**{
             type: 'docsVersionDropdown',
             position: 'right',
-          },
+          },*/
           {
             href: 'https://github.com/z-shell/zi/',
             position: 'right',
