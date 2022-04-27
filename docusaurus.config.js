@@ -24,7 +24,7 @@ const config = {
     [
       'pwa',
       {
-        debug: false,
+        debug: true,
         offlineModeActivationStrategies: ['appInstalled', 'standalone', 'queryString'],
         pwaHead: [
           {tagName: 'link', rel: 'icon', href: '/img/logo.svg'},
@@ -77,7 +77,7 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       {
-        debug: false,
+        debug: true,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
