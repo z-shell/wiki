@@ -71,7 +71,7 @@ const config = {
     ],
   ],
   scripts: [{defer: 'true', src: 'https://space.ss-o.workers.dev/fa/js/all.js'}],
-  clientModules: [require.resolve('./src/fa/js/all.js')],
+  clientModules: [require.resolve('./src/fa/css/all.css')],
   presets: [
     [
       'classic',
