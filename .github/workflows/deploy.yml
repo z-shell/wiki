@@ -13,6 +13,7 @@ jobs:
     strategy:
       matrix:
         os: ['ubuntu-latest']
+        pnpm-version: ['6.32.11']
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
@@ -21,7 +22,7 @@ jobs:
           fetch-depth: 0
       - uses: pnpm/action-setup@v2.2.1
         with:
-          version: 6.32.10
+          version: ${{ matrix.pnpm-version }}
       - uses: actions/setup-node@v3
         with:
           node-version: 16
