@@ -143,15 +143,15 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 
 [⚙️ Install Library: :heavy_check_mark:][2] | [Status page: :heavy_check_mark:](https://status.zshell.dev/)
 
-| Service             | URL                                                                       |
-| :------------------ | ------------------------------------------------------------------------- |
-| [Source][3]:        | <https://src.zshell.dev/i>                                                |
-| [Source RAW][12]:   | <https://raw.zshell.dev/lib/sh/install.sh>                                |
-| [IPFS][11]          | <https://ipfs.zshell.dev/lib/sh/install.sh>                               |
-| [Gitee][1]:         | <https://z.digitalclouds.dev/i-tee>                                       |
-| [GitHub][4]:        | <https://z.digitalclouds.dev/i-hub>                                       |
-| [GitLab][5]: | <https://z.digitalclouds.dev/i-lab>                                              |
-| [Direct][6]:        | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
+| Service           | URL                                                                       |
+| :---------------- | ------------------------------------------------------------------------- |
+| [Source][3]:      | <https://src.zshell.dev/i>                                                |
+| [Source RAW][12]: | <https://raw.zshell.dev/lib/sh/install.sh>                                |
+| [IPFS][11]        | <https://ipfs.zshell.dev/lib/sh/install.sh>                               |
+| [Gitee][1]:       | <https://z.digitalclouds.dev/i-tee>                                       |
+| [GitHub][4]:      | <https://z.digitalclouds.dev/i-hub>                                       |
+| [GitLab][5]:      | <https://z.digitalclouds.dev/i-lab>                                       |
+| [Direct][6]:      | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
 [1]: https://z.digitalclouds.dev/i-tee
 [2]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml
