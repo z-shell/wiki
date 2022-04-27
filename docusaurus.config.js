@@ -70,8 +70,8 @@ const config = {
       },
     ],
   ],
-  scripts: [{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.js'}],
-  stylesheets: [{href: 'https://z.digitalclouds.dev/fa/css/all.css'}],
+  scripts: [{defer: 'true', src: 'https://cdn.ss-o.workers.dev/fa/js/all.js'}],
+  stylesheets: [{href: 'https://cdn.ss-o.workers.dev/fa/css/all.css'}],
   presets: [
     [
       'classic',
