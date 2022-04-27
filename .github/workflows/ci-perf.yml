@@ -50,7 +50,8 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     strategy:
       matrix:
-        node-version: [16]
+        node-version: ['16']
+        pnpm-version: ['6.32.11']
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2.2.1
