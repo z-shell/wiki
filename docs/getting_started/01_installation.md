@@ -15,7 +15,7 @@ keywords:
 If required append `-b <tag>` or `-b <branch>` e.g:
 
 ```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip -b main
+sh -c "$(curl -fsSL https://zi.zshell.dev/sh/install.sh)" -- -i skip -b main
 ```
 
 :::
@@ -23,31 +23,31 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip -b main
 Add minimal configuration:
 
 ```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" --
+sh -c "$(curl -fsSL https://zi.zshell.dev/sh/install.sh)" --
 ```
 
 Skip configuration. Just clone or update repository:
 
 ```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip
+sh -c "$(curl -fsSL https://zi.zshell.dev/sh/install.sh)" -- -i skip
 ```
 
 Minimal configuration + annexes:
 
 ```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a annex
+sh -c "$(curl -fsSL https://zi.zshell.dev/sh/install.sh)" -- -a annex
 ```
 
 Minimal configuration + annexes + zunit:
 
 ```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zunit
+sh -c "$(curl -fsSL https://zi.zshell.dev/sh/install.sh)" -- -a zunit
 ```
 
 Minimal configuration with loader:
 
 ```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a loader
+sh -c "$(curl -fsSL https://zi.zshell.dev/sh/install.sh)" -- -a loader
 ```
 
 Then reload shell with: `exec zsh`, verify it: `zi -h`. All done!
@@ -57,7 +57,7 @@ Then reload shell with: `exec zsh`, verify it: `zi -h`. All done!
 Without ZI:
 
 ```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
+sh -c "$(curl -fsSL https://zi.zshell.dev/sh/install.sh)" -- -a zpmod
 ```
 
 With ZI:
@@ -128,7 +128,7 @@ Let's glue everything together to create a toolchain that works for us and not a
 Suggest your .zshrc configuration to: <https://github.com/z-shell/playground> 🏅
 
 ```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a ???
+sh -c "$(curl -fsSL https://zi.zshell.dev/sh/install.sh)" -- -a ???
 ```
 
 ## <i class="fas fa-sync-alt fa-spin"></i> Need warm-up?
@@ -146,7 +146,7 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 | Service             | URL                                                                       |
 | :------------------ | ------------------------------------------------------------------------- |
 | [IPFS][11]          | <https://src.zshell.dev/sh/install.sh>                                    |
-| [Git.io][3]:        | <https://git.io/get-zi>                                                   |
+| [Redirect][3]:      | <https://zi.zshell.dev/sh/install.sh>                                     |
 | [Gitee][1]:         | <https://z.digitalclouds.dev/i-tee>                                       |
 | [GitHub][4]:        | <https://z.digitalclouds.dev/i-hub>                                       |
 | [GitLab Mirror][5]: | <https://z.digitalclouds.dev/i-lab>                                       |
@@ -154,7 +154,7 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 
 [1]: https://z.digitalclouds.dev/i-tee
 [2]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml
-[3]: https://git.io/get-zi
+[3]: https://zi.zshell.dev/sh/install.sh
 [4]: https://z.digitalclouds.dev/i-hub
 [5]: https://z.digitalclouds.dev/i-lab
 [6]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
