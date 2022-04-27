@@ -150,7 +150,7 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 | [IPFS][11]          | <https://ipfs.zshell.dev/lib/sh/install.sh>                               |
 | [Gitee][1]:         | <https://z.digitalclouds.dev/i-tee>                                       |
 | [GitHub][4]:        | <https://z.digitalclouds.dev/i-hub>                                       |
-| [GitLab Mirror][5]: | <https://z.digitalclouds.dev/i-lab>                                       |
+| [GitLab][5]: | <https://z.digitalclouds.dev/i-lab>                                              |
 | [Direct][6]:        | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
 [1]: https://z.digitalclouds.dev/i-tee
