@@ -32,7 +32,7 @@ This script can be used with most plugin managers and [ZI][3] is not required.
 :::
 
 ```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
+sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -a zpmod
 ```
 
 This script will display what to add to `~/.zshrc` (2 lines) and show usage instructions.
