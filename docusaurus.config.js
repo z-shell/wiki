@@ -71,12 +71,13 @@ const config = {
     ],
   ],
   scripts: [{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.js'}],
+  stylesheets: [{href: 'https://z.digitalclouds.dev/fa/css/all.css'}],
   presets: [
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       {
-        debug: true,
+        debug: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },

@@ -1,5 +1,3 @@
-/loader https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh
-/install https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
 /i-hub https://github.com/z-shell/zi-src/raw/main/lib/sh/install.sh
 /i-lab https://gitlab.com/ss-o/zi-src/-/raw/main/lib/sh/install.sh
 /i-tee https://gitee.com/z-shell/zi-src/raw/main/lib/sh/install.sh
@@ -9,3 +7,4 @@
 /twitter https://twitter.com/zshell_zi
 /github https://github.com/z-shell
 /slack https://z-shell.slack.com
+/dev https://dev.to/z-shell
