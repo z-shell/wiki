@@ -145,8 +145,9 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 
 | Service             | URL                                                                       |
 | :------------------ | ------------------------------------------------------------------------- |
-| [IPFS][11]          | <https://src.zshell.dev/sh/install.sh>                                    |
-| [Redirect][3]:      | <https://zsh.pages.dev/i>                                     |
+| [Source][3]:        | <https://src.zshell.dev/i>                                                |
+| [Source RAW][12]:   | <https://raw.zshell.dev/lib/sh/install.sh>                                |
+| [IPFS][11]          | <https://ipfs.zshell.dev/lib/sh/install.sh>                               |
 | [Gitee][1]:         | <https://z.digitalclouds.dev/i-tee>                                       |
 | [GitHub][4]:        | <https://z.digitalclouds.dev/i-hub>                                       |
 | [GitLab Mirror][5]: | <https://z.digitalclouds.dev/i-lab>                                       |
@@ -154,7 +155,7 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 
 [1]: https://z.digitalclouds.dev/i-tee
 [2]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml
-[3]: https://zsh.pages.dev/i
+[3]: https://src.zshell.dev/i
 [4]: https://z.digitalclouds.dev/i-hub
 [5]: https://z.digitalclouds.dev/i-lab
 [6]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
@@ -163,3 +164,4 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 [9]: https://github.com/orgs/z-shell/discussions/new
 [10]: https://digitalclouds.crowdin.com/z-shell
 [11]: https://ipfs.io
+[12]: https://raw.zshell.dev/lib/sh/install.sh
