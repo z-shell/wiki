@@ -22,6 +22,7 @@ specifiers:
   '@docusaurus/plugin-pwa': 2.0.0-beta.18
   '@docusaurus/plugin-sitemap': 2.0.0-beta.18
   '@docusaurus/preset-classic': 2.0.0-beta.18
+  '@docusaurus/theme-classic': ^2.0.0-beta.18
   '@docusaurus/theme-search-algolia': 2.0.0-beta.18
   '@mdx-js/react': 1.6.22
   '@trunkio/launcher': 1.0.5
@@ -52,6 +53,7 @@ dependencies:
   '@docusaurus/plugin-pwa': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
   '@docusaurus/plugin-sitemap': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
   '@docusaurus/preset-classic': 2.0.0-beta.18_d3366e3fb378c41c2469e8a8cd926af9
+  '@docusaurus/theme-classic': 2.0.0-beta.18_28e7016540b0a32b5f8d7be755522ab7
   '@docusaurus/theme-search-algolia': 2.0.0-beta.18_d3366e3fb378c41c2469e8a8cd926af9
   '@mdx-js/react': 1.6.22_react@17.0.2
   clsx: 1.1.1

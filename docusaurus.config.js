@@ -70,7 +70,7 @@ const config = {
       },
     ],
   ],
-  scripts: [{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.js'}],
+  scripts: [{defer: 'true', src: 'https://cdn.digitalclouds.dev/fa/js/all.js'}],
   presets: [
     [
       'classic',
