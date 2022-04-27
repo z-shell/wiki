@@ -1,0 +1,4 @@
+name = "zw"
+compatibility_date = "2022-04-27"
+main = "src/index.ts"
+routes = ["cdn.digitalclouds.dev"]
