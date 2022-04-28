@@ -52,7 +52,7 @@
     "@trunkio/launcher": "1.0.5",
     "@tsconfig/docusaurus": "1.0.5",
     "@types/react": "17.0.44",
-    "husky": "^7.0.4",
+    "husky": "7.0.4",
     "prop-types": "15.8.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
