@@ -50,7 +50,22 @@ Minimal configuration with loader:
 sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -a loader
 ```
 
-Then reload shell with: `exec zsh`, verify it: `zi -h`. All done!
+The default location for loader: `$HOME/.config/zi`.
+The loader is automatically added by the installer unless conflicting commands are detected in the `.zshrc` file, the installer will skip it and the snippet have to be added manually.
+
+```shell
+if [[ -r "${XDG_CONFIG_HOME:-$HOME/.config}/zi/init.zsh" ]]; then
+  source "${XDG_CONFIG_HOME:-$HOME/.config}/zi/init.zsh" && zzinit
+fi
+```
+
+:::tip
+
+The loader can be manually fetched from `https://github.com/z-shell/zi-src/blob/main/lib/zsh/init.zsh` to any location on the system, and sourced from `.zshrc`.
+
+:::
+
+Then reload shell with: `exec zsh`. All done!
 
 ## <i class="fas fa-cog fa-pulse"></i> Build module
 
@@ -104,7 +119,7 @@ Enable ZI completions:
 
 :::info
 
-Next two lines must be below the above two:
+The next two lines must be below the above two:
 
 :::
 
@@ -115,11 +130,11 @@ autoload -Uz _zi
 
 ## <i class="fas fa-spinner fa-spin"></i> Post-install
 
-After fresh install it is recommended to reload the shell with `exec zsh` and compile ZI with `zi self-update`.
-Run `zi -h` before start using ZI, it will show you all available commands. To increase functionality or performance explore the wiki.
+After a fresh install, recommended to reload the shell with `exec zsh` and compile ZI with `zi self-update`.
+Run `zi -h` to see all available commands. Increase ZI functionality, performance or get started by exploring the wiki.
 
-If you have any issue or need help 🤦‍♂️, lets [discuss][9] it or open an [issue][7] in any language. It help us to improve and make ZI better.
-Don't forget to help the project: share,contribute or [translate][10] 🌐 🥰 🤓.
+If you have any issue or need help 🤦‍♂️, lets [discuss][9] it or open an [issue][7] in any language. It helps us to improve and make ZI better.
+Don't forget to help the project: share, contribute, or [translate][10] 🌐 🥰 🤓.
 
 Let's glue everything together to create a toolchain that works for us and not against us 🚀.
 
