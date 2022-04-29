@@ -10,7 +10,7 @@ keywords:
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 import Image from '@theme/IdealImage';
-import ZGitImg from '@site/static/img/img/z_git.png';
+import ZGitImg from '@site/static/img/zw/z_git.png';
 
 <div align="center">
   <Image className="ScreenView" img={ZGitImg} /><br />
