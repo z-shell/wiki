@@ -21,9 +21,9 @@ lint:
     - linters: [ALL]
       paths:
         - 'i18n/**'
+        - '!18n/en/**'
         - 'build/**'
         - 'static/**'
-        - 'src/fa/**'
         - '.docusaurus/**'
     - linters: [actionlint]
       paths:
