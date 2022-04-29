@@ -2,7 +2,9 @@
 id: programs
 title: '🔺 Programs'
 description: The Collection of Programs
-keywords: [collection, programs]
+keywords:
+  - collection
+  - programs
 ---
 
 :::info Related

@@ -9,8 +9,6 @@ keywords:
   - z-a-bin-gem-node
 ---
 
-import APITable from '@site/src/components/APITable';
-
 - [z-shell/z-a-bin-gem-node](https://github.com/z-shell/z-a-bin-gem-node) annex provides functionality, which allows to:
 
 1. Run programs and scripts without adding anything to `$PATH`,
@@ -169,8 +167,6 @@ fzf "$@"
 `fbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-function}]; …'`
 
 Creates a wrapper function of the name the same as the last segment of the path or as `{name-of-the-function}`.
-
-<APITable>
 
 | Flag | Description                                                                                                           |
 | :--- | :-------------------------------------------------------------------------------------------------------------------- |
@@ -380,8 +376,6 @@ zi shim-list [-h/--help] [-t|--this-dir] [-i|--from-ices] \
       [-o|--one-line] [-s|--short] [-c|--cat]
 ```
 
-<APITable>
-
 | Flag               | Description                                                                                       |
 | :----------------- | :------------------------------------------------------------------------------------------------ |
 | `-h` `--help`      | Shows a usage information.                                                                        |
@@ -390,8 +384,6 @@ zi shim-list [-h/--help] [-t|--this-dir] [-i|--from-ices] \
 | `-o` `--one-line`  | Display the list of shim files without line breaks, in single line, after spaces.                 |
 | `-s` `--short`     | Don't show the plugin/snippet that the shim belongs to.                                           |
 | `-c` `--cat`       | Displays contents of each of the found shim (unimplemented yet).                                  |
-
-</APITable>
 
 > [!] shims created by BGN annex have a fixed structure, this option instructs ZI to show the list of shims that results
 > from the `sbin''` ice of the loaded plugins. If a plugin has `sbin'git-open'`, for example, then this means that there

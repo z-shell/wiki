@@ -1,9 +1,13 @@
 ---
 id: rust
 title: 💠 Rust
-image: zw/logo/320x320.png
+image: img/logo/320x320.png
 description: Annex - Rust documentation
-keywords: [annex, rust, zsh, z-shell, zi]
+keywords:
+  - annex
+  - rust
+  - zsh
+  - rust
 ---
 
 - [z-shell/z-a-rust](https://github.com/z-shell/z-a-rust) annex installs rust and cargo packages locally inside the
@@ -37,38 +41,52 @@ the official `rustup` installer. The second one has the following syntax:
 
 Example uses are:
 
+Installs rust and then the `lsd' crate and creates the`lsd' shim exposing the binary
+
 ```shell
-# Installs rust and then the `lsd' crate and creates
-# the `lsd' shim exposing the binary
 zi ice rustup cargo'!lsd'
 zi load z-shell/null
+```
 
-# Installs rust and then the `exa' crate and creates
-# the `ls' shim exposing the `exa' binary
+Installs rust and then the `exa' crate and creates the`ls' shim exposing the`exa' binary
+
+```shell
 zi ice rustup cargo'!exa -> ls'
 zi load z-shell/null
+```
 
-# Installs rust and then the `exa' and `lsd' crates
+Installs rust and then the `exa' and`lsd' crates
+
+```shell
 zi ice rustup cargo'exa;lsd'
 zi load z-shell/null
+```
 
-# Installs rust and then the `exa' and `lsd' crates
-# and exposes their binaries by altering $PATH
+Installs rust and then the `exa' and`lsd' crates and exposes their binaries by altering $PATH
+
+```shell
 zi ice rustup cargo'exa;lsd' as"command" pick"bin/(exa|lsd)"
 zi load z-shell/null
+```
 
-# Installs rust and then the `exa' crate and creates
-# its shim with standard error redirected to /dev/null
+Installs rust and then the `exa' crate and creates its shim with standard error redirected to /dev/null
+
+```shell
 zi ice rustup cargo'!E:exa'
 zi load z-shell/null
+```
 
-# Just install rust and make it available globally in the system
+Just install rust and make it available globally in the system
+
+```shell
 zi ice id-as"rust" wait"0" lucid rustup as"command" pick"bin/rustc" atload="export \
-CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup"
+  CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup"
 zi load z-shell/null
+```
 
-# A little more complex rustup configuration that uses Bin-Gem-Node annex
-# and installs the cargo completion provided with rustup, using for-syntax
+A little more complex rustup configuration that uses Bin-Gem-Node annex and installs the cargo completion provided with rustup, using for-syntax
+
+```shell
 zi id-as=rust wait=1 as=null sbin="bin/*" lucid rustup \
   atload="[[ ! -f ${ZI[COMPLETIONS_DIR]}/_cargo ]] && zi creinstall rust; \
   export CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup" for \
@@ -85,7 +103,7 @@ Flags meanings:
 As the examples showed, the name of the binary to run and the shim name are by default equal to the name of the crate.
 Specifying `{binary-name} <- …` and/or `… -> {shim-name}` allows to override them.
 
-## Install rust annex {#install-rust-annex}
+## Install rust annex
 
 Simply load like a regular plugin, i.e.:
 
@@ -95,7 +113,7 @@ zi light z-shell/z-a-rust
 
 This installs the annex and makes the `rustup` and `cargo''` ices available.
 
-## Rust tools meta plugin {#rust-tools-meta-plugin}
+## Rust tools meta plugin
 
 To install [Rust utilities](meta-plugins#@rust-utils), simply run `zi light @rust-utils`, it will install and setup as
 following:

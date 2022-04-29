@@ -2,7 +2,9 @@
 id: plugins
 title: '🔺 Plugins'
 description: The Collection of Plugins
-keywords: [collection, plugins]
+keywords:
+  - Collection
+  - plugins
 ---
 
 :::info

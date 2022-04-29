@@ -134,8 +134,6 @@ Order of execution of related ice modifiers is as follows:
 |      `subst`      | Substitute the given string into another string when sourcing the plugin script, e.g.: `zi subst'autoload → autoload -Uz' …`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |    `autoload`     | Autoload the given functions (from their files). Equvalent to calling `atinit'autoload the-function'`. Supports renaming of the function – pass `'… → new-name'` or `'… -> new-name'`, e.g.: `zi autoload'fun → my-fun; fun2 → my-fun2'`.                                                                                                                                                                                                                                                                                                                                                                                                                         |     |
 
-<!-- End of 04_ice_modifiers.md -->
-
 [1]: /docs/guides/syntax/ice#src-pick-multisrc
 [2]: /docs/guides/syntax/ice#wait
 [3]: /docs/guides/customization#multiple-prompts

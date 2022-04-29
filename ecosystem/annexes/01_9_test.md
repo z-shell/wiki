@@ -1,9 +1,12 @@
 ---
 id: test
 title: 💠 Test
-image: zw/logo/320x320.png
+image: img/logo/320x320.png
 description: Annex - Test documentation
-keywords: [annex, test, zsh]
+keywords:
+  - annex
+  - test
+  - zsh
 ---
 
 <div align="center">

@@ -1,5 +1,5 @@
 ---
-title: '☑️ Quick overview'
+title: '☑️ General Overview'
 image: img/logo/320x320.png
 description: Overview of use cases with ZI
 keywords:
@@ -8,12 +8,12 @@ keywords:
 
 This overview will cover basics for:
 
-1. [Oh My Zsh & Prezto](/search?q=Oh+My+Zsh+%26+Prezto)
+1. [Oh-My-Zsh & Prezto](/search?q=Oh+My+Zsh+%26+Prezto)
 2. [Completions](/search?q=completions)
 3. [Turbo mode](/search?q=turbo+mode)
 4. [Ice modifiers](/search?q=ice+modifiers)
 
-## Basics of the loading plugins
+## Plugin loading basics
 
 ```shell
 zi load z-shell/H-S-MW
@@ -34,9 +34,9 @@ In Turbo mode the slowdown caused by tracking is negligible...
 
 :::
 
-## Oh My Zsh, Prezto
+## Oh-My-Zsh, Prezto
 
-To load Oh My Zsh and Prezto plugins, use the `snippet` feature. Snippets are single files downloaded by `curl`, `wget`,
+To load Oh-My-Zsh and Prezto plugins, use the `snippet` feature. Snippets are single files downloaded by `curl`, `wget`,
 etc., automatic detection of the download tool is being performed, directly from the URL. For example:
 
 ```shell
@@ -44,7 +44,7 @@ zi snippet 'https://github.com/robbyrussell/oh-my-zsh/raw/master/plugins/git/git
 zi snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/helper/init.zsh'
 ```
 
-Also, for Oh My Zsh and Prezto, you can use `OMZ::` and `PZT::` shorthands:
+Also, for Oh-My-Zsh and Prezto, you can use `OMZ::` and `PZT::` shorthands:
 
 ```shell
 zi snippet OMZ::plugins/git/git.plugin.zsh
@@ -65,7 +65,7 @@ zi snippet PZT::modules/docker
 
 ## Snippets and Performance
 
-Using `curl`, `wget`, etc. along with Subversion allows to almost completely avoid code dedicated to Oh My Zsh and
+Using `curl`, `wget`, etc. along with Subversion allows to almost completely avoid code dedicated to Oh-My-Zsh and
 Prezto, and also to other frameworks.
 
 This gives profits in performance of `ZI`, it is really fast and also compact (causing low memory footprint and short
@@ -260,7 +260,7 @@ zi snippet https://github.com/zsh-users/zsh-completions/trunk/src
 
 :::tip
 
-For Oh My Zsh and Prezto, the OMZ:: and PZT:: prefixes work without the need to add the `/trunk/` infix, however, the
+For Oh-My-Zsh and Prezto, the OMZ:: and PZT:: prefixes work without the need to add the `/trunk/` infix, however, the
 path should point to a directory, not to a file.
 
 :::
@@ -489,7 +489,7 @@ Snippet:
 zi snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
 ```
 
-### A Glance at prompts
+### A Glance at the prompts
 
 This is [powerlevel10k][18], [pure][17], [starship][16] sample:
 
@@ -555,7 +555,7 @@ Increase the number of jobs in a concurrent set to 40
 zi update --parallel 40
 ```
 
-### Some examples
+### More examples on common use cases
 
 Load the pure theme, with the zsh-async library that's bundled with it.
 

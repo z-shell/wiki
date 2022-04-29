@@ -1,9 +1,11 @@
 ---
 id: patch-dl
 title: 💠 Patch DL
-image: zw/logo/320x320.png
+image: img/logo/320x320.png
 description: Annex - Patch DL documentation
-keywords: [annex, patch-dl]
+keywords:
+  - annex,
+  - patch-dl
 ---
 
 - [z-shell/z-a-patch-dl](https://github.com/z-shell/z-a-patch-dl) annex downloads files and applies patches and adds two

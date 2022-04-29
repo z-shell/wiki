@@ -1,9 +1,11 @@
 ---
 id: readurl
 title: 💠 Read URL
-image: zw/logo/320x320.png
+image: img/logo/320x320.png
 description: Annex - Read URL documentation
-keywords: [annex, readurl]
+keywords:
+  - annex
+  - readurl
 ---
 
 - [z-shell/z-a-readurl](https://github.com/z-shell/z-a-readurl) annex allows to automatically download the newest
@@ -41,7 +43,7 @@ ice.
 As it can be seen, the `dlink''` can be a relative or an absolute path and also a full URL (i.e.: beginning with the
 `http://…` prefix).
 
-## Intermediate Download Page {#intermediate-download-page}
+## Intermediate Download Page
 
 Sometimes, like it is in case of [terraform](http://releases.hashicorp.com/terraform) command, the final download link
 isn't at the download page, but on a page that's listed on it. In such case use the `dlink0''` ice to provide the
@@ -55,7 +57,7 @@ zi id-as=terraform as='readurl|command' extract \
         http://releases.hashicorp.com/terraform/
 ```
 
-## Skipping `dlink''` Ice {#skipping-dlink-ice}
+## Skipping `dlink''` Ice
 
 Sometimes the URL of the download page differs from the URL of the archive in just a few `/`-sections. In such case, it
 is possible to skip the `dlink''` ice by appending a `++`-separated fragment of the archive URL, like so:
@@ -74,7 +76,7 @@ zi as'readurl|command' extract for \
         http://domain.com/download-page/removed-section+++/archive.zip
 ```
 
-## Summary {#summary}
+## Summary
 
 The annex provides:
 
@@ -83,7 +85,7 @@ The annex provides:
 
 The annex works only with snippets, not plugins.
 
-## Install Read URL {#install-read-url}
+## Install Read URL
 
 Simply load like a regular plugin, i.e.:
 
@@ -94,13 +96,13 @@ zi light z-shell/z-a-readurl
 After executing the above command (possibly via `zshrc`) it's then possible to use the `dlink''` and `dlink0''` ices and
 also the special `as'readurl|…'` value of the `as''` ice.
 
-## Sorting The Matched URLs / Package Versions {#sorting-the-matched-urls--package-versions}
+## Sorting The Matched URLs / Package Versions
 
 Sometimes the download page doesn't list the package versions from newest to the oldest, but in some other order. In
 such case it's possible to sort the URLs / package versions by prepending the chosen `dlink` ice (`dlink0''` or
 `dlink''`) with the exclamation mark (`dlink'!…'`, etc.). See the next section for an example:
 
-## Filtering The Matched URLs {#filtering-the-matched-urls}
+## Filtering The Matched URLs
 
 Sometimes there are some unwanted URLs that match the `dlink''`/`dlink0''` regex / pattern. In such case it's possible
 to filter them out by appending a filtering regex to the `dlink''` ice as:
@@ -120,7 +122,7 @@ The above snippet of Zsh code / ZI invocation will sort the URLs (`dlink0'!…'`
 from the results (via `…~%(stable|latest|fast|candidate).*%`), this way selecting the latest version of the Open Shift
 client.
 
-## Other Examples {#other-examples}
+## Other Examples
 
 [**Pulumi**](https://www.pulumi.com/), a tool to create, deploy, and manage modern cloud software.
 

@@ -1,9 +1,11 @@
 ---
 id: submods
 title: 💠 Submods
-image: zw/logo/320x320.png
+image: img/logo/320x320.png
 description: Annex - Submods documentation
-keywords: [annex, submods]
+keywords:
+  - annex
+  - submods
 ---
 
 - [z-shell/z-a-submods](https://github.com/z-shell/z-a-submods) annex allows ZI to clone additional submodules when

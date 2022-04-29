@@ -2,7 +2,9 @@
 id: snippets
 title: '🔺 Snippets'
 description: The Collection of Snippets
-keywords: [collection, snippets]
+keywords:
+  - collection
+  - snippets
 ---
 
 :::info

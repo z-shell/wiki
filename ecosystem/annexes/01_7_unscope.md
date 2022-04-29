@@ -1,12 +1,12 @@
 ---
 id: unscope
 title: 💠 Unscope
-image: zw/logo/320x320.png
+image: img/logo/320x320.png
 description: Annex - Unscope documentation
-keywords: [annex, unscope]
+keywords:
+  - annex
+  - unscope
 ---
-
-import APITable from '@site/src/components/APITable';
 
 - [z-shell/z-a-unscope](https://github.com/z-shell/z-a-unscope) annex allows to install plugins without specifying the
   GitHub user name.
@@ -28,7 +28,7 @@ It works as follows:
    of some of the popular plugins out there, like, e.g.: **zsh-syntax-highlighting** →
    **zsh-users/zsh-syntax-highlighting** and more.
 
-## Usage Examples {#usage-examples}
+## Usage Examples
 
 - An example installation via 2 nicknames (**env** and **vi-reg**) and by one unscoped (i.e.: not using any GitHub
   username) ID that's being dynamically resolved by a request to **GitHub API**:
@@ -40,12 +40,10 @@ It works as follows:
 
 ![scope-subcommand](https://github.com/z-shell/z-a-unscope/raw/main/docs/images/unscope-scope-cmd.png)
 
-## Static Mappings {#static-mappings}
+## Static Mappings
 
 Besides the GitHub-API querying, there's also a fixed, curated list of mappings of short names to the full GitHub IDs.
 The list currently consists of:
-
-<APITable>
 
 |    Short (Nick-) Name     | GitHub ID / scoped ID             |
 | :-----------------------: | --------------------------------- |
@@ -135,11 +133,9 @@ The list currently consists of:
 |        completions        | zsh-users/zsh-completions         |
 |           comps           | zsh-users/zsh-completions         |
 
-</APITable>
-
 You can let me know if you would like a name to be added to the list.
 
-## Install unscope {#install-unscope}
+## Install unscope
 
 Simply load as a regular plugin, i.e.:
 

@@ -2,7 +2,9 @@
 id: services
 title: '🔺 Services'
 description: The Collection of Services
-keywords: [collection, services]
+keywords:
+  - collection
+  - services
 ---
 
 ### ZS: [z-shell/redis](https://github.com/z-shell/redis)
