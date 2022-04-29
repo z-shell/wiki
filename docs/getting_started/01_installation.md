@@ -154,6 +154,22 @@ Minimal ZI - 🐋 Docker Alpine: <https://github.com/z-shell/zd/pkgs/container/z
 docker run --rm -it ghcr.io/z-shell/zd:latest
 ```
 
+## <i class="fas fa-sync-alt fa-spin"></i> Turbo ZI in Docker
+
+If you create a Docker image that uses ZI, install Turbo-loaded plugins before the shell starts interactively, with the `@zi-scheduler` function in such a way, that it:
+
+- installs plugins without waiting for the prompt (i.e. it's script friendly),
+- installs all plugins instantly, without respecting the wait'' argument.
+
+To accomplish this, use burst argument and call `@zi-scheduler` function:
+
+```sh
+RUN zsh -i -c -- '@zi-scheduler burst || true'
+```
+
+> - An example: [Dockerfile](https://github.com/robobenklein/configs/blob/master/Dockerfile)
+> - In action: [Dockerfile](https://github.com/z-shell/playground)
+
 ## <i class="fas fa-sync-alt fa-spin"></i> Available installer links
 
 [⚙️ Install Library: :heavy_check_mark:][2] | [Status page: :heavy_check_mark:](https://status.zshell.dev/)
