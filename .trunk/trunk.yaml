@@ -9,7 +9,7 @@ repo:
 lint:
   enabled:
     - actionlint@1.6.12
-    - gitleaks@8.8.2
+    - gitleaks@8.8.4
     - hadolint@2.10.0
     - markdownlint@0.31.1
     - prettier@2.6.2
