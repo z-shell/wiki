@@ -70,8 +70,7 @@ const config = {
       },
     ],
   ],
-  scripts: [{defer: 'true', src: 'https://space.ss-o.workers.dev/fa/js/all.min.js'}],
-  stylesheets: [{href: 'https://space.ss-o.workers.dev/fa/css/fontawesome.min.css'}],
+  scripts: [{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.min.js'}],
   presets: [
     [
       'classic',
@@ -251,7 +250,7 @@ const config = {
       },
       tableOfContents: {
         minHeadingLevel: 2,
-        maxHeadingLevel: 6,
+        maxHeadingLevel: 4,
       },
     }),
 };

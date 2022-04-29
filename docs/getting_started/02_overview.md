@@ -1,8 +1,9 @@
 ---
 title: '☑️ Quick overview'
-image: zw/logo/320x320.png
-description: Overview of use cases for Z-Shell ZI
-keywords: [overview]
+image: img/logo/320x320.png
+description: Overview of use cases with ZI
+keywords:
+  - overview
 ---
 
 This overview will cover basics for:
@@ -273,7 +274,7 @@ Snippets too have completions installed by default, like plugins.
 
 ## Turbo Mode (Zsh >= 5.3)
 
-The ice-mod `wait` allows the user to postpone the loading of a plugin to the moment when the processing of `.zshrc` is
+The ice-modifier `wait` allows the user to postpone the loading of a plugin to the moment when the processing of `.zshrc` is
 finished and the first prompt is being shown.
 
 It is like Windows – during startup, it shows desktop even though it still loads data in the background.
@@ -323,35 +324,43 @@ zi ice wait lucid atload'_zsh_autosuggest_start'
 zi light zsh-users/zsh-autosuggestions
 ```
 
-Explanation:
+### Turbo wait - the key to performance
 
-Autosuggestions use the `precmd` hook, which is being called right after processing `zshrc` – `precmd` hooks are being
-called **right before displaying each prompt**.
+It can be loaded asynchronously, which makes a huge difference when the amount of plugins increases. Usually used as `zi ice wait"<SECONDS>"`.
 
-Turbo with the empty `wait` ice will postpone the loading `1` ms after that, so `precmd` will not be called at that
-first prompt. This makes autosuggestions inactive at the first prompt.
+:::note
 
-**However** the given `atload` ice-mod fixes this, it calls the same function that `precmd` would, right after loading
-autosuggestions, resulting in the same behavior of the plugin.
+The `wait` and `wait"0"` is the same
 
-The ice `lucid` causes the under-prompt message saying `Loaded zsh-users/zsh-autosuggestions` that normally appears for
-every Turbo-loaded plugin to not show.
+:::
 
-## A Quick Glance At [`for`][14] syntax
-
-This introduction is based on the classic, two-command syntax (`zi ice …; zi load/light/snippet …`) of ZI. However,
-there's also available a recently added so-called _for-syntax_.
-
-It is the right moment to take a glance at it, by rewriting the above autosuggestions invocation using it:
-
-```shell
-zi wait lucid atload'_zsh_autosuggest_start' light-mode for zsh-users/zsh-autosuggestions
+```shell title="~/.zshrc"
+zi ice wait
+zi load z-shell/history-search-multi-word
 ```
 
-The syntax is a more concise one. The single command will work the same as the previous classic-syntax invocation. It
-also allows solving some typical problems when using ZI, like providing common/default ices for a set of plugins or
-sourcing multiple files with [`src''` ice][13]. For more information refer to the page dedicated to the syntax
-([here][14]).
+Load after 2 seconds:
+
+```shell
+zi ice wait"2"
+zi load z-shell/history-search-multi-word
+```
+
+Also can be used in `light` and `snippet`:
+
+```shell
+zi ice wait
+zi snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
+```
+
+### Turbo & lucid
+
+Turbo and lucid are the most used options, because turbo mode is verbose, may require and option for quiet and this can be achieved with the `lucid`.
+
+```shell
+zi ice wait lucid
+zi load z-shell/history-search-multi-word
+```
 
 ## Turbo with sophisticated prompts
 
@@ -383,7 +392,21 @@ zi load robobenklein/zinc
 The exclamation mark in `atload'!…'` is to track the functions allowing the plugin to be unloaded, as described
 [here][11]. It might be useful for the multi-prompt setup described next.
 
-## Automatic load/unload based on condition {#automatic-loadunload-based-on-condition}
+### Summary of turbo mode
+
+Autosuggestions use the `precmd` hook, which is being called right after processing `zshrc` – `precmd` hooks are being
+called **right before displaying each prompt**.
+
+Turbo with the empty `wait` ice will postpone the loading `1` ms after that, so `precmd` will not be called at that
+first prompt. This makes autosuggestions inactive at the first prompt.
+
+**However** the given `atload` ice-modifier fixes this, it calls the same function that `precmd` would, right after loading
+autosuggestions, resulting in the same behavior of the plugin.
+
+The ice `lucid` causes the under-prompt message saying `Loaded zsh-users/zsh-autosuggestions` that normally appears for
+every Turbo-loaded plugin to not show.
+
+## Automatic condition based - load & unload
 
 Ices `load` and `unload` allow defining when you want plugins active or inactive. For example:
 
@@ -466,7 +489,7 @@ Snippet:
 zi snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
 ```
 
-### A Glance to prompts
+### A Glance at prompts
 
 This is [powerlevel10k][18], [pure][17], [starship][16] sample:
 
@@ -500,9 +523,9 @@ zi ice as"command" from"gh-r" \
 zi light starship/starship
 ```
 
-## ZI Updates
+## Updates & Upgrades
 
-Self-update
+Self update & compile
 
 ```shell
 zi self-update
@@ -532,80 +555,13 @@ Increase the number of jobs in a concurrent set to 40
 zi update --parallel 40
 ```
 
-## The Turbo and Lucid
+### Some examples
 
-Turbo and lucid are the most used options.
-
-### Turbo
-
-Turbo mode is the key to performance.
-
-It can be loaded asynchronously, which makes a huge difference when the amount of plugins increases.
-
-Usually used as `zi ice wait"<SECONDS>"`, let's use the previous example:
-
-:::note
-
-The `wait` and `wait"0"` is the same
-
-:::
-
-```shell title="~/.zshrc"
-zi ice wait
-zi load z-shell/history-search-multi-word
-```
-
-Load after 2 seconds:
-
-```shell
-zi ice wait"2"
-zi load z-shell/history-search-multi-word
-```
-
-Also can be used in `light` and `snippet`:
-
-```shell
-zi ice wait
-zi snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
-```
-
-### Lucid
-
-Turbo mode is verbose, so you need an option for quiet. To achieve this the `lucid` can be used.s
-
-```shell
-zi ice wait lucid
-zi load z-shell/history-search-multi-word
-```
-
-### Some examples with ZI
-
-After installing ZI you can start adding some actions (load some plugins) to `~/.zshrc`, at the bottom.
-
-Some examples: Load the pure theme, with the zsh-async library that's bundled with it.
+Load the pure theme, with the zsh-async library that's bundled with it.
 
 ```shell title="~/.zshrc"
 zi ice pick"async.zsh" src"pure.zsh"
 zi light sindresorhus/pure
-```
-
-### As glance at the <code>for</code> syntax
-
-Load all of the above plugins with a single command:
-
-:::tip
-
-To find more information about anything use [search][3] or just <kbd>CTRL+K</kbd>.
-
-:::
-
-```shell title="~/.zshrc"
-zi light-mode for \
-    zsh-users/zsh-autosuggestions \
-    z-shell/F-Sy-H \
-    z-shell/H-S-MW \
-  pick"async.zsh" src"pure.zsh" \
-    sindresorhus/pure
 ```
 
 Binary release in the archive, from GitHub-releases page. After automatic unpacking, it provides the program "fzf".
@@ -631,7 +587,7 @@ zi load docker/compose
 Vim repository on GitHub – a typical source code that needs compilation, ZI can manage it for you if you like, run
 `./configure` and other `make` stuff.
 
-Ice modifier `pick` selects a binary program to add to $PATH. You could also install the package under the path $ZPFX.
+Ice-modifier `pick` selects a binary program to add to $PATH. You could also install the package under the path $ZPFX.
 
 ```shell title="~/.zshrc"
 zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
@@ -690,7 +646,6 @@ For some additional examples you can also check out the:
 [11]: /docs/guides/syntax/ice#atclone-atpull-atinit-atload
 [12]: /community/intro#use-of-add-zsh-hook-to-install-hooks
 [13]: /docs/guides/syntax/ice#src-pick-multisrc
-[14]: /docs/guides/syntax/for
 [15]: /docs/guides/customization#multiple-prompts
 [16]: https://github.com/starship/starship
 [17]: https://github.com/sindresorhus/pure
