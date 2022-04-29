@@ -162,10 +162,10 @@ const config = {
               },
             ],
           },
-          /**{
+          {
             type: 'docsVersionDropdown',
             position: 'right',
-          },*/
+          },
           {
             href: 'https://github.com/z-shell/zi/',
             position: 'right',
@@ -185,8 +185,12 @@ const config = {
                 to: '/docs/intro',
               },
               {
-                label: 'Community Docs',
+                label: 'Community',
                 to: '/community/intro',
+              },
+              {
+                label: 'Ecosystem',
+                to: '/ecosystem/intro',
               },
             ],
           },

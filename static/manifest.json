@@ -87,14 +87,6 @@
       "density": "5.5"
     }
   ],
-  "features": [
-    "Cross Platform",
-    "fast",
-    "simple"
-  ],
-  "categories": [
-    "website",
-    "utility",
-    "wiki"
-  ]
+  "features": ["Cross Platform", "fast", "simple"],
+  "categories": ["website", "utility", "wiki"]
 }
