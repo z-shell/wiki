@@ -50,7 +50,7 @@ The following snippet placed in `.zshrc` file will:
 
 When run: `zi update` will:
 
-- update fonts from the repository if there are changes made.
+- if update available, will update fonts.
 - repeat install process to update fonts.
 
 ```shell
@@ -60,11 +60,11 @@ zi ice if"[[ -d ${HOME}/.fonts/ttf ]] && [[ $OSTYPE = linux* ]]" \
 zi light ryanoasis/nerd-fonts
 ```
 
+Load prompt if terminal has least 256 colors.
+
 ```shell
-# Load prompt if terminal has least 256 colors.
-if [ "${TERM##*-}" = '256color' ] || [ "${terminfo[colors]:?}" -gt 255 ]; then
-  zi ice depth=1; zi light romkatv/powerlevel10k
-fi
+zi ice if"[ "${TERM##*-}" = '256color' ] || [ "${terminfo[colors]:?}" -gt 255 ]" depth=1
+zi light romkatv/powerlevel10k
 ```
 
 Oneliner:
