@@ -6,6 +6,8 @@ on:
     branches: ['main']
   pull_request:
     types: [opened, synchronize]
+  schedule:
+    - cron: 0 04 * * 1-5
 
 jobs:
   trunk:
@@ -15,4 +17,4 @@ jobs:
       - uses: trunk-io/trunk-action@v1.0.1
         with:
           check-mode: all
-          trunk-token: ${{ secrets.TRUNK_TOKEN }}
+#          trunk-token: ${{ secrets.TRUNK_TOKEN }}
