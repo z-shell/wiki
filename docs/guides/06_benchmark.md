@@ -1,12 +1,21 @@
 ---
 id: benchmark
 title: '⏲ Benchmarking'
-image: zw/logo/320x320.png
+image: img/logo/320x320.png
 description: Benchmarking, Profiling & Statistics
-keywords: [statistics, benchmark, profiling]
+keywords: 
+  - statistics
+  - benchmark
+  - profiling
 ---
 
-## Profile plugins
+:::info
+
+Tests with ZI: run `zi analytics` for the available commands
+
+:::
+
+## <i class="fa-solid fa-gauge-high"></i> Profile plugins
 
 ```shell title="~/.zshrc"
 zi ice atinit'zmodload zsh/zprof' \
@@ -62,7 +71,7 @@ num calls    time                self                 name
 
 - The table is sorted on the **self-time** column.
 
-## Profile `.zshrc` startup
+## <i class="fas fa-spinner fa-spin"></i> Profile `.zshrc` startup
 
 > `PROFILE_STARTUP=true` to enable profiling.
 
@@ -88,7 +97,10 @@ Zsh Sourceforge docs: [Prompt Exapansion][1]
 Place at the bottom of `.zshrc`
 
 ```shell title="~/.zshrc"
-if [["$PROFILE_STARTUP" == true]]; then unsetopt xtrace; exec 2>&3 3>&-; zprof > ~/zshprofile$(date +'%s'); fi
+if [["$PROFILE_STARTUP" == true]]; then
+  unsetopt xtrace
+  exec 2>&3 3>&-; zprof > ~/zshprofile$(date +'%s')
+fi
 ```
 
 The next time your `.zshrc` is sourced it will generate 2 files in the `$HOME` directory.
