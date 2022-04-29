@@ -30,4 +30,4 @@ jobs:
       - run: |
           pnpm install
           pnpm run build:en
-      - run: ${{ secrets.CF_WEBHOOK }}
+#      - run: ${{ secrets.CF_WEBHOOK }}
