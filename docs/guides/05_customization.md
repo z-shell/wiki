@@ -3,10 +3,10 @@ id: customization
 title: '🏗 Preferences & Configuration'
 image: img/logo/320x320.png
 description: User Preferences & Configuration
-keywords: 
-    - customization
-    - preferences
-    - config
+keywords:
+  - customization
+  - preferences
+  - config
 ---
 
 ## <i class="fa-solid fa-sliders"></i> Customizing Paths
@@ -22,7 +22,7 @@ declare -A ZI
 Variables below has to be set before loading ZI:
 
 | Hash Field                       | Description                                                                                                                                                                                                                                                                                                                                                                                        |
-|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ZI[BIN_DIR]`                    | Where ZI code resides, e.g: "~/.zi/bin"                                                                                                                                                                                                                                                                                                                                                            |
 | `ZI[HOME_DIR]`                   | Where ZI should create all working directories, e.g: "~/.zi"                                                                                                                                                                                                                                                                                                                                       |
 | `ZI[PLUGINS_DIR]`                | Override single working directory – for plugins, e.g: "/opt/zsh/zi/plugins"                                                                                                                                                                                                                                                                                                                        |
@@ -142,7 +142,7 @@ This is because many systems which implement the `#!` mechanism for calling scri
 ### Other tweaks
 
 | Option                          | Description                                                                                  |
-|---------------------------------|----------------------------------------------------------------------------------------------|
+| ------------------------------- | -------------------------------------------------------------------------------------------- |
 | `setopt` `bang_hist`            | Treat The '!' Character Specially During Expansion.                                          |
 | `setopt` `multios`              | Perform implicit tees or cats when multiple redirections are attempted.                      |
 | `setopt` `interactive_comments` | Allow comments even in interactive shells (especially for Muness).                           |
@@ -245,9 +245,8 @@ Exclamation mark causes the effects of the functions to be tracked.
 
 To allow better unloading, conditions are checked every second, you can use conditions like:
 
-
 | Condition                 | Description                                                                                                                                          |
-|---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `![[ $PWD == *github* ]]` | Change prompt after changing directory to `*github*`.                                                                                                |
 | `![[ $MYPROMPT = 1 ]]`    | Change prompt when variable `MYPROMPT = 1` is true.                                                                                                  |
 | `![[ … ]]`                | The exclamation mark causes prompt to be reset after loading or unloading the plugin `pick'/dev/null'` – disable sourcing of the default-found file. |

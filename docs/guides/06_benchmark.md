@@ -3,7 +3,7 @@ id: benchmark
 title: '⏲ Benchmarking'
 image: img/logo/320x320.png
 description: Benchmarking, Profiling & Statistics
-keywords: 
+keywords:
   - statistics
   - benchmark
   - profiling

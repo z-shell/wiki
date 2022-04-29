@@ -3611,7 +3611,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001334
-      electron-to-chromium: 1.4.125
+      electron-to-chromium: 1.4.127
       escalade: 3.1.1
       node-releases: 2.0.4
       picocolors: 1.0.0
@@ -4601,8 +4601,8 @@ packages:
       jake: 10.8.5
     dev: false
 
-  /electron-to-chromium/1.4.125:
-    resolution: {integrity: sha512-1lQM6s0FnAKt9LCfL05S8wnuAhVMemi7zCFWnTZ0vu7jR1a0RD8ML1gRBsyeEp6MRU+zNbgyaKcjyU1aPIpJYA==}
+  /electron-to-chromium/1.4.127:
+    resolution: {integrity: sha512-nhD6S8nKI0O2MueC6blNOEZio+/PWppE/pevnf3LOlQA/fKPCrDp2Ao4wx4LFwmIkJpVdFdn2763YWLy9ENIZg==}
 
   /emoji-regex/8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -5722,7 +5722,7 @@ packages:
       he: 1.2.0
       param-case: 3.0.4
       relateurl: 0.2.7
-      terser: 5.13.0
+      terser: 5.13.1
     dev: false
 
   /html-rewriter-wasm/0.4.1:
@@ -8378,7 +8378,7 @@ packages:
       jest-worker: 26.6.2
       rollup: 2.70.2
       serialize-javascript: 4.0.0
-      terser: 5.13.0
+      terser: 5.13.1
     dev: false
 
   /rollup/2.70.2:
@@ -9199,11 +9199,11 @@ packages:
       schema-utils: 3.1.1
       serialize-javascript: 6.0.0
       source-map: 0.6.1
-      terser: 5.13.0
+      terser: 5.13.1
       webpack: 5.72.0
 
-  /terser/5.13.0:
-    resolution: {integrity: sha512-sgQ99P+fRBM1jAYzN9RTnD/xEWx/7LZgYTCRgmYriSq1wxxqiQPJgXkkLBBuwySDWJ2PP0PnVQyuf4xLUuH4Ng==}
+  /terser/5.13.1:
+    resolution: {integrity: sha512-hn4WKOfwnwbYfe48NgrQjqNOH9jzLqRcIfbYytOXCOv46LBfWr9bDS17MQqOi+BWGD0sJK3Sj5NC/gJjiojaoA==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
