@@ -208,12 +208,12 @@ Following commands are passed to `zi …` to obtain described effects.
 |       Command        | Description                                                                                       |
 | :------------------: | ------------------------------------------------------------------------------------------------- |
 |     `load` `'…'`     | Load plugin, can also receive absolute local path.                                                |
-|  `light` `-b` `'…'`  | Light plugin load, without reporting/investigating. `-b` – investigate `bindkey`-calls only. [^3] |
+|  `light` `-b` `'…'`  | Light plugin load, without reporting/investigating. `-b` – investigate `bindkey`-calls only. [^1] |
 | `unload` `-q` `'…'`  | Unload plugin loaded with `zi load …`. `-q` – quiet.                                              |
-| `snippet` `-f` `URL` | Source local or remote file (by direct URL). `-f` – don't use cache (force redownload). [^4]      |
+| `snippet` `-f` `URL` | Source local or remote file (by direct URL). `-f` – don't use cache (force redownload). [^2]      |
 
-[^3]: There's also `light-mode` ice which can be used to induce the no-investigating (i.e.: _light_) loading, regardless of the command used.
-[^4]: The URL can use the following shorthands: `PZT::` (Prezto), `PZTM::` (Prezto module), `OMZ::` (Oh-My-Zsh), `OMZP::` (OMZ plugin), `OMZL::` (OMZ library), `OMZT::` (OMZ theme), e.g.: `PZTM::environment`, `OMZP::git`, etc.
+[^1]: There's also `light-mode` ice which can be used to induce the no-investigating (i.e.: _light_) loading, regardless of the command used.
+[^2]: The URL can use the following shorthands: `PZT::` (Prezto), `PZTM::` (Prezto module), `OMZ::` (Oh-My-Zsh), `OMZP::` (OMZ plugin), `OMZL::` (OMZ library), `OMZT::` (OMZ theme), e.g.: `PZTM::environment`, `OMZP::git`, etc.
 
 ## Completions management
 
@@ -281,11 +281,11 @@ Following commands are passed to `zi …` to obtain described effects.
 |                    `recall '…'` `URL`                    | Fetch saved ice modifiers and construct `zi ice '…'` command.                                                                                              |
 |           `env-whitelist` `-v` `-h` `{env..}`            | Allows to specify names or patterns of variables left unchanged during an unload – verbose `-v` – help `-h`.                                               |
 |                         `module`                         | Manage binary Zsh module shipped with ZI, see `zi module help`.                                                                                            |
-| `add-fpath` `fpath` `-f` `--front` `'…'` `sub-directory` | Adds given plugin (not yet snippet) directory to `$fpath`. If the second argument is given, it is appended to the directory path. [^1]                     |
-|             `run` `-l` `plugin` `{command}`              | Runs the given command in the given plugin's directory. [^2]                                                                                               |
+| `add-fpath` `fpath` `-f` `--front` `'…'` `sub-directory` | Adds given plugin (not yet snippet) directory to `$fpath`. If the second argument is given, it is appended to the directory path. [^3]                     |
+|             `run` `-l` `plugin` `{command}`              | Runs the given command in the given plugin's directory. [^4]                                                                                               |
 
-[^1]: The `'…'` can be absolute path, i.e.: it's possible to also add regular directories. If the option `-f` or `--front` is given, the directory path is prepended instead of appended to `$fpath`.
-[^2]: If the option `-l` will be given then the plugin should be skipped – the option will cause the previous plugin to be reused.
+[^3]: The `'…'` can be absolute path, i.e.: it's possible to also add regular directories. If the option `-f` or `--front` is given, the directory path is prepended instead of appended to `$fpath`.
+[^4]: If the option `-l` will be given then the plugin should be skipped – the option will cause the previous plugin to be reused.
 
 ## Help & Manual
 
