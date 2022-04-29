@@ -103,8 +103,6 @@ changes are needed!
 
 There are 7 ice modifiers provided and handled by the annex:
 
-<APITable>
-
 | Ice modifier      | Description                                                                                              |
 | :---------------- | :------------------------------------------------------------------------------------------------------- |
 | [`sbin''`](#sbin) | Creates `shims` for binaries and scripts.                                                                |
@@ -115,8 +113,6 @@ There are 7 ice modifiers provided and handled by the annex:
 | [`fmod''`](#fmod) | Creates wrapping functions for other functions.                                                          |
 | [`fsrc''`](#fsrc) | Creates functions that source given scripts.                                                             |
 | [`ferc''`](#ferc) | The same as [`fsrc''`](#fscr), but using an alternate script-loading method.                             |
-
-</APITable>
 
 ### The Ice Modifiers by the Annex
 
@@ -177,8 +173,6 @@ Creates a wrapper function of the name the same as the last segment of the path 
 | `N`  | Append `&>/dev/null` to the call of the binary, i.e. redirect both standard output and standard error to `/dev/null`. |
 | `E`  | Append `2>/dev/null` to the call of the binary, i.e. redirect standard error to `/dev/null`.                          |
 | `O`  | Append `>/dev/null` to the call of the binary, i.e. redirect standard output to `/dev/null`.                          |
-
-</APITable>
 
 Example:
 

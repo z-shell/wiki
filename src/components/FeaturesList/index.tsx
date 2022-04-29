@@ -17,7 +17,7 @@ const FeatureList: FeatureItem[] = [
       message: 'Zsh Startup 50-80% Faster',
       description: 'Title of feature 1 (left) on the home page',
     }),
-    Svg: require('@site/static/zw/svg/turbo.svg').default,
+    Svg: require('@site/static/img/svg/turbo.svg').default,
     description: (
       <Translate
         id="home.fetaure1"
@@ -34,7 +34,7 @@ const FeatureList: FeatureItem[] = [
       message: 'Focus on What Matters',
       description: 'Title of feature 2 (middle) on the home page',
     }),
-    Svg: require('@site/static/zw/svg/stats.svg').default,
+    Svg: require('@site/static/img/svg/stats.svg').default,
     description: (
       <Translate
         id="home.fetaure2"
@@ -51,7 +51,7 @@ const FeatureList: FeatureItem[] = [
       message: 'Wide Range of Features',
       description: 'Title of feature 3 (right) on the home page',
     }),
-    Svg: require('@site/static/zw/svg/zsh.svg').default,
+    Svg: require('@site/static/img/svg/zsh.svg').default,
     description: (
       <Translate
         id="home.fetaure3"
