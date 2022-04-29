@@ -40,6 +40,26 @@ fi
 
 :::
 
+Install fonts for powerlevel10k. It has to match your system settings as this is an example how flexible ZI is and can install anything in prefered way.
+
+The following snippet placed in `.zshrc` file will:
+
+- check if conditions are met to proceed with install
+- download, extract, clean not required files and move fonts to required directory.
+- update font cache.
+
+When run: `zi update` will:
+
+- update fonts from the repository if there are changes made.
+- repeat install process to update fonts.
+
+```shell
+zi ice if"[[ -d ${HOME}/.fonts/ttf ]] && [[ $OSTYPE = linux* ]]" \
+  id-as"meslo" from"gh-r" bpick"Meslo.zip" extract nocompile depth"1" \
+  atclone="rm -f *Windows*; mv -vf *.ttf ${HOME}/.fonts/ttf/; fc-cache -v -f" atpull"%atclone"
+zi light ryanoasis/nerd-fonts
+```
+
 ```shell
 # Load prompt if terminal has least 256 colors.
 if [ "${TERM##*-}" = '256color' ] || [ "${terminfo[colors]:?}" -gt 255 ]; then
