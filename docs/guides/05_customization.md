@@ -1,14 +1,15 @@
 ---
 id: customization
 title: '🏗 Preferences & Configuration'
-image: zw/logo/320x320.png
+image: img/logo/320x320.png
 description: User Preferences & Configuration
-keywords: [customization, preferences, config]
+keywords: 
+    - customization
+    - preferences
+    - config
 ---
 
-import APITable from '@site/src/components/APITable';
-
-## Customizing Paths
+## <i class="fa-solid fa-sliders"></i> Customizing Paths
 
 Following variables can be set to custom values, before sourcing ZI.
 
@@ -19,11 +20,6 @@ declare -A ZI
 ```
 
 Variables below has to be set before loading ZI:
-
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<APITable>
 
 | Hash Field                       | Description                                                                                                                                                                                                                                                                                                                                                                                        |
 |----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -39,12 +35,7 @@ Variables below has to be set before loading ZI:
 | `ZI[OPTIMIZE_OUT_DISK_ACCESSES]` | If set to `1`, then ZI will skip checking if a Turbo-loaded object exists on the disk. By default, ZI skips Turbo for non-existing objects (plugins or snippets) to install them before the first prompt – without any delays, during the normal processing of `zshrc`. This option can give a performance gain of about 10 ms out of 150 ms (e.g: Zsh will start-up in 140 ms instead of 150 ms). |
 | `$ZPFX`                          | set by default to `~/.zi/polaris`, a directory where software with `Makefile`, etc. can be pointed to, by e.g. `atclone'./configure --prefix=$ZPFX'`.                                                                                                                                                                                                                                              |
 
-</APITable>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-## Non-GitHub (Local) Plugins
+## <i class="fa-solid fa-square-up-right"></i> Non-GitHub (Local) Plugins
 
 Use `create` subcommand with user name `_local` (the default) to create the plugin's skeleton in `$ZI[PLUGINS_DIR]`. It
 will be not connected with the GitHub repository (because of the user name being `_local`). To enter the plugin's
@@ -53,7 +44,7 @@ directory use the `cd` command with just the plugin's name (without `_local`, it
 If the user name will not be `_local`, then ZI will create a repository also on GitHub and set up the correct repository
 origin.
 
-## Extending Git
+## <i class="fa-brands fa-git-alt"></i> Extending Git
 
 Several projects provide git extensions. Installing them with ZI has many benefits:
 
@@ -108,7 +99,7 @@ just run:
 zi light-mode for z-shell/z-a-meta-plugins @annexes @ext-git
 ```
 
-## Zsh options `setopt`
+## <i class="fa-solid fa-gears"></i> Zsh options: `setopt`
 
 Options are primarily referred to by name. These names are case insensitive and underscores are ignored. For example,
 `allexport` is equivalent to `A__lleXP_ort`.
@@ -131,9 +122,7 @@ the string `-f` will be treated just as `-f`, but the string `-f i` is an error.
 
 This is because many systems which implement the `#!` mechanism for calling scripts do not strip trailing whitespace.
 
-### History optimization
-
-<APITable>
+### <i class="fa-solid fa-clock-rotate-left"></i> History optimization
 
 | Option                            | Description                                                                |
 | --------------------------------- | -------------------------------------------------------------------------- |
@@ -150,14 +139,7 @@ This is because many systems which implement the `#!` mechanism for calling scri
 | `setopt` `inc_append_history`     | Write To The History File Immediately, Not When The Shell Exits.           |
 | `setopt` `share_history`          | Share history between different instances of the shell                     |
 
-</APITable>
-
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
 ### Other tweaks
-
-<APITable>
 
 | Option                          | Description                                                                                  |
 |---------------------------------|----------------------------------------------------------------------------------------------|
@@ -172,12 +154,7 @@ This is because many systems which implement the `#!` mechanism for calling scri
 | `setopt` `pushdminus`           | Swapped the meaning of cd +1 and cd -1; we want them to mean the opposite of what they mean. |
 | `setopt` `promptsubst`          | Enables the substitution of parameters inside the prompt each time the prompt is drawn.      |
 
-</APITable>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-## Style control for the completion system `zstyle`
+## <i class="fa-solid fa-wand-magic-sparkles"></i> Style control for the completion system `zstyle`
 
 What does `zstyle` do? - [unix.stackexchange.com/what-does-zstyle-do][14]
 
@@ -187,7 +164,7 @@ E.g., the vcs_info module relies on it for display of git status in your prompt.
 
 You can start by looking at the few explanatory paragraphs in `man zshmodules` in the `zstyle` section.
 
-### Fuzzy matching of completions
+### <i class="fa-solid fa-wand-sparkles"></i> Fuzzy matching of completions
 
 ```shell title="~/.zshrc"
 zstyle ':completion:*' completer _complete _match _approximate
@@ -195,7 +172,7 @@ zstyle ':completion:*:match:*' original only
 zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3>7?7:($#PREFIX+$#SUFFIX)/3))numeric)'
 ```
 
-### Pretty completions
+### <i class="fa-solid fa-terminal"></i> Pretty completions
 
 ```shell title="~/.zshrc"
 zstyle ':completion:*:matches' group 'yes'
@@ -215,19 +192,19 @@ zstyle ':completion:*' use-cache true
 zstyle ':completion:*' rehash true
 ```
 
-### Do menu-driven completion
+### <i class="fa-solid fa-terminal"></i> Do menu-driven completion
 
 ```shell
 zstyle ':completion:*' menu select
 ```
 
-### Color completion for [some things][15]
+### <i class="fa-solid fa-fill-drip"></i> Color completion for [some things][15]
 
 ```shell
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 ```
 
-## Disabling System-Wide `compinit` Call (Ubuntu)
+## <i class="fa-solid fa-power-off"></i> Disabling System-Wide `compinit` Call (Ubuntu)
 
 On Ubuntu users might get surprised that e.g. their completions work while they didn't call `compinit` in their
 `.zshrc`.
@@ -241,16 +218,12 @@ almost on 100% – add the following line to `~/.zshenv` to skip the not helping
 skip_global_compinit=1
 ```
 
-## Multiple prompts
-
-<APITable>
+## <i class="fa-solid fa-list-check"></i> Multiple prompts
 
 | Syntax      | Description                                                   |
 | ----------- | :------------------------------------------------------------ |
 | `load'…'`   | condition that when fulfilled will cause plugin to be loaded. |
 | `unload'…'` | as above, but will unload plugin.                             |
-
-</APITable>
 
 :::note
 
@@ -259,14 +232,10 @@ has to be loaded with `zi load …` instead of `zi light …`.
 
 :::
 
-<APITable>
-
 | Syntax       | Description                                                                                           |
 | ------------ | :---------------------------------------------------------------------------------------------------- |
 | `atload'!…'` | run the `precmd` hooks to make the prompts fully initialized when loaded in the middle of the prompt. |
 | `precmd`     | hooks are being normally run before each **new** prompt.                                              |
-
-</APITable>
 
 :::info
 
@@ -276,10 +245,6 @@ Exclamation mark causes the effects of the functions to be tracked.
 
 To allow better unloading, conditions are checked every second, you can use conditions like:
 
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<APITable>
 
 | Condition                 | Description                                                                                                                                          |
 |---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -291,12 +256,7 @@ To allow better unloading, conditions are checked every second, you can use cond
 | `nocd`                    | Don't cd into the plugin's directory when executing the `atload'…'`.                                                                                 |
 | `atload'…'`               | This ice can make the path that's displayed by the theme to point to that directory.                                                                 |
 
-</APITable>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-### Loading and unloading themes (8 examples)
+### <i class="fa-solid fa-layer-group"></i> Loading and unloading themes (8 examples)
 
 1 - zprompts
 
