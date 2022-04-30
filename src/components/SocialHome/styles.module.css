@@ -1,11 +1,9 @@
 .SocialHome {
   padding: 2rem 0;
-  display: block;
+  display: none;
   text-align: center;
-  position: relative;
   overflow: hidden;
   margin-top: 1rem;
-  width: 'relative';
 }
 
 @media screen and (max-width: 966px) {

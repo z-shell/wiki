@@ -1,5 +1,5 @@
 {
-  "name": "Z Wiki",
+  "name": "ZI Wiki",
   "short_name": "ZW",
   "theme_color": "#23b898",
   "background_color": "#0d1117",
@@ -16,6 +16,21 @@
     }
   ],
   "icons": [
+    {
+      "src": "img/svg/stats.svg",
+      "type": "image/svg+xml",
+      "sizes": "180x180"
+    },
+    {
+      "src": "img/svg/turbo.svg",
+      "type": "image/svg+xml",
+      "sizes": "180x180"
+    },
+    {
+      "src": "img/svg/zsh.svg",
+      "type": "image/svg+xml",
+      "sizes": "180x180"
+    },
     {
       "src": "img/logo.svg",
       "type": "image/svg+xml",

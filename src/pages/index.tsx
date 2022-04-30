@@ -38,7 +38,7 @@ export default function Home() {
   return (
     <Layout
       title={`${siteConfig.tagline}`}
-      description="The Open Source Society with Link passion for Zsh <head />"
+      description="A Swiss Army Knife for Zsh - a toolchain that works for you. <head />"
     >
       <HomepageHeader />
       <main>

@@ -9,9 +9,8 @@ keywords:
   - zsh-plugin
 ---
 
-import Image from '@theme/IdealImage'; import Screen1 from '@site/static/img/plugins/zbrowse.png';
-
-import Asciinema1 from '@site/static/img/asciinema/122018.png';
+import Image from '@theme/IdealImage'; import Screen1 from '@site/static/img/png/zbrowse.png';
+import Asciinema1 from '@site/static/img/png/122018.png';
 
 - [z-shell/zbrowse](https://github.com/z-shell/zbrowse)
 

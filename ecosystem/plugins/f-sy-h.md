@@ -19,7 +19,7 @@ import Image from '@theme/IdealImage';
 
 Switch themes via `fast-theme {theme-name}`.
 
-<Image img={require('@site/static/img/plugins/f-sy-h/theme.png')} />
+<Image img={require('@site/static/img/png/f-s-y_theme.png')} />
 
 Run `fast-theme -t {theme-name}` option to obtain the snippet above.
 
@@ -29,19 +29,19 @@ Run `fast-theme -l` to list available themes.
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
-<img
+<img loading="lazy"
     src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/parameter.png"
     alt="image could not be loaded"
   />
 
-<img
+<img loading="lazy"
     src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/in_string.png"
     alt="image could not be loaded"
   />
 
 ### Brackets
 
-<img
+<img loading="lazy"
     src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/brackets.gif"
     alt="image could not be loaded"
   />
@@ -50,7 +50,7 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
-<img
+<img loading="lazy"
     src="https://raw.githubusercontent.com/z-shell/fast-syntax-highlighting/main/images/cplx_cond.png"
     alt="image could not be loaded"
   />
@@ -59,14 +59,14 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
 Exact highlighting that recognizes quotings.
 
-<img
+<img loading="lazy"
     src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/ideal-string.png"
     alt="image could not be loaded"
   />
 
 ### here-strings
 
-<img
+<img loading="lazy"
     src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/herestring.png"
     alt="image could not be loaded"
   />
@@ -75,14 +75,14 @@ Exact highlighting that recognizes quotings.
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
-<img
+<img loading="lazy"
     src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/execfd_cmp.png"
     alt="image could not be loaded"
   />
 
 ### for-loops and alternate syntax (brace `{`/`}` blocks)
 
-<img
+<img loading="lazy"
     src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/for-loop-cmp.png"
     alt="image could not be loaded"
   />
@@ -91,7 +91,7 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper 2 lines):
 
-<img
+<img loading="lazy"
     src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/function.png"
     alt="image could not be loaded"
   />
@@ -100,7 +100,7 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper 2 lines)
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
-<img
+<img loading="lazy"
     src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/eval_cmp.png"
     alt="image could not be loaded"
   />
@@ -109,7 +109,7 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
 Highlighting that is specific for a given command.
 
-<img
+<img loading="lazy"
     src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/git_chroma.png"
     alt="image could not be loaded"
   />
@@ -124,7 +124,7 @@ that are enabled by default can be found [here](https://github.com/z-shell/F-Sy-
 
 ### Zcalc highlighting
 
-<img
+<img loading="lazy"
     src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/zcalc.png"
     alt="image could not be loaded"
   />
@@ -134,7 +134,7 @@ that are enabled by default can be found [here](https://github.com/z-shell/F-Sy-
 Performance differences can be observed in this Asciinema recording, where a `10 kB` function is being edited.
 
   <a href="https://asciinema.org/a/112367">
-    <Image img={require('@site/static/img/plugins/f-sy-h/112367.png')} />
+    <Image img={require('@site/static/img/png/112367.png')} />
   </a>
 
 ## Theme Guide for F-Sy-H

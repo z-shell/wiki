@@ -1,7 +1,7 @@
 ---
 id: ice
 title: 🧊 Ice Syntax
-image: img/zw/ice-239x200.png
+image: img/png/ice-239x200.png
 description: Ice syntax documentation
 keywords:
   - ice
@@ -9,7 +9,7 @@ keywords:
 ---
 
 import Image from '@theme/IdealImage';
-import ZIceImg from '@site/static/img/zw/ice-239x200.png';
+import ZIceImg from '@site/static/img/png/ice-239x200.png';
 
 <div align="right">
    <Image className="IceLogo" img={ZIceImg} alt="What is ice" />

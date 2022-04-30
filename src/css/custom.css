@@ -15,7 +15,7 @@
   );
   --site-color-favorite-background: #f6fdfd;
   --site-color-tooltip: #fff;
-  transition: 1s all;
+  transition: 0.8s all;
 }
 
 html[data-theme='dark'] {
@@ -42,13 +42,12 @@ html[data-theme='dark'] {
 }
 
 .footer--dark a[href] {
+  font-weight: bold;
   color: #1e8ad6;
-  transition: 0.8s all;
 }
 
 .footer--dark a[href]:hover {
   color: #3ba0e6;
-  transition: 0.8s all;
 }
 
 .docusaurus-highlight-code-line {
@@ -81,7 +80,7 @@ html[data-theme='dark'] img[src$='#gh-light-mode-only'] {
 
 div[class^='announcementBar_'] {
   font-weight: bold;
-  transition: 1s all;
+  transition: 0.8s all;
 }
 
 html[data-theme='light'] div[class^='announcementBar_'] {
