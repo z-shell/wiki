@@ -2,8 +2,6 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-const math = require('remark-math');
-const katex = require('rehype-katex');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -90,8 +88,6 @@ const config = {
           },
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          remarkPlugins: [math],
-          rehypePlugins: [katex],
         },
         blog: {
           showReadingTime: true,
@@ -143,14 +139,14 @@ const config = {
             label: 'Docs',
           },
           {
-            to: 'ecosystem/intro',
-            position: 'left',
-            label: 'Ecosystem',
-          },
-          {
             to: 'community/intro',
             position: 'left',
             label: 'Community',
+          },
+          {
+            to: 'ecosystem/intro',
+            position: 'left',
+            label: 'Ecosystem',
           },
           {
             type: 'localeDropdown',
@@ -254,7 +250,7 @@ const config = {
       },
       tableOfContents: {
         minHeadingLevel: 2,
-        maxHeadingLevel: 4,
+        maxHeadingLevel: 3,
       },
     }),
 };
