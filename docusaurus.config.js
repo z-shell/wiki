@@ -68,7 +68,10 @@ const config = {
       },
     ],
   ],
-  scripts: [{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.min.js'}],
+  scripts: [
+    /*{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.js'},*/
+    {src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous'},
+  ],
   presets: [
     [
       'classic',
@@ -112,7 +115,7 @@ const config = {
       metadata: [{name: 'twitter:card', content: 'summary'}],
       announcementBar: {
         id: 'announcemnt',
-        content: `If you like ❮ ZI ❯ - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi"><i class="fa-solid fa-star">Star</i></a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell"><i class="fa-brands fa-github-alt">GitHub</i></a> or <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/zshell_zi"><i class="fa-brands fa-twitter">Twitter</i></a>`,
+        content: `If you like ❮ ZI ❯ - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi"><i class="fa-solid fa-star"></i></a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell"><i class="fa-brands fa-github-alt"></i></a> or <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/zshell_zi"><i class="fa-brands fa-twitter"></i></a>`,
       },
       colorMode: {defaultMode: 'dark', disableSwitch: false, respectPrefersColorScheme: true},
       algolia: {
