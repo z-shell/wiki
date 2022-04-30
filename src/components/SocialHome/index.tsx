@@ -8,22 +8,22 @@ export default function SocialHome() {
     <main className={SocialHome}>
       <div className="container" align="center">
         <Link href="https://twitter.com/zshell_zi">
-            <img
-              alt="An Awesome Image"
-              width="80%"
-              height="auto"
-              src="https://github.zshell.dev/.github/plugin/tweets/tweets.svg"
-              alt="Recent Tweets"
-            />
+          <img
+            alt="An Awesome Image"
+            width="80%"
+            height="auto"
+            src="https://github.zshell.dev/.github/plugin/tweets/tweets.svg"
+            alt="Recent Tweets"
+          />
         </Link>
         <Link href="https://dev.to/tag/zsh">
-            <img
-              alt="An Awesome Image"
-              width="80%"
-              height="auto"
-              src="https://github.zshell.dev/.github/plugin/rss/dev.tag.zsh.rss.svg"
-              alt="dev.to/z-shell"
-            />
+          <img
+            alt="An Awesome Image"
+            width="80%"
+            height="auto"
+            src="https://github.zshell.dev/.github/plugin/rss/dev.tag.zsh.rss.svg"
+            alt="dev.to/z-shell"
+          />
         </Link>
       </div>
     </main>
