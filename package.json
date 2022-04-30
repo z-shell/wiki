@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@algolia/client-search": "4.13.0",
-    "@babel/core": "7.17.9",
+    "@babel/core": "7.17.10",
     "@docusaurus/module-type-aliases": "2.0.0-beta.18",
     "@trunkio/launcher": "1.1.0",
     "@tsconfig/docusaurus": "1.0.5",
