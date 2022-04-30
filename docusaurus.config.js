@@ -24,7 +24,7 @@ const config = {
     [
       'pwa',
       {
-        debug: true,
+        debug: false,
         offlineModeActivationStrategies: ['appInstalled', 'standalone', 'queryString'],
         pwaHead: [
           {tagName: 'link', rel: 'icon', href: '/img/logo.svg'},

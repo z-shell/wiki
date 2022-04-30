@@ -11,15 +11,15 @@ keywords:
 ---
 
 import Image from '@theme/IdealImage';
-import Screen1 from '@site/static/img/zui/hello-world-fs8.png';
-import Screen2 from '@site/static/img/zui/zui-text-fields-fs8.png';
-import Screen3 from '@site/static/img/zui/zui-list-boxes-fs8.png';
-import Screen4 from '@site/static/img/zui/zui-history-fs8.png';
-import Screen5 from '@site/static/img/zui/zui-edit-fs8.png';
+import Screen1 from '@site/static/img/png/hello-world-fs8.png';
+import Screen2 from '@site/static/img/png/zui-text-fields-fs8.png';
+import Screen3 from '@site/static/img/png/zui-list-boxes-fs8.png';
+import Screen4 from '@site/static/img/png/zui-history-fs8.png';
+import Screen5 from '@site/static/img/png/zui-edit-fs8.png';
 
 ### CGI+DHTML-like User Interface Library for Zsh / ZCurses
 
-- [ZUI][1] , report issues: [z-shell/zui][2]
+- [z-shell/ZUI][1] , issue reports: [z-shell/zui][2]
 
 This is a RAD (Rapid Application Development) textual user interface library for Zsh. It in many aspects resembles
 typical CGI+(D)HTML setup. There are:
