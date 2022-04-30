@@ -1,16 +1,11 @@
 .SocialHome {
+  display: flex;
+  align-items: center;
   padding: 2rem 0;
-  display: none;
-  text-align: center;
-  overflow: hidden;
-  margin-top: 1rem;
+  width: 100%;
 }
 
 @media screen and (max-width: 966px) {
-  .heroBanner {
-    padding: 1rem;
-  }
-
   .SocialHome {
     padding: 1rem;
   }
