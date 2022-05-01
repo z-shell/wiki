@@ -20,6 +20,8 @@ lint:
   ignore:
     - linters: [ALL]
       paths:
+        - 'src/css/**'
+        - 'src/webfonts/**'
         - 'i18n/**'
         - '!18n/en/**'
         - 'build/**'

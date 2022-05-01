@@ -6,7 +6,6 @@ import Link from '@docusaurus/Link';
 import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import FeaturesList from '@site/src/components/FeaturesList';
-import SocialHome from '@site/src/components/SocialHome';
 import styles from './index.module.css';
 
 function HomepageHeader() {
@@ -14,20 +13,8 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <h3 className="hero__title">{siteConfig.title}</h3>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro"
-          >
-            <Translate
-              id="homepage.button"
-              description="The homepage button to wiki introduction"
-            >
-              &#128162; A Swiss Army Knife for Zsh &#128162;
-            </Translate>
-          </Link>
-        </div>
+        <h1>{siteConfig.title}</h1>
+        <h3>{siteConfig.tagline}</h3>
       </div>
     </header>
   );
@@ -43,7 +30,6 @@ export default function Home() {
       <HomepageHeader />
       <main>
         <FeaturesList />
-        <SocialHome />
       </main>
     </Layout>
   );

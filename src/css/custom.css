@@ -35,6 +35,7 @@ html[data-theme='dark'] {
 }
 
 .footer--dark {
+  font-weight: bold;
   --ifm-footer-background-color: #161b22;
   --ifm-footer-color: var(--ifm-footer-link-color);
   --ifm-footer-link-color: var(--ifm-color-secondary);
@@ -42,7 +43,6 @@ html[data-theme='dark'] {
 }
 
 .footer--dark a[href] {
-  font-weight: bold;
   color: #1e8ad6;
 }
 
@@ -129,6 +129,12 @@ img[src$='#center'] {
   display: block;
   margin: 0.7rem auto;
   width: 90%;
+}
+
+img[src$='#asciicast'] {
+  display: block;
+  margin: 0.7rem auto;
+  width: 70%;
 }
 
 img[src$='#floatleft'] {

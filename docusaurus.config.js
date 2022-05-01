@@ -17,6 +17,7 @@ const config = {
   organizationName: 'z-shell',
   staticDirectories: ['static'],
   i18n: {defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans']},
+  clientModules: [require.resolve('./src/js/all.min.js'), require.resolve('./src/css/all.min.css')],
   plugins: [
     ['ideal-image', {max: 1030, min: 480, disableInDev: false}],
     [
@@ -67,14 +68,6 @@ const config = {
         },
       },
     ],
-  ],
-  /**scripts: [
-    {defer: 'true', src: '@site/src/js/all.js'},
-    {src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous'},
-  ],*/
-  clientModules: [
-    require.resolve('./src/js/all.min.js'),
-    require.resolve('./src/css/all.min.css'),
   ],
   presets: [
     [
