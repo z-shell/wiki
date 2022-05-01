@@ -68,9 +68,13 @@ const config = {
       },
     ],
   ],
-  scripts: [
-    {defer: 'true', src: 'https://cdn.digitalclouds.dev/fa/js/all.js'},
-    /*{src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous'},*/
+  /**scripts: [
+    {defer: 'true', src: '@site/src/js/all.js'},
+    {src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous'},
+  ],*/
+  clientModules: [
+    require.resolve('./src/js/all.min.js'),
+    require.resolve('./src/css/all.min.css'),
   ],
   presets: [
     [
