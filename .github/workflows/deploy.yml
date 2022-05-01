@@ -2,10 +2,10 @@
 name: '🚀 Deploy'
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: '♻️ Trunk Check'
-    types:
-      - completed
+#  workflow_run:
+#    workflows: '♻️ Trunk Check'
+#    types:
+#      - completed
 jobs:
   deploy:
     timeout-minutes: 15
