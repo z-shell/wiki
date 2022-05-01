@@ -17,13 +17,12 @@
     "write-community-version": "docusaurus docs:version:community",
     "write-ecosystem-version": "docusaurus docs:version:ecosystem",
     "crowdin:sync": "docusaurus write-translations && crowdin upload sources && crowdin download",
-    "build:cf": "corepack enable; pnpm add -g pnpm; pnpm i && pnpm build",
-    "typecheck": "tsc",
-    "check": "trunk check",
-    "check:all": "trunk check --all",
-    "preinstall": "npx only-allow pnpm",
+    "build:cf": "npm i -g pnpm && pnpm install --fix-lockfile; pnpm run build",
     "clean": "pnpm -s exec rm -rf node_modules build",
-    "prepare": "husky install"
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky install",
+    "check": "trunk check",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.18",
