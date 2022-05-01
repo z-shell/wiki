@@ -13,13 +13,8 @@ specifiers:
   '@babel/core': 7.17.10
   '@docusaurus/core': 2.0.0-beta.18
   '@docusaurus/module-type-aliases': 2.0.0-beta.18
-  '@docusaurus/plugin-client-redirects': 2.0.0-beta.18
-  '@docusaurus/plugin-content-docs': 2.0.0-beta.18
-  '@docusaurus/plugin-content-pages': 2.0.0-beta.18
-  '@docusaurus/plugin-debug': 2.0.0-beta.18
   '@docusaurus/plugin-ideal-image': 2.0.0-beta.18
   '@docusaurus/plugin-pwa': 2.0.0-beta.18
-  '@docusaurus/plugin-sitemap': 2.0.0-beta.18
   '@docusaurus/preset-classic': 2.0.0-beta.18
   '@docusaurus/theme-search-algolia': 2.0.0-beta.18
   '@mdx-js/react': 1.6.22
@@ -38,13 +33,8 @@ specifiers:
 
 dependencies:
   '@docusaurus/core': 2.0.0-beta.18_oagctitnqx3g7idiuq5vrj5arm
-  '@docusaurus/plugin-client-redirects': 2.0.0-beta.18_oagctitnqx3g7idiuq5vrj5arm
-  '@docusaurus/plugin-content-docs': 2.0.0-beta.18_oagctitnqx3g7idiuq5vrj5arm
-  '@docusaurus/plugin-content-pages': 2.0.0-beta.18_oagctitnqx3g7idiuq5vrj5arm
-  '@docusaurus/plugin-debug': 2.0.0-beta.18_hltgxp4hh4yoqymcmggjl25e64
   '@docusaurus/plugin-ideal-image': 2.0.0-beta.18_hl55y2tbcupdlyvj7kawtj36um
   '@docusaurus/plugin-pwa': 2.0.0-beta.18_oagctitnqx3g7idiuq5vrj5arm
-  '@docusaurus/plugin-sitemap': 2.0.0-beta.18_oagctitnqx3g7idiuq5vrj5arm
   '@docusaurus/preset-classic': 2.0.0-beta.18_xqdbacihas44tfzcqr5zdhq6wm
   '@docusaurus/theme-search-algolia': 2.0.0-beta.18_xqdbacihas44tfzcqr5zdhq6wm
   '@mdx-js/react': 1.6.22_react@17.0.2
@@ -1710,40 +1700,6 @@ packages:
       - esbuild
       - uglify-js
       - webpack-cli
-
-  /@docusaurus/plugin-client-redirects/2.0.0-beta.18_oagctitnqx3g7idiuq5vrj5arm:
-    resolution: {integrity: sha512-Hx2Tz/suK+0hNEuxOAokF1NMpd5vKnpTHENnVXJ9poSOFMFipudyht6Yjcrscar4wW971K2lBfX03lh8mNBQtg==}
-    engines: {node: '>=14'}
-    peerDependencies:
-      react: ^16.8.4 || ^17.0.0
-      react-dom: ^16.8.4 || ^17.0.0
-    dependencies:
-      '@docusaurus/core': 2.0.0-beta.18_oagctitnqx3g7idiuq5vrj5arm
-      '@docusaurus/logger': 2.0.0-beta.18
-      '@docusaurus/utils': 2.0.0-beta.18
-      '@docusaurus/utils-common': 2.0.0-beta.18
-      '@docusaurus/utils-validation': 2.0.0-beta.18
-      eta: 1.12.3
-      fs-extra: 10.1.0
-      lodash: 4.17.21
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-      tslib: 2.4.0
-    transitivePeerDependencies:
-      - '@parcel/css'
-      - '@swc/core'
-      - bufferutil
-      - csso
-      - debug
-      - esbuild
-      - eslint
-      - supports-color
-      - typescript
-      - uglify-js
-      - utf-8-validate
-      - vue-template-compiler
-      - webpack-cli
-    dev: false
 
   /@docusaurus/plugin-content-blog/2.0.0-beta.18_oagctitnqx3g7idiuq5vrj5arm:
     resolution: {integrity: sha512-qzK83DgB+mxklk3PQC2nuTGPQD/8ogw1nXSmaQpyXAyhzcz4CXAZ9Swl/Ee9A/bvPwQGnSHSP3xqIYl8OkFtfw==}

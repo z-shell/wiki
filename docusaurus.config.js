@@ -17,7 +17,6 @@ const config = {
   organizationName: 'z-shell',
   staticDirectories: ['static'],
   i18n: {defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans']},
-  clientModules: [require.resolve('./src/css/fontawesome.css')],
   scripts: [{defer: true, src: 'https://cdn.digitalclouds.dev/fa/js/all.js'}],
   plugins: [
     ['ideal-image', {max: 1030, min: 480, disableInDev: false}],
