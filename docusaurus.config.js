@@ -19,7 +19,7 @@ const config = {
   i18n: {defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans']},
   scripts: [{defer: true, src: 'https://cdn.digitalclouds.dev/fa/js/all.js'}],
   plugins: [
-    ['ideal-image', {max: 1030, min: 480, disableInDev: false}],
+    ['ideal-image', {max: 960, min: 480, disableInDev: false}],
     [
       'pwa',
       {
@@ -98,7 +98,6 @@ const config = {
             return `https://github.com/z-shell/zw/tree/main/${blogDirPath}/${blogPath}`;
           },
         },
-        googleAnalytics: {trackingID: 'G-MT10GVL59X', anonymizeIP: true},
         gtag: {trackingID: 'G-MT10GVL59X', anonymizeIP: true},
       },
     ],
