@@ -69,8 +69,8 @@ const config = {
     ],
   ],
   scripts: [
-    /*{defer: 'true', src: 'https://z.digitalclouds.dev/fa/js/all.js'},*/
-    {src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous'},
+    {defer: 'true', src: 'https://cdn.digitalclouds.dev/fa/js/all.js'},
+    /*{src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous'},*/
   ],
   presets: [
     [
