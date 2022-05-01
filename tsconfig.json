@@ -1,7 +1,20 @@
 {
   "extends": "@tsconfig/docusaurus/tsconfig.json",
   "compilerOptions": {
-    "jsx": "react",
-    "baseUrl": "."
-  }
+    "baseUrl": ".",
+    "exactOptionalPropertyTypes": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["ES2021"],
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "skipLibCheck": false,
+    "sourceMap": true,
+    "strict": true,
+    "skipLibCheck": false,
+    "types": ["@types/node"],
+    "types": ["@types/jest"]
+  },
+  "exclude": ["node_modules/**"],
+  "include": ["src"]
 }

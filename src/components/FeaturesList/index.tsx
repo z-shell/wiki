@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import Translate, {translate} from '@docusaurus/Translate';
 import styles from './styles.module.css';
 
-/**
 type FeatureItem = {
   title: string;
   Svg: React.ComponentType<React.ComponentProps<'svg'>>;
@@ -12,9 +11,6 @@ type FeatureItem = {
 };
 
 const FeatureList: FeatureItem[] = [
-*/
-
-const FeatureList = [
   {
     title: translate({
       id: 'homepage.feature1.title',

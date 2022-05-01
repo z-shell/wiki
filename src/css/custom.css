@@ -34,6 +34,15 @@ html[data-theme='dark'] {
   --ifm-background-surface-color: #161b22;
 }
 
+.FaBeat {
+  --fa-animation-duration: 3s;
+}
+
+.FaBeatFade {
+  --fa-beat-fade-opacity: 0.67;
+  --fa-beat-fade-scale: 1.075;
+}
+
 .footer--dark {
   font-weight: bold;
   --ifm-footer-background-color: #161b22;
@@ -98,16 +107,10 @@ html[data-theme='dark'] div[class^='announcementBar_'] {
   height: auto;
 }
 
-.ScreenViewFull {
+.ScreenView {
   width: 100%;
   height: auto;
-  border: 0;
-  padding: 0;
-}
-
-.ScreenView {
-  width: 80%;
-  height: auto;
+  text-align: center;
 }
 
 .ScreenViewMedium {
