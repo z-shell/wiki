@@ -11,7 +11,6 @@ keywords:
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 import Image from '@theme/IdealImage';
 import ZGitImg from '@site/static/img/png/z_git.png';
-import AsciinemaPlayer from '@site/src/components/AsciinemaPlayer';
 
 <Image className="ScreenView" img={ZGitImg} />
 
@@ -49,8 +48,6 @@ Invocations][7].
 
 </TabItem>
 </Tabs>
-
-<AsciinemaPlayer src='/asciicast/demo.cast' cols={210} rows={30} idleTimeLimit={3} preload={true} />
 
 ## <i class="fa-solid fa-spinner fa-spin-pulse"></i> Fast and feature-rich
 
