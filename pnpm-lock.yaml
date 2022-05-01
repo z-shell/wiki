@@ -26,7 +26,6 @@ specifiers:
   '@trunkio/launcher': 1.1.0
   '@tsconfig/docusaurus': 1.0.5
   '@types/react': 17.0.44
-  add: ^2.0.6
   clsx: 1.1.1
   husky: 7.0.4
   prism-react-renderer: 1.3.1
@@ -49,7 +48,6 @@ dependencies:
   '@docusaurus/preset-classic': 2.0.0-beta.18_xqdbacihas44tfzcqr5zdhq6wm
   '@docusaurus/theme-search-algolia': 2.0.0-beta.18_xqdbacihas44tfzcqr5zdhq6wm
   '@mdx-js/react': 1.6.22_react@17.0.2
-  add: 2.0.6
   clsx: 1.1.1
   prism-react-renderer: 1.3.1_react@17.0.2
   raw-loader: 4.0.2_webpack@5.72.0
@@ -3008,10 +3006,6 @@ packages:
     resolution: {integrity: sha512-Xx54uLJQZ19lKygFXOWsscKUbsBZW0CPykPhVQdhIeIwrbPmJzqeASDInc8nKBnp/JT6igTs82qPXz069H8I/A==}
     engines: {node: '>=0.4.0'}
     hasBin: true
-
-  /add/2.0.6:
-    resolution: {integrity: sha1-JI8Kn25aUo7yKV2+7DBTITCuIjU=}
-    dev: false
 
   /address/1.2.0:
     resolution: {integrity: sha512-tNEZYz5G/zYunxFm7sfhAxkXEuLj3K6BKwv6ZURlsF6yiUQ65z0Q2wZW9L5cPUl9ocofGvXOdFYbFHp0+6MOig==}
