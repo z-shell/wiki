@@ -18,9 +18,7 @@ const config = {
   staticDirectories: ['static'],
   i18n: {defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans']},
   scripts: [{defer: true, src: 'https://cdn.digitalclouds.dev/fa/js/all.min.js'}],
-  clientModules: [
-    require.resolve('asciinema-player/dist/bundle/asciinema-player.css'),
-  ],
+  clientModules: [require.resolve('asciinema-player/dist/bundle/asciinema-player.css')],
   plugins: [
     ['ideal-image', {max: 1030, min: 480, disableInDev: false}],
     [

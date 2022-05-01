@@ -50,7 +50,7 @@ Invocations][7].
 </TabItem>
 </Tabs>
 
-<AsciinemaPlayer src="/asciicast/demo.cast" cols={210} rows={30} idleTimeLimit={3} preload={true} />
+<AsciinemaPlayer src='/asciicast/demo.cast' cols={210} rows={30} idleTimeLimit={3} preload={true} />
 
 ## <i class="fa-solid fa-spinner fa-spin-pulse"></i> Fast and feature-rich
 
