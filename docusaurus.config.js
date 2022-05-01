@@ -20,11 +20,11 @@ const config = {
   scripts: [
     {
       defer: true,
-      src: 'https://cdn.digitalclouds.dev/fa/js/brands.min.js',
+      src: '/js/brands.min.js',
       defer: true,
-      src: 'https://cdn.digitalclouds.dev/fa/js/solid.min.js',
+      src: '/js/solid.min.js',
       defer: true,
-      src: 'https://cdn.digitalclouds.dev/fa/js/fontawesome.min.js',
+      src: '/js/fontawesome..js',
     },
   ],
   plugins: [
