@@ -4,11 +4,15 @@
     "baseUrl": ".",
     "exactOptionalPropertyTypes": true,
     "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
     "sourceMap": true,
     "strict": true,
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+    "types": ["@types/jest", "@types/node"]
+  },
+  "exclude": ["node_modules/**"],
+  "include": ["src"]
 }

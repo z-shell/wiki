@@ -17,13 +17,13 @@ const config = {
   organizationName: 'z-shell',
   staticDirectories: ['static'],
   i18n: {defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans']},
-  scripts: [{defer: true, src: 'https://cdn.digitalclouds.dev/fa/js/all.min.js'}],
+  scripts: [{defer: true, src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous'}],
   plugins: [
     ['ideal-image', {max: 1030, min: 480, disableInDev: false}],
     [
       'pwa',
       {
-        debug: false,
+        debug: true,
         offlineModeActivationStrategies: ['appInstalled', 'standalone', 'queryString'],
         pwaHead: [
           {tagName: 'link', rel: 'icon', href: '/img/logo.svg'},

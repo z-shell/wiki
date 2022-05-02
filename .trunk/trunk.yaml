@@ -18,8 +18,6 @@ lint:
   ignore:
     - linters: [ALL]
       paths:
-        - 'src/css/**'
-        - 'src/webfonts/**'
         - 'i18n/**'
         - '!18n/en/**'
         - 'build/**'
@@ -28,7 +26,7 @@ lint:
     - linters: [actionlint]
       paths:
         - '.github/workflows/sync-labels.yml'
-    - linters: [gitleaks]
-      paths:
-        - 'src/components/AsciinemaPlayer/asciinema-player.js'
-        - 'src/components/AsciinemaPlayer/asciinema-player.min.js'
+#    - linters: [gitleaks]
+#      paths:
+#        - 'src/components/AsciinemaPlayer/asciinema-player.js'
+#        - 'src/components/AsciinemaPlayer/asciinema-player.min.js'
