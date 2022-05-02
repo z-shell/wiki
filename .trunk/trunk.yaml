@@ -15,8 +15,6 @@ lint:
     - prettier@2.6.2
     - shellcheck@0.8.0
     - shfmt@3.4.0
-    - taplo@release-cli-0.6.1
-    - taplo-fmt@release-cli-0.6.1
   ignore:
     - linters: [ALL]
       paths:
@@ -29,4 +27,8 @@ lint:
         - '.docusaurus/**'
     - linters: [actionlint]
       paths:
-        - .github/workflows/sync-labels.yml
+        - '.github/workflows/sync-labels.yml'
+    - linters: [gitleaks]
+      paths:
+        - 'src/components/AsciinemaPlayer/asciinema-player.js'
+        - 'src/components/AsciinemaPlayer/asciinema-player.min.js'

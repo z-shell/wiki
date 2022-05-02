@@ -8,8 +8,6 @@ keywords:
   - gallery
 ---
 
-import APITable from '@site/src/components/APITable';
-
 :::info
 
 - Recommended to familiarize with Guides section.
@@ -27,8 +25,6 @@ More info: [ecosystem/annexes][1]
 
 For the [search][7], prefixed tags helps as minimal description to the visible results.
 
-<APITable>
-
 | Tag name | Install type    |
 | -------- | --------------- |
 | GH-R     | GitHub release  |
@@ -38,8 +34,6 @@ For the [search][7], prefixed tags helps as minimal description to the visible r
 | B        | Build           |
 | RA       | [Rust Annex][2] |
 | THP      | Themes/Prompts  |
-
-</APITable>
 
 :::tip Additional installation methods
 

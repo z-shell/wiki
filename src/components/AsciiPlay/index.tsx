@@ -1,9 +1,10 @@
 // @ts-nocheck
+
 import React from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import AsciinemaPlayer from '@site/src/components/AsciinemaPlayer';
 
-const PlayDemo = () => {
+const AsciiPlay = () => {
   return (
     <BrowserOnly>
       {() => (
