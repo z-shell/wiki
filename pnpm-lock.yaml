@@ -15,7 +15,6 @@ specifiers:
   '@docusaurus/theme-search-algolia': 0.0.0-4934
   '@mdx-js/react': 1.6.22
   '@trunkio/launcher': 1.1.0
-  '@tsconfig/docusaurus': 1.0.5
   '@types/jest': ^27.4.1
   '@types/node': 17.0.0
   '@types/react': 17.0.44
@@ -45,7 +44,6 @@ devDependencies:
   '@babel/core': 7.17.10
   '@docusaurus/module-type-aliases': 0.0.0-4934_sfoxds7t5ydpegc3knd667wn6m
   '@trunkio/launcher': 1.1.0
-  '@tsconfig/docusaurus': 1.0.5
   '@types/jest': 27.4.1
   '@types/node': 17.0.0
   '@types/react': 17.0.44
@@ -2646,10 +2644,6 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: false
 
-  /@tsconfig/docusaurus/1.0.5:
-    resolution: {integrity: sha512-KM/TuJa9fugo67dTGx+ktIqf3fVc077J6jwHu845Hex4EQf7LABlNonP/mohDKT0cmncdtlYVHHF74xR/YpThg==}
-    dev: true
-
   /@types/body-parser/1.19.2:
     resolution: {integrity: sha512-ALYone6pm6QmwZoAgeyNksccT9Q4AWZQ6PvfwR37GT6r6FWUPguq6sUmNGSMV2Wr761oQoBxwGGa6DR5o1DC9g==}
     dependencies:
@@ -4508,7 +4502,7 @@ packages:
     resolution: {integrity: sha512-EzV94NYKoO09GLXGjXj9JIlXijVck4ONSr5wiCWDvhsvj5jxSrzTmRU/9C1DyB6uToszLs8aifA6NQ7lEQdvFw==}
     engines: {node: '>= 0.8'}
     dependencies:
-      '@types/node': 17.0.31
+      '@types/node': 17.0.0
       require-like: 0.1.2
     dev: false
 
