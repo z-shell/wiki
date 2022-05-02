@@ -355,10 +355,8 @@ zi light TheLocehiliosan/yadm
 ### B: [sdushantha/farge](https://github.com/sdushantha/farge)
 
 ```shell
-if [ -n "$WAYLAND_DISPLAY" ]; then
-  zi ice lucid wait as'program' pick'farge'
-  zi light 'sdushantha/farge'
-fi
+zi ice if'[[ -n "$WAYLAND_DISPLAY" ]]' lucid wait as'program' pick'farge'
+zi light 'sdushantha/farge'
 ```
 
 ### B: [dylanaraps/neofetch](https://github.com/dylanaraps/neofetch)
@@ -500,7 +498,7 @@ zi wait lucid for \
     @zdharma/zunit
 ```
 
-### GH-R: [yarnpkg/yarn](https://github.com/pnpm/pnpm)
+### GH-R: [pnpm/pnpm](https://github.com/pnpm/pnpm)
 
 ```shell
 zi light-mode for from'gh-r' as'program' atinit'export PNPM_HOME="$PWD"; export PATH="$PNPM_HOME:$PATH"' \
