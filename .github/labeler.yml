@@ -1,11 +1,14 @@
 documentation 📝:
-  - any: ['blog/**.md', 'docs/**/*.md', 'community/**/*.md']
+  - any: ['blog/**.md', 'docs/**/*.md', 'community/**/*.md', 'ecosystem/**/*.md']
     all: ['!i18n/**/*.md']
 dependencies 📦:
   - 'package.json'
+  - 'pnpm-lock.yaml'
+  - 'yarn.lock'
 enhancement ✨:
   - 'functions/**'
   - 'src/**'
+  - 'lib/**'
 maintenance 📈:
   - '.github/CODEOWNERS'
   - '.github/*.md'
@@ -15,24 +18,26 @@ maintenance 📈:
   - 'tsconfig.json'
   - 'babel.config.js'
   - 'docusaurus.config.js'
-  - '.prettierrc'
-  - '.prettierignore'
-  - '.markdownlint.json'
-  - 'pnpm-lock.yaml'
-  - 'yarn.lock'
-i18n 🌐:
-  - 'i18n/**'
-annex 💠:
-  - 'docs/ecosystem/annexes/*.md'
-  - 'i18n/**/docusaurus-plugin-content-docs/current/ecosystem/annexes/*.md'
-package 📦:
-  - 'docs/ecosystem/packages*.md'
-  - 'i18n/**/docusaurus-plugin-content-docs/current/ecosystem/packages/*.md'
-plugin 🧿:
-  - 'docs/ecosystem/plugins/*.md'
-  - 'i18n/**/docusaurus-plugin-content-docs/current/ecosystem/plugins/*.md'
-ci 🤖:
-  - '.github/workflows/*.yml'
   - '.all-contributorsrc'
   - 'crowdin.yml'
   - 'netlify.toml'
+  - '.prettierrc'
+  - '.prettierignore'
+  - '.markdownlint.json'
+  - '.deepsource.toml'
+  - '.trunk/*.yaml'
+  - '.trunk/*.json'
+  - '.trunk/*rc'
+i18n 🌐:
+  - 'i18n/**'
+annex 💠:
+  - 'ecosystem/annexes/**/*.md'
+  - 'i18n/**/docusaurus-plugin-content-ecosystem/current/annexes/**/*.md'
+package 📦:
+  - 'ecosystem/packages/**/*.md'
+  - 'i18n/**/docusaurus-plugin-content-ecosystem/current/packages/**/*.md'
+plugin 🧿:
+  - 'ecosystem/plugins/**.md'
+  - 'i18n/**/docusaurus-plugin-content-ecosystem/current/plugins/**/*.md'
+ci 🤖:
+  - '.github/workflows/*.yml'
