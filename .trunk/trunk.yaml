@@ -7,13 +7,15 @@ repo:
     owner: z-shell
     name: zw
 lint:
+  linters:
+    - name: markdownlint
+      command: [markdownlint, -q, --config, .trunk/.markdownlint.yaml, '${target}']
+      direct_configs: [.trunk/.markdownlint.yaml]
   enabled:
     - actionlint@1.6.12
     - gitleaks@8.8.4
-    - hadolint@2.10.0
     - markdownlint@0.31.1
     - prettier@2.6.2
-    - shellcheck@0.8.0
     - shfmt@3.4.0
   ignore:
     - linters: [ALL]

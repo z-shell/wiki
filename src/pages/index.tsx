@@ -1,12 +1,10 @@
-// @ts-nocheck
+// @ts-check
 import React from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
-import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import FeaturesList from '@site/src/components/FeaturesList';
 import styles from './index.module.css';
+import FeaturesList from '@site/src/components/FeaturesList';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -14,7 +12,7 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <h1>{siteConfig.title}</h1>
-        <h3>{siteConfig.tagline}</h3>
+        <h2>{siteConfig.tagline}</h2>
       </div>
     </header>
   );

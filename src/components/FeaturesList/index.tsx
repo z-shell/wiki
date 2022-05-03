@@ -1,8 +1,11 @@
-// @ts-nocheck
+// @ts-check
 import React from 'react';
 import clsx from 'clsx';
 import Translate, {translate} from '@docusaurus/Translate';
 import styles from './styles.module.css';
+import Svg1 from '@site/static/img/svg/turbo.svg';
+import Svg2 from '@site/static/img/svg/stats.svg';
+import Svg3 from '@site/static/img/svg/zsh.svg';
 
 type FeatureItem = {
   title: string;
@@ -17,7 +20,7 @@ const FeatureList: FeatureItem[] = [
       message: 'Zsh Startup 50-80% Faster',
       description: 'Title of feature 1 (left) on the home page',
     }),
-    Svg: require('@site/static/img/svg/turbo.svg').default,
+    Svg: Svg1,
     description: (
       <Translate
         id="home.fetaure1"
@@ -34,7 +37,7 @@ const FeatureList: FeatureItem[] = [
       message: 'Focus on What Matters',
       description: 'Title of feature 2 (middle) on the home page',
     }),
-    Svg: require('@site/static/img/svg/stats.svg').default,
+    Svg: Svg2,
     description: (
       <Translate
         id="home.fetaure2"
@@ -51,7 +54,7 @@ const FeatureList: FeatureItem[] = [
       message: 'Wide Range of Features',
       description: 'Title of feature 3 (right) on the home page',
     }),
-    Svg: require('@site/static/img/svg/zsh.svg').default,
+    Svg: Svg3,
     description: (
       <Translate
         id="home.fetaure3"
