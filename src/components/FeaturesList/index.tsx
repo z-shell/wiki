@@ -1,11 +1,11 @@
-// @ts-check
+// @ts-nocheck
 import React from 'react';
 import clsx from 'clsx';
 import Translate, {translate} from '@docusaurus/Translate';
 import styles from './styles.module.css';
-import Svg1 from '@site/static/img/svg/turbo.svg';
-import Svg2 from '@site/static/img/svg/stats.svg';
-import Svg3 from '@site/static/img/svg/zsh.svg';
+import SvgTurbo from '@site/src/components/SvgJsx/turbo.jsx';
+import SvgStats from '@site/src/components/SvgJsx/stats.jsx';
+import SvgZsh from '@site/src/components/SvgJsx/zsh.jsx';
 
 type FeatureItem = {
   title: string;
@@ -20,7 +20,7 @@ const FeatureList: FeatureItem[] = [
       message: 'Zsh Startup 50-80% Faster',
       description: 'Title of feature 1 (left) on the home page',
     }),
-    Svg: Svg1,
+    Svg: SvgTurbo,
     description: (
       <Translate
         id="home.fetaure1"
@@ -37,7 +37,7 @@ const FeatureList: FeatureItem[] = [
       message: 'Focus on What Matters',
       description: 'Title of feature 2 (middle) on the home page',
     }),
-    Svg: Svg2,
+    Svg: SvgStats,
     description: (
       <Translate
         id="home.fetaure2"
@@ -54,7 +54,7 @@ const FeatureList: FeatureItem[] = [
       message: 'Wide Range of Features',
       description: 'Title of feature 3 (right) on the home page',
     }),
-    Svg: Svg3,
+    Svg: SvgZsh,
     description: (
       <Translate
         id="home.fetaure3"
@@ -71,7 +71,7 @@ function Feature({Svg, title, description}) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} alt={title} role="img" />
+        <Svg className={styles.SvgJsx} alt={title} />
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>

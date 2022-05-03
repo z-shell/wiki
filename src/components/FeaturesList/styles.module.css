@@ -5,9 +5,9 @@
   width: 100%;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.SvgJsx {
+  width: 20em;
+  height: 20em;
 }
 
 @media screen and (max-width: 966px) {

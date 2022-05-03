@@ -1,8 +1,5 @@
 // @ts-check
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '❮ ZI ❯',
@@ -19,6 +16,7 @@ const config = {
   i18n: {defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans']},
   scripts: [{src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous'}],
   plugins: [
+    /** @type {import('@docusaurus/types').Plugin} */
     ['ideal-image', {max: 1030, min: 480, disableInDev: false}],
     [
       'pwa',
@@ -69,12 +67,16 @@ const config = {
       },
     ],
   ],
+  /**clientModules: [
+    require.resolve('FunnyBunny'),
+    require.resolve('WithSomeMoney'),
+  // ],*/
   presets: [
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       {
-        debug: true,
+        debug: undefined,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -123,6 +125,7 @@ const config = {
       navbar: {
         hideOnScroll: true,
         title: '❮ ZI ❯',
+        style: 'dark',
         logo: {
           alt: '❮ ZI ❯ Logo',
           src: 'img/logo.svg',
@@ -244,12 +247,13 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Digital Clouds, Z-Shell ❮ ZI ❯ Community.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: require('prism-react-renderer/themes/github'),
+        darkTheme: require('prism-react-renderer/themes/dracula'),
+        defaultLanguage: 'shell',
       },
       tableOfContents: {
         minHeadingLevel: 2,
-        maxHeadingLevel: 3,
+        maxHeadingLevel: 4,
       },
     }),
 };
