@@ -13,7 +13,6 @@ specifiers:
   '@docusaurus/preset-classic': 2.0.0-beta.18
   '@docusaurus/theme-search-algolia': 2.0.0-beta.18
   '@mdx-js/react': 1.6.22
-  '@trunkio/launcher': 1.1.0
   '@tsconfig/docusaurus': 1.0.5
   '@types/node': ^17.0.31
   '@types/react': 18.0.8
@@ -23,6 +22,7 @@ specifiers:
   prop-types: 15.8.1
   react: 17.0.2
   react-dom: 17.0.2
+  trunk: 1.1.0
   typescript: 4.6.4
 
 dependencies:
@@ -40,12 +40,12 @@ dependencies:
 devDependencies:
   '@algolia/client-search': 4.13.0
   '@docusaurus/module-type-aliases': 2.0.0-beta.18_sfoxds7t5ydpegc3knd667wn6m
-  '@trunkio/launcher': 1.1.0
   '@tsconfig/docusaurus': 1.0.5
   '@types/node': 17.0.31
   '@types/react': 18.0.8
   husky: 7.0.4
   prop-types: 15.8.1
+  trunk: 1.1.0
   typescript: 4.6.4
 
 packages:
@@ -2649,11 +2649,6 @@ packages:
     dependencies:
       defer-to-connect: 1.1.3
     dev: false
-
-  /@trunkio/launcher/1.1.0:
-    resolution: {integrity: sha512-dkykSxDjtyZlmN47qns00xRr3vQjx8/TE6qDcAHbJ0CkxlDlZSJunRb16up0/Jpddp1CdWVmkKtancvYg6Y5xg==}
-    hasBin: true
-    dev: true
 
   /@trysound/sax/0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
@@ -8434,6 +8429,10 @@ packages:
   /trough/1.0.5:
     resolution: {integrity: sha512-rvuRbTarPXmMb79SmzEp8aqXNKcK+y0XaB298IXueQ8I2PsrATcPBCSPyK/dDNa2iWOhKlfNnOjdAOTBU/nkFA==}
     dev: false
+
+  /trunk/1.1.0:
+    resolution: {integrity: sha1-EaBATSxdvzZqZGZAS0fl7OzvWyE=}
+    dev: true
 
   /tslib/2.4.0:
     resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
