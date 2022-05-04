@@ -489,29 +489,13 @@ zi from"gh-r" as"null" for \
 ### SC: [zdharma/revolver](https://github.com/zdharma/revolver), [zdharma/zunit](https://github.com/zdharma/zunit)
 
 ```shell
-zi wait lucid for \
-  as'program' atclone'ln -sfv revolver.zsh-completion _revolver' \
+zi wait lucid for as'program' \
+  atclone'ln -sfv revolver.zsh-completion _revolver' \
   atpull'%atclone' pick'revolver' \
     @zdharma/revolver \
   as'completion' atclone'./build.zsh; ln -sfv zunit.zsh-completion _zunit' \
   atpull'%atclone' sbin'zunit' \
     @zdharma/zunit
-```
-
-### GH-R: [pnpm/pnpm](https://github.com/pnpm/pnpm)
-
-```shell
-zi light-mode for from'gh-r' as'program' atinit'export PNPM_HOME="$PWD"; export PATH="$PNPM_HOME:$PATH"' \
-  mv'pnpm* -> pnpm' pick'pnpm' bpick'*-linux-x64' atclone'pnpm add -g pnpm' atpull'%atclone' \
-    pnpm/pnpm
-```
-
-### GH-R: [yarnpkg/yarn](https://github.com/yarnpkg/yarn)
-
-```shell
-zi light-mode for from'gh-r' as'program' \
-  atinit'export PATH="$HOME/.yarn/bin:$PATH"' mv'yarn* -> yarn' pick"yarn/bin/yarn" bpick'*.tar.gz' \
-    yarnpkg/yarn
 ```
 
 ### SC: [tj/n](https://github.com/tj/n)
@@ -522,10 +506,37 @@ zi light-mode for as'program' atinit'export N_PREFIX="$PWD/n"; \
     tj/n
 ```
 
+### GH-R: [pnpm/pnpm](https://github.com/pnpm/pnpm)
+
+:::tip
+
+- Manage [node version](https://pnpm.io/cli/env):
+- Install required [release](https://github.com/pnpm/pnpm/releases):
+  - See available releases in the repository. 
+  - Use `bpick` to match most relevant part of the release name as shown in example bellow.
+
+:::
+
+```shell
+zi light-mode for id-as'pnpm' from'gh-r' bpick'*-linux-x64' as'program' \
+  atinit'export PNPM_HOME=$ZPFX/bin; [[ -z $NODE_PATH ]] && \
+  export NODE_PATH=$PWD' sbin'pnpm* -> pnpm' nocompile \
+    pnpm/pnpm
+```
+
+### GH-R: [yarnpkg/yarn](https://github.com/yarnpkg/yarn)
+
+```shell
+zi light-mode for from'gh-r' as'program' \
+  atinit'export PATH="$HOME/.yarn/bin:$PATH"' mv'yarn* -> yarn' \
+  pick"yarn/bin/yarn" bpick'*.tar.gz' \
+    yarnpkg/yarn
+```
+
 ### B: [jarun/nnn](https://github.com/jarun/nnn)
 
 ```shell
-zi pick"misc/quitcd/quitcd.zsh" sbin make light-mode for jarun/nnn
+zi light-mode for pick"misc/quitcd/quitcd.zsh" sbin make jarun/nnn
 ```
 
 ### RA: Rust compiler environment
