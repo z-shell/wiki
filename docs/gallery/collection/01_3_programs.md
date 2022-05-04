@@ -512,7 +512,7 @@ zi light-mode for as'program' atinit'export N_PREFIX="$PWD/n"; \
 
 - Manage [node version](https://pnpm.io/cli/env):
 - Install required [release](https://github.com/pnpm/pnpm/releases):
-  - See available releases in the repository. 
+  - See available releases in the repository.
   - Use `bpick` to match most relevant part of the release name as shown in example bellow.
 
 :::
