@@ -1,5 +1,8 @@
 // @ts-check
 
+const math = require('remark-math');
+const katex = require('rehype-katex');
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '❮ ZI ❯',
@@ -70,7 +73,7 @@ const config = {
   /**clientModules: [
     require.resolve('FunnyBunny'),
     require.resolve('WithSomeMoney'),
-  // ],*/
+  ],*/
   presets: [
     [
       'classic',
@@ -90,6 +93,8 @@ const config = {
           },
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
         },
         blog: {
           showReadingTime: true,
@@ -101,19 +106,17 @@ const config = {
           },
         },
         gtag: {trackingID: 'G-MT10GVL59X', anonymizeIP: true},
-        sitemap: {
-          changefreq: 'daily',
-          priority: 0.5,
-        },
+        sitemap: {changefreq: 'daily', priority: 0.5},
       },
     ],
   ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      hideableSidebar: true,
+      themeConfig: {
+        docs: {sidebar: {hideable: true, autoCollapseCategories: true}},
+      },
       image: 'img/logo/320x320.png',
-      autoCollapseSidebarCategories: true,
       metadata: [{name: 'twitter:card', content: 'summary'}],
       announcementBar: {
         id: 'announcemnt',
@@ -129,44 +132,17 @@ const config = {
       navbar: {
         hideOnScroll: true,
         title: '❮ ZI ❯',
-        logo: {
-          alt: '❮ ZI ❯ Logo',
-          src: 'img/logo.svg',
-          target: '_self',
-          width: 32,
-          height: 32,
-        },
+        logo: {alt: '❮ ZI ❯ Logo', src: 'img/logo.svg', target: '_self', width: 32, height: 32},
         items: [
-          {
-            type: 'doc',
-            docId: 'intro',
-            position: 'left',
-            label: 'Docs',
-          },
-          {
-            to: 'community/intro',
-            position: 'left',
-            label: 'Community',
-          },
-          {
-            to: 'ecosystem/intro',
-            position: 'left',
-            label: 'Ecosystem',
-          },
+          {type: 'doc', docId: 'intro', position: 'left', label: 'Docs'},
+          {to: 'community/intro', position: 'left', label: 'Community'},
+          {to: 'ecosystem/intro', position: 'left', label: 'Ecosystem'},
           {
             type: 'localeDropdown',
             position: 'right',
-            dropdownItemsAfter: [
-              {
-                href: 'https://crowdin.digitalclouds.dev/z-shell',
-                label: 'Help Us Translate',
-              },
-            ],
+            dropdownItemsAfter: [{href: 'https://crowdin.digitalclouds.dev/z-shell', label: 'Help Us Translate'}],
           },
-          {
-            type: 'docsVersionDropdown',
-            position: 'right',
-          },
+          {type: 'docsVersionDropdown', position: 'right'},
           {
             href: 'https://github.com/z-shell/zi/',
             position: 'right',
@@ -232,18 +208,9 @@ const config = {
           {
             title: 'Legal',
             items: [
-              {
-                label: 'Privacy Policy',
-                to: 'legal/PRIVACY/',
-              },
-              {
-                label: 'Code of Conduct',
-                to: 'legal/CODE_OF_CONDUCT/',
-              },
-              {
-                label: 'Contributing',
-                to: 'legal/CONTRIBUTING/',
-              },
+              {label: 'Privacy Policy', to: 'legal/PRIVACY/'},
+              {label: 'Code of Conduct', to: 'legal/CODE_OF_CONDUCT/'},
+              {label: 'Contributing', to: 'legal/CONTRIBUTING/'},
             ],
           },
         ],
@@ -254,10 +221,7 @@ const config = {
         darkTheme: require('prism-react-renderer/themes/dracula'),
         defaultLanguage: 'shell',
       },
-      tableOfContents: {
-        minHeadingLevel: 2,
-        maxHeadingLevel: 4,
-      },
+      tableOfContents: {minHeadingLevel: 2, maxHeadingLevel: 4},
     }),
 };
 
