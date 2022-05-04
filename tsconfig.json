@@ -1,6 +1,10 @@
 {
   "extends": "@tsconfig/docusaurus/tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "."
-  }
+    "baseUrl": ".",
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "exclude": ["node_modules/**"],
+  "include": ["src"]
 }

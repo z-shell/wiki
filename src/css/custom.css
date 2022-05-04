@@ -1,5 +1,13 @@
+.FaBeat {
+  --fa-animation-duration: 3s;
+}
+
+.FaBeatFade {
+  --fa-beat-fade-opacity: 0.67;
+  --fa-beat-fade-scale: 1.075;
+}
+
 :root {
-  --ifm-background-color: var(--fill);
   --site-primary-hue-saturation: 167 68%;
   --site-primary-hue-saturation-light: 167 56%;
   --ifm-color-primary: hsl(var(--site-primary-hue-saturation) 30%);
@@ -13,8 +21,12 @@
   --ifm-color-primary-lightest: hsl(
     var(--site-primary-hue-saturation-light) 58%
   );
-  --site-color-favorite-background: #f6fdfd;
+  --ifm-background-color: #0d1117;
+  --ifm-background-surface-color: #f6fdfd;
+  --ifm-background-color: var(--fill);
+  --ifm-navbar-background-color: var(--ifm-background-surface-color);
   --site-color-tooltip: #fff;
+  --site-color-favorite-background: #f6fdfd;
   transition: 0.8s all;
 }
 
@@ -31,24 +43,22 @@ html[data-theme='dark'] {
     var(--site-primary-hue-saturation-light) 73%
   );
   --ifm-background-color: #0d1117;
-  --ifm-background-surface-color: #161b22;
+  --ifm-background-surface-color: #24292e;
 }
 
-.FaBeat {
-  --fa-animation-duration: 3s;
-}
-
-.FaBeatFade {
-  --fa-beat-fade-opacity: 0.67;
-  --fa-beat-fade-scale: 1.075;
+.navbar--dark {
+  --ifm-navbar-background-color: #161b22;
+  --ifm-navbar-link-hover-color: var(--ifm-color-primary);
+  --ifm-menu-color-background-active: rgba(255, 255, 255, 0.05);
+  --ifm-navbar-search-input-color: var(--ifm-color-white);
 }
 
 .footer--dark {
-  font-weight: bold;
   --ifm-footer-background-color: #161b22;
   --ifm-footer-color: var(--ifm-footer-link-color);
   --ifm-footer-link-color: var(--ifm-color-secondary);
   --ifm-footer-title-color: var(--ifm-color-white);
+  font-weight: bold;
 }
 
 .footer--dark a[href] {
@@ -93,13 +103,13 @@ div[class^='announcementBar_'] {
 }
 
 html[data-theme='light'] div[class^='announcementBar_'] {
-  color: #161b22;
-  background: #fff;
+  color: #000;
+  background: #f6fdfd;
 }
 
 html[data-theme='dark'] div[class^='announcementBar_'] {
   color: #fff;
-  background: #161b22;
+  background: #24292e;
 }
 
 .IceLogo {

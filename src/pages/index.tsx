@@ -3,8 +3,8 @@ import React from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import styles from './index.module.css';
-import FeaturesList from '@site/src/components/FeaturesList';
+import styles from './styles.module.css';
+import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -27,7 +27,7 @@ export default function Home() {
     >
       <HomepageHeader />
       <main>
-        <FeaturesList />
+        <HomepageFeatures />
       </main>
     </Layout>
   );

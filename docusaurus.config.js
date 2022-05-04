@@ -101,6 +101,10 @@ const config = {
           },
         },
         gtag: {trackingID: 'G-MT10GVL59X', anonymizeIP: true},
+        sitemap: {
+          changefreq: 'daily',
+          priority: 0.5,
+        },
       },
     ],
   ],
@@ -125,7 +129,6 @@ const config = {
       navbar: {
         hideOnScroll: true,
         title: '❮ ZI ❯',
-        style: 'dark',
         logo: {
           alt: '❮ ZI ❯ Logo',
           src: 'img/logo.svg',
