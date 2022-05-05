@@ -3,7 +3,7 @@
   "dependencyDashboardApproval": true,
   "commitBody": "Signed-off-by: {{{gitAuthor}}}",
   "pin": {
-      "commitBody": "[skip ci]"
+    "commitBody": "[skip ci]"
   },
   "lockFileMaintenance": {
     "enabled": true
@@ -22,9 +22,7 @@
       "automerge": true
     },
     {
-      "matchPackagePrefixes": [
-        "@types/"
-      ],
+      "matchPackagePrefixes": ["@types/"],
       "automerge": true
     }
   ]
