@@ -10,6 +10,11 @@
   height: 16em;
 }
 
+.svgImg {
+  width: 220px;
+  height: 220px;
+}
+
 @media screen and (max-width: 966px) {
   .features {
     padding: 2rem 0;

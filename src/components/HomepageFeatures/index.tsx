@@ -3,9 +3,12 @@ import React from 'react';
 import clsx from 'clsx';
 import Translate, {translate} from '@docusaurus/Translate';
 import styles from './styles.module.css';
-import SvgZsh from '@site/src/components/SvgJsx/zsh.jsx';
-import SvgTurbo from '@site/src/components/SvgJsx/turbo.jsx';
-import SvgStats from '@site/src/components/SvgJsx/stats.jsx';
+/*import SvgZsh from '@site/src/components/SvgJsx/zsh.jsx';*/
+/*import SvgTurbo from '@site/src/components/SvgJsx/turbo.jsx';*/
+/*import SvgStats from '@site/src/components/SvgJsx/stats.jsx';*/
+import SvgZsh from '@site/static/img/svg/zsh.svg';
+import SvgTurbo from '@site/static/img/svg/turbo.svg';
+import SvgStats from '@site/static/img/svg/stats.svg';
 
 type FeatureItem = {
   title: string;
@@ -71,7 +74,7 @@ function Feature({Svg, title, description}) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.SvgJsx} role="img" />
+        <Svg className={styles.svgImg} role="img" />
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>

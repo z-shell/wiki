@@ -25,6 +25,7 @@ lint:
         - 'build/**'
         - 'static/**'
         - '.docusaurus/**'
+        - 'src/css/fa6.1.1/**'
     - linters: [actionlint]
       paths:
         - '.github/workflows/sync-labels.yml'

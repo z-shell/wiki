@@ -1,5 +1,4 @@
 * text=auto
-* text eol=lf
 *.md diff=markdown
 
 # Don't do anything with binaries
@@ -32,4 +31,3 @@
 /.yarn/releases/** binary
 /.yarn/plugins/** binary
 /.yarn/cache/** binary
-/pnpm/** binary
