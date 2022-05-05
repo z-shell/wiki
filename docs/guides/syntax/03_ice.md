@@ -117,7 +117,7 @@ It recognizes the following options:
 In order to install and load a plugin whose repository is private - e.g: requires providing credentials in order to log
 in – use the `from'…'` ice in the following way:
 
-```shell
+```shell showLineNumbers
 zi ice from"user@github.com"
 zi load user/fsh-auto-themes
 ```
@@ -165,7 +165,7 @@ ZI supports loading a plugin or snippet with a nickname. Set the nickname throug
 
 For example, one could try to load [**docker/compose**][1] from GitHub binary releases:
 
-```shell
+```shell showLineNumbers
 zi ice as"program" from"gh-r" mv"docker-c* -> docker-compose"
 zi light "docker/compose"
 ```
@@ -180,21 +180,21 @@ The solution to this problem – the `id-as` (to be read as: _identify-as_) ice 
 using the `id-as` ice the user can resolve the conflict by loading the completion under a kind of a _nickname_, for
 example under "_dc-complete_", by issuing the following commands:
 
-```shell
+```shell showLineNumbers
 zi ice as"completion" id-as"dc-complete"
 zi load docker/compose
 ```
 
 The plugin (of the type `completion`) is now seen under ID `dc-complete`:
 
-```shell
+```shell showLineNumbers
 zi list | grep -i dc-complete
 dc-complete
 ```
 
 Issuing `zi report dc-complete` also works, so as other Zi commands:
 
-```shell
+```shell showLineNumbers
 zi report dc-complete
 
 Plugin report for dc-complete
@@ -208,7 +208,7 @@ This can be also used to nickname snippets.
 
 For example, you can use this to create handy IDs in place of long urls:
 
-```shell
+```shell showLineNumbers
 zi ice as"program" id-as"git-unique"
 zi snippet https://github.com/Osse/git-scripts/blob/master/git-unique
 ```
@@ -221,7 +221,7 @@ the _nickname_-ID `git-unique` instead of the long URL.
 There's a special value to the `id-as'…'` ice – `auto`. It causes the nickname to be automatically set to the last
 component of the plugin name or snippet URL. For example:
 
-```shell
+```shell showLineNumbers
 zi ice as"program" id-as"auto"
 zi snippet https://github.com/Osse/git-scripts/blob/master/git-unique
 ```
@@ -230,7 +230,7 @@ will work the same as before, e.g: like if the ice used was `id-as'git-unique'`.
 
 Will work as if id-as'zsh-autopair' was passed:
 
-```shell
+```shell showLineNumbers
 zi ice wait lucid id-as"auto"
 zi load hlissner/zsh-autopair
 ```
@@ -239,7 +239,7 @@ zi load hlissner/zsh-autopair
 
 An empty `id-as'…'` will work the same as `id-as'auto'`, i.e.:
 
-```shell
+```shell showLineNumbers
 # Will work as if id-as'zsh-autopair' was passed
 zi ice wait lucid id-as
 zi load hlissner/zsh-autopair
@@ -253,7 +253,7 @@ Turbo mode, i.e. the `wait` ice that implements it - needs Zsh >= 5.3.
 
 :::
 
-```shell
+```shell showLineNumbers
 zi ice wait'0' # or just: zi ice wait
 zi light wfxr/forgit
 ```
@@ -261,7 +261,7 @@ zi light wfxr/forgit
 - waits for prompt,
 - instantly ("0" seconds) after prompt loads given plugin.
 
-```shell
+```shell showLineNumbers
 zi ice wait'[[ -n ${ZLAST_COMMANDS[(r)cras*]} ]]'
 zi light z-shell/zi-crasis
 ```
@@ -273,7 +273,7 @@ zi light z-shell/zi-crasis
   _crasis_,
 - Screencast that presents the feature: [![screencast][3]][4]
 
-```shell
+```shell showLineNumbers
 zi ice wait'[[ $PWD = */github || $PWD = */github/* ]]'
 zi load unixorn/git-extra-commands
 ```
@@ -282,7 +282,7 @@ it waits until user enters a `github` directory.
 
 Turbo mode also support a suffix – the letter `a`, `b` or `c`. The meaning is illustrated by the following example:
 
-```shell
+```shell showLineNumbers
 zi ice wait"0b" as"command" pick"wd.sh" atinit"echo Firing 1" lucid
 zi light mfaerevaag/wd
 zi ice wait"0a" as"command" pick"wd.sh" atinit"echo Firing 2" lucid
@@ -304,7 +304,7 @@ on the loadings **regardless of the order of `zi` commands**.
 
 The `zi-turbo` is a funtion to simplify `wait`. This is how the function looks like:
 
-```shell
+```shell showLineNumbers
 zi-turbo () {
    zi depth'3' lucid ${1/#[0-9][a-d]/wait"${1}"} "${@:2}"
 }
@@ -312,7 +312,7 @@ zi-turbo () {
 
 It can be executed with the `for` syntax in the imposed loading order e.g:
 
-```shell
+```shell showLineNumbers
 zi-turbo '0a' for \
    OMZL::git.zsh \
    OMZL::compfix.zsh \
@@ -345,8 +345,7 @@ For example, [**romkatv/powerlevel10k**][6] works this way.
 The ice takes a list of function names, with the elements separated by `;`:
 
 ```shell
-zi ice wrap-track"func1;func2;…" …
-…
+zi ice wrap-track"func1;func2;…"
 ```
 
 ### Use case for `wrap-track'…'` {#use-case-for-wrap-track}
@@ -357,7 +356,7 @@ after loading a theme, should be passed to `wrap-track'…'` ice.
 
 Load when `MYPROMPT == 4`
 
-```shell
+```shell showLineNumbers
 zi ice load'![[ $MYPROMPT = 4 ]]' unload'![[ $MYPROMPT != 4 ]]' \
   atload'source ~/.p10k.zsh; _p9k_precmd' wrap-track'_p9k_precmd'
 zi load romkatv/powerlevel10k
@@ -366,7 +365,7 @@ zi load romkatv/powerlevel10k
 This way the actions done during the first call to `_p9k_precmd()` will be normally recorded, which can be viewed in the
 report of the [**romkatv/powerlevel10k**][6] theme:
 
-```shell
+```shell showLineNumbers
 ➜ zi report romkatv/powerlevel10k:
 Report for romkatv/powerlevel10k plugin
 ---------------------------------------
@@ -409,7 +408,7 @@ new prompt.
 
 Normally `src'…'` can be used to specify additional file to source:
 
-```shell
+```shell showLineNumbers
 zi ice pick"powerless.zsh" src"utilities.zsh"
 zi light martinrotter/powerless
 ```
@@ -421,11 +420,10 @@ zi light martinrotter/powerless
 
 However, via `atload'…'` ice one can provide simple loop to source more files:
 
-```shell
+```shell showLineNumbers
 zi ice svn pick"completion.zsh" \
   atload'local f; for f in git.zsh misc.zsh; do \
-        source $f \
-    done'
+    source $f done'
 zi snippet OMZ::lib
 ```
 
@@ -444,9 +442,9 @@ zi snippet OMZ::lib
 Loads **multiple** files enumerated with spaces as the separator (e.g. `multisrc'misc.zsh grep.zsh'`) and also using
 brace-expansion syntax (e.g. `multisrc'{misc,grep}.zsh')`. Example:
 
-```shell
+```shell showLineNumbers
 zi ice svn pick"completion.zsh" multisrc'git.zsh \
-    functions.zsh {history,grep}.zsh'
+  functions.zsh {history,grep}.zsh'
 zi snippet OMZ::lib
 ```
 
@@ -459,12 +457,12 @@ zi load robbyrussell/oh-my-zsh
 
 Can use patterns:
 
-```shell
+```shell showLineNumbers
 zi ice svn multisrc"{funct*,misc}.zsh" pick"/dev/null"
 zi snippet OMZ::lib
 ```
 
-```shell
+```shell showLineNumbers
 zi ice svn multisrc"misc.zsh functions.zsh" pick"/dev/null"
 zi snippet OMZ::lib
 ```
@@ -473,7 +471,7 @@ Will use the array's value at the moment of plugin load:
 
 > This can matter in case of using turbo mode.
 
-```shell
+```shell showLineNumbers
 array=({functions,misc}.zsh)
 zi ice svn multisrc"\$array" pick"/dev/null"
 zi snippet OMZ::lib
@@ -481,7 +479,7 @@ zi snippet OMZ::lib
 
 Compatible with KSH_ARRAYS option:
 
-```shell
+```shell showLineNumbers
 array=({functions,misc}.zsh)
 zi ice svn multisrc"${array[*]}" pick"/dev/null"
 zi snippet OMZ::lib
@@ -494,11 +492,10 @@ assign `reply`, and to provide a trailing opening paren.
 
 In the code be careful to not redefine any variable used internally by ZI – e.g.: `i` is safe:
 
-```shell
+```shell showLineNumbers
 array=({functions,misc}.zsh)
 zi ice svn multisrc'); local i; for i in $array; do \
-        reply+=( ${i/.zsh/.sh} ); \
-        done; ((1)' pick"/dev/null"
+  reply+=( ${i/.zsh/.sh} ); done; ((1)' pick"/dev/null"
 zi snippet OMZ::lib
 ```
 
@@ -508,14 +505,14 @@ The point is that this syntax allows to easily specify snippets to source – an
 
 Thus, instead of:
 
-```shell
+```shell showLineNumbers
 zi ice multisrc'(functions|misc|completion).zsh'
 zi snippet OMZ::lib
 ```
 
 it's possible to write:
 
-```shell
+```shell showLineNumbers
 zi for \
   OMZL::functions.zsh \
   OMZL::misc.zsh \
@@ -572,7 +569,7 @@ The exclamation mark causes the effects of the execution of the code passed to `
 
 For example, in the following invocation:
 
-```shell
+```shell showLineNumbers
 zi ice id-as'test' atload'!PATH+=:~/share'
 zi load z-shell/null
 ```
@@ -581,7 +578,7 @@ the `$PATH` is being changed within `atload` ice.
 
 ZI's tracking records `$PATH` changes and withdraws them on plugin unload, and also shows information loading:
 
-```shell
+```shell showLineNumbers
 ➜ zi report test
 Report for test plugin
 ----------------------
@@ -595,7 +592,7 @@ As it can be seen, the `atload` code is being correctly tracked and can be unloa
 
 Below is the result of using the `unload` subcommand to unload the `test` plugin:
 
-```shell
+```shell showLineNumbers
 zi unload test
 --- Unloading plugin: test ---
 Removing PATH element /home/sg/share
@@ -610,7 +607,7 @@ mark_-preceded `atload` instead of `wrap-track`:
 
 Load when - `MYPROMPT == 4`
 
-```shell
+```shell showLineNumbers
 zi ice load'![[ $MYPROMPT = 4 ]]' unload'![[ $MYPROMPT != 4 ]]' \
   atload'!source ~/.p10k.zsh; _p9k_precmd'
 zi load romkatv/powerlevel10k

@@ -108,7 +108,7 @@ will become available), to execute all detected `compdef` calls.
 
 To summarize:
 
-```shell title="~/.zshrc"
+```shell title="~/.zshrc" showLineNumbers
 source ~/.zi/bin/zi.zsh
 
 zi load "some/plugin"
@@ -162,7 +162,7 @@ explanation of the last one).
 
 ### Summary of `compinit` call
 
-```shell {10} title=~/.zshrc
+```shell {10} title=""~/.zshrc" showLineNumbers
 source ~/.zi/bin/zi.zsh
 
 # Load using the for-syntax
@@ -181,7 +181,7 @@ zi wait lucid atload"zicompinit; zicdreplay" blockf for \
 If you want to ignore compdefs provided by some plugins or snippets, place their load commands before commands loading
 other plugins or snippets, and issue `zi cdclear` (or `zicdclear`, designed to be used in hooks like `atload'…'`):
 
-```shell
+```shell showLineNumbers
 source ~/.zi/bin/zi.zsh
 zi snippet OMZP::git
 zi cdclear -q # <- forget completions provided by Git plugin

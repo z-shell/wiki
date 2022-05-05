@@ -18,7 +18,7 @@ It is recommended to familiarize with [getting_started/oveview][9] before this.
 
 ## <i class="fa-solid fa-circle-nodes"></i> The make syntax
 
-```shell
+```shell showLineNumbers
 zi ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
 zi light tj/git-extras
 ```
@@ -43,7 +43,7 @@ However, it can be changed by specifying the custom `$ZPFX=` target if required.
 
 ## <i class="fa-solid fa-arrows-to-dot"></i> Compiling programs
 
-```shell
+```shell showLineNumbers
 zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
   atpull"%atclone" make pick"src/vim"
 zi light vim/vim
@@ -59,7 +59,7 @@ zi light vim/vim
 
 The same but with **installation** (`make install`) under [$ZPFX][8] by default:
 
-```shell
+```shell showLineNumbers
 zi ice as'program' atclone'rm -f src/auto/config.cache; \
   ./configure --prefix=$ZPFX' atpull'%atclone' make'all install' pick'$ZPFX/bin/vim'
 zi light vim/vim
@@ -85,7 +85,7 @@ This costs much time because a fork has to be done and the program, i.e. `dircol
 executed, and because `dircolors` loads the colors' definitions and processes them. Following ZI invocation solves this
 problem:
 
-```shell
+```shell showLineNumbers
 zi ice atclone'dircolors -b LS_COLORS > clrs.zsh' \
   atpull'%atclone' pick"clrs.zsh" nocompile'!' \
   atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
@@ -114,7 +114,7 @@ The everyday sourced file, i.e. `clrs.zsh`, is being compiled to speed up the lo
 The project [**direnv/direnv**][5] registers itself in Z shell to modify the environment on directory change. This
 registration is most often done by `eval "$(direnv hook zsh)"` added to `.zshrc`.
 
-```shell
+```shell showLineNumbers
 zi ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
   atpull'%atclone' src"zhook.zsh"
 zi light direnv/direnv
@@ -136,7 +136,7 @@ This way `direnv hook zsh` is executed only on clone and update, and Zsh starts 
 The drawback of this standard procedure is that the `direnv` binary is run on every shell startup and significantly
 slows it down. ZI allows to solve this in the following way:
 
-```shell
+```shell showLineNumbers
 zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
   atpull'%atclone' pick"direnv" src"zhook.zsh" for \
     direnv/direnv
@@ -156,7 +156,7 @@ This way registration code is generated once every installation and update, to t
 
 The project is also available as a binary [Github releases][6]. This distribution can be installed by:
 
-```shell
+```shell showLineNumbers
 zi from"gh-r" as"program" mv"direnv* -> direnv" \
   atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
   pick"direnv" src="zhook.zsh" for \
@@ -173,7 +173,7 @@ zi from"gh-r" as"program" mv"direnv* -> direnv" \
 
 ## <i class="fa-solid fa-pen-to-square"></i> Standart syntax
 
-```shell
+```shell showLineNumbers
 zi …
 zi ice …
 zi load …
@@ -184,7 +184,7 @@ zi snippet …
 
 The normal way of specifying ices and their values:
 
-```shell
+```shell showLineNumbers
 zi wait"1" from"gh-r" atload"print Hello World"
 zi load …
 ```
@@ -206,14 +206,14 @@ zi load …
 
 The colon (`:`) syntax:
 
-```shell
+```shell showLineNumbers
 zi wait:1 from:gh-r atload:"print Hello World"
 zi load …
 ```
 
 And also – in conjunction with all of the above – the GNU syntax:
 
-```shell
+```shell showLineNumbers
 zi --wait=1 --from=gh-r --atload="print Hello World"
 zi load …
 ```

@@ -45,7 +45,7 @@ They cover the information on how to write a Zsh plugin.
 
 To get the plugin’s location, plugins should do:
 
-```shell
+```shell showLineNumbers
 0="${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"
 0="${${(M)0:#/*}:-$PWD/$0}"
 ```
@@ -120,7 +120,7 @@ The plugin manager should add such a directory to `$fpath`.
 
 The lack of support of the current plugin managers can be easily resolved via the [indicator](#indicator):
 
-```shell
+```shell showLineNumbers
 if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}/functions]} ]] {
     fpath+=( "${0:h}/functions" )
 }
@@ -128,7 +128,7 @@ if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}/functions]} ]]
 
 or, via use of the `PMSPEC` [parameter](#pmspec):
 
-```shell
+```shell showLineNumbers
 if [[ $PMSPEC != *f* ]] {
     fpath+=( "${0:h}/functions" )
 }
@@ -169,7 +169,7 @@ The task of the plugin manager should be:
 The `$PMSPEC` code letter for the feature is `b`, and it allows for the plugin to handle the `$PATH` extending itself,
 via, e.g.:
 
-```shell
+```shell showLineNumbers
 if [[ $PMSPEC != *b* ]] {
     path+=( "${0:h}/bin" )
 }
@@ -250,7 +250,7 @@ in the process of unloading it.
 
 The plugin manager can provide a function `@zsh-plugin-run-on-update` which has the following call syntax:
 
-```zsh
+```shell
 @zsh-plugin-run-on-update "{code-snippet-1}" "{code-snippet-2}" …
 ```
 
@@ -288,7 +288,7 @@ separate project. Consequently, the prompt can decide to source its private copy
 
 The second item allows a plugin to e.g. set up `$fpath`, knowing that plugin manager will not handle this:
 
-```shell
+```shell showLineNumbers
 if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}]} ]] {
     fpath+=( "${0:h}" )
 }
@@ -375,7 +375,7 @@ The contents of the parameter describing a fully-compliant plugin manager should
 
 The plugin can then verify the support by, e.g.:
 
-```shell
+```shell showLineNumbers
 if [[ $PMSPEC != *f* ]] {
     fpath+=( "${0:h}/functions" )
 }
@@ -457,7 +457,7 @@ Additionally, the plugins could use a single hash parameter – called `Plugins`
 
 An example value needed by the plugin:
 
-```shell
+```shell showLineNumbers
 …
 typeset -gA Plugins
 Plugins[MY_PLUGIN_REPO_DIR]="${0:h}"
@@ -471,7 +471,7 @@ This way all the data of all plugins will be kept in a single parameter, availab
 The following code snippet is recommended to be included at the beginning of each of the main functions provided by the
 plugin:
 
-```shell
+```shell showLineNumbers
 emulate -L zsh
 setopt extended_glob warn_create_global typeset_silent \
         no_short_loops rc_quotes no_auto_pushd
@@ -506,7 +506,7 @@ It then alters the emulation by `6` different options:
 
 It’s good to localize the following variables at the entry of the main function of a plugin:
 
-```shell
+```shell showLineNumbers
 local MATCH REPLY; integer MBEGIN MEND
 local -a match mbegin mend reply
 ```
@@ -535,8 +535,7 @@ However, when adopted, the proposition will solve the following issues:
    already used by the completion functions, so the namespace is already filled up greatly and the plugin functions get
    lost in it.
 
-2. Not using a prefix at all – this is also an unwanted practice as it pollutes the command namespace
-   ([an example](https://github.com/z-shell/fast-syntax-highlighting/issues/157) of such issue appearing).
+2. Not using a prefix at all – this is also an unwanted practice as it pollutes the command namespaceof such issue appearing.
 
 3. It would allow to quickly discriminate between function types – e.g.: seeing the `:` prefix informs the user that
    it’s a hook-type function while seeing the `@` prefix informs the user that it’s an API-like function, etc.
@@ -572,7 +571,7 @@ Example function name: `→prompt_zinc_precmd`.
   an exception in the name of the callables, then how would it be possible to run a script called "→abcd"? There are
   **no** exceptions, the function can be called even as a the sequence of null bytes:
 
-```shell
+```shell showLineNumbers
     ❯ $'\0'() { print hello }
     ❯ $'\0'
     hello
@@ -592,7 +591,7 @@ Example function name: `→prompt_zinc_precmd`.
 
 ## Example Code Utilizing The Prefixes
 
-```shell
+```shell showLineNumbers
 .zinc_register_hooks() {
     add-zsh-hook precmd :zinc_precmd
     /zinc_dmsg "Installed precmd hook with result: $?"
@@ -612,7 +611,7 @@ of the command namespace pollution.
 The following snippet of code, when added at the beginning of the main function will automatically unset the
 sub-functions when leaving the main function to don't leak any functions into the global namespace:
 
-```shell
+```shell showLineNumbers
 typeset -g prjef
 prjef=( ${(k)functions} )
 trap "unset -f -- \"\${(k)functions[@]:|prjef}\" &>/dev/null; unset prjef" EXIT
@@ -643,7 +642,7 @@ parameters. However, when the number of the parameters grows one might want to l
 
 With the following method, only a single global parameter per plugin can be sufficient:
 
-```shell
+```shell showLineNumbers
 typeset -A PlgMap
 typeset -A SomeMap
 typeset -a some_array
@@ -657,7 +656,7 @@ some_array[1]=state
 
 can be converted into:
 
-```shell
+```shell showLineNumbers
 typeset -A PlgMap
 
 # Use

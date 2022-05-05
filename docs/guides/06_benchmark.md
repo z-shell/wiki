@@ -17,7 +17,7 @@ Tests with ZI: run `zi analytics` for the available commands
 
 ## <i class="fa-solid fa-gauge-high"></i> Profile plugins
 
-```shell title="~/.zshrc"
+```shell title="~/.zshrc" showLineNumbers
 zi ice atinit'zmodload zsh/zprof' \
   atload'zprof | head -n 20; zmodload -u zsh/zprof'
 zi light z-shell/F-Sy-H
@@ -37,7 +37,7 @@ the possibility to unload the plugin, will be activated and the functions will n
 
 - Example `zprof` report:
 
-```shell {3} title="zprof"
+```shell {3} title="zprof" showLineNumbers
 num calls    time                self                 name
 ---------------------------------------------------------------------------
  1)  1 57,76 57,76 57,91%  57,76 57,76 57,91% _zsh_highlight_bind_widgets
@@ -77,7 +77,7 @@ num calls    time                self                 name
 
 Place snippet below at the top of `.zshrc`.
 
-```shell title="~/.zshrc"
+```shell title="~/.zshrc" showLineNumbers
 PROFILE_STARTUP=false
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
@@ -96,7 +96,7 @@ Zsh Sourceforge docs: [Prompt Exapansion][1]
 
 Place at the bottom of `.zshrc`
 
-```shell title="~/.zshrc"
+```shell title="~/.zshrc" showLineNumbers
 if [["$PROFILE_STARTUP" == true]]; then
   unsetopt xtrace
   exec 2>&3 3>&-; zprof > ~/zshprofile$(date +'%s')

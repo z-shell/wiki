@@ -94,7 +94,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 
 html[data-theme='light'] img[src$='#gh-dark-mode-only'],
 html[data-theme='dark'] img[src$='#gh-light-mode-only'] {
-  display: none;
+  display: node;
 }
 
 div[class^='announcementBar_'] {

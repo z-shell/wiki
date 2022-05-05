@@ -1,8 +1,10 @@
 ---
 title: '♻️ Migration'
-image: zw/logo/320x320.png
-description: Migration guide to ZI
-keywords: [migration, setup]
+image: img/logo/320x320.png
+description: Migration guide
+keywords:
+  - migration
+  - setup
 ---
 
 ## OMZ Basics
@@ -51,28 +53,28 @@ Importing the [clipboard][1] and [termsupport][2] from the OMZ library sample:
 
 Raw Syntax:
 
-```shell
+```shell showLineNumbers
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh
 ```
 
 OMZ Shorthand Syntax:
 
-```shell
+```shell showLineNumbers
 zi snippet OMZ::lib/clipboard.zsh
 zi snippet OMZ::lib/termsupport.zsh
 ```
 
 OMZL Shorthand Syntax:
 
-```shell
+```shell showLineNumbers
 zi snippet OMZL::clipboard.zsh
 zi snippet OMZL::termsupport.zsh
 ```
 
 ### OMZ Plugins
 
-```diff
+```diff showLineNumbers
 - plugins=(
 -  git
 -  dotenv
@@ -101,7 +103,7 @@ Use `zi ice svn` if multiple files require an entire subdirectory.
 - [gitfast][4]
 - [osx][5]
 
-```shell
+```shell showLineNumbers
 zi ice svn
 zi snippet OMZP::gitfast
 
@@ -114,7 +116,7 @@ Use `zi ice as"completion"` to directly add single file completion snippets.
 - [docker][6]
 - [fd][7]
 
-```shell
+```shell showLineNumbers
 zi ice as"completion"
 zi snippet OMZP::docker/_docker
 
@@ -126,7 +128,7 @@ zi snippet OMZP::fd/_fd
 
 ### Plugins
 
-```diff
+```diff showLineNumbers
 - plugins=(
 -  git
 -  dotenv
@@ -149,7 +151,7 @@ Use `zi ice svn` if multiple files require an entire subdirectory.
 - [gitfast][4]
 - [osx][5]
 
-```shell
+```shell showLineNumbers
 zi ice svn
 zi snippet OMZP::gitfast
 
@@ -162,7 +164,7 @@ Use `zi ice as"completion"` to directly add single file completion snippets.
 - [docker][6]
 - [fd][7]
 
-```shell
+```shell showLineNumbers
 zi ice as"completion"
 zi snippet OMZP::docker/_docker
 
@@ -199,14 +201,14 @@ If any of the above are not in order or missing, the theme will break similar as
 
 If the `Git` library is not loaded or loaded in the wrong order, then it may appear similar to the following:
 
-```shell
+```shell showLineNumbers
 ........:1: command not found: git_prompt_status
 ........:1: command not found: git_prompt_short_sha
 ```
 
 All together it looks like this:
 
-```shell
+```shell showLineNumbers
 zi snippet OMZL::git.zsh
 zi snippet OMZP::git
 zi cdclear -q
@@ -214,7 +216,7 @@ zi cdclear -q
 
 Then load the prompt:
 
-```shell
+```shell showLineNumbers
 setopt promptsubst
 zi snippet OMZT::robbyrussell
 ```
@@ -235,7 +237,7 @@ zi snippet OMZL::git.zsh
 
 Load `Git` plugin from OMZ:
 
-```shell
+```shell showLineNumbers
 zi snippet OMZP::git
 zi cdclear -q
 
@@ -270,7 +272,7 @@ Importing the [environment][9] and [terminal][10] Prezto Modules Sample:
 
 Prezto Setting:
 
-```shell
+```shell showLineNumbers
 zstyle ':prezto:load' pmodule 'environment' 'terminal'
 ```
 
@@ -278,21 +280,21 @@ ZI Setting:
 
 > Import raw syntax from URL.
 
-```shell
+```shell showLineNumbers
 zi snippet https://github.com/sorin-ionescu/prezto/blob/master/modules/environment/init.zsh
 zi snippet https://github.com/sorin-ionescu/prezto/blob/master/modules/terminal/init.zsh
 ```
 
 PZT Shorthand Syntax:
 
-```shell
+```shell showLineNumbers
 zi snippet PZT::modules/environment
 zi snippet PZT::modules/terminal
 ```
 
 PZTM Shorthand Syntax:
 
-```shell
+```shell showLineNumbers
 zi snippet PZTM::environment
 zi snippet PZTM::terminal
 ```
@@ -302,7 +304,7 @@ Use `zi ice svn` if multiple files require an entire subdirectory.
 - [docker][11]
 - [git][12]
 
-```shell
+```shell showLineNumbers
 zi ice svn
 zi snippet PZTM::docker
 
@@ -314,7 +316,7 @@ Use `zi ice as"null"` if don't exist `*.plugin.zsh`, `init.zsh`, `*.zsh-theme*` 
 
 - [archive][13]:
 
-```shell
+```shell showLineNumbers
 zi ice svn as"null"
 zi snippet PZTM::archive
 ```
@@ -323,7 +325,7 @@ Use `zi ice atclone"git clone <repo> <location>"` if module have external module
 
 - [completion][14]:
 
-```shell
+```shell showLineNumbers
 zi ice svn blockf \
   atclone"git clone --recursive https://github.com/zsh-users/zsh-completions.git external"
 zi snippet PZTM::completion
@@ -344,7 +346,7 @@ What is `zstyle`?
 
 ### Load OMZ library
 
-```diff
+```diff showLineNumbers
 - zgen oh-my-zsh
 
 + zi snippet OMZL::<ANY OF THEM>
@@ -352,7 +354,7 @@ What is `zstyle`?
 
 ### Load OMZ plugins
 
-```diff
+```diff showLineNumbers
 - zgen oh-my-zsh <PATH>
 
 + zi snippet OMZP::<PATH>
@@ -360,7 +362,7 @@ What is `zstyle`?
 
 ### Load Prezto modules
 
-```diff
+```diff showLineNumbers
 - zgen prezto
 
 + zi snippet PZTM::<ANY FROM LIST BELOW>
@@ -376,7 +378,7 @@ What is `zstyle`?
 - completion
 - prompt
 
-```diff
+```diff showLineNumbers
 - zgen prezto <modulename>
 
 + zi snippet PZTM::<modulename>
@@ -384,7 +386,7 @@ What is `zstyle`?
 
 Load repositories as prezto plugins:
 
-```diff
+```diff showLineNumbers
 - zgen pmodule <reponame> <branch>
 
 + zi ice ver"<branch>"
@@ -399,7 +401,7 @@ For the `location`: refer [selection of files][17]
 
 :::
 
-```diff
+```diff showLineNumbers
 - zgen load <repo> [location] [branch]
 
 + zi ice ver"[branch]"
@@ -408,7 +410,7 @@ For the `location`: refer [selection of files][17]
 
 ## Zplug Basics
 
-```diff
+```diff showLineNumbers
 - zplug <repo/plugin>, tag1:<option1>, tag2:<option2>
 
 + zi ice tag1"<option1>" tag2"<option2>"

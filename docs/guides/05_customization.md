@@ -55,7 +55,7 @@ Several projects provide git extensions. Installing them with ZI has many benefi
 Below is a configuration that adds multiple git extensions, loaded in Turbo mode, 1 second after prompt, with use of the
 [bin-gem-node][1] annex:
 
-```shell title="~/.zshrc"
+```shell title="~/.zshrc" showLineNumbers
 zi as"null" wait"1" lucid for \
     sbin    Fakerr/git-recall \
     sbin    cloneopts paulirish/git-open \
@@ -166,7 +166,7 @@ You can start by looking at the few explanatory paragraphs in `man zshmodules` i
 
 ### <i class="fa-solid fa-wand-sparkles"></i> Fuzzy matching of completions
 
-```shell title="~/.zshrc"
+```shell title="~/.zshrc" showLineNumbers
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3>7?7:($#PREFIX+$#SUFFIX)/3))numeric)'
@@ -174,7 +174,7 @@ zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX
 
 ### <i class="fa-solid fa-terminal"></i> Pretty completions
 
-```shell title="~/.zshrc"
+```shell title="~/.zshrc" showLineNumbers
 zstyle ':completion:*:matches' group 'yes'
 zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*:options' auto-description '%d'
@@ -259,31 +259,29 @@ To allow better unloading, conditions are checked every second, you can use cond
 
 1 - zprompts
 
-```shell
-zi lucid \
-  load'![[ $MYPROMPT = 1 ]]' \
-  unload'![[ $MYPROMPT != 1 ]]' \
+```shell showLineNumbers
+zi lucid load'![[ $MYPROMPT = 1 ]]' unload'![[ $MYPROMPT != 1 ]]' \
   atload'!promptinit; typeset -g PSSHORT=0; prompt sprint3 yellow red green blue' nocd for \
     z-shell/zprompts
 ```
 
 2 – lambda-mod-zsh-theme
 
-```shell
+```shell showLineNumbers
 zi lucid load'![[ $MYPROMPT = 2 ]]' unload'![[ $MYPROMPT != 2 ]]' nocd for \
     halfo/lambda-mod-zsh-theme
 ```
 
 3 – lambda-gitster
 
-```shell
+```shell showLineNumbers
 zi lucid load'![[ $MYPROMPT = 3 ]]' unload'![[ $MYPROMPT != 3 ]]' nocd for \
     ergenekonyigit/lambda-gitster
 ```
 
 4 – geometry
 
-```shell
+```shell showLineNumbers
 zi lucid load'![[ $MYPROMPT = 4 ]]' unload'![[ $MYPROMPT != 4 ]]' \
   atload'!geometry::prompt' nocd \
   atinit'GEOMETRY_COLOR_DIR=63 GEOMETRY_PATH_COLOR=63' for \
@@ -292,7 +290,7 @@ zi lucid load'![[ $MYPROMPT = 4 ]]' unload'![[ $MYPROMPT != 4 ]]' \
 
 5 – pure
 
-```shell
+```shell showLineNumbers
 zi lucid load'![[ $MYPROMPT = 5 ]]' unload'![[ $MYPROMPT != 5 ]]' \
   pick"/dev/null" multisrc"{async,pure}.zsh" atload'!prompt_pure_precmd' nocd for \
     sindresorhus/pure
@@ -300,7 +298,7 @@ zi lucid load'![[ $MYPROMPT = 5 ]]' unload'![[ $MYPROMPT != 5 ]]' \
 
 6 - agkozak-zsh-theme
 
-```shell
+```shell showLineNumbers
 zi lucid load'![[ $MYPROMPT = 6 ]]' unload'![[ $MYPROMPT != 6 ]]' \
   atload'!_agkozak_precmd' nocd atinit'AGKOZAK_FORCE_ASYNC_METHOD=subst-async' for \
     agkozak/agkozak-zsh-theme
@@ -308,7 +306,7 @@ zi lucid load'![[ $MYPROMPT = 6 ]]' unload'![[ $MYPROMPT != 6 ]]' \
 
 7 - zinc
 
-```shell
+```shell showLineNumbers
 zi load'![[ $MYPROMPT = 7 ]]' unload'![[ $MYPROMPT != 7 ]]' \
   compile"{zinc_functions/*,segments/*,zinc.zsh}" nocompletions \
   atload'!prompt_zinc_setup; prompt_zinc_precmd' nocd for \
@@ -317,7 +315,7 @@ zi load'![[ $MYPROMPT = 7 ]]' unload'![[ $MYPROMPT != 7 ]]' \
 
 8 - git-prompt
 
-```shell
+```shell showLineNumbers
 zi lucid load'![[ $MYPROMPT = 8 ]]' unload'![[ $MYPROMPT != 8 ]]' \
   atload'!_zsh_git_prompt_precmd_hook' nocd for \
     woefe/git-prompt.zsh

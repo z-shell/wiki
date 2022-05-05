@@ -19,10 +19,16 @@ You may safely assume given ice works with both plugins and snippets unless expl
 
 Order of execution of related ice modifiers is as follows:
 
-```shell
-  atinit'' → atpull'!' → make'!!' → mv'' → cp'' → make'!' →
-  atclone''/atpull'' → make'!' → <plugin script loading> →
-  src'' → multisrc'' → atload''
+```shell showLineNumbers
+  atinit'' →
+    atpull'!' →
+    make'!!' →
+      mv'' → cp'' →
+        make'!' →
+      atclone''/atpull'' →
+        make'!' → <plugin script loading> →
+          src'' → multisrc'' →
+            atload''
 ```
 
 ## A few remarks

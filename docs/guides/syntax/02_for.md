@@ -20,7 +20,7 @@ To find more information about anything use [search][3] or just <kbd>CTRL+K</kbd
 
 :::
 
-```shell title="~/.zshrc"
+```shell showLineNumbers
 zi light-mode for \
     zsh-users/zsh-autosuggestions \
     z-shell/F-Sy-H \
@@ -31,7 +31,7 @@ zi light-mode for \
 
 It is best presented by a real-world examples:
 
-```shell
+```shell showLineNumbers
 zi as"null" wait"3" lucid for \
   sbin Fakerr/git-recall \
   sbin paulirish/git-open \
@@ -46,7 +46,7 @@ are common to all of the plugins and 6 plugin-specific add-on ices.
 
 Load a few useful binary packages from the [GitHub releases][1], utils:
 
-```shell
+```shell showLineNumbers
 zi as"null" wait"2" lucid from"gh-r" for \
   mv"exa* -> exa" sbin ogham/exa \
   mv"fd* -> fd" sbin"fd/fd" @sharkdp/fd \
@@ -63,7 +63,7 @@ zi as"null" wait"2" lucid from"gh-r" for \
 
 [Turbo][6] load some plugins, without any plugin-specific ices:
 
-```shell
+```shell showLineNumbers
 zi wait lucid for \
   hlissner/zsh-autopair \
   urbainvaes/fzf-marks
@@ -71,7 +71,7 @@ zi wait lucid for \
 
 Load two [Oh-My-Zsh][7] files as [snippets][8], in turbo mode:
 
-```shell
+```shell showLineNumbers
 zi wait lucid for \
   OMZ::lib/git.zsh \
   atload"unalias grv" OMZ::plugins/git/git.plugin.zsh
@@ -79,7 +79,7 @@ zi wait lucid for \
 
 Popular plugin set with [turbo][6] and [for][10]:
 
-```shell {1}
+```shell {1} showLineNumbers
 zi wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
     z-shell/F-Sy-H \
@@ -110,7 +110,7 @@ zi wait lucid light-mode for \
 
 ### Without [turbo mode][6] and [for][10]
 
-```shell
+```shell showLineNumbers
 # A.
 setopt promptsubst
 
@@ -138,7 +138,7 @@ zi light z-shell/F-Sy-H
 
 ### With [turbo mode][6] and [for][10]
 
-```shell
+```shell showLineNumbers
 # A.
 setopt promptsubst
 

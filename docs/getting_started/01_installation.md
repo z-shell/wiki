@@ -53,7 +53,7 @@ sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -a loader
 The default location for loader: `$HOME/.config/zi`.
 The loader is automatically added by the installer unless conflicting commands are detected in the `.zshrc` file, the installer will skip it and the snippet have to be added manually.
 
-```shell
+```shell showLineNumbers
 if [[ -r "${XDG_CONFIG_HOME:-$HOME/.config}/zi/init.zsh" ]]; then
   source "${XDG_CONFIG_HOME:-$HOME/.config}/zi/init.zsh" && zzinit
 fi
@@ -123,7 +123,7 @@ The next two lines must be below the above two:
 
 :::
 
-```shell
+```shell showLineNumbers
 autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 ```
