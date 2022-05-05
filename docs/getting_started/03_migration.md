@@ -98,34 +98,6 @@ Bundle multiple commands to a single file:
 
 :::
 
-Use `zi ice svn` if multiple files require an entire subdirectory.
-
-- [gitfast][4]
-- [osx][5]
-
-```shell showLineNumbers
-zi ice svn
-zi snippet OMZP::gitfast
-
-zi ice svn
-zi snippet OMZP::osx
-```
-
-Use `zi ice as"completion"` to directly add single file completion snippets.
-
-- [docker][6]
-- [fd][7]
-
-```shell showLineNumbers
-zi ice as"completion"
-zi snippet OMZP::docker/_docker
-
-zi ice as"completion"
-zi snippet OMZP::fd/_fd
-```
-
-[You can see an extended explanation of OMZ setup in the Wiki][8]
-
 ### Plugins
 
 ```diff showLineNumbers
