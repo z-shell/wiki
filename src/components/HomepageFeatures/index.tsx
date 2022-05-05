@@ -3,9 +3,9 @@ import clsx from 'clsx';
 import Translate, {translate} from '@docusaurus/Translate';
 import styles from './styles.module.css';
 import loadable from '@loadable/component';
-const SvgZsh = loadable(() => import('@site/static/img/svg/zsh.svg'));
-const SvgTurbo = loadable(() => import('@site/static/img/svg/turbo.svg'));
-const SvgStats = loadable(() => import('@site/static/img/svg/stats.svg'));
+const SvgZsh = loadable(() => import(/* webpackPrefetch: true */ '@site/static/img/svg/zsh.svg'));
+const SvgTurbo = loadable(() => import(/* webpackPrefetch: true */ '@site/static/img/svg/turbo.svg'));
+const SvgStats = loadable(() => import(/* webpackPrefetch: true */ '@site/static/img/svg/stats.svg'));
 
 type FeatureItem = {
   title: string;

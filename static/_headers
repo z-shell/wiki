@@ -16,8 +16,5 @@
   Cache-Control: max-age=365000000
   Cache-Control: immutable
 
-https://z-shell.pages.dev/*
-  X-Robots-Tag: noindex
-
 https://:z-shell.pages.dev/*
   X-Robots-Tag: noindex

@@ -1,9 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
-import loadable from '@loadable/component';
-const Layout = loadable(() => import('@theme/Layout'));
+import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
+import loadable from '@loadable/component';
 const HomepageFeatures = loadable(
   () => import('@site/src/components/HomepageFeatures'),
 );
