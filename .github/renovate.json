@@ -1,7 +1,6 @@
 {
   "extends": ["config:base"],
   "dependencyDashboardApproval": true,
-  "preserveSemverRanges": true,
   "commitBody": "Signed-off-by: {{{gitAuthor}}}",
   "pin": {
       "commitBody": "[skip ci]"
