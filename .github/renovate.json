@@ -1,6 +1,7 @@
 {
   "extends": ["config:base"],
   "dependencyDashboardApproval": true,
+  "preserveSemverRanges": true;
   "lockFileMaintenance": {
     "enabled": true
   },
