@@ -1,10 +1,12 @@
-// @ts-check
 import React from 'react';
 import clsx from 'clsx';
-import Layout from '@theme/Layout';
+import loadable from '@loadable/component';
+const Layout = loadable(() => import('@theme/Layout'));
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
+const HomepageFeatures = loadable(
+  () => import('@site/src/components/HomepageFeatures'),
+);
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -18,7 +20,7 @@ function HomepageHeader() {
   );
 }
 
-export default function Home() {
+export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout

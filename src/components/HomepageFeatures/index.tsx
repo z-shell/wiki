@@ -1,14 +1,11 @@
-// @ts-nocheck
 import React from 'react';
 import clsx from 'clsx';
 import Translate, {translate} from '@docusaurus/Translate';
 import styles from './styles.module.css';
-/*import SvgZsh from '@site/src/components/SvgJsx/zsh.jsx';*/
-/*import SvgTurbo from '@site/src/components/SvgJsx/turbo.jsx';*/
-/*import SvgStats from '@site/src/components/SvgJsx/stats.jsx';*/
-import SvgZsh from '@site/static/img/svg/zsh.svg';
-import SvgTurbo from '@site/static/img/svg/turbo.svg';
-import SvgStats from '@site/static/img/svg/stats.svg';
+import loadable from '@loadable/component';
+const SvgZsh = loadable(() => import('@site/static/img/svg/zsh.svg'));
+const SvgTurbo = loadable(() => import('@site/static/img/svg/turbo.svg'));
+const SvgStats = loadable(() => import('@site/static/img/svg/stats.svg'));
 
 type FeatureItem = {
   title: string;
@@ -70,7 +67,7 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({title, Svg, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
@@ -84,7 +81,7 @@ function Feature({Svg, title, description}) {
   );
 }
 
-export default function HomepageFeatures() {
+export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
