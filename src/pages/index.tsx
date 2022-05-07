@@ -16,15 +16,13 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <div className="video-container">
-          <AsciinemaPlayer
-            src="/asciicast/demo.cast"
-            cols={210}
-            rows={30}
-            idleTimeLimit={3}
-            preload={true}
-          />
-        </div>
+        <AsciinemaPlayer
+          src="/asciicast/demo.cast"
+          cols={210}
+          rows={30}
+          idleTimeLimit={3}
+          preload={true}
+        />
       </div>
     </header>
   );
