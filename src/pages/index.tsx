@@ -10,7 +10,6 @@ const HomepageFeatures = loadable(
 const AsciinemaPlayer = loadable(
   () => import('@site/src/components/AsciinemaPlayer'),
 );
-import 'asciinema-player/dist/bundle/asciinema-player.css';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
