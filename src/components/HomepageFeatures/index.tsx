@@ -1,9 +1,10 @@
 import React, {lazy} from 'react';
+import loadable from '@loadable/component';
 import clsx from 'clsx';
 import Translate, {translate} from '@docusaurus/Translate';
-const SvgZsh = lazy(() => import('@site/static/img/svg/zsh.svg'));
-const SvgTurbo = lazy(() => import('@site/static/img/svg/turbo.svg'));
-const SvgStats = lazy(() => import('@site/static/img/svg/stats.svg'));
+const SvgZsh = loadable(() => import('@site/static/img/svg/zsh.svg'));
+const SvgTurbo = loadable(() => import('@site/static/img/svg/turbo.svg'));
+const SvgStats = loadable(() => import('@site/static/img/svg/stats.svg'));
 import styles from './styles.module.css';
 
 type FeatureItem = {

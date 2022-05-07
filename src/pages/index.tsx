@@ -1,9 +1,10 @@
-import React, {Suspense} from 'react';
+import React from 'react';
+import loadable from '@loadable/component';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
-const HomepageFeatures = React.lazy(
+const HomepageFeatures = loadable(
   () => import('@site/src/components/HomepageFeatures'),
 );
 
@@ -28,9 +29,7 @@ export default function Home(): JSX.Element {
     >
       <HomepageHeader />
       <main>
-        <Suspense fallback={<div>Loading...</div>}>
-          <HomepageFeatures />
-        </Suspense>
+        <HomepageFeatures />
       </main>
     </Layout>
   );
