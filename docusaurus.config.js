@@ -19,8 +19,11 @@ const config = {
   i18n: {defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans']},
   scripts: [{src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous'}],
   plugins: [
-    /** @type {import('@docusaurus/types').Plugin} */
-    ['ideal-image', {max: 1030, min: 480, disableInDev: false}],
+    [
+      'ideal-image',
+      /** @type {import('@docusaurus/plugin-ideal-image').PluginOptions} */
+      ({max: 1030, min: 480, disableInDev: false}),
+    ],
     [
       'pwa',
       {
@@ -41,7 +44,8 @@ const config = {
     ],
     [
       'content-docs',
-      {
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
         id: 'community',
         path: 'community',
         routeBasePath: 'community',
@@ -52,11 +56,12 @@ const config = {
           }
           return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
         },
-      },
+      }),
     ],
     [
       'content-docs',
-      {
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
         id: 'ecosystem',
         path: 'ecosystem',
         routeBasePath: 'ecosystem',
@@ -67,7 +72,7 @@ const config = {
           }
           return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
         },
-      },
+      }),
     ],
   ],
   /**clientModules: [
@@ -78,8 +83,8 @@ const config = {
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
-      {
-        debug: undefined,
+      ({
+        debug: true,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -107,7 +112,7 @@ const config = {
         },
         gtag: {trackingID: 'G-MT10GVL59X', anonymizeIP: true},
         sitemap: {changefreq: 'daily', priority: 0.5},
-      },
+      }),
     ],
   ],
   themeConfig:
