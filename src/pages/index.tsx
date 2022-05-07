@@ -7,14 +7,25 @@ import styles from './styles.module.css';
 const HomepageFeatures = loadable(
   () => import('@site/src/components/HomepageFeatures'),
 );
+const AsciinemaPlayer = loadable(
+  () => import('@site/src/components/AsciinemaPlayer'),
+);
+import 'asciinema-player/dist/bundle/asciinema-player.css';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <h1>{siteConfig.title}</h1>
-        <h2>{siteConfig.tagline}</h2>
+        <div className="video-container">
+          <AsciinemaPlayer
+            src="/asciicast/demo.cast"
+            cols={210}
+            rows={30}
+            idleTimeLimit={3}
+            preload={true}
+          />
+        </div>
       </div>
     </header>
   );

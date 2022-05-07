@@ -17,6 +17,7 @@ specifiers:
   '@tsconfig/docusaurus': 1.0.5
   '@types/node': 17.0.31
   '@types/react': 18.0.9
+  asciinema-player: 3.0.0-rc.4
   clsx: 1.1.1
   husky: 7.0.4
   prism-react-renderer: 1.3.1
@@ -48,6 +49,7 @@ devDependencies:
   '@tsconfig/docusaurus': 1.0.5
   '@types/node': 17.0.31
   '@types/react': 18.0.9
+  asciinema-player: 3.0.0-rc.4
   husky: 7.0.4
   prop-types: 15.8.1
   typescript: 4.6.4
@@ -3197,6 +3199,13 @@ packages:
   /asap/2.0.6:
     resolution: {integrity: sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=}
     dev: false
+
+  /asciinema-player/3.0.0-rc.4:
+    resolution: {integrity: sha512-PrbC6VeWuYOZ0rbOde+z6TU2T7mTh5FsUWXWuDHXni/q6YEL1wNii4pyArcKbTa20G9g7jkm1uybmGm0hFjcFQ==}
+    dependencies:
+      '@babel/runtime': 7.17.9
+      solid-js: 1.3.17
+    dev: true
 
   /async/3.2.3:
     resolution: {integrity: sha512-spZRyzKL5l5BZQrr/6m/SqFdBN0q3OCI0f9rjfBzCMBIP4p75P620rR3gTmaksNOhmzgdxcaxdNfMy6anrbM0g==}
@@ -8098,6 +8107,10 @@ packages:
       uuid: 8.3.2
       websocket-driver: 0.7.4
     dev: false
+
+  /solid-js/1.3.17:
+    resolution: {integrity: sha512-BFCosxa4hRm+LF7S+kBL5bNr4RtuZif6AaR5FdQkBpV1E6QNLAOFm4HWgEN8vL2aCWEKl384cT8Etw8ziW8aag==}
+    dev: true
 
   /sort-css-media-queries/2.0.4:
     resolution: {integrity: sha512-PAIsEK/XupCQwitjv7XxoMvYhT7EAfyzI3hsy/MyDgTvc+Ft55ctdkctJLOy6cQejaIC+zjpUL4djFVm2ivOOw==}
