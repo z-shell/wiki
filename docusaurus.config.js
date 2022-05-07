@@ -113,7 +113,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      docs: {sidebar: {hideable: true, autoCollapseCategories: true,}},
+      docs: {sidebar: {hideable: true, autoCollapseCategories: true}},
       colorMode: {defaultMode: 'dark', disableSwitch: false, respectPrefersColorScheme: true},
       image: 'img/logo/320x320.png',
       metadata: [{name: 'twitter:card', content: 'summary'}],
