@@ -113,16 +113,14 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      themeConfig: {
-        docs: {sidebar: {hideable: true, autoCollapseCategories: true}},
-      },
+      docs: {sidebar: {hideable: true, autoCollapseCategories: true,}},
+      colorMode: {defaultMode: 'dark', disableSwitch: false, respectPrefersColorScheme: true},
       image: 'img/logo/320x320.png',
       metadata: [{name: 'twitter:card', content: 'summary'}],
       announcementBar: {
         id: 'announcemnt',
         content: `If you like ❮ ZI ❯ - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi"><i class="fa-solid fa-star"></i></a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell"><i class="fa-brands fa-github-alt"></i></a> or <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/zshell_zi"><i class="fa-brands fa-twitter"></i></a>`,
       },
-      colorMode: {defaultMode: 'dark', disableSwitch: false, respectPrefersColorScheme: true},
       algolia: {
         appId: '8A6CKETM6G',
         apiKey: '1750c7420e10ff8acf4d4f1f7ca0de90',
