@@ -1,16 +1,10 @@
 import React from 'react';
 import clsx from 'clsx';
-import loadable from '@loadable/component';
 import Translate, {translate} from '@docusaurus/Translate';
-const SvgZsh = loadable(
-  () => import(/* webpackPrefetch: true */ '@site/static/img/svg/zsh.svg'),
-);
-const SvgTurbo = loadable(
-  () => import(/* webpackPrefetch: true */ '@site/static/img/svg/turbo.svg'),
-);
-const SvgStats = loadable(
-  () => import(/* webpackPrefetch: true */ '@site/static/img/svg/stats.svg'),
-);
+import loadable from '@loadable/component';
+const SvgZsh = loadable(() => import('@site/static/img/svg/zsh.svg'));
+const SvgTurbo = loadable(() => import('@site/static/img/svg/turbo.svg'));
+const SvgStats = loadable(() => import('@site/static/img/svg/stats.svg'));
 import styles from './styles.module.css';
 
 type FeatureItem = {

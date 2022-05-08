@@ -1,19 +1,14 @@
 import React from 'react';
-import loadable from '@loadable/component';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-const AsciinemaPlayer = loadable(
-  () =>
-    import(/* webpackPrefetch: true */ '@site/src/components/AsciinemaPlayer'),
-);
-const HomepageFeatures = loadable(
-  () => import('@site/src/components/HomepageFeatures'),
-);
+import loadable from '@loadable/component';
+import HomepageFeatures from '@site/src/components/HomepageFeatures'
 import styles from './styles.module.css';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
+  const AsciinemaPlayer = loadable(() => import('@site/src/components/AsciinemaPlayer'));
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
