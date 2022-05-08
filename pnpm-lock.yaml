@@ -29,7 +29,7 @@ specifiers:
   rehype-katex: 4.0.0
   remark-math: 3.0.1
   typescript: 4.6.4
-  webpack: ^5.72.0
+  webpack: 5.72.0
 
 dependencies:
   '@docusaurus/core': 2.0.0-beta.20_oagctitnqx3g7idiuq5vrj5arm
