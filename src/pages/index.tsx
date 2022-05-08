@@ -1,16 +1,17 @@
 import React from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import loadable from '@loadable/component';
+import styles from './index.module.css';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import styles from './styles.module.css';
+import loadable from '@loadable/component';
+const AsciinemaPlayer = loadable(
+  () => import('@site/src/components/AsciinemaPlayer'),
+);
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
-  const AsciinemaPlayer = loadable(
-    () => import('@site/src/components/AsciinemaPlayer'),
-  );
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
@@ -33,8 +34,8 @@ export default function Home(): JSX.Element {
       title={`${siteConfig.tagline}`}
       description="A Swiss Army Knife for Zsh - a toolchain that works for you. <head />"
     >
+      <HomepageHeader />
       <main>
-        <HomepageHeader />
         <HomepageFeatures />
       </main>
     </Layout>
