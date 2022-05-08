@@ -1,7 +1,6 @@
 import * as AsciinemaPlayerLibrary from 'asciinema-player';
-import 'asciinema-player/dist/bundle/asciinema-player.css';
+import * as AsciinemaPlayerStyles from 'asciinema-player/dist/bundle/asciinema-player.css';
 import React, {useEffect, useRef} from 'react';
-import styles from './styles.module.css';
 
 type AsciinemaPlayerProps = {
   src: string;
@@ -32,7 +31,7 @@ const AsciinemaPlayer: React.FC<AsciinemaPlayerProps> = ({
     AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
   }, [src]);
 
-  return <div className={styles.videoContainer} ref={ref} />;
+  return <div className={AsciinemaPlayerStyles} ref={ref} />;
 };
 
 export default AsciinemaPlayer;
