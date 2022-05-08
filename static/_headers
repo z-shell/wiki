@@ -1,3 +1,7 @@
+/*
+  Access-Control-Allow-Origin: *
+  Accept-Encoding: gzip, compress, br
+
 # /assets folder contain Webpack processed assets with a file hash
 # They are safe for immutable caching, as filename change when content change
 
