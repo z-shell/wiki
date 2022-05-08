@@ -1,4 +1,4 @@
-/asciicast/*
+/*
   Accept-Encoding: gzip, compress, br
 
 # /assets folder contain Webpack processed assets with a file hash
