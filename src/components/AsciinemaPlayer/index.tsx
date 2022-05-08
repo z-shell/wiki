@@ -28,7 +28,7 @@ const AsciinemaPlayer: React.FC<AsciinemaPlayerProps> = ({
 
   useEffect(() => {
     const currentRef = ref.current;
-    AsciinemaPlayerLibrary.create('src, currentRef, asciinemaOptions');
+    AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
   }, [src]);
 
   return <div ref={ref} />;
