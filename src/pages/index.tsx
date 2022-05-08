@@ -18,9 +18,9 @@ function HomepageHeader() {
       <div className="container">
         <AsciinemaPlayer
           src={'assets//asciicast/demo.cast'}
-          cols={210}
-          rows={30}
-          idleTimeLimit={3}
+          cols={208}
+          rows={25}
+          idleTimeLimit={1}
           preload={true}
         />
       </div>
