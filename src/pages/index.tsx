@@ -1,11 +1,11 @@
-
 import React from 'react';
 import loadable from '@loadable/component';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 const AsciinemaPlayer = loadable(
-  () => import(/* webpackPrefetch: true */ '@site/src/components/AsciinemaPlayer'),
+  () =>
+    import(/* webpackPrefetch: true */ '@site/src/components/AsciinemaPlayer'),
 );
 const HomepageFeatures = loadable(
   () => import('@site/src/components/HomepageFeatures'),
