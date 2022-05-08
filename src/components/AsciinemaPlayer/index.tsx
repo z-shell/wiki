@@ -21,18 +21,13 @@ type AsciinemaPlayerProps = {
   // END asciinemaOptions
 };
 
-const AsciinemaPlayer: React.FC<AsciinemaPlayerProps> = ({
-  src,
-  ...asciinemaOptions
-}) => {
+export default function AsciinemaPlayer({src, ...asciinemaOptions}: React.FC<AsciinemaPlayerProps>) {
   const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const currentRef = ref.current;
-    AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
-  }, [src]);
+    useEffect(() => {
+      const currentRef = ref.current;
+      AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
+    }, [src]);
 
-  return <div className={styles.videoContainer} id="player" ref={ref} />;
+    return <div className={styles.videoContainer} id="player" ref={ref} />;
 };
-
-export default AsciinemaPlayer;
