@@ -3,13 +3,13 @@ import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import lazy from '@loadable/component';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import styles from './styles.module.css';
 const HomepageFeatures = lazy(
   () => import('@site/src/components/HomepageFeatures'),
 );
 const AsciinemaPlayer = lazy(
   () => import('@site/src/components/AsciinemaPlayer'),
 );
+import styles from './styles.module.css';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
