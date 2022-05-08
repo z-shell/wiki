@@ -1,12 +1,12 @@
 import React from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
-import lazy from '@loadable/component';
+import loadable from '@loadable/component';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-const HomepageFeatures = lazy(
+const HomepageFeatures = loadable(
   () => import('@site/src/components/HomepageFeatures'),
 );
-const AsciinemaPlayer = lazy(
+const AsciinemaPlayer = loadable(
   () => import('@site/src/components/AsciinemaPlayer'),
 );
 import styles from './styles.module.css';
@@ -35,8 +35,8 @@ export default function Home(): JSX.Element {
       title={`${siteConfig.tagline}`}
       description="A Swiss Army Knife for Zsh - a toolchain that works for you. <head />"
     >
-      <HomepageHeader />
       <main>
+        <HomepageHeader />
         <HomepageFeatures />
       </main>
     </Layout>
