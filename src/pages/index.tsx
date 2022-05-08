@@ -17,9 +17,9 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <AsciinemaPlayer
-          src={'/assets/asciicast/demo.cast'}
-          cols={208}
-          rows={25}
+          src={'https://asciinema.org/a/459358.cast'}
+          cols={210}
+          rows={30}
           idleTimeLimit={1}
           preload={true}
         />
