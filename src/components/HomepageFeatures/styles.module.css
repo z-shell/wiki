@@ -1,7 +1,7 @@
 .features {
   display: flex;
   align-items: center;
-  padding: 4rem 0;
+  padding: 2rem 0;
   width: 100%;
 }
 
@@ -11,12 +11,12 @@
 }
 
 .svgImg {
-  width: 220px;
-  height: 220px;
+  width: 200px;
+  height: 200px;
 }
 
 @media screen and (max-width: 966px) {
   .features {
-    padding: 2rem 0;
+    padding: 1rem 0;
   }
 }
