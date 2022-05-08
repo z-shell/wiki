@@ -1,9 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
+import Layout from '@theme/Layout';
 import lazy from '@loadable/component';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
-const Layout = lazy(() => import('@theme/Layout'));
 const HomepageFeatures = lazy(
   () => import('@site/src/components/HomepageFeatures'),
 );
