@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import loadable from '@loadable/component';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import styles from './styles.module.css';
 
 function HomepageHeader() {
@@ -28,6 +27,9 @@ function HomepageHeader() {
 
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
+  const HomepageFeatures = loadable(
+    () => import('@site/src/components/HomepageFeatures'),
+  );
   return (
     <Layout
       title={`${siteConfig.tagline}`}
