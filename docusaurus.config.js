@@ -17,7 +17,7 @@ const config = {
   organizationName: 'z-shell',
   staticDirectories: ['static'],
   i18n: {defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans']},
-  scripts: [{defer: true, src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous'}],
+  scripts: [{src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous'}],
   plugins: [
     [
       'ideal-image',
