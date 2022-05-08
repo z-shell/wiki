@@ -1,5 +1,4 @@
-@import 'fa6.1.1/css/all.css';
-@import 'asciinema-player.css';
+@import 'fa6.1.1/css/all.min.css';
 
 .FaBeat {
   --fa-animation-duration: 3s;
