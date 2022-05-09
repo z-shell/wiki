@@ -14,8 +14,6 @@ import ZGitImg from '@site/static/img/png/z_git.png';
 
 <Image className="ScreenView" img={ZGitImg} />
 
-<iframe className="videoContainer" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="https://asciinema.org/a/113463/iframe"></iframe>
-
 [![Z-Shell Organization Stats](https://github.zshell.dev/.github/metrics.svg#center)](https://github.com/z-shell)
 
 <Tabs>
@@ -62,8 +60,7 @@ Invocations][7].
 
 - [Customize paths][9], use [multiple prompts][10] or create [your own][11] plugins.
 - Supports [Oh My Zsh][12] and [Prezto][12] plugins and libraries. ([migration][13]).
-- Does not use `$FPATH`, loading multiple plugins doesn't clutter `$FPATH` with the same number of entries, e.g: 10, 15,
-  or more.
+- Does not use `$FPATH`, loading multiple plugins doesn't clutter `$FPATH` with the same number of entries, e.g: 10, 15, or more.
 - Code is immune to `KSH_ARRAYS` and other options typically causing compatibility problems.
 - Do not require `sudo`, and provide many workarounds e.g: setting so-called **shims** locally.
 

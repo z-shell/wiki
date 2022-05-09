@@ -20,31 +20,31 @@ sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -i skip -b main
 
 :::
 
-Add minimal configuration:
+### <i class="fa-solid fa-code"></i> Minimal configuration
 
 ```shell
 sh -c "$(curl -fsSL https://zsh.pages.dev/i)" --
 ```
 
-Skip configuration. Just clone or update repository:
+### <i class="fa-solid fa-code-compare"></i> Only update / install repository
 
 ```shell
 sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -i skip
 ```
 
-Minimal configuration + annexes:
+### <i class="fa-solid fa-code-branch"></i> Minimal configuration + <a href="/ecosystem/annexes">annexes</a>
 
 ```shell
 sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -a annex
 ```
 
-Minimal configuration + annexes + zunit:
+### <i class="fa-solid fa-code-fork"></i> Minimal configuration + <a href="/ecosystem/annexes">annexes</a> + <a href="https://github.com/zdharma/zunit">zdharma/zunit</a>
 
 ```shell
 sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -a zunit
 ```
 
-Minimal configuration with loader:
+### <i class="fa-solid fa-gears"></i> Minimal configuration with loader
 
 ```shell
 sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -a loader
@@ -67,42 +67,15 @@ The loader can be manually fetched from `https://github.com/z-shell/zi-src/blob/
 
 Then reload shell with: `exec zsh`. All done!
 
-## <i class="fas fa-cog fa-pulse"></i> Build module
+## <i class="fas fa-spinner fa-spin"></i> Manual Setup
 
-Without ZI:
-
-```shell
-sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -a zpmod
-```
-
-With ZI:
-
-:::info
-
-ZI has to be installed to build the module.
-Module repository: [z-shell/zpmod][8]
-
-:::
-
-```shell
-zi module build
-```
-
-To enable debug messages from the module set:
-
-```shell
-typeset -g ZI_MOD_DEBUG=1
-```
-
-## <i class="fas fa-spinner fa-spin"></i> Manual install
-
-Setup ZI directory:
+### <i class="fa-solid fa-code-branch"></i> Setup ZI directory
 
 ```shell
 zi_home="${HOME}/.zi" && mkdir -p $zi_home
 ```
 
-Clone repository:
+### <i class="fa-brands fa-git-alt"></i> Clone repository
 
 ```shell
 git clone https://github.com/z-shell/zi.git "${zi_home}/bin"
@@ -115,7 +88,7 @@ zi_home="${HOME}/.zi"
 source "${zi_home}/bin/zi.zsh"
 ```
 
-Enable ZI completions:
+### <i class="fa-solid fa-circle-nodes"></i> Enable completions:
 
 :::info
 
@@ -133,14 +106,16 @@ autoload -Uz _zi
 After a fresh install, recommended to reload the shell with `exec zsh` and compile ZI with `zi self-update`.
 Run `zi -h` to see all available commands. Increase ZI functionality, performance or get started by exploring the wiki.
 
-If you have any issue or need help 🤦‍♂️, lets [discuss][9] it or open an [issue][7] in any language. It helps us to improve and make ZI better.
+If you have any issue or need help 🤦‍♂️, lets [discuss][9] it or open an [issue][7] in any language.
+
+It helps us to improve and make ZI better.
 Don't forget to help the project: share, contribute, or [translate][10] 🌐 🥰 🤓.
 
-Let's glue everything together to create a toolchain that works for us and not against us 🚀.
+Let's glue everything together to create a toolchain that works for US 🚀.
 
 ## <i class="fas fa-sync-alt fa-spin"></i> Have ideas?
 
-Suggest your .zshrc configuration to: <https://github.com/z-shell/playground> 🏅
+### <i class="fa-solid fa-list-check"></i> Suggest your configuration: <a href="https://github.com/z-shell/playground">z-shell/playground</a>
 
 ```shell
 sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -a ???
@@ -148,13 +123,13 @@ sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -a ???
 
 ## <i class="fas fa-sync-alt fa-spin"></i> Need warm-up?
 
-Minimal ZI - 🐋 Docker Alpine: <https://github.com/z-shell/zd/pkgs/container/zd>
+### <i class="fa-brands fa-docker"></i> <a href="https://github.com/z-shell/zd/pkgs/container/zd">Docker Alpine</a>
 
 ```shell
 docker run --rm -it ghcr.io/z-shell/zd:latest
 ```
 
-## <i class="fas fa-sync-alt fa-spin"></i> Turbo ZI in Docker
+### <i class="fa-brands fa-docker"></i> Turbo ZI in Docker
 
 If you create a Docker image that uses ZI, install Turbo-loaded plugins before the shell starts interactively, with the `@zi-scheduler` function in such a way, that it:
 
@@ -169,6 +144,33 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 
 > - An example: [Dockerfile](https://github.com/robobenklein/configs/blob/master/Dockerfile)
 > - In action: [Dockerfile](https://github.com/z-shell/playground)
+
+## <i class="fas fa-cog fa-pulse"></i> Build ZI Module
+
+### <i class="fa-solid fa-compass-drafting"></i> Without ZI
+
+```shell
+sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -a zpmod
+```
+
+### <i class="fa-solid fa-screwdriver-wrench"></i> With ZI
+
+:::info
+
+ZI has to be installed to build the module.
+Module repository: [z-shell/zpmod][8]
+
+:::
+
+```shell
+zi module build
+```
+
+To enable debug messages from the module set:
+
+```shell
+typeset -g ZI_MOD_DEBUG=1
+```
 
 ## <i class="fas fa-sync-alt fa-spin"></i> Available installer links
 

@@ -152,6 +152,7 @@ const config = {
             className: 'header-github-link',
             'aria-label': 'GitHub repository',
           },
+          /*{type: 'html', position: 'left', value: '<button>Give feedback</button>'},*/
         ],
       },
       footer: {
@@ -206,6 +207,7 @@ const config = {
                 label: 'Crowdin Translations',
                 href: 'https://crowdin.digitalclouds.dev/z-shell/',
               },
+              /*{html: `<i class="fa-solid fa-wifi"></i>`},*/
             ],
           },
           {
@@ -217,7 +219,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Digital Clouds, Z-Shell ❮ ZI ❯ Community.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Z-Shell Community.`,
       },
       prism: {
         theme: require('prism-react-renderer/themes/github'),
