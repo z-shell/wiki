@@ -5,8 +5,12 @@ import Link from '@docusaurus/Link';
 import loadable from '@loadable/component';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
-const AsciinemaPlayer = loadable(() => import('@site/src/components/AsciinemaPlayer'))
-const HomepageFeatures = loadable(() => import('@site/src/components/HomepageFeatures'));
+const AsciinemaPlayer = loadable(
+  () => import('@site/src/components/AsciinemaPlayer'),
+);
+const HomepageFeatures = loadable(
+  () => import('@site/src/components/HomepageFeatures'),
+);
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
