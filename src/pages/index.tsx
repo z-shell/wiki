@@ -2,10 +2,11 @@ import React from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
+import loadable from '@loadable/component';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
-import AsciinemaPlayer from '@site/src/components/AsciinemaPlayer';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
+const AsciinemaPlayer = loadable(() => import('@site/src/components/AsciinemaPlayer'))
+const HomepageFeatures = loadable(() => import('@site/src/components/HomepageFeatures'));
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
