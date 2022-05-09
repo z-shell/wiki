@@ -29,6 +29,7 @@ lint:
     - linters: [actionlint]
       paths:
         - '.github/workflows/sync-labels.yml'
+        - '.github/workflows/trunk_check.yml'
 #    - linters: [gitleaks]
 #      paths:
 #        - 'src/components/AsciinemaPlayer/asciinema-player.js'

@@ -11,5 +11,7 @@ on:
 jobs:
   check-call:
     uses: z-shell/.github/.github/workflows/trunk-check.yml@main
+    inputs:
+      RUN_ARGS: npm i -g pnpm && pnpm i -r
 #    secrets:
 #      TRUNK_TOKEN: ${{ secrets.TRUNK_TOKEN }}
