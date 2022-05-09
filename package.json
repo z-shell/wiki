@@ -30,6 +30,8 @@
     "@docusaurus/plugin-pwa": "2.0.0-beta.20",
     "@docusaurus/preset-classic": "2.0.0-beta.20",
     "@docusaurus/theme-search-algolia": "2.0.0-beta.20",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
     "@loadable/component": "5.15.2",
     "@mdx-js/react": "1.6.22",
     "clsx": "1.1.1",

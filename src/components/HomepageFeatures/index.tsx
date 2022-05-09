@@ -1,10 +1,21 @@
 import React from 'react';
 import clsx from 'clsx';
 import Translate, {translate} from '@docusaurus/Translate';
-import loadable from '@loadable/component';
-const SvgZsh = loadable(() => import('@site/static/img/svg/zsh.svg'));
-const SvgTurbo = loadable(() => import('@site/static/img/svg/turbo.svg'));
-const SvgStats = loadable(() => import('@site/static/img/svg/stats.svg'));
+const Turbo = () => (
+  <span className="fa-6x">
+    <i className="fa-solid fa-forward"></i>
+  </span>
+);
+const Stats = () => (
+  <span className="fa-8x">
+    <i className="fa-solid fa-ranking-star"></i>
+  </span>
+);
+const Create = () => (
+  <span className="fa-6x">
+    <i className="fa-solid fa-layer-group"></i>
+  </span>
+);
 import styles from './styles.module.css';
 
 type FeatureItem = {
@@ -20,7 +31,7 @@ const FeatureList: FeatureItem[] = [
       message: 'Zsh Startup 50-80% Faster',
       description: 'Title of feature 1 (left) on the home page',
     }),
-    Svg: SvgTurbo,
+    Svg: Turbo,
     description: (
       <Translate
         id="home.fetaure1"
@@ -37,7 +48,7 @@ const FeatureList: FeatureItem[] = [
       message: 'Focus on What Matters',
       description: 'Title of feature 2 (middle) on the home page',
     }),
-    Svg: SvgStats,
+    Svg: Stats,
     description: (
       <Translate
         id="home.fetaure2"
@@ -54,7 +65,7 @@ const FeatureList: FeatureItem[] = [
       message: 'Wide Range of Features',
       description: 'Title of feature 3 (right) on the home page',
     }),
-    Svg: SvgZsh,
+    Svg: Create,
     description: (
       <Translate
         id="home.fetaure3"
@@ -71,11 +82,11 @@ function Feature({title, Svg, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.svgImg} role="img" />
+        <Svg className={styles.faBorder} role="img" />
       </div>
       <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
+        <h3 className="fa-solid fa-1x">{title}</h3>
+        <p className={styles.faBorder}>{description}</p>
       </div>
     </div>
   );
