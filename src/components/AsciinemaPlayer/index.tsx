@@ -31,7 +31,11 @@ const AsciinemaPlayer: React.FC<AsciinemaPlayerProps> = ({
     AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
   }, [src]);
 
-  return <span className="asciinema-player-wrapper" ref={ref} />;
+  return (
+    <div className="container">
+      <div className="asciinema-player" ref={ref} />
+    </div>
+  );
 };
 
 export default AsciinemaPlayer;
