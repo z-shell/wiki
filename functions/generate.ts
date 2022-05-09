@@ -5,9 +5,9 @@ async function generateSignedUrl(url) {
   const key = await crypto.subtle.importKey(
     'raw',
     secretKeyData,
-    { name: 'HMAC', hash: 'SHA-256' },
+    {name: 'HMAC', hash: 'SHA-256'},
     false,
-    ['sign']
+    ['sign'],
   );
 
   // Signed requests expire after one minute. Note that you could choose
@@ -24,7 +24,11 @@ async function generateSignedUrl(url) {
   // concatenating the values.
   const dataToAuthenticate = `${url.pathname}@${expiry}`;
 
-  const mac = await crypto.subtle.sign('HMAC', key, encoder.encode(dataToAuthenticate));
+  const mac = await crypto.subtle.sign(
+    'HMAC',
+    key,
+    encoder.encode(dataToAuthenticate),
+  );
 
   // `mac` is an ArrayBuffer, so you need to make a few changes to get
   // it into a ByteString, and then a Base64-encoded string.
@@ -36,7 +40,7 @@ async function generateSignedUrl(url) {
   return new Response(url);
 }
 
-addEventListener('fetch', event => {
+addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
   const prefix = '/generate/';
   if (url.pathname.startsWith(prefix)) {

@@ -23,15 +23,15 @@ async function verifyAndFetch(request) {
 
   // Make sure you have the minimum necessary query parameters.
   if (!url.searchParams.has('mac') || !url.searchParams.has('expiry')) {
-    return new Response('Missing query parameter', { status: 403 });
+    return new Response('Missing query parameter', {status: 403});
   }
 
   const key = await crypto.subtle.importKey(
     'raw',
     secretKeyData,
-    { name: 'HMAC', hash: 'SHA-256' },
+    {name: 'HMAC', hash: 'SHA-256'},
     false,
-    ['verify']
+    ['verify'],
   );
 
   // Extract the query parameters we need and run the HMAC algorithm on the
@@ -56,17 +56,17 @@ async function verifyAndFetch(request) {
     'HMAC',
     key,
     receivedMac,
-    encoder.encode(dataToAuthenticate)
+    encoder.encode(dataToAuthenticate),
   );
 
   if (!verified) {
     const body = 'Invalid MAC';
-    return new Response(body, { status: 403 });
+    return new Response(body, {status: 403});
   }
 
   if (Date.now() > expiry) {
     const body = `URL expired at ${new Date(expiry)}`;
-    return new Response(body, { status: 403 });
+    return new Response(body, {status: 403});
   }
 
   // you have verified the MAC and expiration time; you can now pass the request
@@ -74,6 +74,6 @@ async function verifyAndFetch(request) {
   return fetch(request);
 }
 
-addEventListener('fetch', event => {
+addEventListener('fetch', (event) => {
   event.respondWith(verifyAndFetch(event.request));
 });

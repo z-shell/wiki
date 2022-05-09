@@ -36,7 +36,7 @@ const DEFAULT_SECURITY_HEADERS = {
   'Cross-Origin-Resource-Policy': 'same-site',
 };
 const BLOCKED_HEADERS = ['Public-Key-Pins', 'X-Powered-By', 'X-AspNet-Version'];
-addEventListener('fetch', event => {
+addEventListener('fetch', (event) => {
   event.respondWith(addHeaders(event.request));
 });
 async function addHeaders(req) {
@@ -45,7 +45,10 @@ async function addHeaders(req) {
 
   const tlsVersion = req.cf.tlsVersion;
   // This sets the headers for HTML responses:
-  if (newHeaders.has('Content-Type') && !newHeaders.get('Content-Type').includes('text/html')) {
+  if (
+    newHeaders.has('Content-Type') &&
+    !newHeaders.get('Content-Type').includes('text/html')
+  ) {
     return new Response(response.body, {
       status: response.status,
       statusText: response.statusText,
@@ -62,7 +65,9 @@ async function addHeaders(req) {
   });
 
   if (tlsVersion !== 'TLSv1.2' && tlsVersion !== 'TLSv1.3') {
-    return new Response('You need to use TLS version 1.2 or higher.', { status: 400 });
+    return new Response('You need to use TLS version 1.2 or higher.', {
+      status: 400,
+    });
   } else {
     return new Response(response.body, {
       status: response.status,

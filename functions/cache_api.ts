@@ -13,7 +13,7 @@ async function handleRequest(event) {
 
   if (!response) {
     console.log(
-      `Response for request url: ${request.url} not present in cache. Fetching and caching request.`
+      `Response for request url: ${request.url} not present in cache. Fetching and caching request.`,
     );
     // If not in cache, get it from origin
     response = await fetch(request);
@@ -37,7 +37,7 @@ async function handleRequest(event) {
   return response;
 }
 
-addEventListener('fetch', event => {
+addEventListener('fetch', (event) => {
   try {
     const request = event.request;
     return event.respondWith(handleRequest(event));
