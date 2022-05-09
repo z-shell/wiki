@@ -14,6 +14,8 @@ import ZGitImg from '@site/static/img/png/z_git.png';
 
 <Image className="ScreenView" img={ZGitImg} />
 
+<iframe className="videoContainer" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="https://asciinema.org/a/113463/iframe"></iframe>
+
 [![Z-Shell Organization Stats](https://github.zshell.dev/.github/metrics.svg#center)](https://github.com/z-shell)
 
 <Tabs>

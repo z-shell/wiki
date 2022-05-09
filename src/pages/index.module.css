@@ -6,20 +6,17 @@
   padding: 2rem 0;
   width: 100%;
 }
-
 @media screen and (max-width: 966px) {
   .heroBanner {
     padding: 1rem 0;
   }
 }
-
 .tagline {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 1rem;
 }
-
 @media only screen and (max-width: 996px) {
   .videoContainer {
     position: relative;
@@ -27,13 +24,5 @@
     width: 100%;
     max-width: 560px;
     margin: 0 auto;
-  }
-
-  .videoContainer iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
   }
 }

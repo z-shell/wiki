@@ -40,8 +40,8 @@ addEventListener('fetch', (event) => {
   event.respondWith(addHeaders(event.request));
 });
 async function addHeaders(req) {
-  let response = await fetch(req);
-  let newHeaders = new Headers(response.headers);
+  const response = await fetch(req);
+  const newHeaders = new Headers(response.headers);
 
   const tlsVersion = req.cf.tlsVersion;
   // This sets the headers for HTML responses:
