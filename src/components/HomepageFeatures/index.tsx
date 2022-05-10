@@ -2,18 +2,18 @@ import React from 'react';
 import clsx from 'clsx';
 import Translate, {translate} from '@docusaurus/Translate';
 const Turbo = () => (
-  <div class="fa-5x">
-    <i class="fa-solid fa-forward"></i>
+  <div className="fa-5x">
+    <i className="fa-solid fa-forward"></i>
   </div>
 );
 const Stats = () => (
-  <div class="fa-6x">
-    <i class="fa-solid fa-ranking-star"></i>
+  <div className="fa-6x">
+    <i className="fa-solid fa-ranking-star"></i>
   </div>
 );
 const Create = () => (
-  <div class="fa-5x">
-    <i class="fa-solid fa-layer-group"></i>
+  <div className="fa-5x">
+    <i className="fa-solid fa-layer-group"></i>
   </div>
 );
 import styles from './styles.module.css';
@@ -86,10 +86,10 @@ function Feature({title, Svg, description}: FeatureItem) {
       </div>
       <div className="text--center padding-horiz--md">
         <h3>
-          <i class="fa-solid fa-sm">{title}</i>
+          <i className="fa-solid fa-sm">{title}</i>
         </h3>
         <p className="styles.faBorder">
-          <i class="fa-sm">{description}</i>
+          <i className="fa-sm">{description}</i>
         </p>
       </div>
     </div>
