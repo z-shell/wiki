@@ -23,7 +23,7 @@ jobs:
       check-mode: ''
       arguments: ''
       call_arguments: 'npm i -g pnpm && pnpm i -r'
-      RUN_SHELL: ''
+      shell: ''
       RUN_NODE: ''
       RUN_NODE_VERSION: ''
       RUN_NODE_ARGS: ''
