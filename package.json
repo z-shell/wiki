@@ -60,7 +60,7 @@
     "prop-types": "15.8.1",
     "typescript": "4.6.4",
     "webpack": "5.72.1",
-    "wrangler": "2.0.1"
+    "wrangler": "2.0.2"
   },
   "peerDependencies": {
     "@types/react": "^18.0.9",
