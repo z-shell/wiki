@@ -147,7 +147,7 @@ img[src$='#center'] {
 img[src$='#asciicast'] {
   display: block;
   margin: 0.7rem auto;
-  width: 80%;
+  max-width: 100%;
 }
 
 img[src$='#floatleft'] {

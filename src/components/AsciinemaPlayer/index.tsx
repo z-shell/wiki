@@ -31,5 +31,5 @@ export default function AsciinemaPlayer({
     AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
   }, [src]);
 
-  return <div className="asciinema-player" ref={ref} />;
+  return <div className="asciinema-slim" ref={ref} />;
 }
