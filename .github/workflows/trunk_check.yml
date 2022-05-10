@@ -17,14 +17,18 @@ jobs:
     #    secrets:
     #      trunk_token: ${{ secrets.TRUNK_TOKEN }}
     with:
-      #      trunk_path: ''
-      #      cache: ''
-      upload-series: 'main'
-      check-mode: 'all'
-      arguments: ''
-      call_arguments: 'npm i -g pnpm && pnpm i -r'
+      get_dependencies: 'sudo apt update && sudo apt install -yq zsh'
+#      call_arguments1: ''
+#      call_arguments2: ''
+#      call_arguments3: ''
 #      shell: ''
 #      RUN_NODE: ''
 #      RUN_NODE_VERSION: ''
 #      RUN_NODE_ARGS: ''
+    
+      #      trunk_path: ''
+      #      cache: ''
+      upload-series: 'main'
+      check-mode: 'all'
+#      arguments: ''
 
