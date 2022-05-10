@@ -17,14 +17,14 @@ jobs:
 #    secrets:
 #      trunk_token: ${{ secrets.TRUNK_TOKEN }}
     with:
-      trunk_path: ''
-      cache: ''
-      upload-series: ''
-      check-mode: ''
+#      trunk_path: ''
+#      cache: ''
+      upload-series: 'main'
+      check-mode: 'all'
       arguments: ''
       call_arguments: 'npm i -g pnpm && pnpm i -r'
-      shell: ''
-      RUN_NODE: ''
-      RUN_NODE_VERSION: ''
-      RUN_NODE_ARGS: ''
+#      shell: ''
+#      RUN_NODE: ''
+#      RUN_NODE_VERSION: ''
+#      RUN_NODE_ARGS: ''
 
