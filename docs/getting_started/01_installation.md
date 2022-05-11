@@ -15,7 +15,7 @@ keywords:
 If required append `-b <tag>` or `-b <branch>` e.g:
 
 ```shell
-sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -i skip -b main
+sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip -b main
 ```
 
 :::
@@ -23,31 +23,31 @@ sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -i skip -b main
 ### <i class="fa-solid fa-code"></i> Minimal configuration
 
 ```shell
-sh -c "$(curl -fsSL https://zsh.pages.dev/i)" --
+sh -c "$(curl -fsSL https://git.io/get-zi)" --
 ```
 
 ### <i class="fa-solid fa-code-compare"></i> Only update / install repository
 
 ```shell
-sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -i skip
+sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip
 ```
 
 ### <i class="fa-solid fa-code-branch"></i> Minimal configuration + <a href="/ecosystem/annexes">annexes</a>
 
 ```shell
-sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -a annex
+sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a annex
 ```
 
 ### <i class="fa-solid fa-code-fork"></i> Minimal configuration + <a href="/ecosystem/annexes">annexes</a> + <a href="https://github.com/zdharma/zunit">zdharma/zunit</a>
 
 ```shell
-sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -a zunit
+sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zunit
 ```
 
 ### <i class="fa-solid fa-gears"></i> Minimal configuration with loader
 
 ```shell
-sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -a loader
+sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a loader
 ```
 
 The default location for loader: `$HOME/.config/zi`.
@@ -61,7 +61,10 @@ fi
 
 :::tip
 
-The loader can be manually fetched from `https://github.com/z-shell/zi-src/blob/main/lib/zsh/init.zsh` to any location on the system, and sourced from `.zshrc`.
+The loader can be manually fetched from links below to any location on the system, and sourced from `.zshrc`.
+
+- https://git.io/zi-loader
+- https://github.com/z-shell/zi-src/blob/main/lib/zsh/init.zsh
 
 :::
 
@@ -83,7 +86,7 @@ git clone https://github.com/z-shell/zi.git "${zi_home}/bin"
 
 Source `zi.zsh` in your `.zshrc` from previously created directory:
 
-```shell
+```shell showLineNumbers
 zi_home="${HOME}/.zi"
 source "${zi_home}/bin/zi.zsh"
 ```
@@ -118,7 +121,7 @@ Let's glue everything together to create a toolchain that works for US 🚀.
 ### <i class="fa-solid fa-list-check"></i> Suggest your configuration: <a href="https://github.com/z-shell/playground">z-shell/playground</a>
 
 ```shell
-sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -a ???
+sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a ???
 ```
 
 ## <i class="fas fa-sync-alt fa-spin"></i> Need warm-up?
@@ -150,7 +153,7 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 ### <i class="fa-solid fa-compass-drafting"></i> Without ZI
 
 ```shell
-sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -a zpmod
+sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
 ```
 
 ### <i class="fa-solid fa-screwdriver-wrench"></i> With ZI
@@ -176,19 +179,18 @@ typeset -g ZI_MOD_DEBUG=1
 
 [⚙️ Install Library: :heavy_check_mark:][2] | [Status page: :heavy_check_mark:](https://status.zshell.dev/)
 
-| Service           | URL                                                                       |
-| :---------------- | ------------------------------------------------------------------------- |
-| [Source][3]:      | <https://src.zshell.dev/i>                                                |
-| [Source RAW][12]: | <https://raw.zshell.dev/lib/sh/install.sh>                                |
-| [IPFS][11]        | <https://ipfs.zshell.dev/lib/sh/install.sh>                               |
-| [Gitee][1]:       | <https://z.digitalclouds.dev/i-tee>                                       |
-| [GitHub][4]:      | <https://z.digitalclouds.dev/i-hub>                                       |
-| [GitLab][5]:      | <https://z.digitalclouds.dev/i-lab>                                       |
-| [Direct][6]:      | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
+| Service          | URL                                                                       |
+| :--------------- | ------------------------------------------------------------------------- |
+| [Source RAW][3]: | <https://raw.zshell.dev/lib/sh/install.sh>                                |
+| [IPFS][11]       | <https://ipfs.zshell.dev/lib/sh/install.sh>                               |
+| [Gitee][1]:      | <https://z.digitalclouds.dev/i-tee>                                       |
+| [GitHub][4]:     | <https://z.digitalclouds.dev/i-hub>                                       |
+| [GitLab][5]:     | <https://z.digitalclouds.dev/i-lab>                                       |
+| [Direct][6]:     | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
 [1]: https://z.digitalclouds.dev/i-tee
 [2]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml
-[3]: https://src.zshell.dev/i
+[3]: https://raw.zshell.dev/lib/sh/install.sh
 [4]: https://z.digitalclouds.dev/i-hub
 [5]: https://z.digitalclouds.dev/i-lab
 [6]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
@@ -197,4 +199,3 @@ typeset -g ZI_MOD_DEBUG=1
 [9]: https://github.com/orgs/z-shell/discussions/new
 [10]: https://digitalclouds.crowdin.com/z-shell
 [11]: https://ipfs.io
-[12]: https://raw.zshell.dev/lib/sh/install.sh
