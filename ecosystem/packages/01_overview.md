@@ -11,6 +11,24 @@ keywords:
   - zi-package
 ---
 
+The motivation for adding packages functionality:
+
+1. ZI is a flexible plugin manager, however, users often feel overwhelmed by its configuration.
+
+2. It has multiple package-manager -like features, such as:
+
+   - get the plugin's Git repository OR release-package URL,
+   - get the list of the recommended ices for the plugin,
+        there can be multiple lists of ices,
+        the ice lists are stored in profiles; there's at least one profile, default,
+        the ices can be selectively overridden.
+   - automatically provide so-called shims (i.e.: forwarder scripts) for the binaries,
+   - extend `$PATH` to expose the binaries,
+   - it can run `Makefiles` and more.
+
+3. In general, ZI has many hooks which allow surprising things, however, their content often evolves to a gradually
+   better one and it's hard to keep track of all the current versions.
+
 :::info
 
 The [bin-gem-node][3] is required. Otherwise, some packages will fail to install due to missing functionality.
@@ -45,24 +63,6 @@ Shims are correctly removed when deleting a plugin with `zi delete …`
 The so-called packages are GitHub repositories holding a `package.json` file with the meta-data in them.
 
 This way you don't have to (but still can) specify ices, which might be handy when the ice-mod list is long and complex.
-
-## Motivation behind packages
-
-The motivation for adding such functionality was:
-
-1. ZI is a flexible plugin manager, however, users often feel overwhelmed by its configuration.
-
-2. It has multiple package-manager -like features, such as:
-
-   - it can run `Makefiles`,
-   - automatically provide shims (i.e.: forwarder scripts) for the binaries,
-   - extend `$PATH` to expose the binaries, and more.
-
-3. In general, ZI has many hooks which allow surprising things, however, their content often evolves to a gradually
-   better and better one and it's hard to keep track of the current version of them.
-
-4. So a solution appeared: why not publish a package at GitHub with the plugin configurations (i.e.: [ice modifiers][3]
-   stored in a file?
 
 ## Introductory example
 
