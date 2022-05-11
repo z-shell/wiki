@@ -50,8 +50,7 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zunit
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a loader
 ```
 
-The default location for loader: `$HOME/.config/zi`.
-The loader is automatically added by the installer unless conflicting commands are detected in the `.zshrc` file, the installer will skip it and the snippet have to be added manually.
+The installer will download loader and add snippet below to the `.zshrc` file.
 
 ```shell showLineNumbers
 if [[ -r "${XDG_CONFIG_HOME:-$HOME/.config}/zi/init.zsh" ]]; then
