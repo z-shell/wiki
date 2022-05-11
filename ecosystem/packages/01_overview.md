@@ -18,10 +18,10 @@ The motivation for adding packages functionality:
 2. It has multiple package-manager -like features, such as:
 
    - get the plugin's Git repository OR release-package URL,
-   - get the list of the recommended ices for the plugin,
-        there can be multiple lists of ices,
-        the ice lists are stored in profiles; there's at least one profile, default,
-        the ices can be selectively overridden.
+   - get the list of the recommended **ices** for the plugin,
+     - there can be multiple lists of ices,
+     - the ice lists are stored in profiles; there's at least one profile, default,
+     - the ices can be selectively overridden.
    - automatically provide so-called shims (i.e.: forwarder scripts) for the binaries,
    - extend `$PATH` to expose the binaries,
    - it can run `Makefiles` and more.

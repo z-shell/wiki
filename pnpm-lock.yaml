@@ -7,6 +7,7 @@ overrides:
 specifiers:
   '@algolia/client-search': 4.13.0
   '@babel/core': 7.17.10
+  '@cloudflare/workers-types': ^3.10.0
   '@docusaurus/core': 0.0.0-4998
   '@docusaurus/module-type-aliases': 0.0.0-4998
   '@docusaurus/plugin-ideal-image': 0.0.0-4998
@@ -58,6 +59,7 @@ dependencies:
 devDependencies:
   '@algolia/client-search': 4.13.0
   '@babel/core': 7.17.10
+  '@cloudflare/workers-types': 3.10.0
   '@docusaurus/module-type-aliases': 0.0.0-4998_sfoxds7t5ydpegc3knd667wn6m
   '@loadable/babel-plugin': 5.13.2_@babel+core@7.17.10
   '@tsconfig/docusaurus': 1.0.5
@@ -194,7 +196,7 @@ packages:
     engines: {node: '>=6.0.0'}
     dependencies:
       '@jridgewell/gen-mapping': 0.1.1
-      '@jridgewell/trace-mapping': 0.3.11
+      '@jridgewell/trace-mapping': 0.3.12
 
   /@apideck/better-ajv-errors/0.3.3_ajv@8.11.0:
     resolution: {integrity: sha512-9o+HO2MbJhJHjDYZaDxJmSDckvDpiuItEsrIShV0DXeCshXWRHhqYyU/PKHMkuClOmFnZhRd6wzv4vpDu/dRKg==}
@@ -1514,6 +1516,10 @@ packages:
       '@babel/helper-validator-identifier': 7.16.7
       to-fast-properties: 2.0.0
 
+  /@cloudflare/workers-types/3.10.0:
+    resolution: {integrity: sha512-gn+H5Ps9yV1VYz8FJ08bMfXLW8ubNblRF9Z+m+0ctNMyl3CdoZmUfH1pMTxYE8SMUJbLxuNvpdlZhwLDoGFXaw==}
+    dev: true
+
   /@colors/colors/1.5.0:
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
     engines: {node: '>=0.1.90'}
@@ -2397,8 +2403,8 @@ packages:
   /@jridgewell/sourcemap-codec/1.4.13:
     resolution: {integrity: sha512-GryiOJmNcWbovBxTfZSF71V/mXbgcV3MewDe3kIMCLyIh5e7SKAeUZs+rMnJ8jkMolZ/4/VsdBmMrw3l+VdZ3w==}
 
-  /@jridgewell/trace-mapping/0.3.11:
-    resolution: {integrity: sha512-RllI476aSMsxzeI9TtlSMoNTgHDxEmnl6GkkHwhr0vdL8W+0WuesyI8Vd3rBOfrwtPXbPxdT9ADJdiOKgzxPQA==}
+  /@jridgewell/trace-mapping/0.3.12:
+    resolution: {integrity: sha512-6GMdw8fZlZjs9CJONrWeWyjl8zYqbyOMSxS9FABnEw3i+wz99SESjWMWRRIsbIp8HVsMeXggi5b7+a9qO6W1fQ==}
     dependencies:
       '@jridgewell/resolve-uri': 3.0.7
       '@jridgewell/sourcemap-codec': 1.4.13
