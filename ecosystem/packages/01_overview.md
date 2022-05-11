@@ -13,12 +13,12 @@ keywords:
 
 The motivation for adding packages functionality:
 
-1. ZI is a flexible plugin manager, however, users often feel overwhelmed by its configuration.
+1. ZI is a flexible and feature-rich plugin manager, however, users often feel overwhelmed by its configuration.
 
-2. It has multiple package-manager -like features, such as:
+2. It has multiple package-manager like features, such as:
 
    - get the plugin's Git repository OR release-package URL,
-   - get the list of the recommended **ices** for the plugin,
+   - get the list of the recommended [ices][7] for the plugin,
      - there can be multiple lists of ices,
      - the ice lists are stored in profiles; there's at least one profile, default,
      - the ices can be selectively overridden.
@@ -31,7 +31,7 @@ The motivation for adding packages functionality:
 
 :::info
 
-The [bin-gem-node][3] is required. Otherwise, some packages will fail to install due to missing functionality.
+The [bin-gem-node][3] annex is recommended, otherwise some packages will fail to install due to missing functionality.
 
 :::
 
@@ -150,3 +150,4 @@ official man page).
 [4]: /docs/guides/ice-modifiers
 [5]: https://github.com/z-shell/ecs-cli
 [6]: https://github.com/z-shell
+[7]: docs/guides/syntax/ice
