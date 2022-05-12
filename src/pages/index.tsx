@@ -21,7 +21,7 @@ function HomepageHeader() {
               rows={29}
               speed={1.5}
               idleTimeLimit={2}
-              preload={true}
+              preload
             />
           </div>
         </div>
