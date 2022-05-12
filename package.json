@@ -67,7 +67,7 @@
     "@types/react": "^18.0.9",
     "prop-types": "^15.8.1"
   },
-  "packageManager": "pnpm@7.0.1",
+  "packageManager": "pnpm@7.1.0",
   "pnpm": {
     "peerDependencyRules": {
       "allowedVersions": {
