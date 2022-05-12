@@ -27,6 +27,7 @@
   --ifm-navbar-background-color: var(--ifm-background-surface-color);
   --site-color-tooltip: #fff;
   --site-color-favorite-background: #f6fdfd;
+
   transition: 0.8s all;
 }
 
@@ -49,7 +50,7 @@ html[data-theme='dark'] {
 .navbar--dark {
   --ifm-navbar-background-color: #161b22;
   --ifm-navbar-link-hover-color: var(--ifm-color-primary);
-  --ifm-menu-color-background-active: rgba(255, 255, 255, 0.05);
+  --ifm-menu-color-background-active: rgb(255 255 255 / 5%);
   --ifm-navbar-search-input-color: var(--ifm-color-white);
 }
 
@@ -58,6 +59,7 @@ html[data-theme='dark'] {
   --ifm-footer-color: var(--ifm-footer-link-color);
   --ifm-footer-link-color: var(--ifm-color-secondary);
   --ifm-footer-title-color: var(--ifm-color-white);
+
   font-weight: bold;
 }
 

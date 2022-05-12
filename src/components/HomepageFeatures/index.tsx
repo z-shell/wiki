@@ -82,13 +82,13 @@ function Feature({title, Svg, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className="styles.faBorder" role="img" />
+        <Svg className="styles.faborder" role="img" />
       </div>
       <div className="text--center padding-horiz--md">
         <h3>
           <i className="fa-solid fa-sm">{title}</i>
         </h3>
-        <p className="styles.faBorder">
+        <p className="styles.faborder">
           <i className="fa-sm">{description}</i>
         </p>
       </div>

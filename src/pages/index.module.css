@@ -1,4 +1,4 @@
-.heroBanner {
+.herobanner {
   display: flex;
   align-items: center;
   position: relative;
@@ -7,17 +7,18 @@
   width: 100%;
 }
 @media screen and (max-width: 966px) {
-  .heroBanner {
+  .herobanner {
     padding: 1rem 0;
   }
 }
+
 .tagline {
   align-items: center;
   justify-content: center;
   margin-top: 1rem;
 }
 
-.videoContainer {
+.aplayer {
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -26,7 +27,7 @@
 }
 
 @media only screen and (max-width: 996px) {
-  .videoContainer {
+  .aplayer {
     position: relative;
     overflow: hidden;
     width: 100%;

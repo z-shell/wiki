@@ -4,13 +4,15 @@
   padding: 2rem 0;
   width: 100%;
 }
-.faBorder {
+
+.faborder {
   --fa-border-color: inherit;
   --fa-border-padding: 0.5em;
   --fa-border-radius: 100%;
   --fa-border-style: dotted;
   --fa-border-width: 0.5em;
 }
+
 @media screen and (max-width: 966px) {
   .features {
     padding: 1rem 0;
