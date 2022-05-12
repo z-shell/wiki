@@ -6,6 +6,7 @@ description: Complete options from manual pages – press Ctrl-F to start the co
 keywords:
   - zzcomplete
   - completion
+  - zsh-completion
 ---
 
 - [z-shell/zzcomplete](https://github.com/z-shell/zzcomplete)
@@ -34,10 +35,8 @@ You can resize the video by pressing <kbd>Ctrl-+</kbd> or <kbd>Cmd-+</kbd>.
 :::
 
 <a href="https://asciinema.org/a/293365">
-  <img className="ScreenView" src="https://asciinema.org/a/293365.svg" async alt="ZZ Complete view on Asciinema" />
+  <img className="ScreenView" src="https://asciinema.org/a/293365.svg#center" alt="ZZ Complete view on Asciinema" />
 </a>
-
-Video source: [Asciinema](https://asciinema.org/a/293365)
 
 ---
 
@@ -89,7 +88,7 @@ zgen load z-shell/zzcomplete
 
 Clone the Repository.
 
-```shell
+```shell showLineNumbers
 git clone https://github.com/z-shell/zzcomplete.git \
   ~ZSH_CUSTOM/plugins/zzcomplete
 ```

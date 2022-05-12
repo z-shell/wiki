@@ -8,12 +8,13 @@ description: Plugins & Modules Introduction
 keywords:
   - plugins
   - modules
+  - zmodules
   - zsh-plugins
 ---
 
 ## Zpmod
 
-- [z-shell/zpmod][1] [![👾 CodeQL][2]][2-1]
+- [z-shell/zpmod][1]
 
 The module is a binary Zsh module, think about `zmodload` Zsh command, it's that topic, which transparently and
 automatically **compiles sourced scripts**.
@@ -27,21 +28,21 @@ Install just the **standalone** binary which can be used with any other plugin m
 
 :::note
 
-This script can be used with most plugin managers and [ZI][3] is not required.
+This script can be used with most plugin managers and [ZI][2] is not required.
 
 :::
 
 ```shell
-sh -c "$(curl -fsSL https://zsh.pages.dev/i)" -- -a zpmod
+sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
 ```
 
 This script will display what to add to `~/.zshrc` (2 lines) and show usage instructions.
 
-### With [ZI][3]
+### With [ZI][2]
 
 :::tip
 
-[ZI][3] users can build the module by issuing the following command instead of running the above `build.sh` script.
+[ZI][2] users can build the module by issuing the following command instead of running the above `build.sh` script.
 
 :::
 
@@ -73,7 +74,7 @@ typeset -g ZI_MOD_DEBUG=1
 
 ## Zgdbm
 
-- [z-shell/zgdbm][4]
+- [z-shell/zgdbm][3]
 
 Provides GDBM module as plugin
 
@@ -87,7 +88,7 @@ Change the values before loading zgdbm plugin.
 
 :::
 
-```shell title="~/.zshrc"
+```shell title="~/.zshrc" showLineNumers
 zstyle ":plugin:zgdbm" cppflags "-I/usr/local/include"  # Additional include directory
 zstyle ":plugin:zgdbm" cflags "-Wall -O2 -g"            # Additional CFLAGS
 zstyle ":plugin:zgdbm" ldflags "-L/usr/local/lib"       # Additional library directory
@@ -98,7 +99,5 @@ zi light z-shell/zgdbm
 ```
 
 [1]: https://github.com/z-shell/zpmod
-[2]: https://github.com/z-shell/zpmod/actions/workflows/codeql-analysis.yml/badge.svg
-[2-1]: https://github.com/z-shell/zpmod/actions/workflows/codeql-analysis.yml
-[3]: https://github.com/z-shell/zi
-[4]: https://github.com/z-shell/zgdbm
+[2]: https://github.com/z-shell/zi
+[3]: https://github.com/z-shell/zgdbm

@@ -114,8 +114,7 @@ Highlighting that is specific for a given command.
     alt="image could not be loaded"
   />
 
-The [chromas](https://github.com/z-shell/F-Sy-H/tree/main/→chroma)
-that are enabled by default can be found [here](https://github.com/z-shell/F-Sy-H/blob/main/fast-highlight#L166).
+The [chromas](https://github.com/z-shell/F-Sy-H/tree/main/→chroma) that are enabled by default can be found [here](https://github.com/z-shell/F-Sy-H/blob/main/fast-highlight#L166).
 
 <img
     src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/math.gif"
@@ -139,17 +138,15 @@ Performance differences can be observed in this Asciinema recording, where a `10
 
 ## Theme Guide for F-Sy-H
 
-`fast-theme` tool is used to select a theme. There are 6 shipped themes, they can be listed with `fast-theme -l`.
-Themes are basic [INI files](https://github.com/z-shell/fast-syntax-highlighting/tree/main/themes) where each
-key is a _style_.
-Besides shipped themes, user can point this tool to any other theme, by simple `fast-theme ~/mytheme.ini`. To
-obtain template to work on when creating own theme, issue `fast-theme --copy-shipped-theme {theme-name}`.
+`fast-theme` tool is used to select a theme. There are 6 shipped themes, they can be listed with `fast-theme -l`. Themes are basic [INI files](https://github.com/z-shell/fast-syntax-highlighting/tree/main/themes) where each key is a _style_.
+
+Besides shipped themes, user can point this tool to any other theme, by simple `fast-theme ~/mytheme.ini`. To obtain template to work on when creating own theme, issue `fast-theme --copy-shipped-theme {theme-name}`.
 
 To alter just a few styles and not create a whole new theme, use **overlay**. What is overlay? It is in the same
 format as full theme, but can have only a few styles defined, and these styles will overwrite styles in main-theme.
 Example overlay file:
 
-```ini
+```ini showLineNumbers
 ; overlay.ini
 [base]
 commandseparator = yellow,bold
@@ -164,21 +161,20 @@ File name `overlay.ini` is treated specially.
 
 When specifing path, following short-hands can be used:
 
-```C++
+```C++ showLineNumbers
 XDG:    = ~/.config/fsh (respects $XDG_CONFIG_HOME env var)
 LOCAL:  = /usr/local/share/fsh/
 HOME:   = ~/.fsh/
 OPT:    = /opt/local/share/fsh/
 ```
 
-So for example, issue `fast-theme XDG:overlay` to load `~/.config/fsh/overlay.ini` as overlay. The `.ini`
-extension is optional.
+So for example, issue `fast-theme XDG:overlay` to load `~/.config/fsh/overlay.ini` as overlay. The `.ini` extension is optional.
 
 ### Secondary Theme
 
 Each theme has key `secondary`, e.g. for theme `free`:
 
-```ini
+```ini showLineNumbers
 ; free.ini
 [base]
 default          = none
@@ -189,29 +185,21 @@ unknown-token    = red,bold
 secondary        = zdharma
 ```
 
-Secondary theme (`zdharma` in the example) will be used for highlighting of argument for `eval`
-and of `$( ... )` interior (i.e. of interior of command substitution). Basically, recursive highlighting uses alternate theme to make the highlighted code distinct:
+Secondary theme (`zdharma` in the example) will be used for highlighting of argument for `eval` and of `$( ... )` interior (i.e. of interior of command substitution). Basically, recursive highlighting uses alternate theme to make the highlighted code distinct:
 
 ![sshot](https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/cmdsubst.png)
 
-In the above screen-shot the interior of `$( ... )` uses different colors than the rest of the
-code. Example for `eval`:
+In the above screen-shot the interior of `$( ... )` uses different colors than the rest of the code. Example for `eval`:
 
 ![image](https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/eval_cmp.png)
 
-First line doesn't use recursive highlighting, highlights `eval` argument as regular string.
-Second line switches theme to `zdharma` and does full recursive highlighting of eval argument.
+First line doesn't use recursive highlighting, highlights `eval` argument as regular string. Second line switches theme to `zdharma` and does full recursive highlighting of eval argument.
 
 ### Custom Working Directory
 
-Set `$FAST_WORK_DIR` before loading the plugin to have e.g. processed theme files (ready to
-load, in Zsh format, not INI) kept under specified location. This is handy if e.g. you install
-Fast-Syntax-Highlighting system-wide (e.g. from AUR on ArchLinux) and want to have per-user
-theme setup.
+Set `$FAST_WORK_DIR` before loading the plugin to have e.g. processed theme files (ready to load, in Zsh format, not INI) kept under specified location. This is handy if e.g. you install Fast-Syntax-Highlighting system-wide (e.g. from AUR on ArchLinux) and want to have per-user theme setup.
 
-You can use "~" in the path, e.g. `FAST_WORK_DIR=~/.fsh` and also the `XDG:`, `LOCAL:`, `OPT:`,
-etc. short-hands, so e.g. `FAST_WORK_DIR=XDG` or `FAST_WORK_DIR=XDG:` is allowed (in this case
-it will be changed to `$HOME/.config/fsh` by default by F-Sy-H loader).
+You can use "~" in the path, e.g. `FAST_WORK_DIR=~/.fsh` and also the `XDG:`, `LOCAL:`, `OPT:`, etc. short-hands, so e.g. `FAST_WORK_DIR=XDG` or `FAST_WORK_DIR=XDG:` is allowed (in this case it will be changed to `$HOME/.config/fsh` by default by F-Sy-H loader).
 
 ## Chroma Guide for F-Sy-H
 
@@ -231,8 +219,7 @@ Someone might want to create a detailed highlighting for a **specific program** 
 
 ### Overview Of Functioning
 
-1. Big loop is working – token by token processes command line, changes states (e.g. enters state "inside case
-   statement") and in the end decides on color of the token currently processed.
+1. Big loop is working – token by token processes command line, changes states (e.g. enters state "inside case statement") and in the end decides on color of the token currently processed.
 
 2. Big loop occurs a command that has a chroma, e.g. `git`.
 
@@ -242,24 +229,19 @@ Someone might want to create a detailed highlighting for a **specific program** 
 
 5. "chroma" state is active, so all following tokens are routed to the chroma (in general skipping big-loop, see next items),
 
-6. When processing of a single token is complete, the associated chroma returns 0
-   (shell-truth) to request no further processing by the big loop.
+6. When processing of a single token is complete, the associated chroma returns 0 (shell-truth) to request no further processing by the big loop.
 
-7. It can also return 1 so that single, current token will be passed into big-loop
-   for processing (to do a standard highlighting).
+7. It can also return 1 so that single, current token will be passed into big-loop for processing (to do a standard highlighting).
 
 ### Chroma-Function Arguments
 
 - `$1` - 0 or 1, denoting if it's the first call to the chroma, or a following one,
 
-- `$2` - the current token, also accessible by `$\__arg` from the upper scope -
-  basically a private copy of `$__arg`; the token can be eg.: "grep",
+- `$2` - the current token, also accessible by `$\__arg` from the upper scope - basically a private copy of `$__arg`; the token can be eg.: "grep",
 
-- `$3` - a private copy of `$_start_pos`, i.e. the position of the token in the command line buffer, used to add region_highlight entry (see man),
-  because Zsh colorizes by \_ranges\* applied onto command line buffer (e.g. `from-10 to-13 fg=red`),
+- `$3` - a private copy of `$_start_pos`, i.e. the position of the token in the command line buffer, used to add region_highlight entry (see man), because Zsh colorizes by \_ranges\* applied onto command line buffer (e.g. `from-10 to-13 fg=red`),
 
-- `$4` - a private copy of `$_end_pos` from the upper scope; denotes where current token
-  ends (at which index in the string being the command line).
+- `$4` - a private copy of `$_end_pos` from the upper scope; denotes where current token ends (at which index in the string being the command line).
 
 So example invocation could look like this:
 
@@ -271,7 +253,7 @@ Big-loop will be doing such calls for the user, after occurring a specific chrom
 
 ### Example Chroma-Function
 
-```shell
+```shell showLineNumbers
 # -_- mode: sh; sh-indentation: 4; indent-tabs-mode: nil; sh-basic-offset: 4; -_-
 # Copyright (c) 2018 Sebastian Gniazdowski
 #
@@ -400,7 +382,7 @@ zi light z-shell/F-Sy-H
 
 Here's an example of how to load the plugin together with a few other popular ones with the use of [Turbo](https://z.digitalclouds.dev/docs/getting_started/overview#turbo-mode-zsh--53), i.e.: speeding up the Zsh startup by loading the plugin right after the first prompt, in background:
 
-```shell
+```shell showLineNumbers
 zi wait lucid for \
  atinit"ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
     z-shell/F-Sy-H \

@@ -2,7 +2,7 @@
 id: zprompts
 title: ⚙️ ZPrompts
 image: img/logo/320x320.png
-description: Zsh themes (prompts) that use original Zsh theming subsystem
+description: Zsh themes (prompts) that use original Zsh theming subsystem.
 keywords:
   - zsh-theme
   - zsh-prompt
@@ -13,8 +13,7 @@ import Image from '@theme/IdealImage'; import Asciinema1 from '@site/static/img/
 
 - [z-shell/zprompts][1]
 
-Zsh themes (prompts) that use original Zsh theming subsystem. To use first load the plugin with (or use a plugin
-manager):
+Zsh themes (prompts) that use original Zsh theming subsystem. To use first load the plugin with (or use a plugin manager):
 
 ```shell
 source {where-zprompts-is}/zprompts.plugin.zsh
@@ -22,7 +21,7 @@ source {where-zprompts-is}/zprompts.plugin.zsh
 
 and then invoke (to use theme `scala3`) e.g.:
 
-```shell
+```shell showLineNumbers
   promptinit
   prompt scala3
 ```
@@ -31,9 +30,9 @@ Please submit your prompt if you find a time to write the `prompt_NAME_setup` fi
 
 ## Help for the prompts
 
-Each prompt has its help available with `prompt -h {name}`, e.g. for the theme `scala`:
+Each prompt has its help available, e.g. for the theme `scala`:
 
-```shell
+```shell title="prompt -h scala"
 This prompt is themable. You can invoke it in following way:
 prompt scala <prompt, default is ":: "> <prompt color> <path color> <vcs info color>
 You can provide only N first arguments, N=1..4.
