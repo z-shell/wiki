@@ -85,10 +85,10 @@ function Feature({title, Svg, description}: FeatureItem) {
         <Svg className={styles.faborder} role="img" />
       </div>
       <div className="text--center padding-horiz--md">
-        <h3 className="fa-solid fa-sm">{title}</h3>
-        <div className={styles.faborder}>
-          <p className="fa-sm">{description}</p>
-        </div>
+        <div className="fa-solid">{title}</div>
+        <p className={styles.faborder}>
+          <i className="fa-1x">{description}</i>
+        </p>
       </div>
     </div>
   );
