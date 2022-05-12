@@ -41,4 +41,4 @@ jobs:
       cache: true
       upload-series: 'main'
       check-mode: 'all'
-      arguments: '--all --github-commit "$(git rev-parse HEAD)" --github-annotate'
+      arguments: '--github-annotate'
