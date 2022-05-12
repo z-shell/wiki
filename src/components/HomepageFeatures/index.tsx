@@ -1,22 +1,31 @@
 import React from 'react';
 import clsx from 'clsx';
 import Translate, {translate} from '@docusaurus/Translate';
-const Turbo = () => (
-  <div className="fa-5x">
-    <i className="fa-solid fa-forward"></i>
-  </div>
-);
-const Stats = () => (
-  <div className="fa-6x">
-    <i className="fa-solid fa-ranking-star"></i>
-  </div>
-);
-const Create = () => (
-  <div className="fa-5x">
-    <i className="fa-solid fa-layer-group"></i>
-  </div>
-);
 import styles from './styles.module.css';
+
+function Turbo() {
+  return (
+    <div className={'fa-5x'}>
+      <i className={'fa-solid fa-forward'} />
+    </div>
+  );
+}
+
+function Stats() {
+  return (
+    <div className={'fa-6x'}>
+      <i className={'fa-solid fa-ranking-star'} />
+    </div>
+  );
+}
+
+function Create() {
+  return (
+    <div className={'fa-5x'}>
+      <i className={'fa-solid fa-layer-group'} />
+    </div>
+  );
+}
 
 type FeatureItem = {
   title: string;
@@ -81,14 +90,12 @@ const FeatureList: FeatureItem[] = [
 function Feature({title, Svg, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.faborder} role="img" />
+      <div className={'text--center'}>
+        <Svg />
       </div>
-      <div className="text--center padding-horiz--md">
-        <div className="fa-solid">{title}</div>
-        <p className={styles.faborder}>
-          <i className="fa-1x">{description}</i>
-        </p>
+      <div className={'text--center padding-horiz--md'}>
+        <p className={'fa-solid'}>{title}</p>
+        <p className={'fa-regular'}>{description}</p>
       </div>
     </div>
   );

@@ -20,13 +20,13 @@ jobs:
       runs-on: 'ubuntu-latest'
 
       # Pass commands to install or prepare dependencies.
-      #get_dependencies: 'sudo apt update && sudo apt install -yq zsh'
+      get_dependencies: ''
 
       # Pass arguments to run before launching Trunk
-      #call_arguments0: ''
-      #call_arguments1: ''
-      #call_arguments2: ''
-      #call_arguments3: ''
+      call_arguments0: ''
+      call_arguments1: ''
+      call_arguments2: ''
+      call_arguments3: ''
 
       # Pass arguments to run on fail
       call_on_fail: ''
@@ -39,6 +39,6 @@ jobs:
       # TRUNK
       trunk_path: ''
       cache: true
-      upload-series: ''
+      upload-series: 'main'
       check-mode: 'all'
-      arguments: ''
+      arguments: '--all --github-commit "$(git rev-parse HEAD)" --github-annotate'
