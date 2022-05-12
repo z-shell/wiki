@@ -16,8 +16,6 @@ lint:
     - gitleaks@8.8.4
     - markdownlint@0.31.1
     - prettier@2.6.2
-    - stylelint@14.8.2
-    - stylelint-fmt@14.8.2
     - shfmt@3.4.0
   ignore:
     - linters: [ALL]
@@ -32,7 +30,3 @@ lint:
       paths:
         - '.github/workflows/sync-labels.yml'
         - '.github/workflows/trunk_check.yml'
-    - linters: [stylelint, stylelint-fmt]
-      paths:
-        - 'src/css/custom.css'
-        - 'src/components/AsciinemaPlayer/**'

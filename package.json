@@ -58,11 +58,7 @@
     "eslint-plugin-promise": "6.0.0",
     "eslint-plugin-react": "7.29.4",
     "husky": "8.0.1",
-    "postcss": "^8.3.3",
     "prop-types": "15.8.1",
-    "stylelint": "^14.8.2",
-    "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-standard": "^25.0.0",
     "typescript": "4.6.4",
     "webpack": "5.72.1",
     "wrangler": "2.0.2"
