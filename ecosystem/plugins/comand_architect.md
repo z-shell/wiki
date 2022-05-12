@@ -2,8 +2,7 @@
 id: zca
 title: ⚙️ Command Architect
 image: img/logo/320x320.png
-description:
-  Allows to copy segments of commands in history, rearrange segments of current command, delete segments of current command.
+description: Allows to copy segments of commands in history, rearrange segments of current command, delete segments of current command.
 keywords:
   - zsh-command-architect
   - zsh-plugin
