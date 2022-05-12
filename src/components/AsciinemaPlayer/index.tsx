@@ -1,6 +1,6 @@
-import * as AsciinemaPlayerLibrary from 'asciinema-player';
 import React, {useEffect, useRef} from 'react';
-import './asciinema-player.min.css';
+import * as AsciinemaPlayerLibrary from 'asciinema-player';
+import 'asciinema-player/bunlde/asciinema-player.css';
 
 type AsciinemaPlayerProps = {
   src: string;
