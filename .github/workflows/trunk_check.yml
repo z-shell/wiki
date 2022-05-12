@@ -1,34 +1,44 @@
 ---
-name: '⭕ Trunk'
+name: "⭕ Trunk"
 on:
   push:
-    branches: ['main']
-    tags: ['v*.*.*']
+    branches: ["main"]
+    tags: ["v*.*.*"]
   pull_request:
     types: [opened, synchronize]
   schedule:
-    - cron: 0 04 * * 1-5
+      - cron: 0 04 * * 1-5
   workflow_dispatch: {}
 
 jobs:
   check-call:
-    name: '⚡'
+    name: "⚡"
     uses: z-shell/.github/.github/workflows/trunk-call.yml@main
-    #    secrets:
-    #      trunk_token: ${{ secrets.TRUNK_TOKEN }}
+    #secrets:
+    #  trunk-token: ${{ secrets.TRUNK_TOKEN }}
     with:
-      get_dependencies: 'sudo apt update && sudo apt install -yq zsh'
-      #      call_arguments1: ''
-      #      call_arguments2: ''
-      #      call_arguments3: ''
-      #      shell: ''
-      #      RUN_NODE: ''
-      #      RUN_NODE_VERSION: ''
-      #      RUN_NODE_ARGS: ''
+      runs-on: "ubuntu-latest"
+      
+      # Pass commands to install or prepare dependencies.
+      #get_dependencies: 'sudo apt update && sudo apt install -yq zsh'
+      
+      # Pass arguments to run before launching Trunk
+      #call_arguments0: ''
+      #call_arguments1: ''
+      #call_arguments2: ''
+      #call_arguments3: ''
 
-      #      trunk_path: ''
-      #      cache: ''
+      # Pass arguments to run on fail 
+      #call_on_fail: ''
+
+      shell: "bash"
+      enable_node: false
+      node_version: '16'
+      node_arguments: ''
+
+      # TRUNK
+      trunk_path: ''
+      cache: 'true'
       upload-series: 'main'
       check-mode: 'all'
-#      arguments: ''
-
+      arguments: '--ci'
