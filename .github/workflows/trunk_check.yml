@@ -6,8 +6,8 @@ on:
     tags: ['v*.*.*']
   pull_request:
     types: [opened, synchronize]
-  schedule:
-    - cron: 0 04 * * 1-5
+  #  schedule:
+  #    - cron: 0 04 * * 1-5
   workflow_dispatch: {}
 
 jobs:
@@ -29,7 +29,7 @@ jobs:
       #call_arguments3: ''
 
       # Pass arguments to run on fail
-      #call_on_fail: ''
+      call_on_fail: ''
 
       shell: 'bash'
       enable_node: false
@@ -41,4 +41,4 @@ jobs:
       cache: true
       upload-series: ''
       check-mode: 'all'
-      arguments: '--ci'
+      arguments: ''
