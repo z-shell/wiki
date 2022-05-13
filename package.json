@@ -70,6 +70,9 @@
     "peerDependencyRules": {
       "allowedVersions": {
         "@types/react": "18.0.9",
+        "@mdx-js/react": "1.6",
+        "rehype-katex": "5",
+        "remark-math": "3",
         "react": "17"
       }
     },
