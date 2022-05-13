@@ -1,4 +1,5 @@
-import React, {useEffect, useRef} from 'react';
+import {useEffect, useRef} from 'react';
+import * as React from 'react';
 import * as AsciinemaPlayerLibrary from 'asciinema-player';
 import 'asciinema-player/dist/bundle/asciinema-player.css';
 
