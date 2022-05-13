@@ -32,13 +32,12 @@ jobs:
       #call_on_fail: ''
 
       #shell: 'bash'
-      enable_node: true
       node_version: '16'
-      node_arguments: 'npm i -g pnpm && pnpm i'
+      pnpm_arguments: 'pnpm install --frozen-lockfile'
 
       # TRUNK
       #trunk_path: ''
-      cache: true
+      #cache: true
       #upload-series: 'main'
-      check-mode: 'all'
+      #check-mode: 'all'
       #arguments: ''
