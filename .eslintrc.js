@@ -4,13 +4,7 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:import/typescript',
-    'prettier',
-  ],
+  extends: ['plugin:react/recommended', 'google', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -21,6 +15,8 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
-    '@typescript-eslint/no-var-requires': 0,
+    'require-jsdoc': 'off',
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
   },
 };

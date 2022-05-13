@@ -8,9 +8,29 @@
 }
 
 :root {
+  transition: 0.8s all;
   --site-primary-hue-saturation: 167 68%;
   --site-primary-hue-saturation-light: 167 56%;
   --ifm-color-primary: hsl(var(--site-primary-hue-saturation) 30%);
+  --ifm-breadcrumb-color-active: var(--ifm-color-primary-darker) !important;
+  --ifm-menu-color-active: var(--ifm-color-primary-darker) !important;
+
+  --ifm-background-surface-color: #f6fdfd;
+  --ifm-background-color: var(--fill);
+  --ifm-navbar-background-color: var(--ifm-background-surface-color);
+
+  --site-color-favorite-background: #f6fdfd;
+  --site-color-tooltip-background: #353738;
+  --site-color-feedback-background: #fff;
+  --site-color-tooltip: #fff;
+}
+
+html[data-theme='dark'] {
+  --ifm-background-color: #0d1117;
+  --ifm-background-surface-color: #24292e;
+}
+
+[data-theme='light'] {
   --ifm-color-primary-dark: hsl(var(--site-primary-hue-saturation) 26%);
   --ifm-color-primary-darker: hsl(var(--site-primary-hue-saturation) 20%);
   --ifm-color-primary-darkest: hsl(var(--site-primary-hue-saturation) 17%);
@@ -21,17 +41,10 @@
   --ifm-color-primary-lightest: hsl(
     var(--site-primary-hue-saturation-light) 58%
   );
-  --ifm-background-color: #0d1117;
-  --ifm-background-surface-color: #f6fdfd;
-  --ifm-background-color: var(--fill);
-  --ifm-navbar-background-color: var(--ifm-background-surface-color);
-  --site-color-tooltip: #fff;
-  --site-color-favorite-background: #f6fdfd;
-
-  transition: 0.8s all;
+  --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 10%);
 }
 
-html[data-theme='dark'] {
+[data-theme='dark'] {
   --ifm-color-primary: hsl(var(--site-primary-hue-saturation) 45%);
   --ifm-color-primary-dark: hsl(var(--site-primary-hue-saturation) 40%);
   --ifm-color-primary-darker: hsl(var(--site-primary-hue-saturation) 35%);
@@ -43,8 +56,6 @@ html[data-theme='dark'] {
   --ifm-color-primary-lightest: hsl(
     var(--site-primary-hue-saturation-light) 73%
   );
-  --ifm-background-color: #0d1117;
-  --ifm-background-surface-color: #24292e;
 }
 
 .navbar--dark {
@@ -59,8 +70,6 @@ html[data-theme='dark'] {
   --ifm-footer-color: var(--ifm-footer-link-color);
   --ifm-footer-link-color: var(--ifm-color-secondary);
   --ifm-footer-title-color: var(--ifm-color-white);
-
-  font-weight: bold;
 }
 
 .footer--dark a[href] {
@@ -80,6 +89,44 @@ html[data-theme='dark'] {
 
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0 0 0 / 10%);
+}
+
+[data-theme='light'] .DocSearch {
+  --docsearch-muted-color: var(--ifm-color-emphasis-700);
+  --docsearch-container-background: rgb(94 100 112 / 70%);
+  /* Modal */
+  --docsearch-modal-background: var(--ifm-color-secondary-lighter);
+  /* Search box */
+  --docsearch-searchbox-background: var(--ifm-color-secondary);
+  --docsearch-searchbox-focus-background: var(--ifm-color-white);
+  /* Hit */
+  --docsearch-hit-color: var(--ifm-font-color-base);
+  --docsearch-hit-active-color: var(--ifm-color-white);
+  --docsearch-hit-background: var(--ifm-color-white);
+  /* Footer */
+  --docsearch-footer-background: var(--ifm-color-white);
+}
+
+[data-theme='dark'] .DocSearch {
+  --docsearch-text-color: var(--ifm-font-color-base);
+  --docsearch-muted-color: var(--ifm-color-secondary-darkest);
+  --docsearch-container-background: rgb(47 55 69 / 70%);
+  /* Modal */
+  --docsearch-modal-background: var(--ifm-background-color);
+  /* Search box */
+  --docsearch-searchbox-background: var(--ifm-background-color);
+  --docsearch-searchbox-focus-background: var(--ifm-color-black);
+  /* Hit */
+  --docsearch-hit-color: var(--ifm-font-color-base);
+  --docsearch-hit-active-color: var(--ifm-color-white);
+  --docsearch-hit-background: var(--ifm-color-emphasis-100);
+  /* Footer */
+  --docsearch-footer-background: var(--ifm-background-surface-color);
+  --docsearch-key-gradient: linear-gradient(
+    -26.5deg,
+    var(--ifm-color-emphasis-200) 0%,
+    var(--ifm-color-emphasis-100) 100%
+  );
 }
 
 .screen-reader-only {
@@ -123,16 +170,6 @@ html[data-theme='dark'] div[class^='announcementBar_'] {
   width: 100%;
   height: auto;
   text-align: center;
-}
-
-.ScreenViewMedium {
-  width: 60%;
-  height: auto;
-}
-
-.ScreenViewSmall {
-  width: 40%;
-  height: auto;
 }
 
 .sticky-header {

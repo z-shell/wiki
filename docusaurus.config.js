@@ -75,10 +75,10 @@ const config = {
       }),
     ],
   ],
-  /**clientModules: [
+  /** clientModules: [
     require.resolve('FunnyBunny'),
     require.resolve('WithSomeMoney'),
-  ],*/
+  ], */
   presets: [
     [
       'classic',
@@ -152,7 +152,7 @@ const config = {
             className: 'header-github-link',
             'aria-label': 'GitHub repository',
           },
-          /*{type: 'html', position: 'left', value: '<button>Give feedback</button>'},*/
+          /* {type: 'html', position: 'left', value: '<button>Give feedback</button>'}, */
         ],
       },
       footer: {
@@ -207,7 +207,7 @@ const config = {
                 label: 'Crowdin Translations',
                 href: 'https://crowdin.digitalclouds.dev/z-shell/',
               },
-              /*{html: `<i class="fa-solid fa-wifi"></i>`},*/
+              /* {html: `<i class="fa-solid fa-wifi"></i>`}, */
             ],
           },
           {

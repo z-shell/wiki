@@ -39,6 +39,6 @@ jobs:
       # TRUNK
       #trunk_path: ''
       cache: true
-      upload-series: 'main'
+      #upload-series: 'main'
       check-mode: 'all'
-      arguments: '--github-annotate'
+      #arguments: ''

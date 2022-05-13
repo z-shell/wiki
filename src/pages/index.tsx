@@ -12,8 +12,8 @@ function HomepageHeader() {
   );
   return (
     <header className={clsx('hero hero--primary', styles.herobanner)}>
-      <div className="container">
-        <div className="row">
+      <div className={'container'}>
+        <div className={'row'}>
           <div className={styles.aplayer}>
             <AsciinemaPlayer
               src={'https://asciinema.org/a/459358.cast'}
