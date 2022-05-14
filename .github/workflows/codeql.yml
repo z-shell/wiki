@@ -19,6 +19,11 @@ jobs:
     steps:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@v3
+      - uses: deepsourcelabs/test-coverage-action@master
+        with:
+          key: python
+          coverage-file: coverage.xml
+          dsn: ${{ secrets.DEEPSOURCE_DSN }}
       - name: 🏗 Initialize CodeQL
         uses: github/codeql-action/init@v2
       - name: 🏗 Autobuild
