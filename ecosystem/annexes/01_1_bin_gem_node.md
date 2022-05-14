@@ -131,6 +131,7 @@ fzf "$@"
 **The ice can be empty**. It will then try to create the shim for trailing component of the `id_as` ice, e.g.:
 
 - `id_as'exts/git-my'` → it'll check if a file `git-my` exists and if yes,
+
   - will create the function `git-my`.
 
 - `paulirish/git-open` it'll check if a file `git-open` exists and if yes,
@@ -170,6 +171,7 @@ myfzf () {
 The ice can be empty. It will then try to create the function for trailing component of the `id_as` ice, e.g.:
 
 - `id_as'exts/git-my'` → it'll check if a file `git-my` exists and if yes,
+
   - will create the function `git-my`.
 
 - `paulirish/git-open` it'll check if a file `git-open` exists and if yes,
