@@ -1,0 +1,17 @@
+---
+name: '📦 Dependency Review'
+on:
+  pull_request:
+  workflow_call:
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    name: '🏭 Scanning'
+    runs-on: ubuntu-latest
+    steps:
+      - name: '⤵️ Check out code from GitHub'
+        uses: actions/checkout@v3
+      - name: '🏗 Dependency Review'
+        uses: actions/dependency-review-action@v1
