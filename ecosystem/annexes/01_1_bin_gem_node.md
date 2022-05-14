@@ -340,10 +340,11 @@ zi shim-list [-h/--help] [-t|--this-dir] [-i|--from-ices] [-o|--one-line] [-s|--
 
 | Flag               | Description                                                                                       |
 | :----------------- | :------------------------------------------------------------------------------------------------ |
-| `-h` `--help`      | Shows usage information.                                                                        |
-| `-t` `--this-dir`  | Instructs ZI to look for shims in the current directory instead of `$ZPFX/bin`.                    |
+| `-h` `--help`      | Shows usage information.                                                                          |
+| `-t` `--this-dir`  | Instructs ZI to look for shims in the current directory instead of `$ZPFX/bin`.                   |
 | `-i` `--from-ices` | Normally the code looks for the shim files by examining their contents (**more info below [!]**). |
-| `-o` `--one-line`  | Display the list of shim files without line breaks, in a single line, after spaces.                 |
+| `-o` `--one-line`  | Display the list of shim files without line breaks, in a single line, after spaces.               |
+
 | `-s` `--short`     | Don't show the plugin/snippet that the shim belongs to.                                           |
 | `-c` `--cat`       | Displays contents of each of the found shim (unimplemented yet).                                  |
 
@@ -351,7 +352,7 @@ zi shim-list [-h/--help] [-t|--this-dir] [-i|--from-ices] [-o|--one-line] [-s|--
 
 ## Cygwin Support
 
-The `sbin''` ice has an explicit Cygwin support – it creates additional, **extra shim files** – Windows batch scripts that allow running the shielded applications from e.g.: Windows run dialog – if the `~/.zi/polaris/bin` directory is being added to the Windows `PATH` environment variable, for example (it is a good idea to do so, IMHO). 
+The `sbin''` ice has an explicit Cygwin support – it creates additional, **extra shim files** – Windows batch scripts that allow running the shielded applications from e.g.: Windows run dialog – if the `~/.zi/polaris/bin` directory is being added to the Windows `PATH` environment variable, for example (it is a good idea to do so, IMHO).
 
 The Windows shims have the same name as the standard ones (which are also being created, normally) plus the `.cmd` extension. You can test the feature by e.g.: installing Firefox from the ZI package via:
 

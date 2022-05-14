@@ -3,6 +3,12 @@ import clsx from 'clsx';
 import Translate, { translate } from '@docusaurus/Translate';
 import styles from './styles.module.css';
 
+type FeatureItem = {
+  title: string;
+  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  description: JSX.Element;
+};
+
 function Turbo() {
   return (
     <div className={'fa-5x'}>
@@ -26,12 +32,6 @@ function Create() {
     </div>
   );
 }
-
-type FeatureItem = {
-  title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
-  description: JSX.Element;
-};
 
 const FeatureList: FeatureItem[] = [
   {
@@ -91,7 +91,7 @@ function Feature({ title, Svg, description }: FeatureItem): JSX.Element {
   return (
     <div className={clsx('col col--4')}>
       <div className={'text--center'}>
-        <Svg />
+        <Svg role={'img'} />
       </div>
       <div className={'text--center'}>
         <h3 className={'fa-solid'}>{title}</h3>

@@ -20,7 +20,7 @@ type AsciinemaPlayerProps = {
   // END asciinemaOptions
 };
 
-export default function AsciinemaPlayer({
+function AsciinemaPlayer({
   src,
   ...asciinemaOptions
 }: AsciinemaPlayerProps): JSX.Element {
@@ -33,3 +33,5 @@ export default function AsciinemaPlayer({
 
   return <div className={'container'} id={'asciinema-player'} ref={ref} />;
 }
+
+export default AsciinemaPlayer;
