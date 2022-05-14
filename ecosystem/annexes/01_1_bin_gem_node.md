@@ -344,7 +344,6 @@ zi shim-list [-h/--help] [-t|--this-dir] [-i|--from-ices] [-o|--one-line] [-s|--
 | `-t` `--this-dir`  | Instructs ZI to look for shims in the current directory instead of `$ZPFX/bin`.                   |
 | `-i` `--from-ices` | Normally the code looks for the shim files by examining their contents (**more info below [!]**). |
 | `-o` `--one-line`  | Display the list of shim files without line breaks, in a single line, after spaces.               |
-
 | `-s` `--short`     | Don't show the plugin/snippet that the shim belongs to.                                           |
 | `-c` `--cat`       | Displays contents of each of the found shim (unimplemented yet).                                  |
 
