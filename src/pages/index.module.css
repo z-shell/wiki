@@ -3,26 +3,20 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding: 2rem 0;
+  padding: 1.4rem 0;
   width: 100%;
 }
 @media screen and (max-width: 966px) {
   .herobanner {
-    padding: 1rem 0;
+    padding: 0.7rem 0;
   }
-}
-
-.tagline {
-  align-items: center;
-  justify-content: center;
-  margin-top: 1rem;
 }
 
 .aplayer {
   position: relative;
   overflow: hidden;
+  align-items: center;
   width: 100%;
-  max-width: 100%;
   margin: 0 auto;
 }
 

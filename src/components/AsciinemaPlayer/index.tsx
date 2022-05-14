@@ -1,5 +1,4 @@
-import {useEffect, useRef} from 'react';
-import * as React from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as AsciinemaPlayerLibrary from 'asciinema-player';
 import 'asciinema-player/dist/bundle/asciinema-player.css';
 
@@ -24,7 +23,7 @@ type AsciinemaPlayerProps = {
 export default function AsciinemaPlayer({
   src,
   ...asciinemaOptions
-}: React.FC<AsciinemaPlayerProps>) {
+}: AsciinemaPlayerProps): JSX.Element {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -32,5 +31,5 @@ export default function AsciinemaPlayer({
     AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
   }, [src]);
 
-  return <div className={'asciinema-slim'} ref={ref} />;
+  return <div className={'container'} id={'asciinema-player'} ref={ref} />;
 }

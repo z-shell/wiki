@@ -1,12 +1,12 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import Translate, {translate} from '@docusaurus/Translate';
+import Translate, { translate } from '@docusaurus/Translate';
 import styles from './styles.module.css';
 
 function Turbo() {
   return (
     <div className={'fa-5x'}>
-      <i className={'fa-solid fa-forward'} />
+      <span className={'fa-solid fa-forward'} />
     </div>
   );
 }
@@ -14,7 +14,7 @@ function Turbo() {
 function Stats() {
   return (
     <div className={'fa-6x'}>
-      <i className={'fa-solid fa-ranking-star'} />
+      <span className={'fa-solid fa-ranking-star'} />
     </div>
   );
 }
@@ -22,7 +22,7 @@ function Stats() {
 function Create() {
   return (
     <div className={'fa-5x'}>
-      <i className={'fa-solid fa-layer-group'} />
+      <span className={'fa-solid fa-layer-group'} />
     </div>
   );
 }
@@ -87,15 +87,15 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, Svg, description }: FeatureItem): JSX.Element {
   return (
     <div className={clsx('col col--4')}>
       <div className={'text--center'}>
         <Svg />
       </div>
-      <div className={'text--center padding-horiz--md'}>
-        <p className={'fa-solid'}>{title}</p>
-        <p className={'fa-regular'}>{description}</p>
+      <div className={'text--center'}>
+        <h3 className={'fa-solid'}>{title}</h3>
+        <p className={'padding-horiz--md'}>{description}</p>
       </div>
     </div>
   );

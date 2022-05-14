@@ -56,7 +56,7 @@ Invocations][7].
 - [Annexes][5] allow to extend the plugin manager with new commands.
 - [Turbo][8] mode yields **50-80%** faster Zsh startup.
 
-## <i className="FaBeat" class="fa-solid fa-heart fa-beat"></i> Neat and flexible
+## <i className="fa-beat" class="fa-solid fa-heart fa-beat"></i> Neat and flexible
 
 - [Customize paths][9], use [multiple prompts][10] or create [your own][11] plugins.
 - Supports [Oh My Zsh][12] and [Prezto][12] plugins and libraries. ([migration][13]).
@@ -64,7 +64,7 @@ Invocations][7].
 - Code is immune to `KSH_ARRAYS` and other options typically causing compatibility problems.
 - Do not require `sudo`, and provide many workarounds e.g: setting so-called **shims** locally.
 
-## <i className="FaBeatFade" class="fa-solid fa-circle-info fa-beat-fade"></i> Familiarize and control
+## <i className="fa-beat-fade" class="fa-solid fa-circle-info fa-beat-fade"></i> Familiarize and control
 
 - Visualise data: **aliases**, **functions**, **bindkeys**, **Zle widgets**, **zstyles**, **completions**,
   **variables**, `$PATH`, and `$FPATH` elements a plugin has set up.

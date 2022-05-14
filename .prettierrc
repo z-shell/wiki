@@ -1,14 +1,6 @@
 {
-  "arrowParens": "always",
-  "bracketSpacing": false,
-  "htmlWhitespaceSensitivity": "css",
   "proseWrap": "preserve",
-  "requirePragma": false,
   "singleQuote": true,
-  "trailingComma": "all",
-  "vueIndentScriptAndStyle": true,
-  "endOfLine": "auto",
-  "semi": true,
   "overrides": [
     {
       "files": "*.json",

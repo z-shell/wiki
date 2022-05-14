@@ -18,8 +18,10 @@ lint:
     - markdownlint@0.31.1
     - prettier@2.6.2
     - shfmt@3.4.0
-    - taplo-fmt@release-cli-0.6.2
-    - taplo@release-cli-0.6.2
+    - stylelint@14.8.2
+    - stylelint-fmt@14.8.2
+    - taplo-fmt@release-cli-0.6.3
+    - taplo@release-cli-0.6.3
   ignore:
     - linters: [ALL]
       paths:

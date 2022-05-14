@@ -16,13 +16,13 @@ const config = {
   projectName: 'zw',
   organizationName: 'z-shell',
   staticDirectories: ['static'],
-  i18n: {defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans']},
-  scripts: [{src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous'}],
+  i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
+  scripts: [{ src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous' }],
   plugins: [
     [
       'ideal-image',
       /** @type {import('@docusaurus/plugin-ideal-image').PluginOptions} */
-      ({max: 1030, min: 480, disableInDev: false}),
+      ({ max: 1030, min: 480, disableInDev: false }),
     ],
     [
       'pwa',
@@ -30,15 +30,15 @@ const config = {
         debug: true,
         offlineModeActivationStrategies: ['appInstalled', 'standalone', 'queryString'],
         pwaHead: [
-          {tagName: 'link', rel: 'icon', href: '/img/logo.svg'},
-          {tagName: 'link', rel: 'manifest', href: '/manifest.json'},
-          {tagName: 'link', rel: 'browserconfig', href: '/browserconfig.xml'},
-          {tagName: 'link', rel: 'apple-touch-icon', href: '/img/logo.png'},
-          {tagName: 'meta', name: 'theme-color', content: 'rgb(35, 184, 152)'},
-          {tagName: 'meta', name: 'apple-mobile-web-app-capable', content: 'yes'},
-          {tagName: 'meta', name: 'apple-mobile-web-app-status-bar-style', content: '#000'},
-          {tagName: 'meta', name: 'msapplication-TileImage', content: '/img/logo.png'},
-          {tagName: 'meta', name: 'msapplication-TileColor', content: '#000'},
+          { tagName: 'link', rel: 'icon', href: '/img/logo.svg' },
+          { tagName: 'link', rel: 'manifest', href: '/manifest.json' },
+          { tagName: 'link', rel: 'browserconfig', href: '/browserconfig.xml' },
+          { tagName: 'link', rel: 'apple-touch-icon', href: '/img/logo.png' },
+          { tagName: 'meta', name: 'theme-color', content: 'rgb(35, 184, 152)' },
+          { tagName: 'meta', name: 'apple-mobile-web-app-capable', content: 'yes' },
+          { tagName: 'meta', name: 'apple-mobile-web-app-status-bar-style', content: '#000' },
+          { tagName: 'meta', name: 'msapplication-TileImage', content: '/img/logo.png' },
+          { tagName: 'meta', name: 'msapplication-TileColor', content: '#000' },
         ],
       },
     ],
@@ -50,7 +50,7 @@ const config = {
         path: 'community',
         routeBasePath: 'community',
         sidebarPath: require.resolve('./lib/js/sidebars_2.js'),
-        editUrl: ({locale, versionDocsDirPath, docPath}) => {
+        editUrl: ({ locale, versionDocsDirPath, docPath }) => {
           if (locale !== 'en') {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
           }
@@ -66,7 +66,7 @@ const config = {
         path: 'ecosystem',
         routeBasePath: 'ecosystem',
         sidebarPath: require.resolve('./lib/js/sidebars_3.js'),
-        editUrl: ({locale, versionDocsDirPath, docPath}) => {
+        editUrl: ({ locale, versionDocsDirPath, docPath }) => {
           if (locale !== 'en') {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
           }
@@ -89,8 +89,8 @@ const config = {
           customCss: require.resolve('./src/css/custom.css'),
         },
         docs: {
-          sidebarPath: require.resolve('./lib/js/sidebars_1.js'),
-          editUrl: ({locale, versionDocsDirPath, docPath}) => {
+          sidebarPath: 'lib/js/sidebars_1.js',
+          editUrl: ({ locale, versionDocsDirPath, docPath }) => {
             if (locale !== 'en') {
               return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
             }
@@ -103,25 +103,25 @@ const config = {
         },
         blog: {
           showReadingTime: true,
-          editUrl: ({locale, blogDirPath, blogPath}) => {
+          editUrl: ({ locale, blogDirPath, blogPath }) => {
             if (locale !== 'en') {
               return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
             }
             return `https://github.com/z-shell/zw/tree/main/${blogDirPath}/${blogPath}`;
           },
         },
-        gtag: {trackingID: 'G-MT10GVL59X', anonymizeIP: true},
-        sitemap: {changefreq: 'daily', priority: 0.5},
+        gtag: { trackingID: 'G-MT10GVL59X', anonymizeIP: true },
+        sitemap: { changefreq: 'daily', priority: 0.5 },
       }),
     ],
   ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      docs: {sidebar: {hideable: true, autoCollapseCategories: true}},
-      colorMode: {defaultMode: 'dark', disableSwitch: false, respectPrefersColorScheme: true},
+      docs: { sidebar: { hideable: true, autoCollapseCategories: true } },
+      colorMode: { defaultMode: 'dark', disableSwitch: false, respectPrefersColorScheme: true },
       image: 'img/logo/320x320.png',
-      metadata: [{name: 'twitter:card', content: 'summary'}],
+      metadata: [{ name: 'twitter:card', content: 'summary' }],
       announcementBar: {
         id: 'announcemnt',
         content: `If you like ❮ ZI ❯ - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi"><i class="fa-solid fa-star"></i></a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell"><i class="fa-brands fa-github-alt"></i></a> or <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/zshell_zi"><i class="fa-brands fa-twitter"></i></a>`,
@@ -135,17 +135,17 @@ const config = {
       navbar: {
         hideOnScroll: true,
         title: '❮ ZI ❯',
-        logo: {alt: '❮ ZI ❯ Logo', src: 'img/logo.svg', target: '_self', width: 32, height: 32},
+        logo: { alt: '❮ ZI ❯ Logo', src: 'img/logo.svg', target: '_self', width: 32, height: 32 },
         items: [
-          {type: 'doc', docId: 'intro', position: 'left', label: 'Docs'},
-          {to: 'community/intro', position: 'left', label: 'Community'},
-          {to: 'ecosystem/intro', position: 'left', label: 'Ecosystem'},
+          { type: 'doc', docId: 'intro', position: 'left', label: 'Docs' },
+          { to: 'community/intro', position: 'left', label: 'Community' },
+          { to: 'ecosystem/intro', position: 'left', label: 'Ecosystem' },
           {
             type: 'localeDropdown',
             position: 'right',
-            dropdownItemsAfter: [{href: 'https://crowdin.digitalclouds.dev/z-shell', label: 'Help Us Translate'}],
+            dropdownItemsAfter: [{ href: 'https://crowdin.digitalclouds.dev/z-shell', label: 'Help Us Translate' }],
           },
-          {type: 'docsVersionDropdown', position: 'right'},
+          { type: 'docsVersionDropdown', position: 'right' },
           {
             href: 'https://github.com/z-shell/zi/',
             position: 'right',
@@ -207,15 +207,15 @@ const config = {
                 label: 'Crowdin Translations',
                 href: 'https://crowdin.digitalclouds.dev/z-shell/',
               },
-              /* {html: `<i class="fa-solid fa-wifi"></i>`}, */
+              /** {html: ``}, */
             ],
           },
           {
             title: 'Legal',
             items: [
-              {label: 'Privacy Policy', to: 'legal/PRIVACY/'},
-              {label: 'Code of Conduct', to: 'legal/CODE_OF_CONDUCT/'},
-              {label: 'Contributing', to: 'legal/CONTRIBUTING/'},
+              { label: 'Privacy Policy', to: 'legal/PRIVACY/' },
+              { label: 'Code of Conduct', to: 'legal/CODE_OF_CONDUCT/' },
+              { label: 'Contributing', to: 'legal/CONTRIBUTING/' },
             ],
           },
         ],
@@ -226,7 +226,7 @@ const config = {
         darkTheme: require('prism-react-renderer/themes/dracula'),
         defaultLanguage: 'shell',
       },
-      tableOfContents: {minHeadingLevel: 2, maxHeadingLevel: 4},
+      tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 4 },
     }),
 };
 
