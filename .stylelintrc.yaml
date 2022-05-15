@@ -19,3 +19,31 @@ rules:
   value-keyword-case:
     - lower
     - camelCaseSvgKeywords: true
+    - at-rule-no-unknown:
+        - true
+    - ignoreAtRules:
+        - extend
+        - extends
+        - css
+        - block
+        - severity: warning
+  block-no-empty:
+    - true
+    - severity: warning
+  color-no-invalid-hex:
+    - true
+    - severity: warning
+  declaration-block-no-duplicate-properties:
+    - true
+    - ignore:
+    - consecutive-duplicates-with-different-values:
+    - severity: warning
+  comment-no-empty: false
+  declaration-block-no-redundant-longhand-properties: false
+  shorthand-property-no-redundant-values: false
+  declaration-block-no-shorthand-property-overrides:
+    - true
+    - severity: warning
+  font-family-no-duplicate-names:
+    - true
+    - severity: warning
