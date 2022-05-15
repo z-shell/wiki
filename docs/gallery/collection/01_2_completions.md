@@ -19,7 +19,7 @@ Related:
 
 :::
 
-:::tip 
+:::tip
 
 Create your own syntax e.g:
 
