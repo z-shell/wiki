@@ -23,7 +23,7 @@ Related:
 
 :::tip
 
-Most plugins loaded in turbo mode, adjust loading order by appending e.g:
+Load in turbo mode and adjust loading order by appending e.g:
 
 ```shell
 zi ice wait'0a' lucid …
@@ -35,6 +35,10 @@ zi light …
 zi ice wait'0c' lucid …
 zi light …
 ```
+
+:::
+
+:::tip
 
 Create your own syntax e.g:
 
@@ -58,6 +62,10 @@ zi0c() {
   z_lucid wait'0c' "$@"
 }
 ```
+
+:::
+
+:::tip
 
 Then load as:
 
@@ -91,70 +99,70 @@ zi light trapd00r/LS_COLORS
 
 ### SC: [paoloantinori/hhighlighter](https://github.com/paoloantinori/hhighlighter)
 
-```shell
+```shell showLineNumbers
 zi ice wait lucid pick"h.sh"
 zi light paoloantinori/hhighlighter
 ```
 
 ### SC: [wfxr/forgit](https://github.com/wfxr/forgit)
 
-```shell
+```shell showLineNumbers
 zi ice wait lucid
 zi load wfxr/forgit
 ```
 
 ### SC: [urbainvaes/fzf-marks](https://github.com/urbainvaes/fzf-marks)
 
-```shell
+```shell showLineNumbers
 zi ice wait lucid
 zi load urbainvaes/fzf-marks
 ```
 
 ### SC: [hlissner/zsh-autopair](https://github.com/hlissner/zsh-autopair)
 
-```shell
+```shell showLineNumbers
 zi ice wait lucid pick'autopair.zsh'
 zi load hlissner/zsh-autopair
 ```
 
 ### SC: [voronkovich/gitignore.plugin.zsh](https://github.com/voronkovich/gitignore.plugin.zsh)
 
-```shell
+```shell showLineNumbers
 zi ice wait lucid
 zi load voronkovich/gitignore.plugin.zsh
 ```
 
 ### SC: [xPMo/zsh-toggle-command-prefix](https://github.com/xPMo/zsh-toggle-command-prefix)
 
-```shell
+```shell showLineNumbers
 zi ice wait lucid
 zi light xPMo/zsh-toggle-command-prefix
 ```
 
 ### SC: [leonjza/history-here](https://github.com/leonjza/history-here)
 
-```shell
+```shell showLineNumbers
 zi ice wait lucid
 zi light leonjza/history-here
 ```
 
 ### SC: [hkbakke/bash-insulter](https://github.com/hkbakke/bash-insulter)
 
-```shell
+```shell showLineNumbers
 zi ice wait lucid pick'src/bash.command-not-found'
 zi light hkbakke/bash-insulter
 ```
 
 ### SC: [leophys/zsh-plugin-fzf-finder](https://github.com/leophys/zsh-plugin-fzf-finder)
 
-```shell
+```shell showLineNumbers
 zi ice wait lucid has'fzf' pick'fzf-finder.plugin.zsh'
 zi light leophys/zsh-plugin-fzf-finder
 ```
 
 ### SC: [autosuggestions][1], [fast-syntax-highlighting][2]
 
-```shell
+```shell showLineNumbers
 zi ice wait lucid atinit"ZI[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
 zi light z-shell/F-Sy-H
 
@@ -164,7 +172,7 @@ zi load zsh-users/zsh-autosuggestions
 
 ### SC: [z-shell/zsh-github-issues](https://github.com/z-shell/zsh-github-issues)
 
-```shell
+```shell showLineNumbers
 zi ice lucid id-as"GitHub-notify" on-update-of"~/.cache/zsh-github-issues/new_titles.log" \
   notify"New issue: $NOTIFY_MESSAGE"
 zi light z-shell/zsh-github-issues
@@ -172,28 +180,28 @@ zi light z-shell/zsh-github-issues
 
 ### SC: [zsh-shell/zsh-startify](https://github.com/z-shell/zsh-startify)
 
-```shell
+```shell showLineNumbers
 zi ice wait lucid atload"zsh-startify"
 zi load z-shell/zsh-startify
 ```
 
 ### SC: [z-shell/declare-zsh](https://github.com/z-shell/declare-zsh)
 
-```shell
+```shell showLineNumbers
 zi ice wait lucid
 zi load z-shell/declare-zsh
 ```
 
 ### SC: [z-shell/zsh-navigation-tools](https://github.com/z-shell/zsh-navigation-tools)
 
-```shell
+```shell showLineNumbers
 zi ice wait lucid
 zi load z-shell/zsh-navigation-tools
 ```
 
 ### SC: [z-shell/H-S-MW](https://github.com/z-shell/H-S-MW) {#sc-z-shellh-s-mw}
 
-```shell
+```shell showLineNumbers
 zstyle ":history-search-multi-word" page-size "11"
 zi ice wait lucid
 zi load z-shell/H-S-MW
@@ -201,7 +209,7 @@ zi load z-shell/H-S-MW
 
 ### SC: [z-shell/zui](https://github.com/z-shell/zui), [z-shell/zi-crasis](https://github.com/z-shell/zi-crasis)
 
-```shell
+```shell showLineNumbers
 zi ice wait lucid
 zi load z-shell/zui
 
@@ -211,7 +219,7 @@ zi load z-shell/zi-crasis
 
 ### SC: [z-shell/zredis](https://github.com/z-shell/zredis)
 
-```shell
+```shell showLineNumbers
 zstyle ":plugin:zredis" configure_opts "--without-tcsetpgrp"
 zstyle ":plugin:zredis" cflags "-Wall -O2 -g -Wno-unused-but-set-variable"
 
@@ -223,14 +231,14 @@ zi load z-shell/zredis
 
 ### GH-R: [pemistahl/grex](https://github.com/pemistahl/grex)
 
-```shell
+```shell showLineNumbers
 zi wait lucid for as"command" from"gh-r" sbin"grex" \
     pemistahl/grex
 ```
 
 ### GH-R: [ahmetb/kubectx](https://github.com/ahmetb/kubectx)
 
-```shell
+```shellshowLineNumbers
 zi wait lucid for bpick"kubectx;kubens" from"gh-r" \
   sbin"kubectx;kubens" \
     ahmetb/kubectx
@@ -238,7 +246,7 @@ zi wait lucid for bpick"kubectx;kubens" from"gh-r" \
 
 ### B: [stedolan/jq](https://github.com/stedolan/jq)
 
-```shell
+```shell showLineNumbers
 zi wait lucid for atclone"autoreconf -fi && ./configure --with-oniguruma=builtin && make \
 && ln -sfv $PWD/jq.1 $ZPFX/man/man1" as"null" if"(( ! ${+commands[jq]} ))" sbin"jq" \
     stedolan/jq
@@ -246,7 +254,7 @@ zi wait lucid for atclone"autoreconf -fi && ./configure --with-oniguruma=builtin
 
 ### [github/git-sizer](https://github.com/github/git-sizer)
 
-```shell
+```shell showLineNumbers
 zi wait lucid for as"command" from"gh-r" sbin"git-sizer" \
     @github/git-sizer
 ```
