@@ -11,18 +11,12 @@ keywords:
 :::info
 
 - Recommended to familiarize with [common syntax][8].
+- Additional installation methods: [meta plugins][3], [packages][4].
 - Some installations may require additional functionally, it can be done by installing required [annexes][1]:
 
 ```shell
 zi light-mode for z-shell/z-a-meta-plugins @annexes
 ```
-
-:::
-
-:::tip Additional installation methods
-
-1. [Meta plugins][3]
-2. [Packages][4]
 
 :::
 
