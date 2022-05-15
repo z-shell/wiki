@@ -19,7 +19,7 @@ Related:
 
 :::
 
-:::tip
+:::tip 
 
 Create your own syntax e.g:
 
@@ -40,6 +40,10 @@ zi_completion() {
 }
 ```
 
+:::
+
+:::tip
+
 Then load as:
 
 ```shell
@@ -57,84 +61,84 @@ zi snippet …
 
 ### COMP: [docker/cli](https://github.com/docker/cli) {#comp-dockercli}
 
-```shell
+```shell showLineNumbers
 zi ice as"completion"
 zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 ```
 
 ### COMP: [Aloxaf/fzf-tab](https://github.com/Aloxaf/fzf-tab) {#comp-aloxaffzf-tab}
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait has'fzf'
 zi light Aloxaf/fzf-tab
 ```
 
 ### COMP: [x-motemen/ghq](https://github.com/x-motemen/ghq/blob/master/misc/zsh/_ghq)
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'ghq'
 zi snippet https://github.com/x-motemen/ghq/blob/master/misc/zsh/_ghq
 ```
 
 ### COMP: [greymd/tmux-xpanes](https://github.com/greymd/tmux-xpanes)
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'tmux' pick'completion/zsh'
 zi light greymd/tmux-xpanes
 ```
 
 ### COMP: [rust-lang/cargo](https://github.com/rust-lang/cargo/blob/master/src/etc/_cargo)
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'cargo'
 zi snippet https://github.com/rust-lang/cargo/blob/master/src/etc/_cargo
 ```
 
 ### COMP: [ohmyzsh/rust](https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/rust/_rust)
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'rustc'
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/rust/_rust
 ```
 
 ### COMP: [BurntSushi/ripgrep/rg](https://github.com/BurntSushi/ripgrep/blob/master/complete/_rg)
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'rg'
 zi snippet https://github.com/BurntSushi/ripgrep/blob/master/complete/_rg
 ```
 
 ### COMP: [TheLocehiliosan/yadm](https://github.com/TheLocehiliosan/yadm/blob/master/completion/zsh/_yadm)
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'yadm'
 zi snippet https://github.com/TheLocehiliosan/yadm/blob/master/completion/zsh/_yadm
 ```
 
 ### COMP: [dbrgn/tealdeer](https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer)
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'tldr' mv'zsh_tealdeer -> _tldr'
 zi snippet https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer
 ```
 
 ### COMP: [srijanshetty/zsh-pandoc-completion](https://github.com/srijanshetty/zsh-pandoc-completion)
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'pandoc'
 zi light srijanshetty/zsh-pandoc-completion
 ```
 
 ### COMP: [ohmyzsh/fd](https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/fd/_fd)
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'fd'
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/fd/_fd
 ```
 
 ### COMP: [jarun/Buku](https://github.com/jarun/Buku/blob/master/auto-completion/zsh/_buku)
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'buku'
 zi snippet https://github.com/jarun/Buku/blob/master/auto-completion/zsh/_buku
 ```
@@ -148,21 +152,21 @@ zi snippet https://github.com/ytdl-org/youtube-dl/blob/master/youtube-dl.plugin.
 
 ### COMP: [mpv-player/mpv](https://github.com/mpv-player/mpv/blob/master/etc/_mpv.zsh)
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'mpv'
 zi snippet https://github.com/mpv-player/mpv/blob/master/etc/_mpv.zsh
 ```
 
 ### COMP: [alacritty/alacritty](https://github.com/alacritty/alacritty/blob/master/extra/completions/_alacritty)
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'alacritty'
 zi snippet https://github.com/alacritty/alacritty/blob/master/extra/completions/_alacritty
 ```
 
 ### COMP: [bugaevc/wl-clipboard](https://github.com/bugaevc/wl-clipboard/blob/master/completions/zsh/)
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'wl-copy'
 zi snippet https://github.com/bugaevc/wl-clipboard/blob/master/completions/zsh/_wl-copy
 
@@ -172,42 +176,42 @@ zi snippet https://github.com/bugaevc/wl-clipboard/blob/master/completions/zsh/_
 
 ### COMP: [flatpak/flatpak](https://github.com/flatpak/flatpak/blob/master/completion/_flatpak)
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'flatpak'
 zi light https://github.com/flatpak/flatpak/blob/master/completion/_flatpak
 ```
 
 ### COMP: [beetbox/beets](https://github.com/beetbox/beets/blob/master/extra/_beet)
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'beet'
 zi snippet https://github.com/beetbox/beets/blob/master/extra/_beet
 ```
 
 ### COMP: [zsh-users/zsh-completions](https://github.com/zsh-users/zsh-completions)
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait as'completion'
 zi light zsh-users/zsh-completions
 ```
 
 ### COMP: [zchee/zsh-completions](https://github.com/zchee/zsh-completions)
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait as'completion' blockf pick'src/go' src'src/zsh'
 zi light zchee/zsh-completions
 ```
 
 ### COMP: [git/git](https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh)
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait as'completion' blockf mv'git-completion.zsh -> _git'
 zi snippet https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh
 ```
 
 ### COMP: Local
 
-```shell
+```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'pip'
 zi snippet "$SHELL_COMMON/zsh/completions/_pip"
 
