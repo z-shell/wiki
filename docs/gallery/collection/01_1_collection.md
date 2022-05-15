@@ -10,30 +10,14 @@ keywords:
 
 :::info
 
-- Recommended to familiarize with Guides section.
-- Some installations may require additional functionally, it can be done by installing required annexes as meta plugin:
+- Recommended to familiarize with [common syntax][8].
+- Some installations may require additional functionally, it can be done by installing required [annexes][1]:
 
 ```shell
 zi light-mode for z-shell/z-a-meta-plugins @annexes
 ```
 
-More info: [ecosystem/annexes][1]
-
 :::
-
-## Pefixed header tags
-
-For the [search][7], prefixed tags helps as minimal description to the visible results.
-
-| Tag name | Install type    |
-| -------- | --------------- |
-| GH-R     | GitHub release  |
-| COMP     | Completion      |
-| ZS       | Service         |
-| SC       | Script          |
-| B        | Build           |
-| RA       | [Rust Annex][2] |
-| THP      | Themes/Prompts  |
 
 :::tip Additional installation methods
 
@@ -51,6 +35,20 @@ Any contributions you make will benefit everybody else and are greatly appreciat
 
 :::
 
+## Pefixed header tags
+
+For the [search][7], prefixed tags helps as minimal description to the visible results.
+
+| Tag name | Install type    |
+| -------- | --------------- |
+| GH-R     | GitHub release  |
+| COMP     | Completion      |
+| ZS       | Service         |
+| SC       | Script          |
+| B        | Build           |
+| RA       | [Rust Annex][2] |
+| THP      | Themes/Prompts  |
+
 [1]: /ecosystem/annexes
 [2]: /ecosystem/annexes/rust
 [3]: /ecosystem/annexes/meta-plugins
@@ -58,3 +56,4 @@ Any contributions you make will benefit everybody else and are greatly appreciat
 [5]: https://github.com/z-shell/zi/issues/new/choose
 [6]: https://github.com/orgs/z-shell/discussions/new
 [7]: /search/?q=GH-R
+[8]: /docs/guides/syntax/common
