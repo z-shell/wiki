@@ -15,9 +15,9 @@ export default function HomeHeader(): JSX.Element {
           src={'https://asciinema.org/a/459358.cast'}
           cols={209}
           rows={29}
-          speed={1.5}
+          speed={1}
           idleTimeLimit={2}
-          preload
+          preload={true}
         />
       </div>
     </header>
