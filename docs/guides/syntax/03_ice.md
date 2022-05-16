@@ -17,9 +17,7 @@ import ZIceImg from '@site/static/img/png/ice-239x200.png';
 
 :::info FAQ: What is ice?
 
-The word **ice** means something that's added (like ice to a drink) – and in ZI syntax it means adding a modifier to a
-next zi command. Something that's temporary because it melts – and this means that the modification will last
-only for next zi command.
+The word **ice** means something that's added (like ice to a drink) – and in ZI syntax it means adding a modifier to a next zi command. Something that's temporary because it melts – and this means that the modification will last only for next zi command.
 
 :::
 
@@ -30,29 +28,21 @@ only for next zi command.
 ZI has a swiss-knife tool for unpacking all kinds of archives – the `extract'…'` ice. It works in two modes – automatic
 mode and fixed mode.
 
-#### automatic mode
+#### Automatic mode
 
 It is active if the ice is empty (or contains only flags – more on them later). It works as follows:
 
-1. At first, a recursive search for files of known [file extensions](#supported-file-formats) located not deeper than in
-   a sub-directory is being performed. All such found files are then extracted.
-   - The directory-level limit is to skip extraction of some helper archive files, which are typically located somewhere
-     deeper in the directory tree.
-2. **IF** no such files will be found, then a recursive search for files of known archive **types** will be performed.
-   This is basically done by running the `file` Unix command on each file in the plugin or snippet directory and then
-   grepping the output for strings like `Zip`, `bzip2`, etc. All such discovered files are then extracted.
-   - The directory-level requirement is imposed also during this stage - files located deeper in the tree than in a
-     sub-directory are omitted.
-3. If no archive files will be discovered then no action is being performed and also no warning message is being
-   printed.
+1. At first, a recursive search for files of known [file extensions](#supported-file-formats) located not deeper than in a sub-directory is being performed. All such found files are then extracted.
+   - The directory-level limit is to skip extraction of some helper archive files, which are typically located somewhere deeper in the directory tree.
+2. **IF** no such files will be found, then a recursive search for files of known archive **types** will be performed. This is basically done by running the `file` Unix command on each file in the plugin or snippet directory and then grepping the output for strings like `Zip`, `bzip2`, etc. All such discovered files are then extracted.
+   - The directory-level requirement is imposed also during this stage - files located deeper in the tree than in a sub-directory are omitted.
+3. If no archive files will be discovered then no action is being performed and also no warning message is being printed.
 
 #### Fixed mode
 
-It is active when a filename is being passed as the `extract`'s argument, e.g.:
-`zi extract=archive.zip for z-shell/null`.
+It is active when a filename is being passed as the `extract`'s argument, e.g.: `zi extract=archive.zip for z-shell/null`.
 
-Multiple files can be specified – separated by spaces. In this mode all and only the specified files are being
-extracted.
+Multiple files can be specified – separated by spaces. In this mode all and only the specified files are being extracted.
 
 #### Filenames With Spaces
 
@@ -65,57 +55,30 @@ The non-breaking space is easy to type by pressing right <kbd>ALT</kbd> and the 
 
 The value of the ice can begin with a two special characters:
 
-1. Exclamation mark (`!`), i.e.: `extract='!…'` – it'll cause the files to be moved one directory-level up upon
-   unpacking,
+1. Exclamation mark (`!`), i.e.: `extract='!…'` – it'll cause the files to be moved one directory-level up upon unpacking,
 2. Dash (`-`), i.e.: `extract'-…'` – it'll prevent removal of the archive after unpacking.
-   - This flag is useful to allow comparing timestamps with the server in case of snippet-downloaded file – it will
-     prevent unnecessary downloads during `zi update`, as the timestamp of the archive file on the disk will be first
-     compared with the HTTP last-modification time header.
+   - This flag is useful to allow comparing timestamps with the server in case of snippet-downloaded file – it will prevent unnecessary downloads during `zi update`, as the timestamp of the archive file on the disk will be first compared with the HTTP last-modification time header.
 
 The flags can be combined in any order: `extract'!-'`.
 
 ### `ziextract`
 
-Sometimes a more uncommon unpacking operation is needed.
-
-In such case you can directly use the function that implements the ice – it is called `ziextract`.
+Sometimes a more uncommon unpacking operation is needed. In such case you can directly use the function that implements the ice – it is called `ziextract`.
 
 It recognizes the following options:
 
 1. `--auto` – runs the automatic extraction.
 2. `--move` – performs the one-directory-level-up move of the files after unpacking.
 3. `--norm` - prevents the archive file removal.
-4. And also one option specific only to the function: `--nobkp`, which prevents clearing of the plugin's dir before the
-   extraction – normally all the files except the archive are being moved into `._backup` directory and after that the
-   extraction is performed. - `extract` ice also skips creating the backup **if** more than one archive is found or
-   given as the argument.
+4. And also one option specific only to the function: `--nobkp`, which prevents clearing of the plugin's dir before the extraction – normally all the files except the archive are being moved into `._backup` directory and after that the extraction is performed. - `extract` ice also skips creating the backup **if** more than one archive is found or given as the argument.
 
 ### Supported File Formats
 
-| File formats | ✓   |
-| :----------- | --- |
-| Zip          | ✓   |
-| RAR          | ✓   |
-| tar.gz       | ✓   |
-| tar.bz2      | ✓   |
-| tar.xz       | ✓   |
-| tar.7z       | ✓   |
-| tar          | ✓   |
-| tgz          | ✓   |
-| tbz2         | ✓   |
-| gz           | ✓   |
-| bz2          | ✓   |
-| txz          | ✓   |
-| xz           | ✓   |
-| 7z           | ✓   |
-| exe          | ✓   |
-| deb          | ✓   |
-| OS X (dmg)   | ✓   |
+Zip, Rar, tar.gz,tar.bz2, tar.xz, tar.7z, tar, tgz, tbz2, gz, bz2, txz, xz, 7z, exe, deb, OS X (dmg) – all these are supported.
 
 ## `from'…'`
 
-In order to install and load a plugin whose repository is private - e.g: requires providing credentials in order to log
-in – use the `from'…'` ice in the following way:
+In order to install and load a plugin whose repository is private - e.g: requires providing credentials in order to log in – use the `from'…'` ice in the following way:
 
 ```shell showLineNumbers
 zi ice from"user@github.com"
@@ -170,15 +133,12 @@ zi ice as"program" from"gh-r" mv"docker-c* -> docker-compose"
 zi light "docker/compose"
 ```
 
-This registers plugin under the ID `docker/compose`. Now suppose the user would want to also load a completion from the
-project's GitHub repository (not the binary release catalog) which is also available under the GitHub url-path
-**…/docker/compose**.
+This registers plugin under the ID `docker/compose`. Now suppose the user would want to also load a completion from the project's GitHub repository (not the binary release catalog) which is also available under the GitHub url-path **…/docker/compose**.
 
 The two IDs, both being "docker/compose", will collide.
 
 The solution to this problem – the `id-as` (to be read as: _identify-as_) ice to which this document is devoted: by
-using the `id-as` ice the user can resolve the conflict by loading the completion under a kind of a _nickname_, for
-example under "_dc-complete_", by issuing the following commands:
+using the `id-as` ice the user can resolve the conflict by loading the completion under a kind of a _nickname_, for example under "_dc-complete_", by issuing the following commands:
 
 ```shell showLineNumbers
 zi ice as"completion" id-as"dc-complete"
@@ -213,13 +173,11 @@ zi ice as"program" id-as"git-unique"
 zi snippet https://github.com/Osse/git-scripts/blob/master/git-unique
 ```
 
-The commands `zi update git-unique`, `zi delete git-unique` and other will work normally and e.g. `zi times` will show
-the _nickname_-ID `git-unique` instead of the long URL.
+The commands `zi update git-unique`, `zi delete git-unique` and other will work normally and e.g. `zi times` will show the _nickname_-ID `git-unique` instead of the long URL.
 
 ### `id-as'auto'` {#id-asauto}
 
-There's a special value to the `id-as'…'` ice – `auto`. It causes the nickname to be automatically set to the last
-component of the plugin name or snippet URL. For example:
+There's a special value to the `id-as'…'` ice – `auto`. It causes the nickname to be automatically set to the last component of the plugin name or snippet URL. For example:
 
 ```shell showLineNumbers
 zi ice as"program" id-as"auto"
@@ -266,11 +224,10 @@ zi ice wait'[[ -n ${ZLAST_COMMANDS[(r)cras*]} ]]'
 zi light z-shell/zi-crasis
 ```
 
-- `$ZLAST_COMMANDS` is an array build by [**F-Sy-H**][2], it contains commands currently entered at prompt,
+- `$ZLAST_COMMANDS` is an array build by [F-Sy-H][2], it contains commands currently entered at prompt,
 - `(r)` searches for element that matches given pattern (`cras*`) and returns it,
 - `-n` means: not-empty, so it will be true when users enters "cras",
-- after 1 second or less, ZI will detect that `wait'…'` condition is true, and load the plugin, which provides command
-  _crasis_,
+- after 1 second or less, ZI will detect that `wait'…'` condition is true, and load the plugin, which provides command _crasis_,
 - Screencast that presents the feature: [![screencast][3]][4]
 
 ```shell showLineNumbers
@@ -294,11 +251,9 @@ Firing 1
 ```
 
 As it can be seen, the second plugin has been loaded first. That's because there are now three sub-slots (the `a`, `b`
-and `c`) in which the plugin/snippet loadings can be put into. Plugins from the same time-slot with suffix `a` will be
-loaded before plugins with suffix `b`, etc.
+and `c`) in which the plugin/snippet loadings can be put into. Plugins from the same time-slot with suffix `a` will be loaded before plugins with suffix `b`, etc.
 
-In other words, instead of `wait'1'` you can enter `wait'1a'`, `wait'1b'` and `wait'1c'` – to this way **impose order**
-on the loadings **regardless of the order of `zi` commands**.
+In other words, instead of `wait'1'` you can enter `wait'1a'`, `wait'1b'` and `wait'1c'` – to this way **impose order** on the loadings **regardless of the order of `zi` commands**.
 
 ### `zi-turbo '…' for …`
 
@@ -314,31 +269,28 @@ It can be executed with the `for` syntax in the imposed loading order e.g:
 
 ```shell showLineNumbers
 zi-turbo '0a' for \
-   OMZL::git.zsh \
-   OMZL::compfix.zsh \
-   OMZL::functions.zsh \
+  OMZL::git.zsh \
+  OMZL::compfix.zsh \
+  OMZL::functions.zsh \
 
 zi-turbo '0b' for \
-   OMZL::prompt_info_functions.zsh OMZL::spectrum.zsh \
-   OMZL::clipboard.zsh OMZL::termsupport.zsh OMZL::directories.zsh
+  OMZL::prompt_info_functions.zsh OMZL::spectrum.zsh \
+  OMZL::clipboard.zsh OMZL::termsupport.zsh OMZL::directories.zsh
 
 zi-turbo '1a' for \
-   OMZP::sudo OMZP::encode64 \
-      atload"unalias grv g" OMZP::git \
-   OMZP::gcloud OMZP::nvm OMZP::gem OMZP::rust
+  OMZP::sudo OMZP::encode64 \
+    atload"unalias grv g" OMZP::git \
+  OMZP::gcloud OMZP::nvm OMZP::gem OMZP::rust
 
 zi-turbo '1b' for \
-   MichaelAquilina/zsh-you-should-use
+  MichaelAquilina/zsh-you-should-use
 ```
 
 ## `wrap-track'…'`
 
-The `wrap-track'…'` ice-mod allows to extend the tracking (e.g: gathering of report and unload data) of a plugin beyond
-the moment of sourcing it's main file(s).
+The `wrap-track'…'` ice-mod allows to extend the tracking (e.g: gathering of report and unload data) of a plugin beyond the moment of sourcing it's main file(s).
 
-It works by wrapping the given functions with a tracking-enabling and disabling snippet of code. This is useful
-especially with prompts, as they very often do their initialization in the first call to their `precmd` [**hook**][5]
-function.
+It works by wrapping the given functions with a tracking-enabling and disabling snippet of code. This is useful especially with prompts, as they very often do their initialization in the first call to their `precmd` [**hook**][5] function.
 
 For example, [**romkatv/powerlevel10k**][6] works this way.
 
@@ -350,9 +302,7 @@ zi ice wrap-track"func1;func2;…"
 
 ### Use case for `wrap-track'…'` {#use-case-for-wrap-track}
 
-Therefore, to e.g. load and unload the example powerlevel10k prompt in the fashion of [**Multiple prompts**][7] article,
-the `precmd` function of the plugin – called `_p9k_precmd`, to get the name of the function do `echo $precmd_functions`
-after loading a theme, should be passed to `wrap-track'…'` ice.
+Therefore, to e.g. load and unload the example powerlevel10k prompt in the fashion of [**Multiple prompts**][7] article, the `precmd` function of the plugin – called `_p9k_precmd`, to get the name of the function do `echo $precmd_functions` after loading a theme, should be passed to `wrap-track'…'` ice.
 
 Load when `MYPROMPT == 4`
 
@@ -362,8 +312,7 @@ zi ice load'![[ $MYPROMPT = 4 ]]' unload'![[ $MYPROMPT != 4 ]]' \
 zi load romkatv/powerlevel10k
 ```
 
-This way the actions done during the first call to `_p9k_precmd()` will be normally recorded, which can be viewed in the
-report of the [**romkatv/powerlevel10k**][6] theme:
+This way the actions done during the first call to `_p9k_precmd()` will be normally recorded, which can be viewed in the report of the [**romkatv/powerlevel10k**][6] theme:
 
 ```shell showLineNumbers
 ➜ zi report romkatv/powerlevel10k:
@@ -400,9 +349,7 @@ Functions created:
 
 #### Summary of `wrap-track'…'`
 
-As it can be seen, creation of four additional Zle-widgets has been recorded - `Zle -N …` lines. They will be properly
-deleted/restored on the plugin unload with `MYPROMPT=3` as example and the shell state will be clean, ready to load a
-new prompt.
+As it can be seen, creation of four additional Zle-widgets has been recorded - `Zle -N …` lines. They will be properly deleted/restored on the plugin unload with `MYPROMPT=3` as example and the shell state will be clean, ready to load a new prompt.
 
 ## `src'…'` `pick'…'` `multisrc'…'`
 
@@ -487,8 +434,7 @@ zi snippet OMZ::lib
 
 Hack with ZI: the ice's contents is simply `eval`-uated like follows: eval "reply=($multisrc)".
 
-So it might get handy on an occasion to pass code there, but first you must close the paren and then don't forget to
-assign `reply`, and to provide a trailing opening paren.
+So it might get handy on an occasion to pass code there, but first you must close the paren and then don't forget to assign `reply`, and to provide a trailing opening paren.
 
 In the code be careful to not redefine any variable used internally by ZI – e.g.: `i` is safe:
 
@@ -523,14 +469,11 @@ which is somewhat easier on eyes.
 
 :::info Important Property
 
-The multiple snippets loaded with the `for` syntax are being loaded _separately_, which means that they will not cause a
-longer keyboard blockage, which could have been noticeable – when using Turbo.
+The multiple snippets loaded with the `for` syntax are being loaded _separately_, which means that they will not cause a longer keyboard blockage, which could have been noticeable – when using Turbo.
 
 :::
 
-The ZI scheduler will distribute the work over time and will allow activation of keyboard in between the snippets.
-
-The `multisrc'…'` way doesn't work this way – sourcing many files can cause noticeable keyboard freezes (in Turbo).
+The ZI scheduler will distribute the work over time and will allow activation of keyboard in between the snippets. The `multisrc'…'` way doesn't work this way – sourcing many files can cause noticeable keyboard freezes (in Turbo).
 
 ## `atclone'…'` `atpull'…'` `atinit'…'` `atload'…'`
 
@@ -595,15 +538,14 @@ Below is the result of using the `unload` subcommand to unload the `test` plugin
 ```shell showLineNumbers
 zi unload test
 --- Unloading plugin: test ---
-Removing PATH element /home/sg/share
+Removing PATH element /home/user/share
 Unregistering plugin test
 Plugin report saved to $LASTREPORT
 ```
 
 ### Practical example
 
-The same example as in the [**Tracking precmd-based Plugins**](#wrap-track) article, but using the _exclamation
-mark_-preceded `atload` instead of `wrap-track`:
+The same example as in the [**Tracking precmd-based Plugins**](#wrap-track) article, but using the _exclamation mark_-preceded `atload` instead of `wrap-track`:
 
 Load when - `MYPROMPT == 4`
 

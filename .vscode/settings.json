@@ -7,10 +7,13 @@
     "source.fixAll.markdownlint": true
   },
   "conventionalCommits.scopes": [
+    "maintenance",
     "workspace",
     "community",
     "general",
-    "docs",
     "theme"
-  ]
+  ],
+  "markdownlint.config": {
+    "extends": ".github/.markdownlint.yaml",
+  }
 }

@@ -25,7 +25,7 @@ Related:
 
 Load in turbo mode and adjust loading order by appending e.g:
 
-```shell
+```shell showLineNumbers
 zi ice wait'0a' lucid …
 zi light …
 
@@ -45,7 +45,7 @@ Create your own syntax e.g:
 > - The ver'master' - allows to select specific version or branch.
 > - It's optional and can be removed if not required.
 
-```shell
+```shell showLineNumbers
 z_lucid() {
   zi ice lucid ver'master' "$@"
 }
@@ -69,7 +69,7 @@ zi0c() {
 
 Then load as:
 
-```shell
+```shell showLineNumbers
 zi0a
 zi light …
 
@@ -86,7 +86,7 @@ zi light …
 
 ### SC: [trapd00r/LS_COLORS](https://github.com/trapd00r/LS_COLORS)
 
-```shell
+```shell showLineNumbers
 # ogham/exa also uses the definitions
 zi ice wait lucid reset \
  atclone"[[ -z \${commands[dircolors]} ]] && local P=g

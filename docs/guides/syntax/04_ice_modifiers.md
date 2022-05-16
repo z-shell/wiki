@@ -11,9 +11,7 @@ Following ice modifiers are to be [passed][alternate-syntax] to `zi ice …` to 
 
 The word `ice` means something that's added, like ice to a drink – and in ZI it means adding a modifier to a next `zi` command, and also something that's temporary because it melts – and this means that the modification will last only for a **single** next `zi` command.
 
-Some ice modifiers are highlighted and clicking on them will take you to the appropriate Wiki page for an extended explanation.
-
-You may safely assume given ice works with both plugins and snippets unless explicitly stated otherwise.
+Some ice modifiers are highlighted and clicking on them will take you to the appropriate Wiki page for an extended explanation. You may safely assume given ice works with both plugins and snippets unless explicitly stated otherwise.
 
 ## Order of execution
 
@@ -22,13 +20,15 @@ Order of execution of related ice modifiers is as follows:
 ```shell showLineNumbers
   atinit'' →
     atpull'!' →
-    make'!!' →
-      mv'' → cp'' →
-        make'!' →
-      atclone''/atpull'' →
-        make'!' → <plugin script loading> →
-          src'' → multisrc'' →
-            atload''
+      make'!!' →
+        mv'' →
+          cp'' →
+            make'!' →
+              atclone''/atpull'' →
+                make'!' → <plugin script loading> →
+                  src'' →
+                    multisrc'' →
+                      atload''
 ```
 
 ## A few remarks

@@ -26,7 +26,7 @@ Create your own syntax e.g:
 > - The ver'master' - allows to select specific version or branch.
 > - It's optional and can be removed if not required.
 
-```shell
+```shell showlinenumbers
 z_lucid() {
   zi ice lucid ver'master' "$@"
 }
@@ -46,7 +46,7 @@ zi_completion() {
 
 Then load as:
 
-```shell
+```shell showlinenumbers
 zi_completion has'…'
 zi snippet …
 

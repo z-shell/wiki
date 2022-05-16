@@ -3,7 +3,7 @@ id: common
 title: 🔀 Common Syntax
 sidebar_position: 1
 image: img/logo/320x320.png
-description: The Fundamental ZI syntax
+description: The Fundamental ZI syntax.
 keywords:
   - common
   - syntax
@@ -94,25 +94,20 @@ zi light trapd00r/LS_COLORS
 
 | Syntax             | Description                                                                                                 |
 | ------------------ | :---------------------------------------------------------------------------------------------------------- |
-| `atclone'…'`       | Generate shell script, but instead of passing it to `eval`. More below: (1)                                 |
-| `atpull'%atclone'` | Do the same at any update of the plugin. More below: (2)                                                    |
+| `atclone'…'`       | Generate shell script, but instead of passing it to `eval`. More: [1^]                                      |
+| `atpull'%atclone'` | Do the same at any update of the plugin. More: [2^]                                                         |
 | `pick"clrs.zsh"`   | Source the previously generated file `clrs zsh`.                                                            |
 | `nocompile'!'`     | Invokes compilation **after** the `atclone'…'` [ice-modifier][3] and the [exclamation mark][4] causes this. |
 | `atload'…'`        | Additionally sets up the Zsh completion to use the colors provided by the trapd00r package.                 |
 
-- (1) Save it to file. The `atclone'…'` is being ran on the **installation** while the `atpull'…'` hook is being run on
-  an **update** of the [**trapd00r/LS_COLORS**][1] plugin.
-- (2) The `%atclone` is just a special string that denotes the `atclone'…'` hook and is copied onto the `atpull'…'`
-  hook.
+[1^]: Save it to file. The `atclone'…'` is being ran on the **installation** while the `atpull'…'` hook is being run on an **update** of the [**trapd00r/LS_COLORS**][1] plugin.
+[2^]: The `%atclone` is just a special string that denotes the `atclone'…'` hook and is copied onto the `atpull'…'` hook.
 
-This way, except for the plugin installation and update, `dircolors` isn't ran, just normal sourcing is done.
-
-The everyday sourced file, i.e. `clrs.zsh`, is being compiled to speed up the loading.
+This way, except for the plugin installation and update, `dircolors` isn't ran, just normal sourcing is done. The everyday sourced file, i.e. `clrs.zsh`, is being compiled to speed up the loading.
 
 ## <i class="fa-solid fa-folder-tree"></i> Direnv
 
-The project [**direnv/direnv**][5] registers itself in Z shell to modify the environment on directory change. This
-registration is most often done by `eval "$(direnv hook zsh)"` added to `.zshrc`.
+The project [**direnv/direnv**][5] registers itself in Z shell to modify the environment on directory change. This registration is most often done by `eval "$(direnv hook zsh)"` added to `.zshrc`.
 
 ```shell showLineNumbers
 zi ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
@@ -123,18 +118,13 @@ zi light direnv/direnv
 - `make'!'` – execute `make` before `atclone'…'` and before `atpull'…'` (see `make` above),
 - `src'zhook.zsh'` – source file `zhook.zsh`.
 
-In general, direnv works by hooking up to Zsh.
+In general, direnv works by hooking up to Zsh. The code that does this is provided by program `direnv` (built by `make'…'`).
 
-The code that does this is provided by program `direnv` (built by `make'…'`).
-
-Above `atclone'…'` puts this code into file `zhook.zsh`, `src''` sources it.
-
-This way `direnv hook zsh` is executed only on clone and update, and Zsh starts faster.
+Above `atclone'…'` puts this code into file `zhook.zsh`, `src''` sources it. This way `direnv hook zsh` is executed only on clone and update, and Zsh starts faster.
 
 ## <i class="fa-solid fa-wand-magic-sparkles"></i> Glance at the 'for' syntax
 
-The drawback of this standard procedure is that the `direnv` binary is run on every shell startup and significantly
-slows it down. ZI allows to solve this in the following way:
+The drawback of this standard procedure is that the `direnv` binary is run on every shell startup and significantly slows it down. ZI allows to solve this in the following way:
 
 ```shell showLineNumbers
 zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
@@ -167,9 +157,9 @@ zi from"gh-r" as"program" mv"direnv* -> direnv" \
 | ------------------------- | :------------------------------------------------------------------------- |
 | `from'gh-r'`              | Install from `direnv` from [GitHub releases][6].                           |
 | `mv'direnv* -> direnv'`   | After installation, rename `direnv.linux-386` or similar file to `direnv`. |
-| `atclone'…'`, `atpull'…'` | As in previous example                                                     |
-| `pick'direnv'`            | As in previous example.                                                    |
-| `as'program'`             | As in previous example                                                     |
+| `atclone'…'`, `atpull'…'` | As in above example.                                                       |
+| `pick'direnv'`            | As in above example.                                                       |
+| `as'program'`             | As in above example.                                                       |
 
 ## <i class="fa-solid fa-pen-to-square"></i> Standart syntax
 
@@ -222,10 +212,7 @@ zi load …
 
 It's up to the user which syntax to choose.
 
-The original motivation behind the standard syntax was: to utilize the syntax highlighting of editors like Vim – and
-have the strings following ice names colorized with a distinct color and this way separated from them. However, with the
-[zi/zi-vim-syntax][11] syntax definition this motivation can be superseded with the ZI-specific highlighting, at least
-for Vim.
+The original motivation behind the standard syntax was: to utilize the syntax highlighting of editors like Vim – and have the strings following ice names colorized with a distinct color and this way separated from them. However, with the [zi/zi-vim-syntax][11] syntax definition this motivation can be superseded with the ZI-specific highlighting, at least for Vim.
 
 [1]: https://github.com/trapd00r/LS_COLORS
 [2]: https://github.com/ogham/exa

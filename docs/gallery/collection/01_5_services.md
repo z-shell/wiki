@@ -9,14 +9,14 @@ keywords:
 
 ### ZS: [z-shell/redis](https://github.com/z-shell/redis)
 
-```shell
+```shell showLineNumbers
 zi ice wait lucid service"redis"
 zi light z-shell/redis
 ```
 
 ### ZS: [z-shell/zsh-github-issues](https://github.com/z-shell/zsh-github-issues)
 
-```shell
+```shell showLineNumbers
 GIT_SLEEP_TIME=700
 GIT_PROJECTS=z-shell/zsh-github-issues:z-shell/zi
 

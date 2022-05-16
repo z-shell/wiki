@@ -1,6 +1,4 @@
-/i-hub https://github.com/z-shell/zi-src/raw/main/lib/sh/install.sh
-/i-lab https://gitlab.com/ss-o/zi-src/-/raw/main/lib/sh/install.sh
-/i-tee https://gitee.com/z-shell/zi-src/raw/main/lib/sh/install.sh
+/install https://github.com/z-shell/zi-src/raw/main/lib/sh/install.sh
 /discussions https://github.com/orgs/z-shell/discussions
 /crowdin https://crowdin.digitalclouds.dev/z-shell
 /matrix https://matrix.to/#/#z-shell_zi:gitter.im

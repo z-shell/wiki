@@ -18,12 +18,12 @@ Related:
 
 ### SC: [OMZ::lib](https://github.com/ohmyzsh/ohmyzsh/tree/master/lib)
 
-```shell
+```shell showLineNumbers
 zi ice svn pick"completion.zsh" src"git.zsh"
 zi snippet OMZ::lib
 ```
 
-```shell
+```shell showLineNumbers
 zi ice svn pick"completion.zsh" multisrc'git.zsh \
     functions.zsh {history,grep}.zsh'
 zi snippet OMZ::lib
@@ -31,7 +31,7 @@ zi snippet OMZ::lib
 
 ### SC: [OMZ::plugin/osx](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/osx)
 
-```shell
+```shell showLineNumbers
 zi ice svn
 zi snippet OMZ::plugins/osx
 ```

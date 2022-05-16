@@ -75,9 +75,8 @@ Invocations][7].
 
 ## <i class="fa-solid fa-list-check"></i> Summary
 
-[![Z-Shell Projects](https://github.zshell.dev/.github/plugin/projects/projects.svg#center)](https://github.com/orgs/z-shell/projects) <br />
-[![Z-ShellOrganization](https://github.zshell.dev/.github/plugin/followup/followup.svg#center)](https://github.com/z-shell/) <br />
-[![ZI WIKI PageSpeed](https://github.zshell.dev/.github/plugin/pagespeed/detailed.svg#center)](https://github.com/z-shell/zw)
+[![Z-Shell Projects](https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/projects/projects.svg#center)](https://github.com/orgs/z-shell/projects) <br />
+[![Z-ShellOrganization](https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg#center)](https://github.com/z-shell/) <br />
 
 [1]: /ecosystem/annexes/bin-gem-node
 [2]: https://github.com/z-shell/any-gem
