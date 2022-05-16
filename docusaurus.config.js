@@ -110,7 +110,7 @@ const config = {
             return `https://github.com/z-shell/zw/tree/next/${blogDirPath}/${blogPath}`;
           },
         },
-        gtag: { trackingID: 'G-MT10GVL59X', anonymizeIP: true },
+        /* gtag: { trackingID: 'G-MT10GVL59X', anonymizeIP: true }, */
         sitemap: { changefreq: 'daily', priority: 0.5 },
       }),
     ],
