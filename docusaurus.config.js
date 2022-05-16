@@ -78,7 +78,7 @@ const config = {
     require.resolve('WithSomeMoney'),
   ], */
   i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
-  scripts: [{ src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous' }],
+  scripts: [{ rel: 'preload', src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous' }],
   presets: [
     [
       'classic',
