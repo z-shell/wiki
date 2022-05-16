@@ -1,3 +1,6 @@
+/*
+  Etag: "1b695f47fbaf308dbc3a07a6bccf0d08"
+
 # /assets folder contain Webpack processed assets with a file hash
 # They are safe for immutable caching, as filename change when content change
 
