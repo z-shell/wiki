@@ -28,7 +28,7 @@ lint:
         - 'i18n/**'
         - '!18n/en/**'
         - 'build/**'
-        - 'static/**'
+        - 'static/img/**'
         - '.docusaurus/**'
         - 'src/**/*.min.*'
     - linters: [actionlint]

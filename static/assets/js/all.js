@@ -1,4 +1,4 @@
-/*!
+/* !
  * Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  * Copyright 2022 Fonticons, Inc.
@@ -6,28 +6,28 @@
 (function () {
   'use strict';
 
-  var _WINDOW = {};
-  var _DOCUMENT = {};
+  let _WINDOW = {};
+  let _DOCUMENT = {};
 
   try {
     if (typeof window !== 'undefined') _WINDOW = window;
     if (typeof document !== 'undefined') _DOCUMENT = document;
   } catch (e) {}
 
-  var _ref = _WINDOW.navigator || {},
-      _ref$userAgent = _ref.userAgent,
-      userAgent = _ref$userAgent === void 0 ? '' : _ref$userAgent;
-  var WINDOW = _WINDOW;
-  var DOCUMENT = _DOCUMENT;
-  var IS_BROWSER = !!WINDOW.document;
-  var IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
-  var IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
+  const _ref = _WINDOW.navigator || {};
+      const _ref$userAgent = _ref.userAgent;
+      const userAgent = _ref$userAgent === void 0 ? '' : _ref$userAgent;
+  const WINDOW = _WINDOW;
+  const DOCUMENT = _DOCUMENT;
+  const IS_BROWSER = !!WINDOW.document;
+  const IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
+  const IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
 
   function ownKeys(object, enumerableOnly) {
-    var keys = Object.keys(object);
+    const keys = Object.keys(object);
 
     if (Object.getOwnPropertySymbols) {
-      var symbols = Object.getOwnPropertySymbols(object);
+      let symbols = Object.getOwnPropertySymbols(object);
       enumerableOnly && (symbols = symbols.filter(function (sym) {
         return Object.getOwnPropertyDescriptor(object, sym).enumerable;
       })), keys.push.apply(keys, symbols);
@@ -37,7 +37,7 @@
   }
 
   function _objectSpread2(target) {
-    for (var i = 1; i < arguments.length; i++) {
+    for (let i = 1; i < arguments.length; i++) {
       var source = null != arguments[i] ? arguments[i] : {};
       i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
         _defineProperty(target, key, source[key]);
@@ -79,7 +79,7 @@
   function _unsupportedIterableToArray(o, minLen) {
     if (!o) return;
     if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
+    let n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor) n = o.constructor.name;
     if (n === "Map" || n === "Set") return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
@@ -97,15 +97,15 @@
     throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
   }
 
-  var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
-  var PRODUCTION = function () {
+  const NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
+  const PRODUCTION = function () {
     try {
       return "production" === 'production';
     } catch (e) {
       return false;
     }
   }();
-  var STYLE_TO_PREFIX = {
+  const STYLE_TO_PREFIX = {
     'solid': 'fas',
     'regular': 'far',
     'light': 'fal',
@@ -114,15 +114,15 @@
     'brands': 'fab',
     'kit': 'fak'
   };
-  var oneToTen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  var oneToTwenty = oneToTen.concat([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
-  var DUOTONE_CLASSES = {
+  const oneToTen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const oneToTwenty = oneToTen.concat([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
+  const DUOTONE_CLASSES = {
     GROUP: 'duotone-group',
     SWAP_OPACITY: 'swap-opacity',
     PRIMARY: 'primary',
     SECONDARY: 'secondary'
   };
-  var RESERVED_CLASSES = [].concat(_toConsumableArray(Object.keys(STYLE_TO_PREFIX)), ['2xs', 'xs', 'sm', 'lg', 'xl', '2xl', 'beat', 'border', 'fade', 'beat-fade', 'bounce', 'flip-both', 'flip-horizontal', 'flip-vertical', 'flip', 'fw', 'inverse', 'layers-counter', 'layers-text', 'layers', 'li', 'pull-left', 'pull-right', 'pulse', 'rotate-180', 'rotate-270', 'rotate-90', 'rotate-by', 'shake', 'spin-pulse', 'spin-reverse', 'spin', 'stack-1x', 'stack-2x', 'stack', 'ul', DUOTONE_CLASSES.GROUP, DUOTONE_CLASSES.SWAP_OPACITY, DUOTONE_CLASSES.PRIMARY, DUOTONE_CLASSES.SECONDARY]).concat(oneToTen.map(function (n) {
+  const RESERVED_CLASSES = [].concat(_toConsumableArray(Object.keys(STYLE_TO_PREFIX)), ['2xs', 'xs', 'sm', 'lg', 'xl', '2xl', 'beat', 'border', 'fade', 'beat-fade', 'bounce', 'flip-both', 'flip-horizontal', 'flip-vertical', 'flip', 'fw', 'inverse', 'layers-counter', 'layers-text', 'layers', 'li', 'pull-left', 'pull-right', 'pulse', 'rotate-180', 'rotate-270', 'rotate-90', 'rotate-by', 'shake', 'spin-pulse', 'spin-reverse', 'spin', 'stack-1x', 'stack-2x', 'stack', 'ul', DUOTONE_CLASSES.GROUP, DUOTONE_CLASSES.SWAP_OPACITY, DUOTONE_CLASSES.PRIMARY, DUOTONE_CLASSES.SECONDARY]).concat(oneToTen.map(function (n) {
     return "".concat(n, "x");
   })).concat(oneToTwenty.map(function (n) {
     return "w-".concat(n);
@@ -142,17 +142,17 @@
     }
   }
 
-  var w = WINDOW || {};
+  const w = WINDOW || {};
   if (!w[NAMESPACE_IDENTIFIER]) w[NAMESPACE_IDENTIFIER] = {};
   if (!w[NAMESPACE_IDENTIFIER].styles) w[NAMESPACE_IDENTIFIER].styles = {};
   if (!w[NAMESPACE_IDENTIFIER].hooks) w[NAMESPACE_IDENTIFIER].hooks = {};
   if (!w[NAMESPACE_IDENTIFIER].shims) w[NAMESPACE_IDENTIFIER].shims = [];
-  var namespace = w[NAMESPACE_IDENTIFIER];
+  const namespace = w[NAMESPACE_IDENTIFIER];
 
   function normalizeIcons(icons) {
     return Object.keys(icons).reduce(function (acc, iconName) {
-      var icon = icons[iconName];
-      var expanded = !!icon.icon;
+      const icon = icons[iconName];
+      const expanded = !!icon.icon;
 
       if (expanded) {
         acc[icon.iconName] = icon.icon;
@@ -165,10 +165,10 @@
   }
 
   function defineIcons(prefix, icons) {
-    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-    var _params$skipHooks = params.skipHooks,
-        skipHooks = _params$skipHooks === void 0 ? false : _params$skipHooks;
-    var normalized = normalizeIcons(icons);
+    const params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    const _params$skipHooks = params.skipHooks;
+        const skipHooks = _params$skipHooks === void 0 ? false : _params$skipHooks;
+    const normalized = normalizeIcons(icons);
 
     if (typeof namespace.hooks.addPack === 'function' && !skipHooks) {
       namespace.hooks.addPack(prefix, normalizeIcons(icons));
@@ -188,7 +188,7 @@
     }
   }
 
-  var icons = {
+  const icons = {
     "42-group": [640, 512, ["innosoft"], "e080", "M320 96V416C341 416 361.8 411.9 381.2 403.8C400.6 395.8 418.3 383.1 433.1 369.1C447.1 354.3 459.8 336.6 467.8 317.2C475.9 297.8 480 277 480 256C480 234.1 475.9 214.2 467.8 194.8C459.8 175.4 447.1 157.7 433.1 142.9C418.3 128 400.6 116.2 381.2 108.2C361.8 100.1 341 96 320 96zM0 256L160 416L320 256L160 96L0 256zM480 256C480 277 484.1 297.8 492.2 317.2C500.2 336.6 512 354.3 526.9 369.1C541.7 383.1 559.4 395.8 578.8 403.8C598.2 411.9 618.1 416 640 416V96C597.6 96 556.9 112.9 526.9 142.9C496.9 172.9 480 213.6 480 256z"],
     "500px": [448, 512, [], "f26e", "M103.3 344.3c-6.5-14.2-6.9-18.3 7.4-23.1 25.6-8 8 9.2 43.2 49.2h.3v-93.9c1.2-50.2 44-92.2 97.7-92.2 53.9 0 97.7 43.5 97.7 96.8 0 63.4-60.8 113.2-128.5 93.3-10.5-4.2-2.1-31.7 8.5-28.6 53 0 89.4-10.1 89.4-64.4 0-61-77.1-89.6-116.9-44.6-23.5 26.4-17.6 42.1-17.6 157.6 50.7 31 118.3 22 160.4-20.1 24.8-24.8 38.5-58 38.5-93 0-35.2-13.8-68.2-38.8-93.3-24.8-24.8-57.8-38.5-93.3-38.5s-68.8 13.8-93.5 38.5c-.3 .3-16 16.5-21.2 23.9l-.5 .6c-3.3 4.7-6.3 9.1-20.1 6.1-6.9-1.7-14.3-5.8-14.3-11.8V20c0-5 3.9-10.5 10.5-10.5h241.3c8.3 0 8.3 11.6 8.3 15.1 0 3.9 0 15.1-8.3 15.1H130.3v132.9h.3c104.2-109.8 282.8-36 282.8 108.9 0 178.1-244.8 220.3-310.1 62.8zm63.3-260.8c-.5 4.2 4.6 24.5 14.6 20.6C306 56.6 384 144.5 390.6 144.5c4.8 0 22.8-15.3 14.3-22.8-93.2-89-234.5-57-238.3-38.2zM393 414.7C283 524.6 94 475.5 61 310.5c0-12.2-30.4-7.4-28.9 3.3 24 173.4 246 256.9 381.6 121.3 6.9-7.8-12.6-28.4-20.7-20.4zM213.6 306.6c0 4 4.3 7.3 5.5 8.5 3 3 6.1 4.4 8.5 4.4 3.8 0 2.6 .2 22.3-19.5 19.6 19.3 19.1 19.5 22.3 19.5 5.4 0 18.5-10.4 10.7-18.2L265.6 284l18.2-18.2c6.3-6.8-10.1-21.8-16.2-15.7L249.7 268c-18.6-18.8-18.4-19.5-21.5-19.5-5 0-18 11.7-12.4 17.3L234 284c-18.1 17.9-20.4 19.2-20.4 22.6z"],
     "accessible-icon": [448, 512, [62107], "f368", "M423.9 255.8L411 413.1c-3.3 40.7-63.9 35.1-60.6-4.9l10-122.5-41.1 2.3c10.1 20.7 15.8 43.9 15.8 68.5 0 41.2-16.1 78.7-42.3 106.5l-39.3-39.3c57.9-63.7 13.1-167.2-74-167.2-25.9 0-49.5 9.9-67.2 26L73 243.2c22-20.7 50.1-35.1 81.4-40.2l75.3-85.7-42.6-24.8-51.6 46c-30 26.8-70.6-18.5-40.5-45.4l68-60.7c9.8-8.8 24.1-10.2 35.5-3.6 0 0 139.3 80.9 139.5 81.1 16.2 10.1 20.7 36 6.1 52.6L285.7 229l106.1-5.9c18.5-1.1 33.6 14.4 32.1 32.7zm-64.9-154c28.1 0 50.9-22.8 50.9-50.9C409.9 22.8 387.1 0 359 0c-28.1 0-50.9 22.8-50.9 50.9 0 28.1 22.8 50.9 50.9 50.9zM179.6 456.5c-80.6 0-127.4-90.6-82.7-156.1l-39.7-39.7C36.4 287 24 320.3 24 356.4c0 130.7 150.7 201.4 251.4 122.5l-39.7-39.7c-16 10.9-35.3 17.3-56.1 17.3z"],
@@ -662,28 +662,28 @@
 (function () {
   'use strict';
 
-  var _WINDOW = {};
-  var _DOCUMENT = {};
+  let _WINDOW = {};
+  let _DOCUMENT = {};
 
   try {
     if (typeof window !== 'undefined') _WINDOW = window;
     if (typeof document !== 'undefined') _DOCUMENT = document;
   } catch (e) {}
 
-  var _ref = _WINDOW.navigator || {},
-      _ref$userAgent = _ref.userAgent,
-      userAgent = _ref$userAgent === void 0 ? '' : _ref$userAgent;
-  var WINDOW = _WINDOW;
-  var DOCUMENT = _DOCUMENT;
-  var IS_BROWSER = !!WINDOW.document;
-  var IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
-  var IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
+  const _ref = _WINDOW.navigator || {};
+      const _ref$userAgent = _ref.userAgent;
+      const userAgent = _ref$userAgent === void 0 ? '' : _ref$userAgent;
+  const WINDOW = _WINDOW;
+  const DOCUMENT = _DOCUMENT;
+  const IS_BROWSER = !!WINDOW.document;
+  const IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
+  const IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
 
   function ownKeys(object, enumerableOnly) {
-    var keys = Object.keys(object);
+    const keys = Object.keys(object);
 
     if (Object.getOwnPropertySymbols) {
-      var symbols = Object.getOwnPropertySymbols(object);
+      let symbols = Object.getOwnPropertySymbols(object);
       enumerableOnly && (symbols = symbols.filter(function (sym) {
         return Object.getOwnPropertyDescriptor(object, sym).enumerable;
       })), keys.push.apply(keys, symbols);
@@ -693,7 +693,7 @@
   }
 
   function _objectSpread2(target) {
-    for (var i = 1; i < arguments.length; i++) {
+    for (let i = 1; i < arguments.length; i++) {
       var source = null != arguments[i] ? arguments[i] : {};
       i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
         _defineProperty(target, key, source[key]);
@@ -735,7 +735,7 @@
   function _unsupportedIterableToArray(o, minLen) {
     if (!o) return;
     if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
+    let n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor) n = o.constructor.name;
     if (n === "Map" || n === "Set") return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
@@ -753,15 +753,15 @@
     throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
   }
 
-  var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
-  var PRODUCTION = function () {
+  const NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
+  const PRODUCTION = function () {
     try {
       return "production" === 'production';
     } catch (e) {
       return false;
     }
   }();
-  var STYLE_TO_PREFIX = {
+  const STYLE_TO_PREFIX = {
     'solid': 'fas',
     'regular': 'far',
     'light': 'fal',
@@ -770,15 +770,15 @@
     'brands': 'fab',
     'kit': 'fak'
   };
-  var oneToTen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  var oneToTwenty = oneToTen.concat([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
-  var DUOTONE_CLASSES = {
+  const oneToTen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const oneToTwenty = oneToTen.concat([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
+  const DUOTONE_CLASSES = {
     GROUP: 'duotone-group',
     SWAP_OPACITY: 'swap-opacity',
     PRIMARY: 'primary',
     SECONDARY: 'secondary'
   };
-  var RESERVED_CLASSES = [].concat(_toConsumableArray(Object.keys(STYLE_TO_PREFIX)), ['2xs', 'xs', 'sm', 'lg', 'xl', '2xl', 'beat', 'border', 'fade', 'beat-fade', 'bounce', 'flip-both', 'flip-horizontal', 'flip-vertical', 'flip', 'fw', 'inverse', 'layers-counter', 'layers-text', 'layers', 'li', 'pull-left', 'pull-right', 'pulse', 'rotate-180', 'rotate-270', 'rotate-90', 'rotate-by', 'shake', 'spin-pulse', 'spin-reverse', 'spin', 'stack-1x', 'stack-2x', 'stack', 'ul', DUOTONE_CLASSES.GROUP, DUOTONE_CLASSES.SWAP_OPACITY, DUOTONE_CLASSES.PRIMARY, DUOTONE_CLASSES.SECONDARY]).concat(oneToTen.map(function (n) {
+  const RESERVED_CLASSES = [].concat(_toConsumableArray(Object.keys(STYLE_TO_PREFIX)), ['2xs', 'xs', 'sm', 'lg', 'xl', '2xl', 'beat', 'border', 'fade', 'beat-fade', 'bounce', 'flip-both', 'flip-horizontal', 'flip-vertical', 'flip', 'fw', 'inverse', 'layers-counter', 'layers-text', 'layers', 'li', 'pull-left', 'pull-right', 'pulse', 'rotate-180', 'rotate-270', 'rotate-90', 'rotate-by', 'shake', 'spin-pulse', 'spin-reverse', 'spin', 'stack-1x', 'stack-2x', 'stack', 'ul', DUOTONE_CLASSES.GROUP, DUOTONE_CLASSES.SWAP_OPACITY, DUOTONE_CLASSES.PRIMARY, DUOTONE_CLASSES.SECONDARY]).concat(oneToTen.map(function (n) {
     return "".concat(n, "x");
   })).concat(oneToTwenty.map(function (n) {
     return "w-".concat(n);
@@ -798,17 +798,17 @@
     }
   }
 
-  var w = WINDOW || {};
+  const w = WINDOW || {};
   if (!w[NAMESPACE_IDENTIFIER]) w[NAMESPACE_IDENTIFIER] = {};
   if (!w[NAMESPACE_IDENTIFIER].styles) w[NAMESPACE_IDENTIFIER].styles = {};
   if (!w[NAMESPACE_IDENTIFIER].hooks) w[NAMESPACE_IDENTIFIER].hooks = {};
   if (!w[NAMESPACE_IDENTIFIER].shims) w[NAMESPACE_IDENTIFIER].shims = [];
-  var namespace = w[NAMESPACE_IDENTIFIER];
+  const namespace = w[NAMESPACE_IDENTIFIER];
 
   function normalizeIcons(icons) {
     return Object.keys(icons).reduce(function (acc, iconName) {
-      var icon = icons[iconName];
-      var expanded = !!icon.icon;
+      const icon = icons[iconName];
+      const expanded = !!icon.icon;
 
       if (expanded) {
         acc[icon.iconName] = icon.icon;
@@ -821,10 +821,10 @@
   }
 
   function defineIcons(prefix, icons) {
-    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-    var _params$skipHooks = params.skipHooks,
-        skipHooks = _params$skipHooks === void 0 ? false : _params$skipHooks;
-    var normalized = normalizeIcons(icons);
+    const params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    const _params$skipHooks = params.skipHooks;
+        const skipHooks = _params$skipHooks === void 0 ? false : _params$skipHooks;
+    const normalized = normalizeIcons(icons);
 
     if (typeof namespace.hooks.addPack === 'function' && !skipHooks) {
       namespace.hooks.addPack(prefix, normalizeIcons(icons));
@@ -844,7 +844,7 @@
     }
   }
 
-  var icons = {
+  const icons = {
     "address-book": [512, 512, [62138, "contact-book"], "f2b9", "M272 288h-64C163.8 288 128 323.8 128 368C128 376.8 135.2 384 144 384h192c8.836 0 16-7.164 16-16C352 323.8 316.2 288 272 288zM240 256c35.35 0 64-28.65 64-64s-28.65-64-64-64c-35.34 0-64 28.65-64 64S204.7 256 240 256zM496 320H480v96h16c8.836 0 16-7.164 16-16v-64C512 327.2 504.8 320 496 320zM496 64H480v96h16C504.8 160 512 152.8 512 144v-64C512 71.16 504.8 64 496 64zM496 192H480v96h16C504.8 288 512 280.8 512 272v-64C512 199.2 504.8 192 496 192zM384 0H96C60.65 0 32 28.65 32 64v384c0 35.35 28.65 64 64 64h288c35.35 0 64-28.65 64-64V64C448 28.65 419.3 0 384 0zM400 448c0 8.836-7.164 16-16 16H96c-8.836 0-16-7.164-16-16V64c0-8.838 7.164-16 16-16h288c8.836 0 16 7.162 16 16V448z"],
     "address-card": [576, 512, [62140, "contact-card", "vcard"], "f2bb", "M208 256c35.35 0 64-28.65 64-64c0-35.35-28.65-64-64-64s-64 28.65-64 64C144 227.3 172.7 256 208 256zM464 232h-96c-13.25 0-24 10.75-24 24s10.75 24 24 24h96c13.25 0 24-10.75 24-24S477.3 232 464 232zM240 288h-64C131.8 288 96 323.8 96 368C96 376.8 103.2 384 112 384h192c8.836 0 16-7.164 16-16C320 323.8 284.2 288 240 288zM464 152h-96c-13.25 0-24 10.75-24 24s10.75 24 24 24h96c13.25 0 24-10.75 24-24S477.3 152 464 152zM512 32H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h448c35.35 0 64-28.65 64-64V96C576 60.65 547.3 32 512 32zM528 416c0 8.822-7.178 16-16 16H64c-8.822 0-16-7.178-16-16V96c0-8.822 7.178-16 16-16h448c8.822 0 16 7.178 16 16V416z"],
     "bell": [448, 512, [61602, 128276], "f0f3", "M256 32V49.88C328.5 61.39 384 124.2 384 200V233.4C384 278.8 399.5 322.9 427.8 358.4L442.7 377C448.5 384.2 449.6 394.1 445.6 402.4C441.6 410.7 433.2 416 424 416H24C14.77 416 6.365 410.7 2.369 402.4C-1.628 394.1-.504 384.2 5.26 377L20.17 358.4C48.54 322.9 64 278.8 64 233.4V200C64 124.2 119.5 61.39 192 49.88V32C192 14.33 206.3 0 224 0C241.7 0 256 14.33 256 32V32zM216 96C158.6 96 112 142.6 112 200V233.4C112 281.3 98.12 328 72.31 368H375.7C349.9 328 336 281.3 336 233.4V200C336 142.6 289.4 96 232 96H216zM288 448C288 464.1 281.3 481.3 269.3 493.3C257.3 505.3 240.1 512 224 512C207 512 190.7 505.3 178.7 493.3C166.7 481.3 160 464.1 160 448H288z"],
@@ -1018,28 +1018,28 @@
 (function () {
   'use strict';
 
-  var _WINDOW = {};
-  var _DOCUMENT = {};
+  let _WINDOW = {};
+  let _DOCUMENT = {};
 
   try {
     if (typeof window !== 'undefined') _WINDOW = window;
     if (typeof document !== 'undefined') _DOCUMENT = document;
   } catch (e) {}
 
-  var _ref = _WINDOW.navigator || {},
-      _ref$userAgent = _ref.userAgent,
-      userAgent = _ref$userAgent === void 0 ? '' : _ref$userAgent;
-  var WINDOW = _WINDOW;
-  var DOCUMENT = _DOCUMENT;
-  var IS_BROWSER = !!WINDOW.document;
-  var IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
-  var IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
+  const _ref = _WINDOW.navigator || {};
+      const _ref$userAgent = _ref.userAgent;
+      const userAgent = _ref$userAgent === void 0 ? '' : _ref$userAgent;
+  const WINDOW = _WINDOW;
+  const DOCUMENT = _DOCUMENT;
+  const IS_BROWSER = !!WINDOW.document;
+  const IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
+  const IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
 
   function ownKeys(object, enumerableOnly) {
-    var keys = Object.keys(object);
+    const keys = Object.keys(object);
 
     if (Object.getOwnPropertySymbols) {
-      var symbols = Object.getOwnPropertySymbols(object);
+      let symbols = Object.getOwnPropertySymbols(object);
       enumerableOnly && (symbols = symbols.filter(function (sym) {
         return Object.getOwnPropertyDescriptor(object, sym).enumerable;
       })), keys.push.apply(keys, symbols);
@@ -1049,7 +1049,7 @@
   }
 
   function _objectSpread2(target) {
-    for (var i = 1; i < arguments.length; i++) {
+    for (let i = 1; i < arguments.length; i++) {
       var source = null != arguments[i] ? arguments[i] : {};
       i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
         _defineProperty(target, key, source[key]);
@@ -1091,7 +1091,7 @@
   function _unsupportedIterableToArray(o, minLen) {
     if (!o) return;
     if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
+    let n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor) n = o.constructor.name;
     if (n === "Map" || n === "Set") return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
@@ -1109,15 +1109,15 @@
     throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
   }
 
-  var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
-  var PRODUCTION = function () {
+  const NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
+  const PRODUCTION = function () {
     try {
       return "production" === 'production';
     } catch (e) {
       return false;
     }
   }();
-  var STYLE_TO_PREFIX = {
+  const STYLE_TO_PREFIX = {
     'solid': 'fas',
     'regular': 'far',
     'light': 'fal',
@@ -1126,15 +1126,15 @@
     'brands': 'fab',
     'kit': 'fak'
   };
-  var oneToTen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  var oneToTwenty = oneToTen.concat([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
-  var DUOTONE_CLASSES = {
+  const oneToTen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const oneToTwenty = oneToTen.concat([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
+  const DUOTONE_CLASSES = {
     GROUP: 'duotone-group',
     SWAP_OPACITY: 'swap-opacity',
     PRIMARY: 'primary',
     SECONDARY: 'secondary'
   };
-  var RESERVED_CLASSES = [].concat(_toConsumableArray(Object.keys(STYLE_TO_PREFIX)), ['2xs', 'xs', 'sm', 'lg', 'xl', '2xl', 'beat', 'border', 'fade', 'beat-fade', 'bounce', 'flip-both', 'flip-horizontal', 'flip-vertical', 'flip', 'fw', 'inverse', 'layers-counter', 'layers-text', 'layers', 'li', 'pull-left', 'pull-right', 'pulse', 'rotate-180', 'rotate-270', 'rotate-90', 'rotate-by', 'shake', 'spin-pulse', 'spin-reverse', 'spin', 'stack-1x', 'stack-2x', 'stack', 'ul', DUOTONE_CLASSES.GROUP, DUOTONE_CLASSES.SWAP_OPACITY, DUOTONE_CLASSES.PRIMARY, DUOTONE_CLASSES.SECONDARY]).concat(oneToTen.map(function (n) {
+  const RESERVED_CLASSES = [].concat(_toConsumableArray(Object.keys(STYLE_TO_PREFIX)), ['2xs', 'xs', 'sm', 'lg', 'xl', '2xl', 'beat', 'border', 'fade', 'beat-fade', 'bounce', 'flip-both', 'flip-horizontal', 'flip-vertical', 'flip', 'fw', 'inverse', 'layers-counter', 'layers-text', 'layers', 'li', 'pull-left', 'pull-right', 'pulse', 'rotate-180', 'rotate-270', 'rotate-90', 'rotate-by', 'shake', 'spin-pulse', 'spin-reverse', 'spin', 'stack-1x', 'stack-2x', 'stack', 'ul', DUOTONE_CLASSES.GROUP, DUOTONE_CLASSES.SWAP_OPACITY, DUOTONE_CLASSES.PRIMARY, DUOTONE_CLASSES.SECONDARY]).concat(oneToTen.map(function (n) {
     return "".concat(n, "x");
   })).concat(oneToTwenty.map(function (n) {
     return "w-".concat(n);
@@ -1154,17 +1154,17 @@
     }
   }
 
-  var w = WINDOW || {};
+  const w = WINDOW || {};
   if (!w[NAMESPACE_IDENTIFIER]) w[NAMESPACE_IDENTIFIER] = {};
   if (!w[NAMESPACE_IDENTIFIER].styles) w[NAMESPACE_IDENTIFIER].styles = {};
   if (!w[NAMESPACE_IDENTIFIER].hooks) w[NAMESPACE_IDENTIFIER].hooks = {};
   if (!w[NAMESPACE_IDENTIFIER].shims) w[NAMESPACE_IDENTIFIER].shims = [];
-  var namespace = w[NAMESPACE_IDENTIFIER];
+  const namespace = w[NAMESPACE_IDENTIFIER];
 
   function normalizeIcons(icons) {
     return Object.keys(icons).reduce(function (acc, iconName) {
-      var icon = icons[iconName];
-      var expanded = !!icon.icon;
+      const icon = icons[iconName];
+      const expanded = !!icon.icon;
 
       if (expanded) {
         acc[icon.iconName] = icon.icon;
@@ -1177,10 +1177,10 @@
   }
 
   function defineIcons(prefix, icons) {
-    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-    var _params$skipHooks = params.skipHooks,
-        skipHooks = _params$skipHooks === void 0 ? false : _params$skipHooks;
-    var normalized = normalizeIcons(icons);
+    const params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    const _params$skipHooks = params.skipHooks;
+        const skipHooks = _params$skipHooks === void 0 ? false : _params$skipHooks;
+    const normalized = normalizeIcons(icons);
 
     if (typeof namespace.hooks.addPack === 'function' && !skipHooks) {
       namespace.hooks.addPack(prefix, normalizeIcons(icons));
@@ -1200,7 +1200,7 @@
     }
   }
 
-  var icons = {
+  const icons = {
     "0": [320, 512, [], "30", "M160 32.01c-88.37 0-160 71.63-160 160v127.1c0 88.37 71.63 160 160 160s160-71.63 160-160V192C320 103.6 248.4 32.01 160 32.01zM256 320c0 52.93-43.06 96-96 96c-52.93 0-96-43.07-96-96V192c0-52.94 43.07-96 96-96c52.94 0 96 43.06 96 96V320z"],
     "1": [256, 512, [], "31", "M256 448c0 17.67-14.33 32-32 32H32c-17.67 0-32-14.33-32-32s14.33-32 32-32h64V123.8L49.75 154.6C35.02 164.5 15.19 160.4 5.375 145.8C-4.422 131.1-.4531 111.2 14.25 101.4l96-64c9.828-6.547 22.45-7.187 32.84-1.594C153.5 41.37 160 52.22 160 64.01v352h64C241.7 416 256 430.3 256 448z"],
     "2": [320, 512, [], "32", "M320 448c0 17.67-14.33 32-32 32H32c-13.08 0-24.83-7.953-29.7-20.09c-4.859-12.12-1.859-26 7.594-35.03l193.6-185.1c31.36-30.17 33.95-80 5.812-113.4c-14.91-17.69-35.86-28.12-58.97-29.38C127.4 95.83 105.3 103.9 88.53 119.9L53.52 151.7c-13.08 11.91-33.33 10.89-45.2-2.172C-3.563 136.5-2.594 116.2 10.48 104.3l34.45-31.3c28.67-27.34 68.39-42.11 108.9-39.88c40.33 2.188 78.39 21.16 104.4 52.03c49.8 59.05 45.2 147.3-10.45 200.8l-136 130H288C305.7 416 320 430.3 320 448z"],
@@ -2598,10 +2598,10 @@
   'use strict';
 
   function ownKeys(object, enumerableOnly) {
-    var keys = Object.keys(object);
+    const keys = Object.keys(object);
 
     if (Object.getOwnPropertySymbols) {
-      var symbols = Object.getOwnPropertySymbols(object);
+      let symbols = Object.getOwnPropertySymbols(object);
       enumerableOnly && (symbols = symbols.filter(function (sym) {
         return Object.getOwnPropertyDescriptor(object, sym).enumerable;
       })), keys.push.apply(keys, symbols);
@@ -2611,7 +2611,7 @@
   }
 
   function _objectSpread2(target) {
-    for (var i = 1; i < arguments.length; i++) {
+    for (let i = 1; i < arguments.length; i++) {
       var source = null != arguments[i] ? arguments[i] : {};
       i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
         _defineProperty(target, key, source[key]);
@@ -2638,17 +2638,17 @@
       return new BabelRegExp(re, void 0, groups);
     };
 
-    var _super = RegExp.prototype,
-        _groups = new WeakMap();
+    const _super = RegExp.prototype;
+        const _groups = new WeakMap();
 
     function BabelRegExp(re, flags, groups) {
-      var _this = new RegExp(re, flags);
+      const _this = new RegExp(re, flags);
 
       return _groups.set(_this, groups || _groups.get(re)), _setPrototypeOf(_this, BabelRegExp.prototype);
     }
 
     function buildGroups(result, re) {
-      var g = _groups.get(re);
+      const g = _groups.get(re);
 
       return Object.keys(g).reduce(function (groups, name) {
         return groups[name] = result[g[name]], groups;
@@ -2656,12 +2656,12 @@
     }
 
     return _inherits(BabelRegExp, RegExp), BabelRegExp.prototype.exec = function (str) {
-      var result = _super.exec.call(this, str);
+      const result = _super.exec.call(this, str);
 
       return result && (result.groups = buildGroups(result, this)), result;
     }, BabelRegExp.prototype[Symbol.replace] = function (str, substitution) {
       if ("string" == typeof substitution) {
-        var groups = _groups.get(this);
+        const groups = _groups.get(this);
 
         return _super[Symbol.replace].call(this, str, substitution.replace(/\$<([^>]+)>/g, function (_, name) {
           return "$" + groups[name];
@@ -2669,10 +2669,10 @@
       }
 
       if ("function" == typeof substitution) {
-        var _this = this;
+        const _this = this;
 
         return _super[Symbol.replace].call(this, str, function () {
-          var args = arguments;
+          let args = arguments;
           return "object" != typeof args[args.length - 1] && (args = [].slice.call(args)).push(buildGroups(args, _this)), substitution.apply(this, args);
         });
       }
@@ -2688,8 +2688,8 @@
   }
 
   function _defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
+    for (let i = 0; i < props.length; i++) {
+      const descriptor = props[i];
       descriptor.enumerable = descriptor.enumerable || false;
       descriptor.configurable = true;
       if ("value" in descriptor) descriptor.writable = true;
@@ -2769,14 +2769,14 @@
   }
 
   function _iterableToArrayLimit(arr, i) {
-    var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+    let _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
 
     if (_i == null) return;
-    var _arr = [];
-    var _n = true;
-    var _d = false;
+    const _arr = [];
+    let _n = true;
+    let _d = false;
 
-    var _s, _e;
+    let _s; let _e;
 
     try {
       for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
@@ -2801,7 +2801,7 @@
   function _unsupportedIterableToArray(o, minLen) {
     if (!o) return;
     if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
+    let n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor) n = o.constructor.name;
     if (n === "Map" || n === "Set") return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
@@ -2823,12 +2823,12 @@
     throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
   }
 
-  var noop = function noop() {};
+  const noop = function noop() {};
 
-  var _WINDOW = {};
-  var _DOCUMENT = {};
-  var _MUTATION_OBSERVER = null;
-  var _PERFORMANCE = {
+  let _WINDOW = {};
+  let _DOCUMENT = {};
+  let _MUTATION_OBSERVER = null;
+  let _PERFORMANCE = {
     mark: noop,
     measure: noop
   };
@@ -2840,37 +2840,37 @@
     if (typeof performance !== 'undefined') _PERFORMANCE = performance;
   } catch (e) {}
 
-  var _ref = _WINDOW.navigator || {},
-      _ref$userAgent = _ref.userAgent,
-      userAgent = _ref$userAgent === void 0 ? '' : _ref$userAgent;
-  var WINDOW = _WINDOW;
-  var DOCUMENT = _DOCUMENT;
-  var MUTATION_OBSERVER = _MUTATION_OBSERVER;
-  var PERFORMANCE = _PERFORMANCE;
-  var IS_BROWSER = !!WINDOW.document;
-  var IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
-  var IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
+  const _ref = _WINDOW.navigator || {};
+      const _ref$userAgent = _ref.userAgent;
+      const userAgent = _ref$userAgent === void 0 ? '' : _ref$userAgent;
+  const WINDOW = _WINDOW;
+  const DOCUMENT = _DOCUMENT;
+  const MUTATION_OBSERVER = _MUTATION_OBSERVER;
+  const PERFORMANCE = _PERFORMANCE;
+  const IS_BROWSER = !!WINDOW.document;
+  const IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
+  const IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
 
-  var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
-  var UNITS_IN_GRID = 16;
-  var DEFAULT_FAMILY_PREFIX = 'fa';
-  var DEFAULT_REPLACEMENT_CLASS = 'svg-inline--fa';
-  var DATA_FA_I2SVG = 'data-fa-i2svg';
-  var DATA_FA_PSEUDO_ELEMENT = 'data-fa-pseudo-element';
-  var DATA_FA_PSEUDO_ELEMENT_PENDING = 'data-fa-pseudo-element-pending';
-  var DATA_PREFIX = 'data-prefix';
-  var DATA_ICON = 'data-icon';
-  var HTML_CLASS_I2SVG_BASE_CLASS = 'fontawesome-i2svg';
-  var MUTATION_APPROACH_ASYNC = 'async';
-  var TAGNAMES_TO_SKIP_FOR_PSEUDOELEMENTS = ['HTML', 'HEAD', 'STYLE', 'SCRIPT'];
-  var PRODUCTION = function () {
+  const NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
+  const UNITS_IN_GRID = 16;
+  const DEFAULT_FAMILY_PREFIX = 'fa';
+  const DEFAULT_REPLACEMENT_CLASS = 'svg-inline--fa';
+  const DATA_FA_I2SVG = 'data-fa-i2svg';
+  const DATA_FA_PSEUDO_ELEMENT = 'data-fa-pseudo-element';
+  const DATA_FA_PSEUDO_ELEMENT_PENDING = 'data-fa-pseudo-element-pending';
+  const DATA_PREFIX = 'data-prefix';
+  const DATA_ICON = 'data-icon';
+  const HTML_CLASS_I2SVG_BASE_CLASS = 'fontawesome-i2svg';
+  const MUTATION_APPROACH_ASYNC = 'async';
+  const TAGNAMES_TO_SKIP_FOR_PSEUDOELEMENTS = ['HTML', 'HEAD', 'STYLE', 'SCRIPT'];
+  const PRODUCTION = function () {
     try {
       return "production" === 'production';
     } catch (e) {
       return false;
     }
   }();
-  var PREFIX_TO_STYLE = {
+  const PREFIX_TO_STYLE = {
     'fas': 'solid',
     'fa-solid': 'solid',
     'far': 'regular',
@@ -2887,7 +2887,7 @@
     'fa-kit': 'kit',
     'fa': 'solid'
   };
-  var STYLE_TO_PREFIX = {
+  const STYLE_TO_PREFIX = {
     'solid': 'fas',
     'regular': 'far',
     'light': 'fal',
@@ -2896,7 +2896,7 @@
     'brands': 'fab',
     'kit': 'fak'
   };
-  var PREFIX_TO_LONG_STYLE = {
+  const PREFIX_TO_LONG_STYLE = {
     'fab': 'fa-brands',
     'fad': 'fa-duotone',
     'fak': 'fa-kit',
@@ -2905,7 +2905,7 @@
     'fas': 'fa-solid',
     'fat': 'fa-thin'
   };
-  var LONG_STYLE_TO_PREFIX = {
+  const LONG_STYLE_TO_PREFIX = {
     'fa-brands': 'fab',
     'fa-duotone': 'fad',
     'fa-kit': 'fak',
@@ -2914,37 +2914,37 @@
     'fa-solid': 'fas',
     'fa-thin': 'fat'
   };
-  var ICON_SELECTION_SYNTAX_PATTERN = /fa[srltdbk\-\ ]/; // eslint-disable-line no-useless-escape
+  const ICON_SELECTION_SYNTAX_PATTERN = /fa[srltdbk\-\ ]/; // eslint-disable-line no-useless-escape
 
-  var LAYERS_TEXT_CLASSNAME = 'fa-layers-text';
-  var FONT_FAMILY_PATTERN = /Font ?Awesome ?([56 ]*)(Solid|Regular|Light|Thin|Duotone|Brands|Free|Pro|Kit)?.*/i; // TODO: do we need to handle font-weight for kit SVG pseudo-elements?
+  const LAYERS_TEXT_CLASSNAME = 'fa-layers-text';
+  const FONT_FAMILY_PATTERN = /Font ?Awesome ?([56 ]*)(Solid|Regular|Light|Thin|Duotone|Brands|Free|Pro|Kit)?.*/i; // TODO: do we need to handle font-weight for kit SVG pseudo-elements?
 
-  var FONT_WEIGHT_TO_PREFIX = {
+  const FONT_WEIGHT_TO_PREFIX = {
     '900': 'fas',
     '400': 'far',
     'normal': 'far',
     '300': 'fal',
     '100': 'fat'
   };
-  var oneToTen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  var oneToTwenty = oneToTen.concat([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
-  var ATTRIBUTES_WATCHED_FOR_MUTATION = ['class', 'data-prefix', 'data-icon', 'data-fa-transform', 'data-fa-mask'];
-  var DUOTONE_CLASSES = {
+  const oneToTen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const oneToTwenty = oneToTen.concat([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
+  const ATTRIBUTES_WATCHED_FOR_MUTATION = ['class', 'data-prefix', 'data-icon', 'data-fa-transform', 'data-fa-mask'];
+  const DUOTONE_CLASSES = {
     GROUP: 'duotone-group',
     SWAP_OPACITY: 'swap-opacity',
     PRIMARY: 'primary',
     SECONDARY: 'secondary'
   };
-  var RESERVED_CLASSES = [].concat(_toConsumableArray(Object.keys(STYLE_TO_PREFIX)), ['2xs', 'xs', 'sm', 'lg', 'xl', '2xl', 'beat', 'border', 'fade', 'beat-fade', 'bounce', 'flip-both', 'flip-horizontal', 'flip-vertical', 'flip', 'fw', 'inverse', 'layers-counter', 'layers-text', 'layers', 'li', 'pull-left', 'pull-right', 'pulse', 'rotate-180', 'rotate-270', 'rotate-90', 'rotate-by', 'shake', 'spin-pulse', 'spin-reverse', 'spin', 'stack-1x', 'stack-2x', 'stack', 'ul', DUOTONE_CLASSES.GROUP, DUOTONE_CLASSES.SWAP_OPACITY, DUOTONE_CLASSES.PRIMARY, DUOTONE_CLASSES.SECONDARY]).concat(oneToTen.map(function (n) {
+  const RESERVED_CLASSES = [].concat(_toConsumableArray(Object.keys(STYLE_TO_PREFIX)), ['2xs', 'xs', 'sm', 'lg', 'xl', '2xl', 'beat', 'border', 'fade', 'beat-fade', 'bounce', 'flip-both', 'flip-horizontal', 'flip-vertical', 'flip', 'fw', 'inverse', 'layers-counter', 'layers-text', 'layers', 'li', 'pull-left', 'pull-right', 'pulse', 'rotate-180', 'rotate-270', 'rotate-90', 'rotate-by', 'shake', 'spin-pulse', 'spin-reverse', 'spin', 'stack-1x', 'stack-2x', 'stack', 'ul', DUOTONE_CLASSES.GROUP, DUOTONE_CLASSES.SWAP_OPACITY, DUOTONE_CLASSES.PRIMARY, DUOTONE_CLASSES.SECONDARY]).concat(oneToTen.map(function (n) {
     return "".concat(n, "x");
   })).concat(oneToTwenty.map(function (n) {
     return "w-".concat(n);
   }));
 
-  var initial = WINDOW.FontAwesomeConfig || {};
+  const initial = WINDOW.FontAwesomeConfig || {};
 
   function getAttrConfig(attr) {
-    var element = DOCUMENT.querySelector('script[' + attr + ']');
+    const element = DOCUMENT.querySelector('script[' + attr + ']');
 
     if (element) {
       return element.getAttribute(attr);
@@ -2961,13 +2961,13 @@
   }
 
   if (DOCUMENT && typeof DOCUMENT.querySelector === 'function') {
-    var attrs = [['data-family-prefix', 'familyPrefix'], ['data-style-default', 'styleDefault'], ['data-replacement-class', 'replacementClass'], ['data-auto-replace-svg', 'autoReplaceSvg'], ['data-auto-add-css', 'autoAddCss'], ['data-auto-a11y', 'autoA11y'], ['data-search-pseudo-elements', 'searchPseudoElements'], ['data-observe-mutations', 'observeMutations'], ['data-mutate-approach', 'mutateApproach'], ['data-keep-original-source', 'keepOriginalSource'], ['data-measure-performance', 'measurePerformance'], ['data-show-missing-icons', 'showMissingIcons']];
+    const attrs = [['data-family-prefix', 'familyPrefix'], ['data-style-default', 'styleDefault'], ['data-replacement-class', 'replacementClass'], ['data-auto-replace-svg', 'autoReplaceSvg'], ['data-auto-add-css', 'autoAddCss'], ['data-auto-a11y', 'autoA11y'], ['data-search-pseudo-elements', 'searchPseudoElements'], ['data-observe-mutations', 'observeMutations'], ['data-mutate-approach', 'mutateApproach'], ['data-keep-original-source', 'keepOriginalSource'], ['data-measure-performance', 'measurePerformance'], ['data-show-missing-icons', 'showMissingIcons']];
     attrs.forEach(function (_ref) {
-      var _ref2 = _slicedToArray(_ref, 2),
-          attr = _ref2[0],
-          key = _ref2[1];
+      const _ref2 = _slicedToArray(_ref, 2);
+          const attr = _ref2[0];
+          const key = _ref2[1];
 
-      var val = coerce(getAttrConfig(attr));
+      const val = coerce(getAttrConfig(attr));
 
       if (val !== undefined && val !== null) {
         initial[key] = val;
@@ -2975,7 +2975,7 @@
     });
   }
 
-  var _default = {
+  const _default = {
     familyPrefix: DEFAULT_FAMILY_PREFIX,
     styleDefault: 'solid',
     replacementClass: DEFAULT_REPLACEMENT_CLASS,
@@ -2990,10 +2990,10 @@
     showMissingIcons: true
   };
 
-  var _config = _objectSpread2(_objectSpread2({}, _default), initial);
+  const _config = _objectSpread2(_objectSpread2({}, _default), initial);
 
   if (!_config.autoReplaceSvg) _config.observeMutations = false;
-  var config = {};
+  const config = {};
   Object.keys(_config).forEach(function (key) {
     Object.defineProperty(config, key, {
       enumerable: true,
@@ -3019,8 +3019,8 @@
     };
   }
 
-  var d = UNITS_IN_GRID;
-  var meaninglessTransform = {
+  const d = UNITS_IN_GRID;
+  const meaninglessTransform = {
     size: 16,
     x: 0,
     y: 0,
@@ -3046,15 +3046,15 @@
       return;
     }
 
-    var style = DOCUMENT.createElement('style');
+    const style = DOCUMENT.createElement('style');
     style.setAttribute('type', 'text/css');
     style.innerHTML = css;
-    var headChildren = DOCUMENT.head.childNodes;
-    var beforeChild = null;
+    const headChildren = DOCUMENT.head.childNodes;
+    let beforeChild = null;
 
-    for (var i = headChildren.length - 1; i > -1; i--) {
-      var child = headChildren[i];
-      var tagName = (child.tagName || '').toUpperCase();
+    for (let i = headChildren.length - 1; i > -1; i--) {
+      const child = headChildren[i];
+      const tagName = (child.tagName || '').toUpperCase();
 
       if (['STYLE', 'LINK'].indexOf(tagName) > -1) {
         beforeChild = child;
@@ -3064,10 +3064,10 @@
     DOCUMENT.head.insertBefore(style, beforeChild);
     return css;
   }
-  var idPool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const idPool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   function nextUniqueId() {
-    var size = 12;
-    var id = '';
+    let size = 12;
+    let id = '';
 
     while (size-- > 0) {
       id += idPool[Math.random() * 62 | 0];
@@ -3076,9 +3076,9 @@
     return id;
   }
   function toArray(obj) {
-    var array = [];
+    const array = [];
 
-    for (var i = (obj || []).length >>> 0; i--;) {
+    for (let i = (obj || []).length >>> 0; i--;) {
       array[i] = obj[i];
     }
 
@@ -3110,19 +3110,19 @@
     return transform.size !== meaninglessTransform.size || transform.x !== meaninglessTransform.x || transform.y !== meaninglessTransform.y || transform.rotate !== meaninglessTransform.rotate || transform.flipX || transform.flipY;
   }
   function transformForSvg(_ref) {
-    var transform = _ref.transform,
-        containerWidth = _ref.containerWidth,
-        iconWidth = _ref.iconWidth;
-    var outer = {
+    const transform = _ref.transform;
+        const containerWidth = _ref.containerWidth;
+        const iconWidth = _ref.iconWidth;
+    const outer = {
       transform: "translate(".concat(containerWidth / 2, " 256)")
     };
-    var innerTranslate = "translate(".concat(transform.x * 32, ", ").concat(transform.y * 32, ") ");
-    var innerScale = "scale(".concat(transform.size / 16 * (transform.flipX ? -1 : 1), ", ").concat(transform.size / 16 * (transform.flipY ? -1 : 1), ") ");
-    var innerRotate = "rotate(".concat(transform.rotate, " 0 0)");
-    var inner = {
+    const innerTranslate = "translate(".concat(transform.x * 32, ", ").concat(transform.y * 32, ") ");
+    const innerScale = "scale(".concat(transform.size / 16 * (transform.flipX ? -1 : 1), ", ").concat(transform.size / 16 * (transform.flipY ? -1 : 1), ") ");
+    const innerRotate = "rotate(".concat(transform.rotate, " 0 0)");
+    const inner = {
       transform: "".concat(innerTranslate, " ").concat(innerScale, " ").concat(innerRotate)
     };
-    var path = {
+    const path = {
       transform: "translate(".concat(iconWidth / 2 * -1, " -256)")
     };
     return {
@@ -3132,14 +3132,14 @@
     };
   }
   function transformForCss(_ref2) {
-    var transform = _ref2.transform,
-        _ref2$width = _ref2.width,
-        width = _ref2$width === void 0 ? UNITS_IN_GRID : _ref2$width,
-        _ref2$height = _ref2.height,
-        height = _ref2$height === void 0 ? UNITS_IN_GRID : _ref2$height,
-        _ref2$startCentered = _ref2.startCentered,
-        startCentered = _ref2$startCentered === void 0 ? false : _ref2$startCentered;
-    var val = '';
+    const transform = _ref2.transform;
+        const _ref2$width = _ref2.width;
+        const width = _ref2$width === void 0 ? UNITS_IN_GRID : _ref2$width;
+        const _ref2$height = _ref2.height;
+        const height = _ref2$height === void 0 ? UNITS_IN_GRID : _ref2$height;
+        const _ref2$startCentered = _ref2.startCentered;
+        const startCentered = _ref2$startCentered === void 0 ? false : _ref2$startCentered;
+    let val = '';
 
     if (startCentered && IS_IE) {
       val += "translate(".concat(transform.x / d - width / 2, "em, ").concat(transform.y / d - height / 2, "em) ");
@@ -3154,26 +3154,26 @@
     return val;
   }
 
-  var baseStyles = ":host,:root{--fa-font-solid:normal 900 1em/1 \"Font Awesome 6 Solid\";--fa-font-regular:normal 400 1em/1 \"Font Awesome 6 Regular\";--fa-font-light:normal 300 1em/1 \"Font Awesome 6 Light\";--fa-font-thin:normal 100 1em/1 \"Font Awesome 6 Thin\";--fa-font-duotone:normal 900 1em/1 \"Font Awesome 6 Duotone\";--fa-font-brands:normal 400 1em/1 \"Font Awesome 6 Brands\"}svg:not(:host).svg-inline--fa,svg:not(:root).svg-inline--fa{overflow:visible;box-sizing:content-box}.svg-inline--fa{display:var(--fa-display,inline-block);height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-2xs{vertical-align:.1em}.svg-inline--fa.fa-xs{vertical-align:0}.svg-inline--fa.fa-sm{vertical-align:-.0714285705em}.svg-inline--fa.fa-lg{vertical-align:-.2em}.svg-inline--fa.fa-xl{vertical-align:-.25em}.svg-inline--fa.fa-2xl{vertical-align:-.3125em}.svg-inline--fa.fa-pull-left{margin-right:var(--fa-pull-margin,.3em);width:auto}.svg-inline--fa.fa-pull-right{margin-left:var(--fa-pull-margin,.3em);width:auto}.svg-inline--fa.fa-li{width:var(--fa-li-width,2em);top:.25em}.svg-inline--fa.fa-fw{width:var(--fa-fw-width,1.25em)}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:var(--fa-counter-background-color,#ff253a);border-radius:var(--fa-counter-border-radius,1em);box-sizing:border-box;color:var(--fa-inverse,#fff);line-height:var(--fa-counter-line-height,1);max-width:var(--fa-counter-max-width,5em);min-width:var(--fa-counter-min-width,1.5em);overflow:hidden;padding:var(--fa-counter-padding,.25em .5em);right:var(--fa-right,0);text-overflow:ellipsis;top:var(--fa-top,0);-webkit-transform:scale(var(--fa-counter-scale,.25));transform:scale(var(--fa-counter-scale,.25));-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:var(--fa-bottom,0);right:var(--fa-right,0);top:auto;-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:var(--fa-bottom,0);left:var(--fa-left,0);right:auto;top:auto;-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{top:var(--fa-top,0);right:var(--fa-right,0);-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:var(--fa-left,0);right:auto;top:var(--fa-top,0);-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:top left;transform-origin:top left}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-2xs{font-size:.625em;line-height:.1em;vertical-align:.225em}.fa-xs{font-size:.75em;line-height:.0833333337em;vertical-align:.125em}.fa-sm{font-size:.875em;line-height:.0714285718em;vertical-align:.0535714295em}.fa-lg{font-size:1.25em;line-height:.05em;vertical-align:-.075em}.fa-xl{font-size:1.5em;line-height:.0416666682em;vertical-align:-.125em}.fa-2xl{font-size:2em;line-height:.03125em;vertical-align:-.1875em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:var(--fa-li-margin,2.5em);padding-left:0}.fa-ul>li{position:relative}.fa-li{left:calc(var(--fa-li-width,2em) * -1);position:absolute;text-align:center;width:var(--fa-li-width,2em);line-height:inherit}.fa-border{border-color:var(--fa-border-color,#eee);border-radius:var(--fa-border-radius,.1em);border-style:var(--fa-border-style,solid);border-width:var(--fa-border-width,.08em);padding:var(--fa-border-padding,.2em .25em .15em)}.fa-pull-left{float:left;margin-right:var(--fa-pull-margin,.3em)}.fa-pull-right{float:right;margin-left:var(--fa-pull-margin,.3em)}.fa-beat{-webkit-animation-name:fa-beat;animation-name:fa-beat;-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,ease-in-out);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-bounce{-webkit-animation-name:fa-bounce;animation-name:fa-bounce;-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.28,.84,.42,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.28,.84,.42,1))}.fa-fade{-webkit-animation-name:fa-fade;animation-name:fa-fade;-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-beat-fade{-webkit-animation-name:fa-beat-fade;animation-name:fa-beat-fade;-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-flip{-webkit-animation-name:fa-flip;animation-name:fa-flip;-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,ease-in-out);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-shake{-webkit-animation-name:fa-shake;animation-name:fa-shake;-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,linear);animation-timing-function:var(--fa-animation-timing,linear)}.fa-spin{-webkit-animation-name:fa-spin;animation-name:fa-spin;-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,2s);animation-duration:var(--fa-animation-duration,2s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,linear);animation-timing-function:var(--fa-animation-timing,linear)}.fa-spin-reverse{--fa-animation-direction:reverse}.fa-pulse,.fa-spin-pulse{-webkit-animation-name:fa-spin;animation-name:fa-spin;-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,steps(8));animation-timing-function:var(--fa-animation-timing,steps(8))}@media (prefers-reduced-motion:reduce){.fa-beat,.fa-beat-fade,.fa-bounce,.fa-fade,.fa-flip,.fa-pulse,.fa-shake,.fa-spin,.fa-spin-pulse{-webkit-animation-delay:-1ms;animation-delay:-1ms;-webkit-animation-duration:1ms;animation-duration:1ms;-webkit-animation-iteration-count:1;animation-iteration-count:1;transition-delay:0s;transition-duration:0s}}@-webkit-keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@-webkit-keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@-webkit-keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@-webkit-keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@-webkit-keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@-webkit-keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1,-1);transform:scale(-1,-1)}.fa-rotate-by{-webkit-transform:rotate(var(--fa-rotate-angle,none));transform:rotate(var(--fa-rotate-angle,none))}.fa-stack{display:inline-block;vertical-align:middle;height:2em;position:relative;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0;z-index:var(--fa-stack-z-index,auto)}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:var(--fa-inverse,#fff)}.fa-sr-only,.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}.fa-sr-only-focusable:not(:focus),.sr-only-focusable:not(:focus){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color,currentColor);opacity:var(--fa-primary-opacity,1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color,currentColor);opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:var(--fa-primary-opacity,1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:#000}.fa-duotone.fa-inverse,.fad.fa-inverse{color:var(--fa-inverse,#fff)}";
+  const baseStyles = ":host,:root{--fa-font-solid:normal 900 1em/1 \"Font Awesome 6 Solid\";--fa-font-regular:normal 400 1em/1 \"Font Awesome 6 Regular\";--fa-font-light:normal 300 1em/1 \"Font Awesome 6 Light\";--fa-font-thin:normal 100 1em/1 \"Font Awesome 6 Thin\";--fa-font-duotone:normal 900 1em/1 \"Font Awesome 6 Duotone\";--fa-font-brands:normal 400 1em/1 \"Font Awesome 6 Brands\"}svg:not(:host).svg-inline--fa,svg:not(:root).svg-inline--fa{overflow:visible;box-sizing:content-box}.svg-inline--fa{display:var(--fa-display,inline-block);height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-2xs{vertical-align:.1em}.svg-inline--fa.fa-xs{vertical-align:0}.svg-inline--fa.fa-sm{vertical-align:-.0714285705em}.svg-inline--fa.fa-lg{vertical-align:-.2em}.svg-inline--fa.fa-xl{vertical-align:-.25em}.svg-inline--fa.fa-2xl{vertical-align:-.3125em}.svg-inline--fa.fa-pull-left{margin-right:var(--fa-pull-margin,.3em);width:auto}.svg-inline--fa.fa-pull-right{margin-left:var(--fa-pull-margin,.3em);width:auto}.svg-inline--fa.fa-li{width:var(--fa-li-width,2em);top:.25em}.svg-inline--fa.fa-fw{width:var(--fa-fw-width,1.25em)}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:var(--fa-counter-background-color,#ff253a);border-radius:var(--fa-counter-border-radius,1em);box-sizing:border-box;color:var(--fa-inverse,#fff);line-height:var(--fa-counter-line-height,1);max-width:var(--fa-counter-max-width,5em);min-width:var(--fa-counter-min-width,1.5em);overflow:hidden;padding:var(--fa-counter-padding,.25em .5em);right:var(--fa-right,0);text-overflow:ellipsis;top:var(--fa-top,0);-webkit-transform:scale(var(--fa-counter-scale,.25));transform:scale(var(--fa-counter-scale,.25));-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:var(--fa-bottom,0);right:var(--fa-right,0);top:auto;-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:var(--fa-bottom,0);left:var(--fa-left,0);right:auto;top:auto;-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{top:var(--fa-top,0);right:var(--fa-right,0);-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:var(--fa-left,0);right:auto;top:var(--fa-top,0);-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:top left;transform-origin:top left}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-2xs{font-size:.625em;line-height:.1em;vertical-align:.225em}.fa-xs{font-size:.75em;line-height:.0833333337em;vertical-align:.125em}.fa-sm{font-size:.875em;line-height:.0714285718em;vertical-align:.0535714295em}.fa-lg{font-size:1.25em;line-height:.05em;vertical-align:-.075em}.fa-xl{font-size:1.5em;line-height:.0416666682em;vertical-align:-.125em}.fa-2xl{font-size:2em;line-height:.03125em;vertical-align:-.1875em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:var(--fa-li-margin,2.5em);padding-left:0}.fa-ul>li{position:relative}.fa-li{left:calc(var(--fa-li-width,2em) * -1);position:absolute;text-align:center;width:var(--fa-li-width,2em);line-height:inherit}.fa-border{border-color:var(--fa-border-color,#eee);border-radius:var(--fa-border-radius,.1em);border-style:var(--fa-border-style,solid);border-width:var(--fa-border-width,.08em);padding:var(--fa-border-padding,.2em .25em .15em)}.fa-pull-left{float:left;margin-right:var(--fa-pull-margin,.3em)}.fa-pull-right{float:right;margin-left:var(--fa-pull-margin,.3em)}.fa-beat{-webkit-animation-name:fa-beat;animation-name:fa-beat;-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,ease-in-out);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-bounce{-webkit-animation-name:fa-bounce;animation-name:fa-bounce;-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.28,.84,.42,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.28,.84,.42,1))}.fa-fade{-webkit-animation-name:fa-fade;animation-name:fa-fade;-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-beat-fade{-webkit-animation-name:fa-beat-fade;animation-name:fa-beat-fade;-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-flip{-webkit-animation-name:fa-flip;animation-name:fa-flip;-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,ease-in-out);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-shake{-webkit-animation-name:fa-shake;animation-name:fa-shake;-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,linear);animation-timing-function:var(--fa-animation-timing,linear)}.fa-spin{-webkit-animation-name:fa-spin;animation-name:fa-spin;-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,2s);animation-duration:var(--fa-animation-duration,2s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,linear);animation-timing-function:var(--fa-animation-timing,linear)}.fa-spin-reverse{--fa-animation-direction:reverse}.fa-pulse,.fa-spin-pulse{-webkit-animation-name:fa-spin;animation-name:fa-spin;-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,steps(8));animation-timing-function:var(--fa-animation-timing,steps(8))}@media (prefers-reduced-motion:reduce){.fa-beat,.fa-beat-fade,.fa-bounce,.fa-fade,.fa-flip,.fa-pulse,.fa-shake,.fa-spin,.fa-spin-pulse{-webkit-animation-delay:-1ms;animation-delay:-1ms;-webkit-animation-duration:1ms;animation-duration:1ms;-webkit-animation-iteration-count:1;animation-iteration-count:1;transition-delay:0s;transition-duration:0s}}@-webkit-keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@-webkit-keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@-webkit-keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@-webkit-keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@-webkit-keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@-webkit-keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1,-1);transform:scale(-1,-1)}.fa-rotate-by{-webkit-transform:rotate(var(--fa-rotate-angle,none));transform:rotate(var(--fa-rotate-angle,none))}.fa-stack{display:inline-block;vertical-align:middle;height:2em;position:relative;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0;z-index:var(--fa-stack-z-index,auto)}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:var(--fa-inverse,#fff)}.fa-sr-only,.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}.fa-sr-only-focusable:not(:focus),.sr-only-focusable:not(:focus){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color,currentColor);opacity:var(--fa-primary-opacity,1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color,currentColor);opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:var(--fa-primary-opacity,1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:#000}.fa-duotone.fa-inverse,.fad.fa-inverse{color:var(--fa-inverse,#fff)}";
 
   function css() {
-    var dfp = DEFAULT_FAMILY_PREFIX;
-    var drc = DEFAULT_REPLACEMENT_CLASS;
-    var fp = config.familyPrefix;
-    var rc = config.replacementClass;
-    var s = baseStyles;
+    const dfp = DEFAULT_FAMILY_PREFIX;
+    const drc = DEFAULT_REPLACEMENT_CLASS;
+    const fp = config.familyPrefix;
+    const rc = config.replacementClass;
+    let s = baseStyles;
 
     if (fp !== dfp || rc !== drc) {
-      var dPatt = new RegExp("\\.".concat(dfp, "\\-"), 'g');
-      var customPropPatt = new RegExp("\\--".concat(dfp, "\\-"), 'g');
-      var rPatt = new RegExp("\\.".concat(drc), 'g');
+      const dPatt = new RegExp("\\.".concat(dfp, "\\-"), 'g');
+      const customPropPatt = new RegExp("\\--".concat(dfp, "\\-"), 'g');
+      const rPatt = new RegExp("\\.".concat(drc), 'g');
       s = s.replace(dPatt, ".".concat(fp, "-")).replace(customPropPatt, "--".concat(fp, "-")).replace(rPatt, ".".concat(rc));
     }
 
     return s;
   }
 
-  var _cssInserted = false;
+  let _cssInserted = false;
 
   function ensureCss() {
     if (config.autoAddCss && !_cssInserted) {
@@ -3182,7 +3182,7 @@
     }
   }
 
-  var InjectCSS = {
+  const InjectCSS = {
     mixout: function mixout() {
       return {
         dom: {
@@ -3203,16 +3203,16 @@
     }
   };
 
-  var w = WINDOW || {};
+  const w = WINDOW || {};
   if (!w[NAMESPACE_IDENTIFIER]) w[NAMESPACE_IDENTIFIER] = {};
   if (!w[NAMESPACE_IDENTIFIER].styles) w[NAMESPACE_IDENTIFIER].styles = {};
   if (!w[NAMESPACE_IDENTIFIER].hooks) w[NAMESPACE_IDENTIFIER].hooks = {};
   if (!w[NAMESPACE_IDENTIFIER].shims) w[NAMESPACE_IDENTIFIER].shims = [];
-  var namespace = w[NAMESPACE_IDENTIFIER];
+  const namespace = w[NAMESPACE_IDENTIFIER];
 
-  var functions = [];
+  const functions = [];
 
-  var listener = function listener() {
+  const listener = function listener() {
     DOCUMENT.removeEventListener('DOMContentLoaded', listener);
     loaded = 1;
     functions.map(function (fn) {
@@ -3233,11 +3233,11 @@
   }
 
   function toHtml(abstractNodes) {
-    var tag = abstractNodes.tag,
-        _abstractNodes$attrib = abstractNodes.attributes,
-        attributes = _abstractNodes$attrib === void 0 ? {} : _abstractNodes$attrib,
-        _abstractNodes$childr = abstractNodes.children,
-        children = _abstractNodes$childr === void 0 ? [] : _abstractNodes$childr;
+    const tag = abstractNodes.tag;
+        const _abstractNodes$attrib = abstractNodes.attributes;
+        const attributes = _abstractNodes$attrib === void 0 ? {} : _abstractNodes$attrib;
+        const _abstractNodes$childr = abstractNodes.children;
+        const children = _abstractNodes$childr === void 0 ? [] : _abstractNodes$childr;
 
     if (typeof abstractNodes === 'string') {
       return htmlEscape(abstractNodes);
@@ -3261,7 +3261,7 @@
    * to a given context.
    */
 
-  var bindInternal4 = function bindInternal4(func, thisContext) {
+  const bindInternal4 = function bindInternal4(func, thisContext) {
     return function (a, b, c, d) {
       return func.call(thisContext, a, b, c, d);
     };
@@ -3280,13 +3280,13 @@
    */
 
 
-  var reduce = function fastReduceObject(subject, fn, initialValue, thisContext) {
-    var keys = Object.keys(subject),
-        length = keys.length,
-        iterator = thisContext !== undefined ? bindInternal4(fn, thisContext) : fn,
-        i,
-        key,
-        result;
+  const reduce = function fastReduceObject(subject, fn, initialValue, thisContext) {
+    const keys = Object.keys(subject);
+        const length = keys.length;
+        const iterator = thisContext !== undefined ? bindInternal4(fn, thisContext) : fn;
+        let i;
+        let key;
+        let result;
 
     if (initialValue === undefined) {
       i = 1;
@@ -3329,15 +3329,15 @@
    * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
    */
   function ucs2decode(string) {
-    var output = [];
-    var counter = 0;
-    var length = string.length;
+    const output = [];
+    let counter = 0;
+    const length = string.length;
 
     while (counter < length) {
-      var value = string.charCodeAt(counter++);
+      const value = string.charCodeAt(counter++);
 
       if (value >= 0xD800 && value <= 0xDBFF && counter < length) {
-        var extra = string.charCodeAt(counter++);
+        const extra = string.charCodeAt(counter++);
 
         if ((extra & 0xFC00) == 0xDC00) {
           // eslint-disable-line eqeqeq
@@ -3355,13 +3355,13 @@
   }
 
   function toHex(unicode) {
-    var decoded = ucs2decode(unicode);
+    const decoded = ucs2decode(unicode);
     return decoded.length === 1 ? decoded[0].toString(16) : null;
   }
   function codePointAt(string, index) {
-    var size = string.length;
-    var first = string.charCodeAt(index);
-    var second;
+    const size = string.length;
+    const first = string.charCodeAt(index);
+    let second;
 
     if (first >= 0xD800 && first <= 0xDBFF && size > index + 1) {
       second = string.charCodeAt(index + 1);
@@ -3376,8 +3376,8 @@
 
   function normalizeIcons(icons) {
     return Object.keys(icons).reduce(function (acc, iconName) {
-      var icon = icons[iconName];
-      var expanded = !!icon.icon;
+      const icon = icons[iconName];
+      const expanded = !!icon.icon;
 
       if (expanded) {
         acc[icon.iconName] = icon.icon;
@@ -3390,10 +3390,10 @@
   }
 
   function defineIcons(prefix, icons) {
-    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-    var _params$skipHooks = params.skipHooks,
-        skipHooks = _params$skipHooks === void 0 ? false : _params$skipHooks;
-    var normalized = normalizeIcons(icons);
+    const params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    const _params$skipHooks = params.skipHooks;
+        const skipHooks = _params$skipHooks === void 0 ? false : _params$skipHooks;
+    const normalized = normalizeIcons(icons);
 
     if (typeof namespace.hooks.addPack === 'function' && !skipHooks) {
       namespace.hooks.addPack(prefix, normalizeIcons(icons));
@@ -3413,38 +3413,38 @@
     }
   }
 
-  var duotonePathRe = [/*#__PURE__*/_wrapRegExp(/path d="((?:(?!")[\s\S])+)".*path d="((?:(?!")[\s\S])+)"/, {
+  const duotonePathRe = [/* #__PURE__*/_wrapRegExp(/path d="((?:(?!")[\s\S])+)".*path d="((?:(?!")[\s\S])+)"/, {
     d1: 1,
     d2: 2
-  }), /*#__PURE__*/_wrapRegExp(/path class="((?:(?!")[\s\S])+)".*d="((?:(?!")[\s\S])+)".*path class="((?:(?!")[\s\S])+)".*d="((?:(?!")[\s\S])+)"/, {
+  }), /* #__PURE__*/_wrapRegExp(/path class="((?:(?!")[\s\S])+)".*d="((?:(?!")[\s\S])+)".*path class="((?:(?!")[\s\S])+)".*d="((?:(?!")[\s\S])+)"/, {
     cls1: 1,
     d1: 2,
     cls2: 3,
     d2: 4
-  }), /*#__PURE__*/_wrapRegExp(/path class="((?:(?!")[\s\S])+)".*d="((?:(?!")[\s\S])+)"/, {
+  }), /* #__PURE__*/_wrapRegExp(/path class="((?:(?!")[\s\S])+)".*d="((?:(?!")[\s\S])+)"/, {
     cls1: 1,
     d1: 2
   })];
 
-  var styles = namespace.styles,
-      shims = namespace.shims;
-  var LONG_STYLE = Object.values(PREFIX_TO_LONG_STYLE);
-  var _defaultUsablePrefix = null;
-  var _byUnicode = {};
-  var _byLigature = {};
-  var _byOldName = {};
-  var _byOldUnicode = {};
-  var _byAlias = {};
-  var PREFIXES = Object.keys(PREFIX_TO_STYLE);
+  const styles = namespace.styles;
+      const shims = namespace.shims;
+  const LONG_STYLE = Object.values(PREFIX_TO_LONG_STYLE);
+  let _defaultUsablePrefix = null;
+  let _byUnicode = {};
+  let _byLigature = {};
+  let _byOldName = {};
+  let _byOldUnicode = {};
+  let _byAlias = {};
+  const PREFIXES = Object.keys(PREFIX_TO_STYLE);
 
   function isReserved(name) {
     return ~RESERVED_CLASSES.indexOf(name);
   }
 
   function getIconName(familyPrefix, cls) {
-    var parts = cls.split('-');
-    var prefix = parts[0];
-    var iconName = parts.slice(1).join('-');
+    const parts = cls.split('-');
+    const prefix = parts[0];
+    const iconName = parts.slice(1).join('-');
 
     if (prefix === familyPrefix && iconName !== '' && !isReserved(iconName)) {
       return iconName;
@@ -3452,8 +3452,8 @@
       return null;
     }
   }
-  var build = function build() {
-    var lookup = function lookup(reducer) {
+  const build = function build() {
+    const lookup = function lookup(reducer) {
       return reduce(styles, function (o, style, prefix) {
         o[prefix] = reduce(style, reducer, {});
         return o;
@@ -3466,7 +3466,7 @@
       }
 
       if (icon[2]) {
-        var aliases = icon[2].filter(function (a) {
+        const aliases = icon[2].filter(function (a) {
           return typeof a === 'number';
         });
         aliases.forEach(function (alias) {
@@ -3480,7 +3480,7 @@
       acc[iconName] = iconName;
 
       if (icon[2]) {
-        var aliases = icon[2].filter(function (a) {
+        const aliases = icon[2].filter(function (a) {
           return typeof a === 'string';
         });
         aliases.forEach(function (alias) {
@@ -3491,7 +3491,7 @@
       return acc;
     });
     _byAlias = lookup(function (acc, icon, iconName) {
-      var aliases = icon[2];
+      const aliases = icon[2];
       acc[iconName] = iconName;
       aliases.forEach(function (alias) {
         acc[alias] = iconName;
@@ -3500,11 +3500,11 @@
     }); // If we have a Kit, we can't determine if regular is available since we
     // could be auto-fetching it. We'll have to assume that it is available.
 
-    var hasRegular = 'far' in styles || config.autoFetchSvg;
-    var shimLookups = reduce(shims, function (acc, shim) {
-      var maybeNameMaybeUnicode = shim[0];
-      var prefix = shim[1];
-      var iconName = shim[2];
+    const hasRegular = 'far' in styles || config.autoFetchSvg;
+    const shimLookups = reduce(shims, function (acc, shim) {
+      const maybeNameMaybeUnicode = shim[0];
+      let prefix = shim[1];
+      const iconName = shim[2];
 
       if (prefix === 'far' && !hasRegular) {
         prefix = 'fas';
@@ -3553,8 +3553,8 @@
     };
   }
   function byOldUnicode(unicode) {
-    var oldUnicode = _byOldUnicode[unicode];
-    var newUnicode = byUnicode('fas', unicode);
+    const oldUnicode = _byOldUnicode[unicode];
+    const newUnicode = byUnicode('fas', unicode);
     return oldUnicode || (newUnicode ? {
       prefix: 'fas',
       iconName: newUnicode
@@ -3566,7 +3566,7 @@
   function getDefaultUsablePrefix() {
     return _defaultUsablePrefix;
   }
-  var emptyCanonicalIcon = function emptyCanonicalIcon() {
+  const emptyCanonicalIcon = function emptyCanonicalIcon() {
     return {
       prefix: null,
       iconName: null,
@@ -3574,18 +3574,18 @@
     };
   };
   function getCanonicalPrefix(styleOrPrefix) {
-    var style = PREFIX_TO_STYLE[styleOrPrefix];
-    var prefix = STYLE_TO_PREFIX[styleOrPrefix] || STYLE_TO_PREFIX[style];
-    var defined = styleOrPrefix in namespace.styles ? styleOrPrefix : null;
+    const style = PREFIX_TO_STYLE[styleOrPrefix];
+    const prefix = STYLE_TO_PREFIX[styleOrPrefix] || STYLE_TO_PREFIX[style];
+    const defined = styleOrPrefix in namespace.styles ? styleOrPrefix : null;
     return prefix || defined || null;
   }
   function getCanonicalIcon(values) {
-    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var _params$skipLookups = params.skipLookups,
-        skipLookups = _params$skipLookups === void 0 ? false : _params$skipLookups;
-    var givenPrefix = null;
-    var canonical = values.reduce(function (acc, cls) {
-      var iconName = getIconName(config.familyPrefix, cls);
+    const params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    const _params$skipLookups = params.skipLookups;
+        const skipLookups = _params$skipLookups === void 0 ? false : _params$skipLookups;
+    let givenPrefix = null;
+    const canonical = values.reduce(function (acc, cls) {
+      const iconName = getIconName(config.familyPrefix, cls);
 
       if (styles[cls]) {
         cls = LONG_STYLE.includes(cls) ? LONG_STYLE_TO_PREFIX[cls] : cls;
@@ -3601,8 +3601,8 @@
       }
 
       if (!skipLookups && acc.prefix && acc.iconName) {
-        var shim = givenPrefix === 'fa' ? byOldName(acc.iconName) : {};
-        var aliasIconName = byAlias(acc.prefix, acc.iconName);
+        const shim = givenPrefix === 'fa' ? byOldName(acc.iconName) : {};
+        const aliasIconName = byAlias(acc.prefix, acc.iconName);
 
         if (shim.prefix) {
           givenPrefix = null;
@@ -3630,7 +3630,7 @@
     return canonical;
   }
 
-  var Library = /*#__PURE__*/function () {
+  const Library = /* #__PURE__*/function () {
     function Library() {
       _classCallCheck(this, Library);
 
@@ -3640,17 +3640,17 @@
     _createClass(Library, [{
       key: "add",
       value: function add() {
-        var _this = this;
+        const _this = this;
 
         for (var _len = arguments.length, definitions = new Array(_len), _key = 0; _key < _len; _key++) {
           definitions[_key] = arguments[_key];
         }
 
-        var additions = definitions.reduce(this._pullDefinitions, {});
+        const additions = definitions.reduce(this._pullDefinitions, {});
         Object.keys(additions).forEach(function (key) {
           _this.definitions[key] = _objectSpread2(_objectSpread2({}, _this.definitions[key] || {}), additions[key]);
           defineIcons(key, additions[key]);
-          var longPrefix = PREFIX_TO_LONG_STYLE[key];
+          const longPrefix = PREFIX_TO_LONG_STYLE[key];
           if (longPrefix) defineIcons(longPrefix, additions[key]);
           build();
         });
@@ -3663,15 +3663,15 @@
     }, {
       key: "_pullDefinitions",
       value: function _pullDefinitions(additions, definition) {
-        var normalized = definition.prefix && definition.iconName && definition.icon ? {
+        const normalized = definition.prefix && definition.iconName && definition.icon ? {
           0: definition
         } : definition;
         Object.keys(normalized).map(function (key) {
-          var _normalized$key = normalized[key],
-              prefix = _normalized$key.prefix,
-              iconName = _normalized$key.iconName,
-              icon = _normalized$key.icon;
-          var aliases = icon[2];
+          const _normalized$key = normalized[key];
+              const prefix = _normalized$key.prefix;
+              const iconName = _normalized$key.iconName;
+              const icon = _normalized$key.icon;
+          const aliases = icon[2];
           if (!additions[prefix]) additions[prefix] = {};
 
           if (aliases.length > 0) {
@@ -3691,12 +3691,12 @@
     return Library;
   }();
 
-  var _plugins = [];
-  var _hooks = {};
-  var providers = {};
-  var defaultProviderKeys = Object.keys(providers);
+  let _plugins = [];
+  let _hooks = {};
+  const providers = {};
+  const defaultProviderKeys = Object.keys(providers);
   function registerPlugins(nextPlugins, _ref) {
-    var obj = _ref.mixoutsTo;
+    const obj = _ref.mixoutsTo;
     _plugins = nextPlugins;
     _hooks = {};
     Object.keys(providers).forEach(function (k) {
@@ -3706,7 +3706,7 @@
     });
 
     _plugins.forEach(function (plugin) {
-      var mixout = plugin.mixout ? plugin.mixout() : {};
+      const mixout = plugin.mixout ? plugin.mixout() : {};
       Object.keys(mixout).forEach(function (tk) {
         if (typeof mixout[tk] === 'function') {
           obj[tk] = mixout[tk];
@@ -3724,7 +3724,7 @@
       });
 
       if (plugin.hooks) {
-        var hooks = plugin.hooks();
+        const hooks = plugin.hooks();
         Object.keys(hooks).forEach(function (hook) {
           if (!_hooks[hook]) {
             _hooks[hook] = [];
@@ -3746,7 +3746,7 @@
       args[_key - 2] = arguments[_key];
     }
 
-    var hookFns = _hooks[hook] || [];
+    const hookFns = _hooks[hook] || [];
     hookFns.forEach(function (hookFn) {
       accumulator = hookFn.apply(null, [accumulator].concat(args)); // eslint-disable-line no-useless-call
     });
@@ -3757,15 +3757,15 @@
       args[_key2 - 1] = arguments[_key2];
     }
 
-    var hookFns = _hooks[hook] || [];
+    const hookFns = _hooks[hook] || [];
     hookFns.forEach(function (hookFn) {
       hookFn.apply(null, args);
     });
     return undefined;
   }
   function callProvided() {
-    var hook = arguments[0];
-    var args = Array.prototype.slice.call(arguments, 1);
+    const hook = arguments[0];
+    const args = Array.prototype.slice.call(arguments, 1);
     return providers[hook] ? providers[hook].apply(null, args) : undefined;
   }
 
@@ -3774,21 +3774,21 @@
       iconLookup.prefix = 'fas';
     }
 
-    var iconName = iconLookup.iconName;
-    var prefix = iconLookup.prefix || getDefaultUsablePrefix();
+    let iconName = iconLookup.iconName;
+    const prefix = iconLookup.prefix || getDefaultUsablePrefix();
     if (!iconName) return;
     iconName = byAlias(prefix, iconName) || iconName;
     return iconFromMapping(library.definitions, prefix, iconName) || iconFromMapping(namespace.styles, prefix, iconName);
   }
   var library = new Library();
-  var noAuto = function noAuto() {
+  const noAuto = function noAuto() {
     config.autoReplaceSvg = false;
     config.observeMutations = false;
     callHooks('noAuto');
   };
-  var dom = {
+  const dom = {
     i2svg: function i2svg() {
-      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      const params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
       if (IS_DOM) {
         callHooks('beforeI2svg', params);
@@ -3799,8 +3799,8 @@
       }
     },
     watch: function watch() {
-      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      var autoReplaceSvgRoot = params.autoReplaceSvgRoot;
+      const params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      const autoReplaceSvgRoot = params.autoReplaceSvgRoot;
 
       if (config.autoReplaceSvg === false) {
         config.autoReplaceSvg = true;
@@ -3815,7 +3815,7 @@
       });
     }
   };
-  var parse = {
+  const parse = {
     icon: function icon(_icon) {
       if (_icon === null) {
         return null;
@@ -3829,8 +3829,8 @@
       }
 
       if (Array.isArray(_icon) && _icon.length === 2) {
-        var iconName = _icon[1].indexOf('fa-') === 0 ? _icon[1].slice(3) : _icon[1];
-        var prefix = getCanonicalPrefix(_icon[0]);
+        const iconName = _icon[1].indexOf('fa-') === 0 ? _icon[1].slice(3) : _icon[1];
+        const prefix = getCanonicalPrefix(_icon[0]);
         return {
           prefix: prefix,
           iconName: byAlias(prefix, iconName) || iconName
@@ -3838,7 +3838,7 @@
       }
 
       if (typeof _icon === 'string' && (_icon.indexOf("".concat(config.familyPrefix, "-")) > -1 || _icon.match(ICON_SELECTION_SYNTAX_PATTERN))) {
-        var canonicalIcon = getCanonicalIcon(_icon.split(' '), {
+        const canonicalIcon = getCanonicalIcon(_icon.split(' '), {
           skipLookups: true
         });
         return {
@@ -3848,7 +3848,7 @@
       }
 
       if (typeof _icon === 'string') {
-        var _prefix = getDefaultUsablePrefix();
+        const _prefix = getDefaultUsablePrefix();
 
         return {
           prefix: _prefix,
@@ -3857,7 +3857,7 @@
       }
     }
   };
-  var api = {
+  const api = {
     noAuto: noAuto,
     config: config,
     dom: dom,
@@ -3868,9 +3868,9 @@
   };
 
   var autoReplace = function autoReplace() {
-    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var _params$autoReplaceSv = params.autoReplaceSvgRoot,
-        autoReplaceSvgRoot = _params$autoReplaceSv === void 0 ? DOCUMENT : _params$autoReplaceSv;
+    const params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    const _params$autoReplaceSv = params.autoReplaceSvgRoot;
+        const autoReplaceSvgRoot = _params$autoReplaceSv === void 0 ? DOCUMENT : _params$autoReplaceSv;
     if ((Object.keys(namespace.styles).length > 0 || config.autoFetchSvg) && IS_DOM && config.autoReplaceSvg) api.dom.i2svg({
       node: autoReplaceSvgRoot
     });
@@ -3896,9 +3896,9 @@
       },
       addPacks: function addPacks(packs) {
         packs.forEach(function (_ref) {
-          var _ref2 = _slicedToArray(_ref, 2),
-              prefix = _ref2[0],
-              icons = _ref2[1];
+          const _ref2 = _slicedToArray(_ref, 2);
+              const prefix = _ref2[0];
+              const icons = _ref2[1];
 
           namespace.styles[prefix] = _objectSpread2(_objectSpread2({}, namespace.styles[prefix] || {}), icons);
         });
@@ -3906,7 +3906,7 @@
         autoReplace();
       },
       addShims: function addShims(shims) {
-        var _namespace$shims;
+        let _namespace$shims;
 
         (_namespace$shims = namespace.shims).push.apply(_namespace$shims, _toConsumableArray(shims));
 
@@ -3930,7 +3930,7 @@
     Object.defineProperty(val, 'node', {
       get: function get() {
         if (!IS_DOM) return;
-        var container = DOCUMENT.createElement('div');
+        const container = DOCUMENT.createElement('div');
         container.innerHTML = val.html;
         return container.children;
       }
@@ -3939,17 +3939,17 @@
   }
 
   function asIcon (_ref) {
-    var children = _ref.children,
-        main = _ref.main,
-        mask = _ref.mask,
-        attributes = _ref.attributes,
-        styles = _ref.styles,
-        transform = _ref.transform;
+    const children = _ref.children;
+        const main = _ref.main;
+        const mask = _ref.mask;
+        const attributes = _ref.attributes;
+        const styles = _ref.styles;
+        const transform = _ref.transform;
 
     if (transformIsMeaningful(transform) && main.found && !mask.found) {
-      var width = main.width,
-          height = main.height;
-      var offset = {
+      const width = main.width;
+          const height = main.height;
+      const offset = {
         x: width / height / 2,
         y: 0.5
       };
@@ -3966,12 +3966,12 @@
   }
 
   function asSymbol (_ref) {
-    var prefix = _ref.prefix,
-        iconName = _ref.iconName,
-        children = _ref.children,
-        attributes = _ref.attributes,
-        symbol = _ref.symbol;
-    var id = symbol === true ? "".concat(prefix, "-").concat(config.familyPrefix, "-").concat(iconName) : symbol;
+    const prefix = _ref.prefix;
+        const iconName = _ref.iconName;
+        const children = _ref.children;
+        const attributes = _ref.attributes;
+        const symbol = _ref.symbol;
+    const id = symbol === true ? "".concat(prefix, "-").concat(config.familyPrefix, "-").concat(iconName) : symbol;
     return [{
       tag: 'svg',
       attributes: {
@@ -3988,31 +3988,31 @@
   }
 
   function makeInlineSvgAbstract(params) {
-    var _params$icons = params.icons,
-        main = _params$icons.main,
-        mask = _params$icons.mask,
-        prefix = params.prefix,
-        iconName = params.iconName,
-        transform = params.transform,
-        symbol = params.symbol,
-        title = params.title,
-        maskId = params.maskId,
-        titleId = params.titleId,
-        extra = params.extra,
-        _params$watchable = params.watchable,
-        watchable = _params$watchable === void 0 ? false : _params$watchable;
+    const _params$icons = params.icons;
+        const main = _params$icons.main;
+        const mask = _params$icons.mask;
+        const prefix = params.prefix;
+        const iconName = params.iconName;
+        const transform = params.transform;
+        const symbol = params.symbol;
+        const title = params.title;
+        const maskId = params.maskId;
+        const titleId = params.titleId;
+        const extra = params.extra;
+        const _params$watchable = params.watchable;
+        const watchable = _params$watchable === void 0 ? false : _params$watchable;
 
-    var _ref = mask.found ? mask : main,
-        width = _ref.width,
-        height = _ref.height;
+    const _ref = mask.found ? mask : main;
+        const width = _ref.width;
+        const height = _ref.height;
 
-    var isUploadedIcon = prefix === 'fak';
-    var attrClass = [config.replacementClass, iconName ? "".concat(config.familyPrefix, "-").concat(iconName) : ''].filter(function (c) {
+    const isUploadedIcon = prefix === 'fak';
+    const attrClass = [config.replacementClass, iconName ? "".concat(config.familyPrefix, "-").concat(iconName) : ''].filter(function (c) {
       return extra.classes.indexOf(c) === -1;
     }).filter(function (c) {
       return c !== '' || !!c;
     }).concat(extra.classes).join(' ');
-    var content = {
+    const content = {
       children: [],
       attributes: _objectSpread2(_objectSpread2({}, extra.attributes), {}, {
         'data-prefix': prefix,
@@ -4023,7 +4023,7 @@
         'viewBox': "0 0 ".concat(width, " ").concat(height)
       })
     };
-    var uploadedIconWidthStyle = isUploadedIcon && !~extra.classes.indexOf('fa-fw') ? {
+    const uploadedIconWidthStyle = isUploadedIcon && !~extra.classes.indexOf('fa-fw') ? {
       width: "".concat(width / height * 16 * 0.0625, "em")
     } : {};
 
@@ -4042,7 +4042,7 @@
       delete content.attributes.title;
     }
 
-    var args = _objectSpread2(_objectSpread2({}, content), {}, {
+    const args = _objectSpread2(_objectSpread2({}, content), {}, {
       prefix: prefix,
       iconName: iconName,
       main: main,
@@ -4053,15 +4053,15 @@
       styles: _objectSpread2(_objectSpread2({}, uploadedIconWidthStyle), extra.styles)
     });
 
-    var _ref2 = mask.found && main.found ? callProvided('generateAbstractMask', args) || {
+    const _ref2 = mask.found && main.found ? callProvided('generateAbstractMask', args) || {
       children: [],
       attributes: {}
     } : callProvided('generateAbstractIcon', args) || {
       children: [],
       attributes: {}
-    },
-        children = _ref2.children,
-        attributes = _ref2.attributes;
+    };
+        const children = _ref2.children;
+        const attributes = _ref2.attributes;
 
     args.children = children;
     args.attributes = attributes;
@@ -4073,16 +4073,16 @@
     }
   }
   function makeLayersTextAbstract(params) {
-    var content = params.content,
-        width = params.width,
-        height = params.height,
-        transform = params.transform,
-        title = params.title,
-        extra = params.extra,
-        _params$watchable2 = params.watchable,
-        watchable = _params$watchable2 === void 0 ? false : _params$watchable2;
+    const content = params.content;
+        const width = params.width;
+        const height = params.height;
+        const transform = params.transform;
+        const title = params.title;
+        const extra = params.extra;
+        const _params$watchable2 = params.watchable;
+        const watchable = _params$watchable2 === void 0 ? false : _params$watchable2;
 
-    var attributes = _objectSpread2(_objectSpread2(_objectSpread2({}, extra.attributes), title ? {
+    const attributes = _objectSpread2(_objectSpread2(_objectSpread2({}, extra.attributes), title ? {
       'title': title
     } : {}), {}, {
       'class': extra.classes.join(' ')
@@ -4092,7 +4092,7 @@
       attributes[DATA_FA_I2SVG] = '';
     }
 
-    var styles = _objectSpread2({}, extra.styles);
+    const styles = _objectSpread2({}, extra.styles);
 
     if (transformIsMeaningful(transform)) {
       styles['transform'] = transformForCss({
@@ -4104,13 +4104,13 @@
       styles['-webkit-transform'] = styles['transform'];
     }
 
-    var styleString = joinStyles(styles);
+    const styleString = joinStyles(styles);
 
     if (styleString.length > 0) {
       attributes['style'] = styleString;
     }
 
-    var val = [];
+    const val = [];
     val.push({
       tag: 'span',
       attributes: attributes,
@@ -4130,23 +4130,23 @@
     return val;
   }
   function makeLayersCounterAbstract(params) {
-    var content = params.content,
-        title = params.title,
-        extra = params.extra;
+    const content = params.content;
+        const title = params.title;
+        const extra = params.extra;
 
-    var attributes = _objectSpread2(_objectSpread2(_objectSpread2({}, extra.attributes), title ? {
+    const attributes = _objectSpread2(_objectSpread2(_objectSpread2({}, extra.attributes), title ? {
       'title': title
     } : {}), {}, {
       'class': extra.classes.join(' ')
     });
 
-    var styleString = joinStyles(extra.styles);
+    const styleString = joinStyles(extra.styles);
 
     if (styleString.length > 0) {
       attributes['style'] = styleString;
     }
 
-    var val = [];
+    const val = [];
     val.push({
       tag: 'span',
       attributes: attributes,
@@ -4166,16 +4166,16 @@
     return val;
   }
 
-  var styles$1 = namespace.styles;
+  const styles$1 = namespace.styles;
   function asFoundIcon(icon) {
-    var width = icon[0];
-    var height = icon[1];
+    const width = icon[0];
+    const height = icon[1];
 
-    var _icon$slice = icon.slice(4),
-        _icon$slice2 = _slicedToArray(_icon$slice, 1),
-        vectorData = _icon$slice2[0];
+    const _icon$slice = icon.slice(4);
+        const _icon$slice2 = _slicedToArray(_icon$slice, 1);
+        const vectorData = _icon$slice2[0];
 
-    var element = null;
+    let element = null;
 
     if (Array.isArray(vectorData)) {
       element = {
@@ -4216,7 +4216,7 @@
       icon: element
     };
   }
-  var missingIconResolutionMixin = {
+  const missingIconResolutionMixin = {
     found: false,
     width: 512,
     height: 512
@@ -4229,14 +4229,14 @@
   }
 
   function findIcon(iconName, prefix) {
-    var givenPrefix = prefix;
+    const givenPrefix = prefix;
 
     if (prefix === 'fa' && config.styleDefault !== null) {
       prefix = getDefaultUsablePrefix();
     }
 
     return new Promise(function (resolve, reject) {
-      var val = {
+      const val = {
         found: false,
         width: 512,
         height: 512,
@@ -4244,13 +4244,13 @@
       };
 
       if (givenPrefix === 'fa') {
-        var shim = byOldName(iconName) || {};
+        const shim = byOldName(iconName) || {};
         iconName = shim.iconName || iconName;
         prefix = shim.prefix || prefix;
       }
 
       if (iconName && prefix && styles$1[prefix] && styles$1[prefix][iconName]) {
-        var icon = styles$1[prefix][iconName];
+        const icon = styles$1[prefix][iconName];
         return resolve(asFoundIcon(icon));
       }
 
@@ -4261,15 +4261,15 @@
     });
   }
 
-  var noop$1 = function noop() {};
+  const noop$1 = function noop() {};
 
-  var p = config.measurePerformance && PERFORMANCE && PERFORMANCE.mark && PERFORMANCE.measure ? PERFORMANCE : {
+  const p = config.measurePerformance && PERFORMANCE && PERFORMANCE.mark && PERFORMANCE.measure ? PERFORMANCE : {
     mark: noop$1,
     measure: noop$1
   };
-  var preamble = "FA \"6.1.1\"";
+  const preamble = "FA \"6.1.1\"";
 
-  var begin = function begin(name) {
+  const begin = function begin(name) {
     p.mark("".concat(preamble, " ").concat(name, " begins"));
     return function () {
       return end(name);
@@ -4281,21 +4281,21 @@
     p.measure("".concat(preamble, " ").concat(name), "".concat(preamble, " ").concat(name, " begins"), "".concat(preamble, " ").concat(name, " ends"));
   };
 
-  var perf = {
+  const perf = {
     begin: begin,
     end: end
   };
 
-  var noop$2 = function noop() {};
+  const noop$2 = function noop() {};
 
   function isWatched(node) {
-    var i2svg = node.getAttribute ? node.getAttribute(DATA_FA_I2SVG) : null;
+    const i2svg = node.getAttribute ? node.getAttribute(DATA_FA_I2SVG) : null;
     return typeof i2svg === 'string';
   }
 
   function hasPrefixAndIcon(node) {
-    var prefix = node.getAttribute ? node.getAttribute(DATA_PREFIX) : null;
-    var icon = node.getAttribute ? node.getAttribute(DATA_ICON) : null;
+    const prefix = node.getAttribute ? node.getAttribute(DATA_PREFIX) : null;
+    const icon = node.getAttribute ? node.getAttribute(DATA_ICON) : null;
     return prefix && icon;
   }
 
@@ -4308,7 +4308,7 @@
       return mutators.replace;
     }
 
-    var mutator = mutators[config.autoReplaceSvg];
+    const mutator = mutators[config.autoReplaceSvg];
     return mutator || mutators.replace;
   }
 
@@ -4321,19 +4321,19 @@
   }
 
   function convertSVG(abstractObj) {
-    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var _params$ceFn = params.ceFn,
-        ceFn = _params$ceFn === void 0 ? abstractObj.tag === 'svg' ? createElementNS : createElement : _params$ceFn;
+    const params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    const _params$ceFn = params.ceFn;
+        const ceFn = _params$ceFn === void 0 ? abstractObj.tag === 'svg' ? createElementNS : createElement : _params$ceFn;
 
     if (typeof abstractObj === 'string') {
       return DOCUMENT.createTextNode(abstractObj);
     }
 
-    var tag = ceFn(abstractObj.tag);
+    const tag = ceFn(abstractObj.tag);
     Object.keys(abstractObj.attributes || []).forEach(function (key) {
       tag.setAttribute(key, abstractObj.attributes[key]);
     });
-    var children = abstractObj.children || [];
+    const children = abstractObj.children || [];
     children.forEach(function (child) {
       tag.appendChild(convertSVG(child, {
         ceFn: ceFn
@@ -4343,7 +4343,7 @@
   }
 
   function nodeAsComment(node) {
-    var comment = " ".concat(node.outerHTML, " ");
+    let comment = " ".concat(node.outerHTML, " ");
     /* BEGIN.ATTRIBUTION */
 
     comment = "".concat(comment, "Font Awesome fontawesome.com ");
@@ -4354,7 +4354,7 @@
 
   var mutators = {
     replace: function replace(mutation) {
-      var node = mutation[0];
+      const node = mutation[0];
 
       if (node.parentNode) {
         mutation[1].forEach(function (abstract) {
@@ -4362,7 +4362,7 @@
         });
 
         if (node.getAttribute(DATA_FA_I2SVG) === null && config.keepOriginalSource) {
-          var comment = DOCUMENT.createComment(nodeAsComment(node));
+          const comment = DOCUMENT.createComment(nodeAsComment(node));
           node.parentNode.replaceChild(comment, node);
         } else {
           node.remove();
@@ -4370,19 +4370,19 @@
       }
     },
     nest: function nest(mutation) {
-      var node = mutation[0];
-      var abstract = mutation[1]; // If we already have a replaced node we do not want to continue nesting within it.
+      const node = mutation[0];
+      const abstract = mutation[1]; // If we already have a replaced node we do not want to continue nesting within it.
       // Short-circuit to the standard replacement
 
       if (~classArray(node).indexOf(config.replacementClass)) {
         return mutators.replace(mutation);
       }
 
-      var forSvg = new RegExp("".concat(config.familyPrefix, "-.*"));
+      const forSvg = new RegExp("".concat(config.familyPrefix, "-.*"));
       delete abstract[0].attributes.id;
 
       if (abstract[0].attributes.class) {
-        var splitClasses = abstract[0].attributes.class.split(' ').reduce(function (acc, cls) {
+        const splitClasses = abstract[0].attributes.class.split(' ').reduce(function (acc, cls) {
           if (cls === config.replacementClass || cls.match(forSvg)) {
             acc.toSvg.push(cls);
           } else {
@@ -4403,7 +4403,7 @@
         }
       }
 
-      var newInnerHTML = abstract.map(function (a) {
+      const newInnerHTML = abstract.map(function (a) {
         return toHtml(a);
       }).join('\n');
       node.setAttribute(DATA_FA_I2SVG, '');
@@ -4416,34 +4416,34 @@
   }
 
   function perform(mutations, callback) {
-    var callbackFunction = typeof callback === 'function' ? callback : noop$2;
+    const callbackFunction = typeof callback === 'function' ? callback : noop$2;
 
     if (mutations.length === 0) {
       callbackFunction();
     } else {
-      var frame = performOperationSync;
+      let frame = performOperationSync;
 
       if (config.mutateApproach === MUTATION_APPROACH_ASYNC) {
         frame = WINDOW.requestAnimationFrame || performOperationSync;
       }
 
       frame(function () {
-        var mutator = getMutator();
-        var mark = perf.begin('mutate');
+        const mutator = getMutator();
+        const mark = perf.begin('mutate');
         mutations.map(mutator);
         mark();
         callbackFunction();
       });
     }
   }
-  var disabled = false;
+  let disabled = false;
   function disableObservation() {
     disabled = true;
   }
   function enableObservation() {
     disabled = false;
   }
-  var mo = null;
+  let mo = null;
   function observe(options) {
     if (!MUTATION_OBSERVER) {
       return;
@@ -4453,17 +4453,17 @@
       return;
     }
 
-    var _options$treeCallback = options.treeCallback,
-        treeCallback = _options$treeCallback === void 0 ? noop$2 : _options$treeCallback,
-        _options$nodeCallback = options.nodeCallback,
-        nodeCallback = _options$nodeCallback === void 0 ? noop$2 : _options$nodeCallback,
-        _options$pseudoElemen = options.pseudoElementsCallback,
-        pseudoElementsCallback = _options$pseudoElemen === void 0 ? noop$2 : _options$pseudoElemen,
-        _options$observeMutat = options.observeMutationsRoot,
-        observeMutationsRoot = _options$observeMutat === void 0 ? DOCUMENT : _options$observeMutat;
+    const _options$treeCallback = options.treeCallback;
+        const treeCallback = _options$treeCallback === void 0 ? noop$2 : _options$treeCallback;
+        const _options$nodeCallback = options.nodeCallback;
+        const nodeCallback = _options$nodeCallback === void 0 ? noop$2 : _options$nodeCallback;
+        const _options$pseudoElemen = options.pseudoElementsCallback;
+        const pseudoElementsCallback = _options$pseudoElemen === void 0 ? noop$2 : _options$pseudoElemen;
+        const _options$observeMutat = options.observeMutationsRoot;
+        const observeMutationsRoot = _options$observeMutat === void 0 ? DOCUMENT : _options$observeMutat;
     mo = new MUTATION_OBSERVER(function (objects) {
       if (disabled) return;
-      var defaultPrefix = getDefaultUsablePrefix();
+      const defaultPrefix = getDefaultUsablePrefix();
       toArray(objects).forEach(function (mutationRecord) {
         if (mutationRecord.type === 'childList' && mutationRecord.addedNodes.length > 0 && !isWatched(mutationRecord.addedNodes[0])) {
           if (config.searchPseudoElements) {
@@ -4479,9 +4479,9 @@
 
         if (mutationRecord.type === 'attributes' && isWatched(mutationRecord.target) && ~ATTRIBUTES_WATCHED_FOR_MUTATION.indexOf(mutationRecord.attributeName)) {
           if (mutationRecord.attributeName === 'class' && hasPrefixAndIcon(mutationRecord.target)) {
-            var _getCanonicalIcon = getCanonicalIcon(classArray(mutationRecord.target)),
-                prefix = _getCanonicalIcon.prefix,
-                iconName = _getCanonicalIcon.iconName;
+            const _getCanonicalIcon = getCanonicalIcon(classArray(mutationRecord.target));
+                const prefix = _getCanonicalIcon.prefix;
+                const iconName = _getCanonicalIcon.iconName;
 
             mutationRecord.target.setAttribute(DATA_PREFIX, prefix || defaultPrefix);
             if (iconName) mutationRecord.target.setAttribute(DATA_ICON, iconName);
@@ -4505,14 +4505,14 @@
   }
 
   function styleParser (node) {
-    var style = node.getAttribute('style');
-    var val = [];
+    const style = node.getAttribute('style');
+    let val = [];
 
     if (style) {
       val = style.split(';').reduce(function (acc, style) {
-        var styles = style.split(':');
-        var prop = styles[0];
-        var value = styles.slice(1);
+        const styles = style.split(':');
+        const prop = styles[0];
+        const value = styles.slice(1);
 
         if (prop && value.length > 0) {
           acc[prop] = value.join(':').trim();
@@ -4526,10 +4526,10 @@
   }
 
   function classParser (node) {
-    var existingPrefix = node.getAttribute('data-prefix');
-    var existingIconName = node.getAttribute('data-icon');
-    var innerText = node.innerText !== undefined ? node.innerText.trim() : '';
-    var val = getCanonicalIcon(classArray(node));
+    const existingPrefix = node.getAttribute('data-prefix');
+    const existingIconName = node.getAttribute('data-icon');
+    const innerText = node.innerText !== undefined ? node.innerText.trim() : '';
+    const val = getCanonicalIcon(classArray(node));
 
     if (!val.prefix) {
       val.prefix = getDefaultUsablePrefix();
@@ -4552,15 +4552,15 @@
   }
 
   function attributesParser (node) {
-    var extraAttributes = toArray(node.attributes).reduce(function (acc, attr) {
+    const extraAttributes = toArray(node.attributes).reduce(function (acc, attr) {
       if (acc.name !== 'class' && acc.name !== 'style') {
         acc[attr.name] = attr.value;
       }
 
       return acc;
     }, {});
-    var title = node.getAttribute('title');
-    var titleId = node.getAttribute('data-fa-title-id');
+    const title = node.getAttribute('title');
+    const titleId = node.getAttribute('data-fa-title-id');
 
     if (config.autoA11y) {
       if (title) {
@@ -4596,18 +4596,18 @@
     };
   }
   function parseMeta(node) {
-    var parser = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+    const parser = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
       styleParser: true
     };
 
-    var _classParser = classParser(node),
-        iconName = _classParser.iconName,
-        prefix = _classParser.prefix,
-        extraClasses = _classParser.rest;
+    const _classParser = classParser(node);
+        const iconName = _classParser.iconName;
+        const prefix = _classParser.prefix;
+        const extraClasses = _classParser.rest;
 
-    var extraAttributes = attributesParser(node);
-    var pluginMeta = chainHooks('parseNodeAttributes', {}, node);
-    var extraStyles = parser.styleParser ? styleParser(node) : [];
+    const extraAttributes = attributesParser(node);
+    const pluginMeta = chainHooks('parseNodeAttributes', {}, node);
+    const extraStyles = parser.styleParser ? styleParser(node) : [];
     return _objectSpread2({
       iconName: iconName,
       title: node.getAttribute('title'),
@@ -4629,10 +4629,10 @@
     }, pluginMeta);
   }
 
-  var styles$2 = namespace.styles;
+  const styles$2 = namespace.styles;
 
   function generateMutation(node) {
-    var nodeMeta = config.autoReplaceSvg === 'nest' ? parseMeta(node, {
+    const nodeMeta = config.autoReplaceSvg === 'nest' ? parseMeta(node, {
       styleParser: false
     }) : parseMeta(node);
 
@@ -4644,20 +4644,20 @@
   }
 
   function onTree(root) {
-    var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+    const callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
     if (!IS_DOM) return Promise.resolve();
-    var htmlClassList = DOCUMENT.documentElement.classList;
+    const htmlClassList = DOCUMENT.documentElement.classList;
 
-    var hclAdd = function hclAdd(suffix) {
+    const hclAdd = function hclAdd(suffix) {
       return htmlClassList.add("".concat(HTML_CLASS_I2SVG_BASE_CLASS, "-").concat(suffix));
     };
 
-    var hclRemove = function hclRemove(suffix) {
+    const hclRemove = function hclRemove(suffix) {
       return htmlClassList.remove("".concat(HTML_CLASS_I2SVG_BASE_CLASS, "-").concat(suffix));
     };
 
-    var prefixes = config.autoFetchSvg ? Object.keys(PREFIX_TO_STYLE) : Object.keys(styles$2);
-    var prefixesDomQuery = [".".concat(LAYERS_TEXT_CLASSNAME, ":not([").concat(DATA_FA_I2SVG, "])")].concat(prefixes.map(function (p) {
+    const prefixes = config.autoFetchSvg ? Object.keys(PREFIX_TO_STYLE) : Object.keys(styles$2);
+    const prefixesDomQuery = [".".concat(LAYERS_TEXT_CLASSNAME, ":not([").concat(DATA_FA_I2SVG, "])")].concat(prefixes.map(function (p) {
       return ".".concat(p, ":not([").concat(DATA_FA_I2SVG, "])");
     })).join(', ');
 
@@ -4665,7 +4665,7 @@
       return Promise.resolve();
     }
 
-    var candidates = [];
+    let candidates = [];
 
     try {
       candidates = toArray(root.querySelectorAll(prefixesDomQuery));
@@ -4679,10 +4679,10 @@
       return Promise.resolve();
     }
 
-    var mark = perf.begin('onTree');
-    var mutations = candidates.reduce(function (acc, node) {
+    const mark = perf.begin('onTree');
+    const mutations = candidates.reduce(function (acc, node) {
       try {
-        var mutation = generateMutation(node);
+        const mutation = generateMutation(node);
 
         if (mutation) {
           acc.push(mutation);
@@ -4715,7 +4715,7 @@
   }
 
   function onNode(node) {
-    var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+    const callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
     generateMutation(node).then(function (mutation) {
       if (mutation) {
         perform([mutation], callback);
@@ -4725,9 +4725,9 @@
 
   function resolveIcons(next) {
     return function (maybeIconDefinition) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var iconDefinition = (maybeIconDefinition || {}).icon ? maybeIconDefinition : findIconDefinition(maybeIconDefinition || {});
-      var mask = params.mask;
+      const params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      const iconDefinition = (maybeIconDefinition || {}).icon ? maybeIconDefinition : findIconDefinition(maybeIconDefinition || {});
+      let mask = params.mask;
 
       if (mask) {
         mask = (mask || {}).icon ? mask : findIconDefinition(mask || {});
@@ -4739,30 +4739,30 @@
     };
   }
 
-  var render = function render(iconDefinition) {
-    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var _params$transform = params.transform,
-        transform = _params$transform === void 0 ? meaninglessTransform : _params$transform,
-        _params$symbol = params.symbol,
-        symbol = _params$symbol === void 0 ? false : _params$symbol,
-        _params$mask = params.mask,
-        mask = _params$mask === void 0 ? null : _params$mask,
-        _params$maskId = params.maskId,
-        maskId = _params$maskId === void 0 ? null : _params$maskId,
-        _params$title = params.title,
-        title = _params$title === void 0 ? null : _params$title,
-        _params$titleId = params.titleId,
-        titleId = _params$titleId === void 0 ? null : _params$titleId,
-        _params$classes = params.classes,
-        classes = _params$classes === void 0 ? [] : _params$classes,
-        _params$attributes = params.attributes,
-        attributes = _params$attributes === void 0 ? {} : _params$attributes,
-        _params$styles = params.styles,
-        styles = _params$styles === void 0 ? {} : _params$styles;
+  const render = function render(iconDefinition) {
+    const params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    const _params$transform = params.transform;
+        const transform = _params$transform === void 0 ? meaninglessTransform : _params$transform;
+        const _params$symbol = params.symbol;
+        const symbol = _params$symbol === void 0 ? false : _params$symbol;
+        const _params$mask = params.mask;
+        const mask = _params$mask === void 0 ? null : _params$mask;
+        const _params$maskId = params.maskId;
+        const maskId = _params$maskId === void 0 ? null : _params$maskId;
+        const _params$title = params.title;
+        const title = _params$title === void 0 ? null : _params$title;
+        const _params$titleId = params.titleId;
+        const titleId = _params$titleId === void 0 ? null : _params$titleId;
+        const _params$classes = params.classes;
+        const classes = _params$classes === void 0 ? [] : _params$classes;
+        const _params$attributes = params.attributes;
+        const attributes = _params$attributes === void 0 ? {} : _params$attributes;
+        const _params$styles = params.styles;
+        const styles = _params$styles === void 0 ? {} : _params$styles;
     if (!iconDefinition) return;
-    var prefix = iconDefinition.prefix,
-        iconName = iconDefinition.iconName,
-        icon = iconDefinition.icon;
+    const prefix = iconDefinition.prefix;
+        const iconName = iconDefinition.iconName;
+        const icon = iconDefinition.icon;
     return domVariants(_objectSpread2({
       type: 'icon'
     }, iconDefinition), function () {
@@ -4805,7 +4805,7 @@
       });
     });
   };
-  var ReplaceElements = {
+  const ReplaceElements = {
     mixout: function mixout() {
       return {
         icon: resolveIcons(render)
@@ -4822,23 +4822,23 @@
     },
     provides: function provides(providers$$1) {
       providers$$1.i2svg = function (params) {
-        var _params$node = params.node,
-            node = _params$node === void 0 ? DOCUMENT : _params$node,
-            _params$callback = params.callback,
-            callback = _params$callback === void 0 ? function () {} : _params$callback;
+        const _params$node = params.node;
+            const node = _params$node === void 0 ? DOCUMENT : _params$node;
+            const _params$callback = params.callback;
+            const callback = _params$callback === void 0 ? function () {} : _params$callback;
         return onTree(node, callback);
       };
 
       providers$$1.generateSvgReplacementMutation = function (node, nodeMeta) {
-        var iconName = nodeMeta.iconName,
-            title = nodeMeta.title,
-            titleId = nodeMeta.titleId,
-            prefix = nodeMeta.prefix,
-            transform = nodeMeta.transform,
-            symbol = nodeMeta.symbol,
-            mask = nodeMeta.mask,
-            maskId = nodeMeta.maskId,
-            extra = nodeMeta.extra;
+        const iconName = nodeMeta.iconName;
+            const title = nodeMeta.title;
+            const titleId = nodeMeta.titleId;
+            const prefix = nodeMeta.prefix;
+            const transform = nodeMeta.transform;
+            const symbol = nodeMeta.symbol;
+            const mask = nodeMeta.mask;
+            const maskId = nodeMeta.maskId;
+            const extra = nodeMeta.extra;
         return new Promise(function (resolve, reject) {
           Promise.all([findIcon(iconName, prefix), mask.iconName ? findIcon(mask.iconName, mask.prefix) : Promise.resolve({
             found: false,
@@ -4846,9 +4846,9 @@
             height: 512,
             icon: {}
           })]).then(function (_ref) {
-            var _ref2 = _slicedToArray(_ref, 2),
-                main = _ref2[0],
-                mask = _ref2[1];
+            const _ref2 = _slicedToArray(_ref, 2);
+                const main = _ref2[0];
+                const mask = _ref2[1];
 
             resolve([node, makeInlineSvgAbstract({
               icons: {
@@ -4870,18 +4870,18 @@
       };
 
       providers$$1.generateAbstractIcon = function (_ref3) {
-        var children = _ref3.children,
-            attributes = _ref3.attributes,
-            main = _ref3.main,
-            transform = _ref3.transform,
-            styles = _ref3.styles;
-        var styleString = joinStyles(styles);
+        const children = _ref3.children;
+            const attributes = _ref3.attributes;
+            const main = _ref3.main;
+            const transform = _ref3.transform;
+            const styles = _ref3.styles;
+        const styleString = joinStyles(styles);
 
         if (styleString.length > 0) {
           attributes['style'] = styleString;
         }
 
-        var nextChild;
+        let nextChild;
 
         if (transformIsMeaningful(transform)) {
           nextChild = callProvided('generateAbstractTransformGrouping', {
@@ -4901,13 +4901,13 @@
     }
   };
 
-  var Layers = {
+  const Layers = {
     mixout: function mixout() {
       return {
         layer: function layer(assembler) {
-          var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-          var _params$classes = params.classes,
-              classes = _params$classes === void 0 ? [] : _params$classes;
+          const params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+          const _params$classes = params.classes;
+              const classes = _params$classes === void 0 ? [] : _params$classes;
           return domVariants({
             type: 'layer'
           }, function () {
@@ -4915,7 +4915,7 @@
               assembler: assembler,
               params: params
             });
-            var children = [];
+            let children = [];
             assembler(function (args) {
               Array.isArray(args) ? args.map(function (a) {
                 children = children.concat(a.abstract);
@@ -4934,19 +4934,19 @@
     }
   };
 
-  var LayersCounter = {
+  const LayersCounter = {
     mixout: function mixout() {
       return {
         counter: function counter(content) {
-          var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-          var _params$title = params.title,
-              title = _params$title === void 0 ? null : _params$title,
-              _params$classes = params.classes,
-              classes = _params$classes === void 0 ? [] : _params$classes,
-              _params$attributes = params.attributes,
-              attributes = _params$attributes === void 0 ? {} : _params$attributes,
-              _params$styles = params.styles,
-              styles = _params$styles === void 0 ? {} : _params$styles;
+          const params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+          const _params$title = params.title;
+              const title = _params$title === void 0 ? null : _params$title;
+              const _params$classes = params.classes;
+              const classes = _params$classes === void 0 ? [] : _params$classes;
+              const _params$attributes = params.attributes;
+              const attributes = _params$attributes === void 0 ? {} : _params$attributes;
+              const _params$styles = params.styles;
+              const styles = _params$styles === void 0 ? {} : _params$styles;
           return domVariants({
             type: 'counter',
             content: content
@@ -4970,21 +4970,21 @@
     }
   };
 
-  var LayersText = {
+  const LayersText = {
     mixout: function mixout() {
       return {
         text: function text(content) {
-          var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-          var _params$transform = params.transform,
-              transform = _params$transform === void 0 ? meaninglessTransform : _params$transform,
-              _params$title = params.title,
-              title = _params$title === void 0 ? null : _params$title,
-              _params$classes = params.classes,
-              classes = _params$classes === void 0 ? [] : _params$classes,
-              _params$attributes = params.attributes,
-              attributes = _params$attributes === void 0 ? {} : _params$attributes,
-              _params$styles = params.styles,
-              styles = _params$styles === void 0 ? {} : _params$styles;
+          const params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+          const _params$transform = params.transform;
+              const transform = _params$transform === void 0 ? meaninglessTransform : _params$transform;
+              const _params$title = params.title;
+              const title = _params$title === void 0 ? null : _params$title;
+              const _params$classes = params.classes;
+              const classes = _params$classes === void 0 ? [] : _params$classes;
+              const _params$attributes = params.attributes;
+              const attributes = _params$attributes === void 0 ? {} : _params$attributes;
+              const _params$styles = params.styles;
+              const styles = _params$styles === void 0 ? {} : _params$styles;
           return domVariants({
             type: 'text',
             content: content
@@ -5009,15 +5009,15 @@
     },
     provides: function provides(providers$$1) {
       providers$$1.generateLayersText = function (node, nodeMeta) {
-        var title = nodeMeta.title,
-            transform = nodeMeta.transform,
-            extra = nodeMeta.extra;
-        var width = null;
-        var height = null;
+        const title = nodeMeta.title;
+            const transform = nodeMeta.transform;
+            const extra = nodeMeta.extra;
+        let width = null;
+        let height = null;
 
         if (IS_IE) {
-          var computedFontSize = parseInt(getComputedStyle(node).fontSize, 10);
-          var boundingClientRect = node.getBoundingClientRect();
+          const computedFontSize = parseInt(getComputedStyle(node).fontSize, 10);
+          const boundingClientRect = node.getBoundingClientRect();
           width = boundingClientRect.width / computedFontSize;
           height = boundingClientRect.height / computedFontSize;
         }
@@ -5039,13 +5039,13 @@
     }
   };
 
-  var CLEAN_CONTENT_PATTERN = new RegExp("\"", 'ug');
-  var SECONDARY_UNICODE_RANGE = [1105920, 1112319];
+  const CLEAN_CONTENT_PATTERN = new RegExp("\"", 'ug');
+  const SECONDARY_UNICODE_RANGE = [1105920, 1112319];
   function hexValueFromContent(content) {
-    var cleaned = content.replace(CLEAN_CONTENT_PATTERN, '');
-    var codePoint = codePointAt(cleaned, 0);
-    var isPrependTen = codePoint >= SECONDARY_UNICODE_RANGE[0] && codePoint <= SECONDARY_UNICODE_RANGE[1];
-    var isDoubled = cleaned.length === 2 ? cleaned[0] === cleaned[1] : false;
+    const cleaned = content.replace(CLEAN_CONTENT_PATTERN, '');
+    const codePoint = codePointAt(cleaned, 0);
+    const isPrependTen = codePoint >= SECONDARY_UNICODE_RANGE[0] && codePoint <= SECONDARY_UNICODE_RANGE[1];
+    const isDoubled = cleaned.length === 2 ? cleaned[0] === cleaned[1] : false;
     return {
       value: isDoubled ? toHex(cleaned[0]) : toHex(cleaned),
       isSecondary: isPrependTen || isDoubled
@@ -5053,21 +5053,21 @@
   }
 
   function replaceForPosition(node, position) {
-    var pendingAttribute = "".concat(DATA_FA_PSEUDO_ELEMENT_PENDING).concat(position.replace(':', '-'));
+    const pendingAttribute = "".concat(DATA_FA_PSEUDO_ELEMENT_PENDING).concat(position.replace(':', '-'));
     return new Promise(function (resolve, reject) {
       if (node.getAttribute(pendingAttribute) !== null) {
         // This node is already being processed
         return resolve();
       }
 
-      var children = toArray(node.children);
-      var alreadyProcessedPseudoElement = children.filter(function (c) {
+      const children = toArray(node.children);
+      const alreadyProcessedPseudoElement = children.filter(function (c) {
         return c.getAttribute(DATA_FA_PSEUDO_ELEMENT) === position;
       })[0];
-      var styles = WINDOW.getComputedStyle(node, position);
-      var fontFamily = styles.getPropertyValue('font-family').match(FONT_FAMILY_PATTERN);
-      var fontWeight = styles.getPropertyValue('font-weight');
-      var content = styles.getPropertyValue('content');
+      const styles = WINDOW.getComputedStyle(node, position);
+      const fontFamily = styles.getPropertyValue('font-family').match(FONT_FAMILY_PATTERN);
+      const fontWeight = styles.getPropertyValue('font-weight');
+      const content = styles.getPropertyValue('content');
 
       if (alreadyProcessedPseudoElement && !fontFamily) {
         // If we've already processed it but the current computed style does not result in a font-family,
@@ -5076,20 +5076,20 @@
         node.removeChild(alreadyProcessedPseudoElement);
         return resolve();
       } else if (fontFamily && content !== 'none' && content !== '') {
-        var _content = styles.getPropertyValue('content');
+        const _content = styles.getPropertyValue('content');
 
-        var prefix = ~['Solid', 'Regular', 'Light', 'Thin', 'Duotone', 'Brands', 'Kit'].indexOf(fontFamily[2]) ? STYLE_TO_PREFIX[fontFamily[2].toLowerCase()] : FONT_WEIGHT_TO_PREFIX[fontWeight];
+        let prefix = ~['Solid', 'Regular', 'Light', 'Thin', 'Duotone', 'Brands', 'Kit'].indexOf(fontFamily[2]) ? STYLE_TO_PREFIX[fontFamily[2].toLowerCase()] : FONT_WEIGHT_TO_PREFIX[fontWeight];
 
-        var _hexValueFromContent = hexValueFromContent(_content),
-            hexValue = _hexValueFromContent.value,
-            isSecondary = _hexValueFromContent.isSecondary;
+        const _hexValueFromContent = hexValueFromContent(_content);
+            const hexValue = _hexValueFromContent.value;
+            const isSecondary = _hexValueFromContent.isSecondary;
 
-        var isV4 = fontFamily[0].startsWith('FontAwesome');
-        var iconName = byUnicode(prefix, hexValue);
-        var iconIdentifier = iconName;
+        const isV4 = fontFamily[0].startsWith('FontAwesome');
+        let iconName = byUnicode(prefix, hexValue);
+        const iconIdentifier = iconName;
 
         if (isV4) {
-          var iconName4 = byOldUnicode(hexValue);
+          const iconName4 = byOldUnicode(hexValue);
 
           if (iconName4.iconName && iconName4.prefix) {
             iconName = iconName4.iconName;
@@ -5107,11 +5107,11 @@
             node.removeChild(alreadyProcessedPseudoElement);
           }
 
-          var meta = blankMeta();
-          var extra = meta.extra;
+          const meta = blankMeta();
+          const extra = meta.extra;
           extra.attributes[DATA_FA_PSEUDO_ELEMENT] = position;
           findIcon(iconName, prefix).then(function (main) {
-            var abstract = makeInlineSvgAbstract(_objectSpread2(_objectSpread2({}, meta), {}, {
+            const abstract = makeInlineSvgAbstract(_objectSpread2(_objectSpread2({}, meta), {}, {
               icons: {
                 main: main,
                 mask: emptyCanonicalIcon()
@@ -5121,7 +5121,7 @@
               extra: extra,
               watchable: true
             }));
-            var element = DOCUMENT.createElement('svg');
+            const element = DOCUMENT.createElement('svg');
 
             if (position === '::before') {
               node.insertBefore(element, node.firstChild);
@@ -5155,8 +5155,8 @@
   function searchPseudoElements(root) {
     if (!IS_DOM) return;
     return new Promise(function (resolve, reject) {
-      var operations = toArray(root.querySelectorAll('*')).filter(processable).map(replace);
-      var end = perf.begin('searchPseudoElements');
+      const operations = toArray(root.querySelectorAll('*')).filter(processable).map(replace);
+      const end = perf.begin('searchPseudoElements');
       disableObservation();
       Promise.all(operations).then(function () {
         end();
@@ -5170,7 +5170,7 @@
     });
   }
 
-  var PseudoElements = {
+  const PseudoElements = {
     hooks: function hooks() {
       return {
         mutationObserverCallbacks: function mutationObserverCallbacks(accumulator) {
@@ -5181,8 +5181,8 @@
     },
     provides: function provides(providers$$1) {
       providers$$1.pseudoElements2svg = function (params) {
-        var _params$node = params.node,
-            node = _params$node === void 0 ? DOCUMENT : _params$node;
+        const _params$node = params.node;
+            const node = _params$node === void 0 ? DOCUMENT : _params$node;
 
         if (config.searchPseudoElements) {
           searchPseudoElements(node);
@@ -5191,8 +5191,8 @@
     }
   };
 
-  var _unwatched = false;
-  var MutationObserver$1 = {
+  let _unwatched = false;
+  const MutationObserver$1 = {
     mixout: function mixout() {
       return {
         dom: {
@@ -5212,7 +5212,7 @@
           disconnect();
         },
         watch: function watch(params) {
-          var observeMutationsRoot = params.observeMutationsRoot;
+          const observeMutationsRoot = params.observeMutationsRoot;
 
           if (_unwatched) {
             enableObservation();
@@ -5226,8 +5226,8 @@
     }
   };
 
-  var parseTransformString = function parseTransformString(transformString) {
-    var transform = {
+  const parseTransformString = function parseTransformString(transformString) {
+    const transform = {
       size: 16,
       x: 0,
       y: 0,
@@ -5236,9 +5236,9 @@
       rotate: 0
     };
     return transformString.toLowerCase().split(' ').reduce(function (acc, n) {
-      var parts = n.toLowerCase().split('-');
-      var first = parts[0];
-      var rest = parts.slice(1).join('-');
+      const parts = n.toLowerCase().split('-');
+      const first = parts[0];
+      let rest = parts.slice(1).join('-');
 
       if (first && rest === 'h') {
         acc.flipX = true;
@@ -5289,7 +5289,7 @@
       return acc;
     }, transform);
   };
-  var PowerTransforms = {
+  const PowerTransforms = {
     mixout: function mixout() {
       return {
         parse: {
@@ -5302,7 +5302,7 @@
     hooks: function hooks() {
       return {
         parseNodeAttributes: function parseNodeAttributes(accumulator, node) {
-          var transformString = node.getAttribute('data-fa-transform');
+          const transformString = node.getAttribute('data-fa-transform');
 
           if (transformString) {
             accumulator.transform = parseTransformString(transformString);
@@ -5314,23 +5314,23 @@
     },
     provides: function provides(providers) {
       providers.generateAbstractTransformGrouping = function (_ref) {
-        var main = _ref.main,
-            transform = _ref.transform,
-            containerWidth = _ref.containerWidth,
-            iconWidth = _ref.iconWidth;
-        var outer = {
+        const main = _ref.main;
+            const transform = _ref.transform;
+            const containerWidth = _ref.containerWidth;
+            const iconWidth = _ref.iconWidth;
+        const outer = {
           transform: "translate(".concat(containerWidth / 2, " 256)")
         };
-        var innerTranslate = "translate(".concat(transform.x * 32, ", ").concat(transform.y * 32, ") ");
-        var innerScale = "scale(".concat(transform.size / 16 * (transform.flipX ? -1 : 1), ", ").concat(transform.size / 16 * (transform.flipY ? -1 : 1), ") ");
-        var innerRotate = "rotate(".concat(transform.rotate, " 0 0)");
-        var inner = {
+        const innerTranslate = "translate(".concat(transform.x * 32, ", ").concat(transform.y * 32, ") ");
+        const innerScale = "scale(".concat(transform.size / 16 * (transform.flipX ? -1 : 1), ", ").concat(transform.size / 16 * (transform.flipY ? -1 : 1), ") ");
+        const innerRotate = "rotate(".concat(transform.rotate, " 0 0)");
+        const inner = {
           transform: "".concat(innerTranslate, " ").concat(innerScale, " ").concat(innerRotate)
         };
-        var path = {
+        const path = {
           transform: "translate(".concat(iconWidth / 2 * -1, " -256)")
         };
-        var operations = {
+        const operations = {
           outer: outer,
           inner: inner,
           path: path
@@ -5352,7 +5352,7 @@
     }
   };
 
-  var ALL_SPACE = {
+  const ALL_SPACE = {
     x: 0,
     y: 0,
     width: '100%',
@@ -5360,7 +5360,7 @@
   };
 
   function fillBlack(abstract) {
-    var force = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+    const force = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
 
     if (abstract.attributes && (abstract.attributes.fill || force)) {
       abstract.attributes.fill = 'black';
@@ -5377,12 +5377,12 @@
     }
   }
 
-  var Masks = {
+  const Masks = {
     hooks: function hooks() {
       return {
         parseNodeAttributes: function parseNodeAttributes(accumulator, node) {
-          var maskData = node.getAttribute('data-fa-mask');
-          var mask = !maskData ? emptyCanonicalIcon() : getCanonicalIcon(maskData.split(' ').map(function (i) {
+          const maskData = node.getAttribute('data-fa-mask');
+          const mask = !maskData ? emptyCanonicalIcon() : getCanonicalIcon(maskData.split(' ').map(function (i) {
             return i.trim();
           }));
 
@@ -5398,31 +5398,31 @@
     },
     provides: function provides(providers) {
       providers.generateAbstractMask = function (_ref) {
-        var children = _ref.children,
-            attributes = _ref.attributes,
-            main = _ref.main,
-            mask = _ref.mask,
-            explicitMaskId = _ref.maskId,
-            transform = _ref.transform;
-        var mainWidth = main.width,
-            mainPath = main.icon;
-        var maskWidth = mask.width,
-            maskPath = mask.icon;
-        var trans = transformForSvg({
+        const children = _ref.children;
+            const attributes = _ref.attributes;
+            const main = _ref.main;
+            const mask = _ref.mask;
+            const explicitMaskId = _ref.maskId;
+            const transform = _ref.transform;
+        const mainWidth = main.width;
+            const mainPath = main.icon;
+        const maskWidth = mask.width;
+            const maskPath = mask.icon;
+        const trans = transformForSvg({
           transform: transform,
           containerWidth: maskWidth,
           iconWidth: mainWidth
         });
-        var maskRect = {
+        const maskRect = {
           tag: 'rect',
           attributes: _objectSpread2(_objectSpread2({}, ALL_SPACE), {}, {
             fill: 'white'
           })
         };
-        var maskInnerGroupChildrenMixin = mainPath.children ? {
+        const maskInnerGroupChildrenMixin = mainPath.children ? {
           children: mainPath.children.map(fillBlack)
         } : {};
-        var maskInnerGroup = {
+        const maskInnerGroup = {
           tag: 'g',
           attributes: _objectSpread2({}, trans.inner),
           children: [fillBlack(_objectSpread2({
@@ -5430,14 +5430,14 @@
             attributes: _objectSpread2(_objectSpread2({}, mainPath.attributes), trans.path)
           }, maskInnerGroupChildrenMixin))]
         };
-        var maskOuterGroup = {
+        const maskOuterGroup = {
           tag: 'g',
           attributes: _objectSpread2({}, trans.outer),
           children: [maskInnerGroup]
         };
-        var maskId = "mask-".concat(explicitMaskId || nextUniqueId());
-        var clipId = "clip-".concat(explicitMaskId || nextUniqueId());
-        var maskTag = {
+        const maskId = "mask-".concat(explicitMaskId || nextUniqueId());
+        const clipId = "clip-".concat(explicitMaskId || nextUniqueId());
+        const maskTag = {
           tag: 'mask',
           attributes: _objectSpread2(_objectSpread2({}, ALL_SPACE), {}, {
             id: maskId,
@@ -5446,7 +5446,7 @@
           }),
           children: [maskRect, maskOuterGroup]
         };
-        var defs = {
+        const defs = {
           tag: 'defs',
           children: [{
             tag: 'clipPath',
@@ -5472,20 +5472,20 @@
     }
   };
 
-  var MissingIconIndicator = {
+  const MissingIconIndicator = {
     provides: function provides(providers) {
-      var reduceMotion = false;
+      let reduceMotion = false;
 
       if (WINDOW.matchMedia) {
         reduceMotion = WINDOW.matchMedia('(prefers-reduced-motion: reduce)').matches;
       }
 
       providers.missingIconAbstract = function () {
-        var gChildren = [];
-        var FILL = {
+        const gChildren = [];
+        const FILL = {
           fill: 'currentColor'
         };
-        var ANIMATION_BASE = {
+        const ANIMATION_BASE = {
           attributeType: 'XML',
           repeatCount: 'indefinite',
           dur: '2s'
@@ -5498,11 +5498,11 @@
           })
         });
 
-        var OPACITY_ANIMATE = _objectSpread2(_objectSpread2({}, ANIMATION_BASE), {}, {
+        const OPACITY_ANIMATE = _objectSpread2(_objectSpread2({}, ANIMATION_BASE), {}, {
           attributeName: 'opacity'
         });
 
-        var dot = {
+        const dot = {
           tag: 'circle',
           attributes: _objectSpread2(_objectSpread2({}, FILL), {}, {
             cx: '256',
@@ -5570,12 +5570,12 @@
     }
   };
 
-  var SvgSymbols = {
+  const SvgSymbols = {
     hooks: function hooks() {
       return {
         parseNodeAttributes: function parseNodeAttributes(accumulator, node) {
-          var symbolData = node.getAttribute('data-fa-symbol');
-          var symbol = symbolData === null ? false : symbolData === '' ? true : symbolData;
+          const symbolData = node.getAttribute('data-fa-symbol');
+          const symbol = symbolData === null ? false : symbolData === '' ? true : symbolData;
           accumulator['symbol'] = symbol;
           return accumulator;
         }
@@ -5583,7 +5583,7 @@
     }
   };
 
-  var plugins = [InjectCSS, ReplaceElements, Layers, LayersCounter, LayersText, PseudoElements, MutationObserver$1, PowerTransforms, Masks, MissingIconIndicator, SvgSymbols];
+  const plugins = [InjectCSS, ReplaceElements, Layers, LayersCounter, LayersText, PseudoElements, MutationObserver$1, PowerTransforms, Masks, MissingIconIndicator, SvgSymbols];
 
   registerPlugins(plugins, {
     mixoutsTo: api
