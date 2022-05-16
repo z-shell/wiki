@@ -16,8 +16,6 @@ const config = {
   projectName: 'zw',
   organizationName: 'z-shell',
   staticDirectories: ['static'],
-  i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
-  scripts: [{ src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous' }],
   plugins: [
     [
       'ideal-image',
@@ -54,7 +52,7 @@ const config = {
           if (locale !== 'en') {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
           }
-          return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/z-shell/zw/tree/next/${versionDocsDirPath}/${docPath}`;
         },
       }),
     ],
@@ -70,7 +68,7 @@ const config = {
           if (locale !== 'en') {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
           }
-          return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/z-shell/zw/tree/next/${versionDocsDirPath}/${docPath}`;
         },
       }),
     ],
@@ -79,6 +77,8 @@ const config = {
     require.resolve('FunnyBunny'),
     require.resolve('WithSomeMoney'),
   ], */
+  i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
+  scripts: [{ src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous' }],
   presets: [
     [
       'classic',
@@ -94,7 +94,7 @@ const config = {
             if (locale !== 'en') {
               return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
             }
-            return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
+            return `https://github.com/z-shell/zw/tree/next/${versionDocsDirPath}/${docPath}`;
           },
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
@@ -107,7 +107,7 @@ const config = {
             if (locale !== 'en') {
               return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
             }
-            return `https://github.com/z-shell/zw/tree/main/${blogDirPath}/${blogPath}`;
+            return `https://github.com/z-shell/zw/tree/next/${blogDirPath}/${blogPath}`;
           },
         },
         gtag: { trackingID: 'G-MT10GVL59X', anonymizeIP: true },
@@ -135,7 +135,13 @@ const config = {
       navbar: {
         hideOnScroll: true,
         title: '❮ ZI ❯',
-        logo: { alt: '❮ ZI ❯ Logo', src: 'img/logo.svg', target: '_self', width: 32, height: 32 },
+        logo: {
+          alt: 'A Swiss Army Knife for Zsh Unix shell - ❮ ZI ❯',
+          src: 'img/logo.svg',
+          target: '_self',
+          width: 32,
+          height: 32,
+        },
         items: [
           { type: 'doc', docId: 'intro', position: 'left', label: 'Docs' },
           { to: 'community/intro', position: 'left', label: 'Community' },
