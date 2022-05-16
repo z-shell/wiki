@@ -52,7 +52,7 @@ const config = {
           if (locale !== 'en') {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
           }
-          return `https://github.com/z-shell/zw/tree/next/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
         },
       }),
     ],
@@ -68,7 +68,7 @@ const config = {
           if (locale !== 'en') {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
           }
-          return `https://github.com/z-shell/zw/tree/next/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
         },
       }),
     ],
@@ -78,7 +78,7 @@ const config = {
     require.resolve('WithSomeMoney'),
   ], */
   i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
-  scripts: [{ rel: 'preload', src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous' }],
+  scripts: [{ src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous' }],
   presets: [
     [
       'classic',
@@ -94,7 +94,7 @@ const config = {
             if (locale !== 'en') {
               return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
             }
-            return `https://github.com/z-shell/zw/tree/next/${versionDocsDirPath}/${docPath}`;
+            return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
           },
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
@@ -107,7 +107,7 @@ const config = {
             if (locale !== 'en') {
               return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
             }
-            return `https://github.com/z-shell/zw/tree/next/${blogDirPath}/${blogPath}`;
+            return `https://github.com/z-shell/zw/tree/main/${blogDirPath}/${blogPath}`;
           },
         },
         /* gtag: { trackingID: 'G-MT10GVL59X', anonymizeIP: true }, */
