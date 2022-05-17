@@ -10,7 +10,7 @@ keywords:
 
 - [z-shell/z-a-submods](https://github.com/z-shell/z-a-submods)
 
-An aannex allows to clone additional submodules while installing a plugin or snippet. The submodules are then automatically updated on the `zi update …` command.
+An annex allows to clone additional submodules while installing a plugin or snippet. The submodules are then automatically updated on the `zi update …` command.
 
 This annex adds `submods''` ice to ZI which has the following syntax:
 
