@@ -19,9 +19,13 @@
     "message": "介绍",
     "description": "The label of footer link with label=Introduction linking to /docs/intro"
   },
-  "link.item.label.Community Docs": {
-    "message": "社区文档",
-    "description": "The label of footer link with label=Community Docs linking to /community/intro"
+  "link.item.label.Community": {
+    "message": "社区",
+    "description": "The label of footer link with label=Community linking to /community/intro"
+  },
+  "link.item.label.Ecosystem": {
+    "message": "Ecosystem",
+    "description": "The label of footer link with label=Ecosystem linking to /ecosystem/intro"
   },
   "link.item.label.Slack.com": {
     "message": "Slack.com",
@@ -49,7 +53,15 @@
   },
   "link.item.label.Privacy Policy": {
     "message": "隐私政策",
-    "description": "The label of footer link with label=Privacy Policy linking to legal/privacy_policy/"
+    "description": "The label of footer link with label=Privacy Policy linking to legal/PRIVACY/"
+  },
+  "link.item.label.Code of Conduct": {
+    "message": "Code of Conduct",
+    "description": "The label of footer link with label=Code of Conduct linking to legal/CODE_OF_CONDUCT/"
+  },
+  "link.item.label.Contributing": {
+    "message": "Contributing",
+    "description": "The label of footer link with label=Contributing linking to legal/CONTRIBUTING/"
   },
   "copyright": {
     "message": "Copyright © 2022 Digital Clouds, Z-Shell ❮ ZI ❯ Community.",

@@ -6,142 +6,142 @@ sidebar_position: 2
 
 ## Zsh 插件是什么？
 
-从历史上看，Zsh 插件最初是由 Oh My Zsh 定义的。 They provide for a way to package together files that extend or configure the shell’s functionality in a particular way.
+从历史上看，Zsh 插件最初是由 Oh My Zsh 定义的。 他们提供了一种打包的方式，来封装扩展或以特定方式配置 shell 功能的文件。
 
-At a simple level, a plugin:
+简单来说，一个插件：
 
-1. Has its directory added to `$fpath` ([Zsh documentation](http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions)). This is being done either by a plugin manager or by the plugin itself (see [5th section](#run-on-unload-call) for more information).
+1. Has its directory added to `$fpath` ([Zsh documentation](http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions)). 这由插件管理器或插件自己完成 ( 更多信息请阅读 [第5部分](#run-on-unload-call)) 。
 
-2. Has it’s first `*.plugin.zsh` file sourced (or `*.zsh`, `init.zsh`, `*.sh`, these are non-standard).
+2. 这些插件应该有统一标准的文件后缀名 `*.plugin.zsh` （而类似`*.zsh`, `init.zsh`, `*.sh`, 这些文件后缀名是非标准的）。
 
    2.1 The first point allows plugins to provide completions and functions that are loaded via Zsh’s `autoload` mechanism (a single function per file).
 
-3. From a more broad perspective, a plugin consists of:
+3. 从更全面的角度来看，一个插件包含以下几点：
 
    3.1. A directory containing various files (the main script, autoload functions, completions, Makefiles, backend programs, documentation).
 
-   3.2. A sourceable script that obtains the path to its directory via `$0` (see the [next section](#zero-handling) for a related enhancement proposal).
+   3.2. 可以通过`$0`获取插件源代码脚本的所在路径 (更多相关改进建议请参阅 [下一节](#zero-handling))。
 
    3.3. A Github (or another site) repository identified by two components **username**/**pluginname**.
 
-   3.4. A software package containing any type of command line artifacts – when used with advanced plugin managers that have hooks, can run Makefiles, add directories to `$PATH`.
+   3.4. 软件包应该要支持任意类型的命令行包管理工具 —— 比如使用带有 hooks 技术的高级插件管理器在运行Makefiles安装插件时可以触发钩子, 将插件目录添加到`$PATH`。
 
-Below follow proposed enhancements and codifications of the definition of a "Zsh the plugin" and the actions of plugin managers – the proposed standardization.
+下面是对 "Zsh插件 "的定义和插件 管理者的行为的增强和编纂建议——建议的标准化。
 
-They cover the information on how to write a Zsh plugin.
+它们涵盖了如何编写Zsh插件的信息。
 
 ## 1. Standardized `$0` Handling {#zero-handling}
 
 > [ zero-handling ]
 
-To get the plugin’s location, plugins should do:
+要获取插件的位置，插件应该这样做:
 
-```shell
+```shell showLineNumbers
 0="${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"
 0="${${(M)0:#/*}:-$PWD/$0}"
 ```
 
-Then `${0:h}` to get plugin’s directory.
+然后使用`${0:h}`获取插件的目录。
 
-The one-line code above will:
+以上的单行代码将：
 
-1. Be backward-compatible with normal `$0` setting and usage.
+1. 向后兼容正常的 `$0` 设置和使用。
 
-2. Use `ZERO` if it’s not empty,
+2. 如果插件目录不为空，可以使用 ` $0 ` 。
 
-   - the plugin manager will be easily able to alter effective `$0` before loading a plugin,
+   - 在插件管理器载入插件前，可以轻松更改有效的 `$0`。
 
-   - this allows e.g. `eval "$(<plugin)"`, which can be faster than `source` ([comparison](http://www.zsh.org/mla/workers/2017/msg01827.html) note that it’s not for a compiled script).
+   - 这允许例如 `eval "$(<plugin)"`，这可能比 `source` 更快（[查看这两种方案的比较](http://www.zsh.org/mla/workers/2017/msg01827.html) 请注意，这不适用于已经编译好的脚本）。
 
-3. Use `$0` if it doesn’t contain the path to the Zsh binary,
+3. 如果它不包含 Zsh 二进制文件的路径，请使用 `$0` 。
 
-   - plugin manager will still be able to set `$0`, although more difficultly, requires `unsetopt function_argzero` before sourcing plugin script, and `0=…​` assignment after sourcing plugin script.
+   - 插件管理器仍然能够设置 `$0`，尽管比较困难，需要在载入插件脚本之前设置一个 `unsetopt function_argzero` ，然后在载入插件脚本之后使用 `0=…` 进行赋值。
 
    - `unsetopt function_argzero` will be detected (it causes `$0` not to contain a plugin-script path, but the path to Zsh binary, if not overwritten by a `0=…​` assignment),
 
-   - `setopt posix_argzero` will be detected (as above).
+   - `setopt posix_argzero` 被检测到后（同上）。
 
-4. Use `%N` prompt expansion flag, which always gives absolute path to script,
+4. 使用 `%N` 提示扩展标志，它总是给出脚本的绝对路径。
 
-   - plugin manager cannot alter this (no advanced loading of plugin is possible), but simple plugin-file sourcing (without a plugin manager) will be saved from breaking caused by the mentioned `*_argzero` options, so this is a very good last-resort fallback.
+   - 插件管理器无法预加载（不可能实现插件的提前加载），但直接加载插件文件（不通过插件管理器）的方法将被保存下来，以避免由提到的 `*_argzero` 选项引起的破坏，所以这是一个 非常好的最后退路。
 
-5. Finally, in the second line, it will ensure that `$0` contains an absolute path by prepending it with `$PWD` if necessary.
+5. 最后，在第二行中，如果有必要请预置 ` $PWD ` 确保 `$0` 包含插件的绝对路径。
 
-The goal is flexibility, with essential motivation to support `eval "$(<plugin)"` and definitely solve `setopt no_function_argzero` and `setopt posix_argzero` cases.
+支持 `eval “$(<plugin)”` 以及明确解决 `setopt no_function_argzero` 和 `setopt posix_argzero` 的目标是为了保证获取插件路径的灵活性。
 
-A plugin manager will be even able to convert a plugin to a function (author implemented such proof of concept functionality, it’s fully possible – also in an automatic fashion), but performance differences of this are yet unclear.
+插件管理器甚至能够将一个插件转换为一个函数（作者对这个的概念性的功能进行了验证，它是完全可能的--也是以自动化的方式），但其性能差异尚不清楚。
 
-It might however provide a use case.
+但是，它可能会提供一个用例。
 
-The last, 5th point also allows using the `$0` handling in scripts (i.e. runnable with the hashbang `#!…`) to get the directory in which the script file resides.
+最后，第5点也允许在脚本中使用 ` $0 ` 的处理方式（即用 hashbang  ` #!… `）来获取脚本文件所在的目录。
 
-The assignment uses quoting to make it resilient to the combination of `GLOB_SUBST` and `GLOB_ASSIGN` options. It’s a standard snippet of code, so it has to be always working.
+这种引用环境变量的方法使其能够适应类似 `GLOB_SUBST` 和 `GLOB_ASSIGN` 选项。 这是一个标准的代码片段，所以它始终是可以运行的。
 
-When you’ll set e.g.: the `zsh` emulation in a function, you in general don’t have to quote assignments.
+当你在例如： `zsh` 函数中实验时，一般来说你不必引用全局变量。
 
 ### **STATUS:** [ zero-handling ]
 
-1. Plugin managers: [ZI](https://github.com/z-shell/zi), [Zinit](https://github.com/zdharma-continuum/zinit), [Zpm](https://github.com/zpm-zsh/zpm), [Zgenom](https://github.com/jandamm/zgenom), Zgen (after and if the [PR](https://github.com/tarjoilija/zgen/pull/124) will be merged).
+1. 插件管理器 [ZI](https://github.com/z-shell/zi)，[Zinit](https://github.com/zdharma-continuum/zinit)， [Zpm](https://github.com/zpm-zsh/zpm)， [Zgenom](https://github.com/jandamm/zgenom),，Zgen（可能要在 [PR](https://github.com/tarjoilija/zgen/pull/124) 被合并之后得到支持)。
 
-2. Plugins: [GitHub search](https://github.com/search?q=%22${ZERO:-${0:%23$ZSH_ARGZERO}}%22&type=Code)
+2. 插件： [GitHub search](https://github.com/search?q=%22${ZERO:-${0:%23$ZSH_ARGZERO}}%22&type=Code)
 
-## 2. Functions Directory {#funtions-directory}
+## 2. Functions 目录 {#funtions-directory}
 
 > [ functions-directory ]
 
-Despite that, the current-standard plugins have their main directory added to `$fpath`, a more clean approach is being proposed:
+尽管如此，在现行标准下，插件仍然是将其主目录添加到`$fpath` ，我们提出了一个更干净的方法：
 
-that the plugins use a subdirectory called `functions` to store their completions and autoload functions. This will allow a much cleaner design of plugins.
+插件使用一个名为 `functions` 的子目录来存储它们的补全和自动加载函数。 这允许更干净的插件设计
 
-The plugin manager should add such a directory to `$fpath`.
+插件管理器应该将这样的一个子目录添加到 `$fpath`。
 
-The lack of support of the current plugin managers can be easily resolved via the [indicator](#indicator):
+当前插件管理器缺乏支持的问题可以通过 <a href=“#indicator”> 指导 </a> 轻松解决
 
-```shell
+```shell showLineNumbers
 if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}/functions]} ]] {
     fpath+=( "${0:h}/functions" )
 }
 ```
 
-or, via use of the `PMSPEC` [parameter](#pmspec):
+或者，使用 `PMSPEC` <a href=“#PMSPEC”>参数</a>：
 
-```shell
+```shell showLineNumbers
 if [[ $PMSPEC != *f* ]] {
     fpath+=( "${0:h}/functions" )
 }
 ```
 
-The above snippet added to the `plugin.zsh` file will add the directory to the `$fpath` with the compatibility with any new plugin managers preserved.
+添加了上面代码片段的 `plugin.zsh` 文件将会把目录添加到 `$fpath`, 将保留与任何支持新标准的插件管理器的兼容性。
 
-The existence of the `functions` subdirectory cancels the normal adding of the main plugin directory to `$fpath`.
+`functions` 子目录的存在将取代把插件主目录添加到`$fpath`的常规操作。
 
 ### **STATUS:** [ functions-directory ]
 
-1. Plugin managers: [Zpm](https://github.com/zpm-zsh/zpm), [ZI](https://github.com/z-shell/zi), [Zinit](https://github.com/zdharma-continuum/zinit), [Zgenom](https://github.com/jandamm/zgenom).
+1. 插件管理器: [Zpm](https://github.com/zpm-zsh/zpm)， [ZI](https://github.com/z-shell/zi)， [Zinit](https://github.com/zdharma-continuum/zinit)， [Zgenom](https://github.com/jandamm/zgenom)。
 
 ## 3. 二进制文件目录 {#binaries-directory}
 
 > [ binaries-directory ]
 
-Plugins sometimes provide a runnable script or program, either for their internal use or for the end-user.
+插件有时会提供一个可执行的脚本或程序，供其内部使用或供终端用户使用。
 
-It is proposed that for the latter, the plugin shall use a `bin/` subdirectory inside its main dir (it is recommended, that for internal use, the runnable be called via the `$0` value obtained as described above).
+对于后者建议该插件应在其主目录内使用 `bin/` 子目录（对于内部使用建议可运行程序应通过调用 `$0` 来获取值，如上所述）。
 
-The runnable should be put into the directory with a `+x` access right assigned.
+插件的二进制文件应该被放入目录，并分配 `+x` 执行权限。
 
-The task of the plugin manager should be:
+插件管理器的任务应该是：
 
-1. Before sourcing the plugin’s script it should test, if the `bin/` directory exists within the plugin directory.
+1. 在载入插件的脚本之前，它应该检测 `bin/` 目录是否存在于插件目录中。
 
-2. If it does, it should add the directory to `$PATH`.
+2. 如果 `bin/` 目录存在，它应该将目录添加到 `$PATH`。
 
-3. The plugin manager can also, instead of extending the `$PATH`, create a **shim** (i.e.: a forwarder script) or a symbolic link inside a common directory that’s already added to `$PATH` (to limit extending it).
+3. 插件管理器也可以不扩展 `$PATH`，而是创建一个 **shim** （即一个转发脚本）或者在一个已经被添加到 `$PATH` 的公共目录内创建一个 符号链接（以限制扩展它）。
 
-4. The plugin manager is permitted to do optional things like ensuring `+x` access rights on the directory contents.
+4. 插件管理器被允许做一些可选的事情，比如确保目录的内容具有 `+x` 的可执行权限。
 
-The `$PMSPEC` code letter for the feature is `b`, and it allows for the plugin to handle the `$PATH` extending itself, via, e.g.:
+当 `$PMSPEC` 的特征码字母是 `b` 时，它允许插件自行通过 `$PATH` 进行扩展， 例如：
 
-```shell
+```shell showLineNumbers
 if [[ $PMSPEC != *b* ]] {
     path+=( "${0:h}/bin" )
 }
@@ -149,75 +149,75 @@ if [[ $PMSPEC != *b* ]] {
 
 ### **STATUS:** [ binaries-directory ]
 
-1. Plugin managers: [Zpm](https://github.com/zpm-zsh/zpm), [Zgenom](https://github.com/jandamm/zgenom) (when you set `ZGENOM_AUTO_ADD_BIN=1`).
+1. 插件管理器： [Zpm](https://github.com/zpm-zsh/zpm), [Zgenom](https://github.com/jandamm/zgenom) （需要设置 `ZGENOM_AUTO_ADD_BIN=1`）。
 
-## 4. Unload Function {#unload-function}
+## 4. 卸载函数 {#unload-function}
 
 > [ unload-function ]
 
-If a plugin is named e.g. `kalc` (and is available via `any-user/kalc` plugin-ID), then it can provide a function, `kalc_plugin_unload`, that can be called by a plugin manager to undo the effects of loading that plugin.
+如果一个插件被命名为，例如 `kalc` （并且可以通过 `any-user/kalc` 获得它的plugin-ID ），那么它可以提供一个`kalc_plugin_unload` 函数，以供插件管理器调用来撤销加载该插件的效果。
 
-A plugin manager can implement its tracking of changes made by a plugin so this is in general optional. However, to properly unload e.g. a prompt, dedicated tracking (easy to do for the plugin creator) can provide better, predictable results.
+在一般情况下也能可选的通过插件管理器实现对插件所做的更改进行跟踪。 但是更加合适的示例卸载操作应该是做一个提示，专门地跟踪插件的卸载（对插件创建者来说很容易做到）这样可以提供更好的、可预测的结果。
 
-Any special, uncommon effects of loading a plugin are possible to undo only by a dedicated function.
+对于所有特殊的、不常见的插件效果，只能通过专门的函数才有可能撤销。
 
-However, an interesting compromise approach is available – to withdraw only the special effects of loading a plugin via the dedicated, plugin-provided function and leave the rest to the plugin manager. The value of such an approach is that maintaining of such function (if it is to withdraw **all** plugin side-effects) can be a daunting task requiring constant monitoring of it during the plugin development process.
+然而，还有一个有趣的折中办法——插件提供专门用来撤销这个特殊效果的函数，然后把其余的工作留给插件管理器。 维护这个功能函数的价值在于，如果通过插件管理器去撤销插件 **所有** 的副作用，可能会是一项难以完成的艰巨任务，这需要在插件开发过程中对其进行持续把控。
 
-Note that the unload function should contain `unfunction $0` (or better `unfunction kalc_plugin_unload` etc., for compatibility with the `*_argzero` options), to also delete the function itself.
+请注意，卸载函数应包含 `unfunction $0` (或使用更好的 `unfunction kalc_plugin_unload` 等，这不仅可以与`*_argzero` 选项兼容) ，还可以删除该功能本身。
 
 ### **STATUS:** [ unload-function ] {#unload-function}
 
-- [ZI](https://github.com/z-shell/zi), implements plugin unloading and calls the function.
+- [ZI](https://github.com/z-shell/zi)，实现调用该函数进行插件卸载。
 
-- `romkatv/powerlevel10k`, is [using](https://github.com/romkatv/powerlevel10k/blob/f17081ca/internal/p10k.zsh#L5390) the function to execute a specific task: shutdown of the binary, background [gitstatus](https://github.com/romkatv/gitstatus) demon, with a very good results,
+- `romkatv/powerlevel10k`， [使用](https://github.com/romkatv/powerlevel10k/blob/f17081ca/internal/p10k.zsh#L5390) 这个函数来执行特定的任务：关闭二进制的 [gitstatus](https://github.com/romkatv/gitstatus) 后台常驻程序，具有非常好的效果。
 
-- `agkozak/agkozak-zsh-prompt` is [using](https://github.com/agkozak/agkozak-zsh-prompt/blob/ed228952d68fea6d5cad3beee869167f76c59606/agkozak-zsh-prompt.plugin.zsh#L992-L1039) the function to completely unload the prompt,
+- `agkozak/agkozak-zsh-prompt` [使用](https://github.com/agkozak/agkozak-zsh-prompt/blob/ed228952d68fea6d5cad3beee869167f76c59606/agkozak-zsh-prompt.plugin.zsh#L992-L1039) 此函数实现完全卸载提示。
 
-- `agkozak/zsh-z` is [using](https://github.com/agkozak/zsh-z/blob/16fba5e9d5c4b650358d65e07609dda4947f97e8/zsh-z.plugin.zsh#L680-L698) the function to completly unload the plugin,
+- `agkozak/zsh-z` [使用](https://github.com/agkozak/zsh-z/blob/16fba5e9d5c4b650358d65e07609dda4947f97e8/zsh-z.plugin.zsh#L680-L698) 此函数实现完全卸载提示。
 
-- `agkozak/zhooks` is [using](https://github.com/agkozak/zhooks/blob/628e1e3b8373bf31c26cb154f71c16ebe9d13b51/zhooks.plugin.zsh#L75-L82) the function to completely unload the plugin.
+- `agkozak/zhooks` [使用](https://github.com/agkozak/zhooks/blob/628e1e3b8373bf31c26cb154f71c16ebe9d13b51/zhooks.plugin.zsh#L75-L82) 此函数实现完全卸载提示。
 
-## 5. `@zsh-plugin-run-on-unload` Call {#run-on-unload-call}
+## 5. `@zsh-plugin-run-on-unload` 调用 {#run-on-unload-call}
 
 > [ run-on-unload-call ]
 
-The plugin manager can provide a function `@zsh-plugin-run-on-unload` which has the following call syntax:
+插件管理器可以提供一个函数 `@zsh-plugin-run-on-unload` 它的调用语法如下：
 
 ```zsh
 @zsh-plugin-run-on-unload "{code-snippet-1}" "{code-snippet-2}" …
 ```
 
-The function registers pieces of code to be run by the plugin manager **on unload of the plugin**.
+该函数注册了一些代码片段，以便在卸载插件时由插件管理器 **运行**。
 
-The execution of the code should be done by the `eval` built-in in the same order as they are passed to the call.
+代码的执行应该由 `eval` 内置的代码完成，其顺序与传递给调用的顺序相同。
 
-The code should be executed in the plugin’s directory, in the current shell.
+该代码应该在插件的目录下，在当前的shell中执行。
 
-The mechanism thus provides another way, side to the [unload function](#unload-function), for the plugin to participate in the process of unloading it.
+因此，该机制在 [卸载函数](#unload-function)之外，提供了另一种方式，让插件参与 卸载的过程。
 
 ### **STATUS:** [ run-on-unload-call ]
 
-1. Plugin managers: [ZI](https://github.com/z-shell/zi), [Zinit](https://github.com/zdharma-continuum/zinit).
+1. 插件管理器。 [ZI](https://github.com/z-shell/zi), [Zinit](https://github.com/zdharma-continuum/zinit)。
 
-## 6. `@zsh-plugin-run-on-update` Call {#run-on-update-call}
+## 6. `@zsh-plugin-run-on-unload` 调用 {#run-on-update-call}
 
 > [ run-on-update-call ]
 
-The plugin manager can provide a function `@zsh-plugin-run-on-update` which has the following call syntax:
+插件管理器可以提供一个函数 `@zsh-plugin-run-on-unload` 它的调用语法如下。
 
-```zsh
+```shell
 @zsh-plugin-run-on-update "{code-snippet-1}" "{code-snippet-2}" …
 ```
 
-The function registers pieces of code to be run by the plugin manager on an update of the plugin.
+该函数注册了一些代码片段，以便在卸载插件时由插件管理器 运行。
 
-The execution of the code should be done by the `eval` built-in in the same order as they are passed to the call.
+代码的执行应该由 `eval` 内置的代码完成，其顺序与传递给调用的顺序相同。
 
-The code should be executed in the plugin’s directory, possibly in a subshell **After downloading any new commits** to the repository.
+代码应该在插件的目录中执行，可能是在一个子壳中 **在下载任何新的提交** 到 储存库后。
 
 ### **STATUS:** [ run-on-update-call ]
 
-1. Plugin managers: [ZI](https://github.com/z-shell/zi), [Zinit](https://github.com/zdharma-continuum/zinit).
+1. 插件管理器。 [ZI](https://github.com/z-shell/zi), [Zinit](https://github.com/zdharma-continuum/zinit)。
 
 ## 7. Plugin Manager Activity Indicator {#activity-indicator}
 
@@ -239,7 +239,7 @@ For example, the `pure` prompt provides a `zsh-async` dependency library within 
 
 The second item allows a plugin to e.g. set up `$fpath`, knowing that plugin manager will not handle this:
 
-```shell
+```shell showLineNumbers
 if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}]} ]] {
     fpath+=( "${0:h}" )
 }
@@ -251,7 +251,7 @@ The code uses the wrapping braces around variables (i.e.: e.g.: `${fpath…}`) t
 
 ### **STATUS:** [ activity-indicator ]
 
-1. Plugin managers: [ZI](https://github.com/z-shell/zi), [Zinit](https://github.com/zdharma-continuum/zinit), [Zpm](https://github.com/zpm-zsh/zpm), [Zgenom](https://github.com/jandamm/zgenom), Zgen (after and if the [PR](https://github.com/tarjoilija/zgen/pull/124) will be merged).
+1. 插件管理器 [ZI](https://github.com/z-shell/zi)，[Zinit](https://github.com/zdharma-continuum/zinit)， [Zpm](https://github.com/zpm-zsh/zpm)， [Zgenom](https://github.com/jandamm/zgenom),，Zgen（可能要在 [PR](https://github.com/tarjoilija/zgen/pull/124) 被合并之后得到支持)。
 
 2. Plugins: [GitHub search](https://github.com/search?q=if+%22zsh_loaded_plugins%22&type=Code)
 
@@ -315,7 +315,7 @@ The contents of the parameter describing a fully-compliant plugin manager should
 
 The plugin can then verify the support by, e.g.:
 
-```shell
+```shell showLineNumbers
 if [[ $PMSPEC != *f* ]] {
     fpath+=( "${0:h}/functions" )
 }
@@ -381,7 +381,7 @@ Additionally, the plugins could use a single hash parameter – called `Plugins`
 
 An example value needed by the plugin:
 
-```shell
+```shell showLineNumbers
 …
 typeset -gA Plugins
 Plugins[MY_PLUGIN_REPO_DIR]="${0:h}"
@@ -393,7 +393,7 @@ This way all the data of all plugins will be kept in a single parameter, availab
 
 The following code snippet is recommended to be included at the beginning of each of the main functions provided by the plugin:
 
-```shell
+```shell showLineNumbers
 emulate -L zsh
 setopt extended_glob warn_create_global typeset_silent \
         no_short_loops rc_quotes no_auto_pushd
@@ -419,7 +419,7 @@ It then alters the emulation by `6` different options:
 
 It’s good to localize the following variables at the entry of the main function of a plugin:
 
-```shell
+```shell showLineNumbers
 local MATCH REPLY; integer MBEGIN MEND
 local -a match mbegin mend reply
 ```
@@ -442,7 +442,7 @@ However, when adopted, the proposition will solve the following issues:
 
 1. Using the underscore `_` to namespace functions – this isn’t the right thing to do because the prefix is being already used by the completion functions, so the namespace is already filled up greatly and the plugin functions get lost in it.
 
-2. Not using a prefix at all – this is also an unwanted practice as it pollutes the command namespace ([an example](https://github.com/z-shell/fast-syntax-highlighting/issues/157) of such issue appearing).
+2. Not using a prefix at all – this is also an unwanted practice as it pollutes the command namespaceof such issue appearing.
 
 3. It would allow to quickly discriminate between function types – e.g.: seeing the `:` prefix informs the user that it’s a hook-type function while seeing the `@` prefix informs the user that it’s an API-like function, etc.
 
@@ -466,7 +466,7 @@ Example function name: `→prompt_zinc_precmd`.
 
 - Zsh supports any string as a function name, because absolutely any string can be a **file** name – if there would be an exception in the name of the callables, then how would it be possible to run a script called "→abcd"? There are **no** exceptions, the function can be called even as a the sequence of null bytes:
 
-```shell
+```shell showLineNumbers
     ❯ $'\0'() { print hello }
     ❯ $'\0'
     hello
@@ -480,7 +480,7 @@ Example function name: `→prompt_zinc_precmd`.
 
 ## Example Code Utilizing The Prefixes
 
-```shell
+```shell showLineNumbers
 .zinc_register_hooks() {
     add-zsh-hook precmd :zinc_precmd
     /zinc_dmsg "Installed precmd hook with result: $?"
@@ -497,7 +497,7 @@ When the main function finishes executing, the functions are being left defined.
 
 The following snippet of code, when added at the beginning of the main function will automatically unset the sub-functions when leaving the main function to don't leak any functions into the global namespace:
 
-```shell
+```shell showLineNumbers
 typeset -g prjef
 prjef=( ${(k)functions} )
 trap "unset -f -- \"\${(k)functions[@]:|prjef}\" &>/dev/null; unset prjef" EXIT
@@ -520,7 +520,7 @@ When writing a plugin one often needs to keep a state during the Zsh session. To
 
 With the following method, only a single global parameter per plugin can be sufficient:
 
-```shell
+```shell showLineNumbers
 typeset -A PlgMap
 typeset -A SomeMap
 typeset -a some_array
@@ -534,7 +534,7 @@ some_array[1]=state
 
 can be converted into:
 
-```shell
+```shell showLineNumbers
 typeset -A PlgMap
 
 # Use

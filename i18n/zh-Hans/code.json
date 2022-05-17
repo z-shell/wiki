@@ -1,8 +1,4 @@
 {
-  "homepage.button": {
-    "message": "💢 使其工作，使其正确，使其快速 💢",
-    "description": "The homepage button to wiki introduction"
-  },
   "homepage.feature1.title": {
     "message": "Zsh 启动速度快 50-80%",
     "description": "Title of feature 1 (left) on the home page"
@@ -99,10 +95,6 @@
     "message": "较旧一篇",
     "description": "The blog post button label to navigate to the older/next post"
   },
-  "theme.blog.sidebar.navAriaLabel": {
-    "message": "最近博文导航",
-    "description": "The ARIA label for recent posts in the blog sidebar"
-  },
   "theme.blog.post.plurals": {
     "message": "{count} 篇博文",
     "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
@@ -130,14 +122,6 @@
   "theme.docs.DocCard.categoryDescription": {
     "message": "{count} 个项目",
     "description": "The default description for a category card in the generated index about how many items this category includes"
-  },
-  "theme.docs.sidebar.expandButtonTitle": {
-    "message": "展开侧边栏",
-    "description": "The ARIA label and title attribute for expand button of doc sidebar"
-  },
-  "theme.docs.sidebar.expandButtonAriaLabel": {
-    "message": "展开侧边栏",
-    "description": "The ARIA label and title attribute for expand button of doc sidebar"
   },
   "theme.docs.paginator.navAriaLabel": {
     "message": "文档分页导航",
@@ -218,6 +202,10 @@
     "message": "标签：",
     "description": "The label alongside a tag list"
   },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": "最近博文导航",
+    "description": "The ARIA label for recent posts in the blog sidebar"
+  },
   "theme.CodeBlock.copied": {
     "message": "复制成功",
     "description": "The copied button label on code blocks"
@@ -229,6 +217,10 @@
   "theme.CodeBlock.copy": {
     "message": "复制",
     "description": "The copy button label on code blocks"
+  },
+  "theme.CodeBlock.wordWrapToggle": {
+    "message": "Toggle word wrap",
+    "description": "The title attribute for toggle word wrapping button of code block lines"
   },
   "theme.navbar.mobileLanguageDropdown.label": {
     "message": "选择语言",
@@ -245,6 +237,14 @@
   "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
     "message": "← 回到主菜单",
     "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "展开侧边栏",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "message": "展开侧边栏",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
   },
   "theme.SearchBar.seeAll": {
     "message": "查看全部 {count} 个结果"
@@ -317,8 +317,12 @@
     "message": "关闭",
     "description": "The ARIA label for close button of PWA reload popup"
   },
-  "theme.tags.tagsPageTitle": {
-    "message": "标签",
-    "description": "The title of the tag list page"
+  "theme.docs.breadcrumbs.home": {
+    "message": "Home page",
+    "description": "The ARIA label for the home page in the breadcrumbs"
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "message": "Breadcrumbs",
+    "description": "The ARIA label for the breadcrumbs"
   }
 }

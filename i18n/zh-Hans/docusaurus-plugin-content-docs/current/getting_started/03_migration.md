@@ -1,7 +1,7 @@
 ---
 title: '♻️ 迁移'
-image: zw/logo/320x320.png
-description: 迁移到 ZI 的指南
+image: img/logo/320x320.png
+description: Migration guide
 keywords:
   - migration
   - setup
@@ -53,28 +53,28 @@ zi snippet OMZT::<PATH>
 
 原始语法：
 
-```shell
+```shell showLineNumbers
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh
 ```
 
 OMZ 短语法：
 
-```shell
+```shell showLineNumbers
 zi snippet OMZ::lib/clipboard.zsh
 zi snippet OMZ::lib/termsupport.zsh
 ```
 
 OMZL 缩写语法：
 
-```shell
+```shell showLineNumbers
 zi snippet OMZL::clipboard.zsh
 zi snippet OMZL::termsupport.zsh
 ```
 
 ### OMZ 插件
 
-```diff
+```diff showLineNumbers
 - plugins=(
 -  git
 -  dotenv
@@ -98,37 +98,9 @@ zi snippet OMZL::termsupport.zsh
 
 :::
 
-如果多个文件需要整个子目录，使用 `zi ice svn` 。
-
-- [gitfast][4]
-- [osx][5]
-
-```shell
-zi ice svn
-zi snippet OMZP::gitfast
-
-zi ice svn
-zi snippet OMZP::osx
-```
-
-使用 `zi ice as "completion"` 来直接添加单个文件的补全 snippet。
-
-- [docker][6]
-- [fd][7]
-
-```shell
-zi ice as"completion"
-zi snippet OMZP::docker/_docker
-
-zi ice as"completion"
-zi snippet OMZP::fd/_fd
-```
-
-[您可以在 Wiki 中查看 OMZ 设置的扩展说明][8]
-
 ### 插件
 
-```diff
+```diff showLineNumbers
 - plugins=(
 -  git
 -  dotenv
@@ -144,14 +116,14 @@ zi snippet OMZP::fd/_fd
 + zi snippet OMZP::ruby
 ```
 
-如果它由一个文件组成，用 ZI 你可以直接加载它。 `zi snippet <some/path/or/url/undled-snnippets.zsh`
+If it consists of a single file, with ZI you can just load it: `zi snippet <some/path/or/url/undled-snnippets.zsh`
 
-如果多个文件需要整个子目录，使用 `zi ice svn` 。
+Use `zi ice svn` if multiple files require an entire subdirectory.
 
 - [gitfast][4]
 - [osx][5]
 
-```shell
+```shell showLineNumbers
 zi ice svn
 zi snippet OMZP::gitfast
 
@@ -159,12 +131,12 @@ zi ice svn
 zi snippet OMZP::osx
 ```
 
-使用 `zi ice as "completion"` 来直接添加单个文件的补全 snippet。
+Use `zi ice as"completion"` to directly add single file completion snippets.
 
 - [docker][6]
 - [fd][7]
 
-```shell
+```shell showLineNumbers
 zi ice as"completion"
 zi snippet OMZP::docker/_docker
 
@@ -172,71 +144,71 @@ zi ice as"completion"
 zi snippet OMZP::fd/_fd
 ```
 
-[您可以在 Wiki 中查看 OMZ 设置的扩展说明][8]
+[You can see an extended explanation of OMZ setup in the Wiki][8]
 
 ### OMZ 主题
 
-主题存储在 `themes` 目录中。 全部都在后台加载，使用简单语法： 全部都在后台加载。 使用简单语法：
+Themes are stored in the `themes` directory. All and loaded in the background. with the simple syntax:
 
 ```shell
 ZSH_THEME="robbyrussell"
 ```
 
-但是， ZI 不支持 `ZSH_THEME` 变量。
+However, ZI doesn't support the `ZSH_THEME` variable natively.
 
-要使用为 OMZ 创建的**主题** ，需要加载这些，这与 OMZ 在幕后中所做的相同。
+To use **themes** created for OMZ, it requires loading shown below as it would be the same as OMZ does in the background.
 
 > 有些主题可能需要额外的配置，它可以从主题配置文件中确定。
 
-- 加载 `Git` 插件
-- 加载 `Git` 插件
-- 启用 `setopt promptsubst`
+- Load `Git` library
+- Load `Git` plugin
+- Enable `setopt promptsubst`
 
-如果上述任何一项不符合顺序或缺失，主题就会出现类似的中断，如下图所示。
+If any of the above are not in order or missing, the theme will break similar as shown below:
 
 ```shell
 … $(build_prompt) …
 ```
 
-如果 `Git` 库没有被加载或加载顺序错误，那么可能会出现类似下面的情况。
+If the `Git` library is not loaded or loaded in the wrong order, then it may appear similar to the following:
 
-```shell
+```shell showLineNumbers
 ........:1: command not found: git_prompt_status
 ........:1: command not found: git_prompt_short_sha
 ```
 
-总的来说看起来像这样：
+All together it looks like this:
 
-```shell
+```shell showLineNumbers
 zi snippet OMZL::git.zsh
 zi snippet OMZP::git
 zi cdclear -q
 ```
 
-然后加载提示符：
+Then load the prompt:
 
-```shell
+```shell showLineNumbers
 setopt promptsubst
 zi snippet OMZT::robbyrussell
 ```
 
 ### 外部主题样本： [NicoSantangelo/Alpharized][3]
 
-使用 OMZ 加载：
+Load with OMZ:
 
 ```shell
 ZSH_THEME="alpharized"
 ```
 
-使用 OMZ 加载：
+Load with ZI:
 
 ```shell
 zi snippet OMZL::git.zsh
 ```
 
-加载 `Git` 插件:
+Load `Git` plugin from OMZ:
 
-```shell
+```shell showLineNumbers
 zi snippet OMZP::git
 zi cdclear -q
 
@@ -253,13 +225,13 @@ URL 的原始语法：
 zi snippet <URL>
 ```
 
-PZT 简写： <https://github.com/sorin-ionescu/prezto/tree/master/>
+Shorthand PZT: <https://github.com/sorin-ionescu/prezto/tree/master/>
 
 ```shell
 zi snippet PZT::<PATH>
 ```
 
-PZT/modules 简称：
+Shorthand PZT/modules:
 
 ```shell
 zi snippet PZTM::<PATH>
@@ -267,43 +239,43 @@ zi snippet PZTM::<PATH>
 
 ### Prezto 模块
 
-导入 [environment][9] 和 [terminal][10] Prezto 模块示例：
+Importing the [environment][9] and [terminal][10] Prezto Modules Sample:
 
-Prezto 设置：
+Prezto Setting:
 
-```shell
+```shell showLineNumbers
 zstyle ':prezto:load' pmodule 'environment' 'terminal'
 ```
 
-ZI 设置：
+ZI Setting:
 
 > 从 URL 导入原始语法。
 
-```shell
+```shell showLineNumbers
 zi snippet https://github.com/sorin-ionescu/prezto/blob/master/modules/environment/init.zsh
 zi snippet https://github.com/sorin-ionescu/prezto/blob/master/modules/terminal/init.zsh
 ```
 
-PZT 缩写语法：
+PZT Shorthand Syntax:
 
-```shell
+```shell showLineNumbers
 zi snippet PZT::modules/environment
 zi snippet PZT::modules/terminal
 ```
 
-PZTM 缩写语法：
+PZTM Shorthand Syntax:
 
-```shell
+```shell showLineNumbers
 zi snippet PZTM::environment
 zi snippet PZTM::terminal
 ```
 
-如果多个文件需要整个子目录，使用 `zi ice svn` 。
+Use `zi ice svn` if multiple files require an entire subdirectory.
 
 - [docker][11]
 - [git][12]
 
-```shell
+```shell showLineNumbers
 zi ice svn
 zi snippet PZTM::docker
 
@@ -311,33 +283,33 @@ zi ice svn
 zi snippet PZTM::git
 ```
 
-如果在模块中不存在匹配 `*.plugin.zsh`, `init.zsh`, `*.zsh-theme*` 的文件，使用 `zi ice as "null"`。
+Use `zi ice as"null"` if don't exist `*.plugin.zsh`, `init.zsh`, `*.zsh-theme*` files in module.
 
-- [归档][13]:
+- [archive][13]:
 
-```shell
+```shell showLineNumbers
 zi ice svn as"null"
 zi snippet PZTM::archive
 ```
 
-使用 `zi ice atclone "git clone <repo> <location>"` 如果模块有外部模块。
+Use `zi ice atclone"git clone <repo> <location>"` if module have external module.
 
-- [补全][14]，
+- [completion][14]:
 
-```shell
+```shell showLineNumbers
 zi ice svn blockf \
   atclone"git clone --recursive https://github.com/zsh-users/zsh-completions.git external"
 zi snippet PZTM::completion
 ```
 
-使用 `blockf` 来防止对 fpath 的任何不必要的添加，因为 ZI 管理着 fpath。
+Use `blockf` to prevent any unnecessary additions to fpath, as ZI manages fpath.
 
 :::tip
 
-什么是 `zstyle`?
+What is `zstyle`?
 
-- 官方 (zsh.sourceforge.net): [zstyle（英语）][15]
-- StackExchange: [`zstyle` 做了什么?][16]
+- Official (zsh.sourceforge.net): [zstyle][15]
+- StackExchange: [What does `zstyle` do?][16]
 
 :::
 
@@ -345,7 +317,7 @@ zi snippet PZTM::completion
 
 ### 加载 OMZ 库
 
-```diff
+```diff showLineNumbers
 - zgen oh-my-zsh
 
 + zi snippet OMZL::<ANY OF THEM>
@@ -353,7 +325,7 @@ zi snippet PZTM::completion
 
 ### 加载 OMZ 插件
 
-```diff
+```diff showLineNumbers
 - zgen oh-my-zsh <PATH>
 
 + zi snippet OMZP::<PATH>
@@ -361,7 +333,7 @@ zi snippet PZTM::completion
 
 ### 加载 Prezto 模块
 
-```diff
+```diff showLineNumbers
 - zgen prezto
 
 + zi snippet PZTM::<ANY FROM LIST BELOW>
@@ -377,15 +349,15 @@ zi snippet PZTM::completion
 - completion
 - prompt
 
-```diff
+```diff showLineNumbers
 - zgen prezto <modulename>
 
 + zi snippet PZTM::<modulename>
 ```
 
-将库作为 Prezto 插件加载：
+Load repositories as prezto plugins:
 
-```diff
+```diff showLineNumbers
 - zgen pmodule <reponame> <branch>
 
 + zi ice ver"<branch>"
@@ -396,11 +368,11 @@ zi snippet PZTM::completion
 
 :::info
 
-对于 `location`：参考 [文件的选择][17]。
+For the `location`: refer [selection of files][17]
 
 :::
 
-```diff
+```diff showLineNumbers
 - zgen load <repo> [location] [branch]
 
 + zi ice ver"[branch]"
@@ -409,7 +381,7 @@ zi snippet PZTM::completion
 
 ## Zplug 基础知识
 
-```diff
+```diff showLineNumbers
 - zplug <repo/plugin>, tag1:<option1>, tag2:<option2>
 
 + zi ice tag1"<option1>" tag2"<option2>"
