@@ -25,11 +25,11 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "0.0.0-5024",
-    "@docusaurus/plugin-ideal-image": "0.0.0-5024",
-    "@docusaurus/plugin-pwa": "0.0.0-5024",
-    "@docusaurus/preset-classic": "0.0.0-5024",
-    "@docusaurus/theme-search-algolia": "0.0.0-5024",
+    "@docusaurus/core": "0.0.0-5027",
+    "@docusaurus/plugin-ideal-image": "0.0.0-5027",
+    "@docusaurus/plugin-pwa": "0.0.0-5027",
+    "@docusaurus/preset-classic": "0.0.0-5027",
+    "@docusaurus/theme-search-algolia": "0.0.0-5027",
     "@loadable/component": "5.15.2",
     "@mdx-js/react": "1.6.22",
     "clsx": "1.1.1",
@@ -42,7 +42,7 @@
   "devDependencies": {
     "@algolia/client-search": "4.13.0",
     "@babel/core": "7.17.12",
-    "@docusaurus/module-type-aliases": "0.0.0-5024",
+    "@docusaurus/module-type-aliases": "0.0.0-5027",
     "@loadable/babel-plugin": "5.13.2",
     "@tsconfig/docusaurus": "1.0.5",
     "@types/react": "18.0.9",
