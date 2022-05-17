@@ -1,3 +1,5 @@
+@import 'all.css';
+
 .fa-beat {
   --fa-animation-duration: 3s;
 }
@@ -8,7 +10,7 @@
 }
 
 :root {
-  transition: 0.8s all;
+  transition: 0.8s;
 
   --site-primary-hue-saturation: 167 68%;
   --site-primary-hue-saturation-light: 167 56%;
@@ -155,7 +157,7 @@ html[data-theme='dark'] img[src$='#gh-light-mode-only'] {
 
 div[class^='announcementBar_'] {
   font-weight: bold;
-  transition: 0.8s all;
+  transition: 0.8s;
 }
 
 html[data-theme='light'] div[class^='announcementBar_'] {

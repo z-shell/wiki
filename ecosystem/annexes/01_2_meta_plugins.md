@@ -8,18 +8,17 @@ keywords:
   - meta-plugins
 ---
 
-- [z-shell/z-a-meta-plugins](https://github.com/z-shell/z-a-meta-plugins) annex have the curated, optimal
-  [ice](/docs/guides/syntax/ice) lists automatically applied.
+- [z-shell/z-a-meta-plugins](https://github.com/z-shell/z-a-meta-plugins)
 
-- It's possible to create your own group of plugins by requesting it at [annexes](https://github.com/z-shell/zannexes)
-  repository.
+An annex have the curated, optimal [ice](/docs/guides/syntax/ice) lists automatically applied.
+
+- Create your own [group of plugins](https://github.com/z-shell/z-a-meta-plugins/issues/new)
 
 :::info
 
 - Before using meta plugins, a meta plugins annex have to be installed. (`zi light-mode for z-a-meta-plugins`)
 - Prefix `@` used to avoid syntax conflicts. Example: `zi light-mode for @<meta-plugin-name>`
-- Before installing any plugin visit original repository where available to verify that system is supported and meets
-  other requirements.
+- Before installing any plugin visit original repository where available to verify that system is supported and meets other requirements.
 
 :::
 
@@ -51,7 +50,7 @@ zi light @annexes
 zi light-mode for @annexes @zsh-users @console-tools
 ```
 
-```shell
+```shell showLineNumbers
 zi light-mode for @annexes skip'zsh-completions' @zsh-users \
 skip'vivid exa tig' @console-tools
 ```
@@ -80,7 +79,7 @@ skip'vivid exa tig' @console-tools
 | @py-utils        | [pyenv][44] (package)                                                                                                                   |
 | @prezto          | PZTM::archive, PZTM::directory, PZTM::utility                                                                                           |
 
-## Meta Plugins Summary
+## Meta Plugins summary
 
 It consumes time to:
 
@@ -102,7 +101,7 @@ Other unique benefits of the meta plugins annex:
 | Flexible disabling of chosen sub-plugins in any meta-plugin | A meta-plugin can contain many sub-plugins and it's possible to skip installing some of them by the **skip'plg-1 plg-2…'** ice, e.g.: `zi skip'ripgrep fd' for console-tools`. This way despite that some of the meta plugins are broad the user still has control over what's and how much is being installed. |
 |               Common from-source meta plugins               | For the plugins that provide the binary programs it is often the case that a meta-plugin exists that'll build the program from source (e.g.: **fuzzy** meta-plugin and its **fuzzy-src** counterpart). This might be handy e.g.: if there's no binary for our machine.                                          |
 
-<img src="https://raw.githubusercontent.com/z-shell/z-a-meta-plugins/main/images/fuzzy-mplg-ex.png" alt="screenshot" width="90%" />
+<img src="https://raw.githubusercontent.com/z-shell/z-a-meta-plugins/main/docs/images/fuzzy-mplg-ex.png#center" alt="screenshot meta-plugins annex" />
 
 <!-- END meta-plugins -->
 

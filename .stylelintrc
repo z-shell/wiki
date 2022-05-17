@@ -5,6 +5,9 @@ plugins:
   - stylelint-csstree-validator
 ignoreFiles:
   - node_modules/**/*
+  - src/css/all.css
+  - src/css/svg-with-js.css
+  - src/css/fontawesome.css
 rules:
   'csstree/validator': true
   selector-pseudo-class-no-unknown:
@@ -29,5 +32,4 @@ rules:
         - severity: warning
   block-no-empty: true
   color-no-invalid-hex: true
-  declaration-block-no-duplicate-properties: true
-  declaration-block-no-shorthand-property-overrides: true
+  font-family-no-missing-generic-family-keyword: fasle

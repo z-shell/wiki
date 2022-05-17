@@ -8,42 +8,36 @@ keywords:
   - unscope
 ---
 
-- [z-shell/z-a-unscope](https://github.com/z-shell/z-a-unscope) annex allows to install plugins without specifying the
-  GitHub user name.
+- [z-shell/z-a-unscope](https://github.com/z-shell/z-a-unscope)
+
+An aannex allows to install plugins without specifying the GitHub user name.
 
 It works as follows:
 
-1. On the installation of a plugin without any slashes (/) in its name the annex will query the GitHub API searching for
-   **\*/{the-name}**, sorting on stars.
+1. On the installation of a plugin without any slashes (/) in its name the annex will query the GitHub API searching for **\*/{the-name}**, sorting on stars.
 
 2. It first requires at least 10 forks on the candidates, then 2, then 0.
 
-3. After finding the best result it sets it as the **full** remote-id of the plugin, storing the ID on disk for later
-   automatic use.
+3. After finding the best result it sets it as the **full** remote-id of the plugin, storing the ID on disk for later automatic use.
 
 4. For security, for such GH-API request to be made a newly added (by this annex) ice: `ghapi` is required to be given.
 
-5. Otherwise only the static database of mappings of short-plugin nicknames to the full scoped IDs will be searched. It
-   contains many mappings, like, e.g.: **vi-reg** → **zsh-vi-more/evil-registers**, and also the usual basic unscopings
-   of some of the popular plugins out there, like, e.g.: **zsh-syntax-highlighting** →
-   **zsh-users/zsh-syntax-highlighting** and more.
+5. Otherwise only the static database of mappings of short-plugin nicknames to the full scoped IDs will be searched. It contains many mappings, like, e.g.: **vi-reg** → **zsh-vi-more/evil-registers**, and also the usual basic unscopings of some of the popular plugins out there, like, e.g.: **zsh-syntax-highlighting** → **zsh-users/zsh-syntax-highlighting** and more.
 
-## Usage Examples
+## Usage examples
 
-- An example installation via 2 nicknames (**env** and **vi-reg**) and by one unscoped (i.e.: not using any GitHub
-  username) ID that's being dynamically resolved by a request to **GitHub API**:
+- An example installation via 2 nicknames (**env** and **vi-reg**) and by one unscoped (i.e.: not using any GitHub username) ID that's being dynamically resolved by a request to **GitHub API**:
 
-![zi-for-command](https://github.com/z-shell/z-a-unscope/raw/main/docs/images/unscope-zinit-for.png)
+![zi-for-command](https://github.com/z-shell/z-a-unscope/raw/main/docs/images/unscope-zinit-for.png#center)
 
 - An example call to the **zi scope …** subcommand that is added by this annex. It allows to translate the unscoped IDs
   and the short-static nicknames into the full **username/repository** plugin ID.
 
-![scope-subcommand](https://github.com/z-shell/z-a-unscope/raw/main/docs/images/unscope-scope-cmd.png)
+![scope-subcommand](https://github.com/z-shell/z-a-unscope/raw/main/docs/images/unscope-scope-cmd.png#center)
 
-## Static Mappings
+## Static mappings
 
-Besides the GitHub-API querying, there's also a fixed, curated list of mappings of short names to the full GitHub IDs.
-The list currently consists of:
+Besides the GitHub-API querying, there's also a fixed, curated list of mappings of short names to the full GitHub IDs. The list currently consists of:
 
 |    Short (Nick-) Name     | GitHub ID / scoped ID             |
 | :-----------------------: | --------------------------------- |
@@ -143,5 +137,4 @@ Simply load as a regular plugin, i.e.:
 zi light-mode for z-shell/z-a-unscope
 ```
 
-It should be done possibly early in the `zshrc`, as otherwise the preceding `zi` calls will not have the unscoped IDs
-resolved.
+It should be done possibly early in the `zshrc`, as otherwise the preceding `zi` calls will not have the unscoped IDs resolved.

@@ -8,12 +8,11 @@ keywords:
   - default-ice
 ---
 
-- [z-shell/z-a-default-ice](https://github.com/z-shell/z-a-default-ice) annex allows setting **default ices** for the
-  next `zi` command.
+- [z-shell/z-a-default-ice](https://github.com/z-shell/z-a-default-ice)
 
-It adds subcommand: **default-ice** which has the following synopsis:
+An annex allows setting **default ices** for the next `zi` command. It adds subcommand: **default-ice** which has the following synopsis:
 
-```shell
+```shell showLineNumbers
 —— default-ice --help/-h --clear/-c --show/-s --get/-g --quiet/-q --stats/-t
 —— default-ice ice1'value1' ice2'value2' ⋯
 
@@ -26,7 +25,7 @@ It adds subcommand: **default-ice** which has the following synopsis:
  --stats/-t →      show some statistics
 ```
 
-## Install Default Ice {#install-default-ice}
+## Install Default Ice
 
 Simply load like a regular plugin, i.e.:
 
@@ -34,9 +33,9 @@ Simply load like a regular plugin, i.e.:
 zi light z-shell/z-a-default-ice
 ```
 
-## Usage with [ZI](https://github.com/z-shell/zi) {#usage-with-zi}
+## Usage with [ZI](https://github.com/z-shell/zi)
 
-```shell
+```shell showLineNumbers
 zi default-ice lucid from"gh-r"
 
 # Will download from gh-r and also use the lucid ice by default.
@@ -45,4 +44,8 @@ zi wait for \
   sbin"**/pk" peco/peco
 ```
 
-Currently the `wait''` ice cannot be made default by using this new subcommand.
+:::caution
+
+The `wait''` ice cannot be made default by using this subcommand.
+
+:::
