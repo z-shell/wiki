@@ -67,7 +67,7 @@ sidebar_position: 2
 
 5. 最后，在第二行中，如果有必要请预置 ` $PWD ` 确保 `$0` 包含插件的绝对路径。
 
-支持 `eval “$(<plugin)”` 以及明确解决 `setopt no_function_argzero` 和 `setopt posix_argzero` 的目标是为了保证获取插件路径的灵活性。
+支持 `eval "$(<plugin)"` 以及明确解决 `setopt no_function_argzero` 和 `setopt posix_argzero` 的目标是为了保证获取插件路径的灵活性。
 
 插件管理器甚至能够将一个插件转换为一个函数（作者对这个的概念性的功能进行了验证，它是完全可能的--也是以自动化的方式），但其性能差异尚不清楚。
 

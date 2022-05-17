@@ -5,16 +5,22 @@
   Cache-Control: public
   Cache-Control: max-age=365000000
   Cache-Control: immutable
+  X-Robots-Tag: nosnippet
+  X-Robots-Tag: noindex
 
 /ja/assets/*
   Cache-Control: public
   Cache-Control: max-age=365000000
   Cache-Control: immutable
+  X-Robots-Tag: nosnippet
+  X-Robots-Tag: noindex
 
 /zh-Hans/assets/*
   Cache-Control: public
   Cache-Control: max-age=365000000
   Cache-Control: immutable
+  X-Robots-Tag: nosnippet
+  X-Robots-Tag: noindex
 
 https://:z-shell.pages.dev/*
   X-Robots-Tag: noindex
