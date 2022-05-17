@@ -67,7 +67,7 @@ sidebar_position: 2
 
 5. 最后，在第二行中，如果有必要请预置 ` $PWD ` 确保 `$0` 包含插件的绝对路径。
 
-支持 `eval "$(<plugin)"` 以及明确解决 `setopt no_function_argzero` 和 `setopt posix_argzero` 的目标是为了保证获取插件路径的灵活性。
+支持 `eval “$(<plugin)”` 以及明确解决 `setopt no_function_argzero` 和 `setopt posix_argzero` 的目标是为了保证获取插件路径的灵活性。
 
 插件管理器甚至能够将一个插件转换为一个函数（作者对这个的概念性的功能进行了验证，它是完全可能的--也是以自动化的方式），但其性能差异尚不清楚。
 
@@ -85,7 +85,7 @@ sidebar_position: 2
 
 2. 插件： [GitHub search](https://github.com/search?q=%22${ZERO:-${0:%23$ZSH_ARGZERO}}%22&type=Code)
 
-## 2. Functions 目录
+## 2. Functions 目录 {#funtions-directory}
 
 > [ functions-directory ]
 
@@ -95,7 +95,7 @@ sidebar_position: 2
 
 插件管理器应该将这样的一个子目录添加到 `$fpath`。
 
-当前插件管理器缺乏支持的问题可以通过 <a href="#indicator"> 指导 </a> 轻松解决
+当前插件管理器缺乏支持的问题可以通过 [ 指导 ](#indicator) 轻松解决
 
 ```shell showLineNumbers
 if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}/functions]} ]] {
@@ -103,7 +103,7 @@ if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}/functions]} ]]
 }
 ```
 
-或者，使用 `PMSPEC` <a href="#PMSPEC">参数</a>：
+或者，使用 `PMSPEC` [参数](#PMSPEC)：
 
 ```shell showLineNumbers
 if [[ $PMSPEC != *f* ]] {
@@ -151,7 +151,7 @@ if [[ $PMSPEC != *b* ]] {
 
 1. 插件管理器： [Zpm](https://github.com/zpm-zsh/zpm), [Zgenom](https://github.com/jandamm/zgenom) （需要设置 `ZGENOM_AUTO_ADD_BIN=1`）。
 
-## 4. 卸载函数
+## 4. 卸载函数 {#unload-function}
 
 > [ unload-function ]
 
