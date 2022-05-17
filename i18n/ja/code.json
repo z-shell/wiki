@@ -3,10 +3,6 @@
     "message": "Zsh Startup 50-80% Faster",
     "description": "Title of feature 1 (left) on the home page"
   },
-  "home.fetaure1": {
-    "message": "Instant prompt postponing plugins loading to a moment when the processing of .zshrc file is finished.",
-    "description": "Description of first featured banner in homepage"
-  },
   "homepage.feature2.title": {
     "message": "Focus on What Matters",
     "description": "Title of feature 2 (middle) on the home page"

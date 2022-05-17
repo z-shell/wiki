@@ -23,22 +23,6 @@
     "message": "社区",
     "description": "The label of footer link with label=Community linking to /community/intro"
   },
-  "link.item.label.Ecosystem": {
-    "message": "Ecosystem",
-    "description": "The label of footer link with label=Ecosystem linking to /ecosystem/intro"
-  },
-  "link.item.label.Slack.com": {
-    "message": "Slack.com",
-    "description": "The label of footer link with label=Slack.com linking to https://z-shell.slack.com"
-  },
-  "link.item.label.Matrix.org": {
-    "message": "Matrix.org",
-    "description": "The label of footer link with label=Matrix.org linking to https://matrix.to/#/#z-shell_zi:gitter.im"
-  },
-  "link.item.label.Gitter.im": {
-    "message": "Gitter.im",
-    "description": "The label of footer link with label=Gitter.im linking to https://gitter.im/z-shell/zi"
-  },
   "link.item.label.GitHub Discussions": {
     "message": "GitHub 讨论",
     "description": "The label of footer link with label=GitHub Discussions linking to https://github.com/orgs/z-shell/discussions/"
@@ -47,24 +31,8 @@
     "message": "GitHub 组织",
     "description": "The label of footer link with label=GitHub Organization linking to https://github.com/z-shell/"
   },
-  "link.item.label.Crowdin Translations": {
-    "message": "Crowdin Translations",
-    "description": "The label of footer link with label=Crowdin Translations linking to https://crowdin.digitalclouds.dev/z-shell/"
-  },
   "link.item.label.Privacy Policy": {
     "message": "隐私政策",
     "description": "The label of footer link with label=Privacy Policy linking to legal/PRIVACY/"
-  },
-  "link.item.label.Code of Conduct": {
-    "message": "Code of Conduct",
-    "description": "The label of footer link with label=Code of Conduct linking to legal/CODE_OF_CONDUCT/"
-  },
-  "link.item.label.Contributing": {
-    "message": "Contributing",
-    "description": "The label of footer link with label=Contributing linking to legal/CONTRIBUTING/"
-  },
-  "copyright": {
-    "message": "Copyright © 2022 Digital Clouds, Z-Shell ❮ ZI ❯ Community.",
-    "description": "The footer copyright"
   }
 }

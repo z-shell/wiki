@@ -73,13 +73,10 @@ const config = {
       }),
     ],
   ],
-  /** clientModules: [
-    require.resolve('FunnyBunny'),
-    require.resolve('WithSomeMoney'),
-  ], */
+  /* clientModules: [require.resolve('./src/css/all.min.css')], */
   i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
-  /** scripts: [{ src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous' }],
-  scripts: [{ defer: true, src: 'assets/js/all.js' }], */
+  /** scripts: [{ src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous' }], */
+  stylesheets: [{ href: '/assets/css/all.min.css' }],
   presets: [
     [
       'classic',

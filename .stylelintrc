@@ -5,9 +5,7 @@ plugins:
   - stylelint-csstree-validator
 ignoreFiles:
   - node_modules/**/*
-  - src/css/all.css
-  - src/css/svg-with-js.css
-  - src/css/fontawesome.css
+  - static/**
 rules:
   'csstree/validator': true
   selector-pseudo-class-no-unknown:
