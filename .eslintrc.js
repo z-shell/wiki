@@ -16,7 +16,7 @@ module.exports = {
   plugins: ['react', '@typescript-eslint'],
   rules: {
     'require-jsdoc': 'off',
-    'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off',
+    'react/jsx-uses-react': 'warn',
+    'react/react-in-jsx-scope': 'warn',
   },
 };

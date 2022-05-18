@@ -15,5 +15,8 @@
   ],
   "markdownlint.config": {
     "extends": ".github/.markdownlint.yaml",
+  },
+  "files.associations": {
+    "*.md": "mdx"
   }
 }

@@ -6,26 +6,9 @@
   padding: 1.4rem 0;
   width: 100%;
 }
-@media screen and (max-width: 966px) {
-  .herobanner {
-    padding: 0.7rem 0;
-  }
-}
-
-.aplayer {
-  position: relative;
-  overflow: hidden;
-  align-items: center;
-  width: 100%;
-  margin: 0 auto;
-}
 
 @media only screen and (max-width: 996px) {
-  .aplayer {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    max-width: 560px;
-    margin: 0 auto;
+  .herobanner {
+    padding: 0.7rem 0;
   }
 }
