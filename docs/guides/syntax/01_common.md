@@ -144,7 +144,7 @@ zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
 This way registration code is generated once every installation and update, to then be simply sourced without running
 `direnv`.
 
-The project is also available as a binary [Github releases][6]. This distribution can be installed by:
+The project is also available as a binary [GitHub releases][6]. This distribution can be installed by:
 
 ```shell showLineNumbers
 zi from"gh-r" as"program" mv"direnv* -> direnv" \

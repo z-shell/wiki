@@ -632,18 +632,14 @@ If you are interested to try out more then check out the [playground repository]
 
 Feel free to [submit][20] your `~/.zshrc` there if it contains ZI commands.
 
-For some additional examples you can also check out the:
-
-- [Collection][10],
-- [Oh-My-Zsh][9].
+For some additional examples you can also check out the [collection][10].
 
 [1]: /search?q=ice+modifiers
 [2]: /search?q=from
 [3]: /search?q=for+syntax
-[9]: /docs/gallery/collection#oh-my-zsh
 [10]: /docs/gallery/collection
 [11]: /docs/guides/syntax/ice#atclone-atpull-atinit-atload
-[12]: /community/intro#use-of-add-zsh-hook-to-install-hooks
+[12]: /community/zsh_plugin_standard#use-of-add-zsh-hook-to-install-hooks
 [13]: /docs/guides/syntax/ice#src-pick-multisrc
 [15]: /docs/guides/customization#multiple-prompts
 [16]: https://github.com/starship/starship
