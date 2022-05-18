@@ -100,9 +100,9 @@ zi wait lucid light-mode for \
 | `zicdreplay` | Execute `compdef …` calls that plugins did. More below [2^].                                 |
 [1^]: Then the tracking of plugin, activity report gathering, accessible via the `zi report {plugin-name}` subcommand) is being disabled. Note that for turbo mode, the performance gains are almost `0`, so in this mode, you can load all plugins with the tracking and the `light-mode` ice can be removed from the command. [2^]: They were recorded and `compinit` can be called later. `compinit` provides the `compdef` function, so it must be ran before issuing the taken-over `compdef`s with `zicdreplay`.
 
-## Oh-My-Zsh, [turbo][6] Oh-My-Zsh and the [for][10] syntax
+## <i class="fa-solid fa-list"></i> Oh-My-Zsh, [turbo][6] Oh-My-Zsh and the [for][10] syntax
 
-### Without [turbo mode][6] and [for][10]
+### <i class="fa-solid fa-forward-step"></i> Without [turbo mode][6] and [for][10]
 
 ```shell showLineNumbers
 # A.
@@ -130,7 +130,7 @@ zi ice atinit"zicompinit; zicdreplay"
 zi light z-shell/F-Sy-H
 ```
 
-### With [turbo mode][6] and [for][10]
+### <i class="fa-solid fa-forward-fast"></i> With [turbo mode][6] and [for][10]
 
 ```shell showLineNumbers
 # A.

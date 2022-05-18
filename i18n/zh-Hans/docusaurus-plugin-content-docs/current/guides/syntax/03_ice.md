@@ -6,6 +6,7 @@ description: Ice syntax documentation
 keywords:
   - ice
   - syntax
+toc_max_heading_level: 2
 ---
 
 import Image from '@theme/IdealImage';
@@ -21,17 +22,40 @@ The word **ice** means something that's added (like ice to a drink) – and in Z
 
 :::
 
-## `extract'…'`
+## <i class="fa-solid fa-arrow-down-short-wide"></i> Order of execution
 
-### The Automatic archive-extraction
+Order of execution of related ice modifiers is as follows:
 
-ZI has a swiss-knife tool for unpacking all kinds of archives – the `extract'…'` ice. It works in two modes – automatic mode and fixed mode.
+```shell showLineNumbers
+  atinit'' →
+    atpull'!' →
+      make'!!' →
+        mv'' →
+          cp'' →
+            make'!' →
+              atclone''/atpull'' →
+                make'!' → <plugin script loading> →
+                  src'' →
+                    multisrc'' →
+                      atload''
+```
+
+### <i class="fa-solid fa-circle-info"></i> A few remarks
+
+- The syntax automatically detects if the object is a snippet or a plugin, by checking if the object is an URL, i.e.: if it starts with `http*://` or `OMZ::`, etc.
+- To load a local-file snippet (which will be treated as a local-directory plugin by default) use the `is-snippet` ice,
+- To load a plugin in `light` mode use the `light-mode` ice.
+- If the plugin name collides with an ice name, precede the plugin name with `@`, e.g.: `@sharkdp/fd` (collides with the `sh` ice, ZI will take the plugin name as `sh"arkdp/fd"`), see the next section for an example.
+
+## <i class="fa-solid fa-microchip"></i> `extract'…'`
+
+A swiss-knife tool for unpacking all kinds of archives – the `extract'…'` ice. It works in two modes – automatic mode and fixed mode.
 
 #### Automatic mode
 
 It is active if the ice is empty (or contains only flags – more on them later). It works as follows:
 
-1. At first, a recursive search for files of known [file extensions](#supported-file-formats) located not deeper than in a sub-directory is being performed. All such found files are then extracted.
+1. At first, a recursive search for files of known [file extensions](#-supported-file-formats) located not deeper than in a sub-directory is being performed. All such found files are then extracted.
    - The directory-level limit is to skip extraction of some helper archive files, which are typically located somewhere deeper in the directory tree.
 2. **IF** no such files will be found, then a recursive search for files of known archive **types** will be performed. This is basically done by running the `file` Unix command on each file in the plugin or snippet directory and then grepping the output for strings like `Zip`, `bzip2`, etc. All such discovered files are then extracted.
    - The directory-level requirement is imposed also during this stage - files located deeper in the tree than in a sub-directory are omitted.
@@ -43,7 +67,7 @@ It is active when a filename is being passed as the `extract`'s argument, e.g.: 
 
 Multiple files can be specified – separated by spaces. In this mode all and only the specified files are being extracted.
 
-#### Filenames With Spaces
+#### Filenames with spaces
 
 The filenames with spaces in them are supported by a trick – to correctly pass such a filename to `extract` use the non-breaking space in place of the in-filename original spaces.
 
@@ -59,7 +83,7 @@ The value of the ice can begin with a two special characters:
 
 The flags can be combined in any order: `extract'!-'`.
 
-### `ziextract`
+### <i class="fa-solid fa-gears"></i> `ziextract`
 
 Sometimes a more uncommon unpacking operation is needed. In such case you can directly use the function that implements the ice – it is called `ziextract`.
 
@@ -70,11 +94,11 @@ It recognizes the following options:
 3. `--norm` - prevents the archive file removal.
 4. And also one option specific only to the function: `--nobkp`, which prevents clearing of the plugin's dir before the extraction – normally all the files except the archive are being moved into `._backup` directory and after that the extraction is performed. - `extract` ice also skips creating the backup **if** more than one archive is found or given as the argument.
 
-### Supported File Formats
+### <i class="fa-solid fa-circle-info"></i> Supported file formats
 
-Zip, Rar, tar.gz,tar.bz2, tar.xz, tar.7z, tar, tgz, tbz2, gz, bz2, txz, xz, 7z, exe, deb, OS X (dmg) – all these are supported.
+Zip, rar, tar.gz, tar.bz2, tar.xz, tar.7z, tar, tgz, tbz2, gz, bz2, txz, xz, 7z, exe, deb, OS X (dmg) – all these are supported.
 
-## `from'…'`
+## <i class="fa-solid fa-microchip"></i> `from'…'`
 
 In order to install and load a plugin whose repository is private - e.g: requires providing credentials in order to log in – use the `from'…'` ice in the following way:
 
@@ -113,26 +137,20 @@ In order to change the protocol, use the `proto'…'` ice.
 
 :::
 
-### Summary of `from'…'`
+### <i class="fa-solid fa-book-bookmark"></i> Summary of `from'…'`
 
 By using this method you can clone plugins from e.g. GitHub Enterprise or embed the passwords as plain text in `.zshrc`.
 
-## `id-as'…'`
+## <i class="fa-solid fa-microchip"></i> `id-as'…'`
 
-### Nickname a plugin or snippet
-
-ZI supports loading a plugin or snippet with a nickname. Set the nickname through the `id-as` ice-modifier.
-
-For example, one could try to load [**docker/compose**][1] from GitHub binary releases:
+Load a plugin or snippet with a nickname with the `id-as` ice-modifier. For example, one could try to load [**docker/compose**][1] from GitHub binary releases:
 
 ```shell showLineNumbers
 zi ice as"program" from"gh-r" mv"docker-c* -> docker-compose"
 zi light "docker/compose"
 ```
 
-This registers plugin under the ID `docker/compose`. Now suppose the user would want to also load a completion from the project's GitHub repository (not the binary release catalog) which is also available under the GitHub url-path **…/docker/compose**.
-
-The two IDs, both being "docker/compose", will collide.
+This registers plugin under the ID `docker/compose`. Now suppose the user would want to also load a completion from the project's GitHub repository (not the binary release catalog) which is also available under the GitHub url-path **…/docker/compose**. The two IDs, both being "docker/compose", will collide.
 
 The solution to this problem – the `id-as` (to be read as: _identify-as_) ice to which this document is devoted: by using the `id-as` ice the user can resolve the conflict by loading the completion under a kind of a _nickname_, for example under "_dc-complete_", by issuing the following commands:
 
@@ -148,7 +166,7 @@ zi list | grep -i dc-complete
 dc-complete
 ```
 
-Issuing `zi report dc-complete` also works, so as other Zi commands:
+Issuing `zi report dc-complete` also works, so as other ZI command:
 
 ```shell showLineNumbers
 zi report dc-complete
@@ -160,9 +178,7 @@ Completions:
 _docker-compose [enabled]
 ```
 
-This can be also used to nickname snippets.
-
-For example, you can use this to create handy IDs in place of long urls:
+This can be also used to nickname snippets. For example, you can use this to create handy IDs in place of long URLs:
 
 ```shell showLineNumbers
 zi ice as"program" id-as"git-unique"
@@ -171,7 +187,7 @@ zi snippet https://github.com/Osse/git-scripts/blob/master/git-unique
 
 The commands `zi update git-unique`, `zi delete git-unique` and other will work normally and e.g. `zi times` will show the _nickname_-ID `git-unique` instead of the long URL.
 
-### `id-as'auto'` {#id-asauto}
+### `id-as'auto'`
 
 There's a special value to the `id-as'…'` ice – `auto`. It causes the nickname to be automatically set to the last component of the plugin name or snippet URL. 例如：
 
@@ -180,9 +196,7 @@ zi ice as"program" id-as"auto"
 zi snippet https://github.com/Osse/git-scripts/blob/master/git-unique
 ```
 
-will work the same as before, e.g: like if the ice used was `id-as'git-unique'`.
-
-Will work as if id-as'zsh-autopair' was passed:
+will work the same as before, e.g: like if the ice used was `id-as'git-unique'`. Will work as if id-as'zsh-autopair' was passed:
 
 ```shell showLineNumbers
 zi ice wait lucid id-as"auto"
@@ -199,7 +213,7 @@ zi ice wait lucid id-as
 zi load hlissner/zsh-autopair
 ```
 
-## `wait`
+## <i class="fa-solid fa-microchip"></i> `wait`
 
 :::note
 
@@ -224,16 +238,14 @@ zi light z-shell/zi-crasis
 - `(r)` searches for element that matches given pattern (`cras*`) and returns it,
 - `-n` means: not-empty, so it will be true when users enters "cras",
 - after 1 second or less, ZI will detect that `wait'…'` condition is true, and load the plugin, which provides command _crasis_,
-- Screencast that presents the feature: [![screencast][3]][4]
+- screencast that presents the feature: [![screencast][3]][4]
 
 ```shell showLineNumbers
 zi ice wait'[[ $PWD = */github || $PWD = */github/* ]]'
 zi load unixorn/git-extra-commands
 ```
 
-it waits until user enters a `github` directory.
-
-Turbo mode also support a suffix – the letter `a`, `b` or `c`. The meaning is illustrated by the following example:
+it waits until user enters a `github` directory. Turbo mode also support a suffix – the letter `a`, `b` or `c`. The meaning is illustrated by the following example:
 
 ```shell showLineNumbers
 zi ice wait"0b" as"command" pick"wd.sh" atinit"echo Firing 1" lucid
@@ -281,23 +293,19 @@ zi-turbo '1b' for \
   MichaelAquilina/zsh-you-should-use
 ```
 
-## `wrap-track'…'`
+## <i class="fa-solid fa-microchip"></i> `wrap-track'…'`
 
-The `wrap-track'…'` ice-mod allows to extend the tracking (e.g: gathering of report and unload data) of a plugin beyond the moment of sourcing it's main file(s).
+The `wrap-track'…'` ice-mod allows to extend the tracking (e.g: gathering of report and unload data) of a plugin beyond the moment of sourcing it's main file(s). It works by wrapping the given functions with a tracking-enabling and disabling snippet of code. This is useful especially with prompts, as they very often do their initialization in the first call to their `precmd` [**hook**][5] function.
 
-It works by wrapping the given functions with a tracking-enabling and disabling snippet of code. This is useful especially with prompts, as they very often do their initialization in the first call to their `precmd` [**hook**][5] function.
-
-For example, [**romkatv/powerlevel10k**][6] works this way.
-
-The ice takes a list of function names, with the elements separated by `;`:
+For example, [romkatv/powerlevel10k][6] works this way. The ice takes a list of function names, with the elements separated by `;`:
 
 ```shell
 zi ice wrap-track"func1;func2;…"
 ```
 
-### Use case for `wrap-track'…'` {#use-case-for-wrap-track}
+### Use case for `wrap-track'…'`
 
-Therefore, to e.g. load and unload the example powerlevel10k prompt in the fashion of [**Multiple prompts**][7] article, the `precmd` function of the plugin – called `_p9k_precmd`, to get the name of the function do `echo $precmd_functions` after loading a theme, should be passed to `wrap-track'…'` ice.
+Therefore, to e.g. load and unload the example powerlevel10k prompt in the fashion of [multiple prompts][7] article, the `precmd` function of the plugin – called `_p9k_precmd`, to get the name of the function do `echo $precmd_functions` after loading a theme, should be passed to `wrap-track'…'` ice.
 
 Load when `MYPROMPT == 4`
 
@@ -346,7 +354,7 @@ Functions created:
 
 As it can be seen, creation of four additional Zle-widgets has been recorded - `Zle -N …` lines. They will be properly deleted/restored on the plugin unload with `MYPROMPT=3` as example and the shell state will be clean, ready to load a new prompt.
 
-## `src'…'` `pick'…'` `multisrc'…'`
+## <i class="fa-solid fa-microchip"></i> `src'…'` `pick'…'` `multisrc'…'`
 
 Normally `src'…'` can be used to specify additional file to source:
 
@@ -369,13 +377,11 @@ zi ice svn pick"completion.zsh" \
 zi snippet OMZ::lib
 ```
 
-|   Syntax    | Description                                                                                                                             |
-|:-----------:|:--------------------------------------------------------------------------------------------------------------------------------------- |
-|    `svn`    | Use Subversion to clone `OMZ::lib` (the whole Oh-My-Zsh `lib/` directory). More below (1).                                              |
-| `atload'…'` | Code isn't tracked and cannot be unloaded. The `atload'…'` is executed after loading main files `pick'…'` and `src'…'`. More below (2). |
-
-- (1) Note that `atload'…'` uses apostrophes not double quotes, to literally put `$f` into the string, `atload`'s code is automatically being run **within the snippet's (or plugin's) directory**.
-- (2) Unless you load a plugin (not a snippet) with `zi load …` and prepend the value of the ice with exclamation mark. Example: `atload'!local f; for …'`.
+|   Syntax    | Description                                                                                                                        |
+|:-----------:|:---------------------------------------------------------------------------------------------------------------------------------- |
+|    `svn`    | Use Subversion to clone `OMZ::lib` (the whole Oh-My-Zsh `lib/` directory). More [1^].                                              |
+| `atload'…'` | Code isn't tracked and cannot be unloaded. The `atload'…'` is executed after loading main files `pick'…'` and `src'…'`. More [2^]. |
+[1^]: Note that `atload'…'` uses apostrophes not double quotes, to literally put `$f` into the string, `atload`'s code is automatically being run **within the snippet's (or plugin's) directory**. [2^]: Unless you load a plugin (not a snippet) with `zi load …` and prepend the value of the ice with exclamation mark. Example: `atload'!local f; for …'`.
 
 ### The `multisrc'…'` ice
 
@@ -426,9 +432,7 @@ zi snippet OMZ::lib
 
 Hack with ZI: the ice's contents is simply `eval`-uated like follows: eval "reply=($multisrc)".
 
-So it might get handy on an occasion to pass code there, but first you must close the paren and then don't forget to assign `reply`, and to provide a trailing opening paren.
-
-In the code be careful to not redefine any variable used internally by ZI – e.g.: `i` is safe:
+So it might get handy on an occasion to pass code there, but first you must close the paren and then don't forget to assign `reply`, and to provide a trailing opening paren. In the code be careful to not redefine any variable used internally by ZI – e.g.: `i` is safe:
 
 ```shell showLineNumbers
 array=({functions,misc}.zsh)
@@ -437,11 +441,9 @@ zi ice svn multisrc'); local i; for i in $array; do \
 zi snippet OMZ::lib
 ```
 
-Extended with the [for][8] syntax which can in some situations replace a typical `multisrc'…'` loading.
+Extended with the [for][8] syntax which can in some situations replace a typical `multisrc'…'` loading. The point is that this syntax allows to easily specify snippets to source – and do this within a single ZI command.
 
-The point is that this syntax allows to easily specify snippets to source – and do this within a single ZI command.
-
-Thus, instead of:
+Instead of:
 
 ```shell showLineNumbers
 zi ice multisrc'(functions|misc|completion).zsh'
@@ -467,7 +469,7 @@ The multiple snippets loaded with the `for` syntax are being loaded _separately_
 
 The ZI scheduler will distribute the work over time and will allow activation of keyboard in between the snippets. The `multisrc'…'` way doesn't work this way – sourcing many files can cause noticeable keyboard freezes (in Turbo).
 
-## `atclone'…'` `atpull'…'` `atinit'…'` `atload'…'`
+## <i class="fa-solid fa-microchip"></i> `atclone'…'` `atpull'…'` `atinit'…'` `atload'…'`
 
 There are four code-receiving ices: `atclone'…'`, `atpull'…'`, `atinit'…'`, `atload'…'`.
 
@@ -482,19 +484,15 @@ Their role is to **receive a portion of Zsh code and execute it in certain momen
 
 For convenience, you can use each of the ices multiple times in single `zi ice …` invocation – all the passed commands will be executed in the given order.
 
-The `atpull'…'` ice recognizes a special value: `%atclone`, so the code looks: `atpull'%atclone'`.
+The `atpull'…'` ice recognizes a special value: `%atclone`, so the code looks: `atpull'%atclone'`. It causes the contents of the `atclone'…'` ice to be copied into the contents of the `atpull` ice.
 
-It causes the contents of the `atclone'…'` ice to be copied into the contents of the `atpull` ice.
-
-This is handy when the same tasks have to be performed on clone **and** on update of plugin or snippet, like e.g.: in the [**Direnv example**][9].
+This is handy when the same tasks have to be performed on clone **and** on update of plugin or snippet, like e.g.: in the [direnv example][9].
 
 ### `atload'!…'` with exclamation mark preceded
 
 The `wrap-track` ice allows to track and unload plugins that defer their initialization into a function run later after sourcing the plugin's script – when the function is called, the plugin is then being fully initialized.
 
-However, if the function is being called from the `atload` ice, then there is a simpler method than the `wrap-track` ice – an _exclamation mark_-preceded `atload` contents
-
-The exclamation mark causes the effects of the execution of the code passed to `atload` ice to be recorded.
+However, if the function is being called from the `atload` ice, then there is a simpler method than the `wrap-track` ice – an _exclamation mark_-preceded `atload` contents. The exclamation mark causes the effects of the execution of the code passed to `atload` ice to be recorded.
 
 ### Use case for `atload'…'`
 
@@ -505,9 +503,7 @@ zi ice id-as'test' atload'!PATH+=:~/share'
 zi load z-shell/null
 ```
 
-the `$PATH` is being changed within `atload` ice.
-
-ZI's tracking records `$PATH` changes and withdraws them on plugin unload, and also shows information loading:
+the `$PATH` is being changed within `atload` ice. ZI's tracking records `$PATH` changes and withdraws them on plugin unload, and also shows information loading:
 
 ```shell showLineNumbers
 ➜ zi report test
@@ -533,7 +529,7 @@ Plugin report saved to $LASTREPORT
 
 ### Practical example
 
-The same example as in the [**Tracking precmd-based Plugins**](#wrap-track) article, but using the _exclamation mark_-preceded `atload` instead of `wrap-track`:
+The same example as in the [tracking precmd-based plugins](#-wrap-track) article, but using the _exclamation mark_-preceded `atload` instead of `wrap-track`:
 
 Load when - `MYPROMPT == 4`
 
@@ -543,13 +539,14 @@ zi ice load'![[ $MYPROMPT = 4 ]]' unload'![[ $MYPROMPT != 4 ]]' \
 zi load romkatv/powerlevel10k
 ```
 
-[3]: https://asciinema.org/a/149725.svg
+[3]: https://asciinema.org/a/149725.svg#center
 
 [1]: https://github.com/docker/compose
 [2]: https://github.com/z-shell/F-Sy-H
 [4]: https://asciinema.org/a/149725
 [5]: https://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions
 [6]: https://github.com/romkatv/powerlevel10k
-[7]: /docs/guides/customization#multiple-prompts
+[6]: https://github.com/romkatv/powerlevel10k
+[7]: /docs/guides/customization#-multiple-prompts
 [8]: /docs/guides/syntax/for
-[9]: /docs/guides/syntax/common#direnv
+[9]: /docs/guides/syntax/common#-direnv

@@ -73,9 +73,9 @@ import ZGitImg from '@site/static/img/png/z_git.png';
 [5]: /ecosystem/annexes
 [6]: /ecosystem/packages
 [8]: /docs/getting_started/overview#turbo-mode-zsh--53
-[9]: /docs/guides/customization#customizing-paths
-[10]: /docs/guides/customization#multiple-prompts
-[11]: /docs/guides/customization#non-github-local-plugins
+[9]: /docs/guides/customization#-customizing-paths
+[10]: /docs/guides/customization#-multiple-prompts
+[11]: /docs/guides/customization#-non-github-local-plugins
 [12]: /docs/getting_started/overview#oh-my-zsh-prezto
 [12]: /docs/getting_started/overview#oh-my-zsh-prezto
 [13]: /docs/getting_started/migration

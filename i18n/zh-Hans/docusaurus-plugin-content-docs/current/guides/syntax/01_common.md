@@ -137,7 +137,7 @@ zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
 
 This way registration code is generated once every installation and update, to then be simply sourced without running `direnv`.
 
-The project is also available as a binary [Github releases][6]. This distribution can be installed by:
+The project is also available as a binary [GitHub releases][6]. This distribution can be installed by:
 
 ```shell showLineNumbers
 zi from"gh-r" as"program" mv"direnv* -> direnv" \
@@ -214,7 +214,6 @@ The original motivation behind the standard syntax was: to utilize the syntax hi
 [3]: /docs/guides/syntax/ice-modifiers
 [4]: /search?q=exclamation+mark
 [5]: https://github.com/direnv/direnv
-[6]: https://github.com/direnv/direnv/releases/
 [6]: https://github.com/direnv/direnv/releases/
 [8]: /docs/guides/customization#$ZPFX
 [9]: /docs/getting_started/overview
