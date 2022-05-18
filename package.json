@@ -38,7 +38,7 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@algolia/client-search": "4.13.0",
+    "@algolia/client-search": "4.13.1",
     "@babel/core": "7.17.12",
     "@docusaurus/module-type-aliases": "0.0.0-5027",
     "@loadable/babel-plugin": "5.13.2",
