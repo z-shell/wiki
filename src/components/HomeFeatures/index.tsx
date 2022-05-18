@@ -11,24 +11,24 @@ type FeatureItem = {
 
 function Turbo() {
   return (
-    <div className={'fa-5x'}>
-      <span className={'fa-solid fa-forward'} />
+    <div className={'fa-7x'}>
+      <div className={'fa-solid fa-forward'} />
     </div>
   );
 }
 
 function Stats() {
   return (
-    <div className={'fa-6x'}>
-      <span className={'fa-solid fa-ranking-star'} />
+    <div className={'fa-8x'}>
+      <div className={'fa-solid fa-ranking-star'} />
     </div>
   );
 }
 
 function Create() {
   return (
-    <div className={'fa-5x'}>
-      <span className={'fa-solid fa-layer-group'} />
+    <div className={'fa-7x'}>
+      <div className={'fa-solid fa-layer-group'} />
     </div>
   );
 }
@@ -94,7 +94,7 @@ function Feature({ title, Svg, description }: FeatureItem): JSX.Element {
         <Svg role={'img'} />
       </div>
       <div className={'text--center padding-horiz--md'}>
-        <h3>{title}</h3>
+        <h2>{title}</h2>
         <p>{description}</p>
       </div>
     </div>
