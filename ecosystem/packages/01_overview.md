@@ -4,7 +4,7 @@ slug: /packages
 title: 📦 Introduction
 sidebar_position: 1
 image: img/logo/320x320.png
-description: Introduction to packages
+description: Introduction to packages.
 keywords:
   - package
   - zpackage
@@ -150,4 +150,4 @@ official man page).
 [4]: /docs/guides/ice-modifiers
 [5]: https://github.com/z-shell/ecs-cli
 [6]: https://github.com/z-shell
-[7]: docs/guides/syntax/ice
+[7]: /docs/guides/syntax/ice

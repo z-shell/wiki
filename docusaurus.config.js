@@ -1,8 +1,5 @@
 // @ts-check
 
-const math = require('remark-math');
-const katex = require('rehype-katex');
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '❮ ZI ❯',
@@ -47,7 +44,9 @@ const config = {
         id: 'community',
         path: 'community',
         routeBasePath: 'community',
-        sidebarPath: require.resolve('./lib/js/sidebars_2.js'),
+        sidebarPath: 'lib/js/sidebars_2.js',
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
         editUrl: ({ locale, versionDocsDirPath, docPath }) => {
           if (locale !== 'en') {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
@@ -63,7 +62,9 @@ const config = {
         id: 'ecosystem',
         path: 'ecosystem',
         routeBasePath: 'ecosystem',
-        sidebarPath: require.resolve('./lib/js/sidebars_3.js'),
+        sidebarPath: 'lib/js/sidebars_3.js',
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
         editUrl: ({ locale, versionDocsDirPath, docPath }) => {
           if (locale !== 'en') {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
@@ -74,12 +75,8 @@ const config = {
     ],
   ],
   i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
-  /** scripts: [{ src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous' }], */
-  stylesheets: [
-    { href: '/assets/css/fontawesome.min.css' },
-    { href: '/assets/css/brands.min.css' },
-    { href: '/assets/css/solid.min.css' },
-  ],
+  scripts: [{ defer: true, src: '/assets/js/all.min.js' }],
+  /** stylesheets: [{ href: '' }], */
   presets: [
     [
       'classic',
@@ -99,8 +96,6 @@ const config = {
           },
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          remarkPlugins: [math],
-          rehypePlugins: [katex],
         },
         blog: {
           showReadingTime: true,
@@ -111,7 +106,6 @@ const config = {
             return `https://github.com/z-shell/zw/tree/main/${blogDirPath}/${blogPath}`;
           },
         },
-        /* gtag: { trackingID: 'G-MT10GVL59X', anonymizeIP: true }, */
         sitemap: { changefreq: 'daily', priority: 0.5 },
       }),
     ],

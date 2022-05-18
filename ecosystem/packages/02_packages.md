@@ -8,8 +8,7 @@ keywords:
   - zi-package
 ---
 
-You can find the available packages
-[here](https://github.com/search?q=topic%3Azpackage+org%3Az-shell&type=Repositories).
+For all the available packages use [GitHub search][22].
 
 |       Package Name       | Description                                                                                      |
 | :----------------------: | ------------------------------------------------------------------------------------------------ |
@@ -24,7 +23,8 @@ You can find the available packages
 |      [ls_colors][9]      | The ls_colors and setup a zsh-completion system color-scheme.                                    |
 | [dircolors-material][10] | The dircolors-material and setup a zsh-completion system color-scheme.                           |
 |    [asciidoctor][11]     | The asciidoctor Markdown processor.                                                              |
-| [system-completions][12] | The Zsh system-completions                                                                       |
+| [system-completions][12] | Moves the stock Zsh completions under the control of ZI.                                         |
+|  [brew-completions][21]  | The Homebrew Shell Completion under the control of Zsh & ZI.                                     |
 |      [ecs-cli][13]       | The AWS ECS CLI                                                                                  |
 |     [subversion][14]     | The Subversion client                                                                            |
 |   [github-issues][15]    | The GitHub Issues client                                                                         |
@@ -33,8 +33,6 @@ You can find the available packages
 |        [zsh][18]         | The Zsh mirror of zsh-users                                                                      |
 |         [nb][19]         | Bookmarking, and archiving with linking, tagging, search, Git syncing, Pandoc conversion, + more |
 |      [zsh-bin][20]       | Package of statically-linked, hermetic, relocatable - romkatv/zsh-bin                            |
-
-> List updated: `2021-11-11`
 
 [1]: https://github.com/z-shell/any-node
 [2]: https://github.com/z-shell/any-gem
@@ -56,3 +54,5 @@ You can find the available packages
 [18]: https://github.com/z-shell/zsh
 [19]: https://github.com/z-shell/nb
 [20]: https://github.com/z-shell/zsh-bin
+[21]: https://github.com/z-shell/brew-completions
+[22]: https://github.com/search?q=topic%3Azpackage+org%3Az-shell&type=Repositories

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import Translate, { translate } from '@docusaurus/Translate';
 import styles from './styles.module.css';
