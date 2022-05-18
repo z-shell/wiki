@@ -13,6 +13,9 @@ const config = {
   projectName: 'zw',
   organizationName: 'z-shell',
   staticDirectories: ['static'],
+  i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
+  scripts: [{ defer: true, src: '/assets/js/all.min.js' }],
+  /** stylesheets: [{ href: '' }], */
   plugins: [
     [
       'ideal-image',
@@ -74,9 +77,6 @@ const config = {
       }),
     ],
   ],
-  i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
-  scripts: [{ defer: true, src: '/assets/js/all.min.js' }],
-  /** stylesheets: [{ href: '' }], */
   presets: [
     [
       'classic',

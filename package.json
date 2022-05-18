@@ -17,7 +17,7 @@
     "write-community-version": "docusaurus docs:version:community",
     "write-ecosystem-version": "docusaurus docs:version:ecosystem",
     "crowdin:sync": "docusaurus write-translations && crowdin upload sources && crowdin download",
-    "build:cf": "npm i -g pnpm && pnpm i --prefer-frozen-lockfile --strict-peer-dependencies && pnpm run build",
+    "build:cf": "npm i -g pnpm && pnpm i --strict-peer-dependencies && pnpm run build",
     "clean": "pnpm -s exec rm -rf node_modules build pnpm-lock.yaml",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
@@ -38,7 +38,6 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@algolia/client-search": "4.13.1",
     "@babel/core": "7.17.12",
     "@docusaurus/module-type-aliases": "0.0.0-5029",
     "@loadable/babel-plugin": "5.13.2",
