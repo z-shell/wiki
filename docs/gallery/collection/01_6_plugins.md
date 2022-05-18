@@ -38,12 +38,10 @@ zi light …
 
 :::
 
-:::tip
+:::Create your own syntax style:
 
-Create your own syntax e.g:
-
-> - The ver'master' - allows to select specific version or branch.
-> - It's optional and can be removed if not required.
+- The ver'master' - allows to select specific commit, version or branch.
+- It's optional and can be removed if not required.
 
 ```shell showLineNumbers
 z_lucid() {
@@ -65,9 +63,7 @@ zi0c() {
 
 :::
 
-:::tip
-
-Then load as:
+:::Load:
 
 ```shell showLineNumbers
 zi0a
@@ -232,39 +228,42 @@ zi load z-shell/zredis
 ### GH-R: [pemistahl/grex](https://github.com/pemistahl/grex)
 
 ```shell showLineNumbers
-zi wait lucid for as"command" from"gh-r" sbin"grex" \
+zi wait lucid for \
+  as"command" from"gh-r" sbin"grex" \
     pemistahl/grex
 ```
 
 ### GH-R: [ahmetb/kubectx](https://github.com/ahmetb/kubectx)
 
 ```shellshowLineNumbers
-zi wait lucid for bpick"kubectx;kubens" from"gh-r" \
-  sbin"kubectx;kubens" \
+zi wait lucid for \
+  bpick"kubectx;kubens" from"gh-r" sbin"kubectx;kubens" \
     ahmetb/kubectx
 ```
 
 ### B: [stedolan/jq](https://github.com/stedolan/jq)
 
 ```shell showLineNumbers
-zi wait lucid for atclone"autoreconf -fi && ./configure --with-oniguruma=builtin && make \
-&& ln -sfv $PWD/jq.1 $ZPFX/man/man1" as"null" if"(( ! ${+commands[jq]} ))" sbin"jq" \
+zi wait lucid for \
+  atclone"autoreconf -fi && ./configure --with-oniguruma=builtin && make \
+  && ln -sfv $PWD/jq.1 $ZPFX/man/man1" as"null" if"(( ! ${+commands[jq]} ))" sbin"jq" \
     stedolan/jq
 ```
 
 ### [github/git-sizer](https://github.com/github/git-sizer)
 
 ```shell showLineNumbers
-zi wait lucid for as"command" from"gh-r" sbin"git-sizer" \
+zi wait lucid for \
+  as"command" from"gh-r" sbin"git-sizer" \
     @github/git-sizer
 ```
 
 [1]: https://github.com/zsh-users/zsh-autosuggestions
 [2]: https://github.com/z-shell/F-Sy-H
-[3]: /docs/getting_started/overview#turbo-and-lucid
+[3]: /docs/getting_started/overview#turbo--lucid
 [4]: /docs/guides/syntax/for
 [5]: /docs/guides/syntax/ice
 [6]: /docs/guides/syntax/ice-modifiers
-[7]: /docs/guides/syntax/common#compiling-programs
-[8]: /docs/guides/customization#customizing-paths
+[7]: /docs/guides/syntax/common#-compiling-programs
+[8]: /docs/guides/customization#-customizing-paths
 [9]: /ecosystem/annexes/bin-gem-node#the-ice-modifiers-provided-by-the-annex
