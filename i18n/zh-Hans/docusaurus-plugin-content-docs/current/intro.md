@@ -14,7 +14,7 @@ import ZGitImg from '@site/static/img/png/z_git.png';
 
 <Image className="ScreenView" img={ZGitImg} />
 
-[![Z-Shell Organization Stats](https://github.zshell.dev/.github/metrics.svg#center)](https://github.com/z-shell)
+[![Z-Shell Organization Stats](https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg#center)](https://github.com/z-shell)
 
 <Tabs>
   <TabItem value="gems" label="RubyGems">
