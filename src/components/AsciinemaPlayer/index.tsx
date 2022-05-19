@@ -31,7 +31,7 @@ function AsciinemaPlayer({
     AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
   }, [src]);
 
-  return <div id={'asciinema-player'} ref={ref} />;
+  return <span ref={ref} />;
 }
 
 export default AsciinemaPlayer;
