@@ -11,8 +11,8 @@ export default function Home(): JSX.Element {
       title={`${siteConfig.tagline}`}
       description="A Swiss Army Knife for Zsh - a toolchain that works for you. <head />"
     >
+      <HomeHeader />
       <main>
-        <HomeHeader />
         <HomeFeatures />
       </main>
     </Layout>

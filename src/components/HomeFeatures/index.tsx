@@ -94,7 +94,7 @@ function Feature({ title, Svg, description }: FeatureItem): JSX.Element {
         <Svg role={'img'} />
       </div>
       <div className={'text--center padding-horiz--md'}>
-        <h2>{title}</h2>
+        <h3>{title}</h3>
         <p>{description}</p>
       </div>
     </div>

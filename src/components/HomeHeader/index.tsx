@@ -1,12 +1,12 @@
 import React from 'react';
 import clsx from 'clsx';
 import loadable from '@loadable/component';
+const AsciinemaPlayer = loadable(
+  () => import('@site/src/components/AsciinemaPlayer')
+);
 import styles from './styles.module.css';
 
 export default function HomeHeader(): JSX.Element {
-  const AsciinemaPlayer = loadable(
-    () => import('@site/src/components/AsciinemaPlayer')
-  );
   return (
     <header className={clsx('hero hero--primary', styles.herobanner)}>
       <div className={'container'}>
