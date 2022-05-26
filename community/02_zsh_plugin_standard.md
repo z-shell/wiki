@@ -471,8 +471,9 @@ This way all the data of all plugins will be kept in a single parameter, availab
 The following code snippet is recommended to be included at the beginning of each of the main functions provided by the
 plugin:
 
-```shell
-emulate -L zsh -o extended_glob warn_create_global typeset_silent no_short_loops rc_quotes no_auto_pushd
+```shell showLineNumbers
+emulate -L zsh
+setopt extended_glob warn_create_global typeset_silent no_short_loops rc_quotes no_auto_pushd
 ```
 
 It resets all the options to their default state according to the `zsh` emulation mode, with the use of the
