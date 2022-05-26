@@ -26,7 +26,7 @@ specifiers:
   eslint-config-prettier: 8.5.0
   eslint-plugin-react: 7.30.0
   husky: 8.0.1
-  postcss: 8.4.13
+  postcss: 8.4.14
   prism-react-renderer: 1.3.3
   prop-types: 15.8.1
   react: 17.0.2
@@ -65,7 +65,7 @@ devDependencies:
   eslint-config-prettier: 8.5.0_eslint@8.16.0
   eslint-plugin-react: 7.30.0_eslint@8.16.0
   husky: 8.0.1
-  postcss: 8.4.13
+  postcss: 8.4.14
   prop-types: 15.8.1
   stylelint: 14.8.5
   stylelint-config-prettier: 9.0.3_stylelint@14.8.5
@@ -7663,15 +7663,6 @@ packages:
     dependencies:
       postcss: 8.4.14
     dev: false
-
-  /postcss/8.4.13:
-    resolution: {integrity: sha512-jtL6eTBrza5MPzy8oJLFuUscHDXTV5KcLlqAWHl5q5WYRfnNRGSmOZmOZ1T6Gy7A99mOZfqungmZMpMmCVJ8ZA==}
-    engines: {node: ^10 || ^12 || >=14}
-    dependencies:
-      nanoid: 3.3.4
-      picocolors: 1.0.0
-      source-map-js: 1.0.2
-    dev: true
 
   /postcss/8.4.14:
     resolution: {integrity: sha512-E398TUmfAYFPBSdzgeieK2Y1+1cpdxJx8yXbK/m57nRhKSmk1GB2tO4lbLBtlkfPQTDKfe4Xqv1ASWPpayPEig==}
