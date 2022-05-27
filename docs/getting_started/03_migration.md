@@ -122,6 +122,7 @@ Use `zi ice svn` if multiple files require an entire subdirectory.
 
 - [gitfast][4]
 - [osx][5]
+- [history-substring-search][18]
 
 ```shell showLineNumbers
 zi ice svn
@@ -129,12 +130,16 @@ zi snippet OMZP::gitfast
 
 zi ice svn
 zi snippet OMZP::osx
+
+zi ice svn
+zi snippet OMZP::history-substring-search
 ```
 
 Use `zi ice as"completion"` to directly add single file completion snippets.
 
 - [docker][6]
 - [fd][7]
+- [ag][19]
 
 ```shell showLineNumbers
 zi ice as"completion"
@@ -142,6 +147,9 @@ zi snippet OMZP::docker/_docker
 
 zi ice as"completion"
 zi snippet OMZP::fd/_fd
+
+zi ice as"completion"
+zi snippet OMZP::ag/_ag
 ```
 
 [You can see an extended explanation of OMZ setup in the Wiki][8]
@@ -424,3 +432,5 @@ For the `location`: refer [selection of files][17]
 [15]: http://zsh.sourceforge.net/Doc/Release/Zsh-Modules.html#The-zsh_002fzutil-Module
 [16]: https://unix.stackexchange.com/questions/214657/what-does-zstyle-do
 [17]: /docs/guides/syntax/ice#src-pick-multisrc
+[18]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/history-substring-search
+[19]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ag
