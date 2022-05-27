@@ -23,7 +23,7 @@ type AsciinemaPlayerProps = {
 const AsciinemaPlayer: React.FC<AsciinemaPlayerProps> = ({
   src,
   ...asciinemaOptions
-}): JSX.Element => {
+}) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const AsciinemaPlayer: React.FC<AsciinemaPlayerProps> = ({
     AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
   }, [src]);
 
-  return <div id={'asciinema-player'} ref={ref} />;
+  return <div ref={ref} />;
 };
 
 export default AsciinemaPlayer;

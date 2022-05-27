@@ -48,14 +48,14 @@ const config = {
         path: 'community',
         routeBasePath: 'community',
         sidebarPath: 'lib/js/sidebars_2.js',
-        showLastUpdateAuthor: true,
-        showLastUpdateTime: true,
         editUrl: ({ locale, versionDocsDirPath, docPath }) => {
           if (locale !== 'en') {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
           }
           return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
         },
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
       }),
     ],
     [
@@ -66,14 +66,14 @@ const config = {
         path: 'ecosystem',
         routeBasePath: 'ecosystem',
         sidebarPath: 'lib/js/sidebars_3.js',
-        showLastUpdateAuthor: true,
-        showLastUpdateTime: true,
         editUrl: ({ locale, versionDocsDirPath, docPath }) => {
           if (locale !== 'en') {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
           }
           return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
         },
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
       }),
     ],
   ],

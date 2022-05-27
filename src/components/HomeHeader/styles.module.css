@@ -4,11 +4,23 @@
   position: relative;
   overflow: hidden;
   padding: 2rem 0;
-  width: 100%;
+  transform: scale(1, 1);
 }
 
 @media only screen and (max-width: 996px) {
   .herobanner {
     padding: 1rem 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .herobanner {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .herobanner {
+    animation: vibrate 0.3s linear infinite both;
   }
 }

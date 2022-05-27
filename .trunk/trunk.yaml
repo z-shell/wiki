@@ -7,9 +7,6 @@ repo:
     owner: z-shell
     name: zw
 lint:
-  disabled:
-    - hadolint
-    - shellcheck
   linters:
     - name: markdownlint
       command: [markdownlint, -q, --config, .github/.markdownlint.yaml, '${target}']
@@ -33,8 +30,6 @@ lint:
         - 'build/**'
         - 'static/img/**'
         - '.docusaurus/**'
-        - 'src/**/*.min.*'
-    - linters: [actionlint]
+    - linters: [gitleaks]
       paths:
-        - '.github/workflows/sync-labels.yml'
-        - '.github/workflows/trunk_check.yml'
+        - 'pnpm-lock.yaml'
