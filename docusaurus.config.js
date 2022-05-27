@@ -1,9 +1,5 @@
 // @ts-check
 
-const math = require('remark-math');
-const katex = require('rehype-katex');
-const remarkGfm = import('remark-gfm');
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '❮ ZI ❯',
@@ -19,7 +15,7 @@ const config = {
   staticDirectories: ['static'],
   i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
   scripts: [{ defer: true, src: '/assets/js/all.min.js' }],
-  stylesheets: [{ href: '/assets/katex/katex.min.css', type: 'text/css' }],
+  stylesheets: [{ href: '/assets/css/fontawesome.min.css', type: 'test/css' }],
   plugins: [
     [
       'ideal-image',
@@ -60,8 +56,6 @@ const config = {
         },
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
-        remarkPlugins: [math, remarkGfm],
-        rehypePlugins: [katex],
       }),
     ],
     [
@@ -102,8 +96,6 @@ const config = {
           },
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          remarkPlugins: [math, remarkGfm],
-          rehypePlugins: [katex],
         },
         blog: {
           showReadingTime: true,
