@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
-        pnpm-version: ['7.1.0']
+        pnpm-version: ['7.1.6']
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
