@@ -7,7 +7,7 @@ overrides:
 specifiers:
   '@babel/core': 7.18.2
   '@babel/plugin-syntax-dynamic-import': 7.8.3
-  '@babel/plugin-transform-runtime': ^7.18.2
+  '@babel/plugin-transform-runtime': 7.18.2
   '@docusaurus/core': 0.0.0-5061
   '@docusaurus/logger': 0.0.0-5061
   '@docusaurus/module-type-aliases': 0.0.0-5061
@@ -43,9 +43,9 @@ specifiers:
   prop-types: 15.8.1
   react: 17.0.2
   react-dom: 17.0.2
-  rehype-katex: '5'
-  remark-gfm: '3'
-  remark-math: '3'
+  rehype-katex: 5.0.0
+  remark-gfm: 3.0.1
+  remark-math: 3.0.1
   stylelint: 14.8.5
   stylelint-config-prettier: 9.0.3
   stylelint-config-standard: 25.0.0
