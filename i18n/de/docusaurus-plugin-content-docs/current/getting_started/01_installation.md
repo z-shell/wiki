@@ -138,7 +138,7 @@ If you create a Docker image that uses ZI, install Turbo-loaded plugins before t
 
 To accomplish this, use burst argument and call `@zi-scheduler` function:
 
-```sh
+```docker
 RUN zsh -i -c -- '@zi-scheduler burst || true'
 ```
 
