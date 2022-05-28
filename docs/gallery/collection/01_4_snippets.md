@@ -7,11 +7,9 @@ keywords:
   - snippets
 ---
 
-:::info
+:::info Related:
 
-Related:
-
-1. [Ice: svn](/docs/guides/syntax/ice#svn)
+1. [Ice: svn](/docs/guides/syntax/ice#the-ice-ice)
 2. [Ice: multisrc'…'](/docs/guides/syntax/ice#the-multisrc-ice)
 
 :::

@@ -362,7 +362,7 @@ As it can be seen, creation of four additional Zle-widgets has been recorded - `
 Normally `src'…'` can be used to specify additional file to source:
 
 ```shell showLineNumbers
-zi ice pick"powerless.zsh" src"utilities.zsh"
+zi ice pick'powerless.zsh' src'utilities.zsh'
 zi light martinrotter/powerless
 ```
 
@@ -371,24 +371,28 @@ zi light martinrotter/powerless
 | `pick'…'` | Provide main file to source - like `*.sh`, otherwise alphabetically first matched file is sourced. |
 | `src'…'`  | Provide second file to source - not a pattern - plain file name.                                   |
 
+### The `svn` ice
+
 However, via `atload'…'` ice one can provide simple loop to source more files:
 
 ```shell showLineNumbers
-zi ice svn pick"completion.zsh" \
-  atload'local f; for f in git.zsh misc.zsh; do \
-    source $f done'
+zi ice svn pick'completion.zsh' \
+  atload'local f; for f in git.zsh misc.zsh; do source $f done'
 zi snippet OMZ::lib
 ```
 
 |   Syntax    | Description                                                                                                                        |
 | :---------: | :--------------------------------------------------------------------------------------------------------------------------------- |
-|    `svn`    | Use Subversion to clone `OMZ::lib` (the whole Oh-My-Zsh `lib/` directory). More [1^].                                              |
-| `atload'…'` | Code isn't tracked and cannot be unloaded. The `atload'…'` is executed after loading main files `pick'…'` and `src'…'`. More [2^]. |
+|    `svn`    | Use Subversion to clone `OMZ::lib` (the whole Oh-My-Zsh `lib/` directory). More [^1].                                              |
+| `atload'…'` | Code isn't tracked and cannot be unloaded. The `atload'…'` is executed after loading main files `pick'…'` and `src'…'`. More [^2]. |
 
-[1^]: Note that `atload'…'` uses apostrophes not double quotes, to literally put `$f` into the string, `atload`'s code
-is automatically being run **within the snippet's (or plugin's) directory**.
-[2^]: Unless you load a plugin (not a snippet) with `zi load …` and prepend the value of the ice with exclamation mark.
-Example: `atload'!local f; for …'`.
+[^1]:
+    Note that `atload'…'` uses apostrophes not double quotes, to literally put `$f` into the string, `atload`'s code
+    is automatically being run **within the snippet's (or plugin's) directory**.
+
+[^2]:
+    Unless you load a plugin (not a snippet) with `zi load …` and prepend the value of the ice with exclamation mark.
+    Example: `atload'!local f; for …'`.
 
 ### The `multisrc'…'` ice
 
@@ -396,27 +400,27 @@ Loads **multiple** files enumerated with spaces as the separator (e.g. `multisrc
 brace-expansion syntax (e.g. `multisrc'{misc,grep}.zsh')`. Example:
 
 ```shell showLineNumbers
-zi ice svn pick"completion.zsh" multisrc'git.zsh \
-  functions.zsh {history,grep}.zsh'
+zi ice svn pick'completion.zsh' \
+  multisrc'git.zsh functions.zsh {history,grep}.zsh'
 zi snippet OMZ::lib
 ```
 
 The all possible ways to use the `multisrc'…'` ice-modifier:
 
 ```shell
-zi ice depth"1" multisrc="lib/{functions,misc}.zsh" pick"/dev/null"
+zi ice depth'1' multisrc='lib/{functions,misc}.zsh' pick'/dev/null'
 zi load robbyrussell/oh-my-zsh
 ```
 
 Can use patterns:
 
 ```shell showLineNumbers
-zi ice svn multisrc"{funct*,misc}.zsh" pick"/dev/null"
+zi ice svn multisrc'{funct*,misc}.zsh' pick'/dev/null'
 zi snippet OMZ::lib
 ```
 
 ```shell showLineNumbers
-zi ice svn multisrc"misc.zsh functions.zsh" pick"/dev/null"
+zi ice svn multisrc'misc.zsh functions.zsh' pick'/dev/null'
 zi snippet OMZ::lib
 ```
 
@@ -426,7 +430,7 @@ Will use the array's value at the moment of plugin load:
 
 ```shell showLineNumbers
 array=({functions,misc}.zsh)
-zi ice svn multisrc"\$array" pick"/dev/null"
+zi ice svn multisrc"\$array" pick'/dev/null'
 zi snippet OMZ::lib
 ```
 
@@ -434,7 +438,7 @@ Compatible with KSH_ARRAYS option:
 
 ```shell showLineNumbers
 array=({functions,misc}.zsh)
-zi ice svn multisrc"${array[*]}" pick"/dev/null"
+zi ice svn multisrc"${array[*]}" pick'/dev/null'
 zi snippet OMZ::lib
 ```
 
@@ -444,8 +448,7 @@ So it might get handy on an occasion to pass code there, but first you must clos
 
 ```shell showLineNumbers
 array=({functions,misc}.zsh)
-zi ice svn multisrc'); local i; for i in $array; do \
-  reply+=( ${i/.zsh/.sh} ); done; ((1)' pick"/dev/null"
+zi ice svn multisrc'); local i; for i in $array; do reply+=( ${i/.zsh/.sh} ); done; ((1)' pick'/dev/null'
 zi snippet OMZ::lib
 ```
 
