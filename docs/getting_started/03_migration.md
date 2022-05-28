@@ -171,6 +171,7 @@ background.
 
 - Load `Git` library
 - Load `Git` plugin
+- Load library dependencies
 - Enable `setopt promptsubst`
 
 If any of the above are not in order or missing, the theme will break similar as shown below:
@@ -186,11 +187,26 @@ If the `Git` library is not loaded or loaded in the wrong order, then it may app
 ........:1: command not found: git_prompt_short_sha
 ```
 
+If you encounter any issue with the theme, OMZ support libraries are to be loaded
+
+- If your theme isn't colored when it should, you will want to load `theme-and-appearance.zsh`
+
+- If you encounter an error message similar to:
+
+```shell showLineNumbers
+zsh: command not found: ruby_prompt_info
+```
+
+You need to load `prompt_info_functions.zsh`
+
 All together it looks like this:
 
 ```shell showLineNumbers
 zi snippet OMZL::git.zsh
 zi snippet OMZP::git
+zi snippet OMZL::theme-and-appearance.zsh
+zi snippet OMZL::prompt_info_functions.zsh
+# Other libraries that might be needed
 zi cdclear -q
 ```
 
