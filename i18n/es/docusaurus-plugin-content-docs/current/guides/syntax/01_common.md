@@ -35,9 +35,7 @@ The `Makefile` with 2 tasks, can use:
 
 :::info
 
-[$ZPFX][8] is provided by ZI, it is set to `~/.zi/polaris` by default.
-
-However, it can be changed by specifying the custom `$ZPFX=` target if required.
+[$ZPFX][8] is provided by ZI, it is set to `~/.zi/polaris` by default. However, it can be changed by specifying: `$ZPFX=` target.
 
 :::
 
@@ -75,11 +73,7 @@ zi light vim/vim
 
 ## <i class="fa-solid fa-palette"></i> LS_COLORS
 
-A repository [trapd00r/LS_COLORS][1] provides a file with color definitions for GNU `ls` command, and also for [ogham/exa][2].
-
-Typically one does `eval $( dircolors -b $HOME/LS_COLORS)` to process this file and set the environment for `ls`. This means `dircolors` is run every shell startup.
-
-This costs much time because a fork has to be done and the program, i.e. `dircolors`, binary needs to be loaded and executed, and because `dircolors` loads the colors' definitions and processes them. Following ZI invocation solves this problem:
+A repository [trapd00r/LS_COLORS][1] provides a file with color definitions for GNU `ls` command, and also for [ogham/exa][2]. Typically one does `eval $( dircolors -b $HOME/LS_COLORS)` to process this file and set the environment for `ls`. This means `dircolors` is run every shell startup. This costs much time because a fork has to be done and the program, i.e. `dircolors`, binary needs to be loaded and executed, and because `dircolors` loads the colors' definitions and processes them. Following ZI invocation solves this problem:
 
 ```shell showLineNumbers
 zi ice atclone'dircolors -b LS_COLORS > clrs.zsh' \
@@ -90,12 +84,11 @@ zi light trapd00r/LS_COLORS
 
 | Syntax             | Description                                                                                                 |
 | ------------------ |:----------------------------------------------------------------------------------------------------------- |
-| `atclone'…'`       | Generate shell script, but instead of passing it to `eval`. More: [1^]                                      |
-| `atpull'%atclone'` | Do the same at any update of the plugin. More: [2^]                                                         |
+| `atclone'…'`       | Generate shell script, but instead of passing it to `eval`. More: [^1]                                      |
+| `atpull'%atclone'` | Do the same at any update of the plugin. More: [^2]                                                         |
 | `pick"clrs.zsh"`   | Source the previously generated file `clrs zsh`.                                                            |
 | `nocompile'!'`     | Invokes compilation **after** the `atclone'…'` [ice-modifier][3] and the [exclamation mark][4] causes this. |
 | `atload'…'`        | Additionally sets up the Zsh completion to use the colors provided by the trapd00r package.                 |
-[1^]: Save it to file. The `atclone'…'` is being ran on the **installation** while the `atpull'…'` hook is being run on an **update** of the [**trapd00r/LS_COLORS**][1] plugin. [2^]: The `%atclone` is just a special string that denotes the `atclone'…'` hook and is copied onto the `atpull'…'` hook.
 
 This way, except for the plugin installation and update, `dircolors` isn't ran, just normal sourcing is done. The everyday sourced file, i.e. `clrs.zsh`, is being compiled to speed up the loading.
 
@@ -135,9 +128,7 @@ zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
 | `pick'direnv'`     | Ensure `+x` permission on the binary                                                                                 |
 | `as'program'`      | The plugin is a program, there's no main file to the source.                                                         |
 
-This way registration code is generated once every installation and update, to then be simply sourced without running `direnv`.
-
-The project is also available as a binary [GitHub releases][6]. This distribution can be installed by:
+This way registration code is generated once every installation and update, to then be simply sourced without running `direnv`. The project is also available as a binary [GitHub releases][6]. This distribution can be installed by:
 
 ```shell showLineNumbers
 zi from"gh-r" as"program" mv"direnv* -> direnv" \
@@ -206,6 +197,9 @@ zi load …
 It's up to the user which syntax to choose.
 
 The original motivation behind the standard syntax was: to utilize the syntax highlighting of editors like Vim – and have the strings following ice names colorized with a distinct color and this way separated from them. However, with the [zi/zi-vim-syntax][11] syntax definition this motivation can be superseded with the ZI-specific highlighting, at least for Vim.
+
+[^1]: Save it to file. The `atclone'…'` is being ran on the **installation** while the `atpull'…'` hook is being run on an **update** of the [**trapd00r/LS_COLORS**][1] plugin.
+[^2]: The `%atclone` is just a special string that denotes the `atclone'…'` hook and is copied onto the `atpull'…'` hook.
 
 [1]: https://github.com/trapd00r/LS_COLORS
 
