@@ -305,7 +305,7 @@ The `wait` and `wait"0"` is the same
 
 :::
 
-```shell title="~/.zshrc showLineNumbers"
+```shell showLineNumbers
 zi ice wait
 zi load z-shell/history-search-multi-word
 ```
