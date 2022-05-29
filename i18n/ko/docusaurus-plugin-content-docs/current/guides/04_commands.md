@@ -10,98 +10,82 @@ keywords:
 ## Commands available with <kbd>^TAB</kbd> completion
 
 ```shell title="zi ^TAB"
-self-update          -- "Updates and Compile ❮ ZI ❯"
-update               -- "Git update plugin (or all plugins and snippets if --all passed)"
-zstatus              -- "Checks ❮ ZI ❯ Status"
-report               -- "Show plugin's report (or all plugins' if --all passed)"
-add-fpath            -- "Add plugin folder to $fpath"
-bindkeys             -- "Lists bindkeys set up by each plugin"
-cclear               -- "Clear stray and improper completions"
-cd                   -- "Go into plugin's directory"
-cdclear              -- "Clear compdef replay list"
-cdisable             -- "Disable completion"
-cdlist               -- "Show compdef replay list"
-cdreplay             -- "Replay compdefs (to be done after compinit)"
-cenable              -- "Enable completion"
-changes              -- "View plugin's git log"
-compile              -- "Compile plugin (or all plugins if --all passed)"
-compiled             -- "Show which plugins are compiled"
-compinit             -- "Refresh installed completions"
-completions   clist  -- "List completions in use"
-create               -- "Create plugin (also together with Github repository)"
-creinstall           -- "Install completions for plugin"
-csearch              -- "Search for available completions from any plugin"
-cuninstall           -- "Uninstall completions for plugin"
-dclear               -- "Clear report of what was going on in session"
-delete               -- "Delete plugin"
-dreport              -- "Report what was going on in session"
-dstart        dtrace -- "Start tracking what's going on in session"
-dstop                -- "Stop tracking what's going on in session"
-dunload              -- "Revert changes recorded between dstart and dstop"
-edit                 -- "Edit plugin's file with $EDITOR"
-glance               -- "Look at plugin's source (pygmentize, {,source-}highlight)"
-load                 -- "Load plugin"
-loaded        list   -- "Show what plugins are loaded"
-ls                   -- "List snippets in formatted and colorized manner"
-module               -- "Manage binary Zsh module shipped with ❮ ZI ❯, see `zi module help`"
-recall               -- "Fetch saved ice modifiers and construct `zi ice …` command"
-recently             -- "Show plugins that changed recently, argument is e.g. 1 month 2 days"
-run                  -- "Execute code inside plugin's folder"
-snippet              -- "Source (or add to PATH with --command) local or remote file"
-srv                  -- "Control a service, command can be: stop,start,restart,next,quit;"
-status               -- "Git status for plugin (or all plugins if --all passed)"
-stress               -- "Test plugin for compatibility with set of options"
-times                -- "Statistics on plugin loading times"
-uncompile            -- "Remove compiled version of plugin (or of all plugins if --all passed)"
-unload               -- "Unload plugin"
-env-whitelist        -- "Allows to specify names (also patterns) of variables left unchanged during"
-analytics            -- "Show ❮ ZI ❯ Analytics"
-control              -- "❮ ZI ❯ Control commands"
-man                  -- "Manpage"
-help                 -- "Usage Information"
+ -- ❮ ZI ❯ commands: --
+add-fpath              -- Add plugin folder to $fpath
+analytics              -- Statistics, benchmarks and information
+bindkeys               -- Lists bindkeys set up by each plugin
+cclear                 -- Clear stray and improper completions
+cd                     -- Go into plugin directory
+cdclear                -- Clear compdef replay list
+cdisable               -- Disable completion
+cdlist                 -- Show compdef replay list
+cdreplay               -- Replay compdefs (to be done after compinit)
+cenable                -- Enable completion
+changes                -- View the plugin git log
+compile                -- Compile plugin (or all plugins if --all passed)
+compiled               -- Show which plugins are compiled
+compinit               -- Refresh installed completions
+completions    clist   -- List completions in use
+create                 -- Create plugin (also together with Github repository)
+creinstall             -- Install completions for plugin
+csearch                -- Search for available completions from any plugin
+cuninstall             -- Uninstall completions for plugin
+dclear                 -- Clear report of what was going on in session
+delete                 -- Delete plugin
+dreport                -- Report what was going on in session
+dstart         dtrace  -- Start tracking what's going on in session
+dstop                  -- Stop tracking what's going on in session
+dunload                -- Revert changes recorded between dstart and dstop
+edit                   -- Edit plugin's file with $EDITOR
+env-whitelist          -- Allows to specify names (also patterns) of variables left unchanged during an unload. -v - verbose
+glance                 -- View the plugin source
+help                   -- Usage information
+icemods                -- Shows ice-modifiers registered by annex
+light                  -- Light load plugin
+list                   -- List loaded plugins
+load                   -- Load plugin
+loaded                 -- Show loaded plugins
+ls                     -- List snippets in formatted and colorized manner
+man                    -- Manpage
+module                 -- Manage binary Zsh module, see 'zi module help' for more info
+recall                 -- Fetch saved ice modifiers and construct 'zi ice ...' command
+recently               -- Show plugins that changed recently, argument is e.g. 1 month 2 days
+report                 -- Show plugins report (or all plugins if --all passed)
+run                    -- Execute code inside plugin's folder
+self-update            -- Updates and compiles ❮ ZI ❯
+snippet                -- Source (or add to PATH with --command) local or remote file (-f: force - do not use cache)
+srv                    -- Control a service, command can be: stop,start,restart,next,quit; next'' moves the service to another Zshell
+status                 -- Git status for plugin (or all plugins if --all passed)
+stress                 -- Test the plugin for compatibility with set of options
+subcmds                -- Shows subcommands registered by annex
+times                  -- Statistics on plugin loading times
+uncompile              -- Remove compiled version of plugin (or of all plugins if --all passed)
+unload                 -- Unload plugin
+update                 -- Git update plugin (or all plugins and snippets if --all passed)
+zstatus                -- Check and provide status information
 ```
 
-## Updating ZI and plugins
+## Updates
 
-To update ZI issue `zi self-update` in the command line.
+To update ZI run `zi self-update` in the command line. To update all plugins and snippets, issue `zi update`. To update all in parallel (up to 40 at the time) `zi update -p 40` If you wish to update only a single plugin/snippet instead issue `zi update NAME_OF_PLUGIN`. A list of commits will be shown if any.
 
-To update all plugins and snippets, issue `zi update`.
+Some plugins require performing an action each time they're updated. One way you can do this is by using the `atpull` ice modifier. For example, writing `zi ice atpull'./configure'` before loading a plugin will execute `./configure` after a successful update. Refer to [Ice Modifiers][1] for more information.
 
-To update all in parallel (up to 40 at the time) `zi update -p 40`
+The ice modifiers for any plugin or snippet are stored in their directory in a `._zi` subdirectory, hence the plugin doesn't have to be loaded to be correctly updated. There's one other file created there, `.zi_lstupd` – it holds the log of the new commits pulled-in in the last update.
 
-If you wish to update only a single plugin/snippet instead issue `zi update NAME_OF_PLUGIN`.
+:::tip
 
-A list of commits will be shown if any.
+It is possible to combine system updates with tools like [topgrade][5] which will run ZI updates automatically.
 
-Some plugins require performing an action each time they're updated.
-
-One way you can do this is by using the `atpull` ice modifier.
-
-For example, writing `zi ice atpull'./configure'` before loading a plugin will execute `./configure` after a successful update.
-
-Refer to [Ice Modifiers][1] for more information.
-
-The ice modifiers for any plugin or snippet are stored in their directory in a `._zi` subdirectory, hence the plugin doesn't have to be loaded to be correctly updated.
-
-There's one other file created there, `.zi_lstupd` – it holds the log of the new commits pulled-in in the last update.
+:::
 
 ## Calling `compinit` without turbo mode
 
-With no Turbo mode in use, compinit can be called normally, i.e.: as `autoload compinit; compinit`.
+With no Turbo mode in use, compinit can be called normally, i.e.: as `autoload compinit; compinit`. This should be done after loading of all plugins and before possibly calling `zi cdreplay`. The `cdreplay` subcommand is provided to re-play all caught `compdef` calls. The `compdef` calls are used to define a completion for a command. For example, `compdef _git git` defines that the `git` command should be completed by a `_git` function. The `compdef` function is provided by `compinit` call.
 
-This should be done after loading of all plugins and before possibly calling `zi cdreplay`.
+As it should be called later, after loading all of the plugins, ZI provides its own `compdef` function that catches (i.e.: records in an array) the arguments of the call, so that the loaded plugins can freely call `compdef`. Then, the `cdreplay` (compdef-replay) can be used, after `compinit` will be called (and the original `compdef` function will become available), to execute all detected `compdef` calls.
 
-The `cdreplay` subcommand is provided to re-play all caught `compdef` calls.
-
-The `compdef` calls are used to define a completion for a command. For example, `compdef _git git` defines that the `git` command should be completed by a `_git` function.
-
-The `compdef` function is provided by `compinit` call.
-
-As it should be called later, after loading all of the plugins, ZI provides its own `compdef` function that catches (i.e.: records in an array) the arguments of the call, so that the loaded plugins can freely call `compdef`.
-
-Then, the `cdreplay` (compdef-replay) can be used, after `compinit` will be called (and the original `compdef` function will become available), to execute all detected `compdef` calls.
-
-To summarize:
+Summary:
 
 ```shell title="~/.zshrc" showLineNumbers
 source ~/.zi/bin/zi.zsh
@@ -141,13 +125,11 @@ Performance gains are huge, for example, shell startup time with double `compini
 
 ## Calling `compinit` with turbo mode
 
-If you load completions using `wait'…'` [turbo mode][2] then you can add `atinit'zicompinit'` to the syntax-highlighting plugin (which should be the last one loaded, as their (2 projects, [zsh-syntax-highlighting][3] & [F-Sy-H][4]) documentation state), or `atload'zicompinit'` to last completion-related plugin.
-
-`zicompinit` is a function that just runs `autoload compinit; compinit`, created for convenience.
+If you load completions using `wait'…'` [turbo mode][2] then you can add `atinit'zicompinit'` to the syntax-highlighting plugin (which should be the last one loaded, as their (2 projects, [zsh-syntax-highlighting][3] & [F-Sy-H][4]) documentation state), or `atload'zicompinit'` to last completion-related plugin. `zicompinit` is a function that just runs `autoload compinit; compinit`, created for convenience.
 
 There's also `zicdreplay` which will replay any caught compdefs so you can also do: `atinit'zicompinit; zicdreplay'`, etc.
 
-Basically, the whole topic is the same as normal `compinit` call, but it is done in `atinit` or `atload` hook of the last related plugin with the use of the helper functions (`zicompinit`,`zicdreplay` & `zicdclear` – see below for explanation of the last one).
+It is recommended to run `compinit` call in `atinit` or `atload` hook of the last related plugin with the use of the helper functions `zicompinit`,`zicdreplay` & `zicdclear` as shown below:
 
 ### Summary of `compinit` call
 
@@ -285,3 +267,4 @@ Following commands are passed to `zi …` to obtain described effects.
 [2]: /search?q=turbo+mode
 [3]: https://github.com/zsh-users/zsh-syntax-highlighting
 [4]: https://github.com/z-shell/F-Sy-H
+[5]: https://github.com/r-darwish/topgrade
