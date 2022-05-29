@@ -115,9 +115,9 @@ autoload -Uz _zi
 
 After a fresh install, recommended to reload the shell with `exec zsh` and compile ZI with `zi self-update`. Run `zi -h` to see all available commands. Increase ZI functionality, performance or get started by exploring the wiki.
 
-If you have any issue or need help 🤦‍♂️, lets [discuss][9] it or open an [issue][7] in any language.
+If you have any issue or need help 🤦‍♂️, lets [discuss][7] it or open an [issue][6] in any language.
 
-It helps us to improve and make ZI better. Don't forget to help the project: share, contribute, or [translate][10] 🌐 🥰 🤓.
+It helps us to improve and make ZI better. Don't forget to help the project: share, contribute, or [translate][8] 🌐 🥰 🤓.
 
 Let's glue everything together to create a toolchain that works for US 🚀.
 
@@ -150,8 +150,8 @@ To accomplish this, use burst argument and call `@zi-scheduler` function:
 RUN zsh -i -c -- '@zi-scheduler burst || true'
 ```
 
-> - An example: [Dockerfile](https://github.com/robobenklein/configs/blob/master/Dockerfile)
-> - In action: [Dockerfile](https://github.com/z-shell/playground)
+> - An example: [Dockerfile][11]
+> - In action: [Dockerfile][12]
 
 ## <i class="fas fa-cog fa-pulse"></i> Build ZI Module
 
@@ -165,7 +165,7 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
 
 :::info
 
-ZI has to be installed to build the module. Module repository: [z-shell/zpmod][8]
+ZI has to be installed to build the module. Module repository: [z-shell/zpmod][9]
 
 :::
 
@@ -181,25 +181,25 @@ typeset -g ZI_MOD_DEBUG=1
 
 ## <i class="fas fa-sync-alt fa-spin"></i> Available installer links
 
-[⚙️ Install Library: :heavy_check_mark:][2] | [Status page: :heavy_check_mark:](https://status.zshell.dev/)
+[Status page: :heavy_check_mark:][10]
 
 | 域名               | URL                                                                       |
 |:---------------- | ------------------------------------------------------------------------- |
-| [Source RAW][3]: | <https://raw.zshell.dev/lib/sh/install.sh>                                |
-| [IPFS][11]       | <https://ipfs.zshell.dev/lib/sh/install.sh>                               |
-| [Gitee][1]:      | <https://z.digitalclouds.dev/i-tee>                                       |
-| [GitHub][4]:     | <https://z.digitalclouds.dev/i-hub>                                       |
-| [GitLab][5]:     | <https://z.digitalclouds.dev/i-lab>                                       |
-| [Direct][6]:     | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
+| [Source RAW][1]: | <https://raw.zshell.dev/lib/sh/install.sh>                                |
+| [IPFS][2]        | <https://ipfs.zshell.dev/lib/sh/install.sh>                               |
+| [GitHub][3]:     | <https://z.digitalclouds.dev/i-hub>                                       |
+| [GitLab][4]:     | <https://z.digitalclouds.dev/i-lab>                                       |
+| [Direct][5]:     | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
-[1]: https://z.digitalclouds.dev/i-tee
-[2]: https://github.com/z-shell/zi-src/actions/workflows/check-sh.yml
-[3]: https://raw.zshell.dev/lib/sh/install.sh
-[4]: https://z.digitalclouds.dev/i-hub
-[5]: https://z.digitalclouds.dev/i-lab
-[6]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
-[7]: https://github.com/z-shell/zi/issues/new/choose
-[8]: https://github.com/z-shell/zpmod
-[9]: https://github.com/orgs/z-shell/discussions/new
-[10]: https://digitalclouds.crowdin.com/z-shell
-[11]: https://ipfs.io
+[1]: https://raw.zshell.dev/lib/sh/install.sh
+[2]: https://ipfs.io
+[3]: https://z.digitalclouds.dev/i-hub
+[4]: https://z.digitalclouds.dev/i-lab
+[5]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
+[6]: https://github.com/z-shell/zi/issues/new/choose
+[7]: https://github.com/orgs/z-shell/discussions/new
+[8]: https://digitalclouds.crowdin.com/z-shell
+[9]: https://github.com/z-shell/zpmod
+[10]: https://status.zshell.dev
+[11]: https://github.com/robobenklein/configs/blob/master/Dockerfile
+[12]: https://github.com/z-shell/playground
