@@ -2,27 +2,27 @@
 id: meta-plugins
 title: 💠 Meta Plugins
 image: img/logo/320x320.png
-description: Annex - meta plugins documentation
+description: Annex - meta-plugins documentation
 keywords:
   - annex,
   - meta-plugins
 ---
 
-- [z-shell/z-a-meta-plugins](https://github.com/z-shell/z-a-meta-plugins)
+## <i class="fa-brands fa-github"></i> [z-shell/z-a-meta-plugins][45]
 
-An annex have the curated, optimal [ice](/docs/guides/syntax/ice) lists automatically applied.
+An annex has the curated, optimal [ice][46] lists automatically applied.
 
-- Create your own [group of plugins](https://github.com/z-shell/z-a-meta-plugins/issues/new)
+- Create your own [group of plugins][47]
 
 :::info
 
 - Before using meta plugins, a meta plugins annex have to be installed. (`zi light-mode for z-a-meta-plugins`)
-- Prefix `@` used to avoid syntax conflicts. Example: `zi light-mode for @<meta-plugin-name>`
-- Before installing any plugin visit original repository where available to verify that system is supported and meets other requirements.
+- Prefix `@` used to avoid syntax conflicts. E.g: `zi light-mode for @<meta-plugin-name>`
+- Before installing any plugin visit the original repository where available to verify that system is supported and meets other requirements.
 
 :::
 
-## Install meta plugins
+## Install meta-plugins
 
 :::note
 
@@ -40,7 +40,7 @@ zi light-mode for z-a-meta-plugins @annexes @ext-git @zsh-users
 
 :::
 
-Following commands are examples of installing meta plugins:
+The following commands are examples of installing meta plugins:
 
 ```shell
 zi light @annexes
@@ -55,7 +55,7 @@ zi light-mode for @annexes skip'zsh-completions' @zsh-users \
 skip'vivid exa tig' @console-tools
 ```
 
-## The list of available meta-plugins
+## Available meta-plugins
 
 | Meta plugin name | Consisting plugins                                                                                                                      |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -79,7 +79,7 @@ skip'vivid exa tig' @console-tools
 | @py-utils        | [pyenv][44] (package)                                                                                                                   |
 | @prezto          | PZTM::archive, PZTM::directory, PZTM::utility                                                                                           |
 
-## Meta Plugins summary
+## Summary
 
 It consumes time to:
 
@@ -97,13 +97,15 @@ Other unique benefits of the meta plugins annex:
 
 |                           Benefit                           | Description                                                                                                                                                                                                                                                                                                     |
 | :---------------------------------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                     Plugin dependencies                     | The meta plugins implement a dependency mechanism: selecting a from-source built [ogham/exa][31] will automatically pull-in also the Rust compiler (available under meta-plugin name: `rust-toolchain`).                                                                                                        |
+|                     Plugin dependencies                     | The meta plugins implement a dependency mechanism: selecting a from-source built [ogham/exa][31] will automatically pull in also the Rust compiler (available under the meta-plugin name: `rust-toolchain`).                                                                                                    |
 | Flexible disabling of chosen sub-plugins in any meta-plugin | A meta-plugin can contain many sub-plugins and it's possible to skip installing some of them by the **skip'plg-1 plg-2…'** ice, e.g.: `zi skip'ripgrep fd' for console-tools`. This way despite that some of the meta plugins are broad the user still has control over what's and how much is being installed. |
-|               Common from-source meta plugins               | For the plugins that provide the binary programs it is often the case that a meta-plugin exists that'll build the program from source (e.g.: **fuzzy** meta-plugin and its **fuzzy-src** counterpart). This might be handy e.g.: if there's no binary for our machine.                                          |
+|               Common from-source meta plugins               | For the plugins that provide the binary programs it is often the case that a meta-plugin exists that'll build the program from the source (e.g.: **fuzzy** meta-plugin and its **fuzzy-src** counterpart). This might be handy e.g.: if there's no binary for our machine.                                      |
 
-<img src="https://raw.githubusercontent.com/z-shell/z-a-meta-plugins/main/docs/images/fuzzy-mplg-ex.png#center" alt="screenshot meta-plugins annex" />
+---
 
-<!-- END meta-plugins -->
+![screenshot meta-plugins annex][48]
+
+<!-- end-of-file -->
 
 [1]: https://github.com/z-shell/z-a-bin-gem-node
 [2]: https://github.com/z-shell/z-a-readurl
@@ -149,3 +151,7 @@ Other unique benefits of the meta plugins annex:
 [42]: https://github.com/tj/git-extras
 [43]: https://github.com/wfxr/forgit
 [44]: https://github.com/z-shell/pyenv
+[45]: https://github.com/z-shell/z-a-meta-plugins
+[46]: /docs/guides/syntax/ice
+[47]: https://github.com/z-shell/z-a-meta-plugins/issues/new
+[48]: https://raw.githubusercontent.com/z-shell/z-a-meta-plugins/main/docs/images/fuzzy-mplg-ex.png#center

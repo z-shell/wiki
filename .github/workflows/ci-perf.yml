@@ -10,7 +10,8 @@ name: '📊 Build Performance'
 on:
   pull_request:
     branches: ['main']
-    paths-ignore: ['docs/**', 'community/**', 'blog/**', 'src/pages/**', 'package.json', 'pnpm-lock.yaml']
+    paths-ignore:
+      ['docs/**', 'community/**', 'ecosystem/**', 'blog/**', 'src/pages/**', 'package.json', 'pnpm-lock.yaml']
 
 jobs:
   build-size:
@@ -22,7 +23,7 @@ jobs:
     strategy:
       matrix:
         node-version: ['16']
-        pnpm-version: ['7.1.6']
+        pnpm-version: ['7.1.7']
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2.2.2
@@ -36,7 +37,7 @@ jobs:
       - uses: preactjs/compressed-size-action@v2
         with:
           build-script: 'build:en'
-          pattern: '{build/assets/js/*js,build/assets/css/*css,.docusaurus/globalData.json,build/index.html,build/blog/index.html,build/blog/**/swiss-army-knife-for-zsh/*,build/ecosystem/index.html,build/community/index.html,build/docs/index.html,build/docs/getting_started/installation.html}'
+          pattern: '{build/assets/js/main.*js,build/assets/css/styles.*css,.docusaurus/globalData.json,build/index.html,build/blog/index.html,build/blog/**/swiss-army-knife-for-zsh/*,build/ecosystem/index.html,build/community/index.html,build/docs/index.html,build/docs/getting_started/installation.html}'
           exclude: '{./build/manifest.json,**/*.map,**/node_modules/**}'
           strip-hash: '\.([^;]\w{7})\.'
           minimum-change-threshold: 30
@@ -51,7 +52,7 @@ jobs:
     strategy:
       matrix:
         node-version: ['16']
-        pnpm-version: ['7.1.6']
+        pnpm-version: ['7.1.7']
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2.2.2
