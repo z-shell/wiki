@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import * as AsciinemaPlayerLibrary from 'asciinema-player';
 /* import * as asciinemacss from 'asciinema-player/dist/bundle/asciinema-player.min.js';*/
 
-type AsciinemaPlayerProps = {
+class AsciinemaPlayerProps extends React.Component {
   src: string;
   // START asciinemaOptions
   cols: string;
@@ -18,7 +18,7 @@ type AsciinemaPlayerProps = {
   fit: string;
   fontSize: string;
   // END asciinemaOptions
-};
+}
 
 const AsciinemaPlayer: React.FC<AsciinemaPlayerProps> = ({
   src,

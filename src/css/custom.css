@@ -182,7 +182,7 @@ html[data-theme='dark'] div[class^='announcementBar_'] {
 }
 
 .ScreenView {
-  width: 100%;
+  max-width: 90%;
   height: auto;
   text-align: center;
 }
@@ -195,6 +195,7 @@ html[data-theme='dark'] div[class^='announcementBar_'] {
 img[src$='#center'] {
   display: block;
   margin: 0.7rem auto;
+  text-align: center;
   width: 90%;
 }
 
@@ -205,8 +206,9 @@ img[src$='#asciicast'] {
 }
 
 img[src$='#floatleft'] {
-  float: left;
-  margin: 0.7rem;
+  max-width: 90%;
+  height: auto;
+  text-align: center;
 }
 
 img[src$='#floatright'] {

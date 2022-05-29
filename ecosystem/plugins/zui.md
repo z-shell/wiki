@@ -17,9 +17,9 @@ import Screen3 from '@site/static/img/png/zui-list-boxes-fs8.png';
 import Screen4 from '@site/static/img/png/zui-history-fs8.png';
 import Screen5 from '@site/static/img/png/zui-edit-fs8.png';
 
-### CGI+DHTML-like User Interface Library for Zsh / ZCurses
+## CGI+DHTML-like User Interface Library for Zsh / ZCurses
 
-- [z-shell/ZUI][1]
+### <i class="fa-brands fa-github"></i> [z-shell/ZUI][1]
 
 This is a RAD (Rapid Application Development) textual user interface library for Zsh. It in many aspects resembles typical CGI+(D)HTML setup. There are:
 
@@ -748,37 +748,36 @@ zui-event-loop 1:demo_generator_A
 
 Other example which uses list-box: [zui-demo-list-box][12].
 
-### ZUI Installation
+### Install ZUI
 
-**The plugin is "standalone"**, which means that only sourcing it is needed. So to install, unpack `zui` somewhere and
-add
+#### Standalone
+
+Unpack `zui` somewhere and add to `zshrc`:
 
 ```shell
 source {where-zui-is}/zui.plugin.zsh
 ```
 
-to `zshrc`.
-
 If using a plugin manager, then `ZI` is recommended, but you can use any other too, and also install with `Oh My Zsh`
 (by copying directory to `~/.oh-my-zsh/custom/plugins`).
 
-#### ZUI - [ZI][13]
+#### [ZI][13]
 
 Add `zi load z-shell/zui` to your `.zshrc` file. ZI will handle the rest automatically the next time you start zsh. To
 update (i.e. to pull from origin) issue `zi update z-shell/zui`.
 
-#### ZUI - Antigen
+#### Antigen
 
 Add `antigen bundle z-shell/zui` to your `.zshrc` file. Antigen will handle cloning the plugin for you automatically the
 next time you start zsh.
 
-#### ZUI - Oh-My-Zsh
+#### Oh-My-Zsh
 
 1. `cd ~/.oh-my-zsh/custom/plugins`
 2. `git clone git@github.com:z-shell/zui.git`
 3. Add `zui` to your plugin list
 
-#### ZUI - Zgen
+#### Zgen
 
 Add `zgen load z-shell/zui` to your .zshrc file in the same place you're doing your other `zgen load` calls in.
 

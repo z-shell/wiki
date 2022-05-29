@@ -5,6 +5,7 @@ title: ⚙️ Introduction
 sidebar_position: 1
 image: img/logo/320x320.png
 description: Plugins & Modules Introduction
+toc_max_heading_level: 4
 keywords:
   - plugins
   - modules
@@ -12,9 +13,15 @@ keywords:
   - zsh-plugins
 ---
 
+<head>
+  <meta charSet="utf-8" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="canonical" href="https://z.digitalclouds.dev/ecosystem/plugins" />
+</head>
+
 ## Zpmod
 
-- [z-shell/zpmod][1]
+### <i class="fa-brands fa-github"></i> [z-shell/zpmod][1]
 
 The module is a binary Zsh module, think about `zmodload` Zsh command, it's that topic, which transparently and
 automatically **compiles sourced scripts**.
@@ -22,7 +29,9 @@ automatically **compiles sourced scripts**.
 Many plugin managers do not offer a compilation of plugins, the module is a solution to this. Even if a plugin manager
 does compile the plugin's main script (like ZI does).
 
-### Install standalone zpmod
+#### Install zpmod
+
+##### Standalone
 
 Install just the **standalone** binary which can be used with any other plugin manager.
 
@@ -38,7 +47,7 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
 
 This script will display what to add to `~/.zshrc` (2 lines) and show usage instructions.
 
-### With [ZI][2]
+##### With [ZI][2]
 
 :::tip
 
@@ -52,7 +61,7 @@ zi module build
 
 This command will compile the module and display instructions on what to add to `~/.zshrc`.
 
-### Measuring Time of sources
+#### Measuring Time of sources
 
 Besides the compilation feature, the module also measures **duration** of each script sourcing.
 
@@ -64,7 +73,7 @@ complete list of all loaded scripts, like if Zshell itself was investigating thi
 
 **The list can be surprising.**
 
-### Debugging
+#### Debugging
 
 To enable debug messages from the module set:
 
@@ -74,11 +83,13 @@ typeset -g ZI_MOD_DEBUG=1
 
 ## Zgdbm
 
-- [z-shell/zgdbm][3]
+### <i class="fa-brands fa-github"></i> [z-shell/zgdbm][3]
 
 Provides GDBM module as plugin
 
-### Install zgdbm with ZI
+#### Install zgdbm
+
+##### With ZI
 
 `zstyles` - The values being set are the defaults.
 
