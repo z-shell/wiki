@@ -29,6 +29,7 @@ lint:
         - '!18n/en/**'
         - 'build/**'
         - 'static/img/**'
+        - 'static/assets/**'
         - '.docusaurus/**'
     - linters: [gitleaks]
       paths:
