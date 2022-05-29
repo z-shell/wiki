@@ -10,6 +10,14 @@ keywords:
 
 ## <i class="fas fa-spinner fa-spin"></i> Quick setup
 
+```shell title="~/.zshrc"
+source <(curl -sL https://git.io/zi-loader); zzinit
+```
+
+Reload shell with `exec zsh` and run `zi -h` for usage information.
+
+## <i class="fas fa-spinner fa-spin"></i> Automated setup
+
 :::tip
 
 If required append `-b <tag>` or `-b <branch>` e.g:
