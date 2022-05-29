@@ -8,13 +8,10 @@ specifiers:
   '@babel/core': 7.18.2
   '@docusaurus/core': 0.0.0-5072
   '@docusaurus/module-type-aliases': 0.0.0-5072
-  '@docusaurus/plugin-client-redirects': 0.0.0-5072
   '@docusaurus/plugin-ideal-image': 0.0.0-5072
   '@docusaurus/plugin-pwa': 0.0.0-5072
   '@docusaurus/preset-classic': 0.0.0-5072
   '@docusaurus/theme-search-algolia': 0.0.0-5072
-  '@docusaurus/utils': 0.0.0-5072
-  '@docusaurus/utils-common': 0.0.0-5072
   '@loadable/component': 5.15.2
   '@mdx-js/react': 1.6.22
   '@trunkio/launcher': ^1.1.1
@@ -45,13 +42,10 @@ specifiers:
 
 dependencies:
   '@docusaurus/core': 0.0.0-5072_ayycmnu6ctgy4baym4n633rb7y
-  '@docusaurus/plugin-client-redirects': 0.0.0-5072_ayycmnu6ctgy4baym4n633rb7y
   '@docusaurus/plugin-ideal-image': 0.0.0-5072_cpnwb7crf6dlrqveoleju22fre
   '@docusaurus/plugin-pwa': 0.0.0-5072_ayycmnu6ctgy4baym4n633rb7y
   '@docusaurus/preset-classic': 0.0.0-5072_gyb6sw5e64mvgnunnqzkql7yh4
   '@docusaurus/theme-search-algolia': 0.0.0-5072_gyb6sw5e64mvgnunnqzkql7yh4
-  '@docusaurus/utils': 0.0.0-5072
-  '@docusaurus/utils-common': 0.0.0-5072
   '@loadable/component': 5.15.2_react@17.0.2
   '@mdx-js/react': 1.6.22_react@17.0.2
   asciinema-player: 3.0.0
@@ -1734,40 +1728,6 @@ packages:
       - esbuild
       - uglify-js
       - webpack-cli
-
-  /@docusaurus/plugin-client-redirects/0.0.0-5072_ayycmnu6ctgy4baym4n633rb7y:
-    resolution: {integrity: sha512-YzpEteRDao/8q2JdWJWc22xXVzPBPt4TAbgKbC6Wf7S8+Zd5iwItL75J/BzpIuqrF6vxZ/yFP8j2zRXQavtc/g==}
-    engines: {node: '>=16.14'}
-    peerDependencies:
-      react: ^16.8.4 || ^17.0.0 || 17
-      react-dom: ^16.8.4 || ^17.0.0
-    dependencies:
-      '@docusaurus/core': 0.0.0-5072_ayycmnu6ctgy4baym4n633rb7y
-      '@docusaurus/logger': 0.0.0-5072
-      '@docusaurus/utils': 0.0.0-5072
-      '@docusaurus/utils-common': 0.0.0-5072
-      '@docusaurus/utils-validation': 0.0.0-5072
-      eta: 1.12.3
-      fs-extra: 10.1.0
-      lodash: 4.17.21
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-      tslib: 2.4.0
-    transitivePeerDependencies:
-      - '@parcel/css'
-      - '@swc/core'
-      - bufferutil
-      - csso
-      - debug
-      - esbuild
-      - eslint
-      - supports-color
-      - typescript
-      - uglify-js
-      - utf-8-validate
-      - vue-template-compiler
-      - webpack-cli
-    dev: false
 
   /@docusaurus/plugin-content-blog/0.0.0-5072_ayycmnu6ctgy4baym4n633rb7y:
     resolution: {integrity: sha512-e8M3/5yM3MeGCqVve5vjYfFIhXNR1XeBgxo/EwAgkvstxKEya+Jy1ICjA47LO4mNonbrY3S9ZT5QrJxJXjWWXA==}

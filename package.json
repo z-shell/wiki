@@ -26,13 +26,10 @@
   },
   "dependencies": {
     "@docusaurus/core": "0.0.0-5072",
-    "@docusaurus/plugin-client-redirects": "0.0.0-5072",
     "@docusaurus/plugin-ideal-image": "0.0.0-5072",
     "@docusaurus/plugin-pwa": "0.0.0-5072",
     "@docusaurus/preset-classic": "0.0.0-5072",
     "@docusaurus/theme-search-algolia": "0.0.0-5072",
-    "@docusaurus/utils": "0.0.0-5072",
-    "@docusaurus/utils-common": "0.0.0-5072",
     "@loadable/component": "5.15.2",
     "@mdx-js/react": "1.6.22",
     "asciinema-player": "3.0.0",

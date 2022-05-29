@@ -5,7 +5,6 @@ const AsciinemaPlayer = loadable(
   () =>
     import(/* webpackPrefetch: true */ '@site/src/components/AsciinemaPlayer')
 );
-import * as asciinemacss from 'asciinema-player/dist/bundle/asciinema-player.css';
 import styles from './styles.module.css';
 
 export default function HomeHeader(): JSX.Element {
@@ -13,7 +12,6 @@ export default function HomeHeader(): JSX.Element {
     <header className={clsx('hero hero--primary', styles.herobanner)}>
       <div id={'player'} role={'video'} className={'container'}>
         <AsciinemaPlayer
-          className={asciinemacss}
           src={'https://asciinema.org/a/459358.cast'}
           preload={true}
           poster={'npt:0:01'}

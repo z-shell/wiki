@@ -15,7 +15,6 @@ const config = {
   staticDirectories: ['static'],
   i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
   scripts: [{ defer: true, src: '/assets/js/all.min.js' }],
-  stylesheets: [{ href: '/assets/css/fontawesome.min.css', type: 'test/css' }],
   plugins: [
     [
       'ideal-image',
