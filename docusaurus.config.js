@@ -14,10 +14,39 @@ const config = {
   organizationName: 'z-shell',
   staticDirectories: ['static'],
   i18n: { defaultLocale: 'en', locales: ['en', 'zh-Hans'] } /* 'ja', */,
-  stylesheets: [
-    { href: 'assets/css/fontawesome.min.css' },
-    { href: 'assets/css/brands.min.css' },
-    { href: 'assets/css/solid.min.css' },
+  stylesheets: [{ href: 'https://z.digitalclouds.dev/assets/css/all.min.css' }],
+  presets: [
+    [
+      'classic',
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
+        debug: true,
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
+        docs: {
+          sidebarPath: 'sidebars.js',
+          editUrl: ({ locale, versionDocsDirPath, docPath }) => {
+            if (locale !== 'en') {
+              return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
+            }
+            return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
+          },
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
+        },
+        blog: {
+          showReadingTime: true,
+          editUrl: ({ locale, blogDirPath, blogPath }) => {
+            if (locale !== 'en') {
+              return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
+            }
+            return `https://github.com/z-shell/zw/tree/main/${blogDirPath}/${blogPath}`;
+          },
+        },
+        sitemap: { changefreq: 'daily', priority: 0.5 },
+      }),
+    ],
   ],
   plugins: [
     [
@@ -77,39 +106,6 @@ const config = {
         },
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
-      }),
-    ],
-  ],
-  presets: [
-    [
-      'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
-        debug: true,
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
-        docs: {
-          sidebarPath: 'sidebars.js',
-          editUrl: ({ locale, versionDocsDirPath, docPath }) => {
-            if (locale !== 'en') {
-              return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
-            }
-            return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
-          },
-          showLastUpdateAuthor: true,
-          showLastUpdateTime: true,
-        },
-        blog: {
-          showReadingTime: true,
-          editUrl: ({ locale, blogDirPath, blogPath }) => {
-            if (locale !== 'en') {
-              return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
-            }
-            return `https://github.com/z-shell/zw/tree/main/${blogDirPath}/${blogPath}`;
-          },
-        },
-        sitemap: { changefreq: 'daily', priority: 0.5 },
       }),
     ],
   ],

@@ -1,0 +1,10 @@
+name = "r2-store"
+main = "src/index.ts"
+compatibility_date = "2022-05-30"
+account_id = "2db2112b269ed3616ed3a863a222f3e8"
+workers_dev = false
+route = "r2-store.zshell.dev"
+
+[[r2_buckets]]
+binding = 'R2_BUCKET'
+bucket_name = 'r2-store'
