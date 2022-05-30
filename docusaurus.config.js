@@ -13,9 +13,12 @@ const config = {
   projectName: 'zw',
   organizationName: 'z-shell',
   staticDirectories: ['static'],
-  i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
-  /* scripts: [{ defer: true, src: 'https://z.digitalclouds.dev/assets/js/all.min.js' }], */
-  stylesheets: [{ href: 'assets/css/all.min.css' }],
+  i18n: { defaultLocale: 'en', locales: ['en', 'zh-Hans'] } /* 'ja', */,
+  stylesheets: [
+    { href: 'assets/css/fontawesome.min.css' },
+    { href: 'assets/css/brands.min.css' },
+    { href: 'assets/css/solid.min.css' },
+  ],
   plugins: [
     [
       'ideal-image',
@@ -47,7 +50,7 @@ const config = {
         id: 'community',
         path: 'community',
         routeBasePath: 'community',
-        sidebarPath: 'lib/js/sidebars_2.js',
+        sidebarPath: 'sidebars.js',
         editUrl: ({ locale, versionDocsDirPath, docPath }) => {
           if (locale !== 'en') {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
@@ -65,7 +68,7 @@ const config = {
         id: 'ecosystem',
         path: 'ecosystem',
         routeBasePath: 'ecosystem',
-        sidebarPath: 'lib/js/sidebars_3.js',
+        sidebarPath: 'sidebars.js',
         editUrl: ({ locale, versionDocsDirPath, docPath }) => {
           if (locale !== 'en') {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
@@ -87,7 +90,7 @@ const config = {
           customCss: require.resolve('./src/css/custom.css'),
         },
         docs: {
-          sidebarPath: 'lib/js/sidebars_1.js',
+          sidebarPath: 'sidebars.js',
           editUrl: ({ locale, versionDocsDirPath, docPath }) => {
             if (locale !== 'en') {
               return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
@@ -139,14 +142,13 @@ const config = {
         },
         items: [
           { type: 'doc', docId: 'intro', position: 'left', label: 'Docs' },
-          { to: 'community/intro', position: 'left', label: 'Community' },
           { to: 'ecosystem/intro', position: 'left', label: 'Ecosystem' },
+          { to: 'community/intro', position: 'left', label: 'Community' },
           {
             type: 'localeDropdown',
             position: 'right',
             dropdownItemsAfter: [{ href: 'https://crowdin.digitalclouds.dev/z-shell', label: 'Help Us Translate' }],
           },
-          { type: 'docsVersionDropdown', position: 'right' },
           {
             href: 'https://github.com/z-shell/zi/',
             position: 'right',
@@ -181,7 +183,7 @@ const config = {
             items: [
               {
                 label: 'Slack.com',
-                href: 'https://z-shell.slack.com',
+                href: 'https://join.slack.com/t/z-shell/shared_invite/zt-16twpopd2-p08ROUeT2aGZ5njJwysawA',
               },
               {
                 label: 'Matrix.org',
