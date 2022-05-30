@@ -7,44 +7,16 @@ keywords:
   - setup
 ---
 
-## OMZ Basics
+## Oh-My-Zsh
 
-Raw Syntax with URL:
+### OMZ Shorthand Syntax
 
-```shell
-zi snippet <URL>
-```
-
-OMZ Shorthand Syntax:
-
-<https://github.com/ohmyzsh/ohmyzsh/raw/master/>
-
-```shell
-zi snippet OMZ::<PATH>
-```
-
-OMZL:
-
-<http://github.com/ohmyzsh/ohmyzsh/raw/master/lib>
-
-```shell
-zi snippet OMZL::<PATH>
-```
-
-OMZP:
-
-<http://github.com/ohmyzsh/ohmyzsh/raw/master/plugins>
-
-```shell
-zi snippet OMZP::<PATH>
-```
-
-OMZT:
-
-<http://github.com/ohmyzsh/ohmyzsh/raw/master/themes>
-
-```shell
-zi snippet OMZT::<PATH>
+```shell showLineNumbers
+zi snippet <URL>        # Raw Syntax with URL
+zi snippet OMZ::<PATH>  # Shorthand OMZ/          (http://github.com/ohmyzsh/ohmyzsh/raw/master/)
+zi snippet OMZL::<PATH> # Shorthand OMZ/lib/      (http://github.com/ohmyzsh/ohmyzsh/raw/master/lib)
+zi snippet OMZT::<PATH> # Shorthand OMZ/themes/   (http://github.com/ohmyzsh/ohmyzsh/raw/master/themes)
+zi snippet OMZP::<PATH> # Shorthand OMZ/plugins/  (http://github.com/ohmyzsh/ohmyzsh/raw/master/plugins)
 ```
 
 ### OMZ Library

@@ -7,49 +7,21 @@ keywords:
   - setup
 ---
 
-## OMZ Pagrindai
+## Oh-My-Zsh
 
-Raw Syntax with URL:
+### OMZ Shorthand Syntax
 
-```shell
-zi snippet <URL>
+```shell showLineNumbers
+zi snippet <URL>        # Raw Syntax with URL
+zi snippet OMZ::<PATH>  # Shorthand OMZ/          (http://github.com/ohmyzsh/ohmyzsh/raw/master/)
+zi snippet OMZL::<PATH> # Shorthand OMZ/lib/      (http://github.com/ohmyzsh/ohmyzsh/raw/master/lib)
+zi snippet OMZT::<PATH> # Shorthand OMZ/themes/   (http://github.com/ohmyzsh/ohmyzsh/raw/master/themes)
+zi snippet OMZP::<PATH> # Shorthand OMZ/plugins/  (http://github.com/ohmyzsh/ohmyzsh/raw/master/plugins)
 ```
 
-OMZ Shorthand Syntax:
+### OMZ Library
 
-<https://github.com/ohmyzsh/ohmyzsh/raw/master/>
-
-```shell
-zi snippet OMZ::<PATH>
-```
-
-OMZL:
-
-<http://github.com/ohmyzsh/ohmyzsh/raw/master/lib>
-
-```shell
-zi snippet OMZL::<PATH>
-```
-
-OMZP:
-
-<http://github.com/ohmyzsh/ohmyzsh/raw/master/plugins>
-
-```shell
-zi snippet OMZP::<PATH>
-```
-
-OMZT:
-
-<http://github.com/ohmyzsh/ohmyzsh/raw/master/themes>
-
-```shell
-zi snippet OMZT::<PATH>
-```
-
-### OMZ Biblioteka
-
-Importuoti [clipboard][1] ir [termsupport][2] iš OMZ bibliotekos pavyzdžio:
+Importing the [clipboard][1] and [termsupport][2] from the OMZ library sample:
 
 Raw Syntax:
 
@@ -72,7 +44,7 @@ zi snippet OMZL::clipboard.zsh
 zi snippet OMZL::termsupport.zsh
 ```
 
-### OMZ Įskiepiai
+### OMZ Plugins
 
 ```diff showLineNumbers
 - plugins=(
@@ -92,13 +64,13 @@ zi snippet OMZL::termsupport.zsh
 
 :::tip
 
-Supakuokite kelias komandas į vieną failą:
+Bundle multiple commands to a single file:
 
 `zi snippet <some/path/or/url/bundled-snippets.zsh`
 
 :::
 
-### Įskiepiai
+### Plugins
 
 ```diff showLineNumbers
 - plugins=(
@@ -154,7 +126,7 @@ zi snippet OMZP::ag/_ag
 
 [You can see an extended explanation of OMZ setup in the Wiki][8]
 
-### OMZ Temos
+### OMZ Themes
 
 Themes are stored in the `themes` directory. All and loaded in the background. with the simple syntax:
 
@@ -339,7 +311,7 @@ What is `zstyle`?
 
 ## Zgen
 
-### Įkelti OMZ biblioteką
+### Load OMZ library
 
 ```diff showLineNumbers
 - zgen oh-my-zsh
@@ -347,7 +319,7 @@ What is `zstyle`?
 + zi snippet OMZL::<ANY OF THEM>
 ```
 
-### Įkelti OMZ įskiepius
+### Load OMZ plugins
 
 ```diff showLineNumbers
 - zgen oh-my-zsh <PATH>

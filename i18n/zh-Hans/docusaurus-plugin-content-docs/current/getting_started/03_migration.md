@@ -7,72 +7,44 @@ keywords:
   - setup
 ---
 
-## OMZ 基础知识
+## Oh-My-Zsh
 
-URL 的原始语法：
+### OMZ Shorthand Syntax
 
-```shell
-zi snippet <URL>
+```shell showLineNumbers
+zi snippet <URL>        # Raw Syntax with URL
+zi snippet OMZ::<PATH>  # Shorthand OMZ/          (http://github.com/ohmyzsh/ohmyzsh/raw/master/)
+zi snippet OMZL::<PATH> # Shorthand OMZ/lib/      (http://github.com/ohmyzsh/ohmyzsh/raw/master/lib)
+zi snippet OMZT::<PATH> # Shorthand OMZ/themes/   (http://github.com/ohmyzsh/ohmyzsh/raw/master/themes)
+zi snippet OMZP::<PATH> # Shorthand OMZ/plugins/  (http://github.com/ohmyzsh/ohmyzsh/raw/master/plugins)
 ```
 
-OMZ 短语法：
+### OMZ Library
 
-<https://github.com/ohmyzsh/ohmyzsh/raw/master/>
+Importing the [clipboard][1] and [termsupport][2] from the OMZ library sample:
 
-```shell
-zi snippet OMZ::<PATH>
-```
-
-OMZL:
-
-<http://github.com/ohmyzsh/ohmyzsh/raw/master/lib>
-
-```shell
-zi snippet OMZL::<PATH>
-```
-
-OMZP:
-
-<http://github.com/ohmyzsh/ohmyzsh/raw/master/plugins>
-
-```shell
-zi snippet OMZP::<PATH>
-```
-
-OMZT:
-
-<http://github.com/ohmyzsh/ohmyzsh/raw/master/themes>
-
-```shell
-zi snippet OMZT::<PATH>
-```
-
-### OMZ 库
-
-从OMZ库样本中导入 [剪贴板][1] 和 [term 支持][2] 。
-
-原始语法：
+Raw Syntax:
 
 ```shell showLineNumbers
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh
 ```
 
-OMZ 短语法：
+OMZ Shorthand Syntax:
 
 ```shell showLineNumbers
 zi snippet OMZ::lib/clipboard.zsh
 zi snippet OMZ::lib/termsupport.zsh
 ```
 
-OMZL 缩写语法：
+OMZL Shorthand Syntax:
 
 ```shell showLineNumbers
 zi snippet OMZL::clipboard.zsh
 zi snippet OMZL::termsupport.zsh
 ```
 
-### OMZ 插件
+### OMZ Plugins
 
 ```diff showLineNumbers
 - plugins=(
@@ -92,13 +64,13 @@ zi snippet OMZL::termsupport.zsh
 
 :::tip
 
-将多个命令捆绑到单个文件：
+Bundle multiple commands to a single file:
 
 `zi snippet <some/path/or/url/bundled-snippets.zsh`
 
 :::
 
-### 插件
+### Plugins
 
 ```diff showLineNumbers
 - plugins=(
@@ -154,7 +126,7 @@ zi snippet OMZP::ag/_ag
 
 [You can see an extended explanation of OMZ setup in the Wiki][8]
 
-### OMZ 主题
+### OMZ Themes
 
 Themes are stored in the `themes` directory. All and loaded in the background. with the simple syntax:
 
@@ -216,7 +188,7 @@ setopt promptsubst
 zi snippet OMZT::robbyrussell
 ```
 
-### 外部主题样本： [NicoSantangelo/Alpharized][3]
+### External theme sample: [NicoSantangelo/Alpharized][3]
 
 Load with OMZ:
 
@@ -243,7 +215,7 @@ zi light NicoSantangelo/Alpharized
 
 ## Prezto 基础知识
 
-URL 的原始语法：
+Raw Syntax with URL:
 
 ```shell
 zi snippet <URL>
@@ -261,7 +233,7 @@ Shorthand PZT/modules:
 zi snippet PZTM::<PATH>
 ```
 
-### Prezto 模块
+### Prezto modules
 
 Importing the [environment][9] and [terminal][10] Prezto Modules Sample:
 
@@ -339,7 +311,7 @@ What is `zstyle`?
 
 ## Zgen
 
-### 加载 OMZ 库
+### Load OMZ library
 
 ```diff showLineNumbers
 - zgen oh-my-zsh
@@ -347,7 +319,7 @@ What is `zstyle`?
 + zi snippet OMZL::<ANY OF THEM>
 ```
 
-### 加载 OMZ 插件
+### Load OMZ plugins
 
 ```diff showLineNumbers
 - zgen oh-my-zsh <PATH>
@@ -355,7 +327,7 @@ What is `zstyle`?
 + zi snippet OMZP::<PATH>
 ```
 
-### 加载 Prezto 模块
+### Load Prezto modules
 
 ```diff showLineNumbers
 - zgen prezto
@@ -388,7 +360,7 @@ Load repositories as prezto plugins:
 + zi load <repo/plugin>
 ```
 
-### 摘要 Zgen
+### Summarized Zgen
 
 :::info
 
@@ -412,7 +384,7 @@ For the `location`: refer [selection of files][17]
 + zi load <repo/plugin>
 ```
 
-### 标签比较
+### Tag comparison
 
 - `as` => `as`
 - `use` => `pick`, `src`, `multisrc`
