@@ -17,11 +17,11 @@ function HomeHeader(): JSX.Element {
     <header className={clsx('hero hero--primary', styles.herobanner)}>
       <div className={'container'}>
         <AsciinemaPlayer
-          src={'https://asciinema.org/a/459358.cast'}
-          preload={true}
+          src={require.resolve('https://asciinema.org/a/459358.cast')}
           poster={'npt:0:01'}
+          preload={true}
+          rows={26}
           cols={209}
-          rows={29}
           speed={1.5}
           idleTimeLimit={2}
         />

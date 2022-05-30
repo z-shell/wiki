@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import * as AsciinemaPlayerLibrary from 'asciinema-player';
 import 'asciinema-player/dist/bundle/asciinema-player.css';
 
-class AsciinemaPlayerProps extends React.Component {
+type AsciinemaPlayerProps = {
   src: string;
   cols: string;
   rows: string;
@@ -16,7 +16,7 @@ class AsciinemaPlayerProps extends React.Component {
   poster: string;
   fit: string;
   fontSize: string;
-}
+};
 
 const AsciinemaPlayer: React.FC<AsciinemaPlayerProps> = ({
   src,
@@ -29,11 +29,7 @@ const AsciinemaPlayer: React.FC<AsciinemaPlayerProps> = ({
     AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
   }, [src]);
 
-  return (
-    <span>
-      <div ref={ref} />
-    </span>
-  );
+  return <div ref={ref} />;
 };
 
 export default AsciinemaPlayer;

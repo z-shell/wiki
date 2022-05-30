@@ -91,10 +91,10 @@ function Feature({ title, Svg, description }: FeatureItem): JSX.Element {
   return (
     <div className={clsx('col col--4')}>
       <div className={'text--center'}>
-        <Svg className={'image'} role={'img'} />
+        <Svg role={'img'} />
       </div>
       <div className={'text--center padding-horiz--md'}>
-        <h2 className={'main'}>{title}</h2>
+        <h2>{title}</h2>
         <p>{description}</p>
       </div>
     </div>
