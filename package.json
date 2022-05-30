@@ -17,7 +17,7 @@
     "write-community-version": "docusaurus docs:version:community",
     "write-ecosystem-version": "docusaurus docs:version:ecosystem",
     "crowdin:sync": "docusaurus write-translations && crowdin upload sources && crowdin download",
-    "build:cf": "npm i -g pnpm && pnpm i --strict-peer-dependencies && pnpm run build",
+    "build:cf": "npm i -g pnpm && pnpm -s i && pnpm -s build",
     "clean": "pnpm -s exec rm -rf node_modules build pnpm-lock.yaml",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
@@ -61,6 +61,7 @@
   },
   "packageManager": "pnpm@7.1.7",
   "pnpm": {
+    "auto-install-peers": "true",
     "peerDependencyRules": {
       "allowedVersions": {
         "@types/react": "18",

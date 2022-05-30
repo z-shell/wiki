@@ -7,17 +7,14 @@ const AsciinemaPlayer = loadable(
   () =>
     import(/* webpackPrefetch: true */ '@site/src/components/AsciinemaPlayer')
 );
-const HomeFeatures = loadable(
-  () => import('@site/src/components/HomeFeatures')
-);
 import styles from './index.module.css';
-
+import HomeFeatures from '@site/src/components/HomeFeatures';
 function HomeHeader(): JSX.Element {
   return (
     <header className={clsx('hero hero--primary', styles.herobanner)}>
       <div className={'container'}>
         <AsciinemaPlayer
-          src={require.resolve('https://asciinema.org/a/459358.cast')}
+          src={'https://asciinema.org/a/459358.cast'}
           poster={'npt:0:01'}
           preload={true}
           rows={26}
