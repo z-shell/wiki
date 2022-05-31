@@ -206,7 +206,7 @@ zi ice wait lucid id-as"auto"
 zi load hlissner/zsh-autopair
 ```
 
-### Empty `id-as'…'` 
+### Empty `id-as'…'`
 
 An empty `id-as'…'` will work the same as `id-as'auto'`, i.e.:
 
