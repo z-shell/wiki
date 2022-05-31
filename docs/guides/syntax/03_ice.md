@@ -85,7 +85,7 @@ The value of the ice can begin with a two special characters:
 
 The flags can be combined in any order: `extract'!-'`.
 
-### <i class="fa-solid fa-gears"></i> `ziextract`
+### <i class="fa-solid fa-gears"></i> `ziextract` {ice#extract}
 
 Sometimes a more uncommon unpacking operation is needed. In such case you can directly use the function that implements the ice – it is called `ziextract`.
 
@@ -100,7 +100,7 @@ It recognizes the following options:
 
 Zip, rar, tar.gz, tar.bz2, tar.xz, tar.7z, tar, tgz, tbz2, gz, bz2, txz, xz, 7z, exe, deb, OS X (dmg) – all these are supported.
 
-## <i class="fa-solid fa-microchip"></i> `from'…'`
+## <i class="fa-solid fa-microchip"></i> `from'…'` {ice#from}
 
 In order to install and load a plugin whose repository is private - e.g: requires providing credentials in order to log in – use the `from'…'` ice in the following way:
 
@@ -143,7 +143,7 @@ In order to change the protocol, use the `proto'…'` ice.
 
 By using this method you can clone plugins from e.g. GitHub Enterprise or embed the passwords as plain text in `.zshrc`.
 
-## <i class="fa-solid fa-microchip"></i> `id-as'…'`
+## <i class="fa-solid fa-microchip"></i> `id-as'…'` {ice#id-as}
 
 Load a plugin or snippet with a nickname with the `id-as` ice-modifier. For example, one could try to load [**docker/compose**][1] from GitHub binary releases:
 
@@ -206,7 +206,7 @@ zi ice wait lucid id-as"auto"
 zi load hlissner/zsh-autopair
 ```
 
-### Empty `id-as'…'`
+### Empty `id-as'…'` 
 
 An empty `id-as'…'` will work the same as `id-as'auto'`, i.e.:
 
@@ -216,7 +216,7 @@ zi ice wait lucid id-as
 zi load hlissner/zsh-autopair
 ```
 
-## <i class="fa-solid fa-microchip"></i> `wait`
+## <i class="fa-solid fa-microchip"></i> `wait` {ice#wait}
 
 :::note
 
@@ -296,7 +296,7 @@ zi-turbo '1b' for \
   MichaelAquilina/zsh-you-should-use
 ```
 
-## <i class="fa-solid fa-microchip"></i> `wrap-track'…'`
+## <i class="fa-solid fa-microchip"></i> `wrap-track'…'` {ice#wrap-track}
 
 The `wrap-track'…'` ice-mod allows to extend the tracking (e.g: gathering of report and unload data) of a plugin beyond the moment of sourcing it's main file(s). It works by wrapping the given functions with a tracking-enabling and disabling snippet of code. This is useful especially with prompts, as they very often do their initialization in the first call to their `precmd` [**hook**][5] function.
 
@@ -480,7 +480,7 @@ The multiple snippets loaded with the `for` syntax are being loaded _separately_
 
 The ZI scheduler will distribute the work over time and will allow activation of keyboard in between the snippets. The `multisrc'…'` way doesn't work this way – sourcing many files can cause noticeable keyboard freezes (in Turbo).
 
-## <i class="fa-solid fa-microchip"></i> `atclone'…'` `atpull'…'` `atinit'…'` `atload'…'`
+## <i class="fa-solid fa-microchip"></i> `atclone'…'` `atpull'…'` `atinit'…'` `atload'…'` {ice#atclone-atpull-atinit-atload}
 
 There are four code-receiving ices: `atclone'…'`, `atpull'…'`, `atinit'…'`, `atload'…'`.
 
