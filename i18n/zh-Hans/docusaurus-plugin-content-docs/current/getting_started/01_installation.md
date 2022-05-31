@@ -68,8 +68,9 @@ fi
 
 :::tip
 
-The loader can be manually fetched from links below to any location on the system, and sourced from `.zshrc`.
+The loader can be manually fetched from links below to any location on the system, and sourced from `.zshrc` or as shown in the [quick-setup](#-quick-setup).
 
+- https://init.zshell.dev
 - https://git.io/zi-loader
 - https://github.com/z-shell/zi-src/blob/main/lib/zsh/init.zsh
 
@@ -183,15 +184,15 @@ typeset -g ZI_MOD_DEBUG=1
 
 [Status page: :heavy_check_mark:][10]
 
-| 域名               | URL                                                                       |
-|:---------------- | ------------------------------------------------------------------------- |
-| [Source RAW][1]: | <https://raw.zshell.dev/lib/sh/install.sh>                                |
-| [IPFS][2]        | <https://ipfs.zshell.dev/lib/sh/install.sh>                               |
-| [GitHub][3]:     | <https://z.digitalclouds.dev/i-hub>                                       |
-| [GitLab][4]:     | <https://z.digitalclouds.dev/i-lab>                                       |
-| [Direct][5]:     | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
+| 域名             | URL                                                                       |
+|:-------------- | ------------------------------------------------------------------------- |
+| [Redirect][1]: | <https://get.zshell.dev>                                                  |
+| [IPFS][2]      | <https://ipfs.zshell.dev/lib/sh/install.sh>                               |
+| [GitHub][3]:   | <https://z.digitalclouds.dev/i-hub>                                       |
+| [GitLab][4]:   | <https://z.digitalclouds.dev/i-lab>                                       |
+| [Direct][5]:   | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
-[1]: https://raw.zshell.dev/lib/sh/install.sh
+[1]: https://get.zshell.dev
 [2]: https://ipfs.io
 [3]: https://z.digitalclouds.dev/i-hub
 [4]: https://z.digitalclouds.dev/i-lab
