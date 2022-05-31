@@ -13,8 +13,8 @@ const config = {
   projectName: 'zw',
   organizationName: 'z-shell',
   staticDirectories: ['static'],
-  i18n: { defaultLocale: 'en', locales: ['en', 'zh-Hans'] } /* 'ja', */,
   stylesheets: [{ href: '/assets/css/all.min.css' }],
+  i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
   presets: [
     [
       'classic',
