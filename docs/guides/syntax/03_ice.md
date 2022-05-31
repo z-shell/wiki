@@ -357,7 +357,7 @@ Functions created:
 
 As it can be seen, creation of four additional Zle-widgets has been recorded - `Zle -N …` lines. They will be properly deleted/restored on the plugin unload with `MYPROMPT=3` as example and the shell state will be clean, ready to load a new prompt.
 
-## <i class="fa-solid fa-microchip"></i> `src'…'` `pick'…'` `multisrc'…'`
+## <i class="fa-solid fa-microchip"></i> `src'…'` `pick'…'` `multisrc'…'` {#src-pick-multisrc}
 
 Normally `src'…'` can be used to specify additional file to source:
 
