@@ -23,18 +23,6 @@
     "message": "社区",
     "description": "The label of footer link with label=Community linking to /community/intro"
   },
-  "link.item.label.GitHub Discussions": {
-    "message": "GitHub 讨论",
-    "description": "The label of footer link with label=GitHub Discussions linking to https://github.com/orgs/z-shell/discussions/"
-  },
-  "link.item.label.GitHub Organization": {
-    "message": "GitHub 组织",
-    "description": "The label of footer link with label=GitHub Organization linking to https://github.com/z-shell/"
-  },
-  "link.item.label.Privacy Policy": {
-    "message": "隐私政策",
-    "description": "The label of footer link with label=Privacy Policy linking to legal/PRIVACY/"
-  },
   "link.item.label.Ecosystem": {
     "message": "Ecosystem",
     "description": "The label of footer link with label=Ecosystem linking to /ecosystem/intro"
@@ -51,9 +39,21 @@
     "message": "Gitter.im",
     "description": "The label of footer link with label=Gitter.im linking to https://gitter.im/z-shell/zi"
   },
+  "link.item.label.GitHub Discussions": {
+    "message": "GitHub 讨论",
+    "description": "The label of footer link with label=GitHub Discussions linking to https://github.com/orgs/z-shell/discussions/"
+  },
+  "link.item.label.GitHub Organization": {
+    "message": "GitHub 组织",
+    "description": "The label of footer link with label=GitHub Organization linking to https://github.com/z-shell/"
+  },
   "link.item.label.Crowdin Translations": {
     "message": "Crowdin Translations",
     "description": "The label of footer link with label=Crowdin Translations linking to https://crowdin.digitalclouds.dev/z-shell/"
+  },
+  "link.item.label.Privacy Policy": {
+    "message": "隐私政策",
+    "description": "The label of footer link with label=Privacy Policy linking to legal/PRIVACY/"
   },
   "link.item.label.Code of Conduct": {
     "message": "Code of Conduct",

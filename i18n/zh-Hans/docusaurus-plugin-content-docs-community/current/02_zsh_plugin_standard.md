@@ -51,7 +51,7 @@ sidebar_position: 2
 
    - 在插件管理器载入插件前，可以轻松更改有效的 `$0`。
 
-   - 这允许例如 `eval "$(<plugin)"`，这可能比 `source` 更快（[查看这两种方案的比较](http://www.zsh.org/mla/workers/2017/msg01827.html) 请注意，这不适用于已经编译好的脚本）。
+   - this allows e.g. `eval "$(<plugin)"`, which can be faster than `source` ([comparison](http://www.zsh.org/mla/workers/2017/msg01827.html) note that it’s not for a compiled script).
 
 3. 如果它不包含 Zsh 二进制文件的路径，请使用 `$0` 。
 
