@@ -29,7 +29,7 @@
   },
   "link.item.label.Slack.com": {
     "message": "Slack.com",
-    "description": "The label of footer link with label=Slack.com linking to https://z-shell.slack.com"
+    "description": "The label of footer link with label=Slack.com linking to https://join.slack.com/t/z-shell/shared_invite/zt-16twpopd2-p08ROUeT2aGZ5njJwysawA"
   },
   "link.item.label.Matrix.org": {
     "message": "Matrix.org",

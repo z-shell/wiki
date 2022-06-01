@@ -3,16 +3,16 @@
     "message": "Next",
     "description": "The label for version current"
   },
-  "sidebar.ecosystem.category.💠 Annexes": {
+  "sidebar.SideBar.category.💠 Annexes": {
     "message": "💠 Annexes",
-    "description": "The label for category 💠 Annexes in sidebar ecosystem"
+    "description": "The label for category 💠 Annexes in sidebar SideBar"
   },
-  "sidebar.ecosystem.category.📦 Packages": {
+  "sidebar.SideBar.category.📦 Packages": {
     "message": "📦 Packages",
-    "description": "The label for category 📦 Packages in sidebar ecosystem"
+    "description": "The label for category 📦 Packages in sidebar SideBar"
   },
-  "sidebar.ecosystem.category.⚙️ Plugins & Modules": {
+  "sidebar.SideBar.category.⚙️ Plugins & Modules": {
     "message": "⚙️ Plugins & Modules",
-    "description": "The label for category ⚙️ Plugins & Modules in sidebar ecosystem"
+    "description": "The label for category ⚙️ Plugins & Modules in sidebar SideBar"
   }
 }
