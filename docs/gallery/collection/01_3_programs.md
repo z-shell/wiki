@@ -13,11 +13,11 @@ keywords:
 2. [Turbo and Lucid][101]
 3. [The `for` syntax][102]
 4. [The `make` syntax][103]
-5. [Ice Syntax][104]
-6. [Ice Modifiers][105]
+5. [Ice syntax][104]
+6. [Ice modifiers][105]
 7. [Compiling programs][106]
 8. [Customizing paths][107]
-9. [The Ice modifiers by `bin-gem-node` annex][108]
+9. [The ice modifiers by `bin-gem-node` annex][108]
 
 :::
 
@@ -567,12 +567,12 @@ export CARGO_HOME=\$PWD; export RUSTUP_HOME=\$PWD/rustup" for \
 [12]: https://github.com/direnv/direnv
 [13]: https://github.com/mvdan/sh
 [14]: https://github.com/Peltoche/lsd
-[100]: /docs/getting_started/overview#asprogram
-[101]: /docs/getting_started/overview#turbo-and-lucid
+[100]: /docs/getting_started/overview/#about-asprogram
+[101]: /docs/getting_started/overview/#turbo--lucid
 [102]: /docs/guides/syntax/for
 [103]: /docs/guides/syntax/common#the-make-syntax
 [104]: /docs/guides/syntax/ice
 [105]: /docs/guides/syntax/ice-modifiers
-[106]: /docs/gallery/collection#compiling-programs
+[106]: /docs/guides/syntax/common#compiling-programs
 [107]: /docs/guides/customization#customizing-paths
 [108]: /ecosystem/annexes/bin-gem-node#the-ice-modifiers-provided-by-the-annex
