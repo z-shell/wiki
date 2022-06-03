@@ -399,7 +399,7 @@ zi light pyenv/pyenv
 ### B: [sdkman/sdkman-cli](https://github.com/sdkman/sdkman-cli)
 
 ```shell showLineNumbers
-zi ice as'program' pick'$ZPFX/sdkman/bin/sdk' id-as'sdkman' run-atpull \
+zi ice as'program' pick'$ZPFX/sdkman/bin/sdk' id-as'sdkman' run-atpull nocompile \
   atclone'curl -s "https://get.sdkman.io?rcupdate=false" -o scr.sh; SDKMAN_DIR=$ZPFX/sdkman bash scr.sh' \
   atpull'SDKMAN_DIR=$ZPFX/sdkman sdk selfupdate' \
   atinit'export SDKMAN_DIR=$ZPFX/sdkman; source $ZPFX/sdkman/bin/sdkman-init.sh'
@@ -418,7 +418,7 @@ zi load asciinema/asciinema
 ### RA: Rust and [Peltoche/lsd](https://github.com/Peltoche/lsd)
 
 ```shell showLineNumbers
-zi ice rustup cargo"!lsd"
+zi ice rustup cargo"!lsd" nocompile
 zi load z-shell/0
 ```
 
@@ -426,26 +426,26 @@ zi load z-shell/0
 
 ```shell showLineNumbers
 # the `ls' shim exposing the `exa' binary
-zi ice rustup cargo"!exa -> ls"
+zi ice rustup cargo"!exa -> ls" nocompile
 zi load z-shell/0
 ```
 
 ```shell showLineNumbers
 # shim with standard error redirected to /dev/null
-zi ice rustup cargo"!E:exa"
+zi ice rustup cargo"!E:exa" nocompile
 zi load z-shell/0
 ```
 
 ### RA: Rust and [ogham/exa][4], [Peltoche/lsd][14]
 
 ```shell showLineNumbers
-zi ice rustup cargo"exa;lsd"
+zi ice rustup cargo"exa;lsd" nocompile
 zi load z-shell/0
 ```
 
 ```shell showLineNumbers
 # exposes their binaries by altering $PATH
-zi ice rustup cargo'exa;lsd' as"program" pick"bin/(exa|lsd)"
+zi ice rustup cargo'exa;lsd' as"program" pick"bin/(exa|lsd)" nocompile
 zi load z-shell/0
 ```
 
@@ -540,14 +540,14 @@ zi light-mode for pick"misc/quitcd/quitcd.zsh" sbin make jarun/nnn
 
 ```shell showLineNumbers
 # Just install rust and make it available globally in the system
-zi ice id-as"rust" wait"0" lucid rustup as"program" pick"bin/rustc" atload="export \
+zi ice id-as"rust" wait"0" lucid rustup as"program" pick"bin/rustc" atload="export nocompile \
 CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup"
 zi load z-shell/0
 ```
 
 ```shell showLineNumbers
 # More complex installation.
-zi id-as"rust" wait=1 as=null sbin="bin/*" lucid rustup \
+zi id-as"rust" wait=1 as=null sbin="bin/*" lucid rustup nocompile \
   atload="[[ ! -f ${ZI[COMPLETIONS_DIR]}/_cargo ]] && zi creinstall -q rust; \
 export CARGO_HOME=\$PWD; export RUSTUP_HOME=\$PWD/rustup" for \
   z-shell/0
