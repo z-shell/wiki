@@ -4,13 +4,13 @@ title: ℹ️ Zsh Plugin Standard
 sidebar_position: 2
 ---
 
-## What Is A Zsh Plugin?
+## Zshプラグインとは？
 
-Historically, Zsh plugins were first defined by Oh My Zsh. They provide for a way to package together files that extend or configure the shell’s functionality in a particular way.
+歴史的に、ZshプラグインはOh My Zshによって最初に定義されました。 シェルの機能を特定の方法で拡張/設定するファイルをまとめてパッケージ化する方法を提供します。
 
-At a simple level, a plugin:
+簡単なレベルでは、プラグインは:
 
-1. Has its directory added to `$fpath` ([Zsh documentation](http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions)). This is being done either by a plugin manager or by the plugin itself (see [5th section](#run-on-unload-call) for more information).
+1. そのディレクトリが `$fpath` に追加されます ([Zsh のドキュメント](http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions)を参照)。 これは、プラグインマネージャまたはプラグイン自身によって行われています (詳細は [5 節](#run-on-unload-call) を参照)。
 
 2. Has it’s first `*.plugin.zsh` file sourced (or `*.zsh`, `init.zsh`, `*.sh`, these are non-standard).
 

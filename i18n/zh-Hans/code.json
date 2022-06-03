@@ -324,5 +324,25 @@
   "theme.docs.breadcrumbs.navAriaLabel": {
     "message": "页面路径",
     "description": "The ARIA label for the breadcrumbs"
+  },
+  "theme.admonition.note": {
+    "message": "注意",
+    "description": "The default label used for the Note admonition (:::note)"
+  },
+  "theme.admonition.tip": {
+    "message": "提示",
+    "description": "The default label used for the Tip admonition (:::tip)"
+  },
+  "theme.admonition.danger": {
+    "message": "危险",
+    "description": "The default label used for the Danger admonition (:::danger)"
+  },
+  "theme.admonition.info": {
+    "message": "信息",
+    "description": "The default label used for the Info admonition (:::info)"
+  },
+  "theme.admonition.caution": {
+    "message": "警告",
+    "description": "The default label used for the Caution admonition (:::caution)"
   }
 }

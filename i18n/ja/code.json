@@ -3,6 +3,10 @@
     "message": "Zsh Startup 50-80% Faster",
     "description": "Title of feature 1 (left) on the home page"
   },
+  "home.fetaure1": {
+    "message": "Instant prompt postponing plugins loading to a moment when the processing of .zshrc file is finished.",
+    "description": "Description of first featured banner in homepage"
+  },
   "homepage.feature2.title": {
     "message": "Focus on What Matters",
     "description": "Title of feature 2 (middle) on the home page"
@@ -22,6 +26,10 @@
   "theme.ErrorPageContent.title": {
     "message": "This page crashed.",
     "description": "The title of the fallback page when the page crashed"
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "Try again",
+    "description": "The label of the button to try again when the page crashed"
   },
   "theme.NotFound.title": {
     "message": "ページが見つかりません",
@@ -316,5 +324,25 @@
   "theme.docs.breadcrumbs.navAriaLabel": {
     "message": "Breadcrumbs",
     "description": "The ARIA label for the breadcrumbs"
+  },
+  "theme.admonition.note": {
+    "message": "note",
+    "description": "The default label used for the Note admonition (:::note)"
+  },
+  "theme.admonition.tip": {
+    "message": "tip",
+    "description": "The default label used for the Tip admonition (:::tip)"
+  },
+  "theme.admonition.danger": {
+    "message": "danger",
+    "description": "The default label used for the Danger admonition (:::danger)"
+  },
+  "theme.admonition.info": {
+    "message": "info",
+    "description": "The default label used for the Info admonition (:::info)"
+  },
+  "theme.admonition.caution": {
+    "message": "caution",
+    "description": "The default label used for the Caution admonition (:::caution)"
   }
 }
