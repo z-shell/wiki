@@ -6,25 +6,23 @@ sidebar_position: 2
 
 ## Zshプラグインとは？
 
-歴史的に、ZshプラグインはOh My Zshによって最初に定義されました。 シェルの機能を特定の方法で拡張/設定するファイルをまとめてパッケージ化する方法を提供します。
+歴史的に、ZshプラグインはOh My Zshによって最初に定義されました。 They provide for a way to package together files that extend or configure the shell’s functionality in a particular way.
 
 簡単なレベルでは、プラグインは:
 
-1. そのディレクトリが `$fpath` に追加されます ([Zsh のドキュメント](http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions)を参照)。 これは、プラグインマネージャまたはプラグイン自身によって行われています (詳細は [5 節](#run-on-unload-call) を参照)。
+1. Has its directory added to `$fpath` ([Zsh documentation](http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions)). This is being done either by a plugin manager or by the plugin itself (see [5th section](#run-on-unload-call) for more information).
 
-2. Has it’s first `*.plugin.zsh` file sourced (or `*.zsh`, `init.zsh`, `*.sh`, these are non-standard).
-
-   2.1 The first point allows plugins to provide completions and functions that are loaded via Zsh’s `autoload` mechanism (a single function per file).
+2. Has it’s first `*.plugin.zsh` file sourced (or `*.zsh`, `init.zsh`, `*.sh`, these are non-standard). 2.1 The first point allows plugins to provide completions and functions that are loaded via Zsh’s `autoload` mechanism (a single function per file).
 
 3. From a more broad perspective, a plugin consists of:
 
-   3.1. A directory containing various files (the main script, autoload functions, completions, Makefiles, backend programs, documentation).
+   3.1. directory containing various files (the main script, autoload functions, completions, Makefiles, backend programs, documentation).
 
-   3.2. A sourceable script that obtains the path to its directory via `$0` (see the [next section](#zero-handling) for a related enhancement proposal).
+   3.2. sourceable script that obtains the path to its directory via `$0` (see the [next section](#zero-handling) for a related enhancement proposal).
 
-   3.3. A Github (or another site) repository identified by two components **username**/**pluginname**.
+   3.3. Github (or another site) repository identified by two components **username**/**pluginname**.
 
-   3.4. A software package containing any type of command line artifacts – when used with advanced plugin managers that have hooks, can run Makefiles, add directories to `$PATH`.
+   3.4. software package containing any type of command line artifacts – when used with advanced plugin managers that have hooks, can run Makefiles, add directories to `$PATH`.
 
 Below follow proposed enhancements and codifications of the definition of a "Zsh the plugin" and the actions of plugin managers – the proposed standardization.
 
@@ -49,21 +47,19 @@ The one-line code above will:
 
 2. Use `ZERO` if it’s not empty,
 
-   - the plugin manager will be easily able to alter effective `$0` before loading a plugin,
+   2.1 the plugin manager will be easily able to alter effective `$0` before loading a plugin,
 
-   - this allows e.g. `eval "$(<plugin)"`, which can be faster than `source` ([comparison](http://www.zsh.org/mla/workers/2017/msg01827.html) note that it’s not for a compiled script).
+   2.2 this allows e.g. `eval "$(<plugin)"`, which can be faster than `source` ([comparison](http://www.zsh.org/mla/workers/2017/msg01827.html) note that it’s not for a compiled script).
 
-3. Use `$0` if it doesn’t contain the path to the Zsh binary,
+3. Use `$0` if it doesn’t contain the path to the Zsh binary, 3.1. plugin manager will still be able to set `$0`, although more difficultly, requires `unsetopt function_argzero` before sourcing plugin script, and `0=…​` assignment after sourcing plugin script.
 
-   - plugin manager will still be able to set `$0`, although more difficultly, requires `unsetopt function_argzero` before sourcing plugin script, and `0=…​` assignment after sourcing plugin script.
+   3.2. `unsetopt function_argzero` will be detected (it causes `$0` not to contain a plugin-script path, but the path to Zsh binary, if not overwritten by a `0=…​` assignment),
 
-   - `unsetopt function_argzero` will be detected (it causes `$0` not to contain a plugin-script path, but the path to Zsh binary, if not overwritten by a `0=…​` assignment),
-
-   - `setopt posix_argzero` will be detected (as above).
+   3.3. `setopt posix_argzero` will be detected (as above).
 
 4. Use `%N` prompt expansion flag, which always gives absolute path to script,
 
-   - plugin manager cannot alter this (no advanced loading of plugin is possible), but simple plugin-file sourcing (without a plugin manager) will be saved from breaking caused by the mentioned `*_argzero` options, so this is a very good last-resort fallback.
+   4.1. plugin manager cannot alter this (no advanced loading of plugin is possible), but simple plugin-file sourcing (without a plugin manager) will be saved from breaking caused by the mentioned `*_argzero` options, so this is a very good last-resort fallback.
 
 5. Finally, in the second line, it will ensure that `$0` contains an absolute path by prepending it with `$PWD` if necessary.
 
@@ -89,13 +85,7 @@ When you’ll set e.g.: the `zsh` emulation in a function, you in general don’
 
 > [ functions-directory ]
 
-Despite that, the current-standard plugins have their main directory added to `$fpath`, a more clean approach is being proposed:
-
-that the plugins use a subdirectory called `functions` to store their completions and autoload functions. This will allow a much cleaner design of plugins.
-
-The plugin manager should add such a directory to `$fpath`.
-
-The lack of support of the current plugin managers can be easily resolved via the [indicator](#indicator):
+Despite that, the current-standard plugins have their main directory added to `$fpath`, a more clean approach is being proposed: that the plugins use a subdirectory called `functions` to store their completions and autoload functions. This will allow a much cleaner design of plugins. The plugin manager should add such a directory to `$fpath`. The lack of support of the current plugin managers can be easily resolved via the [indicator](#indicator):
 
 ```shell showLineNumbers
 if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}/functions]} ]] {
@@ -111,9 +101,7 @@ if [[ $PMSPEC != *f* ]] {
 }
 ```
 
-The above snippet added to the `plugin.zsh` file will add the directory to the `$fpath` with the compatibility with any new plugin managers preserved.
-
-The existence of the `functions` subdirectory cancels the normal adding of the main plugin directory to `$fpath`.
+The above snippet added to the `plugin.zsh` file will add the directory to the `$fpath` with the compatibility with any new plugin managers preserved. The existence of the `functions` subdirectory cancels the normal adding of the main plugin directory to `$fpath`.
 
 ### **STATUS:** [ functions-directory ]
 
@@ -123,13 +111,9 @@ The existence of the `functions` subdirectory cancels the normal adding of the m
 
 > [ binaries-directory ]
 
-Plugins sometimes provide a runnable script or program, either for their internal use or for the end-user.
+Plugins sometimes provide a runnable script or program, either for their internal use or for the end-user. It is proposed that for the latter, the plugin shall use a `bin/` subdirectory inside its main dir (it is recommended, that for internal use, the runnable be called via the `$0` value obtained as described above).
 
-It is proposed that for the latter, the plugin shall use a `bin/` subdirectory inside its main dir (it is recommended, that for internal use, the runnable be called via the `$0` value obtained as described above).
-
-The runnable should be put into the directory with a `+x` access right assigned.
-
-The task of the plugin manager should be:
+The runnable should be put into the directory with a `+x` access right assigned. The task of the plugin manager should be:
 
 1. Before sourcing the plugin’s script it should test, if the `bin/` directory exists within the plugin directory.
 
@@ -137,9 +121,7 @@ The task of the plugin manager should be:
 
 3. The plugin manager can also, instead of extending the `$PATH`, create a **shim** (i.e.: a forwarder script) or a symbolic link inside a common directory that’s already added to `$PATH` (to limit extending it).
 
-4. The plugin manager is permitted to do optional things like ensuring `+x` access rights on the directory contents.
-
-The `$PMSPEC` code letter for the feature is `b`, and it allows for the plugin to handle the `$PATH` extending itself, via, e.g.:
+4. The plugin manager is permitted to do optional things like ensuring `+x` access rights on the directory contents. The `$PMSPEC` code letter for the feature is `b`, and it allows for the plugin to handle the `$PATH` extending itself, via, e.g.:
 
 ```shell showLineNumbers
 if [[ $PMSPEC != *b* ]] {
@@ -157,9 +139,7 @@ if [[ $PMSPEC != *b* ]] {
 
 If a plugin is named e.g. `kalc` (and is available via `any-user/kalc` plugin-ID), then it can provide a function, `kalc_plugin_unload`, that can be called by a plugin manager to undo the effects of loading that plugin.
 
-A plugin manager can implement its tracking of changes made by a plugin so this is in general optional. However, to properly unload e.g. a prompt, dedicated tracking (easy to do for the plugin creator) can provide better, predictable results.
-
-Any special, uncommon effects of loading a plugin are possible to undo only by a dedicated function.
+A plugin manager can implement its tracking of changes made by a plugin so this is in general optional. However, to properly unload e.g. a prompt, dedicated tracking (easy to do for the plugin creator) can provide better, predictable results. Any special, uncommon effects of loading a plugin are possible to undo only by a dedicated function.
 
 However, an interesting compromise approach is available – to withdraw only the special effects of loading a plugin via the dedicated, plugin-provided function and leave the rest to the plugin manager. The value of such an approach is that maintaining of such function (if it is to withdraw **all** plugin side-effects) can be a daunting task requiring constant monitoring of it during the plugin development process.
 
@@ -167,9 +147,9 @@ Note that the unload function should contain `unfunction $0` (or better `unfunct
 
 ### **STATUS:** [ unload-function ] {#unload-function}
 
-- [ZI](https://github.com/z-shell/zi), implements plugin unloading and calls the function.
+- [ZI](https://github.com/z-shell/zi) implements plugin unloading and calls the function.
 
-- `romkatv/powerlevel10k`, is [using](https://github.com/romkatv/powerlevel10k/blob/f17081ca/internal/p10k.zsh#L5390) the function to execute a specific task: shutdown of the binary, background [gitstatus](https://github.com/romkatv/gitstatus) demon, with a very good results,
+- `romkatv/powerlevel10k` is [using](https://github.com/romkatv/powerlevel10k/blob/f17081ca/internal/p10k.zsh#L5390) the function to execute a specific task: shutdown of the binary, background [gitstatus](https://github.com/romkatv/gitstatus) daemon, with a very good results,
 
 - `agkozak/agkozak-zsh-prompt` is [using](https://github.com/agkozak/agkozak-zsh-prompt/blob/ed228952d68fea6d5cad3beee869167f76c59606/agkozak-zsh-prompt.plugin.zsh#L992-L1039) the function to completely unload the prompt,
 
@@ -187,13 +167,7 @@ The plugin manager can provide a function `@zsh-plugin-run-on-unload` which has 
 @zsh-plugin-run-on-unload "{code-snippet-1}" "{code-snippet-2}" …
 ```
 
-The function registers pieces of code to be run by the plugin manager **on unload of the plugin**.
-
-The execution of the code should be done by the `eval` built-in in the same order as they are passed to the call.
-
-The code should be executed in the plugin’s directory, in the current shell.
-
-The mechanism thus provides another way, side to the [unload function](#unload-function), for the plugin to participate in the process of unloading it.
+The function registers pieces of code to be run by the plugin manager **on unload of the plugin**. The execution of the code should be done by the `eval` built-in in the same order as they are passed to the call. The code should be executed in the plugin’s directory, in the current shell.The mechanism thus provides another way, side to the [unload function](#unload-function), for the plugin to participate in the process of unloading it.
 
 ### **STATUS:** [ run-on-unload-call ]
 
@@ -209,11 +183,7 @@ The plugin manager can provide a function `@zsh-plugin-run-on-update` which has 
 @zsh-plugin-run-on-update "{code-snippet-1}" "{code-snippet-2}" …
 ```
 
-The function registers pieces of code to be run by the plugin manager on an update of the plugin.
-
-The execution of the code should be done by the `eval` built-in in the same order as they are passed to the call.
-
-The code should be executed in the plugin’s directory, possibly in a subshell **After downloading any new commits** to the repository.
+The function registers pieces of code to be run by the plugin manager on an update of the plugin. The execution of the code should be done by the `eval` built-in in the same order as they are passed to the call. The code should be executed in the plugin’s directory, possibly in a subshell **After downloading any new commits** to the repository.
 
 ### **STATUS:** [ run-on-update-call ]
 
@@ -231,11 +201,7 @@ This will allow any plugin to:
 
 2. Check if it is being loaded by a plugin manager (i.e. not just sourced).
 
-The first item allows a plugin to e.g. issue a notice about missing dependencies.
-
-Instead of issuing a notice, it may be able to satisfy the dependencies from resources it provides.
-
-For example, the `pure` prompt provides a `zsh-async` dependency library within its source tree, which is normally a separate project. Consequently, the prompt can decide to source its private copy of `zsh-async`, having also reliable `$0` defined by the previous section (note: `pure` doesn’t normally do this).
+The first item allows a plugin to e.g. issue a notice about missing dependencies. Instead of issuing a notice, it may be able to satisfy the dependencies from resources it provides. For example, the `pure` prompt provides a `zsh-async` dependency library within its source tree, which is normally a separate project. Consequently, the prompt can decide to source its private copy of `zsh-async`, having also reliable `$0` defined by the previous section (note: `pure` doesn’t normally do this).
 
 The second item allows a plugin to e.g. set up `$fpath`, knowing that plugin manager will not handle this:
 
@@ -245,9 +211,7 @@ if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}]} ]] {
 }
 ```
 
-This will allow the user to reliably source the plugin without using a plugin manager.
-
-The code uses the wrapping braces around variables (i.e.: e.g.: `${fpath…}`) to make it compatible with the `KSH_ARRAYS` option and the quoting around `${0:h}` to make it compatible with the `SH_WORD_SPLIT` option.
+This will allow the user to reliably source the plugin without using a plugin manager. The code uses the wrapping braces around variables (i.e.: e.g.: `${fpath…}`) to make it compatible with the `KSH_ARRAYS` option and the quoting around `${0:h}` to make it compatible with the `SH_WORD_SPLIT` option.
 
 ### **STATUS:** [ activity-indicator ]
 
@@ -259,9 +223,7 @@ The code uses the wrapping braces around variables (i.e.: e.g.: `${fpath…}`) t
 
 > [ global-parameter-with-prefix ]
 
-Plugin managers may export the parameter `$ZPFX` which should contain a path to a directory dedicated for user-land software, i.e. for directories `$ZPFX/bin`, `$ZPFX/lib`, `$ZPFX/share`, etc.
-
-The suggested name of the directory is `polaris` (e.g.: ZI uses this name and places this directory at `~/.zi/polaris` by default).
+Plugin managers may export the parameter `$ZPFX` which should contain a path to a directory dedicated for user-land software, i.e. for directories `$ZPFX/bin`, `$ZPFX/lib`, `$ZPFX/share`, etc. The suggested name of the directory is `polaris` (e.g.: ZI uses this name and places this directory at `~/.zi/polaris` by default).
 
 Users can then configure hooks (a feature of e.g. zplug and ZI) to invoke e.g. `make PREFIX=$ZPFX install` at clone & update of the plugin to install software like e.g. [tj/git-extras](https://github.com/tj/git-extras). This is a the developing role of Zsh plugin managers as package managers, where `.zshrc` has a similar role to Chef or Puppet configuration and allows to **declare** system state, and have the same state on different accounts/machines.
 
@@ -287,11 +249,7 @@ No-narration facts-list related to `$ZPFX`:
 
 > [ global-parameter-with-capabilities ]
 
-The above paragraphs of the standard spec each constitute a capability, a feature of the plugin manager.
-
-It would make sense that the capabilities are somehow discoverable. To address this, a global parameter called `PMSPEC` (from _plugin-manager specification_) is proposed.
-
-It can hold the following Latin letters each informing the plugin, that the plugin manager has support for a given feature:
+The above paragraphs of the standard spec each constitute a capability, a feature of the plugin manager. It would make sense that the capabilities are somehow discoverable. To address this, a global parameter called `PMSPEC` (from _plugin-manager specification_) is proposed. It can hold the following Latin letters each informing the plugin, that the plugin manager has support for a given feature:
 
 - `0` – the plugin manager provides the `ZERO` parameter,
 
@@ -311,9 +269,7 @@ It can hold the following Latin letters each informing the plugin, that the plug
 
 - `s` – … the `PMSPEC` global parameter itself (i.e.: should be always present).
 
-The contents of the parameter describing a fully-compliant plugin manager should be: `0fuUpiPs`.
-
-The plugin can then verify the support by, e.g.:
+The contents of the parameter describing a fully-compliant plugin manager should be: `0fuUpiPs`. The plugin can then verify the support by:
 
 ```shell showLineNumbers
 if [[ $PMSPEC != *f* ]] {
@@ -327,9 +283,7 @@ if [[ $PMSPEC != *f* ]] {
 
 ## Zsh Plugin-Programming Best practices
 
-The document is to define a **Zsh-plugin** but also to serve as an information source for plugin creators.
-
-Therefore, it covers also best practices information in this section.
+The document is to define a **Zsh-plugin** but also to serve as an information source for plugin creators. Therefore, it covers also best practices information in this section.
 
 ## Use Of `add-zsh-hook` To Install Hooks
 
@@ -343,9 +297,7 @@ The command installs a `function` as one of the supported zsh `hook` entries. wh
 
 ## Use Of `add-zle-hook-widget` To Install Zle Hooks
 
-The zle editor is the part of the Zsh that is responsible for receiving the text from the user.
-
-It can be said that it’s based on widgets, which are nothing more than Zsh functions that are allowed to be run in Zle context, i.e. from the Zle editor (plus a few minor differences, like e.g.: the `$WIDGET` parameter that’s automatically set by the Zle editor).
+The zle editor is the part of the Zsh that is responsible for receiving the text from the user. It can be said that it’s based on widgets, which are nothing more than Zsh functions that are allowed to be run in Zle context, i.e. from the Zle editor (plus a few minor differences, like e.g.: the `$WIDGET` parameter that’s automatically set by the Zle editor).
 
 The syntax of the call is:
 
@@ -365,7 +317,7 @@ Now, after the function has been introduced in Zsh `5.3` it should be used inste
 
 There’s a convention already present in the Zsh world – to name array variables lowercase and scalars uppercase. It’s being followed by e.g.: the Zsh manual and the Z shell itself (e.g.: `REPLY` scalar and `reply` array, etc.).
 
-The requirement for the scalars to be uppercase should be, in my opinion, kept only for the global parameters. I.e.: it’s fine to name local parameters inside a function lowercase even when they are scalars, not only arrays.
+The requirement for the scalars to be uppercase should be, in my opinion, kept only for the global parameters. e.g.: it’s fine to name local parameters inside a function lowercase even when they are scalars, not only arrays.
 
 An extension to the convention is being proposed: to name associative arrays (i.e.: hashes) capitalized, i.e.: with only first letter uppercase and the remaining letters lowercase.
 
@@ -375,9 +327,7 @@ This convention will increase code readability and bring order to it.
 
 ## Standard `Plugins` Hash
 
-The plugin often has to declare global parameters that should live throughout a Zsh session. Following the [namespace pollution prevention](#preventing-function-pollution) the plugin could use a hash to store the different values.
-
-Additionally, the plugins could use a single hash parameter – called `Plugins` – to prevent the pollution.
+The plugin often has to declare global parameters that should live throughout a Zsh session. Following the [namespace pollution prevention](#preventing-function-pollution) the plugin could use a hash to store the different values. Additionally, the plugins could use a single hash parameter – called `Plugins` – to prevent the pollution.
 
 An example value needed by the plugin:
 
@@ -394,13 +344,13 @@ This way all the data of all plugins will be kept in a single parameter, availab
 The following code snippet is recommended to be included at the beginning of each of the main functions provided by the plugin:
 
 ```shell showLineNumbers
-emulate -L zsh
-setopt extended_glob warn_create_global typeset_silent no_short_loops rc_quotes no_auto_pushd
+builtin emulate -L zsh ${=${options[xtrace]:#off}:+-o xtrace}
+builtin setopt extended_glob warn_create_global typeset_silent no_short_loops rc_quotes no_auto_pushd
 ```
 
-It resets all the options to their default state according to the `zsh` emulation mode, with the use of the `local_options` option – so the options will be restored to their previous state when leaving the function.
+It resets all the options to their default state according to the `zsh` emulation mode, with the use of the `local_options` option – so the options will be restored to their previous state when leaving the function. It then alters the emulation by `7` different options:
 
-It then alters the emulation by `6` different options:
+- `${=${options[xtrace]:#off}:+-o xtrace}` – `xtrace` prints commands and their arguments as they are executed, this specific variable calls `xtrace` when needed, e.g.: when already active at the entry to the function.
 
 - `extended_glob` – enables one of the main Zshell features – the advanced, the built-in regex-like globing mechanism,
 
@@ -453,22 +403,20 @@ The proposition of the standard prefixes is as follows:
 
 1. `.`: for regular private functions. Example function: `.prompt_zinc_get_value`.
 
-2. `→`: for hook-like functions, so it should be used e.g.: for the [Zsh hooks](#use-of-add-zsh-hook-to-install-hooks) and the [Zle hooks](#use-of-add-zle-hook-widget-to-install-zle-hooks), but also for any other, custom hook-like mechanism in the plugin.
+2. `→`: for hook-like functions, so it should be used e.g.: for the [Zsh hooks](#use-of-add-zsh-hook-to-install-hooks) and the [Zle hooks](#use-of-add-zle-hook-widget-to-install-zle-hooks), but also for any other, custom hook-like mechanism in the plugin. Example function name: `→prompt_zinc_precmd`.
 
-Example function name: `→prompt_zinc_precmd`.
+   2.1. the previous version of the document recommended colon (`:`) for the prefix, however, it was problematic, because Windows doesn’t allow colons in file names, so it wasn’t possible to name an autoload function this way,
 
-- the previous version of the document recommended colon (`:`) for the prefix, however, it was problematic, because Windows doesn’t allow colons in file names, so it wasn’t possible to name an autoload function this way,
+   2.2. the arrow has a rationale behind it - it denotes the execution **coming back** to the function at a later time, after it has been registered as a callback or a handler,
 
-- the arrow has a rationale behind it - it denotes the execution **coming back** to the function at a later time, after it has been registered as a callback or a handler,
+   2.3. the arrow is easy to type on most keyboard layouts – it is `Right-Alt`+`I`; in case of problems with typing the character can be always copied – handler functions do occur in the code rarely,
 
-- the arrow is easy to type on most keyboard layouts – it is `Right-Alt`+`I`; in case of problems with typing the character can be always copied – handler functions do occur in the code rarely,
-
-- Zsh supports any string as a function name, because absolutely any string can be a **file** name – if there would be an exception in the name of the callables, then how would it be possible to run a script called "→abcd"? There are **no** exceptions, the function can be called even as a the sequence of null bytes:
+   2.4 Zsh supports any string as a function name, because absolutely any string can be a **file** name – if there would be an exception in the name of the callables, then how would it be possible to run a script called "→abcd"? There are **no** exceptions, the function can be called even as a the sequence of null bytes:
 
 ```shell showLineNumbers
-    ❯ $'\0'() { print hello }
-    ❯ $'\0'
-    hello
+❯ $'\0'() { print hello }
+❯ $'\0'
+hello
 ```
 
 3. `+`: for output functions, i.e.: for functions that print to the standard output and error or a log, etc. Example function name: `+prompt_zinc_output_segment`.
@@ -481,10 +429,10 @@ Example function name: `→prompt_zinc_precmd`.
 
 ```shell showLineNumbers
 .zinc_register_hooks() {
-    add-zsh-hook precmd :zinc_precmd
-    /zinc_dmsg "Installed precmd hook with result: $?"
-    @zsh-plugin-run-on-unload "add-zsh-hook -d precmd :zinc_precmd"
-    +zinc_print "Zinc initialization complete"
+  add-zsh-hook precmd :zinc_precmd
+  /zinc_dmsg "Installed precmd hook with result: $?"
+  @zsh-plugin-run-on-unload "add-zsh-hook -d precmd :zinc_precmd"
+  +zinc_print "Zinc initialization complete"
 }
 ```
 
