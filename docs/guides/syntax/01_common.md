@@ -71,7 +71,7 @@ zi light vim/vim
 | `make`             | As above, but also run the `install` target.                                                 |
 | `pick'src/vim'`    | as above, but for different path `$ZPFX/bin/vim`.                                            |
 
-## <i class="fa-solid fa-palette"></i> LS_COLORS  {#ls_colors}
+## <i class="fa-solid fa-palette"></i> LS_COLORS {#ls_colors}
 
 A repository [trapd00r/LS_COLORS][1] provides a file with color definitions for GNU `ls` command, and also for [ogham/exa][2]. Typically one does `eval $( dircolors -b $HOME/LS_COLORS)` to process this file and set the environment for `ls`. This means `dircolors` is run every shell startup. This costs much time because a fork has to be done and the program, i.e. `dircolors`, binary needs to be loaded and executed, and because `dircolors` loads the colors' definitions and processes them. Following ZI invocation solves this problem:
 
