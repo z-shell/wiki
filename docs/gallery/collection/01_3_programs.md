@@ -403,7 +403,7 @@ zi ice as'program' pick'$ZPFX/sdkman/bin/sdk' id-as'sdkman' run-atpull \
   atclone'curl -s "https://get.sdkman.io?rcupdate=false" -o scr.sh; SDKMAN_DIR=$ZPFX/sdkman bash scr.sh' \
   atpull'SDKMAN_DIR=$ZPFX/sdkman sdk selfupdate' \
   atinit'export SDKMAN_DIR=$ZPFX/sdkman; source $ZPFX/sdkman/bin/sdkman-init.sh'
-zi light z-shell/null
+zi light z-shell/0
 ```
 
 ### B: [asciinema/asciinema](https://github.com/asciinema/asciinema)
@@ -419,7 +419,7 @@ zi load asciinema/asciinema
 
 ```shell showLineNumbers
 zi ice rustup cargo"!lsd"
-zi load z-shell/null
+zi load z-shell/0
 ```
 
 ### RA: Rust and [ogham/exa](https://github.com/ogham/exa)
@@ -427,26 +427,26 @@ zi load z-shell/null
 ```shell showLineNumbers
 # the `ls' shim exposing the `exa' binary
 zi ice rustup cargo"!exa -> ls"
-zi load z-shell/null
+zi load z-shell/0
 ```
 
 ```shell showLineNumbers
 # shim with standard error redirected to /dev/null
 zi ice rustup cargo"!E:exa"
-zi load z-shell/null
+zi load z-shell/0
 ```
 
 ### RA: Rust and [ogham/exa][4], [Peltoche/lsd][14]
 
 ```shell showLineNumbers
 zi ice rustup cargo"exa;lsd"
-zi load z-shell/null
+zi load z-shell/0
 ```
 
 ```shell showLineNumbers
 # exposes their binaries by altering $PATH
 zi ice rustup cargo'exa;lsd' as"program" pick"bin/(exa|lsd)"
-zi load z-shell/null
+zi load z-shell/0
 ```
 
 ## With [`for`][102] syntax
@@ -542,7 +542,7 @@ zi light-mode for pick"misc/quitcd/quitcd.zsh" sbin make jarun/nnn
 # Just install rust and make it available globally in the system
 zi ice id-as"rust" wait"0" lucid rustup as"program" pick"bin/rustc" atload="export \
 CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup"
-zi load z-shell/null
+zi load z-shell/0
 ```
 
 ```shell showLineNumbers
@@ -550,7 +550,7 @@ zi load z-shell/null
 zi id-as"rust" wait=1 as=null sbin="bin/*" lucid rustup \
   atload="[[ ! -f ${ZI[COMPLETIONS_DIR]}/_cargo ]] && zi creinstall -q rust; \
 export CARGO_HOME=\$PWD; export RUSTUP_HOME=\$PWD/rustup" for \
-  z-shell/null
+  z-shell/0
 ```
 
 [1]: https://github.com/junegunn/fzf
