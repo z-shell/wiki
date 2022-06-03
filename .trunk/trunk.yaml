@@ -7,6 +7,9 @@ repo:
     owner: z-shell
     name: zw
 lint:
+  disabled:
+    - hadolint
+    - shellcheck
   linters:
     - name: markdownlint
       command: [markdownlint, -q, --config, .github/.markdownlint.yaml, '${target}']
@@ -14,7 +17,7 @@ lint:
   enabled:
     - actionlint@1.6.13
     - eslint@8.16.0
-    - gitleaks@8.8.5
+    - gitleaks@8.8.7
     - markdownlint@0.31.1
     - prettier@2.6.2
     - shfmt@3.4.0
