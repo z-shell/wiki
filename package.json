@@ -17,7 +17,7 @@
     "write-community-version": "docusaurus docs:version:community",
     "write-ecosystem-version": "docusaurus docs:version:ecosystem",
     "crowdin:sync": "docusaurus write-translations && crowdin upload sources && crowdin download",
-    "build:cf": "npm i -g pnpm && pnpm -s i && pnpm -s build",
+    "build:cf": "npm i --location=global pnpm && pnpm -s i && pnpm -s build",
     "clean": "pnpm -s exec rm -rf node_modules build pnpm-lock.yaml",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
