@@ -1,5 +1,16 @@
 {
-  "extends": ["config:base"],
+  "extends": [
+    "config:base"
+    ":dependencyDashboard",
+    ":semanticPrefixFixDepsChoreOthers",
+    ":ignoreModulesAndTests",
+    ":autodetectPinVersions",
+    ":prHourlyLimit2",
+    ":prConcurrentLimit10",
+    "group:monorepos",
+    "group:recommended",
+    "workarounds:all"
+  ],
   "dependencyDashboardApproval": true,
   "commitBody": "Signed-off-by: {{{gitAuthor}}}",
   "pin": {
