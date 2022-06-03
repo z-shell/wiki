@@ -6,38 +6,13 @@ on:
     tags: ['v*.*.*']
   pull_request:
     types: [opened, synchronize]
-  #  schedule:
-  #    - cron: 0 04 * * 1-5
   workflow_dispatch: {}
 
 jobs:
   check-call:
     name: '⚡'
     uses: z-shell/.github/.github/workflows/trunk-call.yml@main
-    #secrets:
-    #  trunk-token: ${{ secrets.TRUNK_TOKEN }}
     with:
       runs-on: 'ubuntu-latest'
-
-      # Pass commands to install or prepare dependencies.
-      #get_dependencies: ''
-
-      # Pass arguments to run before launching Trunk
-      #call_arguments0: ''
-      #call_arguments1: ''
-      #call_arguments2: ''
-      #call_arguments3: ''
-
-      # Pass arguments to run on fail
-      #call_on_fail: ''
-
-      #shell: 'bash'
       node_version: '16'
-      pnpm_arguments: 'pnpm install --frozen-lockfile'
-
-      # TRUNK
-      #trunk_path: ''
-      #cache: true
-      #upload-series: 'main'
-      #check-mode: 'all'
-      #arguments: ''
+      pnpm_arguments: 'pnpm i'
