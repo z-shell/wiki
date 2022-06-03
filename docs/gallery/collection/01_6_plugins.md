@@ -225,6 +225,14 @@ zi load z-shell/zredis
 
 ## With [for][4] syntax
 
+### SC: [zplugin/zsh-exa](https://github.com/zplugin/zsh-exa)
+
+```shell showLineNumbers
+zi wait lucid for \
+  has'exa' atinit'AUTOCD=1' \
+    zplugin/zsh-exa
+```
+
 ### GH-R: [pemistahl/grex](https://github.com/pemistahl/grex)
 
 ```shell showLineNumbers
@@ -250,7 +258,7 @@ zi wait lucid for \
     stedolan/jq
 ```
 
-### [github/git-sizer](https://github.com/github/git-sizer)
+### GH-R: [github/git-sizer](https://github.com/github/git-sizer)
 
 ```shell showLineNumbers
 zi wait lucid for \
