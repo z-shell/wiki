@@ -16,7 +16,7 @@ It is recommended to familiarize with [getting_started/oveview][9] before this.
 
 :::
 
-## <i class="fa-solid fa-circle-nodes"></i> The make syntax
+## <i class="fa-solid fa-circle-nodes"></i> The make syntax {#the-make-syntax}
 
 ```shell showLineNumbers
 zi ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
@@ -39,7 +39,7 @@ The `Makefile` with 2 tasks, can use:
 
 :::
 
-## <i class="fa-solid fa-arrows-to-dot"></i> Compiling programs
+## <i class="fa-solid fa-arrows-to-dot"></i> Compiling programs {#compiling-programs}
 
 ```shell showLineNumbers
 zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
@@ -71,7 +71,7 @@ zi light vim/vim
 | `make`             | As above, but also run the `install` target.                                                 |
 | `pick'src/vim'`    | as above, but for different path `$ZPFX/bin/vim`.                                            |
 
-## <i class="fa-solid fa-palette"></i> LS_COLORS
+## <i class="fa-solid fa-palette"></i> LS_COLORS  {#ls_colors}
 
 A repository [trapd00r/LS_COLORS][1] provides a file with color definitions for GNU `ls` command, and also for [ogham/exa][2]. Typically one does `eval $( dircolors -b $HOME/LS_COLORS)` to process this file and set the environment for `ls`. This means `dircolors` is run every shell startup. This costs much time because a fork has to be done and the program, i.e. `dircolors`, binary needs to be loaded and executed, and because `dircolors` loads the colors' definitions and processes them. Following ZI invocation solves this problem:
 
@@ -95,7 +95,7 @@ zi light trapd00r/LS_COLORS
 
 This way, except for the plugin installation and update, `dircolors` isn't ran, just normal sourcing is done. The everyday sourced file, i.e. `clrs.zsh`, is being compiled to speed up the loading.
 
-## <i class="fa-solid fa-folder-tree"></i> Direnv
+## <i class="fa-solid fa-folder-tree"></i> Direnv {#direnv}
 
 The project [**direnv/direnv**][5] registers itself in Z shell to modify the environment on directory change. This registration is most often done by `eval "$(direnv hook zsh)"` added to `.zshrc`.
 
@@ -112,7 +112,7 @@ In general, direnv works by hooking up to Zsh. The code that does this is provid
 
 Above `atclone'…'` puts this code into file `zhook.zsh`, `src''` sources it. This way `direnv hook zsh` is executed only on clone and update, and Zsh starts faster.
 
-## <i class="fa-solid fa-wand-magic-sparkles"></i> Glance at the 'for' syntax
+## <i class="fa-solid fa-wand-magic-sparkles"></i> Glance at the 'for' syntax {#glance-at-the-for-syntax}
 
 The drawback of this standard procedure is that the `direnv` binary is run on every shell startup and significantly slows it down. ZI allows to solve this in the following way:
 
@@ -148,7 +148,7 @@ zi from"gh-r" as"program" mv"direnv* -> direnv" \
 | `pick'direnv'`            | As in above example.                                                       |
 | `as'program'`             | As in above example.                                                       |
 
-## <i class="fa-solid fa-pen-to-square"></i> Standart syntax
+## <i class="fa-solid fa-pen-to-square"></i> Standart syntax {#standart-syntax}
 
 ```shell showLineNumbers
 zi …
@@ -172,7 +172,7 @@ There's no `ice` subcommand - that is currently being fully allowed.
 
 :::
 
-## <i class="fa-solid fa-file-pen"></i> The alternative syntaxes
+## <i class="fa-solid fa-file-pen"></i> The alternative syntaxes {#the-alternative-syntaxes}
 
 However, ZI supports also other syntaxes: the equal (`=`) syntax:
 
@@ -195,7 +195,7 @@ zi --wait=1 --from=gh-r --atload="print Hello World"
 zi load …
 ```
 
-## <i class="fa-solid fa-book-bookmark"></i> Summary
+## <i class="fa-solid fa-book-bookmark"></i> Summary {#summary}
 
 It's up to the user which syntax to choose.
 
