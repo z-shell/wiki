@@ -98,7 +98,7 @@
  <tr><td align="left">
   <hr />
  <h2 align="left">Project assistance</h2>
- <p> If you want to say **thank you** or/and support the active development.</p>
+ <p> If you want to say <b>thank you</b> or/and support the active development.</p>
  <p> - Add a <a href="https://github.com/z-shell/zi">GitHub Star</a> to the project, and follow <a href="https://github.com/z-shell">Z-Shell</a> organization. </p>
  <p> - Write interesting articles about the project on: <br />
   <a href="https://dev.to/">Dev.to</a>, <a href="https://medium.com/">Medium.com</a>, <a href="https://news.ycombinator.com/news">Hacker News</a>, <a href="https://community.ops.io/zsh">Community.ops.io</a>, <a href="https://www.reddit.com/r/zsh/">Reddit</a>, <a href="https://twitter.com/zshell_zi">Twitter</a> or your blog. Let us know so can share your post, especially if it's in other languages or some interesting zshrc configurations </p>
