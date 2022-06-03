@@ -418,7 +418,7 @@ zi load asciinema/asciinema
 ### RA: Rust and [Peltoche/lsd](https://github.com/Peltoche/lsd)
 
 ```shell showLineNumbers
-zi ice rustup cargo"!lsd" nocompile
+zi ice rustup cargo'!lsd' id-as'lsd' as'program' nocompile
 zi load z-shell/0
 ```
 
@@ -426,26 +426,26 @@ zi load z-shell/0
 
 ```shell showLineNumbers
 # the `ls' shim exposing the `exa' binary
-zi ice rustup cargo"!exa -> ls" nocompile
+zi ice rustup cargo'!exa -> ls' id-as'exa' as'program' nocompile
 zi load z-shell/0
 ```
 
 ```shell showLineNumbers
 # shim with standard error redirected to /dev/null
-zi ice rustup cargo"!E:exa" nocompile
+zi ice rustup cargo'!E:exa' id-as'exa' as'program' nocompile
 zi load z-shell/0
 ```
 
 ### RA: Rust and [ogham/exa][4], [Peltoche/lsd][14]
 
 ```shell showLineNumbers
-zi ice rustup cargo"exa;lsd" nocompile
+zi ice rustup cargo'exa;lsd' nocompile
 zi load z-shell/0
 ```
 
 ```shell showLineNumbers
 # exposes their binaries by altering $PATH
-zi ice rustup cargo'exa;lsd' as"program" pick"bin/(exa|lsd)" nocompile
+zi ice rustup cargo'exa;lsd' as'program' pick"bin/(exa|lsd)" nocompile
 zi load z-shell/0
 ```
 
@@ -533,7 +533,9 @@ zi light-mode for from'gh-r' as'program' \
 ### B: [jarun/nnn](https://github.com/jarun/nnn)
 
 ```shell showLineNumbers
-zi light-mode for pick"misc/quitcd/quitcd.zsh" sbin make jarun/nnn
+zi light-mode for pick'misc/quitcd/quitcd.zsh' as'program' nocompile \
+  sbin make \
+    jarun/nnn
 ```
 
 ### RA: Rust compiler environment
