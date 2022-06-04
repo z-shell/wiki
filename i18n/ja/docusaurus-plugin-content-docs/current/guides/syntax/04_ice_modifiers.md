@@ -13,7 +13,7 @@ The word `ice` means something that's added, like ice to a drink – and in ZI i
 
 Some ice modifiers are highlighted and clicking on them will take you to the appropriate Wiki page for an extended explanation. You may safely assume that given ice works with both plugins and snippets unless explicitly stated otherwise.
 
-## <i class="fa-solid fa-list"></i> Ice effects
+## <i class="fa-solid fa-list"></i> Ice effects {#ice-effects}
 
 |     Modifier      | Description                                                                                                                                                                                                                                                                                                                  |
 |:-----------------:| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -32,7 +32,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 |      `subst`      | Substitute the given string into another string when sourcing the plugin script, e.g.: `zi subst'autoload → autoload -Uz' …`.                                                                                                                                                                                                |
 |    `autoload`     | Autoload the given functions (from their files). Equivalent to calling `atinit'autoload the-function'`. Supports renaming of the function – pass `'… → new-name'` or `'… -> new-name'`, e.g.: `zi autoload'fun → my-fun; fun2 → my-fun2'`.                                                                                |
 
-## <i class="fa-solid fa-list"></i> Cloning options
+## <i class="fa-solid fa-list"></i> Cloning options {#cloning-options}
 
 |      Modifier       | Description                                                                                                                                                                                                                                                                                                                    |
 |:-------------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -45,7 +45,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 |     `pullopts`      | Pass the contents of `pullopts` to `git pull` used when updating plugins. **Does not work with snippets.**                                                                                                                                                                                                                     |
 |        `svn`        | Use Subversion for downloading snippets. GitHub supports the `SVN` protocol, this allows cloning of subdirectories as snippets, e.g. `zi ice svn; zi snippet OMZP::git`. Other ice `pick` can be used to select a file to the source (default are: `*.plugin.zsh`, `init.zsh`, `*.zsh-theme`). **Does not work with plugins.** |
 
-## <i class="fa-solid fa-list"></i> Selection of files (source '…')
+## <i class="fa-solid fa-list"></i> Selection of files (source '…') {#selection-of-files-source}
 
 |    Modifier     | Description                                                                                                                                       |
 |:---------------:| ------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -53,7 +53,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 |   [`src`][1]    | Specify an additional file to source after the main file or after setting up command via `as"program"`. It is not a pattern but a plain filename. |
 | [`multisrc`][1] | Allows specifying multiple files for sourcing, enumerated with spaces as the separators. More below [^2].                                         |
 
-## <i class="fa-solid fa-list"></i> Conditional loading
+## <i class="fa-solid fa-list"></i> Conditional loading {#conditional-loading}
 
 |           Modifier           | Description                                                                                                              |
 |:----------------------------:| ------------------------------------------------------------------------------------------------------------------------ |
@@ -66,7 +66,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 | `subscribe` / `on-update-of` | Postpone loading of a plugin or snippet until the given file(s) get updated, e.g. `subscribe'{~/files-*,/tmp/files-*}'`. |
 |        `trigger-load`        | Creates a function that loads the associated plugin/snippet, with an option. More below [^7].                            |
 
-## <i class="fa-solid fa-list"></i> Plugin output
+## <i class="fa-solid fa-list"></i> Plugin output {#plugin-output}
 
 | Modifier | Description                                                                                                                                                                                                                                                                                                 |
 |:--------:| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -74,14 +74,14 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 | `lucid`  | Skip `Loaded …` message under prompt for `wait`, etc. loaded plugins (a subset of `silent`).                                                                                                                                                                                                                |
 | `notify` | Output given message under-prompt after successfully loading a plugin/snippet. In case of problems with the loading, output a warning message and the return code. If starts with `!` it will then always output the given message. Hint: if the message is empty, then it will just notify about problems. |
 
-## <i class="fa-solid fa-list"></i> Completions
+## <i class="fa-solid fa-list"></i> Completions {#completions}
 
 |    Modifier     | Description                                                                                                                                                                  |
 |:---------------:| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |    `blockf`     | Disallow plugin to modify `fpath`. Useful when a plugin wants to provide completions traditionally. ZI can manage completions and plugins can be blocked from exposing them. |
 | `nocompletions` | Don't detect, install and manage completions for this plugin. Completions can be installed later with `zi creinstall {plugin-spec}`.                                         |
 
-## <i class="fa-solid fa-list"></i> Command execution after cloning, updating or loading
+## <i class="fa-solid fa-list"></i> Command execution after cloning, updating or loading {#command-execution-after-cloning-updating-or-loading}
 
 |    Modifier    | Description                                                                                                                                                                                                                                                                                                       |
 |:--------------:| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -97,7 +97,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 |  `countdown`   | Causes an interruptable (by Ctrl-C) countdown 5…4…3…2…1…0 to be displayed before executing `atclone'…'`,`atpull'…'` and `make` ices                                                                                                                                                                               |
 |    `reset`     | Invokes `git reset --hard HEAD` for plugins or `svn revert` for SVN snippets before pulling any new changes. This way `git` or `svn` will not report conflicts if some changes were done e.g.: `atclone'…'` ice. For file snippets and `gh-r` plugins, it invokes `rm -rf *`.                                     |
 
-## <i class="fa-solid fa-list"></i> Sticky-Emulation Of other shells
+## <i class="fa-solid fa-list"></i> Sticky-Emulation Of other shells {#sticky-emulation-of-other-shells}
 
 |    Modifier     | Description                                                                                                                                                                                                                                                                                                                                  |
 |:---------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -119,24 +119,24 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 [^6]: Example: `zi ice if'[[ -n "$commands[otool]" ]]'; zi load …` or `zi ice if'[[ $OSTYPE = darwin* ]]'; zi load …`.
 [^7]: To use the option, precede the ice content with `!` to automatically forward the call afterward, to a command of the same name as the function. Can obtain multiple functions to create – separate with `;`.
 
-[1]: /docs/guides/syntax/ice#-src-pick-multisrc
+[1]: /docs/guides/syntax/ice#src-pick-multisrc
 
-[1]: /docs/guides/syntax/ice#-src-pick-multisrc
+[1]: /docs/guides/syntax/ice#src-pick-multisrc
 
-[1]: /docs/guides/syntax/ice#-src-pick-multisrc
-[2]: /docs/guides/syntax/ice#-wait
-[3]: /docs/guides/customization#-multiple-prompts
-[3]: /docs/guides/customization#-multiple-prompts
-[4]: /docs/guides/syntax/ice#-atclone-atpull-atinit-atload
-[4]: /docs/guides/syntax/ice#-atclone-atpull-atinit-atload
-[4]: /docs/guides/syntax/ice#-atclone-atpull-atinit-atload
-[4]: /docs/guides/syntax/ice#-atclone-atpull-atinit-atload
-[5]: /docs/guides/syntax/common#-the-make-syntax
-[6]: /docs/guides/syntax/ice#-id-as
+[1]: /docs/guides/syntax/ice#src-pick-multisrc
+[2]: /docs/guides/syntax/ice#wait
+[3]: /docs/guides/customization#multiple-prompts
+[3]: /docs/guides/customization#multiple-prompts
+[4]: /docs/guides/syntax/ice#atclone-atpull-atinit-atload
+[4]: /docs/guides/syntax/ice#atclone-atpull-atinit-atload
+[4]: /docs/guides/syntax/ice#atclone-atpull-atinit-atload
+[4]: /docs/guides/syntax/ice#atclone-atpull-atinit-atload
+[5]: /docs/guides/syntax/common#the-make-syntax
+[6]: /docs/guides/syntax/ice#id-as
 [7]: https://github.com/search?q=topic%3Azservice+org%3Az-shell&type=Repositories
 [8]: /docs/guides/syntax/bindkey
 [8]: /docs/guides/syntax/bindkey
-[9]: /docs/guides/syntax/ice#-wrap-track
-[10]: /docs/guides/syntax/ice#-extract
+[9]: /docs/guides/syntax/ice#wrap-track
+[10]: /docs/guides/syntax/ice#extract
 [12]: /ecosystem/annexes
-[alternate-syntax]: /docs/guides/syntax/common#-the-alternative-syntaxes
+[alternate-syntax]: /docs/guides/syntax/common#the-alternative-syntaxes
