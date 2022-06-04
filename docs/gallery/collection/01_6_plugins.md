@@ -236,16 +236,16 @@ zi wait lucid for \
 ### GH-R: [pemistahl/grex](https://github.com/pemistahl/grex)
 
 ```shell showLineNumbers
-zi wait lucid for \
-  as"command" from"gh-r" sbin"grex" \
+zi wait lucid for as"command" from"gh-r" \
+  sbin"grex" \
     pemistahl/grex
 ```
 
 ### GH-R: [ahmetb/kubectx](https://github.com/ahmetb/kubectx)
 
 ```shellshowLineNumbers
-zi wait lucid for \
-  bpick"kubectx;kubens" from"gh-r" sbin"kubectx;kubens" \
+zi wait lucid for as"command" from"gh-r" \
+  bpick"kubectx;kubens" sbin"kubectx;kubens" \
     ahmetb/kubectx
 ```
 
