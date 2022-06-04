@@ -43,6 +43,26 @@
     "message": "Veuillez contacter le propriétaire du site qui vous a lié à l'URL d'origine et leur faire savoir que leur lien est cassé.",
     "description": "The 2nd paragraph of the 404 page"
   },
+  "theme.admonition.note": {
+    "message": "remarque",
+    "description": "The default label used for the Note admonition (:::note)"
+  },
+  "theme.admonition.tip": {
+    "message": "astuce",
+    "description": "The default label used for the Tip admonition (:::tip)"
+  },
+  "theme.admonition.danger": {
+    "message": "danger",
+    "description": "The default label used for the Danger admonition (:::danger)"
+  },
+  "theme.admonition.info": {
+    "message": "info",
+    "description": "The default label used for the Info admonition (:::info)"
+  },
+  "theme.admonition.caution": {
+    "message": "attention",
+    "description": "The default label used for the Caution admonition (:::caution)"
+  },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
     "message": "Fermer",
     "description": "The ARIA label for close button of announcement bar"
@@ -119,6 +139,14 @@
     "message": "mode clair",
     "description": "The name for the light color mode"
   },
+  "theme.docs.breadcrumbs.home": {
+    "message": "Page d'accueil",
+    "description": "The ARIA label for the home page in the breadcrumbs"
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "message": "Fil d'Ariane",
+    "description": "The ARIA label for the breadcrumbs"
+  },
   "theme.docs.DocCard.categoryDescription": {
     "message": "{count} éléments",
     "description": "The default description for a category card in the generated index about how many items this category includes"
@@ -134,10 +162,6 @@
   "theme.docs.paginator.next": {
     "message": "Suivant",
     "description": "The label used to navigate to the next doc"
-  },
-  "theme.DocSidebarItem.toggleCollapsedCategoryAriaLabel": {
-    "message": "Plier/Déplier la catégorie '{label}' de la barre latérale",
-    "description": "The ARIA label to toggle the collapsible sidebar category"
   },
   "theme.docs.tagDocListPageTitle.nDocsTagged": {
     "message": "Un document tagué|{count} documents tagués",
@@ -194,10 +218,6 @@
     "message": "Aller au contenu principal",
     "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
   },
-  "theme.TOCCollapsible.toggleButtonLabel": {
-    "message": "Sur cette page",
-    "description": "The label used by the button on the collapsible TOC component"
-  },
   "theme.tags.tagsListLabel": {
     "message": "Tags :",
     "description": "The label alongside a tag list"
@@ -222,9 +242,17 @@
     "message": "Activer/désactiver le retour à la ligne",
     "description": "The title attribute for toggle word wrapping button of code block lines"
   },
+  "theme.DocSidebarItem.toggleCollapsedCategoryAriaLabel": {
+    "message": "Plier/Déplier la catégorie '{label}' de la barre latérale",
+    "description": "The ARIA label to toggle the collapsible sidebar category"
+  },
   "theme.navbar.mobileLanguageDropdown.label": {
     "message": "Langues",
     "description": "The label for the mobile language switcher dropdown"
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "Sur cette page",
+    "description": "The label used by the button on the collapsible TOC component"
   },
   "theme.docs.sidebar.collapseButtonTitle": {
     "message": "Réduire le menu latéral",
@@ -245,13 +273,6 @@
   "theme.docs.sidebar.expandButtonAriaLabel": {
     "message": "Déplier le menu latéral",
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
-  },
-  "theme.SearchBar.seeAll": {
-    "message": "Voir les {count} résultats"
-  },
-  "theme.SearchBar.label": {
-    "message": "Chercher",
-    "description": "The ARIA label and placeholder for search button"
   },
   "theme.SearchPage.documentsFound.plurals": {
     "message": "Un document trouvé|{count} documents trouvés",
@@ -285,6 +306,13 @@
     "message": "Chargement de nouveaux résultats...",
     "description": "The paragraph for fetching new search results"
   },
+  "theme.SearchBar.seeAll": {
+    "message": "Voir les {count} résultats"
+  },
+  "theme.SearchBar.label": {
+    "message": "Chercher",
+    "description": "The ARIA label and placeholder for search button"
+  },
   "theme.IdealImageMessage.loading": {
     "message": "Chargement ...",
     "description": "When the full-scale image is loading"
@@ -316,33 +344,5 @@
   "theme.PwaReloadPopup.closeButtonAriaLabel": {
     "message": "Fermer",
     "description": "The ARIA label for close button of PWA reload popup"
-  },
-  "theme.docs.breadcrumbs.home": {
-    "message": "Page d'accueil",
-    "description": "The ARIA label for the home page in the breadcrumbs"
-  },
-  "theme.docs.breadcrumbs.navAriaLabel": {
-    "message": "Fil d'Ariane",
-    "description": "The ARIA label for the breadcrumbs"
-  },
-  "theme.admonition.note": {
-    "message": "remarque",
-    "description": "The default label used for the Note admonition (:::note)"
-  },
-  "theme.admonition.tip": {
-    "message": "astuce",
-    "description": "The default label used for the Tip admonition (:::tip)"
-  },
-  "theme.admonition.danger": {
-    "message": "danger",
-    "description": "The default label used for the Danger admonition (:::danger)"
-  },
-  "theme.admonition.info": {
-    "message": "info",
-    "description": "The default label used for the Info admonition (:::info)"
-  },
-  "theme.admonition.caution": {
-    "message": "attention",
-    "description": "The default label used for the Caution admonition (:::caution)"
   }
 }
