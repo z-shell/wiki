@@ -9,7 +9,6 @@ repo:
 lint:
   disabled:
     - hadolint
-    - shellcheck
   linters:
     - name: markdownlint
       command: [markdownlint, -q, --config, .github/.markdownlint.yaml, '${target}']
