@@ -145,7 +145,8 @@ zi light docker/compose
 ### GH-R: [neovim/neovim][11]
 
 ```shell showLineNumbers
-zi ice as'program' bpick'${bpick}' from'gh-r' sbin'**/bin/nvim -> nvim'
+zi ice as'program' from'gh-r' \
+  bpick'nvim-linux64.tar.gz' sbin'**/bin/nvim -> nvim'
 zi light neovim/neovim
 ```
 
