@@ -8,6 +8,7 @@ repo:
     name: zw
 lint:
   disabled:
+    - shellcheck
     - hadolint
   linters:
     - name: markdownlint
@@ -15,7 +16,7 @@ lint:
       direct_configs: [.github/.markdownlint.yaml]
   enabled:
     - actionlint@1.6.13
-    - eslint@8.16.0
+    - eslint@8.17.0
     - gitleaks@8.8.7
     - markdownlint@0.31.1
     - prettier@2.6.2
