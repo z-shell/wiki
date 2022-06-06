@@ -45,7 +45,7 @@
     "@trunkio/launcher": "1.1.1",
     "@tsconfig/docusaurus": "1.0.5",
     "@types/node": "17.0.36",
-    "@types/react": "18.0.11",
+    "@types/react": "18.0.12",
     "@typescript-eslint/eslint-plugin": "5.27.0",
     "@typescript-eslint/parser": "5.27.0",
     "eslint": "8.17.0",
