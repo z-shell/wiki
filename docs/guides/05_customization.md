@@ -11,9 +11,7 @@ keywords:
 
 ## <i class="fa-solid fa-sliders"></i> Customizing Paths {#customizing-paths}
 
-Following variables can be set to custom values, before sourcing ZI.
-
-Initial ZI's hash definition:
+Following variables can be set to custom values, before sourcing ZI. Initial ZI's hash definition:
 
 ```shell
 declare -A ZI
@@ -35,6 +33,7 @@ Variables below has to be set before loading ZI:
 | `ZI[OPTIMIZE_OUT_DISK_ACCESSES]` | If set to `1`, then ZI will skip checking if a Turbo-loaded object exists on the disk. By default, ZI skips Turbo for non-existing objects (plugins or snippets) to install them before the first prompt – without any delays, during the normal processing of `zshrc`. This option can give a performance gain of about 10 ms out of 150 ms (e.g: Zsh will start-up in 140 ms instead of 150 ms). |
 | `$ZPFX`                          | Directory where binary and their related files are stored (software with `Makefile` can use `atclone'./configure --prefix=$ZPFX'`). Set by default to `$ZI[HOME_DIR]}/polaris`.                                                                                                                                                                                                                    |
 | `ZI[MAN_DIR]`                    | Directory where plugins can store their manpages (`atclone"cp -vf man.1 $ZI[MAN_DIR]/man1"`). If overridden, this directory will not necessarily be used by man. Default: `${ZPFX}/man`                                                                                                                                                                                                            |
+| `ZI[PKG_OWNER]`                  | Change the owner of the [packages][packages] (`zi pack …`).                                                                                                                                                                                                                                                                                                                                        |
 
 ## <i class="fa-solid fa-square-up-right"></i> Non-GitHub (Local) Plugins {#non-github-local-plugins}
 
@@ -318,3 +317,4 @@ zi lucid load'![[ $MYPROMPT = 8 ]]' unload'![[ $MYPROMPT != 8 ]]' \
 [13]: https://github.com/wfxr/forgit
 [14]: https://unix.stackexchange.com/questions/214657/what-does-zstyle-do/239980
 [15]: https://linuxshellaccount.blogspot.com/2008/12/color-completion-using-zsh-modules-on.html
+[packages]: https://z.digitalclouds.dev/ecosystem/packages
