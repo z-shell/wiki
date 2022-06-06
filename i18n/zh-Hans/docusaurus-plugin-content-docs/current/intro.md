@@ -6,6 +6,8 @@ image: img/logo/320x320.png
 description: 对 Zsh 上的瑞士军刀的介绍，正式名称为 zplugin 或 zinit。
 keywords:
   - introduction
+  - zi features
+  - about zi
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';

@@ -2,6 +2,12 @@
 id: zsh_plugin_standard
 title: ℹ️ Zsh Plugin Standard
 sidebar_position: 2
+image: img/zsh/zsh1.png
+keywords:
+  - create a zsh plugin
+  - best pratices
+  - zsh-plugin
+  - standard
 ---
 
 ## Zshプラグインとは？
@@ -12,7 +18,9 @@ sidebar_position: 2
 
 1. Has its directory added to `$fpath` ([Zsh documentation](http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions)). This is being done either by a plugin manager or by the plugin itself (see [5th section](#run-on-unload-call) for more information).
 
-2. Has it’s first `*.plugin.zsh` file sourced (or `*.zsh`, `init.zsh`, `*.sh`, these are non-standard). 2.1 The first point allows plugins to provide completions and functions that are loaded via Zsh’s `autoload` mechanism (a single function per file).
+2. Has it’s first `*.plugin.zsh` file sourced (or `*.zsh`, `init.zsh`, `*.sh`, these are non-standard).
+
+   2.1 The first point allows plugins to provide completions and functions that are loaded via Zsh’s `autoload` mechanism (a single function per file).
 
 3. From a more broad perspective, a plugin consists of:
 
