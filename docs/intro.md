@@ -6,6 +6,8 @@ image: img/logo/320x320.png
 description: Introduction to a Swiss Army Knife for Zsh, formerly known as zplugin, zinit.
 keywords:
   - introduction
+  - zi features
+  - about zi
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
