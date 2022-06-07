@@ -1,17 +1,18 @@
 ---
 id: for
-title: ✨ For Syntax
+title: ✨ The "For" Syntax
 image: img/logo/320x320.png
-description: The For Syntax documentation
+description: The "For" Syntax documentation
 keywords:
   - for
   - syntax
   - how-to-use
+  - the-for-syntax
 ---
 
-The `for` syntax is the most popular, more concise and more optimized. The single command will work the same as the previous classic-syntax invocation.
+The `for` syntax is the most popular, more concise, and more optimized. The single command will work the same as the classic-syntax invocation.
 
-It also allows solving some typical problems when using ZI, like providing common/default ices for a set of plugins or sourcing multiple files with [src'…' ice][13].
+It allows providing common/default ices for a </b>set of plugins</b> or to source <b>multiple files</b> with ices: [src, pick, multisrc][ice#src-pick-multisrc].
 
 :::tip
 
@@ -203,3 +204,4 @@ plugin, hence the `atinit'…'` ice, which will load `compinit` right before loa
 [10]: /docs/guides/syntax/for
 [11]: https://github.com/z-shell/F-Sy-H
 [12]: https://github.com/zsh-users/zsh-syntax-highlighting
+[ice#src-pick-multisrc]: /docs/guides/syntax/ice#src-pick-multisrc
