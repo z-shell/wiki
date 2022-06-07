@@ -9,10 +9,6 @@ keywords:
   - zannex
 ---
 
-## What Are They?
-
-They are extensions that are installed when required to provide additional functionality, and capabilities.
-
 ## What Can They Do?
 
 1. Add a new ZI subcommand (i.e. the [command][1] that’s placed after the function `zi …` when calling ZI).
@@ -20,10 +16,15 @@ They are extensions that are installed when required to provide additional funct
 2. Add new [ice-modifiers][2].
 
 3. Register four types of hooks:
+
    3.1. `atclone` hook – run after cloning any plugin or downloading any snippet.
+
    3.2. `atpull` hook – run after pulling new commits (i.e. updating) for any plugin/snippet.
+
    3.3. `atinit` hook – run before loading any plugin/snippet, after it has been set-up (i.e. downloaded).
+
    3.4. `atload` hook – run after loading any plugin/snippet.
+
 4. Register hooks for generating help text, shown by the `zi help` subcommand.
 
 ## Recommended annexes
