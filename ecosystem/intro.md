@@ -18,7 +18,7 @@ import ZshImg from '@site/static/img/zsh/zsh1.png';
 
 <Image className="ScreenView" img={ZshImg} />
 
-Designed to glue everything together - <i class="fa-solid fa-screwdriver-wrench"></i> a toolchain powered by <b>Zsh</b> works for you and not against you.
+Designed to glue everything together - <b>Zsh-powered</b> toolchain that works for you and not against you.
 
 ### <i class="fa-brands fa-superpowers"></i> [Annexes](/ecosystem/annexes/)
 
