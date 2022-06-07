@@ -25,12 +25,12 @@ Designed to glue everything together - <i class="fa-solid fa-screwdriver-wrench"
 - Github topic: [zannex][gh-zannex]
 - Z-Shell topic: [zannex][zannex]
 
-### [Packages](/ecosystem/packages/)
+### <i class="fa-solid fa-cubes"></i> [Packages](/ecosystem/packages/)
 
 - Github topic: [zpackage][gh-zpackage]
 - Z-Shell topic: [zpackage][zpackage]
 
-### [Plugins & Modules](/ecosystem/plugins/)
+### <i class="fa-solid fa-gear"></i> [Plugins & Modules](/ecosystem/plugins/)
 
 - Github topic: [zplugin][gh-zplugin]
 - Z-Shell topic: [zplugin][zplugin]
