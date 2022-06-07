@@ -468,7 +468,7 @@ The multiple snippets loaded with the `for` syntax are being loaded _separately_
 
 The ZI scheduler will distribute the work over time and will allow activation of keyboard in between the snippets. The `multisrc'…'` way doesn't work this way – sourcing many files can cause noticeable keyboard freezes (in Turbo).
 
-## <i class="fa-solid fa-microchip"></i> `atclone'…'` `atpull'…'` `atinit'…'` `atload'…'` {ice#atclone-atpull-atinit-atload}
+## <i class="fa-solid fa-microchip"></i> `atclone'…'` `atpull'…'` `atinit'…'` `atload'…'` {#atclone-atpull-atinit-atload}
 
 There are four code-receiving ices: `atclone'…'`, `atpull'…'`, `atinit'…'`, `atload'…'`.
 
