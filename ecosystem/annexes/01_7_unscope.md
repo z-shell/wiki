@@ -5,10 +5,11 @@ image: img/logo/320x320.png
 description: Annex - Unscope documentation
 keywords:
   - annex
+  - zannex
   - unscope
 ---
 
-- [z-shell/z-a-unscope](https://github.com/z-shell/z-a-unscope)
+## <i class="fa-brands fa-github"></i> [z-shell/z-a-unscope](https://github.com/z-shell/z-a-unscope)
 
 An aannex allows to install plugins without specifying the GitHub user name.
 
@@ -23,17 +24,6 @@ It works as follows:
 4. For security, for such GH-API request to be made a newly added (by this annex) ice: `ghapi` is required to be given.
 
 5. Otherwise only the static database of mappings of short-plugin nicknames to the full scoped IDs will be searched. It contains many mappings, like, e.g.: **vi-reg** → **zsh-vi-more/evil-registers**, and also the usual basic unscopings of some of the popular plugins out there, like, e.g.: **zsh-syntax-highlighting** → **zsh-users/zsh-syntax-highlighting** and more.
-
-## Usage examples
-
-- An example installation via 2 nicknames (**env** and **vi-reg**) and by one unscoped (i.e.: not using any GitHub username) ID that's being dynamically resolved by a request to **GitHub API**:
-
-![zi-for-command](https://github.com/z-shell/z-a-unscope/raw/main/docs/images/unscope-zinit-for.png#center)
-
-- An example call to the **zi scope …** subcommand that is added by this annex. It allows to translate the unscoped IDs
-  and the short-static nicknames into the full **username/repository** plugin ID.
-
-![scope-subcommand](https://github.com/z-shell/z-a-unscope/raw/main/docs/images/unscope-scope-cmd.png#center)
 
 ## Static mappings
 
@@ -54,9 +44,9 @@ Besides the GitHub-API querying, there's also a fixed, curated list of mappings 
 |     z-a-bin-gem-node      | z-shell/z-a-bin-gem-node          |
 |       bin-gem-node        | z-shell/z-a-bin-gem-node          |
 |            bgn            | z-shell/z-a-bin-gem-node          |
-|        zi-console         | z-shell/zi-console                |
-|          console          | z-shell/zi-console                |
-|        consolette         | z-shell/zi-console                |
+|           meta            | z-shell/z-a-meta-plugins          |
+|          metaplg          | z-shell/z-a-meta-plugins          |
+|       meta-plugins        | z-shell/z-a-meta-plugins          |
 |          archive          | PZTM::archive                     |
 |           arch            | PZTM::archive                     |
 |         directory         | PZTM::directory                   |
@@ -128,6 +118,16 @@ Besides the GitHub-API querying, there's also a fixed, curated list of mappings 
 |           comps           | zsh-users/zsh-completions         |
 
 You can let me know if you would like a name to be added to the list.
+
+## Usage examples
+
+- An example installation via 2 nicknames (**env** and **vi-reg**) and by one unscoped (i.e.: not using any GitHub username) ID that's being dynamically resolved by a request to **GitHub API**:
+
+![zi-for-command](https://github.com/z-shell/z-a-unscope/raw/main/docs/images/unscope-zinit-for.png#center)
+
+- An example call to the **zi scope …** subcommand that is added by this annex. It allows to translate the unscoped IDs and the short-static nicknames into the full **username/repository** plugin ID.
+
+![scope-subcommand](https://github.com/z-shell/z-a-unscope/raw/main/docs/images/unscope-scope-cmd.png#center)
 
 ## Install unscope
 
