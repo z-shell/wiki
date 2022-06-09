@@ -184,7 +184,7 @@ To enable debug messages from the module set:
 typeset -g ZI_MOD_DEBUG=1
 ```
 
-## <i class="fas fa-sync-alt fa-spin"></i> Available installer links
+## <i class="fas fa-sync-alt fa-spin"></i> Available links
 
 [Status page: :heavy_check_mark:][10]
 
