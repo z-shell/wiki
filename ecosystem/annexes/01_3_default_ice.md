@@ -12,7 +12,7 @@ keywords:
 
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-default-ice][default-ice]
 
-🌀 An annex delivers the capability to set **default ices** for the next `zi` command. It adds subcommand: **default-ice** which has the following synopsis:
+An annex delivers the capability to set **default ices** for the next `zi` command. It adds subcommand: **default-ice** which has the following synopsis:
 
 ```shell showLineNumbers
 —— default-ice --help/-h --clear/-c --show/-s --get/-g --quiet/-q --stats/-t
