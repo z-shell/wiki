@@ -198,11 +198,11 @@ typeset -g ZI_MOD_DEBUG=1
 
 ### Loader
 
-| Service        | URL                                                                       |
-| :------------- | ------------------------------------------------------------------------- |
-| [Redirect][3]: | <https://init.zshell.dev>                                                 |
-| [IPFS][2]      | <https://ipfs.zshell.dev/zsh/init.zsh>                                    |
-| [Direct][4]:   | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh>  |
+| Service        | URL                                                                      |
+| :------------- | ------------------------------------------------------------------------ |
+| [Redirect][3]: | <https://init.zshell.dev>                                                |
+| [IPFS][2]      | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
+| [Direct][4]:   | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
 
 [1]: https://get.zshell.dev
 [2]: https://ipfs.io
