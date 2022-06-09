@@ -2,7 +2,7 @@
 name: '⭕ Trunk'
 on:
   push:
-    branches: ['main']
+    branches: [main]
     tags: ['v*.*.*']
   pull_request:
     types: [opened, synchronize]
@@ -12,6 +12,8 @@ jobs:
   check:
     name: '⚡'
     uses: z-shell/.github/.github/workflows/trunk.yml@main
+    #secrets:
+    #  trunk-token: ${{ secrets.TRUNK_TOKEN }}
     with:
       runs-on: 'ubuntu-latest'
       node_version: '16'
