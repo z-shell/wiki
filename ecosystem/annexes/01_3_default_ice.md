@@ -31,7 +31,7 @@ An annex delivers the capability to set **default ices** for the next `zi` comma
 
 Simply load like a regular plugin, i.e.:
 
-```zsh
+```shell
 zi light z-shell/z-a-default-ice
 ```
 
