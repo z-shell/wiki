@@ -4,13 +4,15 @@ title: 💠 Default Ice
 image: img/logo/320x320.png
 description: Annex - Default Ice documentation
 keywords:
+  - ice
   - annex
+  - zannex
   - default-ice
 ---
 
-- [z-shell/z-a-default-ice](https://github.com/z-shell/z-a-default-ice)
+## <i class="fa-brands fa-github"></i> [z-shell/z-a-default-ice][default-ice]
 
-An annex allows setting **default ices** for the next `zi` command. It adds subcommand: **default-ice** which has the following synopsis:
+🌀 An annex delivers the capability to set **default ices** for the next `zi` command. It adds subcommand: **default-ice** which has the following synopsis:
 
 ```shell showLineNumbers
 —— default-ice --help/-h --clear/-c --show/-s --get/-g --quiet/-q --stats/-t
@@ -33,7 +35,7 @@ Simply load like a regular plugin, i.e.:
 zi light z-shell/z-a-default-ice
 ```
 
-## Usage with [ZI](https://github.com/z-shell/zi)
+## Usage with [ZI][zi]
 
 ```shell showLineNumbers
 zi default-ice lucid from"gh-r"
@@ -49,3 +51,6 @@ zi wait for \
 The `wait''` ice cannot be made default by using this subcommand.
 
 :::
+
+[default-ice]: https://github.com/z-shell/z-a-default-ice
+[zi]: https://github.com/z-shell/zi
