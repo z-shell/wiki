@@ -4,8 +4,9 @@ sidebar_position: 1
 image: img/logo/320x320.png
 description: 安装指南
 keywords:
-  - installation
   - setup
+  - quick-start
+  - installation
 ---
 
 ## <i class="fas fa-spinner fa-spin"></i> Quick setup
@@ -180,22 +181,30 @@ To enable debug messages from the module set:
 typeset -g ZI_MOD_DEBUG=1
 ```
 
-## <i class="fas fa-sync-alt fa-spin"></i> Available installer links
+## <i class="fas fa-sync-alt fa-spin"></i> Available links
 
 [Status page: :heavy_check_mark:][10]
+
+### Installer
 
 | 域名             | URL                                                                       |
 |:-------------- | ------------------------------------------------------------------------- |
 | [Redirect][1]: | <https://get.zshell.dev>                                                  |
-| [IPFS][2]      | <https://ipfs.zshell.dev/lib/sh/install.sh>                               |
-| [GitHub][3]:   | <https://z.digitalclouds.dev/i-hub>                                       |
-| [GitLab][4]:   | <https://z.digitalclouds.dev/i-lab>                                       |
+| [IPFS][2]      | <https://ipfs.zshell.dev/sh/install.sh>                                   |
 | [Direct][5]:   | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
+
+### Loader
+
+| 域名             | URL                                                                      |
+|:-------------- | ------------------------------------------------------------------------ |
+| [Redirect][3]: | <https://init.zshell.dev>                                                |
+| [IPFS][2]      | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
+| [Direct][4]:   | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
 
 [1]: https://get.zshell.dev
 [2]: https://ipfs.io
-[3]: https://z.digitalclouds.dev/i-hub
-[4]: https://z.digitalclouds.dev/i-lab
+[3]: https://init.zshell.dev
+[4]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh
 [5]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
 [6]: https://github.com/z-shell/zi/issues/new/choose
 [7]: https://github.com/orgs/z-shell/discussions/new
