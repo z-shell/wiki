@@ -11,7 +11,7 @@ on:
 jobs:
   check-call:
     name: '⚡'
-    uses: z-shell/.github/.github/workflows/trunk-call.yml@main
+    uses: z-shell/.github/.github/workflows/trunk.yml@main
     with:
       runs-on: 'ubuntu-latest'
       node_version: '16'
