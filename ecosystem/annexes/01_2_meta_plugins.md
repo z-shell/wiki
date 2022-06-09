@@ -2,9 +2,10 @@
 id: meta-plugins
 title: 💠 Meta Plugins
 image: img/logo/320x320.png
-description: Annex - meta-plugins documentation
+description: Annex meta-plugins documentation
 keywords:
-  - annex,
+  - annex
+  - zsh-plugins
   - meta-plugins
 ---
 
@@ -12,7 +13,7 @@ keywords:
 
 An annex has the curated, optimal [ice][46] lists automatically applied.
 
-- Create your own [group of plugins][47]
+- To create your group of plugins as meta-plugins propose them in a new [issue][47].
 
 :::info
 
@@ -68,12 +69,12 @@ skip'vivid exa tig' @console-tools
 | @zsh-users       | [zsh-syntax-highlighting][16], [zsh-autosuggestions][17], [zsh-completions][18]                                                         |
 | @zsh-users+fast  | [F-Sy-H][10], [zsh-autosuggestions][17], [zsh-completions][18]                                                                          |
 | @romkatv         | [powerlevel10k][19]                                                                                                                     |
-| @molovo          | [color][20], [revolver][21], [zunit][22]                                                                                                |
+| @zunit           | [color][20], [revolver][21], [zunit][22]                                                                                                |
 | @sharkdp         | [fd][23], [bat][24], [hexyl][25], [hyperfine][26], [vivid][27]                                                                          |
 | @developer-tools | [color][20], [revolver][21], [zunit][22], [gitignore.plugin.zsh][28], [tig][29]                                                         |
 | @console-tools   | [dircolors-material][30] (package), [fd][23], [bat][24], [hexyl][25], [hyperfine][26], [vivid][27], [exa][31], [ripgrep][32], [tig][29] |
 | @fuzzy           | [fzf][33] (package), [fzy][34] (package), [skim][35], [peco][36]                                                                        |
-| @fuzzy-src       | fzf-go, [fzy][z-shell/fzy], skim-cargo, peco-go                                                                                         |
+| @fuzzy-src       | fzf-go, [fzy][34], skim-cargo, peco-go                                                                                                  |
 | @ext-git         | [git-open][37], [git-recent][38], [git-my][39], [git-quick-stats][40], [git-now][41], [git-extras][42], [forgit][43]                    |
 | @rust-utils      | rust-toolchain, cargo-extensions                                                                                                        |
 | @py-utils        | [pyenv][44] (package)                                                                                                                   |
@@ -95,11 +96,11 @@ It consumes time to:
 
 Other unique benefits of the meta plugins annex:
 
-|                           Benefit                           | Description                                                                                                                                                                                                                                                                                                     |
-| :---------------------------------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                     Plugin dependencies                     | The meta plugins implement a dependency mechanism: selecting a from-source built [ogham/exa][31] will automatically pull in also the Rust compiler (available under the meta-plugin name: `rust-toolchain`).                                                                                                    |
-| Flexible disabling of chosen sub-plugins in any meta-plugin | A meta-plugin can contain many sub-plugins and it's possible to skip installing some of them by the **skip'plg-1 plg-2…'** ice, e.g.: `zi skip'ripgrep fd' for console-tools`. This way despite that some of the meta plugins are broad the user still has control over what's and how much is being installed. |
-|               Common from-source meta plugins               | For the plugins that provide the binary programs it is often the case that a meta-plugin exists that'll build the program from the source (e.g.: **fuzzy** meta-plugin and its **fuzzy-src** counterpart). This might be handy e.g.: if there's no binary for our machine.                                      |
+|                           Benefit                           | Description                                                                                                                                                                                                                                                                                                           |
+| :---------------------------------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                     Plugin dependencies                     | The meta plugins implement a dependency mechanism: selecting a from-source built [ogham/exa][31] will automatically pull in also the Rust compiler (available under the meta-plugin name: `rust-toolchain`).                                                                                                          |
+| Flexible disabling of chosen sub-plugins in any meta-plugin | A meta-plugin can contain many sub-plugins and it's possible to skip installing some of them by the **skip'plugin-1 plugin-2…'** ice, e.g.: `zi skip'ripgrep fd' for console-tools`. This way despite that some of the meta plugins are broad the user still has control over what's and how much is being installed. |
+|               Common from-source meta plugins               | For the plugins that provide the binary programs it is often the case that a meta-plugin exists that'll build the program from the source (e.g.: **fuzzy** meta-plugin and its **fuzzy-src** counterpart). This might be handy e.g.: if there's no binary for our machine.                                            |
 
 ---
 
@@ -126,9 +127,9 @@ Other unique benefits of the meta plugins annex:
 [17]: https://github.com/zsh-users/zsh-autosuggestions
 [18]: https://github.com/zsh-users/zsh-completions
 [19]: https://github.com/romkatv/powerlevel10k
-[20]: https://github.com/molovo/revolver
-[21]: https://github.com/molovo/color
-[22]: https://github.com/zunit-zsh/zunit
+[20]: https://github.com/zdharma/revolver
+[21]: https://github.com/zdharma/color
+[22]: https://github.com/zdharma/zunit
 [23]: https://github.com/sharkdp/fd
 [24]: https://github.com/sharkdp/bat
 [25]: https://github.com/sharkdp/hexyl
