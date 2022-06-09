@@ -9,7 +9,7 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  check-call:
+  check:
     name: '⚡'
     uses: z-shell/.github/.github/workflows/trunk.yml@main
     with:
