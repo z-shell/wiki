@@ -5,12 +5,13 @@ image: img/logo/320x320.png
 description: Annex - Submods documentation.
 keywords:
   - annex
+  - zannex
   - submods
 ---
 
-- [z-shell/z-a-submods](https://github.com/z-shell/z-a-submods)
+## <i class="fa-brands fa-github"></i> [z-shell/z-a-submods](https://github.com/z-shell/z-a-submods)
 
-An annex allows to clone additional submodules while installing a plugin or snippet. The submodules are then automatically updated on the `zi update …` command.
+An annex delivers the capability to clone additional submodules while installing a plugin or snippet. The submodules are then automatically updated on the `zi update …` command.
 
 This annex adds `submods''` ice to ZI which has the following syntax:
 
