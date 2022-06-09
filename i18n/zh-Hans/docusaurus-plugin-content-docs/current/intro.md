@@ -1,6 +1,6 @@
 ---
 id: intro
-title: '🎉Introduction'
+title: '🎉 Introduction'
 sidebar_position: 1
 image: img/logo/320x320.png
 description: 对 Zsh 上的瑞士军刀的介绍，正式名称为 zplugin 或 zinit。
