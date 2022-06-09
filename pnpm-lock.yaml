@@ -29,7 +29,7 @@ specifiers:
   prism-react-renderer: 1.3.3
   react: 17.0.2
   react-dom: 17.0.2
-  stylelint: 14.8.5
+  stylelint: 14.9.0
   stylelint-config-prettier: 9.0.3
   stylelint-config-standard: 25.0.0
   stylelint-csstree-validator: 2.0.0
@@ -62,10 +62,10 @@ devDependencies:
   eslint: 8.17.0
   eslint-config-prettier: 8.5.0_eslint@8.17.0
   eslint-plugin-react: 7.30.0_eslint@8.17.0
-  stylelint: 14.8.5
-  stylelint-config-prettier: 9.0.3_stylelint@14.8.5
-  stylelint-config-standard: 25.0.0_stylelint@14.8.5
-  stylelint-csstree-validator: 2.0.0_stylelint@14.8.5
+  stylelint: 14.9.0
+  stylelint-config-prettier: 9.0.3_stylelint@14.9.0
+  stylelint-config-standard: 25.0.0_stylelint@14.9.0
+  stylelint-csstree-validator: 2.0.0_stylelint@14.9.0
   typescript: 4.7.3
 
 packages:
@@ -1518,6 +1518,17 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@csstools/selector-specificity/2.0.0_444rcjjorr3kpoqtvoodsr46pu:
+    resolution: {integrity: sha512-rZ6vufeY/UjAgtyiJ4WvfF6XP6HizIyOfbZOg0RnecIwjrvH8Am3nN1BpKnnPZunYAkUcPPXDhwbxOtGop8cfQ==}
+    engines: {node: ^12 || ^14 || >=16}
+    peerDependencies:
+      postcss: ^8.3
+      postcss-selector-parser: ^6.0.10
+    dependencies:
+      postcss: 8.4.14
+      postcss-selector-parser: 6.0.10
+    dev: true
 
   /@docsearch/css/3.1.0:
     resolution: {integrity: sha512-bh5IskwkkodbvC0FzSg1AxMykfDl95hebEKwxNoq4e5QaGzOXSBgW8+jnMFZ7JU4sTBiB04vZWoUSzNrPboLZA==}
@@ -8636,11 +8647,6 @@ packages:
       - supports-color
     dev: false
 
-  /specificity/0.4.1:
-    resolution: {integrity: sha512-1klA3Gi5PD1Wv9Q0wUoOQN1IWAuPu0D1U03ThXTr0cJ20+/iq2tHSDnK7Kk/0LXJ1ztUB2/1Os0wKmfyNgUQfg==}
-    hasBin: true
-    dev: true
-
   /sprintf-js/1.0.3:
     resolution: {integrity: sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=}
     dev: false
@@ -8812,48 +8818,49 @@ packages:
       postcss-selector-parser: 6.0.10
     dev: false
 
-  /stylelint-config-prettier/9.0.3_stylelint@14.8.5:
+  /stylelint-config-prettier/9.0.3_stylelint@14.9.0:
     resolution: {integrity: sha512-5n9gUDp/n5tTMCq1GLqSpA30w2sqWITSSEiAWQlpxkKGAUbjcemQ0nbkRvRUa0B1LgD3+hCvdL7B1eTxy1QHJg==}
     engines: {node: '>= 12'}
     hasBin: true
     peerDependencies:
       stylelint: '>=11.0.0'
     dependencies:
-      stylelint: 14.8.5
+      stylelint: 14.9.0
     dev: true
 
-  /stylelint-config-recommended/7.0.0_stylelint@14.8.5:
+  /stylelint-config-recommended/7.0.0_stylelint@14.9.0:
     resolution: {integrity: sha512-yGn84Bf/q41J4luis1AZ95gj0EQwRX8lWmGmBwkwBNSkpGSpl66XcPTulxGa/Z91aPoNGuIGBmFkcM1MejMo9Q==}
     peerDependencies:
       stylelint: ^14.4.0
     dependencies:
-      stylelint: 14.8.5
+      stylelint: 14.9.0
     dev: true
 
-  /stylelint-config-standard/25.0.0_stylelint@14.8.5:
+  /stylelint-config-standard/25.0.0_stylelint@14.9.0:
     resolution: {integrity: sha512-21HnP3VSpaT1wFjFvv9VjvOGDtAviv47uTp3uFmzcN+3Lt+RYRv6oAplLaV51Kf792JSxJ6svCJh/G18E9VnCA==}
     peerDependencies:
       stylelint: ^14.4.0
     dependencies:
-      stylelint: 14.8.5
-      stylelint-config-recommended: 7.0.0_stylelint@14.8.5
+      stylelint: 14.9.0
+      stylelint-config-recommended: 7.0.0_stylelint@14.9.0
     dev: true
 
-  /stylelint-csstree-validator/2.0.0_stylelint@14.8.5:
+  /stylelint-csstree-validator/2.0.0_stylelint@14.9.0:
     resolution: {integrity: sha512-nAnG4CynM4P4POUCGVz/PnrByKcgdD2isKlmAccoxykkaH1IuEposiOJcUQlAp/kXD/T0ZRwlDbqMGgrHRbhog==}
     engines: {node: ^12.20.0 || ^14.13.0 || >=15.0.0, npm: '>=7.0.0'}
     peerDependencies:
       stylelint: '>=7.0.0 <15.0.0'
     dependencies:
       css-tree: 2.1.0
-      stylelint: 14.8.5
+      stylelint: 14.9.0
     dev: true
 
-  /stylelint/14.8.5:
-    resolution: {integrity: sha512-e3t4H/hlWlspkcNUrkhf44RU3OpPTA7uBOoREGBzSwdEF+2g/+gbZq7WEpMP7BpopcSe/uLaTvDuL+URL7cdnQ==}
+  /stylelint/14.9.0:
+    resolution: {integrity: sha512-+xsQ4uKS56RQs8AGYx2CXc9nhWyPR7c/G0RqyiKgWZx2LuE3VJnIhGRQXUfnGQXOqBPHxNjMCHiK5NNQRB52sw==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
+      '@csstools/selector-specificity': 2.0.0_444rcjjorr3kpoqtvoodsr46pu
       balanced-match: 2.0.0
       colord: 2.9.2
       cosmiconfig: 7.0.1
@@ -8885,7 +8892,6 @@ packages:
       postcss-selector-parser: 6.0.10
       postcss-value-parser: 4.2.0
       resolve-from: 5.0.0
-      specificity: 0.4.1
       string-width: 4.2.3
       strip-ansi: 6.0.1
       style-search: 0.1.0
