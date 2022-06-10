@@ -144,7 +144,7 @@ By using this method you can clone plugins from e.g. GitHub Enterprise or embed 
 
 ## <i class="fa-solid fa-microchip"></i> `id-as'…'` {#id-as}
 
-Load a plugin or snippet with a nickname with the `id-as` ice-modifier. For example, one could try to load [docker/compose][1] from GitHub binary releases:
+Load a plugin or snippet with a nickname with the `id-as'…'` ice-modifier. For example, one could try to load [docker/compose][1] from GitHub binary releases:
 
 ```shell showLineNumbers
 zi ice as"program" from"gh-r" mv"docker-c* -> docker-compose"
@@ -153,8 +153,7 @@ zi light "docker/compose"
 
 This registers plugin under the ID `docker/compose`. Now suppose the user would want to also load a completion from the project's GitHub repository (not the binary release catalog) which is also available under the GitHub url-path **…/docker/compose**. The two IDs, both being "docker/compose", will collide.
 
-The solution to this problem – the `id-as` (to be read as: _identify-as_) ice to which this document is devoted: by
-using the `id-as` ice the user can resolve the conflict by loading the completion under a kind of a _nickname_, for example under "_dc-complete_", by issuing the following commands:
+The solution to this problem – the `id-as'…'` (to be read as: _identify-as_) ice to which this document is devoted: by using the `id-as'…'` ice the user can resolve the conflict by loading the completion under a kind of a _nickname_, for example under "_dc-complete_", by issuing the following commands:
 
 ```shell showLineNumbers
 zi ice as"completion" id-as"dc-complete"
@@ -215,11 +214,11 @@ zi ice wait lucid id-as
 zi load hlissner/zsh-autopair
 ```
 
-## <i class="fa-solid fa-microchip"></i> `wait` {#wait}
+## <i class="fa-solid fa-microchip"></i> `wait'…'` {#wait}
 
 :::note
 
-Turbo mode, i.e. the `wait` ice that implements it - needs Zsh >= 5.3.
+Turbo mode, i.e. the `wait'…'` ice that implements it - needs Zsh >= 5.3.
 
 :::
 
@@ -295,67 +294,6 @@ zi-turbo '1b' for \
   MichaelAquilina/zsh-you-should-use
 ```
 
-## <i class="fa-solid fa-microchip"></i> `wrap-track'…'` {#wrap-track}
-
-The `wrap-track'…'` ice-mod allows to extend the tracking (e.g: gathering of report and unload data) of a plugin beyond the moment of sourcing it's main file(s). It works by wrapping the given functions with a tracking-enabling and disabling snippet of code. This is useful especially with prompts, as they very often do their initialization in the first call to their `precmd` [hook][5] function.
-
-For example, [romkatv/powerlevel10k][6] works this way. The ice takes a list of function names, with the elements separated by `;`:
-
-```shell
-zi ice wrap-track"func1;func2;…"
-```
-
-### Use case for `wrap-track'…'` {#use-case-for-wrap-track}
-
-Therefore, to e.g. load and unload the example powerlevel10k prompt in the fashion of [multiple prompts][7] article, the `precmd` function of the plugin – called `_p9k_precmd`, to get the name of the function do `echo $precmd_functions` after loading a theme, should be passed to `wrap-track'…'` ice.
-
-Load when `MYPROMPT == 4`
-
-```shell showLineNumbers
-zi ice load'![[ $MYPROMPT = 4 ]]' unload'![[ $MYPROMPT != 4 ]]' \
-  atload'source ~/.p10k.zsh; _p9k_precmd' wrap-track'_p9k_precmd'
-zi load romkatv/powerlevel10k
-```
-
-This way the actions done during the first call to `_p9k_precmd()` will be normally recorded, which can be viewed in the report of the [**romkatv/powerlevel10k**][6] theme:
-
-```shell showLineNumbers
-➜ zi report romkatv/powerlevel10k:
-Report for romkatv/powerlevel10k plugin
----------------------------------------
-Source powerlevel10k.zsh-theme (reporting enabled)
-Autoload is-at-least with options -U -z
-
-(…)
-
-Note: === Starting to track function: _p9k_precmd ===
-Zle -N p9k-orig-zle-line-finish _zsh_highlight_widget_zle-line-finish
-Note: a new widget created via zle -N: p9k-orig-zle-line-finish
-Zle -N -- zle-line-finish _p9k_wrapper__p9k_zle_line_finish
-Autoload vcs_info with options -U -z
-Zstyle :vcs_info:* check-for-changes true
-
-(…)
-
-Zstyle :vcs_info:* get-revision false
-Autoload add-zsh-hook with options -U -z
-Zle -F 22_gitstatus_process_response_POWERLEVEL9K
-Autoload_gitstatus_cleanup_15877_0_16212
-Zle -N -- zle-line-pre-redraw _p9k_wrapper__p9k_zle_line_pre_redraw
-Note: a new widget created via zle -N: zle-line-pre-redraw
-Zle -N -- zle-keymap-select _p9k_wrapper__p9k_zle_keymap_select
-Note: === Ended tracking function:_p9k_precmd ===
-
-Functions created:
-+vi-git-aheadbehind                      +vi-git-remotebranch
-
-(…)
-```
-
-#### Summary of `wrap-track'…'`
-
-As it can be seen, creation of four additional Zle-widgets has been recorded - `Zle -N …` lines. They will be properly deleted/restored on the plugin unload with `MYPROMPT=3` as example and the shell state will be clean, ready to load a new prompt.
-
 ## <i class="fa-solid fa-microchip"></i> `src'…'` `pick'…'` `multisrc'…'` {#src-pick-multisrc}
 
 Normally `src'…'` can be used to specify additional file to source:
@@ -385,7 +323,7 @@ zi snippet OMZ::lib
 |    `svn`    | Use Subversion to clone `OMZ::lib` (the whole Oh-My-Zsh `lib/` directory). More [^1].                                              |
 | `atload'…'` | Code isn't tracked and cannot be unloaded. The `atload'…'` is executed after loading main files `pick'…'` and `src'…'`. More [^2]. |
 
-[^1]: Note that `atload'…'` uses apostrophes not double quotes, to literally put `$f` into the string, `atload`'s code is automatically being run **within the snippet's (or plugin's) directory**.
+[^1]: Note that `atload'…'` uses apostrophes not double quotes, to literally put `$f` into the string, `atload'…'`'s code is automatically being run **within the snippet's (or plugin's) directory**.
 [^2]: Unless you load a plugin (not a snippet) with `zi load …` and prepend the value of the ice with exclamation mark. Example: `atload'!local f; for …'`.
 
 ### The `multisrc'…'` ice {#the-multisrc-ice}
@@ -473,6 +411,67 @@ The multiple snippets loaded with the `for` syntax are being loaded _separately_
 
 The ZI scheduler will distribute the work over time and will allow activation of keyboard in between the snippets. The `multisrc'…'` way doesn't work this way – sourcing many files can cause noticeable keyboard freezes (in Turbo).
 
+## <i class="fa-solid fa-microchip"></i> `wrap'…'` {#wrap}
+
+The `wrap'…'` ice-modifier allows to extend the tracking (e.g: gathering of report and unload data) of a plugin beyond the moment of sourcing it's main file(s). It works by wrapping the given functions with a tracking-enabling and disabling snippet of code. This is useful especially with prompts, as they very often do their initialization in the first call to their `precmd` [hook][5] function.
+
+For example, [romkatv/powerlevel10k][6] works this way. The ice takes a list of function names, with the elements separated by `;`:
+
+```shell
+zi ice wrap"func1;func2;…"
+```
+
+### Use case for `wrap'…'` {#use-case-for-wrap}
+
+Therefore, to e.g. load and unload the example powerlevel10k prompt in the fashion of [multiple prompts][7] article, the `precmd` function of the plugin – called `_p9k_precmd`, to get the name of the function do `echo $precmd_functions` after loading a theme, should be passed to `wrap'…'` ice.
+
+Load when `MYPROMPT == 4`
+
+```shell showLineNumbers
+zi ice load'![[ $MYPROMPT = 4 ]]' unload'![[ $MYPROMPT != 4 ]]' \
+  atload'source ~/.p10k.zsh; _p9k_precmd' wrap'_p9k_precmd'
+zi load romkatv/powerlevel10k
+```
+
+This way the actions done during the first call to `_p9k_precmd()` will be normally recorded, which can be viewed in the report of the [**romkatv/powerlevel10k**][6] theme:
+
+```shell showLineNumbers
+➜ zi report romkatv/powerlevel10k:
+Report for romkatv/powerlevel10k plugin
+---------------------------------------
+Source powerlevel10k.zsh-theme (reporting enabled)
+Autoload is-at-least with options -U -z
+
+(…)
+
+Note: === Starting to track function: _p9k_precmd ===
+Zle -N p9k-orig-zle-line-finish _zsh_highlight_widget_zle-line-finish
+Note: a new widget created via zle -N: p9k-orig-zle-line-finish
+Zle -N -- zle-line-finish _p9k_wrapper__p9k_zle_line_finish
+Autoload vcs_info with options -U -z
+Zstyle :vcs_info:* check-for-changes true
+
+(…)
+
+Zstyle :vcs_info:* get-revision false
+Autoload add-zsh-hook with options -U -z
+Zle -F 22_gitstatus_process_response_POWERLEVEL9K
+Autoload_gitstatus_cleanup_15877_0_16212
+Zle -N -- zle-line-pre-redraw _p9k_wrapper__p9k_zle_line_pre_redraw
+Note: a new widget created via zle -N: zle-line-pre-redraw
+Zle -N -- zle-keymap-select _p9k_wrapper__p9k_zle_keymap_select
+Note: === Ended tracking function:_p9k_precmd ===
+
+Functions created:
++vi-git-aheadbehind                      +vi-git-remotebranch
+
+(…)
+```
+
+### Summary of `wrap'…'`
+
+As it can be seen, creation of four additional Zle-widgets has been recorded - `Zle -N …` lines. They will be properly deleted/restored on the plugin unload with `MYPROMPT=3` as example and the shell state will be clean, ready to load a new prompt.
+
 ## <i class="fa-solid fa-microchip"></i> `atclone'…'` `atpull'…'` `atinit'…'` `atload'…'` {#atclone-atpull-atinit-atload}
 
 There are four code-receiving ices: `atclone'…'`, `atpull'…'`, `atinit'…'`, `atload'…'`.
@@ -488,15 +487,15 @@ Their role is to **receive a portion of Zsh code and execute it in certain momen
 
 For convenience, you can use each of the ices multiple times in single `zi ice …` invocation – all the passed commands will be executed in the given order.
 
-The `atpull'…'` ice recognizes a special value: `%atclone`, so the code looks: `atpull'%atclone'`. It causes the contents of the `atclone'…'` ice to be copied into the contents of the `atpull` ice.
+The `atpull'…'` ice recognizes a special value: `%atclone`, so the code looks: `atpull'%atclone'`. It causes the contents of the `atclone'…'` ice to be copied into the contents of the `atpull'…'` ice.
 
 This is handy when the same tasks have to be performed on clone **and** on update of plugin or snippet, like e.g.: in the [direnv example][9].
 
 ### `atload'!…'` with exclamation mark preceded
 
-The `wrap-track` ice allows to track and unload plugins that defer their initialization into a function run later after sourcing the plugin's script – when the function is called, the plugin is then being fully initialized.
+The [wrap'…'](#wrap) ice-modifier allows to track and unload plugins that defer their initialization into a function run later after sourcing the plugin's script – when the function is called, the plugin is then being fully initialized.
 
-However, if the function is being called from the `atload` ice, then there is a simpler method than the `wrap-track` ice – an _exclamation mark_-preceded `atload` contents. The exclamation mark causes the effects of the execution of the code passed to `atload` ice to be recorded.
+However, if the function is being called from the `atload'…'` ice, then an the _exclamation mark_-preceded method can be used with `atload'…'` contents. The exclamation mark causes the effects of the execution of the code passed to `atload'…'` ice to be recorded.
 
 ### Use case for `atload'…'`
 
@@ -507,7 +506,7 @@ zi ice id-as'test' atload'!PATH+=:~/share'
 zi load z-shell/null
 ```
 
-the `$PATH` is being changed within `atload` ice. ZI's tracking records `$PATH` changes and withdraws them on plugin unload, and also shows information loading:
+the `$PATH` is being changed within `atload'…'` ice. ZI's tracking records `$PATH` changes and withdraws them on plugin unload, and also shows information loading:
 
 ```shell showLineNumbers
 ➜ zi report test
@@ -519,7 +518,7 @@ PATH elements added:
 /home/sg/share
 ```
 
-As it can be seen, the `atload` code is being correctly tracked and can be unloaded & viewed. Below is the result of using the `unload` subcommand to unload the `test` plugin:
+As it can be seen, the `atload'…'` code is being correctly tracked and can be unloaded & viewed. Below is the result of using the `unload'…'` subcommand to unload the `test` plugin:
 
 ```shell showLineNumbers
 zi unload test
@@ -529,9 +528,7 @@ Unregistering plugin test
 Plugin report saved to $LASTREPORT
 ```
 
-### Practical example
-
-The same example as in the [tracking precmd-based plugins](#wrap-track) article, but using the _exclamation mark_-preceded `atload` instead of `wrap-track`:
+The same example as in the [wrap'…'](#use-case-for-wrap) article, but using the _exclamation mark_-preceded `atload'…'` instead of `wrap'…'`:
 
 Load when - `MYPROMPT == 4`
 
