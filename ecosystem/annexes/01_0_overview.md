@@ -1,15 +1,13 @@
 ---
 id: annexes
 slug: /annexes
-title: 💠 Introduction
+title: 💠 What can Annexes do?
 sidebar_position: 1
 image: img/logo/320x320.png
 description: Annex Introduction
 keywords:
   - zannex
 ---
-
-## What Can They Do?
 
 1. Add a new ZI subcommand (i.e. the [command][1] that’s placed after the function `zi …` when calling ZI).
 
@@ -21,7 +19,7 @@ keywords:
 
    3.2. `atpull` hook – run after pulling new commits (i.e. updating) for any plugin/snippet.
 
-   3.3. `atinit` hook – run before loading any plugin/snippet, after it has been set-up (i.e. downloaded).
+   3.3. `atinit` hook – run before loading any plugin/snippet, after it has been set up (i.e. downloaded).
 
    3.4. `atload` hook – run after loading any plugin/snippet.
 
