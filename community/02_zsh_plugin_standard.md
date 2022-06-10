@@ -60,23 +60,23 @@ The one-line code above will:
 
 2. Use `ZERO` if it’s not empty,
 
-    2.1. the plugin manager will be easily able to alter effective `$0` before loading a plugin,
+   2.1. the plugin manager will be easily able to alter effective `$0` before loading a plugin,
 
-    2.2. this allows e.g. `eval "$(<plugin)"`, which can be faster than `source` ([comparison][] note that it’s not for a compiled script).
+   2.2. this allows e.g. `eval "$(<plugin)"`, which can be faster than `source` ([comparison][] note that it’s not for a compiled script).
 
 3. Use `$0` if it doesn’t contain the path to the Zsh binary,
 
-    3.1. plugin manager will still be able to set `$0`, although more difficultly, requires `unsetopt function_argzero`
-    before sourcing plugin script, and `0=…​` assignment after sourcing plugin script.
+   3.1. plugin manager will still be able to set `$0`, although more difficultly, requires `unsetopt function_argzero`
+   before sourcing plugin script, and `0=…​` assignment after sourcing plugin script.
 
-    3.2. `unsetopt function_argzero` will be detected (it causes `$0` not to contain a plugin-script path, but the path to
-    Zsh binary, if not overwritten by a `0=…​` assignment),
+   3.2. `unsetopt function_argzero` will be detected (it causes `$0` not to contain a plugin-script path, but the path to
+   Zsh binary, if not overwritten by a `0=…​` assignment),
 
-    3.3. `setopt posix_argzero` will be detected (as above).
+   3.3. `setopt posix_argzero` will be detected (as above).
 
 4. Use the `%N` prompt expansion flag, which always gives the absolute path to the script,
 
-    4.1. plugin manager cannot alter this (no advanced loading of the plugin is possible), but simple plugin-file sourcing (without a plugin manager) will be saved from breaking caused by the mentioned `*_argzero` options, so this is a very good last-resort fallback.
+   4.1. plugin manager cannot alter this (no advanced loading of the plugin is possible), but simple plugin-file sourcing (without a plugin manager) will be saved from breaking caused by the mentioned `*_argzero` options, so this is a very good last-resort fallback.
 
 5. Finally, in the second line, it will ensure that `$0` contains an absolute path by prepending it with `$PWD` if necessary.
 
@@ -520,22 +520,22 @@ The use of this method is very unproblematic. The author reduced the number of g
 
 Following the [Standard Plugins Hash](#standard-plugins-hash) section, the plugin could even use a common hash name – `Plugins` – to lower the pollution even more.
 
-[ZI]: https://github.com/z-shell/zi
-[Zinit]: https://github.com/zdharma-continuum/zinit
-[Zpm]: https://github.com/zpm-zsh/zpm
-[Zgenom]: https://github.com/jandamm/zgenom
-[Zgen]: https://github.com/tarjoilija/zgen
+[zi]: https://github.com/z-shell/zi
+[zinit]: https://github.com/zdharma-continuum/zinit
+[zpm]: https://github.com/zpm-zsh/zpm
+[zgenom]: https://github.com/jandamm/zgenom
+[zgen]: https://github.com/tarjoilija/zgen
 [comparison]: http://www.zsh.org/mla/workers/2017/msg01827.html
 [romkatv/powerlevel10k is using]: https://github.com/romkatv/powerlevel10k/blob/f17081ca/internal/p10k.zsh#L5390
 [gitstatus]: https://github.com/romkatv/gitstatus
 [agkozak/agkozak-zsh-prompt is using]: https://github.com/agkozak/agkozak-zsh-prompt/blob/ed228952d68fea6d5cad3beee869167f76c59606/agkozak-zsh-prompt.plugin.zsh#L992-L1039
 [agkozak/zsh-z is using]: https://github.com/agkozak/zsh-z/blob/16fba5e9d5c4b650358d65e07609dda4947f97e8/zsh-z.plugin.zsh#L680-L698
-[GitHub search ZERO]: https://github.com/search?q=%22${ZERO:-${0:%23$ZSH_ARGZERO}}%22&type=Code
-[GitHub search loaded]: https://github.com/search?q=if+%22zsh_loaded_plugins%22&type=Code
+[github search zero]: https://github.com/search?q=%22${ZERO:-${0:%23$ZSH_ARGZERO}}%22&type=Code
+[github search loaded]: https://github.com/search?q=if+%22zsh_loaded_plugins%22&type=Code
 [agkozak/zhooks is using]: https://github.com/agkozak/zhooks/blob/628e1e3b8373bf31c26cb154f71c16ebe9d13b51/zhooks.plugin.zsh#L75-L82
 [tj/git-extras]: https://github.com/tj/git-extras
 [fill them]: https://github.com/z-shell/zw/issues/new
 [zsh-workers post]: https://www.zsh.org/mla/workers/2011/msg01050.html
-[Zsh documentation: #Autoloading-Functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions
-[Zsh documentation: #Special-Widgets]: http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Special-Widgets
-[Zsh documentation: #Hook-Functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions
+[zsh documentation: #autoloading-functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions
+[zsh documentation: #special-widgets]: http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Special-Widgets
+[zsh documentation: #hook-functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions

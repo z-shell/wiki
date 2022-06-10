@@ -1,6 +1,7 @@
 ---
 id: ice
 title: 🧊 Ice Syntax
+sidebar_position: 3
 image: img/png/ice-239x200.png
 description: Ice syntax documentation
 keywords:

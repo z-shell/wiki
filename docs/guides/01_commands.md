@@ -1,6 +1,7 @@
 ---
 id: commands
 title: '🛠 Commands'
+sidebar_position: 1
 image: img/logo/320x320.png
 description: ZI Commands
 keywords:

@@ -9,7 +9,7 @@
     }
   },
   "settings": {},
-  "extensions": ["dbaeumer.vscode-eslint", "silvenon.mdx", "mgmcdermott.vscode-language-babel"],
+  "extensions": ["dbaeumer.vscode-eslint", "silvenon.mdx", "mgmcdermott.vscode-language-babel", "stylelint.vscode-stylelint", "blanu.vscode-styled-jsx"],
   // "forwardPorts": [],
   "postCreateCommand": "curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm",
   "remoteUser": "node",

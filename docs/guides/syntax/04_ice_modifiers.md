@@ -1,6 +1,7 @@
 ---
 id: ice-modifiers
 title: 🧊 Ice Modifiers
+sidebar_position: 4
 image: img/logo/320x320.png
 description: Ice Modifiers Documentation
 keywords:

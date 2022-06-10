@@ -1,6 +1,7 @@
 ---
 id: benchmark
 title: '⏲ Benchmarking'
+sidebar_position: 3
 image: img/logo/320x320.png
 description: Benchmarking, Profiling & Statistics
 keywords:
@@ -90,7 +91,7 @@ fi
 
 :::info PS4 Prompt Expansion
 
-Zsh Sourceforge docs: [Prompt Exapansion][1]
+Zsh Sourceforge docs: [Prompt Exapansion][]
 
 :::
 
@@ -105,4 +106,4 @@ fi
 
 The next time your `.zshrc` is sourced it will generate 2 files in the `$HOME` directory.
 
-[1]: https://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+[prompt exapansion]: https://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html

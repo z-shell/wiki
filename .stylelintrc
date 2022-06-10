@@ -30,4 +30,3 @@ rules:
         - severity: warning
   block-no-empty: true
   color-no-invalid-hex: true
-  font-family-no-missing-generic-family-keyword: fasle

@@ -7,7 +7,10 @@
     "editorconfig.editorconfig",
     "vivaxy.vscode-conventional-commits",
     "mgmcdermott.vscode-language-babel",
+    "esbenp.prettier-vscode",
+    "blanu.vscode-styled-jsx",
+    "stylelint.vscode-stylelint",
     "silvenon.mdx",
-    "esbenp.prettier-vscode"
+    "dbaeumer.vscode-eslint"
   ]
 }

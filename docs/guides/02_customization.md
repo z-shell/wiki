@@ -1,6 +1,7 @@
 ---
 id: customization
 title: '🏗 Preferences & Configuration'
+sidebar_position: 2
 image: img/logo/320x320.png
 description: User Preferences & Configuration
 keywords:
