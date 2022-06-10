@@ -1,7 +1,7 @@
 ---
 id: plugins
 slug: /plugins
-title: ⚙️ Introduction
+title: ⚙️ Plugins & Modules
 sidebar_position: 1
 image: img/logo/320x320.png
 description: Plugins & Modules Introduction
@@ -13,25 +13,15 @@ keywords:
   - zsh-plugins
 ---
 
-<head>
-  <meta charSet="utf-8" />
-  <meta name="twitter:card" content="summary" />
-  <link rel="canonical" href="https://z.digitalclouds.dev/ecosystem/plugins" />
-</head>
+## <i class="fa-brands fa-github"></i> [z-shell/zpmod][1]
 
-## Zpmod
+The module is a binary Zsh module, think about `zmodload` Zsh command, it's that topic, which transparently and automatically **compiles sourced scripts**.
 
-### <i class="fa-brands fa-github"></i> [z-shell/zpmod][1]
+Many plugin managers do not offer a compilation of plugins, the module is a solution to this. Even if a plugin manager does compile the plugin's main script (like ZI does).
 
-The module is a binary Zsh module, think about `zmodload` Zsh command, it's that topic, which transparently and
-automatically **compiles sourced scripts**.
+### Install zpmod
 
-Many plugin managers do not offer a compilation of plugins, the module is a solution to this. Even if a plugin manager
-does compile the plugin's main script (like ZI does).
-
-#### Install zpmod
-
-##### Standalone
+#### Standalone
 
 Install just the **standalone** binary which can be used with any other plugin manager.
 
@@ -47,7 +37,7 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
 
 This script will display what to add to `~/.zshrc` (2 lines) and show usage instructions.
 
-##### With [ZI][2]
+#### With [ZI][2]
 
 :::tip
 
@@ -65,11 +55,9 @@ This command will compile the module and display instructions on what to add to 
 
 Besides the compilation feature, the module also measures **duration** of each script sourcing.
 
-Issue `zpmod source-study` after loading the module at top of `~/.zshrc` to see a list of all sourced files with the
-time the sourcing took in milliseconds on the left.
+Issue `zpmod source-study` after loading the module at top of `~/.zshrc` to see a list of all sourced files with the time the sourcing took in milliseconds on the left.
 
-This feature allows profiling the shell startup. Also, no script can pass through that check and you will obtain a
-complete list of all loaded scripts, like if Zshell itself was investigating this.
+This feature allows profiling the shell startup. Also, no script can pass through that check and you will obtain a complete list of all loaded scripts, like if Zshell itself was investigating this.
 
 **The list can be surprising.**
 
@@ -81,15 +69,13 @@ To enable debug messages from the module set:
 typeset -g ZI_MOD_DEBUG=1
 ```
 
-## Zgdbm
-
-### <i class="fa-brands fa-github"></i> [z-shell/zgdbm][3]
+## <i class="fa-brands fa-github"></i> [z-shell/zgdbm][3]
 
 Provides GDBM module as plugin
 
-#### Install zgdbm
+### Install zgdbm
 
-##### With ZI
+#### With ZI
 
 `zstyles` - The values being set are the defaults.
 
