@@ -14,6 +14,11 @@ keywords:
 
 Historically, Zsh plugins were first defined by Oh My Zsh. They provide a way to package together files that extend or configure the shell’s functionality in a particular way.
 
+import Image from '@theme/IdealImage';
+import OmzImg from '@site/static/img/zsh/omz.png';
+
+<Image className="ScreenView" img={OmzImg} />
+
 At a simple level, a plugin:
 
 1. Has its directory added to `$fpath` ([Zsh documentation: #Autoloading-Functions][]). This is being done either by a plugin manager or by the plugin itself (see [5th section](#run-on-unload-call) for more information).
@@ -55,22 +60,23 @@ The one-line code above will:
 
 2. Use `ZERO` if it’s not empty,
 
-   2.1 the plugin manager will be easily able to alter effective `$0` before loading a plugin,
+    2.1. the plugin manager will be easily able to alter effective `$0` before loading a plugin,
 
-   2.2 this allows e.g. `eval "$(<plugin)"`, which can be faster than `source` ([comparison][] note that it’s not for a compiled script).
+    2.2. this allows e.g. `eval "$(<plugin)"`, which can be faster than `source` ([comparison][] note that it’s not for a compiled script).
 
 3. Use `$0` if it doesn’t contain the path to the Zsh binary,
-   3.1. plugin manager will still be able to set `$0`, although more difficultly, requires `unsetopt function_argzero`
-   before sourcing plugin script, and `0=…​` assignment after sourcing plugin script.
 
-   3.2. `unsetopt function_argzero` will be detected (it causes `$0` not to contain a plugin-script path, but the path to
-   Zsh binary, if not overwritten by a `0=…​` assignment),
+    3.1. plugin manager will still be able to set `$0`, although more difficultly, requires `unsetopt function_argzero`
+    before sourcing plugin script, and `0=…​` assignment after sourcing plugin script.
 
-   3.3. `setopt posix_argzero` will be detected (as above).
+    3.2. `unsetopt function_argzero` will be detected (it causes `$0` not to contain a plugin-script path, but the path to
+    Zsh binary, if not overwritten by a `0=…​` assignment),
+
+    3.3. `setopt posix_argzero` will be detected (as above).
 
 4. Use the `%N` prompt expansion flag, which always gives the absolute path to the script,
 
-   4.1. plugin manager cannot alter this (no advanced loading of the plugin is possible), but simple plugin-file sourcing (without a plugin manager) will be saved from breaking caused by the mentioned `*_argzero` options, so this is a very good last-resort fallback.
+    4.1. plugin manager cannot alter this (no advanced loading of the plugin is possible), but simple plugin-file sourcing (without a plugin manager) will be saved from breaking caused by the mentioned `*_argzero` options, so this is a very good last-resort fallback.
 
 5. Finally, in the second line, it will ensure that `$0` contains an absolute path by prepending it with `$PWD` if necessary.
 
@@ -334,7 +340,7 @@ This convention will increase code readability and bring order to it.
 
 ## Standard `Plugins` Hash
 
-The plugin often has to declare global parameters that should live throughout a Zsh session. Following the [namespace pollution prevention](#preventing-function-pollution) the plugin could use a hash to store the different values. Additionally, the plugins could use a hash parameter – called `Plugins` and for various local configurations `Local` – to prevent pollution.
+The plugin often has to declare global parameters that should live throughout a Zsh session. Following the [namespace pollution prevention](#preventing-function-pollution) the plugin could use a hash to store the different values. Additionally, the plugins could use a single hash parameter – called `Plugins` – to prevent pollution.
 
 An example value needed by the plugin:
 
@@ -343,6 +349,12 @@ An example value needed by the plugin:
 typeset -gA Plugins
 Plugins[MY_PLUGIN_REPO_DIR]="${0:h}"
 ```
+
+This way all the data of all plugins will be kept in a single parameter, available for easy examination and overview (via e.g.: `varied Plugins`) and also not polluting the namespace.
+
+## Standard `Local` Hash
+
+Same as [standard plugins hash](#standard-plugins-hash), but for temporary or local configurations. It prevents polluting the namespace and helps when migrating across multiple devices.
 
 An example of local configurations:
 
@@ -353,8 +365,6 @@ Local[THEMES_DIR]="${0:h}/themes"
 Local[COMPLETIONS_DIR]="${0:h}/completions"
 Local[COOL_STUFF_HERE_DIR]="${0:h}/some_cool_stuff"
 ```
-
-This way all the data of all plugins and local configurations will be kept in only 2 two parameters, available for easy examination and overview (via e.g.: `varied Plugins`) and also not polluting the namespace.
 
 ## Standard Recommended Options
 
