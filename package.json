@@ -17,11 +17,11 @@
     "write-community-version": "docusaurus docs:version:community",
     "write-ecosystem-version": "docusaurus docs:version:ecosystem",
     "crowdin:sync": "docusaurus write-translations && crowdin upload sources && crowdin download",
-    "build:cf": "npm i --location=global pnpm && pnpm -s i && pnpm -s build",
+    "build:cf": "npm i --location=global pnpm && pnpm i && pnpm -s build",
     "clean": "pnpm -s exec rm -rf node_modules build pnpm-lock.yaml",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
-    "check": "pnpx @trunkio/launcher check",
+    "check": "pnpm exec ./.trunk/bin/trunk check",
     "typecheck": "tsc"
   },
   "dependencies": {
@@ -42,7 +42,6 @@
     "@babel/core": "7.18.2",
     "@docusaurus/module-type-aliases": "0.0.0-5107",
     "@loadable/component": "5.15.2",
-    "@trunkio/launcher": "1.1.1",
     "@tsconfig/docusaurus": "1.0.5",
     "@types/node": "17.0.36",
     "@types/react": "18.0.12",
