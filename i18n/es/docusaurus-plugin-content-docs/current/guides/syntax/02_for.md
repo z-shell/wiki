@@ -1,6 +1,7 @@
 ---
 id: for
 title: '✨ The "For" Syntax'
+sidebar_position: 2
 image: img/logo/320x320.png
 description: The "For" Syntax documentation
 keywords:

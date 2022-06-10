@@ -1,8 +1,9 @@
 ---
 id: bindkey
 title: '🗒 Bindkeys Map'
+sidebar_position: 5
 image: img/logo/320x320.png
-description: Bindmap & Bindkey ZI sintaksė
+description: The Bindmap & Bindkey ZI syntax
 keywords:
   - syntax
   - binkey
