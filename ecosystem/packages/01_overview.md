@@ -1,7 +1,7 @@
 ---
 id: packages
 slug: /packages
-title: 📦 Introduction
+title: 📦 Synopsis of packages
 sidebar_position: 1
 image: img/logo/320x320.png
 description: Introduction to packages.
@@ -30,24 +30,24 @@ The motivation for adding packages functionality:
 
 :::info
 
-The [bin-gem-node][3] annex is recommended, otherwise some packages will fail to install due to missing functionality.
+The [bin-gem-node][3] annex is recommended, otherwise, some packages will fail to install due to missing functionality.
 
 :::
 
 ## The [any-gem][1] and [any-node][2] packages
 
-They allow to install any Gem(s) or Node module(s) locally in a newly created plugin directory. For example:
+They allow the installation of any Gem(s) or Node module(s) locally in a newly created plugin directory. For example:
 
 ```shell
 zi pack param='GEM -> rails' for any-gem
 zi pack param='MOD -> doctoc' for any-node
 ```
 
-If installation used in the `.zshrc` file then use `id-as'…'`, then ZI knows that the package is already installed.
+If the installation is used in the `.zshrc` file then use `id-as'…'`, then ZI knows that the package is already installed.
 
 :::note
 
-The Unicode arrow is allowed in ZI syntax as in example below.
+The Unicode arrow is allowed in ZI syntax as in the example below.
 
 :::
 
@@ -84,13 +84,13 @@ The installation is real, package-manager -like, because you don't need to invok
 
 You can also update the package with `zi update fzf` – it'll cause the project to refresh and rebuild, like with a "normal" package manager such as `apt-get`.
 
-However, it'll actually be more like to `emerge` from Gentoo, because the installation will be from the source… unless… the user will pick up a binary installation by profile-argument specified in the `pack''` ice.
+However, it'll be more like to `emerge` from Gentoo, because the installation will be from the source… unless… the user will pick up a binary installation by profile argument specified in the `pack''` ice.
 
-## Pros of using ZI package for regular software installations
+## Pros of using the ZI package for regular software installations
 
 Using ZI to install software where one could use a regular package manager has several advantages:
 
-1. **Pro:** The ZI packages typically use the URLs to the official and _latest_ distributions of the software (like e.g.: the [ecs-cli][5] package, which uses the URL: `https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest` when installing on Linux).
+1. **Pro:** The ZI packages typically use the URLs to the official and _latest_ distributions of the software (e.g.: the [ecs-cli][5] package, which uses the URL: `https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest` when installing on Linux).
 
 2. **Pro:** You can influence the installation easily by specifying ZI ice-mods, e.g.:
 
@@ -102,7 +102,7 @@ Using ZI to install software where one could use a regular package manager has s
 
 3. **Pro:** The installation is much more flexible than a normal package manager. Example available degrees of freedom:
 
-   - to install from Git or from release-tarball, or from a binary-release file,
+   - to install from Git or release-tarball, or a binary-release file,
    - to install via shims or via extending `$PATH`, or by copying to `$ZPFX/bin`,
    - to download files and apply patches to the source by using the `patch-dl` annex features.
 
@@ -113,7 +113,7 @@ Using ZI to install software where one could use a regular package manager has s
 Thus, summing up 1. with 4., it might be nice/convenient too, for example, have the latest ECS CLI binary installed in the home directory, without using root access and always the latest, and – summing up with 2. and 3. – to, for example, have always the latest `README` downloaded by additional ice:
 `dl'https://raw.githubusercontent.com/aws/amazon-ecs-cli/master/README.md'` (and then to have the `README` converted into a man page by the `remark` Markdown processor or other via an `atclone''` ice, as the tool doesn't have any official man page).
 
-## Adding your own package
+## Adding your package
 
 1. Contact the author to have the repository at the [Z-Shell][6] organization or set the [ZI[PKG_OWNER]][pkg-owner].
 
