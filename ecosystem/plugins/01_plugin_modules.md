@@ -1,7 +1,7 @@
 ---
 id: plugins
 slug: /plugins
-title: ⚙️ Plugins & Modules
+title: ⚙️ Modules
 sidebar_position: 1
 image: img/logo/320x320.png
 description: Plugins & Modules Introduction
