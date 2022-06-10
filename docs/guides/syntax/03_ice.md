@@ -385,11 +385,8 @@ zi snippet OMZ::lib
 |    `svn`    | Use Subversion to clone `OMZ::lib` (the whole Oh-My-Zsh `lib/` directory). More [^1].                                              |
 | `atload'…'` | Code isn't tracked and cannot be unloaded. The `atload'…'` is executed after loading main files `pick'…'` and `src'…'`. More [^2]. |
 
-[^1]:
-    Note that `atload'…'` uses apostrophes not double quotes, to literally put `$f` into the string, `atload`'s code is automatically being run **within the snippet's (or plugin's) directory**.
-
-[^2]:
-    Unless you load a plugin (not a snippet) with `zi load …` and prepend the value of the ice with exclamation mark. Example: `atload'!local f; for …'`.
+[^1]: Note that `atload'…'` uses apostrophes not double quotes, to literally put `$f` into the string, `atload`'s code is automatically being run **within the snippet's (or plugin's) directory**.
+[^2]: Unless you load a plugin (not a snippet) with `zi load …` and prepend the value of the ice with exclamation mark. Example: `atload'!local f; for …'`.
 
 ### The `multisrc'…'` ice {#the-multisrc-ice}
 

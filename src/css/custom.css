@@ -180,9 +180,17 @@ html[data-theme='dark'] div[class^='announcementBar_'] {
 }
 
 .ScreenView {
-  max-width: 90%;
-  height: auto;
+  display: block;
+  margin: 0.7rem auto;
   text-align: center;
+  width: 90%;
+}
+
+.ScreenView40 {
+  display: block;
+  margin: 0.7rem auto;
+  text-align: center;
+  width: 40%;
 }
 
 .sticky-header {

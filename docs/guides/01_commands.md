@@ -8,6 +8,8 @@ keywords:
   - commands
 ---
 
+import APITable from '@site/src/components/APITable';
+
 ## Commands available with <kbd>^TAB</kbd> completion
 
 ```shell title="zi ^TAB"
@@ -178,6 +180,8 @@ Following commands are passed to `zi …` to obtain described effects.
 
 ## Loading and unloading
 
+<APITable>
+
 |       Command        | Description                                                                                       |
 | :------------------: | ------------------------------------------------------------------------------------------------- |
 |     `load` `'…'`     | Load plugin, can also receive absolute local path.                                                |
@@ -185,10 +189,14 @@ Following commands are passed to `zi …` to obtain described effects.
 | `unload` `-q` `'…'`  | Unload plugin loaded with `zi load …`. `-q` – quiet.                                              |
 | `snippet` `-f` `URL` | Source local or remote file (by direct URL). `-f` – don't use cache (force redownload). [^2]      |
 
+</APITable>
+
 [^1]: There's also `light-mode` ice which can be used to induce the no-investigating (i.e.: _light_) loading, regardless of the command used.
 [^2]: The URL can use the following shorthands: `PZT::` (Prezto), `PZTM::` (Prezto module), `OMZ::` (Oh-My-Zsh), `OMZP::` (OMZ plugin), `OMZL::` (OMZ library), `OMZT::` (OMZ theme), e.g.: `PZTM::environment`, `OMZP::git`, etc.
 
 ## Completions management
+
+<APITable>
 
 |                   Command                    | Description                                                                                                                             |
 | :------------------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -204,7 +212,11 @@ Following commands are passed to `zi …` to obtain described effects.
 |               `cdreplay` `-q`                | Replay compdefs (to be done after compinit). `-q` – quiet.                                                                              |
 |                `cdclear` `-q`                | Clear compdef replay list. `-q` – quiet.                                                                                                |
 
+</APITable>
+
 ## Tracking of the active session
+
+<APITable>
 
 |     Command      | Description                                       |
 | :--------------: | ------------------------------------------------- |
@@ -214,7 +226,11 @@ Following commands are passed to `zi …` to obtain described effects.
 |    `dreport`     | Report what was going on in session.              |
 |     `dclear`     | Clear report of what was going on in session.     |
 
+</APITable>
+
 ## Reports and statistics
+
+<APITable>
 
 |             Command             | Description                                                                                                                                                |
 | :-----------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -228,7 +244,11 @@ Following commands are passed to `zi …` to obtain described effects.
 |     `recently` `time-spec`      | Show plugins that changed recently, argument is e.g. 1 month 2 days.                                                                                       |
 |           `bindkeys`            | Lists bindkeys set up by each plugin.                                                                                                                      |
 
+</APITable>
+
 ## Compiling
+
+<APITable>
 
 |          Command          | Description                                                         |
 | :-----------------------: | ------------------------------------------------------------------- |
@@ -236,7 +256,11 @@ Following commands are passed to `zi …` to obtain described effects.
 | `uncompile` `'…'` `--all` | Remove compiled version of plugin. `--all` – do it for all plugins. |
 |        `compiled`         | List plugins that are compiled.                                     |
 
+</APITable>
+
 ## Other commands
+
+<APITable>
 
 |                         Command                          | Description                                                                                                                                                |
 | :------------------------------------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -256,6 +280,8 @@ Following commands are passed to `zi …` to obtain described effects.
 |                         `module`                         | Manage binary Zsh module shipped with ZI, see `zi module help`.                                                                                            |
 | `add-fpath` `fpath` `-f` `--front` `'…'` `sub-directory` | Adds given plugin (not yet snippet) directory to `$fpath`. If the second argument is given, it is appended to the directory path. [^3]                     |
 |             `run` `-l` `plugin` `{command}`              | Runs the given command in the given plugin's directory. [^4]                                                                                               |
+
+</APITable>
 
 [^3]: The `'…'` can be absolute path, i.e.: it's possible to also add regular directories. If the option `-f` or `--front` is given, the directory path is prepended instead of appended to `$fpath`.
 [^4]: If the option `-l` will be given then the plugin should be skipped – the option will cause the previous plugin to be reused.

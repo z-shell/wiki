@@ -2,7 +2,7 @@
 id: plugins
 slug: /plugins
 title: ⚙️ Modules
-sidebar_position: 1
+sidebar_position: 10
 image: img/logo/320x320.png
 description: Plugins & Modules Introduction
 toc_max_heading_level: 4

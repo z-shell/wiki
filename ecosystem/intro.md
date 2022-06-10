@@ -2,7 +2,7 @@
 id: intro
 title: 🌐 Ecosystem
 sidebar_position: 1
-image: img/zsh/zsh1.png
+image: img/logo/320x320.png
 description: Introduction to the ZI ecosystem.
 keywords:
   - annexes
@@ -14,7 +14,7 @@ keywords:
 ---
 
 import Image from '@theme/IdealImage';
-import ZshImg from '@site/static/img/zsh/zsh1.png';
+import ZshImg from '@site/static/img/zsh/zsh2.png';
 
 <Image className="ScreenView" img={ZshImg} />
 

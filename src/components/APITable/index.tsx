@@ -6,7 +6,7 @@ import React, {
   useRef,
   useEffect,
 } from 'react';
-import {useHistory} from '@docusaurus/router';
+import { useHistory } from '@docusaurus/router';
 import styles from './styles.module.css';
 
 interface Props {
@@ -27,8 +27,8 @@ function APITableRow(
   {
     name,
     children,
-  }: {name: string | undefined; children: ReactElement<ComponentProps<'tr'>>},
-  ref: React.ForwardedRef<HTMLTableRowElement>,
+  }: { name: string | undefined; children: ReactElement<ComponentProps<'tr'>> },
+  ref: React.ForwardedRef<HTMLTableRowElement>
 ) {
   const entryName = getText(children);
   const id = name ? `${name}-${entryName}` : entryName;
@@ -46,7 +46,8 @@ function APITableRow(
         if (e.key === 'Enter') {
           history.push(anchor);
         }
-      }}>
+      }}
+    >
       {children.props.children}
     </tr>
   );
@@ -59,10 +60,10 @@ const APITableRowComp = React.forwardRef(APITableRow);
  * assumptions about how the children looks; however, those assumptions
  * should be generally correct in the MDX context.
  */
-export default function APITable({children, name}: Props): JSX.Element {
+export default function APITable({ children, name }: Props): JSX.Element {
   const [thead, tbody] = React.Children.toArray(children.props.children) as [
-    ReactElement<{children: ReactElement[]}>,
-    ReactElement<{children: ReactElement[]}>,
+    ReactElement<{ children: ReactElement[] }>,
+    ReactElement<{ children: ReactElement[] }>
   ];
   const highlightedRow = useRef<HTMLTableRowElement>(null);
   useEffect(() => {
@@ -74,7 +75,7 @@ export default function APITable({children, name}: Props): JSX.Element {
       <APITableRowComp name={name} ref={highlightedRow}>
         {row}
       </APITableRowComp>
-    ),
+    )
   );
 
   return (

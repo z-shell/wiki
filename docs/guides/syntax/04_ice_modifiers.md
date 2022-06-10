@@ -8,6 +8,8 @@ keywords:
   - ice-modifiers
 ---
 
+import APITable from '@site/src/components/APITable';
+
 An ice modifiers are [passed][alternate-syntax] to `zi ice …` to obtain described effects, additionally can be added with [annexes][12]. To see all available ice modifiers run `zi -h`.
 
 The word `ice` means something that's added, like ice to a drink – and in ZI it means adding a modifier to a next `zi` command, and also something temporary because it melts – and this means that the modification will last only for a **single** next `zi` command.
@@ -15,6 +17,8 @@ The word `ice` means something that's added, like ice to a drink – and in ZI i
 Some ice modifiers are highlighted and clicking on them will take you to the appropriate Wiki page for an extended explanation. You may safely assume that given ice works with both plugins and snippets unless explicitly stated otherwise.
 
 ## <i class="fa-solid fa-list"></i> Ice effects {#ice-effects}
+
+<APITable>
 
 |     Modifier      | Description                                                                                                                                                                                                                                                                                                         |
 | :---------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -33,11 +37,15 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 |      `subst`      | Substitute the given string into another string when sourcing the plugin script, e.g.: `zi subst'autoload → autoload -Uz' …`.                                                                                                                                                                                       |
 |    `autoload`     | Autoload the given functions (from their files). Equivalent to calling `atinit'autoload the-function'`. Supports renaming of the function – pass `'… → new-name'` or `'… -> new-name'`, e.g.: `zi autoload'fun → my-fun; fun2 → my-fun2'`.                                                                          |
 
+</APITable>
+
 [^8]: The third possible value is `as"null"` – a shorthand for `pick"/dev/null" nocompletions` – i.e.: it disables the default script-file sourcing and also the installation of completions.
 [^9]: In summary, `wrap-track` allows to extend the investigating beyond the moment of loading of a plugin. An example use is to `wrap-track` a precmd function of a prompt (like `_p9k_precmd()` of powerlevel10k) or other plugins that _postpones its initialization till the first prompt_ (like e.g.: zsh-autosuggestions). **Does not work with snippets.**
 [^10]: If it has no value, then it works in the _auto_ mode – it automatically extracts all files of known archive extensions IF they aren't located deeper than in a sub-directory (this is to prevent extraction of some helper archive files, typically located somewhere deeper in the tree). If no such files will be found, then it extracts all found files of known **type** – the type is being read by the `file` Unix command. If not empty, then takes the names of the files to extract. Refer to the Wiki page for further information.
 
 ## <i class="fa-solid fa-list"></i> Cloning options {#cloning-options}
+
+<APITable>
 
 |      Modifier       | Description                                                                                                                                                                                                                                                                                                                    |
 | :-----------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -50,7 +58,11 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 |     `pullopts`      | Pass the contents of `pullopts` to `git pull` used when updating plugins. **Does not work with snippets.**                                                                                                                                                                                                                     |
 |        `svn`        | Use Subversion for downloading snippets. GitHub supports the `SVN` protocol, this allows cloning of subdirectories as snippets, e.g. `zi ice svn; zi snippet OMZP::git`. Other ice `pick` can be used to select a file to the source (default are: `*.plugin.zsh`, `init.zsh`, `*.zsh-theme`). **Does not work with plugins.** |
 
+</APITable>
+
 ## <i class="fa-solid fa-list"></i> Selection of files (source '…') {#selection-of-files-source}
+
+<APITable>
 
 |    Modifier     | Description                                                                                                                                       |
 | :-------------: | ------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -58,10 +70,14 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 |   [`src`][1]    | Specify an additional file to source after the main file or after setting up command via `as"program"`. It is not a pattern but a plain filename. |
 | [`multisrc`][1] | Allows specifying multiple files for sourcing, enumerated with spaces as the separators. More below [^2].                                         |
 
+</APITable>
+
 [^1]: This pattern will alphabetically match and choose the first file e.g: `zi ice pick"*.plugin.zsh"; zi load …`.
 [^2]: Example: `multisrc'misc.zsh grep.zsh'` and also using brace-expansion syntax: `multisrc'{misc,grep}.zsh'` also supports patterns.
 
 ## <i class="fa-solid fa-list"></i> Conditional loading {#conditional-loading}
+
+<APITable>
 
 |           Modifier           | Description                                                                                                              |
 | :--------------------------: | ------------------------------------------------------------------------------------------------------------------------ |
@@ -74,6 +90,8 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 | `subscribe` / `on-update-of` | Postpone loading of a plugin or snippet until the given file(s) get updated, e.g. `subscribe'{~/files-*,/tmp/files-*}'`. |
 |        `trigger-load`        | Creates a function that loads the associated plugin/snippet, with an option. More below [^7].                            |
 
+</APITable>
+
 [^3]: For `wait'[[ … ]]'`, `wait'(( … ))'`, loading is done when given condition is meet. For `wait'!…'`, prompt is reset after load. Zsh can start 80% (i.e.: 5x) faster thanks to postponed loading. **Fact:** when `wait` is used without value, it works as `wait'0'`.
 [^4]: It will load once, the condition can be still true, but will not trigger second load, unless plugin is unloaded earlier, see `unload`. E.g.: `load'[[ $PWD = */github* ]]'`.
 [^5]: It will unload once, then only if loaded again e.g: `unload'[[ $PWD != */github* ]]'`.
@@ -82,20 +100,30 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 
 ## <i class="fa-solid fa-list"></i> Plugin output {#plugin-output}
 
+<APITable>
+
 | Modifier | Description                                                                                                                                                                                                                                                                                                 |
 | :------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `silent` | Mute plugin's or snippet's `stderr` & `stdout`. Also, skip the `Loaded …` message under prompt for `wait`, etc. loaded plugins, and completion-installation messages.                                                                                                                                       |
 | `lucid`  | Skip `Loaded …` message under prompt for `wait`, etc. loaded plugins (a subset of `silent`).                                                                                                                                                                                                                |
 | `notify` | Output given message under-prompt after successfully loading a plugin/snippet. In case of problems with the loading, output a warning message and the return code. If starts with `!` it will then always output the given message. Hint: if the message is empty, then it will just notify about problems. |
 
+</APITable>
+
 ## <i class="fa-solid fa-list"></i> Completions {#completions}
+
+<APITable>
 
 |    Modifier     | Description                                                                                                                                                                  |
 | :-------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |    `blockf`     | Disallow plugin to modify `fpath`. Useful when a plugin wants to provide completions traditionally. ZI can manage completions and plugins can be blocked from exposing them. |
 | `nocompletions` | Don't detect, install and manage completions for this plugin. Completions can be installed later with `zi creinstall {plugin-spec}`.                                         |
 
+</APITable>
+
 ## <i class="fa-solid fa-list"></i> Command execution after cloning, updating or loading {#command-execution-after-cloning-updating-or-loading}
+
+<APITable>
 
 |    Modifier    | Description                                                                                                                                                                                                                                                                                                       |
 | :------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -111,7 +139,11 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 |  `countdown`   | Causes an interruptable (by Ctrl-C) countdown 5…4…3…2…1…0 to be displayed before executing `atclone'…'`,`atpull'…'` and `make` ices                                                                                                                                                                               |
 |    `reset`     | Invokes `git reset --hard HEAD` for plugins or `svn revert` for SVN snippets before pulling any new changes. This way `git` or `svn` will not report conflicts if some changes were done e.g.: `atclone'…'` ice. For file snippets and `gh-r` plugins, it invokes `rm -rf *`.                                     |
 
+</APITable>
+
 ## <i class="fa-solid fa-list"></i> Sticky-Emulation Of other shells {#sticky-emulation-of-other-shells}
+
+<APITable>
 
 |    Modifier     | Description                                                                                                                                                                                                                                                                                                                                  |
 | :-------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -119,6 +151,10 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 | `bash`, `!bash` | The same as `sh`, but with the `SH_GLOB` option disabled, so that Bash regular expressions work.                                                                                                                                                                                                                                             |
 |  `ksh`, `!ksh`  | The same as `sh`, but emulating `ksh` shell.                                                                                                                                                                                                                                                                                                 |
 |  `csh`, `!csh`  | The same as `sh`, but emulating `csh` shell.                                                                                                                                                                                                                                                                                                 |
+
+</APITable>
+
+<!-- end-of-file -->
 
 [1]: /docs/guides/syntax/ice#src-pick-multisrc
 [2]: /docs/guides/syntax/ice#wait

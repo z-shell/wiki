@@ -14,11 +14,6 @@ keywords:
 
 Historically, Zsh plugins were first defined by Oh My Zsh. They provide a way to package together files that extend or configure the shell’s functionality in a particular way.
 
-import Image from '@theme/IdealImage';
-import OmzImg from '@site/static/img/zsh/omz.png';
-
-<Image className="ScreenView" img={OmzImg} />
-
 At a simple level, a plugin:
 
 1. Has its directory added to `$fpath` ([Zsh documentation: #Autoloading-Functions][]). This is being done either by a plugin manager or by the plugin itself (see [5th section](#run-on-unload-call) for more information).
