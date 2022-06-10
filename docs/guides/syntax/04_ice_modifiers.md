@@ -5,6 +5,7 @@ sidebar_position: 4
 image: img/logo/320x320.png
 description: Ice Modifiers Documentation
 keywords:
+  - ice-syntax
   - ice-modifiers
 ---
 
@@ -30,7 +31,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 |  `reset-prompt`   | Reset the prompt after loading the plugin/snippet (by issuing `zle .reset-prompt`). Note: normally it's sufficient to precede the value of `wait'…'` ice with `!`.                                                                                                                                                  |
 |  [`bindmap`][8]   | To hold `;`-separated strings like `Key(s)A -> Key(s)B`, e.g. `^R -> ^T; ^A -> ^B`. In general, `bindmap'…'` changes bindings (done with the `bindkey` builtin) the plugin does. The example would cause the plugin to map Ctrl-T instead of Ctrl-R, and Ctrl-B instead of Ctrl-A. **Does not work with snippets.** |
 | [`trackbinds`][8] | Shadow but only `bindkey` calls even with `zi light …`, i.e. even with investigating disabled (fast loading), to allow `bindmap` to remap the key-binds. The same effect has `zi light -b …`, i.e. additional `-b` option to the `light`-subcommand. **Does not work with snippets.**                               |
-| [`wrap-track`][9] | Takes a `;`-separated list of function names that are to be investigated (meaning gathering report and unloading data) **once** during execution. It works by wrapping the functions with an investigating-enabling and disabling snippet of code. [^9]                                                             |
+|    [`wrap`][9]    | Takes a `;`-separated list of function names that are to be investigated (meaning gathering report and unloading data) **once** during execution. It works by wrapping the functions with an investigating-enabling and disabling snippet of code. [^9]                                                             |
 |     `aliases`     | Load the plugin with the aliases mechanism enabled. Use with plugins that define **and use** aliases in their scripts.                                                                                                                                                                                              |
 |   `light-mode`    | Load the plugin without investigating, i.e.: as if it would be loaded with the `light` command. Useful for the for-syntax, where there is no `load` nor `light` subcommand                                                                                                                                          |
 |  [`extract`][10]  | Performs archive extraction supporting multiple formats like `zip`, `tar.gz`, etc., and also notably OS X `dmg` images. [^10]                                                                                                                                                                                       |
@@ -40,7 +41,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 </APITable>
 
 [^8]: The third possible value is `as"null"` – a shorthand for `pick"/dev/null" nocompletions` – i.e.: it disables the default script-file sourcing and also the installation of completions.
-[^9]: In summary, `wrap-track` allows to extend the investigating beyond the moment of loading of a plugin. An example use is to `wrap-track` a precmd function of a prompt (like `_p9k_precmd()` of powerlevel10k) or other plugins that _postpones its initialization till the first prompt_ (like e.g.: zsh-autosuggestions). **Does not work with snippets.**
+[^9]: In summary, `wrap` allows to extend the investigating beyond the moment of loading of a plugin. An example use is to `wrap` a precmd function of a prompt (like `_p9k_precmd()` of powerlevel10k) or other plugins that _postpones its initialization till the first prompt_ (like e.g.: zsh-autosuggestions). **Does not work with snippets.**
 [^10]: If it has no value, then it works in the _auto_ mode – it automatically extracts all files of known archive extensions IF they aren't located deeper than in a sub-directory (this is to prevent extraction of some helper archive files, typically located somewhere deeper in the tree). If no such files will be found, then it extracts all found files of known **type** – the type is being read by the `file` Unix command. If not empty, then takes the names of the files to extract. Refer to the Wiki page for further information.
 
 ## <i class="fa-solid fa-list"></i> Cloning options {#cloning-options}
@@ -164,7 +165,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 [6]: /docs/guides/syntax/ice#id-as
 [7]: https://github.com/search?q=topic%3Azservice+org%3Az-shell&type=Repositories
 [8]: /docs/guides/syntax/bindkey
-[9]: /docs/guides/syntax/ice#wrap-track
+[9]: /docs/guides/syntax/ice#wrap
 [10]: /docs/guides/syntax/ice#extract
 [11]: https://github.com/z-shell/zi-vim-syntax
 [12]: /ecosystem/annexes
