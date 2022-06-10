@@ -55,13 +55,14 @@ Variables has to be set before loading ZI,
 
 ### <i class="fa-solid fa-sliders"></i> Modify settings {#modify-settings}
 
-<APITABLE>
-  
-| Hash Field                       | Description                                                                                                                                                                                                                                                                                                                                                                                        |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ZI[COMPINIT_OPTS]`              | Options for `compinit` call (e.g: done by `zicompinit`), use to pass -C to speed up loading                                                                                                                                                                                                                                                                                                        |
-| `ZI[MUTE_WARNINGS]`              | If set to `1`, then mutes some of the ZI warnings, specifically the `plugin already registered` warning                                                                                                                                                                                                                                                                                            |
-| `ZI[PKG_OWNER]`                  | Change the owner of the [packages][packages] (`zi pack …`).                                                                                                                                                                                                                                                                                                                                        |  
+<APITable>
+
+| Hash Field          | Description                                                                                             |
+| ------------------- | ------------------------------------------------------------------------------------------------------- |
+| `ZI[COMPINIT_OPTS]` | Options for `compinit` call (e.g: done by `zicompinit`), use to pass -C to speed up loading             |
+| `ZI[MUTE_WARNINGS]` | If set to `1`, then mutes some of the ZI warnings, specifically the `plugin already registered` warning |
+| `ZI[PKG_OWNER]`     | Change the owner of the [packages][packages] (`zi pack …`).                                             |
+
 </APITable>
 
 ## <i class="fa-solid fa-square-up-right"></i> Non-GitHub (Local) Plugins {#non-github-local-plugins}
