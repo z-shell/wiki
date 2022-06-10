@@ -55,7 +55,7 @@ A swiss-knife tool for unpacking all kinds of archives – the `extract'…'` ic
 
 It is active if the ice is empty (or contains only flags – more on them later). It works as follows:
 
-1. At first, a recursive search for files of known [file extensions](#-supported-file-formats) located not deeper than in a sub-directory is being performed. All such found files are then extracted.
+1. At first, a recursive search for files of known [file extensions](#supported-file-formats) located not deeper than in a sub-directory is being performed. All such found files are then extracted.
    - The directory-level limit is to skip extraction of some helper archive files, which are typically located somewhere deeper in the directory tree.
 2. **IF** no such files will be found, then a recursive search for files of known archive **types** will be performed. This is basically done by running the `file` Unix command on each file in the plugin or snippet directory and then grepping the output for strings like `Zip`, `bzip2`, etc. All such discovered files are then extracted.
    - The directory-level requirement is imposed also during this stage - files located deeper in the tree than in a sub-directory are omitted.
@@ -63,9 +63,7 @@ It is active if the ice is empty (or contains only flags – more on them later)
 
 #### Fixed mode
 
-It is active when a filename is being passed as the `extract`'s argument, e.g.: `zi extract=archive.zip for z-shell/null`.
-
-Multiple files can be specified – separated by spaces. In this mode all and only the specified files are being extracted.
+It is active when a filename is being passed as the `extract`'s argument, e.g.: `zi extract=archive.zip for z-shell/null`. Multiple files can be specified – separated by spaces. In this mode all and only the specified files are being extracted.
 
 #### Filenames with spaces
 
@@ -83,7 +81,7 @@ The value of the ice can begin with a two special characters:
 
 The flags can be combined in any order: `extract'!-'`.
 
-### <i class="fa-solid fa-gears"></i> `ziextract` {ice#extract}
+### <i class="fa-solid fa-gears"></i> `ziextract` {ziextract}
 
 Sometimes a more uncommon unpacking operation is needed. In such case you can directly use the function that implements the ice – it is called `ziextract`.
 
@@ -98,7 +96,7 @@ It recognizes the following options:
 
 Zip, rar, tar.gz, tar.bz2, tar.xz, tar.7z, tar, tgz, tbz2, gz, bz2, txz, xz, 7z, exe, deb, OS X (dmg) – all these are supported.
 
-## <i class="fa-solid fa-microchip"></i> `from'…'` {ice#from}
+## <i class="fa-solid fa-microchip"></i> `from'…'` {from}
 
 In order to install and load a plugin whose repository is private - e.g: requires providing credentials in order to log in – use the `from'…'` ice in the following way:
 
@@ -141,7 +139,7 @@ In order to change the protocol, use the `proto'…'` ice.
 
 By using this method you can clone plugins from e.g. GitHub Enterprise or embed the passwords as plain text in `.zshrc`.
 
-## <i class="fa-solid fa-microchip"></i> `id-as'…'` {ice#id-as}
+## <i class="fa-solid fa-microchip"></i> `id-as'…'` {id-as}
 
 Load a plugin or snippet with a nickname with the `id-as` ice-modifier. For example, one could try to load [**docker/compose**][1] from GitHub binary releases:
 
@@ -213,7 +211,7 @@ zi ice wait lucid id-as
 zi load hlissner/zsh-autopair
 ```
 
-## <i class="fa-solid fa-microchip"></i> `wait` {ice#wait}
+## <i class="fa-solid fa-microchip"></i> `wait` {wait}
 
 :::note
 
@@ -293,7 +291,7 @@ zi-turbo '1b' for \
   MichaelAquilina/zsh-you-should-use
 ```
 
-## <i class="fa-solid fa-microchip"></i> `wrap-track'…'` {ice#wrap-track}
+## <i class="fa-solid fa-microchip"></i> `wrap-track'…'` {wrap-track}
 
 The `wrap-track'…'` ice-mod allows to extend the tracking (e.g: gathering of report and unload data) of a plugin beyond the moment of sourcing it's main file(s). It works by wrapping the given functions with a tracking-enabling and disabling snippet of code. This is useful especially with prompts, as they very often do their initialization in the first call to their `precmd` [**hook**][5] function.
 
@@ -528,7 +526,7 @@ Plugin report saved to $LASTREPORT
 
 ### Practical example
 
-The same example as in the [tracking precmd-based plugins](#-wrap-track) article, but using the _exclamation mark_-preceded `atload` instead of `wrap-track`:
+The same example as in the [tracking precmd-based plugins](#wrap-track) article, but using the _exclamation mark_-preceded `atload` instead of `wrap-track`:
 
 Load when - `MYPROMPT == 4`
 
@@ -550,6 +548,6 @@ zi load romkatv/powerlevel10k
 [5]: https://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions
 [6]: https://github.com/romkatv/powerlevel10k
 [6]: https://github.com/romkatv/powerlevel10k
-[7]: /docs/guides/customization#-multiple-prompts
+[7]: /docs/guides/customization#multiple-prompts
 [8]: /docs/guides/syntax/for
-[9]: /docs/guides/syntax/common#-direnv
+[9]: /docs/guides/syntax/common#direnv
