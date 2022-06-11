@@ -1,6 +1,6 @@
 ---
 id: unscope
-title: 💠 Unscope
+title: 🌀 Unscope
 image: img/logo/320x320.png
 description: Annex - Unscope documentation
 keywords:
@@ -9,7 +9,7 @@ keywords:
   - unscope
 ---
 
-## <i class="fa-brands fa-github"></i> [z-shell/z-a-unscope](https://github.com/z-shell/z-a-unscope)
+## <i class="fa-brands fa-github"></i> [z-shell/z-a-unscope][]
 
 An aannex allows to install plugins without specifying the GitHub user name.
 
@@ -138,3 +138,5 @@ zi light-mode for z-shell/z-a-unscope
 ```
 
 It should be done possibly early in the `zshrc`, as otherwise the preceding `zi` calls will not have the unscoped IDs resolved.
+
+[z-shell/z-a-unscope]: https://github.com/z-shell/z-a-unscope

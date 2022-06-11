@@ -11,6 +11,7 @@
     "blanu.vscode-styled-jsx",
     "stylelint.vscode-stylelint",
     "silvenon.mdx",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "Crowdin.vscode-crowdin"
   ]
 }

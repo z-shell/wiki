@@ -1,6 +1,6 @@
 ---
 id: patch-dl
-title: 💠 Patch DL
+title: 🌀 Patch DL
 image: img/logo/320x320.png
 description: Annex - Patch DL documentation
 keywords:
@@ -8,7 +8,7 @@ keywords:
   - patch-dl
 ---
 
-- [z-shell/z-a-patch-dl](https://github.com/z-shell/z-a-patch-dl)
+## <i class="fa-brands fa-github"></i> [z-shell/z-a-patch-dl][]
 
 An annex downloads files and applies patches and adds two ice modifiers:
 
@@ -51,3 +51,5 @@ zi light z-shell/z-a-patch-dl
 ```
 
 After executing this command you can then use the `dl''` and `patch''` ice-mods.
+
+[z-shell/z-a-patch-dl]: https://github.com/z-shell/z-a-patch-dl

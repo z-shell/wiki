@@ -1,6 +1,6 @@
 ---
 id: default-ice
-title: 💠 Default Ice
+title: 🌀 Default Ice
 image: img/logo/320x320.png
 description: Annex - Default Ice documentation
 keywords:
@@ -10,7 +10,7 @@ keywords:
   - default-ice
 ---
 
-## <i class="fa-brands fa-github"></i> [z-shell/z-a-default-ice][default-ice]
+## <i class="fa-brands fa-github"></i> [z-shell/z-a-default-ice][]
 
 An annex delivers the capability to set **default ices** for the next `zi` command. It adds subcommand: **default-ice** which has the following synopsis:
 
@@ -35,7 +35,7 @@ Simply load like a regular plugin, i.e.:
 zi light z-shell/z-a-default-ice
 ```
 
-## Usage with [ZI][zi]
+## Usage with [ZI][z-shell/zi]
 
 ```shell showLineNumbers
 zi default-ice lucid from"gh-r"
@@ -52,5 +52,5 @@ The `wait''` ice cannot be made default by using this subcommand.
 
 :::
 
-[default-ice]: https://github.com/z-shell/z-a-default-ice
-[zi]: https://github.com/z-shell/zi
+[z-shell/z-a-default-ice]: https://github.com/z-shell/z-a-default-ice
+[z-shell/zi]: https://github.com/z-shell/zi

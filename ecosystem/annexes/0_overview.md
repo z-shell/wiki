@@ -1,7 +1,7 @@
 ---
 id: annexes
 slug: /annexes
-title: 💠 What can Annexes do?
+title: 🌀 What can Annexes do?
 sidebar_position: 1
 image: img/logo/320x320.png
 description: Annex Introduction

@@ -1,6 +1,6 @@
 ---
 id: submods
-title: 💠 Submods
+title: 🌀 Submods
 image: img/logo/320x320.png
 description: Annex - Submods documentation.
 keywords:
@@ -9,7 +9,7 @@ keywords:
   - submods
 ---
 
-## <i class="fa-brands fa-github"></i> [z-shell/z-a-submods](https://github.com/z-shell/z-a-submods)
+## <i class="fa-brands fa-github"></i> [z-shell/z-a-submods][]
 
 An annex delivers the capability to clone additional submodules while installing a plugin or snippet. The submodules are then automatically updated on the `zi update …` command.
 
@@ -37,3 +37,5 @@ zi light z-shell/z-a-submods
 ```
 
 After executing this command you can then use the `submods''` ice. The command should be placed in `~/.zshrc`.
+
+[z-shell/z-a-submods]: https://github.com/z-shell/z-a-submods

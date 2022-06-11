@@ -11,7 +11,8 @@
     "workspace",
     "community",
     "general",
-    "theme"
+    "theme",
+    "Annex"
   ],
   "markdownlint.config": {
     "extends": ".github/.markdownlint.yaml",

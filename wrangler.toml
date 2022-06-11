@@ -1,0 +1,3 @@
+name = "zw"
+main = "src/workers/1/index.ts"
+compatibility_date = "2022-06-11"

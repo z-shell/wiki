@@ -1,6 +1,6 @@
 ---
 id: bin-gem-node
-title: 💠 Bin Gem Node
+title: 🌀 Bin Gem Node
 image: img/logo/320x320.png
 description: Annex - Bin Gem Node documentation.
 keywords:

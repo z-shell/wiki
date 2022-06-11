@@ -1,6 +1,6 @@
 ---
 id: readurl
-title: 💠 Read URL
+title: 🌀 Read URL
 image: img/logo/320x320.png
 description: Annex - Read URL documentation.
 keywords:
@@ -8,16 +8,13 @@ keywords:
   - readurl
 ---
 
-- [z-shell/z-a-readurl](https://github.com/z-shell/z-a-readurl)
+## <i class="fa-brands fa-github"></i> [z-shell/z-a-readurl][]
 
 An aannex allows to automatically download the newest version of a file to which URL is hosted on a webpage.
 
 It works as follows:
 
-- Invoke `snippet` (or simply pass the `http://…` address using the `for` syntax) on the web-page that hosts the URL to
-  the file to download,
-- provide `dlink''` ice with the expected file-download URL replacing the version with the `%VERSION%` keyword, also
-  provide `as''` ice with one of the following values:
+- Invoke `snippet` (or simply pass the `http://…` address using the `for` syntax) on the web-page that hosts the URL to the file to download, provide `dlink''` ice with the expected file-download URL replacing the version with the `%VERSION%` keyword, also provide `as''` ice with one of the following values:
 
 1. `readurl`,
 2. `readurl|command`,
@@ -44,9 +41,7 @@ As it can be seen, the `dlink''` can be a relative or an absolute path and also 
 
 ## Intermediate download page
 
-Sometimes, like it is in case of [terraform](http://releases.hashicorp.com/terraform) command, the final download link
-isn't at the download page, but on a page that's listed on it. In such case use the `dlink0''` ice to provide the
-pattern for the additional, intermediate download page. For example, in case of `terraform`, the ZI command is:
+Sometimes, like it is in case of [terraform][] command, the final download link isn't at the download page, but on a page that's listed on it. In such case use the `dlink0''` ice to provide the pattern for the additional, intermediate download page. For example, in case of `terraform`, the ZI command is:
 
 ```shell showLineNumbers
 zi id-as=terraform as='readurl|command' extract for \
@@ -96,7 +91,7 @@ Sometimes the download page doesn't list the package versions from newest to the
 
 ## Filtering the matched URLs
 
-Sometimes there are some unwanted URLs that match the `dlink''`/`dlink0''` regex / pattern. In such case it's possible to filter them out by appending a filtering regex to the `dlink''` ice as: `dlink='the-main-regex~%the-unwanted-URLs-regex%'` (or the same for `dlink0''`). An example package that can benefit from this is the [Open Shift](https://www.openshift.com/) client, which doesn't sort the URLs from latest to the oldest – hence the exclamation mark (`!`) prepend – and it has special URLs like `stable-4.4` or `candidate-4.5` together with the regular version URLs (like `4.5.0-rc.1`):
+Sometimes there are some unwanted URLs that match the `dlink''`/`dlink0''` regex / pattern. In such case it's possible to filter them out by appending a filtering regex to the `dlink''` ice as: `dlink='the-main-regex~%the-unwanted-URLs-regex%'` (or the same for `dlink0''`). An example package that can benefit from this is the [Open Shift][] client, which doesn't sort the URLs from latest to the oldest – hence the exclamation mark (`!`) prepend – and it has special URLs like `stable-4.4` or `candidate-4.5` together with the regular version URLs (like `4.5.0-rc.1`):
 
 ```shell showLineNumbers
 zi id-as"ocp" as"readurl|command" for \
@@ -109,7 +104,7 @@ The above snippet of Zsh code / ZI invocation will sort the URLs (`dlink0'!…'`
 
 ## Other Examples
 
-[**Pulumi**](https://www.pulumi.com/), a tool to create, deploy, and manage modern cloud software.
+[Pulumi][], a tool to create, deploy, and manage modern cloud software.
 
 ```shell
 zi id-as'pulumi' as'readurl|null' extract'!' for \
@@ -117,3 +112,8 @@ zi id-as'pulumi' as'readurl|null' extract'!' for \
   sbin'pulumi*' \
     https://www.pulumi.com/docs/get-started/install/versions/
 ```
+
+[z-shell/z-a-readurl]: https://github.com/z-shell/z-a-readurl
+[open shift]: https://www.openshift.com/
+[pulumi]: https://www.pulumi.com/
+[terraform]: http://releases.hashicorp.com/terraform

@@ -25,11 +25,11 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "0.0.0-5107",
-    "@docusaurus/plugin-ideal-image": "0.0.0-5107",
-    "@docusaurus/plugin-pwa": "0.0.0-5107",
-    "@docusaurus/preset-classic": "0.0.0-5107",
-    "@docusaurus/theme-search-algolia": "0.0.0-5107",
+    "@docusaurus/core": "0.0.0-5113",
+    "@docusaurus/plugin-ideal-image": "0.0.0-5113",
+    "@docusaurus/plugin-pwa": "0.0.0-5113",
+    "@docusaurus/preset-classic": "0.0.0-5113",
+    "@docusaurus/theme-search-algolia": "0.0.0-5113",
     "@mdx-js/react": "1.6.22",
     "asciinema-player": "3.0.0",
     "clsx": "1.1.1",
@@ -40,7 +40,8 @@
   },
   "devDependencies": {
     "@babel/core": "7.18.2",
-    "@docusaurus/module-type-aliases": "0.0.0-5107",
+    "@cloudflare/workers-types": "^3.11.0",
+    "@docusaurus/module-type-aliases": "0.0.0-5113",
     "@loadable/component": "5.15.2",
     "@tsconfig/docusaurus": "1.0.6",
     "@types/node": "17.0.36",
@@ -54,7 +55,8 @@
     "stylelint-config-prettier": "9.0.3",
     "stylelint-config-standard": "26.0.0",
     "stylelint-csstree-validator": "2.0.0",
-    "typescript": "4.7.3"
+    "typescript": "4.7.3",
+    "wrangler": "2.0.9"
   },
   "packageManager": "pnpm@7.2.1",
   "pnpm": {

@@ -1,19 +1,18 @@
 ---
 id: rust
-title: 💠 Rust
+title: 🌀 Rust
 image: img/logo/320x320.png
-description: Annex - Rust documentation.
+description: Annex - Eval documentation.
 keywords:
+  - zannex
   - annex
   - rust
   - zsh
-  - rust
 ---
 
-- [z-shell/z-a-rust](https://github.com/z-shell/z-a-rust)
+## <i class="fa-brands fa-github"></i> [z-shell/z-a-rust][]
 
-An annex installs rust and cargo packages locally inside the plugin or snippet directories. The crate can then have a so called _shim_ created (name borrowed from `rbenv`) – a script that's located in the
-standard `$PATH` entry "`$ZPFX/bin`" of following contents (example):
+An annex installs rust and cargo packages locally inside the plugin or snippet directories. The crate can then have a so-called _shim_ created (a name borrowed from `rbenv`) – a script that's located in the standard `$PATH` entry "`$ZPFX/bin" of the following contents (example):
 
 ```shell showLineNumbers
 #!/usr/bin/env zsh
@@ -33,8 +32,7 @@ As it can be seen shim ultimately provides the binary to the command line.
 
 ## Usage of the annex
 
-The ZI Annex provides two new ices: `rustup` and `cargo''`. The first one installs rust inside the plugin's folder using
-the official `rustup` installer. The second one has the following syntax:
+The ZI Annex provides two new ices: `rustup` and `cargo''`. The first one installs rust inside the plugin's folder using the official `rustup` installer. The second one has the following syntax:
 
 `cargo"[name-of-the-binary-or-path <-] [[!][c|N|E|O]:]{crate-name} [-> {shim-script-name}]'`
 
@@ -47,7 +45,7 @@ zi ice rustup cargo'!lsd'
 zi load z-shell/null
 ```
 
-Installs rust and then the `exa' crate and creates the`ls' shim exposing the`exa' binary:
+Installs rust and then the `exa' crate and creates the `ls' shim exposing the`exa' binary:
 
 ```shell showLineNumbers
 zi ice rustup cargo'!exa -> ls'
@@ -113,8 +111,7 @@ This installs the annex and makes the `rustup` and `cargo''` ices available.
 
 ## Rust tools meta plugin
 
-To install [Rust utilities](meta-plugins#@rust-utils), simply run `zi light @rust-utils`, it will install and setup as
-following:
+To install [Rust utilities](meta-plugins#@rust-utils), simply run `zi light @rust-utils`, it will install and setup as follows:
 
 ```shell showLineNumbers
 bin-gem-node annex: Created the cargo shim and set +x on the cargo binary
@@ -131,4 +128,5 @@ bin-gem-node annex: Created the rust-lldb shim and set +x on the rust-lldb binar
 bin-gem-node annex: Created the rustup shim and set +x on the rustup binary
 ```
 
-[1]: /docs/guides/syntax/for/
+[1]: /docs/guides/syntax/for
+[z-shell/z-a-rust]: https://github.com/z-shell/z-a-rust

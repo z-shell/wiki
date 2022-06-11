@@ -154,7 +154,7 @@ const config = {
           {
             type: 'localeDropdown',
             position: 'right',
-            dropdownItemsAfter: [{ href: 'https://crowdin.digitalclouds.dev/z-shell', label: 'Help Us Translate' }],
+            dropdownItemsAfter: [{ href: 'https://digitalclouds.crowdin.com/z-shell', label: 'Help Us Translate' }],
           },
           {
             href: 'https://github.com/z-shell/zi/',
@@ -215,7 +215,7 @@ const config = {
               },
               {
                 label: 'Crowdin Translations',
-                href: 'https://crowdin.digitalclouds.dev/z-shell/',
+                href: 'https://digitalclouds.crowdin.com/z-shell/',
               },
               /** {html: ``}, */
             ],
