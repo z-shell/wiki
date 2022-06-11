@@ -42,7 +42,7 @@
     "@babel/core": "7.18.2",
     "@docusaurus/module-type-aliases": "0.0.0-5107",
     "@loadable/component": "5.15.2",
-    "@tsconfig/docusaurus": "1.0.5",
+    "@tsconfig/docusaurus": "1.0.6",
     "@types/node": "17.0.36",
     "@types/react": "18.0.12",
     "@typescript-eslint/eslint-plugin": "5.27.1",

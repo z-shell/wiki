@@ -14,7 +14,7 @@ specifiers:
   '@docusaurus/theme-search-algolia': 0.0.0-5107
   '@loadable/component': 5.15.2
   '@mdx-js/react': 1.6.22
-  '@tsconfig/docusaurus': 1.0.5
+  '@tsconfig/docusaurus': 1.0.6
   '@types/node': 17.0.36
   '@types/react': 18.0.12
   '@typescript-eslint/eslint-plugin': 5.27.1
@@ -52,7 +52,7 @@ devDependencies:
   '@babel/core': 7.18.2
   '@docusaurus/module-type-aliases': 0.0.0-5107_sfoxds7t5ydpegc3knd667wn6m
   '@loadable/component': 5.15.2_react@17.0.2
-  '@tsconfig/docusaurus': 1.0.5
+  '@tsconfig/docusaurus': 1.0.6
   '@types/node': 17.0.36
   '@types/react': 18.0.12
   '@typescript-eslint/eslint-plugin': 5.27.1_aq7uryhocdbvbqum33pitcm3y4
@@ -2763,8 +2763,8 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: false
 
-  /@tsconfig/docusaurus/1.0.5:
-    resolution: {integrity: sha512-KM/TuJa9fugo67dTGx+ktIqf3fVc077J6jwHu845Hex4EQf7LABlNonP/mohDKT0cmncdtlYVHHF74xR/YpThg==}
+  /@tsconfig/docusaurus/1.0.6:
+    resolution: {integrity: sha512-1QxDaP54hpzM6bq9E+yFEo4F9WbWHhsDe4vktZXF/iDlc9FqGr9qlg+3X/nuKQXx8QxHV7ue8NXFazzajsxFBA==}
     dev: true
 
   /@types/body-parser/1.19.2:
