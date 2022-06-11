@@ -1,7 +1,17 @@
 ---
 id: intro
 title: 👥 Community Docs
+keywords:
+  - documentation
+  - commmunity
+  - zsh-lovers
 ---
 
-- [Zsh PLugin Standard](02_zsh_plugin_standard.md)
-- [Zsh Native Scripting Handbook](03_zsh_native_scripting_handbook.md)
+<div align="center">
+
+![zsh](/img/zsh/zsh1.png#gh-dark-mode-only)![zsh](/img/zsh/zsh2.png#gh-light-mode-only)
+
+</div>
+
+- [Zsh PLugin Standard](/community/zsh_plugin_standard)
+- [Zsh Native Scripting Handbook](/community/zsh_handbook)

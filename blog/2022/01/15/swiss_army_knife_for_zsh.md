@@ -24,10 +24,11 @@ authors:
 
 ## 🧙‍♂️ 🪄 [❮ ZI ❯](https://github.com/z-shell/zi) - A Swiss Army Knife for [Zsh](https://zsh.sourceforge.io/) - [Unix shell](https://en.wikipedia.org/wiki/Unix_shell)
 
-import Image from '@theme/IdealImage';
-import ZshImg from '@site/static/img/zsh/zsh1.png';
+<div align="center">
 
-<Image className="ScreenView" img={ZshImg} />
+![zsh](/img/zsh/zsh1.png#gh-dark-mode-only)![zsh](/img/zsh/zsh2.png#gh-light-mode-only)
+
+</div>
 
 Designed to glue everything together. 🔗
 
