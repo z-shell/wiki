@@ -28,7 +28,7 @@ specifiers:
   prism-react-renderer: 1.3.3
   react: 17.0.2
   react-dom: 17.0.2
-  stylelint: 14.9.0
+  stylelint: 14.9.1
   stylelint-config-prettier: 9.0.3
   stylelint-config-standard: 26.0.0
   stylelint-csstree-validator: 2.0.0
@@ -60,10 +60,10 @@ devDependencies:
   eslint: 8.17.0
   eslint-config-prettier: 8.5.0_eslint@8.17.0
   eslint-plugin-react: 7.30.0_eslint@8.17.0
-  stylelint: 14.9.0
-  stylelint-config-prettier: 9.0.3_stylelint@14.9.0
-  stylelint-config-standard: 26.0.0_stylelint@14.9.0
-  stylelint-csstree-validator: 2.0.0_stylelint@14.9.0
+  stylelint: 14.9.1
+  stylelint-config-prettier: 9.0.3_stylelint@14.9.1
+  stylelint-config-standard: 26.0.0_stylelint@14.9.1
+  stylelint-csstree-validator: 2.0.0_stylelint@14.9.1
   typescript: 4.7.3
 
 packages:
@@ -8723,45 +8723,45 @@ packages:
       postcss-selector-parser: 6.0.10
     dev: false
 
-  /stylelint-config-prettier/9.0.3_stylelint@14.9.0:
+  /stylelint-config-prettier/9.0.3_stylelint@14.9.1:
     resolution: {integrity: sha512-5n9gUDp/n5tTMCq1GLqSpA30w2sqWITSSEiAWQlpxkKGAUbjcemQ0nbkRvRUa0B1LgD3+hCvdL7B1eTxy1QHJg==}
     engines: {node: '>= 12'}
     hasBin: true
     peerDependencies:
       stylelint: '>=11.0.0'
     dependencies:
-      stylelint: 14.9.0
+      stylelint: 14.9.1
     dev: true
 
-  /stylelint-config-recommended/8.0.0_stylelint@14.9.0:
+  /stylelint-config-recommended/8.0.0_stylelint@14.9.1:
     resolution: {integrity: sha512-IK6dWvE000+xBv9jbnHOnBq01gt6HGVB2ZTsot+QsMpe82doDQ9hvplxfv4YnpEuUwVGGd9y6nbaAnhrjcxhZQ==}
     peerDependencies:
       stylelint: ^14.8.0
     dependencies:
-      stylelint: 14.9.0
+      stylelint: 14.9.1
     dev: true
 
-  /stylelint-config-standard/26.0.0_stylelint@14.9.0:
+  /stylelint-config-standard/26.0.0_stylelint@14.9.1:
     resolution: {integrity: sha512-hUuB7LaaqM8abvkOO84wh5oYSkpXgTzHu2Zza6e7mY+aOmpNTjoFBRxSLlzY0uAOMWEFx0OMKzr+reG1BUtcqQ==}
     peerDependencies:
       stylelint: ^14.9.0
     dependencies:
-      stylelint: 14.9.0
-      stylelint-config-recommended: 8.0.0_stylelint@14.9.0
+      stylelint: 14.9.1
+      stylelint-config-recommended: 8.0.0_stylelint@14.9.1
     dev: true
 
-  /stylelint-csstree-validator/2.0.0_stylelint@14.9.0:
+  /stylelint-csstree-validator/2.0.0_stylelint@14.9.1:
     resolution: {integrity: sha512-nAnG4CynM4P4POUCGVz/PnrByKcgdD2isKlmAccoxykkaH1IuEposiOJcUQlAp/kXD/T0ZRwlDbqMGgrHRbhog==}
     engines: {node: ^12.20.0 || ^14.13.0 || >=15.0.0, npm: '>=7.0.0'}
     peerDependencies:
       stylelint: '>=7.0.0 <15.0.0'
     dependencies:
       css-tree: 2.1.0
-      stylelint: 14.9.0
+      stylelint: 14.9.1
     dev: true
 
-  /stylelint/14.9.0:
-    resolution: {integrity: sha512-+xsQ4uKS56RQs8AGYx2CXc9nhWyPR7c/G0RqyiKgWZx2LuE3VJnIhGRQXUfnGQXOqBPHxNjMCHiK5NNQRB52sw==}
+  /stylelint/14.9.1:
+    resolution: {integrity: sha512-RdAkJdPiLqHawCSnu21nE27MjNXaVd4WcOHA4vK5GtIGjScfhNnaOuWR2wWdfKFAvcWQPOYe311iveiVKSmwsA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
