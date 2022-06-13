@@ -16,10 +16,11 @@
   "pin": {
     "commitBody": "[skip ci]"
   },
-  "lockFileMaintenance": {
-    "enabled": true
-  },
   "packageRules": [
+    {
+      "lockFileMaintenance": {
+      "enabled": true
+    },    
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
