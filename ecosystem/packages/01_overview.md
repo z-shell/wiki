@@ -131,4 +131,4 @@ Thus, summing up 1. with 4., it might be nice/convenient too, for example, have 
 [6]: https://github.com/z-shell
 [7]: /docs/guides/syntax/ice
 [doctoc]: https://github.com/z-shell/doctoc
-[pkg-owner]: https://z.digitalclouds.dev/docs/guides/customization#customizing-paths
+[pkg-owner]: /docs/guides/customization/#ZI[PKG_OWNER]
