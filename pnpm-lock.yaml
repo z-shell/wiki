@@ -6,7 +6,7 @@ overrides:
 
 specifiers:
   '@babel/core': 7.18.2
-  '@cloudflare/workers-types': ^3.11.0
+  '@cloudflare/workers-types': 3.11.0
   '@docusaurus/core': 0.0.0-5113
   '@docusaurus/module-type-aliases': 0.0.0-5113
   '@docusaurus/plugin-ideal-image': 0.0.0-5113
