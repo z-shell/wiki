@@ -29,4 +29,5 @@ jobs:
           upload_sources: false
           upload_translations: false
           download_translations: true
-          # download_translations_args: '--all --skip-untranslated-strings'
+          github_user_name: digital-teams[bot]
+          github_user_email: digital-teams@pm.me
