@@ -3,8 +3,6 @@ id: intro
 title: 👥 Community Docs
 sidebar_position: 1
 image: img/logo/320x320.png
-tags:
-  - community-docs
 keywords:
   - documentation
   - commmunity
