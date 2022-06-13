@@ -127,8 +127,8 @@ Other unique benefits of the meta plugins annex:
 [17]: https://github.com/zsh-users/zsh-autosuggestions
 [18]: https://github.com/zsh-users/zsh-completions
 [19]: https://github.com/romkatv/powerlevel10k
-[20]: https://github.com/zdharma/revolver
-[21]: https://github.com/zdharma/color
+[20]: https://github.com/zdharma/color
+[21]: https://github.com/zdharma/revolver
 [22]: https://github.com/zdharma/zunit
 [23]: https://github.com/sharkdp/fd
 [24]: https://github.com/sharkdp/bat
