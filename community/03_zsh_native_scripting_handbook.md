@@ -14,7 +14,7 @@ keywords:
 
 ### @ is about keeping array form
 
-How to access all array elements in a shell? The standard answer: `use @ subscript`, i.e. `${array[@]}`. However, this
+How do access all array elements in a shell? The standard answer: `use @ subscript`, i.e. `${array[@]}`. However, this
 is the Bash & Ksh way (and with the option `KSH_ARRAYS`, Zsh also works this way, i.e. needs `@` to access the whole
 array). Z shell **is different**: it is `$array` that refers to all elements anyway. There is no need for the `@`
 subscript.
@@ -105,7 +105,7 @@ declare -a grepped; grepped=( ${(M)lines:#*query*} )
 To have the `grep -v` effect, skip the `M`-flag. To grep case-insensitively, use `\#i` glob flag (`...:#(#i)\*query*}`).
 
 As it can be seen, `${...:#...}` substitution is filtering of the array, which by default filters-out elements (`(M)`
-flag induces the opposite behavior). When used with string, not an array, it behaves similarly: returns an empty string
+flag induces the opposite behavior). When used with a string, not an array, it behaves similarly: returns an empty string
 when `{input_string_var:#pattern}` matches the whole input string.
 
 Side-note: `(M)` flag can be used also with `${(M)var#pattern}` and other substitutions, to retain what's matched by the
@@ -113,7 +113,7 @@ pattern instead of removing that.
 
 #### Multi-line matching like with grep
 
-Suppose you have a Subversion repository and want to check if it contains files being not under version control. You
+Suppose you have a Subversion repository and want to check if it contains files not under version control. You
 could do this in Bash style like follows:
 
 ```shell
@@ -138,7 +138,7 @@ This requires `extendedglob`. The `(#s)` means: "start of the string". So `((#s)
 preceded by a new-line".
 
 If the `extendedglob` option cannot be used for some reason, this can be achieved also without it, but essentially it
-means that alternative (i.e. `|`) of two versions of the pattern will have to be matched:
+means that the alternative (i.e. `|`) of two versions of the pattern will have to be matched:
 
 ```shell
 setopt localoptions noextendedglob
@@ -189,7 +189,7 @@ HELP="yes"; print ${${HELP:+help enabled}:-help disabled} ▶ help enabled
 HELP=""; print ${${HELP:+help enabled}:-help disabled} ▶ help disabled
 ```
 
-Ternary expression is known from `C` language but exists also in Zsh, but directly only in a math context, i.e.
+Ternary expression is known from the `C` language but exists also in Zsh, but directly only in a math context, i.e.
 `\(( a = a > 0 ? b : c ))`. The flexibility of Zsh allows such expressions also in a normal context. Above is an
 example. `:+` is "if not empty, substitute …" `:-` is "if empty, substitute …". You can save a great number of lines of
 code with those substitutions, it's normally at least 4-lines `if` condition or lengthy `&&`/`||` use.
@@ -227,7 +227,7 @@ declare -aU array; array=( a a b ); print $array ▶ a b
 declare -a array; array=( a a b ); print ${(u)array} ▶ a b
 ```
 
-Enable `-U` flag for array so that it guards elements to be unique, or use `u`-flag to make unique elements of an array.
+Enable the `-U` flag for the array so that it guards elements to be unique, or use the `u`-flag to make unique elements of an array.
 
 ### Skipping awk
 
@@ -289,7 +289,7 @@ declare -a gathered; integer idx=0
 print $gathered ▶ Value 1 Value 2
 ```
 
-Use of `#b` glob flag enables math-code execution (and not only) in `/` and `//` substitutions. Implementation is very
+Use of the `#b` glob flag enables math-code execution (and not only) in `/` and `//` substitutions. Implementation is very
 fast.
 
 ### Serializing data
@@ -387,7 +387,7 @@ The code should be placed in a file named `read-ini-file`, in `$fpath`, and `aut
 
 ```shell
 # $1 - path to the ini file to parse
-# $2 - the name of output hash
+# $2 - the name of the output hash
 # $3 - prefix for keys in the hash
 #
 # Writes to given hash under keys built-in following way: ${3}<section>_field.
