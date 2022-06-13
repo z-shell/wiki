@@ -1,6 +1,6 @@
 version: 0.1
 cli:
-  version: 0.13.0-beta
+  version: 0.13.1-beta
 repo:
   repo:
     host: github.com
@@ -21,7 +21,7 @@ lint:
     - markdownlint@0.31.1
     - prettier@2.6.2
     - shfmt@3.5.0
-    - stylelint@14.9.0
+    - stylelint@14.9.1
     - taplo@release-cli-0.6.3
   ignore:
     - linters: [ALL]
