@@ -62,5 +62,9 @@
   "link.item.label.Contributing": {
     "message": "Contributing",
     "description": "The label of footer link with label=Contributing linking to legal/CONTRIBUTING/"
+  },
+  "copyright": {
+    "message": "Copyright © 2022 Z-Shell Community.",
+    "description": "The footer copyright"
   }
 }

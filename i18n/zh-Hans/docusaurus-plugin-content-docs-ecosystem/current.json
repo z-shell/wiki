@@ -3,6 +3,10 @@
     "message": "下一页",
     "description": "The label for version current"
   },
+  "sidebar.SideBar.category.🌀 Annexes": {
+    "message": "🌀 Annexes",
+    "description": "The label for category 🌀 Annexes in sidebar SideBar"
+  },
   "sidebar.SideBar.category.📦 Packages": {
     "message": "📦 Packages",
     "description": "The label for category 📦 Packages in sidebar SideBar"
