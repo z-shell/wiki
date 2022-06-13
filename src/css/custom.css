@@ -133,7 +133,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   --docsearch-searchbox-focus-background: var(--ifm-color-black);
   --docsearch-hit-color: var(--ifm-font-color-base);
   --docsearch-hit-active-color: var(--ifm-color-white);
-  --docsearch-hit-background: var(--ifm-color-emphasis-100);
+  --docsearch-hit-background: #24292e;
   --docsearch-footer-background: var(--ifm-background-surface-color);
   --docsearch-key-gradient: linear-gradient(
     -26.5deg,
