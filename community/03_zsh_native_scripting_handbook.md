@@ -1,6 +1,13 @@
 ---
 id: zsh_handbook
 title: 🔤 Zsh Native Scripting Handbook
+sidebar_position: 3
+image: img/logo/320x320.png
+tags:
+  - zsh-handbook
+  - zsh
+keywords:
+  - zsh-scripting
 ---
 
 ## Information
