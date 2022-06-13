@@ -64,35 +64,9 @@
   <img
     align="center" style="width:80%;height:auto"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/pagespeed/detailed.svg"
-  />
+  /><hr />
 </a>
-</td>
-</tr>
-<tr>
-<td align="center">
-<a title="ZI" target="_self" href="https://twitter.com/zshell_zi">
-  <img
-    align="center" style="width:80%;height:auto"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/tweets/tweets.svg"
-  />
-</a>
-<a href="https://dev.to/z-shell/">
-  <img
-    align="center" style="width:80%;height:auto"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/rss/dev.zshell.rss.svg"
-  />
-</a>
-<a href="https://dev.to/tag/zsh/">
-  <img
-    align="center" style="width:80%;height:auto"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/rss/dev.tag.zsh.rss.svg"
-  />
-</a>
-</td>
- </tr>
- <tr>
-<td align="center">
- <a href="https://asciinema.org/a/459358" target="_blank"><img style="width:100%;height:100%" src="https://asciinema.org/a/459358.svg" /></a>
+ <p align="center"><a href="https://asciinema.org/a/459358" target="_blank"><img align="center" style="width:100%;height:100%" src="https://asciinema.org/a/459358.svg" /></a><p>
   </td>
  </tr>
  <tr><td align="left">
