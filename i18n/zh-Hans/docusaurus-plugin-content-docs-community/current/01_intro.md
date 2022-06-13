@@ -1,6 +1,10 @@
 ---
 id: intro
 title: '👥 Community Docs'
+sidebar_position: 1
+image: img/logo/320x320.png
+tags:
+  - community-docs
 keywords:
   - documentation
   - commmunity
@@ -13,5 +17,5 @@ keywords:
 
 </div>
 
-- [Zsh 插件标准](/community/zsh_plugin_standard)
+- [Zsh Plugin Standard](/community/zsh_plugin_standard)
 - [Zsh 原生脚本手册](/community/zsh_handbook)
