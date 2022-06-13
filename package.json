@@ -25,10 +25,10 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "0.0.0-5113",
-    "@docusaurus/plugin-ideal-image": "0.0.0-5113",
-    "@docusaurus/plugin-pwa": "0.0.0-5113",
-    "@docusaurus/preset-classic": "0.0.0-5113",
+    "@docusaurus/core": "0.0.0-5115",
+    "@docusaurus/plugin-ideal-image": "0.0.0-5115",
+    "@docusaurus/plugin-pwa": "0.0.0-5115",
+    "@docusaurus/preset-classic": "0.0.0-5115",
     "@mdx-js/react": "1.6.22",
     "asciinema-player": "3.0.1",
     "clsx": "1.1.1",
@@ -40,7 +40,7 @@
   "devDependencies": {
     "@babel/core": "7.18.5",
     "@cloudflare/workers-types": "3.11.0",
-    "@docusaurus/module-type-aliases": "0.0.0-5113",
+    "@docusaurus/module-type-aliases": "0.0.0-5115",
     "@loadable/component": "5.15.2",
     "@tsconfig/docusaurus": "1.0.6",
     "@types/node": "17.0.36",
