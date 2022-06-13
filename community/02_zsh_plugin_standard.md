@@ -2,12 +2,15 @@
 id: zsh_plugin_standard
 title: ℹ️ Zsh Plugin Standard
 sidebar_position: 2
-image: img/zsh/zsh1.png
-keywords:
-  - create a zsh plugin
-  - best pratices
+image: img/logo/320x320.png
+tags:
+  - zsh-plugin-standard
   - zsh-plugin
-  - standard
+keywords:
+  - best-pratices
+  - create
+  - plugin
+  - zsh
 ---
 
 ## What Is A Zsh Plugin?
