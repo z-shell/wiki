@@ -125,7 +125,7 @@ const config = {
       image: 'img/logo/320x320.png',
       metadata: [
         { name: 'twitter:card', content: 'summary' },
-        { name: 'keywords', content: 'zsh plugin manager, zinit, zplugin, oh-my-zsh, prezto, zi' },
+        { name: 'keywords', content: 'zsh, zsh-plugins, plugin-manager, zinit, zplugin, oh-my-zsh, prezto, zi' },
       ],
       announcementBar: {
         id: 'announcemnt',

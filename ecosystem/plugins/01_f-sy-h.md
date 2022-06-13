@@ -12,12 +12,6 @@ keywords:
   - zsh-plugin
 ---
 
-<head>
-  <meta charSet="utf-8" />
-  <meta name="twitter:card" content="summary" />
-  <link rel="canonical" href="https://z.digitalclouds.dev/ecosystem/plugins/f-sy-h" />
-</head>
-
 import Image from '@theme/IdealImage';
 
 ## <i class="fa-brands fa-github"></i> [z-shell/f-sy-h][1]
@@ -382,7 +376,7 @@ Add the following to your `zshrc` file.
 zi light z-shell/F-Sy-H
 ```
 
-Here's an example of how to load the plugin together with a few other popular ones with the use of [Turbo](https://z.digitalclouds.dev/docs/getting_started/overview#turbo-mode-zsh--53), i.e.: speeding up the Zsh startup by loading the plugin right after the first prompt, in background:
+Here's an example of how to load the plugin together with a few other popular ones with the use of [Turbo](/docs/getting_started/overview#turbo-mode-zsh--53), i.e.: speeding up the Zsh startup by loading the plugin right after the first prompt, in background:
 
 ```shell showLineNumbers
 zi wait lucid for \

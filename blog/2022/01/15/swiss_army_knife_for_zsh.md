@@ -32,25 +32,25 @@ authors:
 
 Designed to glue everything together. 🔗
 
-[https://z.digitalclouds.dev](https://z.digitalclouds.dev) | [GitHub](https://github.com/z-shell/) | [Discussions](https://github.com/orgs/z-shell/discussions/) | [Localize](https://crowdin.digitalclouds.dev)
+[https://z.digitalclouds.dev](https://z.digitalclouds.dev) | [GitHub](https://github.com/z-shell/) | [Discussions](https://github.com/orgs/z-shell/discussions/) | [Localize](https://digitalclouds.crowdin.com/z-shell)
 
 ### ⚡️ Fast and feature-rich
 
-✴️ [🌀Meta-plugins](https://z.digitalclouds.dev/search?q=meta+plugins) installs a group of complex plugins via a simple label, curated and optimal settings which are automatically applied.
+✴️ [🌀Meta-plugins](/search?q=meta+plugins) installs a group of complex plugins via a simple label, curated and optimal settings which are automatically applied.
 
-✴️ [🌀Packages](https://z.digitalclouds.dev/ecosystem/packages) offloads from complex configurations and stores them as an easy to swap & share profiles.
+✴️ [🌀Packages](/ecosystem/packages) offloads from complex configurations and stores them as an easy to swap & share profiles.
 
-✴️ [🌀Annexes](https://z.digitalclouds.dev/ecosystem/annexes) are extensions that are installed when required to provide additional functionality, and capabilities.
+✴️ [🌀Annexes](/ecosystem/annexes) are extensions that are installed when required to provide additional functionality, and capabilities.
 
-✴️ [🌀Turbo](https://z.digitalclouds.dev/docs/getting_started/overview#turbo-mode-zsh--53) mode yields **50–80%** faster Zsh startup, just because no one likes to wait for someone :)
+✴️ [🌀Turbo](/docs/getting_started/overview#turbo-mode-zsh--53) mode yields **50–80%** faster Zsh startup, just because no one likes to wait for someone :)
 
 > 🥵 Currently biggest issue is that it seems to be too complex for new users and recently made some adjustments which are now starting to provide the results.
 
 ### ☑️ Neat and flexible
 
-✴️ [Customize](https://z.digitalclouds.dev/docs/guides/customization#customizing-paths) the paths, use [multiple prompts](https://z.digitalclouds.dev/docs/guides/customization#multiple-prompts) in the same sessions by setting the triggers or create [your own](https://z.digitalclouds.dev/docs/guides/customization#non-github-local-plugins) plugins to simplify or improve the routine.
+✴️ [Customize](/docs/guides/customization#customizing-paths) the paths, use [multiple prompts](/docs/guides/customization#multiple-prompts) in the same sessions by setting the triggers or create [your own](/docs/guides/customization#non-github-local-plugins) plugins to simplify or improve the routine.
 
-✴️ Supports [Oh My Zsh](https://z.digitalclouds.dev/docs/getting_started/overview#oh-my-zsh-prezto) and [Prezto](https://z.digitalclouds.dev/docs/getting_started/overview#oh-my-zsh-prezto) plugins and libraries. ( [migration](https://z.digitalclouds.dev/docs/getting_started/migration)).
+✴️ Supports [Oh My Zsh](/docs/getting_started/overview#oh-my-zsh-prezto) and [Prezto](/docs/getting_started/overview#oh-my-zsh-prezto) plugins and libraries. ( [migration](/docs/getting_started/migration)).
 
 ✴️ Does not use **$FPATH** , loading multiple plugins doesn't clutter **$FPATH** with the same number of entries, e.g: 10, 15, even, or more.
 
@@ -64,10 +64,10 @@ Designed to glue everything together. 🔗
 
 ✴️ Quickly familiarize oneself with a new plugin and provides rich and easy-to-digest information that might be helpful on various occasions.
 
-✴️ [Load, unload](https://z.digitalclouds.dev/docs/guides/commands#loading-and-unloading) plugins when required, use the ability to [manage](https://z.digitalclouds.dev/docs/guides/commands#completions-management) completions.
+✴️ [Load, unload](/docs/guides/commands#loading-and-unloading) plugins when required, use the ability to [manage](https://z.digitalclouds.dev/docs/guides/commands#completions-management) completions.
 
 ✴️ Docker [playground](https://github.com/z-shell/playground) to test, view, or propose configurations.
 
-✴️ [💫Gallery](https://z.digitalclouds.dev/docs/gallery/collection) of the user favorites.
+✴️ [💫Gallery](/docs/gallery/collection) of the user favorites.
 
 > Is only limited to your own 🤦‍♂️ imagination… 🧙‍‍♀️ We need the support to make it better and more approachable to new users, become a 💞 friend of the DEV 💞, and more ☁️ cloud-native ☁️.

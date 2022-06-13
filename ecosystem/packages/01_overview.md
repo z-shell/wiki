@@ -115,7 +115,7 @@ Thus, summing up 1. with 4., it might be nice/convenient too, for example, have 
 
 ## Adding your package
 
-1. Contact the author to have the repository at the [Z-Shell][6] organization or set the [ZI[PKG_OWNER]][pkg-owner].
+1. Contact the author to have the repository at the [Z-Shell][6] organization or set the [ZI\[PKG_OWNER\]][modify-settings].
 
 2. Populate the `package.json` – I suggest grabbing the one for `fzf` or `doctoc` and doing a few substitutions like [doctoc][doctoc] → `your-project` and then simply filling the `default` profile in the `zi-ices` object – it is same as passing ices to `zi ice …` but in JSON.
 
@@ -131,4 +131,4 @@ Thus, summing up 1. with 4., it might be nice/convenient too, for example, have 
 [6]: https://github.com/z-shell
 [7]: /docs/guides/syntax/ice
 [doctoc]: https://github.com/z-shell/doctoc
-[pkg-owner]: /docs/guides/customization/#ZI[PKG_OWNER]
+[modify-settings]: /docs/guides/customization#modify-settings
