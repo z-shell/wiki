@@ -33,7 +33,7 @@ specifiers:
   stylelint-config-standard: 26.0.0
   stylelint-csstree-validator: 2.0.0
   typescript: 4.7.3
-  wrangler: 2.0.9
+  wrangler: 2.0.11
 
 dependencies:
   '@docusaurus/core': 0.0.0-5115_3uff4fhc3ha7buwfzwnxydhxcy
@@ -66,7 +66,7 @@ devDependencies:
   stylelint-config-standard: 26.0.0_stylelint@14.9.1
   stylelint-csstree-validator: 2.0.0_stylelint@14.9.1
   typescript: 4.7.3
-  wrangler: 2.0.9
+  wrangler: 2.0.11
 
 packages:
 
@@ -9260,7 +9260,7 @@ packages:
     dev: false
 
   /stack-trace/0.0.10:
-    resolution: {integrity: sha1-VHxws0fo0ytOEI6hoqFZ5f3eGcA=}
+    resolution: {integrity: sha512-KGzahc7puUKkzyMt+IqAep+TVNbKP+k2Lmwhub39m1AsTSkaDutx56aDCo+HLDzf/D26BIHTJWNiTG1KAJiQCg==}
     dev: true
 
   /state-toggle/1.0.3:
@@ -10476,8 +10476,8 @@ packages:
       workbox-core: 6.5.3
     dev: false
 
-  /wrangler/2.0.9:
-    resolution: {integrity: sha512-qRmjOHQKUaylxQFjVt0IniY5tu/KFi4BWwSm7C33Lr7oQNSC/ANUn9K8wJew9DtrnTw7arhhK1qbGAxB/IEo+w==}
+  /wrangler/2.0.11:
+    resolution: {integrity: sha512-wRofP6GvpzZxCmqG1sLpdkHLFIv95oiv8KXyoO1eYGZ7izIhnfEt1kMPA9WguBgojDCw0+9xebhp/rOp8lYBtA==}
     engines: {node: '>=16.7.0'}
     hasBin: true
     dependencies:
