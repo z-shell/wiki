@@ -3,9 +3,6 @@ id: zsh_plugin_standard
 title: ℹ️ Zsh Plugin Standard
 sidebar_position: 2
 image: img/logo/320x320.png
-tags:
-  - zsh-plugin-standard
-  - zsh-plugin
 keywords:
   - best-pratices
   - create
