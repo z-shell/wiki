@@ -62,18 +62,14 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a loader
 The installer will download loader and add snippet below to the `.zshrc` file.
 
 ```shell showLineNumbers
-if [[ -r "${XDG_CONFIG_HOME:-$HOME/.config}/zi/init.zsh" ]]; then
-  source "${XDG_CONFIG_HOME:-$HOME/.config}/zi/init.zsh" && zzinit
+if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]]; then
+  source "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" && zzinit
 fi
 ```
 
 :::tip
 
-The loader can be manually fetched from links below to any location on the system, and sourced from `.zshrc` or as shown in the [quick-setup](#-quick-setup).
-
-- https://init.zshell.dev
-- https://git.io/zi-loader
-- https://github.com/z-shell/zi-src/blob/main/lib/zsh/init.zsh
+The loader can be manually fetched from available [links](#loader) to any location on the system, and sourced from `.zshrc` or as shown in the [quick-setup](#-quick-setup).
 
 :::
 
@@ -81,7 +77,7 @@ Then reload shell with: `exec zsh`. All done!
 
 ## <i class="fas fa-spinner fa-spin"></i> Manual Setup
 
-### <i class="fa-solid fa-code-branch"></i> Setup ZI directory
+### <i class="fa-solid fa-code-branch"></i> Setup directory
 
 :::tip Related
 
@@ -100,6 +96,8 @@ export ZI[BIN_DIR]="${HOME}/.zi/bin"
 mkdir -p "$ZI[BIN_DIR]"
 git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
 ```
+
+### <i class="fa-solid fa-circle-nodes"></i> Enable ZI
 
 Source `zi.zsh` in your `.zshrc` from previously created directory:
 
@@ -225,4 +223,4 @@ typeset -g ZI_MOD_DEBUG=1
 [10]: https://status.zshell.dev
 [11]: https://github.com/robobenklein/configs/blob/master/Dockerfile
 [12]: https://github.com/z-shell/playground
-[13]: https://z.digitalclouds.dev/docs/guides/customization
+[13]: /docs/guides/customization
