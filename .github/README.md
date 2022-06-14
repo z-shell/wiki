@@ -105,7 +105,7 @@
         rel="nofollow"
       >
         <img
-          style="width: 140; height: 40px"
+          style="width: 140px; height: 40px"
           src="https://storage.googleapis.com/digital-space/img/brand/crowdin/localization-at-dark-rounded%402x.png"
           alt="Crowdin | Agile localization for tech companies"
         />
@@ -115,14 +115,14 @@
         rel="nofollow"
       >
         <img
-          style="width: 140; height: 40px"
+          style="width: 140px; height: 40px"
           src="https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg"
           alt="DigitalOcean Referral Badge"
         />
       </a>
       <a href="https://cloudflare.com" rel="nofollow">
         <img
-          style="width: 140; height: 40px"
+          style="width: 140px; height: 40px"
           src="https://storage.googleapis.com/digital-space/img/brand/cloudflare/cf-logo-v-rgb.png"
           alt="Cloudflare"
         />
