@@ -22,6 +22,8 @@ zi light-mode for z-shell/z-a-meta-plugins @annexes
 
 :::note
 
+Is an excellent tool you like not included in the gallery? Use the "Edit this page" at the bottom or links below for additional support.
+
 - [Issue report][5]
 - [Suggestions][6]
 
