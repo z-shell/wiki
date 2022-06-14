@@ -83,21 +83,30 @@ Then reload shell with: `exec zsh`. All done!
 
 ### <i class="fa-solid fa-code-branch"></i> Setup ZI directory
 
-```shell
-zi_home="${HOME}/.zi" && mkdir -p $zi_home
+:::tip Related
+
+- [🏗 Preferences & Configuration][13]
+
+:::
+
+```shell showLineNumbers
+typeset -Ag ZI
+export ZI[BIN_DIR]="${HOME}/.zi/bin"
 ```
 
 ### <i class="fa-brands fa-git-alt"></i> Clone repository
 
-```shell
-git clone https://github.com/z-shell/zi.git "${zi_home}/bin"
+```shell showLineNumbers
+mkdir -p "$ZI[BIN_DIR]"
+git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
 ```
 
 Source `zi.zsh` in your `.zshrc` from previously created directory:
 
 ```shell showLineNumbers
-zi_home="${HOME}/.zi"
-source "${zi_home}/bin/zi.zsh"
+typeset -A ZI
+ZI[BIN_DIR]="${HOME}/.zi/bin"
+source "${ZI[BIN_DIR]}/zi.zsh"
 ```
 
 ### <i class="fa-solid fa-circle-nodes"></i> Enable completions:
@@ -216,3 +225,4 @@ typeset -g ZI_MOD_DEBUG=1
 [10]: https://status.zshell.dev
 [11]: https://github.com/robobenklein/configs/blob/master/Dockerfile
 [12]: https://github.com/z-shell/playground
+[13]: https://z.digitalclouds.dev/docs/guides/customization
