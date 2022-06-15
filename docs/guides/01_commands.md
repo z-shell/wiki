@@ -25,7 +25,6 @@ cdlist                 -- Show compdef replay list
 cdreplay               -- Replay compdefs (to be done after compinit)
 cenable                -- Enable completion
 changes                -- View the plugin git log
-codeload               -- Load a code as local plugin from a specified user, repository and branch
 compile                -- Compile plugin (or all plugins if --all passed)
 compiled               -- Show which plugins are compiled
 compinit               -- Refresh installed completions
