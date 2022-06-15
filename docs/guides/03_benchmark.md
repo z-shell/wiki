@@ -12,7 +12,7 @@ keywords:
 
 :::info
 
-Tests with ZI: run `zi analytics` for the available commands
+Run `zi analytics` to see the available ZI sub-commands for statistics and information.
 
 :::
 
@@ -26,15 +26,15 @@ zi light z-shell/F-Sy-H
 
 | Syntax      | Description                                                                                                              |
 | ----------- | :----------------------------------------------------------------------------------------------------------------------- |
-| `atinit'…'` | loads `zsh/zprof` module, shipped with Zsh, before loading the plugin – this starts the profiling.                       |
+| `atinit'…'` | loads the` zsh/zprof` module, shipped with Zsh, before loading the plugin – this starts the profiling.                   |
 | `atload'…'` | works after loading the plugin – shows profiling results `zprof / head`, unloads `zsh/zprof` - this stops the profiling. |
 
-While in effect, only a single plugin, in this case `z-shell/F-Sy-H`, will be profiled.
+While in effect, only a single plugin, in this case, `z-shell/F-Sy-H`, will be profiled.
 
 The rest plugins will go on completely normally, as when plugins are loaded with `light` - reporting is disabled.
 
 Less code is being run in the background, the automatic data gathering, during loading of a plugin, for the reports and
-the possibility to unload the plugin, will be activated and the functions will not appear in the `zprof` report.
+the possibility to unload the plugin will be activated and the functions will not appear in the `zprof` report.
 
 - Example `zprof` report:
 
@@ -68,11 +68,13 @@ num calls    time                self                 name
   function's **own code**, it doesn't count the time spent in **descendant functions** that are called from the
   function;
 
-  - For example, `--zi-shadow-autoload` spent 8.71 ms on executing only its own code.
+  - For example, `--zi-shadow-autoload` spent 8.71 ms on executing only its code.
 
 - The table is sorted on the **self-time** column.
 
 ## <i class="fas fa-spinner fa-spin"></i> Profile `.zshrc` startup
+
+### Method 1
 
 > `PROFILE_STARTUP=true` to enable profiling.
 
@@ -98,12 +100,48 @@ Zsh Sourceforge docs: [Prompt Exapansion][]
 Place at the bottom of `.zshrc`
 
 ```shell title="~/.zshrc" showLineNumbers
-if [["$PROFILE_STARTUP" == true]]; then
+if [[ "$PROFILE_STARTUP" == true ]]; then
   unsetopt xtrace
   exec 2>&3 3>&-; zprof > ~/zshprofile$(date +'%s')
 fi
 ```
 
 The next time your `.zshrc` is sourced it will generate 2 files in the `$HOME` directory.
+
+### Method 2
+
+Store multiple values to a variable.
+
+```shell title="~/.zshrc" showLineNumbers
+# Set variable
+typeset -Ag ZLOGS
+# Message to store
+zmsg() { ZLOGS+=( "\n[$1]: ${(M)$(( SECONDS * 1000 ))#*.?} ms" ); }
+
+# Start profiling
+typeset -F4 SECONDS=0
+
+# <RUN SOME FUNCTIONS TO MEASURE>
+
+zmsg "Loaded functions"
+
+# <RUN SOMETHING ELSE>
+
+zmsg "Loaded something else"
+
+# <THE FINAL CODEBLOCK HERE>
+
+zmsg "Done"
+```
+
+Then user variable to retrieve the stored values
+
+```shell showLineNumbers
+❯ echo $ZLOGS
+
+[Loaded functions]: 0.0 ms
+[Loaded something else]: 0.0 ms
+[Done]: 0.1 ms
+```
 
 [prompt exapansion]: https://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html

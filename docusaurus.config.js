@@ -15,14 +15,6 @@ const config = {
   staticDirectories: ['static'],
   stylesheets: [{ href: 'https://z.digitalclouds.dev/assets/css/all.min.css' }],
   i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
-  customFields: {
-    image: 'img/logo.png',
-    keywords: [
-      'Zsh Startup 50-80% Faster',
-      'Supports Oh-My-Zsh and Prezto',
-      'Create plugins, libraries, and themes effortlessly.',
-    ],
-  },
   presets: [
     [
       'classic',

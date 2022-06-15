@@ -5,6 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
+    "dev": "wrangler pages dev --live-reload -- docusaurus start",
     "build": "docusaurus build",
     "build:en": "docusaurus build --locale en",
     "swizzle": "docusaurus swizzle",
