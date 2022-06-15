@@ -19,7 +19,7 @@ lint:
     - eslint@8.17.0
     - gitleaks@8.8.7
     - markdownlint@0.31.1
-    - prettier@2.6.2
+    - prettier@2.7.0
     - shfmt@3.5.0
     - stylelint@14.9.1
     - taplo@release-cli-0.6.3

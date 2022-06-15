@@ -12,10 +12,7 @@ jobs:
   check:
     name: '⚡'
     uses: z-shell/.github/.github/workflows/trunk.yml@main
-    #secrets:
-    #  trunk-token: ${{ secrets.TRUNK_TOKEN }}
     with:
       runs-on: 'ubuntu-latest'
       node_version: '16'
       pnpm_arguments: 'pnpm i'
-      arguments: '--no-progress'
