@@ -33,7 +33,7 @@ specifiers:
   stylelint-config-standard: 26.0.0
   stylelint-csstree-validator: 2.0.0
   typescript: 4.7.3
-  wrangler: 2.0.11
+  wrangler: 2.0.12
 
 dependencies:
   '@docusaurus/core': 0.0.0-5117_fqhhqloifjt5nbdmvap2dxttw4
@@ -66,7 +66,7 @@ devDependencies:
   stylelint-config-standard: 26.0.0_stylelint@14.9.1
   stylelint-csstree-validator: 2.0.0_stylelint@14.9.1
   typescript: 4.7.3
-  wrangler: 2.0.11
+  wrangler: 2.0.12
 
 packages:
 
@@ -1511,6 +1511,12 @@ packages:
     dependencies:
       '@babel/helper-validator-identifier': 7.16.7
       to-fast-properties: 2.0.0
+
+  /@cloudflare/kv-asset-handler/0.2.0:
+    resolution: {integrity: sha512-MVbXLbTcAotOPUj0pAMhVtJ+3/kFkwJqc5qNOleOZTv6QkZZABDMS21dSrSlVswEHwrpWC03e4fWytjqKvuE2A==}
+    dependencies:
+      mime: 3.0.0
+    dev: true
 
   /@cloudflare/workers-types/3.11.0:
     resolution: {integrity: sha512-XmKgZZHrCdPsoVQkdd365R7GvwTwDVJsMyEG3Dq/Tgxz6vgrps2c8PXBqEutguwvl0zDAF0AL0e2Z8WG9Dffjw==}
@@ -7130,6 +7136,12 @@ packages:
     hasBin: true
     dev: false
 
+  /mime/3.0.0:
+    resolution: {integrity: sha512-jSCU7/VB1loIWBZe14aEYHU/+1UMEHoaO7qxCOVJOw9GgH72VAWppxNcjU+x9a2k3GSIBXNKxXQFqRvvZ7vr3A==}
+    engines: {node: '>=10.0.0'}
+    hasBin: true
+    dev: true
+
   /mimic-fn/2.1.0:
     resolution: {integrity: sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==}
     engines: {node: '>=6'}
@@ -9260,7 +9272,7 @@ packages:
     dev: false
 
   /stack-trace/0.0.10:
-    resolution: {integrity: sha1-VHxws0fo0ytOEI6hoqFZ5f3eGcA=}
+    resolution: {integrity: sha512-KGzahc7puUKkzyMt+IqAep+TVNbKP+k2Lmwhub39m1AsTSkaDutx56aDCo+HLDzf/D26BIHTJWNiTG1KAJiQCg==}
     dev: true
 
   /state-toggle/1.0.3:
@@ -10476,11 +10488,12 @@ packages:
       workbox-core: 6.5.3
     dev: false
 
-  /wrangler/2.0.11:
-    resolution: {integrity: sha512-wRofP6GvpzZxCmqG1sLpdkHLFIv95oiv8KXyoO1eYGZ7izIhnfEt1kMPA9WguBgojDCw0+9xebhp/rOp8lYBtA==}
+  /wrangler/2.0.12:
+    resolution: {integrity: sha512-Dnzqxl3vW5J16Lt3gEbl/teNnTuAqMwsuMexR7BFSHWTwfWjHT9Sc7B6bPIKw0O01zDU/hUscw8nkyhMMM3xDw==}
     engines: {node: '>=16.7.0'}
     hasBin: true
     dependencies:
+      '@cloudflare/kv-asset-handler': 0.2.0
       '@esbuild-plugins/node-globals-polyfill': 0.1.1_esbuild@0.14.34
       '@esbuild-plugins/node-modules-polyfill': 0.1.4_esbuild@0.14.34
       blake3-wasm: 2.1.5
