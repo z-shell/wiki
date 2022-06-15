@@ -28,9 +28,9 @@ Following variables can be set to custom values, before sourcing ZI.
 declare -A ZI
 ```
 
-:::warn
+:::caution
 
-Variables has to be set before loading ZI,
+Variables has to be set before loading ZI, i.e `source "path/to/zi/bin/zi.zsh"`.
 
 :::
 

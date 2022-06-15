@@ -3,8 +3,10 @@ title: '♻️ Migration'
 image: img/logo/320x320.png
 description: Migration guide
 keywords:
-  - migration
   - setup
+  - prezto
+  - oh-my-zsh
+  - migration
 ---
 
 ## Oh-My-Zsh
@@ -69,24 +71,6 @@ Bundle multiple commands to a single file:
 `zi snippet <some/path/or/url/bundled-snippets.zsh`
 
 :::
-
-### Plugins
-
-```diff showLineNumbers
-- plugins=(
--  git
--  dotenv
--  rake
--  rbenv
--  ruby
--)
-
-+ zi snippet OMZP::git
-+ zi snippet OMZP::dotenv
-+ zi snippet OMZP::rake
-+ zi snippet OMZP::rbenv
-+ zi snippet OMZP::ruby
-```
 
 If it consists of a single file, with ZI you can just load it: `zi snippet <some/path/or/url/undled-snnippets.zsh`
 
