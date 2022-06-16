@@ -6,6 +6,7 @@ const config = {
   tagline: 'A Swiss Army Knife for Zsh Unix shell',
   url: 'https://z.digitalclouds.dev',
   baseUrl: '/',
+  trailingSlash: false,
   titleDelimiter: '|',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
