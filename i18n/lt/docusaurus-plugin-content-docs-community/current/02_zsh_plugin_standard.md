@@ -346,20 +346,6 @@ Plugins[MY_PLUGIN_REPO_DIR]="${0:h}"
 
 This way all the data of all plugins will be kept in a single parameter, available for easy examination and overview (via e.g.: `varied Plugins`) and also not polluting the namespace.
 
-## Standard `Local` hash
-
-Same as [standard plugins hash](#standard-plugins-hash), but for temporary or local configurations. It prevents polluting the namespace and helps when migrating across multiple devices.
-
-An example of local configurations:
-
-```shell showLineNumbers
-typeset -gA Local
-Local[CONFIG_DIR]="${0:h}"
-Local[THEMES_DIR]="${0:h}/themes"
-Local[COMPLETIONS_DIR]="${0:h}/completions"
-Local[COOL_STUFF_HERE_DIR]="${0:h}/some_cool_stuff"
-```
-
 ## Standard recommended options
 
 The following code snippet is recommended to be included at the beginning of each of the main functions provided by the plugin:
@@ -481,6 +467,18 @@ Replace the `prj*` prefix with your project name, e.g.: `rustef` for a `rust`-re
 3. It then unsets the resulting list of the functions – being only the newly defined functions in the main function – by passing it to `unset -f …`. This way the functions defined by the body of the main (most often an autoload) the function will be only set during the execution of the function.
 
 ## Preventing parameter pollution
+
+Same as [standard plugins hash](#standard-plugins-hash), but for temporary or local configurations. It prevents polluting the namespace and helps when migrating across multiple devices.
+
+An example of local configurations:
+
+```shell showLineNumbers
+typeset -gA Local
+Local[CONFIG_DIR]="${0:h}"
+Local[THEMES_DIR]="${0:h}/themes"
+Local[COMPLETIONS_DIR]="${0:h}/completions"
+Local[COOL_STUFF_HERE_DIR]="${0:h}/some_cool_stuff"
+```
 
 When writing a plugin one often needs to keep a state during the Zsh session. To do this it is natural to use global parameters. However, when the number of the parameters grows one might want to limit it.
 
