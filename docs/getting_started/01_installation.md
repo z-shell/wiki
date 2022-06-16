@@ -90,6 +90,7 @@ typeset -Ag ZI
 export ZI[BIN_DIR]="${HOME}/.zi/bin"
 command mkdir -p "$ZI[BIN_DIR]"
 ```
+
 ### <i class="fa-brands fa-git-alt"></i> Clone repository
 
 ```shell showLineNumbers

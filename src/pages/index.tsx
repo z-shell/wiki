@@ -9,6 +9,7 @@ const AsciinemaPlayer = loadable(
 );
 import styles from './index.module.css';
 import HomeFeatures from '@site/src/components/HomeFeatures';
+
 function HomeHeader(): JSX.Element {
   return (
     <header className={clsx('hero hero--primary', styles.herobanner)}>
