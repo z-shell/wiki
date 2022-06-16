@@ -88,13 +88,14 @@ Then reload shell with: `exec zsh`. All done!
 ```shell showLineNumbers
 typeset -Ag ZI
 export ZI[BIN_DIR]="${HOME}/.zi/bin"
+command mkdir -p "$ZI[BIN_DIR]"
 ```
 
 ### <i class="fa-brands fa-git-alt"></i> Clone repository
 
 ```shell showLineNumbers
-mkdir -p "$ZI[BIN_DIR]"
-git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
+command chmod g-rwX "$ZI[BIN_DIR]"
+command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
 ```
 
 ### <i class="fa-solid fa-circle-nodes"></i> Enable ZI
