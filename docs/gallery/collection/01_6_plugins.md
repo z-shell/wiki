@@ -38,7 +38,7 @@ zi light …
 
 :::
 
-:::Create your own syntax style:
+:::tip Create your own syntax style:
 
 - The ver'master' - allows to select specific commit, version or branch.
 - It's optional and can be removed if not required.
