@@ -10,13 +10,15 @@ keywords:
   - toolchain
   - zsh-plugins
   - zsh-modules
+  - zsh-annexes
   - awesome-zsh
 ---
 
-import Image from '@theme/IdealImage';
-import ZshImg from '@site/static/img/zsh/zsh2.png';
+<div align="center">
 
-<Image className="ScreenView" img={ZshImg} />
+![zsh](/img/zsh/zsh1.png#gh-dark-mode-only)![zsh](/img/zsh/zsh2.png#gh-light-mode-only)
+
+</div>
 
 Designed to glue everything together - <b>Zsh-powered</b> toolchain that works for you and not against you.
 
