@@ -17,7 +17,6 @@ import APITable from '@site/src/components/APITable';
 :::info Related
 
 - [standard parameter naming][]
-- [standard local hash][]
 
 :::
 
@@ -349,4 +348,3 @@ zi lucid load'![[ $MYPROMPT = 8 ]]' unload'![[ $MYPROMPT != 8 ]]' \
 [15]: https://linuxshellaccount.blogspot.com/2008/12/color-completion-using-zsh-modules-on.html
 [packages]: /ecosystem/packages
 [standard parameter naming]: /community/zsh_plugin_standard#standard-parameter-naming
-[standard local hash]: /community/zsh_plugin_standard#standard-local-hash
