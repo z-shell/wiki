@@ -10,6 +10,7 @@ lint:
   disabled:
     - shellcheck
     - hadolint
+    - taplo
   linters:
     - name: markdownlint
       command: [markdownlint, -q, --config, .github/.markdownlint.yaml, '${target}']
@@ -19,10 +20,9 @@ lint:
     - eslint@8.17.0
     - gitleaks@8.8.7
     - markdownlint@0.31.1
-    - prettier@2.7.0
+    - prettier@2.7.1
     - shfmt@3.5.0
     - stylelint@14.9.1
-    - taplo@release-cli-0.6.3
   ignore:
     - linters: [ALL]
       paths:
