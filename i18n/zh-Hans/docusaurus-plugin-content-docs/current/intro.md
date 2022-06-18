@@ -21,17 +21,17 @@ import ZGitImg from '@site/static/img/png/z_git.png';
 <Tabs>
   <TabItem value="gems" label="RubyGems">
 
-[RubyGems](https://rubygems.org) 以及 [$GEM_HOME](https://guides.rubygems.org/command-reference/#gem-environment) 被 [bin-gem-node][1] annex 自动管理，或由 [any-gem][2] 包安装。
+The [RubyGems](https://rubygems.org) and [$GEM_HOME][] are automatically managed by the [bin-gem-node][1] annex or installed by the [any-gem][2] package.
 
   </TabItem>
   <TabItem value="node" label="Node">
 
-[Node](https://www.npmjs.com) 组件和 [$NODE_PATH](https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders) 被 [bin-gem-node][1] annex 自动管理，或由 [any-node][3] 安装。
+The [Node](https://www.npmjs.com) modules and [$NODE_PATH][] are automatically managed by the [bin-gem-node][1] annex or installed by the [any-node][3] package.
 
   </TabItem>
   <TabItem value="pip" label="Python">
 
-[Python](https://python.org) 组件和 [$VIRTUALENV](https://docs.python.org/3/tutorial/venv.html) 被 [bin-gem-node][1] annex 自动管理。
+The [Python](https://python.org) modules, [$VIRTUALENV][] are automatically managed by the [bin-gem-node][1] annex.
 
   </TabItem>
   <TabItem value="rust" label="Rust">
@@ -66,11 +66,11 @@ import ZGitImg from '@site/static/img/png/z_git.png';
 - Visualise data: **aliases**, **functions**, **bindkeys**, **Zle widgets**, **zstyles**, **completions**, **variables**, `$PATH`, and `$FPATH` elements a plugin has set up.
 - Quickly familiarize oneself with a new plugin and provides rich and easy-to-digest information that might be helpful on various occasions.
 - [Load or unload][14] plugins, use the ability to [manage][15] completions.
-- Docker [playground](https://github.com/z-shell/playground), test or propose configurations.
+- Docker [playground][], test or propose configurations.
 
 ## <i class="fa-solid fa-list-check"></i> 摘要
 
-[![Z-Shell Projects](https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/projects/projects.svg#center)](https://github.com/orgs/z-shell/projects) <br /> [![Z-ShellOrganization](https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg#center)](https://github.com/z-shell/) <br />
+[![Z-Shell Organization Projects](https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/projects/projects.svg#center)](https://github.com/orgs/z-shell/projects) [![Z-Shell Organization FollowUp](https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg#center)](https://github.com/z-shell/)
 
 [5]: /ecosystem/annexes
 [6]: /ecosystem/packages
@@ -84,3 +84,4 @@ import ZGitImg from '@site/static/img/png/z_git.png';
 [14]: /docs/guides/commands#loading-and-unloading
 [15]: /docs/guides/commands#completions-management
 [16]: /search?q=meta+plugins
+[playground]: https://github.com/z-shell/playground
