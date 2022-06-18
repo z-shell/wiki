@@ -94,15 +94,15 @@ zi wait lucid light-mode for \
 | ------------ | :------------------------------------------------------------------------------------------- |
 | `wait`       | Load 0 seconds (about 5 ms exactly) after prompt ([turbo mode][6]).                          |
 | `lucid`      | Silence the under-prompt messages ("`Loaded {name of the plugin}`").                         |
-| `light-mode` | Load the plugin in `light` mode. [1^].                                                       |
+| `light-mode` | Load the plugin in `light` mode. [^1].                                                       |
 | `atpull'…'`  | Execute after updating the plugin – the command in the ice will install any new completions. |
 | `atinit'…'`  | Execute code before loading plugin.                                                          |
 | `atload'…'`  | Execute code after loading plugin.                                                           |
 | `zicompinit` | Equals to `autoload compinit; compinit`.                                                     |
-| `zicdreplay` | Execute `compdef …` calls that plugins did. More below [2^].                                 |
+| `zicdreplay` | Execute `compdef …` calls that plugins did. More below [^2].                                 |
 
-[1^]: Then the tracking of plugin, activity report gathering, accessible via the `zi report {plugin-name}` subcommand) is being disabled. Note that for turbo mode, the performance gains are almost `0`, so in this mode, you can load all plugins with the tracking and the `light-mode` ice can be removed from the command.
-[2^]: They were recorded and `compinit` can be called later. `compinit` provides the `compdef` function, so it must be ran before issuing the taken-over `compdef`s with `zicdreplay`.
+[^1]: Then the tracking of plugin, activity report gathering, accessible via the `zi report {plugin-name}` subcommand) is being disabled. Note that for turbo mode, the performance gains are almost `0`, so in this mode, you can load all plugins with the tracking and the `light-mode` ice can be removed from the command.
+[^2]: They were recorded and `compinit` can be called later. `compinit` provides the `compdef` function, so it must be ran before issuing the taken-over `compdef`s with `zicdreplay`.
 
 ## <i class="fa-solid fa-list"></i> Oh-My-Zsh, [turbo][6] Oh-My-Zsh and the [for][10] syntax
 
