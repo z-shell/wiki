@@ -164,14 +164,14 @@ zi ice as'program' from'gh-r' mv'shfmt* -> shfmt'
 zi light mvdan/sh
 ```
 
-### GH-R: [b4b4r07/gotcha](https://github.com/b4b4r07/gotcha)
+### GH-R: [b4b4r07/gotcha][15]
 
 ```shell showLineNumbers
 zi ice as'program' from'gh-r' mv'gotcha_* -> gotcha'
 zi light b4b4r07/gotcha
 ```
 
-### SC: [zdharma/revolver](https://github.com/zdharma/revolver)
+### SC: [zdharma/revolver][16]
 
 ```shell showLineNumbers
 zi ice wait lucid as'program' pick'revolver'
@@ -450,6 +450,15 @@ zi ice rustup cargo'exa;lsd' as'program' pick"bin/(exa|lsd)" nocompile
 zi load z-shell/0
 ```
 
+### RA: Rust compiler environment
+
+```shell showLineNumbers
+# Just install rust and make it available globally in the system
+zi ice id-as"rust" wait"0" lucid rustup as"program" pick"bin/rustc" \
+  atload="export nocompile CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup"
+zi load z-shell/0
+```
+
 ## With [`for`][102] syntax
 
 ### GH-R: [argoproj/argo-cd](https://github.com/argoproj/argo-cd)
@@ -539,17 +548,21 @@ zi light-mode for pick'misc/quitcd/quitcd.zsh' as'program' nocompile \
     jarun/nnn
 ```
 
-### RA: Rust compiler environment
+### SC: [homebrew/brew](https://github.com/homebrew/brew)
 
 ```shell showLineNumbers
-# Just install rust and make it available globally in the system
-zi ice id-as"rust" wait"0" lucid rustup as"program" pick"bin/rustc" atload="export nocompile \
-CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup"
-zi load z-shell/0
+zi for as'null' depth'3' nocompletions sbin'bin/brew' \
+  atclone'+zi-message "{auto}Installing brew …"; ./bin/brew update --preinstall; \
+    ln -sf $PWD/completions/zsh/_brew $ZI[COMPLETIONS_DIR]; \
+    rm -f brew.zsh; ./bin/brew shellenv --dummy-arg > brew.zsh; \
+    zcompile brew.zsh;' \
+  atpull'%atclone' src'brew.zsh' \
+    @homebrew/brew
 ```
 
+### RA: Rust compiler environment + completions
+
 ```shell showLineNumbers
-# More complex installation.
 zi id-as"rust" wait=1 as=null sbin="bin/*" lucid rustup nocompile \
   atload="[[ ! -f ${ZI[COMPLETIONS_DIR]}/_cargo ]] && zi creinstall -q rust; \
 export CARGO_HOME=\$PWD; export RUSTUP_HOME=\$PWD/rustup" for \
@@ -570,6 +583,8 @@ export CARGO_HOME=\$PWD; export RUSTUP_HOME=\$PWD/rustup" for \
 [12]: https://github.com/direnv/direnv
 [13]: https://github.com/mvdan/sh
 [14]: https://github.com/Peltoche/lsd
+[15]: https://github.com/b4b4r07/gotcha
+[16]: https://github.com/zdharma/revolver
 [100]: /docs/getting_started/overview/#about-asprogram
 [101]: /docs/getting_started/overview/#turbo--lucid
 [102]: /docs/guides/syntax/for
