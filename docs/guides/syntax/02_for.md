@@ -74,8 +74,9 @@ Load two [Oh-My-Zsh][7] files as [snippets][8], in turbo mode:
 
 ```shell showLineNumbers
 zi wait lucid for \
-  OMZ::lib/git.zsh \
-  atload"unalias grv" OMZ::plugins/git/git.plugin.zsh
+    OMZ::lib/git.zsh \
+  atload"unalias grv" \
+    OMZ::plugins/git/git.plugin.zsh
 ```
 
 Popular plugin set with [turbo][6] and [for][10]:
