@@ -24,7 +24,7 @@ Following variables can be set to custom values, before sourcing ZI.
 
 ```shell showLineNumbers
 # Initial ZI's hash definition
-declare -A ZI
+typeset -A ZI
 ```
 
 :::caution
