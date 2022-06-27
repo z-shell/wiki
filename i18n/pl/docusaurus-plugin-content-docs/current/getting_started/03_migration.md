@@ -13,7 +13,7 @@ keywords:
 
 ### OMZ Shorthand Syntax
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 zi snippet <URL>        # Raw Syntax with URL
 zi snippet OMZ::<PATH>  # Shorthand OMZ/          (http://github.com/ohmyzsh/ohmyzsh/raw/master/)
 zi snippet OMZL::<PATH> # Shorthand OMZ/lib/      (http://github.com/ohmyzsh/ohmyzsh/raw/master/lib)
@@ -27,28 +27,28 @@ Importing the [clipboard][1] and [termsupport][2] from the OMZ library sample:
 
 Raw Syntax:
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh
 ```
 
 OMZ Shorthand Syntax:
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZ::lib/clipboard.zsh
 zi snippet OMZ::lib/termsupport.zsh
 ```
 
 OMZL Shorthand Syntax:
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZL::clipboard.zsh
 zi snippet OMZL::termsupport.zsh
 ```
 
 ### OMZ Plugins
 
-```diff showLineNumbers
+```diff title="~/.zshrc" showLineNumbers
 - plugins=(
 -  git
 -  dotenv
@@ -64,15 +64,37 @@ zi snippet OMZL::termsupport.zsh
 + zi snippet OMZP::ruby
 ```
 
+Example of more advanced, conditional turbo loading:
+
+```shell title="~/.zshrc" showLineNumbers
+zi is-snippet wait lucid for \
+    atload"unalias grv g" \
+  OMZP::{git,sudo,encode64,extract} \
+    if'[[ -d /opt/google-cloud-sdk ]]' \
+  OMZP::gcloud \
+    if'[[ -f /etc/os-release ]] && source /etc/os-release && [[ "$ID" = arch ]]' \
+  OMZP::archlinux \
+    if'[[ -d ~/.nvm ]]' \
+  OMZP::nvm \
+    if'[[ -d ~/.ssh ]]' \
+  OMZP::ssh-agent \
+    if'[[ -d ~/.gnupg ]]' \
+  OMZP::gpg-agent \
+    if'[[ "$OSTYPE" = *-gnu ]]' \
+  OMZP::gnu-utils \
+    has'pip' \
+  OMZP::pip \
+    has'python' \
+  OMZP::python
+```
+
 :::tip
 
-Bundle multiple commands to a single file:
+Bundle the example above to a single file:
 
 `zi snippet <some/path/or/url/bundled-snippets.zsh`
 
 :::
-
-If it consists of a single file, with ZI you can just load it: `zi snippet <some/path/or/url/undled-snnippets.zsh`
 
 Use `zi ice svn` if multiple files require an entire subdirectory.
 
@@ -80,7 +102,7 @@ Use `zi ice svn` if multiple files require an entire subdirectory.
 - [osx][5]
 - [history-substring-search][18]
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 zi ice svn
 zi snippet OMZP::gitfast
 
@@ -97,7 +119,7 @@ Use `zi ice as"completion"` to directly add single file completion snippets.
 - [fd][7]
 - [ag][19]
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 zi ice as"completion"
 zi snippet OMZP::docker/_docker
 
@@ -114,7 +136,7 @@ zi snippet OMZP::ag/_ag
 
 Themes are stored in the `themes` directory. All and loaded in the background. with the simple syntax:
 
-```shell
+```shell title="~/.zshrc"
 ZSH_THEME="robbyrussell"
 ```
 
@@ -156,7 +178,7 @@ You need to load `prompt_info_functions.zsh`
 
 All together it looks like this:
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZL::git.zsh
 zi snippet OMZP::git
 zi snippet OMZL::theme-and-appearance.zsh
@@ -176,19 +198,19 @@ zi snippet OMZT::robbyrussell
 
 Load with OMZ:
 
-```shell
+```shell title="~/.zshrc"
 ZSH_THEME="alpharized"
 ```
 
 Load with ZI:
 
-```shell
+```shell title="~/.zshrc"
 zi snippet OMZL::git.zsh
 ```
 
 Load `Git` plugin from OMZ:
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZP::git
 zi cdclear -q
 
@@ -201,19 +223,19 @@ zi light NicoSantangelo/Alpharized
 
 Raw Syntax with URL:
 
-```shell
+```shell title="~/.zshrc"
 zi snippet <URL>
 ```
 
 Shorthand PZT: <https://github.com/sorin-ionescu/prezto/tree/master/>
 
-```shell
+```shell title="~/.zshrc"
 zi snippet PZT::<PATH>
 ```
 
 Shorthand PZT/modules:
 
-```shell
+```shell title="~/.zshrc"
 zi snippet PZTM::<PATH>
 ```
 
@@ -223,7 +245,7 @@ Importing the [environment][9] and [terminal][10] Prezto Modules Sample:
 
 Prezto Setting:
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 zstyle ':prezto:load' pmodule 'environment' 'terminal'
 ```
 
@@ -231,21 +253,21 @@ ZI Setting:
 
 > Import raw syntax from URL.
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 zi snippet https://github.com/sorin-ionescu/prezto/blob/master/modules/environment/init.zsh
 zi snippet https://github.com/sorin-ionescu/prezto/blob/master/modules/terminal/init.zsh
 ```
 
 PZT Shorthand Syntax:
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 zi snippet PZT::modules/environment
 zi snippet PZT::modules/terminal
 ```
 
 PZTM Shorthand Syntax:
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 zi snippet PZTM::environment
 zi snippet PZTM::terminal
 ```
@@ -255,7 +277,7 @@ Use `zi ice svn` if multiple files require an entire subdirectory.
 - [docker][11]
 - [git][12]
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 zi ice svn
 zi snippet PZTM::docker
 
@@ -267,7 +289,7 @@ Use `zi ice as"null"` if don't exist `*.plugin.zsh`, `init.zsh`, `*.zsh-theme*` 
 
 - [archive][13]:
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 zi ice svn as"null"
 zi snippet PZTM::archive
 ```
@@ -276,7 +298,7 @@ Use `zi ice atclone"git clone <repo> <location>"` if module have external module
 
 - [completion][14]:
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 zi ice svn blockf \
   atclone"git clone --recursive https://github.com/zsh-users/zsh-completions.git external"
 zi snippet PZTM::completion
@@ -297,7 +319,7 @@ What is `zstyle`?
 
 ### Load OMZ library
 
-```diff showLineNumbers
+```diff title="~/.zshrc" showLineNumbers
 - zgen oh-my-zsh
 
 + zi snippet OMZL::<ANY OF THEM>
@@ -305,7 +327,7 @@ What is `zstyle`?
 
 ### Load OMZ plugins
 
-```diff showLineNumbers
+```diff title="~/.zshrc" showLineNumbers
 - zgen oh-my-zsh <PATH>
 
 + zi snippet OMZP::<PATH>
@@ -313,7 +335,7 @@ What is `zstyle`?
 
 ### Load Prezto modules
 
-```diff showLineNumbers
+```diff title="~/.zshrc" showLineNumbers
 - zgen prezto
 
 + zi snippet PZTM::<ANY FROM LIST BELOW>
@@ -329,7 +351,7 @@ What is `zstyle`?
 - completion
 - prompt
 
-```diff showLineNumbers
+```diff title="~/.zshrc" showLineNumbers
 - zgen prezto <modulename>
 
 + zi snippet PZTM::<modulename>
@@ -337,7 +359,7 @@ What is `zstyle`?
 
 Load repositories as prezto plugins:
 
-```diff showLineNumbers
+```diff title="~/.zshrc" showLineNumbers
 - zgen pmodule <reponame> <branch>
 
 + zi ice ver"<branch>"
@@ -352,7 +374,7 @@ For the `location`: refer [selection of files][17]
 
 :::
 
-```diff showLineNumbers
+```diff title="~/.zshrc" showLineNumbers
 - zgen load <repo> [location] [branch]
 
 + zi ice ver"[branch]"
@@ -361,7 +383,7 @@ For the `location`: refer [selection of files][17]
 
 ## Zplug Basics
 
-```diff showLineNumbers
+```diff title="~/.zshrc" showLineNumbers
 - zplug <repo/plugin>, tag1:<option1>, tag2:<option2>
 
 + zi ice tag1"<option1>" tag2"<option2>"
