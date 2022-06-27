@@ -14,7 +14,8 @@ const config = {
   projectName: 'zw',
   organizationName: 'z-shell',
   staticDirectories: ['static'],
-  stylesheets: [{ href: '/assets/css/all.min.css' }],
+  scripts: [{ src: 'https://z.digitalclouds.dev/assets/js/all.min.js', defer: true }],
+  /* stylesheets: [{ href: '/assets/css/all.min.css' }], */
   i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
   presets: [
     [
