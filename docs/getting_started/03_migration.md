@@ -86,7 +86,7 @@ zi is-snippet wait lucid for \
   OMZP::pip \
     has'python' \
   OMZP::python
-```-
+```
 
 :::tip
 
