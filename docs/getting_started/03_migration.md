@@ -130,8 +130,6 @@ zi ice as"completion"
 zi snippet OMZP::ag/_ag
 ```
 
-[You can see an extended explanation of OMZ setup in the Wiki][8]
-
 ### OMZ Themes
 
 Themes are stored in the `themes` directory. All and loaded in the background. with the simple syntax:
@@ -416,7 +414,6 @@ For the `location`: refer [selection of files][17]
 [5]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/osx
 [6]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
 [7]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fd
-[8]: /docs/guides/customization#oh-my-zsh
 [9]: https://github.com/sorin-ionescu/prezto/tree/master/modules/environment
 [10]: https://github.com/sorin-ionescu/prezto/tree/master/modules/terminal
 [11]: https://github.com/sorin-ionescu/prezto/tree/master/modules/docker
