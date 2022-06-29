@@ -263,7 +263,7 @@ In other words, instead of `wait'1'` you can enter `wait'1a'`, `wait'1b'` and `w
 
 ### `zi-turbo '…' for …` {#zi-turbo--for-}
 
-The `zi-turbo` is a funtion to simplify `wait`. This is how the function looks like:
+The `zi-turbo` is a funtion to simplify `wait`:
 
 ```shell showLineNumbers
 zi-turbo () {
@@ -271,9 +271,9 @@ zi-turbo () {
 }
 ```
 
-It can be executed with the `for` syntax in the imposed loading order e.g:
+Then use with the `for` syntax in the imposed loading order:
 
-```shell showLineNumbers
+```shell {1,6,10,15} showLineNumbers
 zi-turbo '0a' for \
   OMZL::git.zsh \
   OMZL::compfix.zsh \
