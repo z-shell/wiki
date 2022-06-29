@@ -39,8 +39,7 @@ zi wait"3" lucid for as"null" \
   sbin paulirish/git-recent \
   sbin davidosomething/git-my \
   make"PREFIX=$ZPFX install" iwata/git-now \
-  make"PREFIX=$ZPFX"
-    tj/git-extras
+  make"PREFIX=$ZPFX" tj/git-extras
 ```
 
 Above single command installs 6 plugins ([git extension][2] packages), with the base ices `as"null" wait"3" lucid` that are common to all of the plugins and 6 plugin-specific add-on ices.
@@ -51,8 +50,7 @@ Load a few useful binary packages from the [GitHub releases][1], utils:
 zi for as"null" wait"2" lucid from"gh-r" \
   mv"exa* -> exa" sbin ogham/exa \
   mv"fd* -> fd" sbin"fd/fd" @sharkdp/fd \
-  sbin"fzf"
-    junegunn/fzf
+  sbin"fzf" junegunn/fzf
 ```
 
 :::note
