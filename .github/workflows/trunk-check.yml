@@ -15,4 +15,4 @@ jobs:
     with:
       runs-on: 'ubuntu-latest'
       node_version: '16'
-      pnpm_arguments: 'pnpm i'
+      pnpm_arguments: 'pnpm i && pnpm run build:en'
