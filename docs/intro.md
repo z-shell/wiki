@@ -82,7 +82,7 @@ Invocations][7].
 [4]: /ecosystem/annexes/rust
 [5]: /ecosystem/annexes
 [6]: /ecosystem/packages
-[7]: /docs/gallery/collection
+[7]: /community/gallery/collection
 [8]: /docs/getting_started/overview#turbo-mode-zsh--53
 [9]: /docs/guides/customization#-customizing-paths
 [10]: /docs/guides/customization#-multiple-prompts

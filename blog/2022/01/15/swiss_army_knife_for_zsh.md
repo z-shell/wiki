@@ -68,6 +68,6 @@ Designed to glue everything together. 🔗
 
 ✴️ Docker [playground](https://github.com/z-shell/playground) to test, view, or propose configurations.
 
-✴️ [💫Gallery](/docs/gallery/collection) of the user favorites.
+✴️ [💫Gallery](/community/gallery/collection) of the user favorites.
 
 > Is only limited to your own 🤦‍♂️ imagination… 🧙‍‍♀️ We need the support to make it better and more approachable to new users, become a 💞 friend of the DEV 💞, and more ☁️ cloud-native ☁️.

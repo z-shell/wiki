@@ -7,6 +7,7 @@ keywords:
   - documentation
   - commmunity
   - zsh-lovers
+  - gallery
 ---
 
 <div align="center">
@@ -17,3 +18,4 @@ keywords:
 
 - [Zsh Plugin Standard](/community/zsh_plugin_standard)
 - [Zsh Native Scripting Handbook](/community/zsh_handbook)
+- [Gallery of Invocations](/community/gallery/collection)
