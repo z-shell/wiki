@@ -6,6 +6,7 @@ on:
     workflows: [♻️ Trunk Check]
     types:
       - completed
+    branches: [main]
 
 jobs:
   deploy:
