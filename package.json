@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "crowdin": "crowdin",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "dev": "wrangler pages dev --live-reload -- docusaurus start",

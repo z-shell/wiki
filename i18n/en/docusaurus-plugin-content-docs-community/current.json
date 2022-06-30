@@ -2,5 +2,13 @@
   "version.label": {
     "message": "Next",
     "description": "The label for version current"
+  },
+  "sidebar.SideBar.category.✨ Gallery of Invocations": {
+    "message": "✨ Gallery of Invocations",
+    "description": "The label for category ✨ Gallery of Invocations in sidebar SideBar"
+  },
+  "sidebar.SideBar.category.✨ Collection": {
+    "message": "✨ Collection",
+    "description": "The label for category ✨ Collection in sidebar SideBar"
   }
 }

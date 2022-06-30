@@ -552,7 +552,7 @@ Additional examples: [collection][10].
 
 [1]: /search?q=ice+modifiers
 [2]: /search?q=from
-[10]: /docs/gallery/collection
+[10]: /community/gallery/collection
 [11]: /docs/guides/syntax/ice#-atclone-atpull-atinit-atload
 [12]: /community/zsh_plugin_standard#use-of-add-zsh-hook-to-install-hooks
 [15]: /docs/guides/customization#-multiple-prompts
