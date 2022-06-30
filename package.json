@@ -80,6 +80,12 @@
     "node": ">=16",
     "pnpm": ">=7"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pnpm check",
+      "pre-push": "pnpm check"
+    }
+  },
   "browserslist": {
     "production": [
       ">0.5%",

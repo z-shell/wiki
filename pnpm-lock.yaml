@@ -1643,7 +1643,7 @@ packages:
       wait-on: 6.0.1
       webpack: 5.73.0_esbuild@0.14.47
       webpack-bundle-analyzer: 4.5.0
-      webpack-dev-server: 4.9.2_webpack@5.73.0
+      webpack-dev-server: 4.9.3_webpack@5.73.0
       webpack-merge: 5.8.0
       webpackbar: 5.0.2_webpack@5.73.0
     transitivePeerDependencies:
@@ -3873,7 +3873,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001361
-      electron-to-chromium: 1.4.173
+      electron-to-chromium: 1.4.174
       node-releases: 2.0.5
       update-browserslist-db: 1.0.4_browserslist@4.21.1
 
@@ -4242,8 +4242,8 @@ packages:
       xdg-basedir: 4.0.0
     dev: false
 
-  /connect-history-api-fallback/1.6.0:
-    resolution: {integrity: sha512-e54B99q/OUoH64zYYRf3HBP5z24G38h5D3qXu23JGRoigpX5Ss4r9ZnDk3g0Z8uQC2x2lPaJ+UlWBc1ZWBWdLg==}
+  /connect-history-api-fallback/2.0.0:
+    resolution: {integrity: sha512-U73+6lQFmfiNPrYbXqr6kZ1i1wiRqXnp2nhMsINseWXO8lDau0LGEffJ8kQi4EjLZympVgRdvqjAgiZ1tgzDDA==}
     engines: {node: '>=0.8'}
     dev: false
 
@@ -4839,8 +4839,8 @@ packages:
       jake: 10.8.5
     dev: false
 
-  /electron-to-chromium/1.4.173:
-    resolution: {integrity: sha512-Qo3LnVW6JRNhD32viSdPebxKI7K+3WeBDjU1+Q2yZS83zAh8C2LyPpzTimlciv6U74KpY9n/0ESAhUByRke0jw==}
+  /electron-to-chromium/1.4.174:
+    resolution: {integrity: sha512-JER+w+9MV2MBVFOXxP036bLlNOnzbYAWrWU8sNUwoOO69T3w4564WhM5H5atd8VVS8U4vpi0i0kdoYzm1NPQgQ==}
 
   /emoji-regex/8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -10190,8 +10190,8 @@ packages:
       webpack: 5.73.0_esbuild@0.14.47
     dev: false
 
-  /webpack-dev-server/4.9.2_webpack@5.73.0:
-    resolution: {integrity: sha512-H95Ns95dP24ZsEzO6G9iT+PNw4Q7ltll1GfJHV4fKphuHWgKFzGHWi4alTlTnpk1SPPk41X+l2RB7rLfIhnB9Q==}
+  /webpack-dev-server/4.9.3_webpack@5.73.0:
+    resolution: {integrity: sha512-3qp/eoboZG5/6QgiZ3llN8TUzkSpYg1Ko9khWX1h40MIEUNS2mDoIa8aXsPfskER+GbTvs/IJZ1QTBBhhuetSw==}
     engines: {node: '>= 12.13.0'}
     hasBin: true
     peerDependencies:
@@ -10213,7 +10213,7 @@ packages:
       chokidar: 3.5.3
       colorette: 2.0.19
       compression: 1.7.4
-      connect-history-api-fallback: 1.6.0
+      connect-history-api-fallback: 2.0.0
       default-gateway: 6.0.3
       express: 4.18.1
       graceful-fs: 4.2.10
