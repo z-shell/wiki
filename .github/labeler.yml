@@ -1,5 +1,7 @@
 documentation 📝:
-  - ['docs/**/*.md', 'community/**/*.md', 'ecosystem/**/*.md']
+  - "community/**"
+  - "ecosystem/**"
+  - "docs/**"
 dependencies 📦:
   - 'package.json'
   - 'pnpm-lock.yaml'
@@ -29,13 +31,13 @@ maintenance 📈:
   - '.trunk/*rc'
 i18n 🌐:
   - 'i18n/**'
-annex 💠:
+annex 🌀:
   - 'ecosystem/annexes/**/*.md'
   - 'i18n/**/docusaurus-plugin-content-ecosystem/**/annexes/**/*.md'
 package 📦:
   - 'ecosystem/packages/**/*.md'
   - 'i18n/**/docusaurus-plugin-content-ecosystem/**/packages/**/*.md'
-plugin 🧿:
+plugin ⚙️:
   - 'ecosystem/plugins/**.md'
   - 'i18n/**/docusaurus-plugin-content-ecosystem/**/plugins/**/*.md'
 ci 🤖:
