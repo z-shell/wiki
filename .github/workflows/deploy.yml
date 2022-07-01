@@ -1,12 +1,13 @@
 ---
 name: '🚀 Deploy'
 on:
-  workflow_dispatch:
-  workflow_run:
-    workflows: [⭕ Trunk]
-    types:
-      - completed
+  push:
+    paths-ignore: [i18n]
     branches: [main]
+  pull_request:
+    paths-ignore: [i18n]
+    branches: [main]
+  workflow_dispatch: {}
 
 jobs:
   deploy:
@@ -16,11 +17,11 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: pnpm/action-setup@v2.2.2
       - uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: pnpm
-      - run: |
-          pnpm i
-          pnpm run build:en
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          run_install: true
+      - run: pnpm test

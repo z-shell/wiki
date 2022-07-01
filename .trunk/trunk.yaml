@@ -35,6 +35,3 @@ lint:
     - linters: [gitleaks]
       paths:
         - 'pnpm-lock.yaml'
-    - linters: [ALL]
-      paths:
-        - 'src/workers/*'
