@@ -470,18 +470,6 @@ Replace the `prj*` prefix with your project name, e.g.: `rustef` for a `rust`-re
 
 ## Preventing parameter pollution
 
-Same as [standard plugins hash](#standard-plugins-hash), but for temporary or local configurations. It prevents polluting the namespace and helps when migrating across multiple devices.
-
-An example of local configurations:
-
-```shell showLineNumbers
-typeset -gA Local
-Local[CONFIG_DIR]="${0:h}"
-Local[THEMES_DIR]="${0:h}/themes"
-Local[COMPLETIONS_DIR]="${0:h}/completions"
-Local[COOL_STUFF_HERE_DIR]="${0:h}/some_cool_stuff"
-```
-
 When writing a plugin one often needs to keep a state during the Zsh session. To do this it is natural to use global parameters. However, when the number of the parameters grows one might want to limit it.
 
 With the following method, only a single global parameter per plugin can be sufficient:
