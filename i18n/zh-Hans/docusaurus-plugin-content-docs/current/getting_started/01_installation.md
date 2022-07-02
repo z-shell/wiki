@@ -108,7 +108,7 @@ ZI[BIN_DIR]="${HOME}/.zi/bin"
 source "${ZI[BIN_DIR]}/zi.zsh"
 ```
 
-### <i class="fa-solid fa-circle-nodes"></i> Enable completions:
+### <i class="fa-solid fa-circle-nodes"></i> Enable completions {#enable-completions}
 
 :::info
 

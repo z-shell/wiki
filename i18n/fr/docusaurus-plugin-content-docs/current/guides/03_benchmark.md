@@ -58,7 +58,7 @@ num calls    time                self                 name
 -----------------------------------------------------------------------------------
 ```
 
-- The first column is the time is in milliseconds;
+- The first column is the time in milliseconds:
 
   - It denotes the amount of time spent in a function in total.
   - For example, `--zi-shadow-autoload` consumed 10.71 ms of the execution time,
@@ -67,7 +67,7 @@ num calls    time                self                 name
 
   - For example, `--zi-shadow-autoload` spent 8.71 ms on executing only its code.
 
-- The table is sorted on the **self-time** column.
+- The table is sorted in the **self-time** column.
 
 ## <i class="fas fa-spinner fa-spin"></i> Profile `.zshrc` startup
 
@@ -90,7 +90,7 @@ fi
 
 :::info PS4 Prompt Expansion
 
-Zsh Sourceforge docs: [Prompt Exapansion][]
+Zsh Sourceforge docs: [Prompt Expansion][]
 
 :::
 
@@ -131,7 +131,7 @@ zmsg "Loaded something else"
 zmsg "Done"
 ```
 
-Then user variable to retrieve the stored values
+Then user variable retrieve the stored values
 
 ```shell showLineNumbers
 ❯ echo $ZLOGS
@@ -141,4 +141,4 @@ Then user variable to retrieve the stored values
 [Done]: 0.1 ms
 ```
 
-[Prompt Exapansion]: https://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+[Prompt Expansion]: https://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
