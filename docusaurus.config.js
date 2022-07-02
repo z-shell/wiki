@@ -2,7 +2,7 @@
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '❮ ZI ❯',
+  title: '❮ Zi ❯',
   tagline: 'A Swiss Army Knife for Zsh Unix shell',
   url: 'https://z.digitalclouds.dev',
   baseUrl: '/',
@@ -14,7 +14,6 @@ const config = {
   projectName: 'zw',
   organizationName: 'z-shell',
   staticDirectories: ['static'],
-  stylesheets: [{ href: 'https://z.digitalclouds.dev/assets/css/all.min.css' }],
   i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
   presets: [
     [
@@ -110,6 +109,7 @@ const config = {
       }),
     ],
   ],
+  clientModules: [require.resolve('./static/assets/css/all.min.css')],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -122,7 +122,7 @@ const config = {
       ],
       announcementBar: {
         id: 'announcemnt',
-        content: `If you like ❮ ZI ❯ - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi"><i class="fa-solid fa-star"></i></a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell"><i class="fa-brands fa-github-alt"></i></a> or <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/zshell_zi"><i class="fa-brands fa-twitter"></i></a>`,
+        content: `If you like ❮ Zi ❯ - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi"><i class="fa-solid fa-star"></i></a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell"><i class="fa-brands fa-github-alt"></i></a> or <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/zshell_zi"><i class="fa-brands fa-twitter"></i></a>`,
       },
       algolia: {
         appId: '8A6CKETM6G',
@@ -132,9 +132,9 @@ const config = {
       },
       navbar: {
         hideOnScroll: true,
-        title: '❮ ZI ❯',
+        title: '❮ Zi ❯',
         logo: {
-          alt: 'A Swiss Army Knife for Zsh Unix shell - ❮ ZI ❯',
+          alt: 'A Swiss Army Knife for Zsh Unix shell - ❮ Zi ❯',
           src: 'img/logo.svg',
           target: '_self',
           width: 32,

@@ -18,9 +18,9 @@ keywords:
 
 ![zsh](/img/zsh/zsh1.png#gh-dark-mode-only)![zsh](/img/zsh/zsh2.png#gh-light-mode-only)
 
-</div>
+Designed to glue everything together, a <b>Zsh-powered</b> toolchain that works for you.
 
-Designed to glue everything together - <b>Zsh-powered</b> toolchain that works for you and not against you.
+</div>
 
 ### <i class="fa-brands fa-superpowers"></i> [Annexes](/ecosystem/annexes/)
 
@@ -32,7 +32,7 @@ Designed to glue everything together - <b>Zsh-powered</b> toolchain that works f
 - Github topic: [zpackage][gh-zpackage]
 - Z-Shell topic: [zpackage][zpackage]
 
-### <i class="fa-solid fa-gear"></i> [Plugins & Modules](/ecosystem/plugins/)
+### <i class="fa-solid fa-gear"></i> [Plugins &amp; Modules](/ecosystem/plugins/)
 
 - Github topic: [zplugin][gh-zplugin]
 - Z-Shell topic: [zplugin][zplugin]

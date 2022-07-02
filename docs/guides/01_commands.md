@@ -10,10 +10,9 @@ keywords:
 
 import APITable from '@site/src/components/APITable';
 
-## Commands available with <kbd>^TAB</kbd> completion
+## Commands available using <kbd>^TAB</kbd> [completion][6]
 
-```shell title="zi ^TAB"
- -- ❮ ZI ❯ commands: --
+```jsx title="zi ^TAB"
 add-fpath              -- Add plugin folder to $fpath
 analytics              -- Statistics, benchmarks and information
 bindkeys               -- Lists bindkeys set up by each plugin
@@ -297,3 +296,4 @@ Following commands are passed to `zi …` to obtain described effects.
 [3]: https://github.com/zsh-users/zsh-syntax-highlighting
 [4]: https://github.com/z-shell/F-Sy-H
 [5]: https://github.com/r-darwish/topgrade
+[6]: /docs/getting_started/installation#enable-completions

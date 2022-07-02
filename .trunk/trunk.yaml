@@ -17,7 +17,7 @@ lint:
       direct_configs: [.github/.markdownlint.yaml]
   enabled:
     - actionlint@1.6.15
-    - eslint@8.18.0
+    - eslint@8.19.0
     - gitleaks@8.8.11
     - markdownlint@0.31.1
     - prettier@2.7.1

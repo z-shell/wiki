@@ -1,7 +1,8 @@
 .features {
   display: flex;
   align-items: center;
-  padding: 4rem 0;
+  text-align: center;
+  padding: 8rem 0;
   width: 100%;
 }
 
@@ -12,6 +13,6 @@
 
 @media screen and (max-width: 966px) {
   .features {
-    padding: 2rem 0;
+    padding: 4rem 0;
   }
 }

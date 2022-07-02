@@ -3,6 +3,7 @@ id: zsh_plugin_standard
 title: ℹ️ Zsh Plugin Standard
 sidebar_position: 2
 image: img/logo/320x320.png
+toc_max_heading_level: 2
 keywords:
   - zsh
   - create

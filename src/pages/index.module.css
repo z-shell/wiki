@@ -1,15 +1,16 @@
 .herobanner {
   display: flex;
   align-items: center;
+  text-align: center;
   position: relative;
   overflow: hidden;
-  padding: 2rem 0;
+  padding: 8rem 0;
   transform: scale(1, 1);
 }
 
 @media only screen and (max-width: 996px) {
   .herobanner {
-    padding: 1rem 0;
+    padding: 2rem 0;
   }
 }
 
