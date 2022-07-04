@@ -11,25 +11,25 @@ type FeatureItem = {
 
 function Turbo() {
   return (
-    <div className={'fa-8x'}>
+    <span className={'fa-8x'}>
       <div className={'fa-solid fa-forward'} />
-    </div>
+    </span>
   );
 }
 
 function Stats() {
   return (
-    <div className={'fa-9x'}>
+    <span className={'fa-9x'}>
       <div className={'fa-solid fa-ranking-star'} />
-    </div>
+    </span>
   );
 }
 
 function Create() {
   return (
-    <div className={'fa-8x'}>
+    <span className={'fa-8x'}>
       <div className={'fa-solid fa-layer-group'} />
-    </div>
+    </span>
   );
 }
 
