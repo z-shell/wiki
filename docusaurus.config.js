@@ -109,7 +109,11 @@ const config = {
       }),
     ],
   ],
-  clientModules: [require.resolve('./static/assets/css/all.min.css')],
+  clientModules: [
+    require.resolve('./static/assets/css/fontawesome.min.css'),
+    require.resolve('./static/assets/css/brands.min.css'),
+    require.resolve('./static/assets/css/solid.min.css'),
+  ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
