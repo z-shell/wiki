@@ -15,6 +15,11 @@ const config = {
   organizationName: 'z-shell',
   staticDirectories: ['static'],
   i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
+  stylesheets: [
+    { href: '/assets/css/fontawesome.min.css' },
+    { href: '/assets/css/brands.min.css' },
+    { href: '/assets/css/solid.min.css' },
+  ],
   presets: [
     [
       'classic',
@@ -108,11 +113,6 @@ const config = {
         showLastUpdateTime: true,
       }),
     ],
-  ],
-  clientModules: [
-    require.resolve('./static/assets/css/fontawesome.min.css'),
-    require.resolve('./static/assets/css/brands.min.css'),
-    require.resolve('./static/assets/css/solid.min.css'),
   ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
