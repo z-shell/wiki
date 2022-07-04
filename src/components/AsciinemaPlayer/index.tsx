@@ -25,10 +25,10 @@ const AsciinemaPlayer: React.FC<AsciinemaPlayerProps> = ({
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const currentRef = ref.current;
-    AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions); // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [src]);
+    AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
+  }, [src, asciinemaOptions]);
 
-  return <div id={'asciinema-player'} className={'container'} ref={ref} />;
+  return <div className={'container'} ref={ref} />;
 };
 
 export default AsciinemaPlayer;
