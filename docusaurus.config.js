@@ -14,7 +14,8 @@ const config = {
   projectName: 'zw',
   organizationName: 'z-shell',
   staticDirectories: ['static'],
-  stylesheets: [{ href: '/assets/css/all.min.css' }],
+  scripts: [{ src: 'https://kit.fontawesome.com/a6c194e645.js', crossorigin: 'anonymous' }],
+  /* stylesheets: [{ href: '/assets/css/fontawesome.min.css' }, { href: '/assets/css/brands.min.css' }, { href: '/assets/css/solid.min.css' }], */
   i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
   presets: [
     [
