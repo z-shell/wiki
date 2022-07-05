@@ -19,7 +19,7 @@
     "write-community-version": "docusaurus docs:version:community",
     "write-ecosystem-version": "docusaurus docs:version:ecosystem",
     "crowdin:sync": "docusaurus write-translations && crowdin upload sources && crowdin download",
-    "prebuild": "test \"$CF_PAGES\" = 1 && npx pnpm i -r --prod || echo skipping pnpm install",
+    "prebuild": "test \"$CF_PAGES\" = 1 && npx pnpm i || echo skipping pnpm install",
     "clean": "pnpm exec rm -rf node_modules build pnpm-lock.yaml",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
