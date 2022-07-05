@@ -22,14 +22,14 @@ const AsciinemaPlayer: React.FC<AsciinemaPlayerProps> = ({
   src,
   ...asciinemaOptions
 }) => {
-  const ref = useRef<HTMLSpanElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const currentRef = ref.current;
     AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
   }, [src, asciinemaOptions]);
 
-  return <span className={'container'} ref={ref} />;
+  return <div className={'container'} ref={ref} />;
 };
 
 export default AsciinemaPlayer;
