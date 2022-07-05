@@ -68,9 +68,6 @@
         "rehype-katex": "6",
         "remark-math": "3",
         "react": "17"
-      },
-      "allowedDeprecatedVersions": {
-        "stable": "*"
       }
     },
     "overrides": {
