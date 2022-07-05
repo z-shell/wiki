@@ -1,10 +1,5 @@
 .features {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  padding: 8rem 0;
+  padding: 4rem 0;
 }
 
 .description {
@@ -14,6 +9,6 @@
 
 @media screen and (max-width: 966px) {
   .features {
-    padding: 4rem 0;
+    padding: 2rem 0;
   }
 }
