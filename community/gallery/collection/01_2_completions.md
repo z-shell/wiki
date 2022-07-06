@@ -143,13 +143,6 @@ zi ice lucid wait as'completion' blockf has'buku'
 zi snippet https://github.com/jarun/Buku/blob/master/auto-completion/zsh/_buku
 ```
 
-### COMP: [ytdl-org/youtube-dl](https://github.com/ytdl-org/youtube-dl/blob/master/youtube-dl.plugin.zsh)
-
-```shell
-zi ice lucid wait as'completion' blockf has'youtube-dl' mv'youtube-dl.zsh -> _youtube-dl'
-zi snippet https://github.com/ytdl-org/youtube-dl/blob/master/youtube-dl.plugin.zsh
-```
-
 ### COMP: [mpv-player/mpv](https://github.com/mpv-player/mpv/blob/master/etc/_mpv.zsh)
 
 ```shell showLineNumbers
