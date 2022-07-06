@@ -1,9 +1,35 @@
 .herobanner {
+  padding: 2rem 0;
+  text-align: right;
+  position: relative;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.features {
+  display: flex;
+  align-items: center;
   padding: 4rem 0;
+  width: 100%;
+}
+
+.asciicasts {
+  display: flex;
+  align-items: center;
+  padding: 4rem 0;
+  width: 100%;
 }
 
 @media only screen and (max-width: 996px) {
   .herobanner {
+    padding: 1rem 0;
+  }
+
+  .features {
+    padding: 2rem 0;
+  }
+
+  .asciicasts {
     padding: 2rem 0;
   }
 }
@@ -17,5 +43,47 @@
 @media (prefers-reduced-motion: no-preference) {
   .herobanner {
     animation: vibrate 0.3s linear infinite both;
+  }
+}
+
+/** .featureImage {
+  height: 200px;
+  width: 200px;
+} */
+
+/* Announcement banner */
+
+:root {
+  --docusaurus-announcement-bar-height: auto !important;
+}
+
+div[class^='announcementBarContent'] {
+  line-height: 32px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px 24px;
+}
+
+div[class^='announcementBarContent'] a {
+  text-decoration: underline;
+  display: inline-block;
+  color: var(--ifm-color-primary) !important;
+}
+
+div[class^='announcementBarContent'] a:hover {
+  color: var(--brand) !important;
+}
+
+@media only screen and (max-width: 768px) {
+  div[class^='announcementBarContent'] {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  div[class^='announcementBarContent'] {
+    font-size: 12px;
+    line-height: 20px;
+    padding: 4px 32px;
   }
 }

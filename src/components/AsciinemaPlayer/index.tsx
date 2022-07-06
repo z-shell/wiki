@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import * as AsciinemaPlayerLibrary from 'asciinema-player';
-import 'asciinema-player/dist/bundle/asciinema-player.css';
 
 type AsciinemaPlayerProps = {
   src: string;
@@ -18,18 +17,15 @@ type AsciinemaPlayerProps = {
   fontSize: string;
 };
 
-const AsciinemaPlayer: React.FC<AsciinemaPlayerProps> = ({
+export default function AsciinemaPlayer({
   src,
   ...asciinemaOptions
-}) => {
+}: React.FC<AsciinemaPlayerProps>) {
   const ref = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const currentRef = ref.current;
     AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
   }, [src, asciinemaOptions]);
 
-  return <div className={'container'} ref={ref} />;
-};
-
-export default AsciinemaPlayer;
+  return <div ref={ref} />;
+}

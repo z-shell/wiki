@@ -4,7 +4,7 @@
 const config = {
   title: '❮ Zi ❯',
   tagline: 'A Swiss Army Knife for Zsh Unix shell',
-  url: 'https://z.digitalclouds.dev',
+  url: process.env.URL,
   baseUrl: '/',
   trailingSlash: false,
   titleDelimiter: '|',
@@ -14,7 +14,7 @@ const config = {
   projectName: 'zw',
   organizationName: 'z-shell',
   staticDirectories: ['static'],
-  stylesheets: [{ href: '/assets/css/all.min.css' }],
+  stylesheets: ['https://z.digitalclouds.dev/assets/css/all.min.css'],
   i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
   presets: [
     [

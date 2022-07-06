@@ -3,10 +3,10 @@ env:
   es2021: true
   node: true
 extends:
-  - eslint:recommended
   - plugin:react/recommended
-  - plugin:react-hooks/recommended
+  - plugin:@docusaurus/recommended
   - plugin:@typescript-eslint/recommended
+  - airbnb
   - prettier
 parser: '@typescript-eslint/parser'
 parserOptions:
@@ -16,5 +16,17 @@ parserOptions:
   sourceType: module
 plugins:
   - react
+  - react-hooks
+  - '@docusaurus'
   - '@typescript-eslint'
-rules: { 'react/jsx-uses-react': warn, 'react/react-in-jsx-scope': warn }
+rules:
+  {
+    'no-undef': 0,
+    'global-require': 0,
+    'react/no-array-index-key': 0,
+    'react/jsx-props-no-spreading': 0,
+    'import/no-unresolved': [2, { 'ignore': ['^@theme', '^@docusaurus', '^@site'] }],
+    'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
+    'react/require-default-props':
+      [1, { 'forbidDefaultForRequired': false, 'classes': 'ignore', 'functions': 'ignore' }],
+  }

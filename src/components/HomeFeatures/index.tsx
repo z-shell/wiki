@@ -11,24 +11,24 @@ type FeatureItem = {
 
 function Turbo() {
   return (
-    <span className={'fa-8x'}>
-      <div className={'fa-solid fa-forward'} />
+    <span className="fa-8x">
+      <div className="fa-solid fa-forward" />
     </span>
   );
 }
 
 function Stats() {
   return (
-    <span className={'fa-9x'}>
-      <div className={'fa-solid fa-ranking-star'} />
+    <span className="fa-9x">
+      <div className="fa-solid fa-ranking-star" />
     </span>
   );
 }
 
 function Create() {
   return (
-    <span className={'fa-8x'}>
-      <div className={'fa-solid fa-layer-group'} />
+    <span className="fa-8x">
+      <div className="fa-solid fa-layer-group" />
     </span>
   );
 }
@@ -90,10 +90,10 @@ const FeatureList: FeatureItem[] = [
 function Feature({ title, Svg, description }: FeatureItem): JSX.Element {
   return (
     <div className={clsx('col col--4')}>
-      <div className={'text--center'}>
-        <Svg role={'img'} />
+      <div className="text--center">
+        <Svg role="img" />
       </div>
-      <div className={'text--center padding-horiz--md'}>
+      <div className="text--center padding-horiz--md">
         <h2>{title}</h2>
         <p>{description}</p>
       </div>
@@ -104,8 +104,8 @@ function Feature({ title, Svg, description }: FeatureItem): JSX.Element {
 export default function HomeFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
-      <div className={'container'}>
-        <div className={'row'}>
+      <div className="container">
+        <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}

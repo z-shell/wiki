@@ -61,6 +61,7 @@ html[data-theme='light'] {
     var(--site-primary-hue-saturation-light) 58%
   );
   --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 10%);
+
   transition-duration: 1s !important;
 }
 
@@ -76,6 +77,7 @@ html[data-theme='light'] {
   --ifm-color-primary-lightest: hsl(
     var(--site-primary-hue-saturation-light) 73%
   );
+
   transition-duration: 1s !important;
 }
 

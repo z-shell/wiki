@@ -13,6 +13,9 @@ on:
     paths-ignore:
       ['docs/**', 'community/**', 'ecosystem/**', 'blog/**', 'src/pages/**', 'package.json', 'pnpm-lock.yaml']
 
+env:
+  URL: 'https://z.digitalclouds.dev'
+
 jobs:
   build-size:
     name: ' 📊 Build Size Report'

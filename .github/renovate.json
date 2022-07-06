@@ -1,4 +1,5 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base",
     ":dependencyDashboard",
@@ -14,14 +15,28 @@
   "dependencyDashboardApproval": true,
   "commitBody": "Signed-off-by: {{{gitAuthor}}}",
   "pin": {
-    "commitBody": "[skip ci]"
+    "commitBody": "[skip CI]"
   },
+  "groupName": "all dependencies",
+  "separateMajorMinor": false,
+  "groupSlug": "all",
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["*"],
+      "groupName": "all dependencies",
+      "groupSlug": "all"
+    }
+  ],
   "lockFileMaintenance": {
     "enabled": true
   },
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "matchDepTypes": ["optionalDependencies"],
       "automerge": true
     },
     {

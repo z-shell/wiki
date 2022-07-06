@@ -18,7 +18,7 @@
     "write-community-version": "docusaurus docs:version:community",
     "write-ecosystem-version": "docusaurus docs:version:ecosystem",
     "crowdin:sync": "docusaurus write-translations && crowdin upload sources && crowdin download",
-    "prebuild": "test \"$CF_PAGES\" = 1 && npx pnpm install || echo Skipping pnpm install",
+    "prebuild": "test \"$CF_PAGES\" = 1 && npx pnpm install --no-optional || echo Skipping pnpm install",
     "clean": "pnpm exec rm -rf node_modules build pnpm-lock.yaml",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
@@ -44,35 +44,33 @@
     "@babel/core": "7.18.6",
     "@docusaurus/module-type-aliases": "0.0.0-5170",
     "@tsconfig/docusaurus": "1.0.6",
-    "@types/node": "17.0.36",
-    "@types/react": "18.0.15",
-    "@typescript-eslint/eslint-plugin": "5.30.5",
-    "@typescript-eslint/parser": "5.30.5",
-    "eslint": "8.19.0",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-react": "7.30.1",
-    "eslint-plugin-react-hooks": "4.6.0",
+    "typescript": "4.7.4"
+  },
+  "optionalDependencies": {
+    "@docusaurus/eslint-plugin": "0.0.0-5170",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "stylelint": "14.9.1",
     "stylelint-config-prettier": "9.0.3",
     "stylelint-config-standard": "26.0.0",
-    "stylelint-csstree-validator": "2.0.0",
-    "typescript": "4.7.4"
+    "stylelint-csstree-validator": "2.0.0"
   },
   "packageManager": "pnpm@7.5.0",
   "pnpm": {
     "peerDependencyRules": {
       "allowedVersions": {
-        "@types/react": "18",
         "@mdx-js/react": "1.6",
         "rehype-katex": "6",
         "remark-math": "3",
         "react": "17"
       }
-    },
-    "overrides": {
-      "nth-check@<2.0.1": ">=2.0.1",
-      "trim@<0.0.3": ">=0.0.3",
-      "got@<11.8.5": ">=11.8.5"
     }
   },
   "engines": {
