@@ -18,7 +18,7 @@ keywords:
 
 :::tip
 
-Zsh tweak - map colours to the nearest colour in the available palette.
+Zsh tweak - map colors to the nearest color in the available palette.
 
 ```shell
 [[ $COLORTERM = *(24bit|truecolor)* ]] || zmodload zsh/nearcolor
@@ -40,18 +40,18 @@ fi
 
 :::
 
-Install fonts for powerlevel10k. It has to match your system settings as this is an example how flexible ZI is and can install anything in prefered way.
+Install fonts for powerlevel10k. It has to match your system settings as this is an example of how flexible Zi is and can install anything in a preferred way.
 
-The following snippet placed in `.zshrc` file will:
+The following snippet placed in the `.zshrc` file will:
 
-- check if conditions are met to proceed with install
-- download, extract, clean not required files and move fonts to required directory.
+- check if conditions are met to proceed with the install
+- download, extract, clean not required files, and move fonts to the required directory.
 - update font cache.
 
-When run: `zi update` will:
+When running: `zi update` will:
 
-- if update available, will update fonts.
-- repeat install process to update fonts.
+- if an update is available, will update the fonts.
+- repeat the install process to update fonts.
 
 ```shell
 zi ice if"[[ -d ${HOME}/.fonts/ttf ]] && [[ $OSTYPE = linux* ]]" \
@@ -60,7 +60,7 @@ zi ice if"[[ -d ${HOME}/.fonts/ttf ]] && [[ $OSTYPE = linux* ]]" \
 zi light ryanoasis/nerd-fonts
 ```
 
-Load prompt if terminal has least 256 colors.
+Load prompt if the terminal has at least 256 colors.
 
 ```shell showLineNumbers
 zi ice if"[ "${TERM##*-}" = '256color' ] || [ "${terminfo[colors]:?}" -gt 255 ]" depth=1
@@ -73,9 +73,9 @@ Oneliner:
 zi ice depth=1; zi light romkatv/powerlevel10k
 ```
 
-Meta plugin with configuration wizard disbled by default:
+[Meta plugin][meta-plugins] with configuration wizard disbled by default:
 
-- Run manually: `p10k configure`
+- Run manually: `p10k configure` (The file `~/.p10k.zsh` auto sourced if exists).
 
 ```shell
 zi light-mode for @romkatv
@@ -100,30 +100,32 @@ zi wait'!' lucid for OMZL::prompt_info_functions.zsh \
 ### THP: [z-shell/zprompts](https://github.com/z-shell/zprompts)
 
 ```shell showLineNumbers
-zi lucid atload"!promptinit; typeset -g PSSHORT=0; \
-prompt sprint3 yellow red green blue" nocd for \
-  z-shell/zprompts
+zi lucid for \
+  atload"!promptinit; typeset -g PSSHORT=0; \
+  prompt sprint3 yellow red green blue" nocd \
+    z-shell/zprompts
 ```
 
 ### THP: [halfo/lambda-mod-zsh-theme](https://github.com/halfo/lambda-mod-zsh-theme)
 
 ```shell showLineNumbers
-zi lucid nocd for \
+zi lucid for nocd \
   halfo/lambda-mod-zsh-theme
 ```
 
 ### THP: [geometry-zsh/geometry](https://github.com/geometry-zsh/geometry)
 
 ```shell showLineNumbers
-zi lucid atload"!geometry::prompt" nocd \
-  atinit"GEOMETRY_COLOR_DIR=63 GEOMETRY_PATH_COLOR=63" for \
+zi lucid for atload"!geometry::prompt" \
+  atinit"GEOMETRY_COLOR_DIR=63 GEOMETRY_PATH_COLOR=63" nocd \
     geometry-zsh/geometry
 ```
 
 ### THP: [sindresorhus/pure](https://github.com/sindresorhus/pure)
 
 ```shell showLineNumbers
-zi lucid pick"/dev/null" multisrc"{async,pure}.zsh" atload"!prompt_pure_precmd" nocd for \
+zi lucid for pick"/dev/null" multisrc"{async,pure}.zsh" \
+atload"!prompt_pure_precmd" nocd \
   sindresorhus/pure
 ```
 
@@ -176,7 +178,7 @@ zi ice as"command" from"gh-r" \
 zi light starship/starship
 ```
 
-### THP: [robobenklein/zinc](https://github.com/robobenklein/zinc)
+### THP: [robobenklein/zinc][robobenklein/zinc]
 
 ```shell showLineNumbers
 zi ice wait'!' lucid nocompletions \
@@ -185,7 +187,10 @@ zi ice wait'!' lucid nocompletions \
 zi load robobenklein/zinc
 
 # ZINC git info is already async, but if you want it
-# even faster with gitstatus in Turbo mode: https://github.com/romkatv/gitstatus
+# even faster with `gitstatus` in turbo mode: https://github.com/romkatv/gitstatus
 zi ice wait'1' atload'zinc_optional_depenency_loaded'
 zi load romkatv/gitstatus
 ```
+
+[robobenklein/zinc]: https://github.com/robobenklein/zinc
+[meta-plugins]: /ecosystem/annexes/meta-plugins
