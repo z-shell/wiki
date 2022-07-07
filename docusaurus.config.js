@@ -17,7 +17,7 @@ const config = {
   organizationName: 'z-shell',
   staticDirectories: ['static'],
   stylesheets: ['https://z.digitalclouds.dev/assets/css/all.min.css'],
-  i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans'] },
+  i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans', 'fr'] },
   presets: [
     [
       'classic',
@@ -146,6 +146,7 @@ const config = {
           { type: 'doc', docId: 'intro', position: 'left', label: 'Docs' },
           { to: 'ecosystem/intro', position: 'left', label: 'Ecosystem' },
           { to: 'community/intro', position: 'left', label: 'Community' },
+          { to: 'blog', position: 'left', label: 'Blog' },
           {
             type: 'localeDropdown',
             position: 'right',
