@@ -1,18 +1,17 @@
 ---
 name: '🚀 Deploy'
 on:
-  push:
-    paths-ignore: [i18n]
-    branches: [main]
-  pull_request:
-    paths-ignore: [i18n]
-    branches: [main]
+#  push:
+#    paths-ignore: [i18n]
+#    branches: [main]
+#  pull_request:
+#    paths-ignore: [i18n]
+#    branches: [main]
   workflow_dispatch: {}
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -24,4 +23,6 @@ jobs:
       - uses: pnpm/action-setup@v2.2.2
         with:
           run_install: true
-      - run: pnpm test
+      - run: pnpm run test
+#      - name: '⚡'
+#        uses: z-shell/.github/.github/workflows/trunk.yml@main
