@@ -68,7 +68,7 @@ function FeaturesContainer(): JSX.Element {
 function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout title={siteConfig.title} description={siteConfig.tagline}>
+    <Layout title={siteConfig.tagline}>
       <HomeHeader />
       <main>
         <FeaturesContainer />

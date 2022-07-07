@@ -1,10 +1,12 @@
 // @ts-check
 
+const setURL = process.env.URL ?? 'https://z.digitalclouds.dev';
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '❮ Zi ❯',
   tagline: 'A Swiss Army Knife for Zsh Unix shell',
-  url: process.env.URL,
+  url: setURL,
   baseUrl: '/',
   trailingSlash: false,
   titleDelimiter: '|',
