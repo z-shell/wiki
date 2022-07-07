@@ -1,1 +1,6 @@
-{}
+{
+  "item.label.Ecosystem": {
+    "message": "Éco-système",
+    "description": "Navbar item with label Ecosystem"
+  }
+}

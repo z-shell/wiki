@@ -1,1 +1,6 @@
-{}
+{
+  "link.item.label.Ecosystem": {
+    "message": "Éco-système",
+    "description": "The label of footer link with label=Ecosystem linking to /ecosystem/intro"
+  }
+}
