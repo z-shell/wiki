@@ -23,7 +23,7 @@
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
     "check": "pnpm exec ./.trunk/bin/trunk check",
-    "test": "pnpm run check && pnpm run build:en",
+    "test": "pnpm run check --all && pnpm run build",
     "typecheck": "tsc"
   },
   "dependencies": {

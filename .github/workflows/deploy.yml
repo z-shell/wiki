@@ -1,12 +1,12 @@
 ---
 name: '🚀 Deploy'
 on:
-#  push:
-#    paths-ignore: [i18n]
-#    branches: [main]
-#  pull_request:
-#    paths-ignore: [i18n]
-#    branches: [main]
+  #  push:
+  #    paths-ignore: [i18n]
+  #    branches: [main]
+  #  pull_request:
+  #    paths-ignore: [i18n]
+  #    branches: [main]
   workflow_dispatch: {}
 
 jobs:
