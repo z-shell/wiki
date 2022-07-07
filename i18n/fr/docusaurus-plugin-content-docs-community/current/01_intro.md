@@ -1,11 +1,11 @@
 ---
 id: intro
-title: '👥 Community Docs'
+title: '👥 Documentation de la communauté'
 sidebar_position: 1
 image: img/logo/320x320.png
 keywords:
   - documentation
-  - commmunity
+  - communauté
   - zsh-lovers
   - gallery
 ---
@@ -16,6 +16,6 @@ keywords:
 
 </div>
 
-- [Zsh Plugin Standard](/community/zsh_plugin_standard)
-- [Zsh Native Scripting Handbook](/community/zsh_handbook)
-- [Gallery of Invocations](/community/gallery/collection)
+- [Norme de plug-in Zsh (Zsh Plugin Standard)](/community/zsh_plugin_standard)
+- [Manuel de Script Natif Zsh (Zsh Native Scripting Handbook)](/community/zsh_handbook)
+- [Galerie des Invocations](/community/gallery/collection)

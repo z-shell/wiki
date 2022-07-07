@@ -2,26 +2,26 @@
 title: '⚡️ Installation'
 sidebar_position: 1
 image: img/logo/320x320.png
-description: Installation Guide
+description: Guide d'installation
 keywords:
-  - setup
+  - configuration
   - quick-start
   - installation
 ---
 
-## <i class="fas fa-spinner fa-spin"></i> Quick setup
+## <i class="fas fa-spinner fa-spin"></i> Installation Rapide
 
 ```shell title="~/.zshrc"
 source <(curl -sL https://git.io/zi-loader); zzinit
 ```
 
-Reload shell with `exec zsh` and run `zi -h` for usage information.
+Rechargez le shell avec `exec zsh` et exécutez `zi -h` pour obtenir des informations sur l'utilisation.
 
-## <i class="fas fa-spinner fa-spin"></i> Automated setup
+## <i class="fas fa-spinner fa-spin"></i> Installation automatique
 
 :::tip
 
-If required append `-b <tag>` or `-b <branch>` e.g:
+Si nécessaire, ajoutez `-b <tag>` ou `-b <branch>` par ex :
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip -b main
@@ -29,37 +29,37 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip -b main
 
 :::
 
-### <i class="fa-solid fa-code"></i> Minimal configuration
+### <i class="fa-solid fa-code"></i> Configuration minimale
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" --
 ```
 
-### <i class="fa-solid fa-code-compare"></i> Only update / install repository
+### <i class="fa-solid fa-code-compare"></i> Mise à jour / installation du référentiel uniquement
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip
 ```
 
-### <i class="fa-solid fa-code-branch"></i> Minimal configuration + <a href="/ecosystem/annexes">annexes</a>
+### <i class="fa-solid fa-code-branch"></i> Configuration minimale + <a href="/ecosystem/annexes">annexes</a>
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a annex
 ```
 
-### <i class="fa-solid fa-code-fork"></i> Minimal configuration + <a href="/ecosystem/annexes">annexes</a> + <a href="https://github.com/zdharma/zunit">zdharma/zunit</a>
+### <i class="fa-solid fa-code-fork"></i> Configuration minimale + <a href="/ecosystem/annexes">annexes</a> + <a href="https://github.com/zdharma/zunit">zdharma/zunit</a>
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zunit
 ```
 
-### <i class="fa-solid fa-gears"></i> Minimal configuration with loader
+### <i class="fa-solid fa-gears"></i> Configuration minimale avec le chargeur
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a loader
 ```
 
-The installer will download loader and add snippet below to the `.zshrc` file.
+Le programme d'installation téléchargera le chargeur et ajoutera le snippet ci-dessous au fichier `.zshrc`.
 
 ```shell showLineNumbers
 if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]]; then
@@ -69,17 +69,17 @@ fi
 
 :::tip
 
-The loader can be manually fetched from available [links](#loader) to any location on the system, and sourced from `.zshrc` or as shown in the [quick-setup](#-quick-setup).
+Le chargeur peut être récupéré manuellement à partir des liens disponibles [](#loader) à n'importe quel emplacement sur le système, et extrait de `.zshrc` ou comme indiqué dans l'[installation rapide](#-quick-setup).
 
 :::
 
-Then reload shell with: `exec zsh`. All done!
+Ensuite, rechargez le shell avec : `exec zsh`. Terminé !
 
-## <i class="fas fa-spinner fa-spin"></i> Manual Setup
+## <i class="fas fa-spinner fa-spin"></i> Configuration manuelle
 
-### <i class="fa-solid fa-code-branch"></i> Setup directory
+### <i class="fa-solid fa-code-branch"></i> Configuration
 
-:::tip Related
+:::tip Voir aussi
 
 - [🏗 Preferences & Configuration][13]
 
@@ -91,16 +91,16 @@ export ZI[BIN_DIR]="${HOME}/.zi/bin"
 command mkdir -p "$ZI[BIN_DIR]"
 ```
 
-### <i class="fa-brands fa-git-alt"></i> Clone repository
+### <i class="fa-brands fa-git-alt"></i> Cloner le dépôt
 
 ```shell showLineNumbers
-command chmod g-rwX "$ZI[BIN_DIR]"
-command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
+commande chmod g-rwX "$ZI[BIN_DIR]"
+commande git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
 ```
 
-### <i class="fa-solid fa-circle-nodes"></i> Enable ZI
+### <i class="fa-solid fa-circle-nodes"></i> Activer ZI
 
-Source `zi.zsh` in your `.zshrc` from previously created directory:
+Sourcez `zi.zsh` dans votre `.zshrc` à partir du répertoire créé précédemment :
 
 ```shell showLineNumbers
 typeset -A ZI
@@ -108,11 +108,11 @@ ZI[BIN_DIR]="${HOME}/.zi/bin"
 source "${ZI[BIN_DIR]}/zi.zsh"
 ```
 
-### <i class="fa-solid fa-circle-nodes"></i> Enable completions {#enable-completions}
+### <i class="fa-solid fa-circle-nodes"></i> Activer la complétion {#enable-completions}
 
 :::info
 
-The next two lines must be below the above two:
+Les deux lignes suivantes doivent être en dessous des deux précédentes :
 
 :::
 
@@ -121,25 +121,25 @@ autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 ```
 
-## <i class="fas fa-spinner fa-spin"></i> Post-install
+## <i class="fas fa-spinner fa-spin"></i> Post-installation
 
-After a fresh install, recommended to reload the shell with `exec zsh` and compile ZI with `zi self-update`. Run `zi -h` to see all available commands. Increase ZI functionality, performance or get started by exploring the wiki.
+Après une nouvelle installation, il est recommandé de recharger le shell avec `exec zsh` et de compiler ZI avec `zi self-update`. Exécutez `zi -h` pour voir toutes les commandes disponibles. Augmentez les fonctionnalités et les performances de ZI ou commencez par explorer le wiki.
 
-If you have any issue or need help 🤦‍♂️, lets [discuss][7] it or open an [issue][6] in any language.
+Si vous avez un problème ou avez besoin d'aide 🤦‍♂️, laissez [discuter ][7] ou ouvrez un [problème][6] dans n'importe quelle langue.
 
-It helps us to improve and make ZI better. Don't forget to help the project: share, contribute, or [translate][8] 🌐 🥰 🤓.
+Cela nous aide à améliorer et à améliorer ZI. N'oubliez pas d'aider le projet : partagez, contribuez, ou [traduisez][8] 🌐 🥰 🤓.
 
-Let's glue everything together to create a toolchain that works for US 🚀.
+Collons tout ensemble pour créer une chaîne d'outils qui fonctionne pour NOUS 🚀.
 
-## <i class="fas fa-sync-alt fa-spin"></i> Have ideas?
+## <i class="fas fa-sync-alt fa-spin"></i> Vous avez des idées ?
 
-### <i class="fa-solid fa-list-check"></i> Suggest your configuration: <a href="https://github.com/z-shell/playground">z-shell/playground</a>
+### <i class="fa-solid fa-list-check"></i> Proposez votre configuration : <a href="https://github.com/z-shell/playground">z-shell/playground</a>
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a ???
 ```
 
-## <i class="fas fa-sync-alt fa-spin"></i> Need warm-up?
+## <i class="fas fa-sync-alt fa-spin"></i> Besoin d'un échauffement ?
 
 ### <i class="fa-brands fa-docker"></i> <a href="https://github.com/z-shell/zd/pkgs/container/zd">Docker Alpine</a>
 
@@ -147,35 +147,35 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a ???
 docker run --rm -it ghcr.io/z-shell/zd:latest
 ```
 
-### <i class="fa-brands fa-docker"></i> Turbo ZI in Docker
+### <i class="fa-brands fa-docker"></i> Turbo ZI dans Docker
 
-If you create a Docker image that uses ZI, install Turbo-loaded plugins before the shell starts interactively, with the `@zi-scheduler` function in such a way, that it:
+Si vous créez une image Docker qui utilise ZI, installez les plugins Turbo-loaded avant que le shell ne démarre de manière interactive, avec la fonction `@zi-scheduler` de telle manière, qu'il :
 
-- installs plugins without waiting for the prompt (i.e. it's script friendly),
-- installs all plugins instantly, without respecting the wait'' argument.
+- installe les plugins sans attendre l'invite (c'est-à-dire qu'il est compatible avec les scripts),
+- installe tous les plugins instantanément, sans respecter l'argument ''attendre''.
 
-To accomplish this, use burst argument and call `@zi-scheduler` function:
+Pour ce faire, utilisez l'argument burst et appelez la fonction `@zi-scheduler` :
 
 ```docker
 RUN zsh -i -c -- '@zi-scheduler burst || true'
 ```
 
-> - An example: [Dockerfile][11]
-> - In action: [Dockerfile][12]
+> - Un exemple : [Dockerfile][11]
+> - En action : [Dockerfile][12]
 
-## <i class="fas fa-cog fa-pulse"></i> Build ZI Module
+## <i class="fas fa-cog fa-pulse"></i> Construire un module ZI
 
-### <i class="fa-solid fa-compass-drafting"></i> Without ZI
+### <i class="fa-solid fa-compass-drafting"></i> Sans ZI
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
 ```
 
-### <i class="fa-solid fa-screwdriver-wrench"></i> With ZI
+### <i class="fa-solid fa-screwdriver-wrench"></i> Avec ZI
 
 :::info
 
-ZI has to be installed to build the module. Module repository: [z-shell/zpmod][9]
+ZI doit être installé pour construire le module. Dépôt de modules : [z-shell/zpmod][9]
 
 :::
 
@@ -183,17 +183,17 @@ ZI has to be installed to build the module. Module repository: [z-shell/zpmod][9
 zi module build
 ```
 
-To enable debug messages from the module set:
+Pour activer les messages de débogage de l'ensemble de modules :
 
 ```shell
 typeset -g ZI_MOD_DEBUG=1
 ```
 
-## <i class="fas fa-sync-alt fa-spin"></i> Available links
+## <i class="fas fa-sync-alt fa-spin"></i> Liens disponibles
 
-[Status page: :heavy_check_mark:][10]
+[Page de statut : :heavy_check_mark:][10]
 
-### Installer
+### Installateur
 
 | Service        | URL                                                                       |
 |:-------------- | ------------------------------------------------------------------------- |
@@ -201,13 +201,13 @@ typeset -g ZI_MOD_DEBUG=1
 | [IPFS][2]      | <https://ipfs.zshell.dev/sh/install.sh>                                   |
 | [Direct][5]:   | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
-### Loader
+### Chargeur
 
-| Service        | URL                                                                      |
-|:-------------- | ------------------------------------------------------------------------ |
-| [Redirect][3]: | <https://init.zshell.dev>                                                |
-| [IPFS][2]      | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
-| [Direct][4]:   | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
+| Service           | URL                                                                      |
+|:----------------- | ------------------------------------------------------------------------ |
+| [Redirection][3]: | <https://init.zshell.dev>                                                |
+| [IPFS][2]         | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
+| [Direct][4]:      | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
 
 [1]: https://get.zshell.dev
 [2]: https://ipfs.io
