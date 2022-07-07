@@ -21,6 +21,7 @@ jobs:
       - run: pnpm test
 
   upload:
+    needs: [deploy]
     name: '🆙'
     uses: z-shell/.github/.github/workflows/trunk.yml@main
     secrets:
