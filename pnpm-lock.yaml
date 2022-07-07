@@ -12,7 +12,7 @@ specifiers:
   '@docusaurus/plugin-ideal-image': 0.0.0-5178
   '@docusaurus/plugin-pwa': 0.0.0-5178
   '@docusaurus/preset-classic': 0.0.0-5178
-  '@loadable/babel-plugin': ^5.13.2
+  '@loadable/babel-plugin': 5.13.2
   '@loadable/component': 5.15.2
   '@mdx-js/react': 1.6.22
   '@tsconfig/docusaurus': 1.0.6
@@ -643,7 +643,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.12.9
-      '@babel/helper-plugin-utils': 7.10.4
+      '@babel/helper-plugin-utils': 7.18.6
       '@babel/plugin-syntax-object-rest-spread': 7.8.3_@babel+core@7.12.9
       '@babel/plugin-transform-parameters': 7.18.6_@babel+core@7.12.9
     dev: false
