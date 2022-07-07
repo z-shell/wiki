@@ -6,17 +6,24 @@
   overflow: hidden;
 }
 
+.videocontainer {
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
 .features {
   display: flex;
   align-items: center;
-  padding: 4rem 0;
+  text-align: center;
+  padding: 2rem 0;
   width: 100%;
 }
 
 .asciicasts {
-  display: flex;
+  display: inline;
   align-items: center;
-  padding: 4rem 0;
+  position: static;
   width: 100%;
 }
 
@@ -26,11 +33,7 @@
   }
 
   .features {
-    padding: 2rem 0;
-  }
-
-  .asciicasts {
-    padding: 2rem 0;
+    padding: 1rem 0;
   }
 }
 

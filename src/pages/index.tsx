@@ -4,11 +4,11 @@ import loadable from '@loadable/component';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import HomeFeatures from '@site/src/components/HomeFeatures';
-import 'asciinema-player/dist/bundle/asciinema-player.css';
 import styles from './index.module.css';
 
 const AsciinemaPlayer = loadable(
-  () => import('@site/src/components/AsciinemaPlayer')
+  () =>
+    import(/* webpackPrefetch: true */ '@site/src/components/AsciinemaPlayer')
 );
 
 function HomeHeader(): JSX.Element {
@@ -25,36 +25,36 @@ function HomeHeader(): JSX.Element {
 
 function FeaturesContainer(): JSX.Element {
   return (
-    <section className={styles.asciicasts}>
+    <section className={styles.videocontainer}>
       <div className="container">
-        <div className="col">
+        <div>
           <h2> ⚡ Fast and feature-rich</h2>
-          <div>
+          <div className={styles.asciicasts}>
             <AsciinemaPlayer
-              src="https://asciinema.org/a/497831.cast"
-              poster="npt:0:30"
-              rows={25}
-              cols={200}
-              speed={2}
+              src="https://asciinema.org/a/459358.cast"
+              /* poster="npt:0:30" */
+              rows={30}
+              cols={210}
+              speed={3}
               idleTimeLimit={1}
               preload
             />
           </div>
         </div>
-        <div className={styles.features}>
-          <div className="col">
+        <div>
+          <div className={styles.features}>
             <HomeFeatures />
           </div>
         </div>
-        <div className="col">
+        <div>
           <h2> ✨ Neat and flexible</h2>
-          <div>
+          <div className={styles.asciicasts}>
             <AsciinemaPlayer
-              src="https://asciinema.org/a/459358.cast"
-              poster="npt:2:34"
-              rows={25}
-              cols={200}
-              speed={2}
+              /* poster="npt:2:34" */
+              src="https://asciinema.org/a/497831.cast"
+              rows={30}
+              cols={210}
+              speed={3}
               idleTimeLimit={1}
               preload
             />

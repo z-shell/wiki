@@ -43,6 +43,7 @@
   "devDependencies": {
     "@babel/core": "7.18.6",
     "@docusaurus/module-type-aliases": "0.0.0-5178",
+    "@loadable/babel-plugin": "^5.13.2",
     "@tsconfig/docusaurus": "1.0.6",
     "typescript": "4.7.4"
   },
@@ -71,6 +72,10 @@
         "remark-math": "3",
         "react": "17"
       }
+    },
+    "overrides": {
+      "trim@<0.0.3": ">=0.0.3",
+      "got@<11.8.5": ">=11.8.5"
     }
   },
   "engines": {
