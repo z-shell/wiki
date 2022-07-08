@@ -313,15 +313,16 @@ zi snippet 'https://github.com/DanielG/dxld-mullvad/blob/master/am-i-mullvad.sh'
 
 ```shell showLineNumbers
 # Regular syntax
-zi ice lucid as'program' atclone"autoreconf -i && PREFIX=$ZPFX ./configure" \
-  atpull'%atclone' pick"$ZPFX/cmatrix" make"PREFIX=$ZPFX"
+zi ice lucid as'program' atclone"autoreconf -i; ./configure --prefix=$ZPFX" \
+  atpull'%atclone' make"install" pick"$ZPFX/bin/cmatrix"
 zi light abishekvashok/cmatrix
 ```
 
 ```shell showLineNumbers
 # With the for syntax
-zi for as'program' atclone"autoreconf -i && PREFIX=$ZPFX ./configure" \
-  atpull'%atclone' pick"$ZPFX/cmatrix" make"PREFIX=$ZPFX" abishekvashok/cmatrix
+zi for as'program' atclone"autoreconf -i; ./configure --prefix=$ZPFX" \
+  atpull'%atclone' make"all install" pick"$ZPFX/bin/cmatrix" \
+    abishekvashok/cmatrix
 ```
 
 ### B: [tj/git-extras](https://github.com/tj/git-extras)
