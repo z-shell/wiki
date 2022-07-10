@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: '🚀 Crowdin Download'
-        uses: crowdin/github-action@1.4.9
+        uses: crowdin/github-action@1.4.10
         with:
           upload_sources: false
           upload_translations: false
