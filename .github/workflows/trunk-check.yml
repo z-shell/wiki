@@ -20,7 +20,7 @@ jobs:
     uses: z-shell/.github/.github/workflows/trunk.yml@main
     with:
       node_version: '16'
-      pnpm_arguments: 'pnpm i'
+      pnpm_arguments: 'pnpm i && pnpm build'
   upload:
     if: github.event.schedule == '0 07 * * 5'
     name: '🆙'
@@ -29,4 +29,4 @@ jobs:
       trunk-token: ${{ secrets.TRUNK_TOKEN }}
     with:
       node_version: '16'
-      pnpm_arguments: 'pnpm i'
+      pnpm_arguments: 'pnpm i && pnpm build'
