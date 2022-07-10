@@ -91,18 +91,6 @@
     "message": "Ältere Einträge",
     "description": "The label used to navigate to the older blog posts page (next page)"
   },
-  "theme.blog.post.readingTime.plurals": {
-    "message": "Eine Minute Lesezeit|{readingTime} Minuten Lesezeit",
-    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-  },
-  "theme.blog.post.readMoreLabel": {
-    "message": "Mehr lesen über {title}",
-    "description": "The ARIA label for the link to full blog posts from excerpts"
-  },
-  "theme.blog.post.readMore": {
-    "message": "Mehr lesen",
-    "description": "The label used in blog post item excerpts to link to full blog posts"
-  },
   "theme.blog.post.paginator.navAriaLabel": {
     "message": "Blog Post Seiten Navigation",
     "description": "The ARIA label for the blog posts pagination"
@@ -254,6 +242,18 @@
     "message": "Auf dieser Seite",
     "description": "The label used by the button on the collapsible TOC component"
   },
+  "theme.blog.post.readMore": {
+    "message": "Mehr lesen",
+    "description": "The label used in blog post item excerpts to link to full blog posts"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": "Mehr lesen über {title}",
+    "description": "The ARIA label for the link to full blog posts from excerpts"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "Eine Minute Lesezeit|{readingTime} Minuten Lesezeit",
+    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
   "theme.docs.sidebar.collapseButtonTitle": {
     "message": "Seitenleiste einklappen",
     "description": "The title attribute for collapse button of doc sidebar"
@@ -273,6 +273,9 @@
   "theme.docs.sidebar.expandButtonAriaLabel": {
     "message": "Seitenleiste ausklappen",
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "Alle {count} Ergebnisse anzeigen"
   },
   "theme.SearchPage.documentsFound.plurals": {
     "message": "Ein Dokument gefunden|{count} Dokumente gefunden",
@@ -305,9 +308,6 @@
   "theme.SearchPage.fetchingNewResults": {
     "message": "Neue Ergebnisse abrufen...",
     "description": "The paragraph for fetching new search results"
-  },
-  "theme.SearchBar.seeAll": {
-    "message": "Alle {count} Ergebnisse anzeigen"
   },
   "theme.SearchBar.label": {
     "message": "Suche",

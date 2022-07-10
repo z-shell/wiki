@@ -91,18 +91,6 @@
     "message": "Entradas más antiguas",
     "description": "The label used to navigate to the older blog posts page (next page)"
   },
-  "theme.blog.post.readingTime.plurals": {
-    "message": "Lectura de un minuto|{readingTime} min de lectura",
-    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-  },
-  "theme.blog.post.readMoreLabel": {
-    "message": "Read more about {title}",
-    "description": "The ARIA label for the link to full blog posts from excerpts"
-  },
-  "theme.blog.post.readMore": {
-    "message": "Leer Más",
-    "description": "The label used in blog post item excerpts to link to full blog posts"
-  },
   "theme.blog.post.paginator.navAriaLabel": {
     "message": "Barra de paginación de publicaciones del blog",
     "description": "The ARIA label for the blog posts pagination"
@@ -254,6 +242,18 @@
     "message": "En esta página",
     "description": "The label used by the button on the collapsible TOC component"
   },
+  "theme.blog.post.readMore": {
+    "message": "Leer Más",
+    "description": "The label used in blog post item excerpts to link to full blog posts"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": "Read more about {title}",
+    "description": "The ARIA label for the link to full blog posts from excerpts"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "Lectura de un minuto|{readingTime} min de lectura",
+    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
   "theme.docs.sidebar.collapseButtonTitle": {
     "message": "Colapsar barra lateral",
     "description": "The title attribute for collapse button of doc sidebar"
@@ -273,6 +273,9 @@
   "theme.docs.sidebar.expandButtonAriaLabel": {
     "message": "Expandir barra lateral",
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "See all {count} results"
   },
   "theme.SearchPage.documentsFound.plurals": {
     "message": "Un documento encontrado|{count} documentos encontrados",
@@ -305,9 +308,6 @@
   "theme.SearchPage.fetchingNewResults": {
     "message": "Obteniendo nuevos resultados...",
     "description": "The paragraph for fetching new search results"
-  },
-  "theme.SearchBar.seeAll": {
-    "message": "See all {count} results"
   },
   "theme.SearchBar.label": {
     "message": "Buscar",

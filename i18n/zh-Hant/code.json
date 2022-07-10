@@ -91,18 +91,6 @@
     "message": "較舊的文章",
     "description": "The label used to navigate to the older blog posts page (next page)"
   },
-  "theme.blog.post.readingTime.plurals": {
-    "message": "閱讀時間約 {readingTime} 分鐘",
-    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-  },
-  "theme.blog.post.readMoreLabel": {
-    "message": "閱讀 {title} 全文",
-    "description": "The ARIA label for the link to full blog posts from excerpts"
-  },
-  "theme.blog.post.readMore": {
-    "message": "閱讀更多",
-    "description": "The label used in blog post item excerpts to link to full blog posts"
-  },
   "theme.blog.post.paginator.navAriaLabel": {
     "message": "部落格文章分頁導覽",
     "description": "The ARIA label for the blog posts pagination"
@@ -254,6 +242,18 @@
     "message": "本頁導覽",
     "description": "The label used by the button on the collapsible TOC component"
   },
+  "theme.blog.post.readMore": {
+    "message": "閱讀更多",
+    "description": "The label used in blog post item excerpts to link to full blog posts"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": "閱讀 {title} 全文",
+    "description": "The ARIA label for the link to full blog posts from excerpts"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "閱讀時間約 {readingTime} 分鐘",
+    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
   "theme.docs.sidebar.collapseButtonTitle": {
     "message": "收起側邊欄",
     "description": "The title attribute for collapse button of doc sidebar"
@@ -273,6 +273,9 @@
   "theme.docs.sidebar.expandButtonAriaLabel": {
     "message": "展開側邊欄",
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "查看全部 {count} 個結果"
   },
   "theme.SearchPage.documentsFound.plurals": {
     "message": "找到 {count} 份文件",
@@ -305,9 +308,6 @@
   "theme.SearchPage.fetchingNewResults": {
     "message": "正在取得新的搜尋結果...",
     "description": "The paragraph for fetching new search results"
-  },
-  "theme.SearchBar.seeAll": {
-    "message": "查看全部 {count} 個結果"
   },
   "theme.SearchBar.label": {
     "message": "搜尋",

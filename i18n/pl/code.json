@@ -91,18 +91,6 @@
     "message": "Starsze wpisy",
     "description": "The label used to navigate to the older blog posts page (next page)"
   },
-  "theme.blog.post.readingTime.plurals": {
-    "message": "{readingTime} min aby przeczytać|{readingTime} min aby przeczytać|{readingTime} min aby przeczytać",
-    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-  },
-  "theme.blog.post.readMoreLabel": {
-    "message": "Czytaj więcej o {title}",
-    "description": "The ARIA label for the link to full blog posts from excerpts"
-  },
-  "theme.blog.post.readMore": {
-    "message": "Czytaj więcej",
-    "description": "The label used in blog post item excerpts to link to full blog posts"
-  },
   "theme.blog.post.paginator.navAriaLabel": {
     "message": "Nawigacja na stronie postu na blogu",
     "description": "The ARIA label for the blog posts pagination"
@@ -254,6 +242,18 @@
     "message": "Na tej stronie",
     "description": "The label used by the button on the collapsible TOC component"
   },
+  "theme.blog.post.readMore": {
+    "message": "Czytaj więcej",
+    "description": "The label used in blog post item excerpts to link to full blog posts"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": "Czytaj więcej o {title}",
+    "description": "The ARIA label for the link to full blog posts from excerpts"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "{readingTime} min aby przeczytać|{readingTime} min aby przeczytać|{readingTime} min aby przeczytać",
+    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
   "theme.docs.sidebar.collapseButtonTitle": {
     "message": "Zwiń boczny panel",
     "description": "The title attribute for collapse button of doc sidebar"
@@ -273,6 +273,9 @@
   "theme.docs.sidebar.expandButtonAriaLabel": {
     "message": "Rozszerz boczny panel",
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "Wyświetl wszystkie {count} wyników"
   },
   "theme.SearchPage.documentsFound.plurals": {
     "message": "Jeden dokument znaleziony|{count} dokumenty znalezione|{count} dokumentów znalezionych",
@@ -305,9 +308,6 @@
   "theme.SearchPage.fetchingNewResults": {
     "message": "Pobieranie nowych wyników…",
     "description": "The paragraph for fetching new search results"
-  },
-  "theme.SearchBar.seeAll": {
-    "message": "Wyświetl wszystkie {count} wyników"
   },
   "theme.SearchBar.label": {
     "message": "Szukaj",

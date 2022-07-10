@@ -1,6 +1,6 @@
 {
   "title": {
-    "message": "❮ ZI ❯",
+    "message": "❮ Zi ❯",
     "description": "The title in the navbar"
   },
   "item.label.Docs": {
@@ -14,5 +14,9 @@
   "item.label.Community": {
     "message": "Community",
     "description": "Navbar item with label Community"
+  },
+  "item.label.Blog": {
+    "message": "Blog",
+    "description": "Navbar item with label Blog"
   }
 }
