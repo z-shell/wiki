@@ -570,6 +570,15 @@ export CARGO_HOME=\$PWD; export RUSTUP_HOME=\$PWD/rustup" for \
   z-shell/0
 ```
 
+### B: [ytdl-org/youtube-dl][]
+
+```shell
+zi for as'program' nocompile'!' depth'1' \
+  has'python' pick'$ZPFX/bin/youtube-dl*' make'!PREFIX=$ZPFX install' \
+  atclone'ln -sfv youtube-dl.zsh _youtube-dl' atpull'%atclone' \
+    ytdl-org/youtube-dl
+```
+
 [1]: https://github.com/junegunn/fzf
 [2]: https://github.com/shakrdp/fd
 [3]: https://github.com/sharkdp/bat
@@ -595,3 +604,4 @@ export CARGO_HOME=\$PWD; export RUSTUP_HOME=\$PWD/rustup" for \
 [106]: /docs/guides/syntax/common#compiling-programs
 [107]: /docs/guides/customization#customizing-paths
 [108]: /ecosystem/annexes/bin-gem-node#the-ice-modifiers-provided-by-the-annex
+[ytdl-org/youtube-dl]: https://github.com/ytdl-org/youtube-dl
