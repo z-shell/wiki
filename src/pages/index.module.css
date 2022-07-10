@@ -65,6 +65,17 @@ div[class^='announcementBarContent'] {
   font-size: 14px;
   font-weight: bold;
   padding: 6px 24px;
+  transition-duration: 1s !important;
+}
+
+html[data-theme='light'] div[class^='announcementBar_'] {
+  color: #000;
+  background: #f6f8fa;
+}
+
+html[data-theme='dark'] div[class^='announcementBar_'] {
+  color: #fff;
+  background: #24292e;
 }
 
 div[class^='announcementBarContent'] a {

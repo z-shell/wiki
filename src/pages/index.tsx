@@ -4,6 +4,7 @@ import loadable from '@loadable/component';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import HomeFeatures from '@site/src/components/HomeFeatures';
+import Translate from '@docusaurus/Translate';
 import styles from './index.module.css';
 
 const AsciinemaPlayer = loadable(
@@ -28,7 +29,14 @@ function FeaturesContainer(): JSX.Element {
     <section className={styles.videocontainer}>
       <div className="container">
         <div>
-          <h2> ⚡ Fast and feature-rich</h2>
+          <h2>
+            <Translate
+              id="homepage.video.heading.1"
+              description="The homepage video conatainer heading 1"
+            >
+              ⚡ Fast and feature-rich
+            </Translate>
+          </h2>
           <div className={styles.asciicasts}>
             <AsciinemaPlayer
               src="https://asciinema.org/a/459358.cast"
@@ -47,7 +55,14 @@ function FeaturesContainer(): JSX.Element {
           </div>
         </div>
         <div>
-          <h2> ✨ Neat and flexible</h2>
+          <h2>
+            <Translate
+              id="homepage.video.heading.2"
+              description="The homepage video container heading 2"
+            >
+              ✨ Neat and flexible
+            </Translate>
+          </h2>
           <div className={styles.asciicasts}>
             <AsciinemaPlayer
               /* poster="npt:2:34" */

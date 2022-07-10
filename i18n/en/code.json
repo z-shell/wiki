@@ -1,4 +1,12 @@
 {
+  "homepage.video.heading.1": {
+    "message": "⚡ Fast and feature-rich",
+    "description": "The homepage video conatainer heading 1"
+  },
+  "homepage.video.heading.2": {
+    "message": "✨ Neat and flexible",
+    "description": "The homepage video container heading 2"
+  },
   "homepage.feature1.title": {
     "message": "Zsh Startup 50-80% Faster",
     "description": "Title of feature 1 (left) on the home page"
@@ -43,6 +51,14 @@
     "message": "Please contact the owner of the site that linked you to the original URL and let them know their link is broken.",
     "description": "The 2nd paragraph of the 404 page"
   },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "Close",
+    "description": "The ARIA label for close button of announcement bar"
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "Scroll back to top",
+    "description": "The ARIA label for the back to top button"
+  },
   "theme.admonition.note": {
     "message": "note",
     "description": "The default label used for the Note admonition (:::note)"
@@ -62,14 +78,6 @@
   "theme.admonition.caution": {
     "message": "caution",
     "description": "The default label used for the Caution admonition (:::caution)"
-  },
-  "theme.AnnouncementBar.closeButtonAriaLabel": {
-    "message": "Close",
-    "description": "The ARIA label for close button of announcement bar"
-  },
-  "theme.BackToTopButton.buttonAriaLabel": {
-    "message": "Scroll back to top",
-    "description": "The ARIA label for the back to top button"
   },
   "theme.blog.archive.title": {
     "message": "Archive",
