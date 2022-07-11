@@ -7,6 +7,16 @@
     "message": "✨ Soigné et flexible",
     "description": "The homepage video container heading 2"
   },
+  "ZI logo": {
+    "message": "Logo ZI"
+  },
+  "homepage.hero.title": {
+    "message": "Un couteau <b>suisse</b> pour <b>Zsh</b> unix <b>Shell</b>",
+    "description": "Home page hero title, can contain simple html tags"
+  },
+  "Get Started": {
+    "message": "Premiers Pas"
+  },
   "Community": {
     "message": "Communauté"
   },
@@ -14,13 +24,25 @@
     "message": "Démarrage Zsh 50 à 80% plus rapide",
     "description": "Title of feature 1 (left) on the home page"
   },
+  "home.feature1": {
+    "message": "Invite instantanée reportant le chargement des plugins à un moment où le traitement du fichier .zshrc est terminé.",
+    "description": "Description of first featured banner in homepage"
+  },
   "homepage.feature2.title": {
     "message": "Concentrez-vous sur ce qui compte",
     "description": "Title of feature 2 (middle) on the home page"
   },
+  "home.feature2": {
+    "message": "Statistiques sur les plugins, décrivant quelles fonctions, bindkeys, complétions et autres éléments un plugin a mis en place.",
+    "description": "Description of second featured banner in homepage"
+  },
   "homepage.feature3.title": {
     "message": "Large éventail de fonctionnalités",
     "description": "Title of feature 3 (right) on the home page"
+  },
+  "home.feature3": {
+    "message": "Prend en charge Oh-My-Zsh et Prezto - non spécifique au framework. Produisez vos plugins, bibliothèques et thèmes sans effort.",
+    "description": "Description of third featured banner in homepage"
   },
   "theme.ErrorPageContent.title": {
     "message": "Cette page a planté.",
@@ -204,6 +226,10 @@
   "theme.common.skipToMainContent": {
     "message": "Aller au contenu principal",
     "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
+  },
+  "theme.tags.tagsListLabel": {
+    "message": "Mots-clés:",
+    "description": "The label alongside a tag list"
   },
   "theme.blog.sidebar.navAriaLabel": {
     "message": "Navigation article de blog récent",

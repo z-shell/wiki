@@ -66,72 +66,72 @@ En mode Turbo, le ralentissement causé par le suivi est négligeable...
 
 ## Oh-My-Zsh, Prezto
 
-Pour charger les plugins Oh-My-Zsh et Prezto, utilisez la fonction `snippet` . Snippets are single files downloaded by `curl`, `wget`, etc., automatic detection of the download tool is being performed, directly from the URL:
+Pour charger les plugins Oh-My-Zsh et Prezto, utilisez la fonction `snippet` . Les snippets sont des fichiers uniques téléchargés par `curl`, `wget`, etc., la détection automatique de l'outil de téléchargement étant effectuée, directement à partir de l'URL :
 
 ```shell showLineNumbers
 zi snippet 'https://github.com/robbyrussell/oh-my-zsh/raw/master/plugins/git/git.plugin.zsh'
 zi snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/helper/init.zsh'
 ```
 
-Also, for Oh-My-Zsh and Prezto, you can use `OMZ::` and `PZT::` shorthands:
+De même, pour Oh-My-Zsh et Prezto, vous pouvez utiliser les raccourcis `OMZ: :` et `PZT: :` :
 
 ```shell showLineNumbers
 zi snippet OMZ::plugins/git/git.plugin.zsh
 zi snippet PZT::modules/helper/init.zsh
 ```
 
-Moreover, snippets support subversion protocol, supported also by Github. This allows loading snippets that are multi-file (for example, a Prezto module can consist of two or more files, e.g. `init.zsh` and `alias.zsh`).
+De plus, les snippets supportent le protocole subversion, supporté également par Github. Cela permet de charger des extraits qui sont multi-fichiers (par exemple, un module Prezto peut être constitué de deux ou plusieurs fichiers, par exemple `init.zsh` et `alias.zsh`).
 
-Default files that will be sourced are: `*.plugin.zsh`, `init.zsh`, `*.zsh-theme`:
+Les fichiers par défaut qui seront sourcés sont : `*.plugin.zsh`, `init.zsh`, `*.zsh-theme`:
 
-URL points to a directory:
+L'URL pointe vers un répertoire :
 
 ```shell {2} showLineNumbers
 zi ice svn
 zi snippet PZT::modules/docker
 ```
 
-## Snippets and Performance
+## Snippets et performance
 
-Using `curl`, `wget`, etc. along with Subversion allows to almost completely avoid code dedicated to Oh-My-Zsh and Prezto, and also to other frameworks. This gives profits in performance of `ZI`, it is really fast and also compact (causing low memory footprint and short loading time).
+L'utilisation de `curl`, `wget`, etc. avec Subversion permet d'éviter presque complètement le code dédié à Oh-My-Zsh et Prezto, ainsi qu'à d'autres frameworks. Cela permet d'améliorer les performances de `ZI`, qui est très rapide et compact (faible empreinte mémoire et temps de chargement court).
 
-## Ice Modifiers
+## Ice modifiers (Modificateurs de glace)
 
-The command `zi ice` provides [ice modifiers][1] for the single next command.
+La commande `zi ice` fournit [ice modificateurs][1] pour la commande unique suivante.
 
-The logic is that "ice" is something that’s added, e.g. to a drink or a coffee, and in the ZI sense this means that ice is a modifier added to the next ZI command, and also something that melts, so it doesn’t last long, – and in the ZI use it means that the modifier lasts for only single next ZI command.
+La logique est que "la glace" est quelque chose qui est ajouté, par exemple à une boisson ou à un café, et dans le sens ZI, cela signifie que la glace est un modificateur ajouté à la prochaine commande ZI, et aussi quelque chose qui fond, donc qui ne dure pas longtemps, - et dans l'utilisation ZI, cela signifie que le modificateur ne dure que pour la prochaine commande ZI unique.
 
-Using one other ice modifier "**pick**" users can explicitly **select the file to source**:
+En utilisant un autre modificateur de glace "**pick**" les utilisateurs peuvent explicitement **sélectionner le fichier à sourcer**:
 
 ```shell {1} showLineNumbers
 zi ice svn pick"init.zsh"
 zi snippet PZT::modules/git
 ```
 
-Content of ice-modifier is simply put into `"…"`, `'…'`, or `$'…'`. No need for `":"` after the ice-mod name (although it's allowed, so as the equal sign `=`, so e.g. `pick="init.zsh"` or `pick=init.zsh` are being correctly recognized).
+Le contenu du modificateur de glace est simplement mis dans `"…"`, `'…'`, ou `$'…'`. Il n'est pas nécessaire d'ajouter `" :"` après le nom de l'ice-mod (bien qu'il soit autorisé, comme le signe égal `=`, donc par exemple `pick="init.zsh"` ou `pick=init.zsh` sont correctement reconnus).
 
-This way editors like `vim` and `emacs` and also `zsh-users/zsh-syntax-highlighting` and `z-shell/F-Sy-H` will highlight contents of ice-modifiers.
+De cette façon, des éditeurs comme `vim` et `emacs` et aussi `zsh-users/zsh-syntax-highlighting` et `z-shell/F-Sy-H` mettront en évidence le contenu des modificateurs de glace.
 
-## About as"program"
+## A propos d'`as"program"`
 
-A plugin might not be a file for sourcing, but a command to be added to `$PATH`. To obtain this effect, use ice-modifier `as` with value `program` (or an alias value `command`).
+Un plugin peut ne pas être un fichier à sourcer, mais une commande à ajouter à `$PATH`. Pour obtenir cet effet, utilisez le modificateur de glace `as` avec la valeur `program` (ou un alias valeur `command`).
 
 ```shell {1} showLineNumbers
 zi ice as"program" cp"httpstat.sh -> httpstat" pick"httpstat"
 zi light b4b4r07/httpstat
 ```
 
-The above command will add plugin directory to `$PATH`, copy file `httpstat.sh` into `httpstat` and add execution rights (`+x`) to the file selected with `pick`, i.e. to `httpstat`. Another ice-mod exists, `mv`, which works like `cp` but **moves** a file instead of **copying** it. `mv` is ran before `cp`.
+La commande ci-dessus ajoutera le répertoire plugin à `$PATH`, copiera le fichier `httpstat.sh` dans `httpstat` et ajoutera des droits d'exécution (`+x`) au fichier sélectionné avec `pick`, c'est-à-dire à `httpstat`. Il existe un autre ice-mod, `mv`, qui fonctionne comme `cp` mais **déplace** un fichier au lieu de **le copier** . `mv` est exécuté avant `cp`.
 
 :::tip
 
-The `cp` and `mv` ices (and also as some other ones, like `atclone`) are being run when the plugin or snippet is being _installed_. To test them again first delete the plugin or snippet (example: `zi delete PZT::modules/osx`).
+Les glaces `cp` et `mv` (et aussi comme d'autres, comme `atclone`) sont en cours d'exécution lorsque le plugin ou l'extrait est en cours d'installation __. Pour les tester à nouveau, supprimez d'abord le plugin ou le snippet (exemple : `zi delete PZT::modules/osx`).
 
 :::
 
-## About - atpull"…"
+## À propos d'atpull"…"
 
-Copying file is safe for doing later updates – original files of the repository are unmodified and `Git` will report no conflicts. However, `mv` also can be used, if a proper `atpull`, an ice–modifier ran at **update** of the plugin, will be used:
+La copie du fichier est sûre pour les mises à jour ultérieures - les fichiers originaux du dépôt ne sont pas modifiés et `Git` ne signalera aucun conflit. Cependant, `mv` peut également être utilisé, si un `atpull`approprié, un modificateur de glace exécuté à **update** du plugin, sera utilisé :
 
 ```shell showLineNumbers
 zi ice as"program" mv"httpstat.sh -> httpstat" \
@@ -167,50 +167,50 @@ Snippets also support `atpull`, so it’s possible to do e.g. `atpull'!svn rever
 
 :::
 
-## Snippets as'…' completions
+## Snippets en tant que'…' complétions (`as'...'`)
 
-By using the `as''` ice modifier with value `completion` you can point the `snippet` subcommand directly to a completion file:
+En utilisant le modificateur de glace `as''` avec la valeur `completion` vous pouvez faire pointer la sous-commande `snippet` directement vers un fichier completion :
 
 ```shell {1} showLineNumbers
 zi ice as"completion"
 zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 ```
 
-## The completion management
+## La gestion des complétions
 
-ZI allows to disable and enable each completion in every plugin. Try installing a popular plugin that provides completions:
+ZI permet de désactiver et d'activer chaque complétion dans chaque plugin. Essayez d'installer un plugin populaire qui fournit des complétions:
 
 ```shell {1} showLineNumbers
 zi ice blockf
 zi light zsh-users/zsh-completions
 ```
 
-The first command, the `blockf` ice, will block the traditional method of adding completions. ZI uses its method, based on symlinks instead of adding several directories to `$fpath`. ZI will automatically **install** completions of a newly downloaded plugin.
+La première commande, le `blockf` ice, bloquera la méthode traditionnelle d'ajout de complétions. ZI utilise sa méthode, basée sur les liens symboliques au lieu d'ajouter plusieurs répertoires à `$fpath`. ZI **installera** automatiquement les complétions d'un plugin nouvellement téléchargé.
 
-To uninstall and install the completions:
+Pour désinstaller et installer les compléments :
 
-- uninstall: `zi cuninstall zsh-users/zsh-completions`
-- install: `zi creinstall zsh-users/zsh-completions`
+- désinstaller : `zi cuninstall zsh-users/zsh-completions`
+- installer: `zi creinstall zsh-users/zsh-completions`
 
-### Listing available completions
+### Liste des complétions disponibles
 
-To see what completions **all** plugins provide, in tabular formatting and with the name of each plugin:
+Pour voir quelles complétions fournissent **tous les plugins** , avec une mise en forme tabulaire et avec le nom de chaque plugin:
 
 ```shell
 zi clist
 ```
 
-This command is specially adapted for plugins like `zsh-users/zsh-completions`, which provide many completions – listing will have `3` completions per line, so that a smaller number of terminal pages will be occupied like this:
+Cette commande est spécialement adaptée pour les plugins tels que `zsh-users/zsh-completions`, qui fournissent plusieurs complétions – la liste aura `3` complétions par ligne, pour qu'un nombre plus petit de pages de terminal soient occupées comme ceci :
 
 ```shell showLineNumbers
 …
 atach, bitcoin-cli, bower zsh-users/zsh-completions
-bundle, caffeinate, cap zsh-users/zsh-completions
+bundle, caféiné, cap zsh-users/zsh-completions
 cask, cf, chattr zsh-users/zsh-completions
 …
 ```
 
-To show more completions per line by providing an **argument** to `clist`, e.g.: `zi clist 6`, will show:
+Pour afficher plus de complétions par ligne en fournissant un argument **** à `clist`, par exemple : `zi clist 6`, affichera :
 
 ```shell showLineNumbers
 …
@@ -220,9 +220,9 @@ console, dad, debuild, dget, dhcpcd, diana zsh-users/zsh-completions
 …
 ```
 
-### Enabling / disabling - completions
+### Activation / désactivation des complétions
 
-Completions can be disabled so that e.g. original Zsh completion will be used. The commands are very basic, they only need completion **name**:
+Les complétions peuvent être désactivées afin que, par exemple, la complétion originale de Zsh soit utilisée. Les commandes sont très basiques, elles n'ont besoin que du nom **de la complétion**:
 
 ```shell {1,3} showLineNumbers
 $ zi cdisable cmake
@@ -231,11 +231,11 @@ $ zi cenable cmake
 Enabled cmake completion belonging to zsh-users/zsh-completions
 ```
 
-That’s all on completions. There’s one more command, `zi csearch`, that will **search** all plugin directories for available completions.
+C'est tout sur les complétions. Il y a une autre commande, `zi csearch`, qui va **rechercher** tous les répertoires de plugins pour les complétions disponibles.
 
-## The subversion for subdirectories
+## Subversion pour les sous-répertoires
 
-In general, to use **subdirectories** of Github projects as snippets add `/trunk/{path-to-dir}` to URL:
+En général, pour utiliser les **sous-répertoires** des projets Github comme les snippets, ajoutez `/trunk/{path-to-dir}` à l'URL :
 
 ```shell showLineNumbers
 zi ice svn
@@ -301,7 +301,7 @@ It can be loaded asynchronously, which makes a huge difference when the amount o
 
 :::note
 
-The `wait` and `wait"0"` is the same
+`wait` et `wait"0"` font la même chose
 
 :::
 
@@ -310,14 +310,14 @@ zi ice wait
 zi load z-shell/history-search-multi-word
 ```
 
-Load after 2 seconds:
+Chargement après 2 secondes :
 
 ```shell showLineNumbers
 zi ice wait"2"
 zi load z-shell/history-search-multi-word
 ```
 
-Also can be used in `light` and `snippet`:
+Peut également être utilisé avec `light` et `snippet`:
 
 ```shell showLineNumbers
 zi ice wait
@@ -378,55 +378,55 @@ zi ice load'![[ $PWD = */tmp* ]]' unload'![[ $PWD != */tmp* ]]' \
 zi load z-shell/zprompts
 ```
 
-Load when NOT in ~/tmp
+Charger lorsqu'IL N'est PAS dans ~ / tmp
 
 ```shell {1} showLineNumbers
 zi ice load'![[ $PWD != */tmp* ]]' unload'![[ $PWD = */tmp* ]]'
 zi load russjohnson/angry-fly-zsh
 ```
 
-Two prompts, each active in different directories. This technique can be used to have plugin-sets, e.g. by defining parameter `$PLUGINS` with possible values like `cpp`, `web`, `admin` and by setting `load` / `unload` conditions to activate different plugins on `cpp`, on `web`, etc.
+Deux invites, chacune active dans des répertoires différents. Cette technique peut être utilisée pour créer des ensembles de plugins, par exemple en définissant le paramètre `$PLUGINS` avec des valeurs possibles comme `cpp`, `web`, `admin` et en définissant les conditions `load` / `unload` pour activer différents plugins sur `cpp`, sur `web`, etc.
 
 :::note
 
-- The difference with `wait` is that `load` / `unload` are constantly active, not only till the first activation. Note that for the unloading of a plugin to work the plugin needs to be loaded with tracking, so `zi load …` and not `zi light …`.
+- La différence avec `wait` est que `load` / `unload` sont constamment actifs, pas seulement jusqu'à la première activation. Notez que pour que le déchargement d'un plugin fonctionne, le plugin doit être chargé avec le suivi, donc `zi load …` et non `zi light …`.
 
-Tracking causes a slight slowdown, however, this doesn’t influence Zsh startup time when using turbo mode.
+Le suivi entraîne un léger ralentissement, cependant, cela n'influence pas le temps de démarrage de Zsh lorsque vous utilisez le mode turbo.
 
 :::
 
-### A Glance at the prompts
+### Un coup d'œil sur les prompts
 
 :::tip
 
-See: [multiple prompts][15] for more information. It contains more real-world examples of a multi-prompt setup, which is being close to what the author uses in his setup.
+Voir : [invites multiples][15] pour plus d'informations. Il contient des exemples plus réels d'une configuration multi-prompts, qui est proche de ce que l'auteur utilise dans son installation.
 
 :::
 
-This is [powerlevel10k][18], [pure][17], [starship][16] sample:
+Il s'agit des exemples [powerlevel10k][18], [pure][17], [starship][16] :
 
-Load powerlevel10k theme.
+Chargez le thème powerlevel10k.
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice depth"1"
 zi light romkatv/powerlevel10k
 ```
 
-Load pure theme
+Chargement du thème pure
 
-- Will pick the `async.zsh` library and will source it.
+- Vous pouvez choisir la bibliothèque `async.zsh` et la sourcez.
 
 ```shell {1} title="~/.zshrc" showLineNumbers
 zi ice pick"async.zsh" src"pure.zsh"
 zi light sindresorhus/pure
 ```
 
-Load starship theme:
+Charger le thème starship:
 
-- will pick `starship` binary as a command, from the GitHub release
-- `starship` setup: `atclone` create `init.zsh` and `completion`
-- `atpull` behavior same as `atclone` and will be used when running `zi update`
-- `src` will source init.zsh
+- choisira le binaire `starhip` comme commande, à partir de la version GitHub
+- `starship` setup : `atclone` create `init.zsh` and `completion`
+- `atpull` comportement identique à celui de `atclone` et sera utilisé lors de l'exécution de `zi update`
+- `src` sera la source de init.zsh
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice as"command" from"gh-r" \
@@ -436,15 +436,15 @@ zi ice as"command" from"gh-r" \
 zi light starship/starship
 ```
 
-## Updates & upgrades
+## Mises à jour
 
-Self update & compile:
+Mise à jour automatique & compilation :
 
 ```shell
 zi self-update
 ```
 
-Update plugins and snippets:
+Mise à jour des plug-ins et des snippets:
 
 ```shell
 zi update --all
@@ -452,57 +452,57 @@ zi update --reset
 zi update --quiet
 ```
 
-Update plugins or snippets:
+Mise à jour des plug-ins ou des snippets:
 
 ```shell
 zi update --plugins
 zi update --snipets
 ```
 
-Update specific plugin. Default is GitHub but can specify any with ice [from'…'][2]:
+Mettre à jour un plug-in spécifique. La valeur par défaut est GitHub mais vous pouvez en spécifier une autre avec ice [from'…'][2]:
 
 ```shell
 zi update <user>/<repo>
 ```
 
-Plugin parallel update plugins:
+Mise à jour en parallèle des plugins :
 
 ```shell
 zi update --parallel
 ```
 
-Increase the number of jobs in a concurrent set to 40
+Augmenter le nombre de tâches dans un ensemble simultané à 40
 
 ```shell
 zi update --parallel 40
 ```
 
-### More examples on common use cases
+### Plus d'exemples sur les cas d'utilisation courants
 
-Load the pure theme, with the **zsh-async** library that's bundled with it.
+Chargez le thème pur, avec la bibliothèque **zsh-async** qui lui est associée.
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice pick"async.zsh" src"pure.zsh"
 zi light sindresorhus/pure
 ```
 
-Binary release in the archive, from GitHub-releases page. After automatic unpacking, it provides the program "fzf".
+Version binaire dans l'archive, depuis la page GitHub-releases. Après décompression automatique, il fournit le programme "fzf".
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice from"gh-r" as"program"
 zi light junegunn/fzf
 ```
 
-One other binary release needs renaming from `docker-compose-Linux-x86_64`. This can be done by [ice modifier][1]: `mv'{from} -> {to}'`.
+Une autre version binaire doit être renommée de `docker-compose-Linux-x86_64`. Ceci peut être fait par le [modificateur de glace][1]: `mv'{from} -> {to}'`.
 
-There are multiple packages per single version, for OS X, Linux, and Windows – so ice modifier `bpick` is used to select Linux package – in this case, this is not needed, ZI will grep operating system name and architecture automatically when there's no `bpick`.
+Il y a plusieurs paquets par version unique, pour OS X, Linux et Windows - ainsi le modificateur de glace `bpick` est utilisé pour sélectionner le paquet Linux - dans ce cas, ce n'est pas nécessaire, ZI va grep le nom du système d'exploitation et l'architecture automatiquement quand il n'y a pas `bpick`.
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*"
 zi load docker/compose
 ```
 
-Vim repository on GitHub – a typical source code that needs compilation, ZI can manage it for you if you like, run `./configure` and other `make` stuff. Ice-modifier `pick` selects a binary program to add to $PATH. You could also install the package under the path $ZPFX.
+Dépôt Vim sur GitHub - un code source typique qui nécessite une compilation, ZI peut la gérer pour vous si vous le souhaitez, exécutez `./configure` et `make`. Le modificateur de glace `pick` sélectionne un programme binaire à ajouter au $PATH. Vous pouvez également installer le paquet sous le chemin $ZPFX.
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
@@ -510,24 +510,24 @@ zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
 zi light vim/vim
 ```
 
-Scripts that are built at install
+Scripts qui sont construits lors de l'installation
 
-> There's single default make target, "install", and it constructs scripts.
+> Il y a une seule cible make par défaut, "install", et elle construit des scripts.
 
-The `make''` ice could also be: `make"install PREFIX=$ZPFX"`, if "install" wouldn't be the only, default target.
+La glace `make''` pourrait également être : `make "install PREFIX=$ZPFX"`, si "install" n'était pas la seule cible par défaut.
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
 zi light tj/git-extras
 ```
 
-Handle completions without loading any plugin, see `clist` command. This one is to be run just once, in an interactive session.
+Gère les complétions sans charger de plugin, voir la commande `clist` . Celui-ci ne doit être exécuté qu'une seule fois, lors d'une session interactive.
 
 ```shell title="~/.zshrc"
 zi creinstall %HOME/my_completions
 ```
 
-For GNU ls the binaries can be gls, gdircolors, but not on OS X when installing the coreutils package from Homebrew.
+Pour GNU ls les binaires peuvent être gls, gdircolors, mais pas sur OS X lors de l'installation du paquet coreutils de Homebrew.
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice atclone"dircolors -b LS_COLORS > c.zsh" \
@@ -535,7 +535,7 @@ zi ice atclone"dircolors -b LS_COLORS > c.zsh" \
 zi light trapd00r/LS_COLORS
 ```
 
-`make'!'` -> run make before `atclone` & `atpull`.
+`fais'!'` -> exécuter make avant `atclone` & `atpull`.
 
 ```shell showLineNumbers
 zi ice as"program" make'!' \
@@ -544,9 +544,9 @@ zi ice as"program" make'!' \
 zi light direnv/direnv
 ```
 
-If you are interested to try out more then check out the [playground repository][19] where users have uploaded the `~/.zshrc` and other ZI configurations. Feel free to [submit][20] your `~/.zshrc` there if it contains ZI commands.
+Si vous souhaitez en essayer davantage, consultez le dépôt [playground][19] où les utilisateurs ont téléchargé le fichier `~/.zshrc` et d'autres configurations ZI. N'hésitez pas à [soumettre][20] votre `~/.zshrc` là s'il contient des commandes ZI.
 
-Additional examples: [collection][10].
+Exemples supplémentaires : [collection][10].
 
 [1]: /search?q=ice+modifiers
 
