@@ -31,7 +31,7 @@ const features = [
     Svg: turboSvg,
     description: (
       <Translate
-        id="home.fetaure1"
+        id="home.feature1"
         description="Description of first featured banner in homepage"
       >
         Instant prompt postponing plugins loading to a moment when the
@@ -48,7 +48,7 @@ const features = [
     Svg: statsSvg,
     description: (
       <Translate
-        id="home.fetaure2"
+        id="home.feature2"
         description="Description of second featured banner in homepage"
       >
         Statistics about the plugins, describing what functions, bindkeys,
@@ -65,7 +65,7 @@ const features = [
     Svg: createSvg,
     description: (
       <Translate
-        id="home.fetaure3"
+        id="home.feature3"
         description="Description of third featured banner in homepage"
       >
         Supports Oh-My-Zsh and Prezto - not framework-specific. Produce your

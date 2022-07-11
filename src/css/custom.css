@@ -75,14 +75,14 @@ html[data-theme='light'] {
 }
 
 .footer--dark {
-  --ifm-footer-background-color: #161b22;
+  --ifm-footer-background-color: #2b3137;
   --ifm-footer-color: var(--ifm-footer-link-color);
   --ifm-footer-link-color: var(--ifm-color-secondary);
   --ifm-footer-title-color: var(--ifm-color-white);
 }
 
 .footer--dark a[href] {
-  color: #1e8ad6;
+  color: #62aee4;
 }
 
 .footer--dark a[href]:hover {
