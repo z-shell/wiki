@@ -27,10 +27,10 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "0.0.0-5189",
-    "@docusaurus/plugin-ideal-image": "0.0.0-5189",
-    "@docusaurus/plugin-pwa": "0.0.0-5189",
-    "@docusaurus/preset-classic": "0.0.0-5189",
+    "@docusaurus/core": "0.0.0-5195",
+    "@docusaurus/plugin-ideal-image": "0.0.0-5195",
+    "@docusaurus/plugin-pwa": "0.0.0-5195",
+    "@docusaurus/preset-classic": "0.0.0-5195",
     "@loadable/babel-plugin": "5.13.2",
     "@loadable/component": "5.15.2",
     "@mdx-js/react": "1.6.22",
@@ -44,8 +44,8 @@
   },
   "devDependencies": {
     "@babel/core": "7.18.6",
-    "@docusaurus/eslint-plugin": "0.0.0-5189",
-    "@docusaurus/module-type-aliases": "0.0.0-5189",
+    "@docusaurus/eslint-plugin": "0.0.0-5195",
+    "@docusaurus/module-type-aliases": "0.0.0-5195",
     "@tsconfig/docusaurus": "1.0.6",
     "@typescript-eslint/eslint-plugin": "5.30.5",
     "@typescript-eslint/parser": "5.30.5",
