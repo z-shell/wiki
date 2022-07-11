@@ -23,6 +23,7 @@ body:
       label: Which locale the issue is related?
       options:
         - label: English
+        - label: French
         - label: Japanese
         - label: Chinese
         - label: Korean
