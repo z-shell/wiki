@@ -31,22 +31,22 @@
     "@docusaurus/plugin-ideal-image": "0.0.0-5189",
     "@docusaurus/plugin-pwa": "0.0.0-5189",
     "@docusaurus/preset-classic": "0.0.0-5189",
-    "@loadable/component": "5.15.2",
     "@loadable/babel-plugin": "5.13.2",
+    "@loadable/component": "5.15.2",
     "@mdx-js/react": "1.6.22",
     "asciinema-player": "3.0.1",
     "clsx": "1.2.1",
     "husky": "8.0.1",
     "prism-react-renderer": "1.3.5",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-spinners": "0.13.3"
   },
   "devDependencies": {
     "@babel/core": "7.18.6",
+    "@docusaurus/eslint-plugin": "0.0.0-5189",
     "@docusaurus/module-type-aliases": "0.0.0-5189",
     "@tsconfig/docusaurus": "1.0.6",
-    "typescript": "4.7.4",
-    "@docusaurus/eslint-plugin": "0.0.0-5189",
     "@typescript-eslint/eslint-plugin": "5.30.5",
     "@typescript-eslint/parser": "5.30.5",
     "eslint": "8.19.0",
@@ -59,7 +59,8 @@
     "stylelint": "14.9.1",
     "stylelint-config-prettier": "9.0.3",
     "stylelint-config-standard": "26.0.0",
-    "stylelint-csstree-validator": "2.0.0"
+    "stylelint-csstree-validator": "2.0.0",
+    "typescript": "4.7.4"
   },
   "packageManager": "pnpm@7.5.0",
   "pnpm": {

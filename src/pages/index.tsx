@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, CSSProperties } from 'react';
+import ClipLoader from 'react-spinners/ClipLoader';
 import baseLoad from '@loadable/component';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -6,8 +7,29 @@ import Translate, { translate } from '@docusaurus/Translate';
 import Link from '@docusaurus/Link';
 import styles from './index.module.css';
 
+const override: CSSProperties = {
+  display: 'block',
+  margin: '0 auto',
+  borderColor: 'white',
+};
+
+function Spinner() {
+  const loading = useState(true);
+  const color = useState('#ffffff');
+  return (
+    <div className="sweet-loading">
+      <ClipLoader
+        color={color}
+        loading={loading}
+        cssOverride={override}
+        size={320}
+      />
+    </div>
+  );
+}
+
 function loadable(func) {
-  return baseLoad(func, { fallback: <div>Loading...</div> });
+  return baseLoad(func, { fallback: <Spinner /> });
 }
 
 const AsciinemaPlayer = loadable(
