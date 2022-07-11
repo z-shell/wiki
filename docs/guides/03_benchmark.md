@@ -110,7 +110,7 @@ The next time your `.zshrc` is sourced it will generate 2 files in the `$HOME` d
 
 ### Method 2
 
-Store multiple values to a variable.
+Store multiple values to a variable:
 
 ```shell title="~/.zshrc" showLineNumbers
 # Set variable
@@ -134,7 +134,7 @@ zmsg "Loaded something else"
 zmsg "Done"
 ```
 
-Then user variable retrieve the stored values
+Then use the `$ZLOGS` variable to retrieve:
 
 ```shell showLineNumbers
 ❯ echo $ZLOGS
