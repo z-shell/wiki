@@ -10,10 +10,10 @@ import styles from './index.module.css';
 const override: CSSProperties = {
   display: 'block',
   margin: '0 auto',
-  borderColor: 'white',
+  color: 'var(--ifm-color-primary)',
 };
 
-function Spinner() {
+function Spinner(): JSX.Element {
   const loading = useState(true);
   const color = useState('#ffffff');
   return (
@@ -22,13 +22,13 @@ function Spinner() {
         color={color}
         loading={loading}
         cssOverride={override}
-        size={320}
+        size={420}
       />
     </div>
   );
 }
 
-function loadable(func) {
+function loadable(func): JSX.Element {
   return baseLoad(func, { fallback: <Spinner /> });
 }
 
@@ -91,7 +91,7 @@ function FeaturesContainer(): JSX.Element {
   );
 }
 
-function HeroBanner() {
+function HeroBanner(): JSX.Element {
   return (
     <div className={styles.hero} data-theme="dark">
       <div className={styles.heroInner}>

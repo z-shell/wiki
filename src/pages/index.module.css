@@ -54,7 +54,7 @@
 }
 
 div[class^='announcementBarContent'] {
-  line-height: 32px;
+  line-height: 18px;
   font-size: 14px;
   font-weight: bold;
   padding: 6px 24px;
@@ -102,7 +102,7 @@ div[class^='announcementBarContent'] a:hover {
 @media only screen and (max-width: 500px) {
   div[class^='announcementBarContent'] {
     font-size: 12px;
-    line-height: 20px;
+    line-height: 24px;
     padding: 4px 32px;
   }
 }
