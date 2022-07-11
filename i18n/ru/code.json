@@ -43,6 +43,14 @@
     "message": "Пожалуйста, обратитесь к владельцу сайта, с которого вы перешли на эту ссылку, чтобы сообщить ему, что ссылка не работает.",
     "description": "The 2nd paragraph of the 404 page"
   },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "Закрыть",
+    "description": "The ARIA label for close button of announcement bar"
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "Прокрутка к началу",
+    "description": "The ARIA label for the back to top button"
+  },
   "theme.admonition.note": {
     "message": "note",
     "description": "The default label used for the Note admonition (:::note)"
@@ -62,14 +70,6 @@
   "theme.admonition.caution": {
     "message": "caution",
     "description": "The default label used for the Caution admonition (:::caution)"
-  },
-  "theme.AnnouncementBar.closeButtonAriaLabel": {
-    "message": "Закрыть",
-    "description": "The ARIA label for close button of announcement bar"
-  },
-  "theme.BackToTopButton.buttonAriaLabel": {
-    "message": "Прокрутка к началу",
-    "description": "The ARIA label for the back to top button"
   },
   "theme.blog.archive.title": {
     "message": "Архив",

@@ -1,4 +1,12 @@
 {
+  "homepage.video.heading.1": {
+    "message": "⚡ Rapide et riche en fonctionnalités",
+    "description": "The homepage video conatainer heading 1"
+  },
+  "homepage.video.heading.2": {
+    "message": "✨ Soigné et flexible",
+    "description": "The homepage video container heading 2"
+  },
   "homepage.feature1.title": {
     "message": "Démarrage Zsh 50 à 80% plus rapide",
     "description": "Title of feature 1 (left) on the home page"
@@ -43,6 +51,14 @@
     "message": "Veuillez contacter le propriétaire du site qui vous a lié à l'URL d'origine et leur faire savoir que leur lien est cassé.",
     "description": "The 2nd paragraph of the 404 page"
   },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "Fermer",
+    "description": "The ARIA label for close button of announcement bar"
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "Retour au début de la page",
+    "description": "The ARIA label for the back to top button"
+  },
   "theme.admonition.note": {
     "message": "remarque",
     "description": "The default label used for the Note admonition (:::note)"
@@ -62,14 +78,6 @@
   "theme.admonition.caution": {
     "message": "attention",
     "description": "The default label used for the Caution admonition (:::caution)"
-  },
-  "theme.AnnouncementBar.closeButtonAriaLabel": {
-    "message": "Fermer",
-    "description": "The ARIA label for close button of announcement bar"
-  },
-  "theme.BackToTopButton.buttonAriaLabel": {
-    "message": "Retour au début de la page",
-    "description": "The ARIA label for the back to top button"
   },
   "theme.blog.archive.title": {
     "message": "Archive",

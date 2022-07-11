@@ -1,7 +1,7 @@
 ---
 title: '♻️ Migration'
 image: img/logo/320x320.png
-description: Migration guide
+description: Guide de migration
 keywords:
   - configuration
   - prezto
@@ -11,7 +11,7 @@ keywords:
 
 ## Oh-My-Zsh
 
-### OMZ Shorthand Syntax
+### Syntaxe abrégée OMZ
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet <URL>        # Raw Syntax with URL
@@ -21,32 +21,32 @@ zi snippet OMZT::<PATH> # Shorthand OMZ/themes/   (http://github.com/ohmyzsh/ohm
 zi snippet OMZP::<PATH> # Shorthand OMZ/plugins/  (http://github.com/ohmyzsh/ohmyzsh/raw/master/plugins)
 ```
 
-### OMZ Library
+### Bibliothèque OMZ
 
 Importing the [clipboard][1] and [termsupport][2] from the OMZ library sample:
 
-Raw Syntax:
+Syntaxe brute :
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh
 ```
 
-OMZ Shorthand Syntax:
+Syntaxe abrégée OMZ:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZ::lib/clipboard.zsh
 zi snippet OMZ::lib/termsupport.zsh
 ```
 
-OMZL Shorthand Syntax:
+Syntaxe abrégée OMZ:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZL::clipboard.zsh
 zi snippet OMZL::termsupport.zsh
 ```
 
-### OMZ Plugins
+### Plug-ins OMZ
 
 ```diff title="~/.zshrc" showLineNumbers
 - plugins=(
@@ -64,21 +64,21 @@ zi snippet OMZL::termsupport.zsh
 + zi snippet OMZP::ruby
 ```
 
-Example of more advanced, conditional turbo loading:
+Exemple de chargement turbo conditionnel plus avancé:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi is-snippet wait lucid for \
     atload"unalias grv g" \
-  OMZP::{git,sudo,encode64,extract} \
+  OMZP::{git,sudo,encode64, xtract} \
     if'[[ -d /opt/google-cloud-sdk ]]' \
   OMZP::gcloud \
     if'[[ -f /etc/os-release ]] && source /etc/os-release && [[ "$ID" = arch ]]' \
   OMZP::archlinux \
-    if'[[ -d ~/.nvm ]]' \
+    if'[[ -d ~/. vm ]]' \
   OMZP::nvm \
-    if'[[ -d ~/.ssh ]]' \
+    if'[[-d ~/. sh ]]' \
   OMZP::ssh-agent \
-    if'[[ -d ~/.gnupg ]]' \
+    if'[[-d ~/. nupg ]]' \
   OMZP::gpg-agent \
     if'[[ "$OSTYPE" = *-gnu ]]' \
   OMZP::gnu-utils \
@@ -90,13 +90,13 @@ zi is-snippet wait lucid for \
 
 :::tip
 
-Bundle the example above to a single file:
+Regroupez l'exemple ci-dessus dans un seul fichier :
 
 `zi snippet <some/path/or/url/bundled-snippets.zsh`
 
 :::
 
-Use `zi ice svn` if multiple files require an entire subdirectory.
+Utilisez `zi ice svn` si plusieurs fichiers nécessitent un sous-répertoire entier.
 
 - [gitfast][4]
 - [osx][5]
@@ -113,100 +113,100 @@ zi ice svn
 zi snippet OMZP::history-substring-search
 ```
 
-Use `zi ice as"completion"` to directly add single file completion snippets.
+Utilisez `zi ice as "completion"` pour ajouter directement des extraits de complétion de fichier unique.
 
 - [docker][6]
 - [fd][7]
 - [ag][19]
 
 ```shell title="~/.zshrc" showLineNumbers
-zi ice as"completion"
+zi ice as "completion"
 zi snippet OMZP::docker/_docker
 
-zi ice as"completion"
+zi ice as "completion"
 zi snippet OMZP::fd/_fd
 
-zi ice as"completion"
+zi ice as "completion"
 zi snippet OMZP::ag/_ag
 ```
 
-### OMZ Themes
+### Thèmes OMZ
 
-Themes are stored in the `themes` directory. All and loaded in the background. with the simple syntax:
+Les thèmes sont stockés dans le répertoire `themes` . Tout est chargé en arrière-plan. avec une syntaxe simple :
 
 ```shell title="~/.zshrc"
 ZSH_THEME="robbyrussell"
 ```
 
-However, ZI doesn't support the `ZSH_THEME` variable natively.
+Cependant, ZI ne prend pas en charge la variable `ZSH_THEME` de manière native.
 
-To use **themes** created for OMZ, it requires loading shown below as it would be the same as OMZ does in the background.
+Pour utiliser les thèmes **** créés pour OMZ, il faut procéder au chargement indiqué ci-dessous car il serait le même que celui d'OMZ dans le fond .
 
-> Some themes may require additional configuration it can be determined from the theme configuration file.
+> Certains thèmes peuvent nécessiter une configuration supplémentaire ; celle-ci peut être déterminée à partir du fichier de configuration du thème.
 
-- Load `Git` library
-- Load `Git` plugin
-- Load library dependencies
-- Enable `setopt promptsubst`
+- Charger la bibliothèque `Git`
+- Charger le plug-in `Git`
+- Charger les dépendances de la bibliothèque
+- Activer `setopt promptsubst`
 
-If any of the above are not in order or missing, the theme will break similar as shown below:
+Si l'un des éléments ci-dessus n'est pas dans l'ordre ou est manquant, le thème se brisera comme indiqué ci-dessous :
 
 ```shell
 … $(build_prompt) …
 ```
 
-If the `Git` library is not loaded or loaded in the wrong order, then it may appear similar to the following:
+Si la bibliothèque `Git` n'est pas chargée ou si elle est chargée dans le mauvais ordre, le message peut ressembler à ce qui suit :
 
 ```shell showLineNumbers
-........:1: command not found: git_prompt_status
-........:1: command not found: git_prompt_short_sha
+........:1: Commande introuvable: git_prompt_status
+........:1: Commande introuvable: git_prompt_short_sha
 ```
 
-If you encounter any issue with the theme, OMZ support libraries are to be loaded
+Si vous rencontrez un problème avec le thème, les bibliothèques de support OMZ doivent être chargées
 
-- If your theme isn't colored when it should, you will want to load `theme-and-appearance.zsh`
+- Si votre thème ne se colore pas comme il le devrait, vous devrez charger `theme-and-appearance.zsh`
 
-- If you encounter an error message similar to:
+- Si vous rencontrez un message d'erreur similaire à :
 
 ```shell showLineNumbers
-zsh: command not found: ruby_prompt_info
+zsh : commande non trouvée : ruby_prompt_info
 ```
 
-You need to load `prompt_info_functions.zsh`
+Vous devez charger `prompt_info_functions.zsh`
 
-All together it looks like this:
+L'ensemble ressemble à ceci :
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZL::git.zsh
 zi snippet OMZP::git
 zi snippet OMZL::theme-and-appearance.zsh
 zi snippet OMZL::prompt_info_functions.zsh
-# Other libraries that might be needed
+# Autres bibliothèques qui pourraient être nécessaires
 zi cdclear -q
 ```
 
-Then load the prompt:
+Chargez ensuite l'invite :
 
 ```shell showLineNumbers
 setopt promptsubst
 zi snippet OMZT::robbyrussell
 ```
 
-### External theme sample: [NicoSantangelo/Alpharized][3]
+### Exemple de thème externe : [NicoSantangelo/Alpharized][3]
 
-Load with OMZ:
+Chargez avec OMZ :
 
 ```shell title="~/.zshrc"
 ZSH_THEME="alpharized"
 ```
 
-Load with ZI:
+Chargement avec ZI :
 
 ```shell title="~/.zshrc"
 zi snippet OMZL::git.zsh
 ```
 
-Load `Git` plugin from OMZ:
+Charger le plug-in `Git`:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZP::git
@@ -217,60 +217,60 @@ setopt promptsubst
 zi light NicoSantangelo/Alpharized
 ```
 
-## Prezto basics
+## Principes de base de Prezto
 
-Raw Syntax with URL:
+Syntaxe brute avec URL :
 
 ```shell title="~/.zshrc"
 zi snippet <URL>
 ```
 
-Shorthand PZT: <https://github.com/sorin-ionescu/prezto/tree/master/>
+Abréviation PZT : <https://github.com/sorin-ionescu/prezto/tree/master/>
 
 ```shell title="~/.zshrc"
 zi snippet PZT::<PATH>
 ```
 
-Shorthand PZT/modules:
+Abréviation de PZT/modules :
 
 ```shell title="~/.zshrc"
 zi snippet PZTM::<PATH>
 ```
 
-### Prezto modules
+### Modules Prezto
 
-Importing the [environment][9] and [terminal][10] Prezto Modules Sample:
+Importation de l'environnement [][9] et du terminal [][10] Exemple de modules Prezto :
 
-Prezto Setting:
+Paramètre Prezto:
 
 ```shell title="~/.zshrc" showLineNumbers
-zstyle ':prezto:load' pmodule 'environment' 'terminal'
+zstyle ":prezto:load" pmodule "environnement" "terminal"
 ```
 
-ZI Setting:
+Réglage ZI:
 
-> Import raw syntax from URL.
+> Importer les données à partir d'une URL.
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet https://github.com/sorin-ionescu/prezto/blob/master/modules/environment/init.zsh
 zi snippet https://github.com/sorin-ionescu/prezto/blob/master/modules/terminal/init.zsh
 ```
 
-PZT Shorthand Syntax:
+Syntaxe abrégée PZT:
 
 ```shell title="~/.zshrc" showLineNumbers
-zi snippet PZT::modules/environment
+zi snippet PZT::modules/environnement
 zi snippet PZT::modules/terminal
 ```
 
-PZTM Shorthand Syntax:
+Syntaxe sténographique PZTM :
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet PZTM::environment
 zi snippet PZTM::terminal
 ```
 
-Use `zi ice svn` if multiple files require an entire subdirectory.
+Utilisez `zi ice svn` si plusieurs fichiers nécessitent un sous-répertoire entier.
 
 - [docker][11]
 - [git][12]
@@ -283,16 +283,16 @@ zi ice svn
 zi snippet PZTM::git
 ```
 
-Use `zi ice as"null"` if don't exist `*.plugin.zsh`, `init.zsh`, `*.zsh-theme*` files in module.
+Utilisez `zi ice as"null"` si n'existe pas `*.plugin.zsh`, `init.zsh`, `*.zsh-theme*` fichiers dans module.
 
 - [archive][13]:
 
 ```shell title="~/.zshrc" showLineNumbers
-zi ice svn as"null"
+zi ice svn as "null"
 zi snippet PZTM::archive
 ```
 
-Use `zi ice atclone"git clone <repo> <location>"` if module have external module.
+Utilisez `zi ice atclone "git clone <repo> <location>"` si le module a un module externe.
 
 - [completion][14]:
 
@@ -414,6 +414,8 @@ For the `location`: refer [selection of files][17]
 [6]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
 [7]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fd
 [9]: https://github.com/sorin-ionescu/prezto/tree/master/modules/environment
+[9]: https://github.com/sorin-ionescu/prezto/tree/master/modules/environment
+[10]: https://github.com/sorin-ionescu/prezto/tree/master/modules/terminal
 [10]: https://github.com/sorin-ionescu/prezto/tree/master/modules/terminal
 [11]: https://github.com/sorin-ionescu/prezto/tree/master/modules/docker
 [12]: https://github.com/sorin-ionescu/prezto/tree/master/modules/git
