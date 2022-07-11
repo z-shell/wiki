@@ -3,31 +3,25 @@ import clsx from 'clsx';
 import Translate, { translate } from '@docusaurus/Translate';
 import styles from './styles.module.css';
 
-/** type FeatureItem = {
-  title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
-  description: JSX.Element;
-}; */
-
 const turboSvg = () => (
-  <span className="fa-8x">
+  <span className="fa-6x">
     <i className="fa-solid fa-forward" />
   </span>
 );
 
 const statsSvg = () => (
-  <span className="fa-10x">
+  <span className="fa-8x">
     <i className="fa-solid fa-ranking-star" />
   </span>
 );
 
 const createSvg = () => (
-  <span className="fa-8x">
+  <span className="fa-6x">
     <i className="fa-solid fa-layer-group" />
   </span>
 );
 
-const FeatureList = [
+const features = [
   {
     title: translate({
       id: 'homepage.feature1.title',
@@ -86,15 +80,15 @@ function HomeFeatures(): JSX.Element {
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map(({ title, Svg, description }, idx) => (
+          {features.map(({ title, Svg, description }, idx) => (
             <div key={idx} className={clsx('col col--4', styles.features)}>
-              <div className="text--center">
-                <Svg role="img" alt={title} />
-              </div>
-              <div className="text--center padding-horiz--md">
-                <h3>{title}</h3>
-                <p>{description}</p>
-              </div>
+              {Svg && (
+                <div className={styles.featureimage}>
+                  <Svg role="img" alt={title} />
+                </div>
+              )}
+              <h3>{title}</h3>
+              <p>{description}</p>
             </div>
           ))}
         </div>

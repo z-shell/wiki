@@ -1,10 +1,15 @@
 .features {
+  text-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
   padding: 4rem 0;
 }
 
-.description {
-  width: 500px;
-  height: 500px;
+.featureimage {
+  display: inline;
+  height: 200px;
+  width: 200px;
 }
 
 @media screen and (max-width: 966px) {
