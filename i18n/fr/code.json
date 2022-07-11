@@ -1,25 +1,25 @@
 {
   "homepage.video.heading.1": {
-    "message": "⚡ Fast and feature-rich",
+    "message": "⚡ Rapide et riche en fonctionnalités",
     "description": "The homepage video conatainer heading 1"
   },
   "homepage.video.heading.2": {
-    "message": "✨ Neat and flexible",
+    "message": "✨ Soigné et flexible",
     "description": "The homepage video container heading 2"
   },
   "Community": {
     "message": "Communauté"
   },
   "homepage.feature1.title": {
-    "message": "Zsh Startup 50-80% Faster",
+    "message": "Démarrage Zsh 50 à 80% plus rapide",
     "description": "Title of feature 1 (left) on the home page"
   },
   "homepage.feature2.title": {
-    "message": "Focus on What Matters",
+    "message": "Concentrez-vous sur ce qui compte",
     "description": "Title of feature 2 (middle) on the home page"
   },
   "homepage.feature3.title": {
-    "message": "Wide Range of Features",
+    "message": "Large éventail de fonctionnalités",
     "description": "Title of feature 3 (right) on the home page"
   },
   "theme.ErrorPageContent.title": {
