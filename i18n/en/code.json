@@ -7,11 +7,24 @@
     "message": "✨ Neat and flexible",
     "description": "The homepage video container heading 2"
   },
+  "ZI logo": {
+    "message": "ZI logo"
+  },
+  "homepage.hero.title": {
+    "message": "A <b>Swiss Army</b> Knife  for <b>Zsh</b> unix <b>Shell</b>",
+    "description": "Home page hero title, can contain simple html tags"
+  },
+  "Get Started": {
+    "message": "Get Started"
+  },
+  "Community": {
+    "message": "Community"
+  },
   "homepage.feature1.title": {
     "message": "Zsh Startup 50-80% Faster",
     "description": "Title of feature 1 (left) on the home page"
   },
-  "home.fetaure1": {
+  "home.feature1": {
     "message": "Instant prompt postponing plugins loading to a moment when the processing of .zshrc file is finished.",
     "description": "Description of first featured banner in homepage"
   },
@@ -19,7 +32,7 @@
     "message": "Focus on What Matters",
     "description": "Title of feature 2 (middle) on the home page"
   },
-  "home.fetaure2": {
+  "home.feature2": {
     "message": "Statistics about the plugins, describing what functions, bindkeys, completions, and other elements a plugin has set up.",
     "description": "Description of second featured banner in homepage"
   },
@@ -27,7 +40,7 @@
     "message": "Wide Range of Features",
     "description": "Title of feature 3 (right) on the home page"
   },
-  "home.fetaure3": {
+  "home.feature3": {
     "message": "Supports Oh-My-Zsh and Prezto - not framework-specific. Produce your plugins, libraries, and themes effortlessly.",
     "description": "Description of third featured banner in homepage"
   },
@@ -51,14 +64,6 @@
     "message": "Please contact the owner of the site that linked you to the original URL and let them know their link is broken.",
     "description": "The 2nd paragraph of the 404 page"
   },
-  "theme.AnnouncementBar.closeButtonAriaLabel": {
-    "message": "Close",
-    "description": "The ARIA label for close button of announcement bar"
-  },
-  "theme.BackToTopButton.buttonAriaLabel": {
-    "message": "Scroll back to top",
-    "description": "The ARIA label for the back to top button"
-  },
   "theme.admonition.note": {
     "message": "note",
     "description": "The default label used for the Note admonition (:::note)"
@@ -78,6 +83,14 @@
   "theme.admonition.caution": {
     "message": "caution",
     "description": "The default label used for the Caution admonition (:::caution)"
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "Close",
+    "description": "The ARIA label for close button of announcement bar"
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "Scroll back to top",
+    "description": "The ARIA label for the back to top button"
   },
   "theme.blog.archive.title": {
     "message": "Archive",
