@@ -202,6 +202,13 @@ zi ice lucid wait as'completion' blockf mv'git-completion.zsh -> _git'
 zi snippet https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh
 ```
 
+### COMP: [bun-sh](https://github.com/oven-sh/bun/blob/main/completions/bun.zsh)
+
+```shell showLineNumbers
+zi ice lucid wait as'completion' blockf  has'bun'
+zi snippet https://github.com/oven-sh/bun/blob/main/completions/bun.zsh
+```
+
 ### COMP: Local
 
 ```shell showLineNumbers
