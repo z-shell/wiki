@@ -253,25 +253,25 @@ zi ice svn
 zi snippet PZT::modules/docker
 ```
 
-## Turbo Mode (Zsh >= 5.3)
+## Mode turbo (Zsh >= 5.3)
 
-The ice-modifier `wait` allows the user to postpone the loading of a plugin to the moment when the processing of `.zshrc` is finished and the first prompt is being shown.
+Le modificateur de glace `wait` permet à l'utilisateur de reporter le chargement d'un plug-in au moment où le traitement de `.zshrc` est terminé et que la première invite est affichée.
 
-It is like Windows – during startup, it shows desktop even though it still loads data in the background. This has drawbacks but is for sure better than a blank screen for 10 minutes. And here, in ZI, there are no drawbacks of this approach – no lags, freezes, etc. – the command line is fully usable while the plugins are being loaded, for any number of plugins.
+C'est comme Windows - au démarrage, il affiche le bureau même s'il charge encore des données en arrière-plan. Cela présente des inconvénients mais c'est assurément mieux qu'un écran vide pendant 10 minutes. Et ici, dans ZI, il n'y a aucun inconvénient de cette approche - pas de lags, de freezes, etc. - la ligne de commande est entièrement utilisable pendant le chargement des plugins, pour n'importe quel nombre de plugins.
 
 :::info
 
-Turbo will speed up Zsh startup by **50%–80%**. For example, instead of 200 ms, it'll be 40 ms.
+Turbo accélérera le démarrage de Zsh de **50%-80%**. Par exemple, au lieu de 200 ms, ce sera 40 ms.
 
 :::
 
 :::note
 
-Zsh 5.3 or greater is required.
+Zsh 5.3 ou supérieur est requis.
 
 :::
 
-To use this turbo mode add `wait` ice to the target plugin in one of the following ways:
+Pour utiliser ce mode turbo, ajoutez `wait` ice au plugin cible de l'une des manières suivantes:
 
 ```shell {2} showLineNumbers
 PS1="READY > "
@@ -279,25 +279,25 @@ zi ice wait'!0'
 zi load halfo/lambda-mod-zsh-theme
 ```
 
-This sets plugin `halfo/lambda-mod-zsh-theme` to be loaded `0` seconds after `zshrc`. It will fire up after c.a. 1 ms of showing the basic prompt `READY >`.
+Ceci définit le plugin `halfo/lambda-mod-zsh-theme` pour être chargé `0` secondes après `zshrc`. Il s'incendiera après le c.a. 1 ms d'affichage de l'invite de base `READY >`.
 
-You probably won't load the prompt in such a way, however, it is a good example in which Turbo can be directly observed. The exclamation mark causes ZI to reset the prompt after loading the plugin – it is needed for themes. The same with Prezto prompts, with a longer delay:
+Vous ne chargerez probablement pas l'invite de cette manière, mais c'est un bon exemple dans lequel Turbo peut être directement observé. Le point d'exclamation fait en sorte que ZI réinitialise l'invite après le chargement du plugin - il est nécessaire pour les thèmes. Il en va de même pour les invites Prezto, avec un délai plus long :
 
 ```shell showLineNumbers
 zi ice svn silent wait'!1' atload'prompt smiley'
 zi snippet PZT::modules/prompt
 ```
 
-Using `zsh-users/zsh-autosuggestions` without any drawbacks:
+Utilisation de `zsh-users/zsh-autosuggestions` sans aucun inconvénient :
 
 ```shell showLineNumbers
 zi ice wait lucid atload'_zsh_autosuggest_start'
 zi light zsh-users/zsh-autosuggestions
 ```
 
-### Turbo wait - the key to performance
+### Turbo en attente - la clé de la performance
 
-It can be loaded asynchronously, which makes a huge difference when the amount of plugins increases. Usually used as `zi ice wait"<SECONDS>"`.
+Il peut être chargé de manière asynchrone, ce qui fait une énorme différence lorsque la quantité de plugins augmente. Généralement utilisé comme `zi ice wait"<SECONDS>"`.
 
 :::note
 
@@ -326,27 +326,27 @@ zi snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
 
 ### Turbo & lucid
 
-Turbo and lucid are the most used options, because turbo mode is verbose, may require and option for quiet and this can be achieved with the `lucid`.
+Turbo et lucide sont les options les plus utilisées, car le mode turbo est verbeux, peut nécessiter une option pour le silence et ceci peut être réalisé avec `lucid`.
 
 ```shell showLineNumbers
 zi ice wait lucid
 zi load z-shell/history-search-multi-word
 ```
 
-## Turbo with sophisticated prompts
+## Turbo avec des invites sophistiquées
 
-For some, mostly advanced themes the initialization of the prompt is being done in a `precmd`-hook, i.e.; in a function that's gets called before each prompt. The hook is installed by the [add-zsh-hook][12] Zsh function by adding its name to the `$precmd_functions` array.
+Pour certains thèmes, principalement les thèmes avancés, l'initialisation de l'invite est effectuée dans un `precmd`-hook, c'est-à-dire dans une fonction qui est appelée avant chaque invite. Le hook est installé par la fonction Zsh [add-zsh-hook][12] en ajoutant son nom au tableau `$precmd_functions` .
 
-To make the prompt fully initialized after Turbo loading in the middle of the prompt the same situation as with the `zsh-autosuggestions` plugin, the hook should be called from `atload''` ice`.
+Pour que le prompt soit complètement initialisé après le chargement de Turbo au milieu du prompt, la même situation qu'avec le plugin `zsh-autosuggestions` , le hook doit être appelé à partir de `atload''` ice`.
 
-First, find the name of the hook function by examining the `$precmd_functions` array. For example, for the `robobenklein/zinc` theme, they'll be two functions: `prompt_zinc_setup` and `prompt_zinc_precmd`:
+Tout d'abord, trouvez le nom de la fonction hook en examinant le tableau `$precmd_functions` . Par exemple, pour le thème `robobenklein/zinc` , il y aura deux fonctions : `prompt_zinc_setup` et `prompt_zinc_precmd`:
 
 ```shell showLineNumbers
 root@user > ~ > print $precmd_functions < ✔ < 22:21:33
 _zsh_autosuggest_start prompt_zinc_setup prompt_zinc_precmd
 ```
 
-Then, add them to the ice-list in the `atload''` ice:
+Ensuite, ajoutez-les à la liste des glaces avec la glace `atload''` :
 
 ```shell {2} showLineNumbers
 zi ice wait'!' lucid nocd \
@@ -354,23 +354,23 @@ zi ice wait'!' lucid nocd \
 zi load robobenklein/zinc
 ```
 
-The exclamation mark in `atload'!…'` is to track the functions allowing the plugin to be unloaded, as described [here][11]. It might be useful for the multi-prompt setup described next.
+Le point d'exclamation dans `atload ' !…'` est pour suivre les fonctions permettant de décharger le plugin, comme décrit [ici][11]. Il peut être utile pour la configuration à plusieurs invites décrite ci-dessous.
 
-### Summary of turbo mode
+### Récapitulatif du mode turbo
 
-Autosuggestions use the `precmd` hook, which is being called right after processing `zshrc` – `precmd` hooks are being called **right before displaying each prompt**.
+Les autosuggestions utilisent le hook `precmd` , qui est appelé juste après le traitement `zshrc` - `precmd` les hooks sont appelés **juste avant l'affichage de chaque invite**.
 
-Turbo with the empty `wait` ice will postpone the loading `1` ms after that, so `precmd` will not be called at that first prompt. This makes autosuggestions inactive at the first prompt.
+Le turbo avec le vide `wait` ice reportera le chargement de `1` ms après, donc `precmd` ne sera pas appelé à cette première invite. Cela rend les autosuggestions inactives à la première invite.
 
-**However** the given `atload` ice-modifier fixes this, it calls the same function that `precmd` would, right after loading autosuggestions, resulting in the same behavior of the plugin.
+**Cependant,** le modificateur de glace `atload` corrige cela, il appelle la même fonction que `precmd` le ferait, juste après le chargement des autosuggestions, ce qui entraîne le même comportement du plugin.
 
-The ice `lucid` causes the under-prompt message saying `Loaded zsh-users/zsh-autosuggestions` that normally appears for every Turbo-loaded plugin to not show.
+La glace `lucid` fait que le message sous l'invite disant `Loaded zsh-users/zsh-autosuggestions` qui apparaît normalement pour chaque plugin ne s'affiche pas.
 
-## Automatic condition based - load & unload
+## Chargement basé sur la condition automatique & déchargement
 
-Ices `load` and `unload` allow defining when you want plugins active or inactive:
+Les glaces `load` et `unload` permettent de définir quand vous voulez que les plugins soient actifs ou inactifs :
 
-Load when in ~/tmp
+Charger quand dans ~/tmp
 
 ```shell {1} showLineNumbers
 zi ice load'![[ $PWD = */tmp* ]]' unload'![[ $PWD != */tmp* ]]' \
