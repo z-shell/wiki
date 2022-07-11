@@ -1,15 +1,20 @@
 import React from 'react';
 import clsx from 'clsx';
-import loadable from '@loadable/component';
+import baseLoad from '@loadable/component';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import HomeFeatures from '@site/src/components/HomeFeatures';
 import Translate from '@docusaurus/Translate';
 import styles from './index.module.css';
 
+function loadable(func) {
+  return baseLoad(func, { fallback: <div>Loading...</div> });
+}
+
 const AsciinemaPlayer = loadable(
-  () =>
-    import(/* webpackPrefetch: true */ '@site/src/components/AsciinemaPlayer')
+  () => import('@site/src/components/AsciinemaPlayer')
+);
+const HomeFeatures = loadable(
+  () => import('@site/src/components/HomeFeatures')
 );
 
 function FeaturesContainer(): JSX.Element {
