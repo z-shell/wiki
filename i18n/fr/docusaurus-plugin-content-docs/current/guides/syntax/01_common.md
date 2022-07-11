@@ -192,7 +192,7 @@ zi --wait=1 --from=gh-r --atload="print Hello World"
 zi load …
 ```
 
-## <i class="fa-solid fa-book-bookmark"></i> Summary {#summary}
+## <i class="fa-solid fa-book-bookmark"></i> Récapitulatif {#summary}
 
 It's up to the user which syntax to choose.
 

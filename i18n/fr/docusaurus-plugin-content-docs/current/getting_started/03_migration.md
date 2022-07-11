@@ -23,7 +23,7 @@ zi snippet OMZP::<PATH> # Shorthand OMZ/plugins/  (http://github.com/ohmyzsh/ohm
 
 ### Bibliothèque OMZ
 
-Importing the [clipboard][1] and [termsupport][2] from the OMZ library sample:
+Importation du [presse-papiers][1] et [termsupport][2] à partir de l'échantillon de la bibliothèque OMZ:
 
 Syntaxe brute :
 
@@ -294,7 +294,7 @@ zi snippet PZTM::archive
 
 Utilisez `zi ice atclone "git clone <repo> <location>"` si le module a un module externe.
 
-- [completion][14]:
+- [complétion][14]:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice svn blockf \
@@ -302,20 +302,20 @@ zi ice svn blockf \
 zi snippet PZTM::completion
 ```
 
-Use `blockf` to prevent any unnecessary additions to fpath, as ZI manages fpath.
+Utilisez `blockf` pour empêcher tout ajout inutile à fpath, car ZI gère fpath.
 
 :::tip
 
-What is `zstyle`?
+Qu'est-ce que `zstyle`?
 
-- Official (zsh.sourceforge.net): [zstyle][15]
-- StackExchange: [What does `zstyle` do?][16]
+- Officiel (zsh.sourceforge.net) : [zstyle][15]
+- StackExchange : [Que fait `zstyle` ?][16]
 
 :::
 
 ## Zgen
 
-### Load OMZ library
+### Charger la bibliothèque OMZ
 
 ```diff title="~/.zshrc" showLineNumbers
 - zgen oh-my-zsh
@@ -323,7 +323,7 @@ What is `zstyle`?
 + zi snippet OMZL::<ANY OF THEM>
 ```
 
-### Load OMZ plugins
+### Charger les plugins OMZ
 
 ```diff title="~/.zshrc" showLineNumbers
 - zgen oh-my-zsh <PATH>
@@ -331,7 +331,7 @@ What is `zstyle`?
 + zi snippet OMZP::<PATH>
 ```
 
-### Load Prezto modules
+### Charger les modules Prezto
 
 ```diff title="~/.zshrc" showLineNumbers
 - zgen prezto
@@ -339,7 +339,7 @@ What is `zstyle`?
 + zi snippet PZTM::<ANY FROM LIST BELOW>
 ```
 
-- environment
+- environnement
 - terminal
 - editor
 - history
@@ -352,10 +352,10 @@ What is `zstyle`?
 ```diff title="~/.zshrc" showLineNumbers
 - zgen prezto <modulename>
 
-+ zi snippet PZTM::<modulename>
++ zi snippet PZTM: :<modulename>
 ```
 
-Load repositories as prezto plugins:
+Chargez les dépôts en tant que plugins prezto :
 
 ```diff title="~/.zshrc" showLineNumbers
 - zgen pmodule <reponame> <branch>
@@ -364,11 +364,11 @@ Load repositories as prezto plugins:
 + zi load <repo/plugin>
 ```
 
-### Summarized Zgen
+### Résumé de Zgen
 
 :::info
 
-For the `location`: refer [selection of files][17]
+Pour l' `emplacement`: voir [sélection des fichiers][17]
 
 :::
 
@@ -379,7 +379,7 @@ For the `location`: refer [selection of files][17]
 + zi load <repo>
 ```
 
-## Zplug Basics
+## Les Bases de Zplug
 
 ```diff title="~/.zshrc" showLineNumbers
 - zplug <repo/plugin>, tag1:<option1>, tag2:<option2>
@@ -388,7 +388,7 @@ For the `location`: refer [selection of files][17]
 + zi load <repo/plugin>
 ```
 
-### Tag comparison
+### Comparaison des tags
 
 - `as` => `as`
 - `use` => `pick`, `src`, `multisrc`
@@ -406,8 +406,8 @@ For the `location`: refer [selection of files][17]
 - `lazy` => `autoload`
 - `depth` => `depth`
 
-[1]: https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
-[2]: https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh
+[1]: https://github. com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
+[2]: https://github. com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh
 [3]: https://github.com/nicosantangelo/Alpharized
 [4]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/gitfast
 [5]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/osx
@@ -420,7 +420,7 @@ For the `location`: refer [selection of files][17]
 [11]: https://github.com/sorin-ionescu/prezto/tree/master/modules/docker
 [12]: https://github.com/sorin-ionescu/prezto/tree/master/modules/git
 [13]: https://github.com/sorin-ionescu/prezto/tree/master/modules/archive
-[14]: https://github.com/sorin-ionescu/prezto/tree/master/modules/completion
+[14]: https://github. com/sorin-ionescu/prezto/tree/master/modules/completion
 [15]: http://zsh.sourceforge.net/Doc/Release/Zsh-Modules.html#The-zsh_002fzutil-Module
 [16]: https://unix.stackexchange.com/questions/214657/what-does-zstyle-do
 [17]: /docs/guides/syntax/ice#src-pick-multisrc

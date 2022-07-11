@@ -1,58 +1,58 @@
 ---
-title: '☑️ General Overview'
+title: '☑️ Aperçu général'
 image: img/logo/320x320.png
-description: Overview of use cases with ZI
+description: Aperçu des cas d'utilisation avec ZI
 keywords:
   - overview
 ---
 
-This overview will cover basics for:
+Cet aperçu couvrira les éléments de base pour :
 
 1. [Oh-My-Zsh & Prezto](/search?q=Oh+My+Zsh+%26+Prezto)
-2. [Completions](/search?q=completions)
-3. [Turbo mode](/search?q=turbo+mode)
-4. [Ice modifiers](/search?q=ice+modifiers)
+2. [Complétions](/search?q=completions)
+3. [Mode turbo](/search?q=turbo+mode)
+4. [Ice modifiers (Modificateurs de glace)](/search?q=ice+modifiers)
 
-## Plugin and snippet loading
+## Chargement des plugins et des snippets
 
 ```shell showLineNumbers
 zi load z-shell/H-S-MW
 zi light zsh-users/zsh-syntax-highlighting
 ```
 
-The above commands show two ways of basic plugin loading. If you want to source local or remote files (using direct URL), you can do so with `snippet`.
+Les commandes ci-dessus montrent deux façons de charger un plugin de base. Si vous voulez sourcer des fichiers locaux ou distants (en utilisant une URL directe), vous pouvez le faire avec le snippet ``.
 
 ```shell
 zi snippet <URL>
 ```
 
-Such lines should be added to `.zshrc`. Snippets are cached locally, use the `-f` option to download a fresh version of a snippet, or `zi update {URL}`. Use `zi update --all` to update all snippets and plugins.
+De telles lignes doivent être ajoutées à `.zshrc`. Les snippets sont mis en cache localement, utilisez l'option `-f` pour télécharger une version fraîche d'un snippet, ou `zi update {URL}`. Utilisez `zi update --all` pour mettre à jour tous les snippets et plugins.
 
-Using `load` causes reporting to be enabled – you can track what plugin does, view the information with `zi report {plugin-name}` and then also unload the plugin with `zi unload {plugin-name}`.
+L'utilisation de `load` entraîne l'activation du reporting - vous pouvez suivre ce que fait le plugin, afficher les informations avec `zi report {plugin-name}` et ensuite également décharger le plugin avec `zi unload {plugin-name}`.
 
-Using `light` is a significantly faster loading without tracking and reporting, by using which user resigns of the ability to view the plugin report and to unload it.
+L'utilisation de `light` est un chargement nettement plus rapide sans suivi ni rapport, en utilisant lequel l'utilisateur renonce à la possibilité de voir le rapport du plugin et de le décharger.
 
-Using `load` or `light`.
+Utilisation de `load` ou `light`.
 
 ```shell showLineNumbers
-zi load  <repo/plugin> # Load with reporting/investigating.
-zi light <repo/plugin> # Load without reporting/investigating.
+zi load  <repo/plugin> # Chargement avec rapport/enquête.
+zi light <repo/plugin> # Chargement sans rapport/enquête.
 ```
 
-Plugin history-search-multi-word loaded with investigating:
+Plug-in de recherche historique multi-mots chargé avec enquête:
 
 ```shell
 zi load z-shell/H-S-MW
 ```
 
-Two regular plugins loaded without investigating:
+Deux plugins ordinaires ont été chargés sans enquête :
 
 ```shell showLineNumbers
 zi light zsh-users/zsh-autosuggestions
 zi light z-shell/F-Sy-H
 ```
 
-Snippet:
+Extrait:
 
 ```shell
 zi snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
@@ -60,13 +60,13 @@ zi snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
 
 :::note
 
-In Turbo mode the slowdown caused by tracking is negligible...
+En mode Turbo, le ralentissement causé par le suivi est négligeable...
 
 :::
 
 ## Oh-My-Zsh, Prezto
 
-To load Oh-My-Zsh and Prezto plugins, use the `snippet` feature. Snippets are single files downloaded by `curl`, `wget`, etc., automatic detection of the download tool is being performed, directly from the URL:
+Pour charger les plugins Oh-My-Zsh et Prezto, utilisez la fonction `snippet` . Snippets are single files downloaded by `curl`, `wget`, etc., automatic detection of the download tool is being performed, directly from the URL:
 
 ```shell showLineNumbers
 zi snippet 'https://github.com/robbyrussell/oh-my-zsh/raw/master/plugins/git/git.plugin.zsh'
