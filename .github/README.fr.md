@@ -11,14 +11,10 @@
     Z-Shell Wiki
   </h2>
 <h3>
-  <a href="https://github.com/orgs/z-shell/discussions/">《❔》Ask a Question </a>
-  <a href="https://z.digitalclouds.dev/search/">《💡》Search Wiki </a>
+  <a href="https://github.com/orgs/z-shell/discussions/">《❔ Poser une question</a>
+  <a href="https://z.digitalclouds.dev/search/">《💡》Rechercher sur le Wiki </a>
   <a href="https://github.com/z-shell/community/issues/new?assignees=&labels=%F0%9F%91%A5+member&template=membership.yml&title=team%3A+">《💜》Join </a>
-  <a href="https://digitalclouds.crowdin.com/z-shell/">《🌐》Localize </a>
-</h3>
-<h3>
-<kbd><a href="https://github.com/z-shell/zw/blob/main/.github/README.fr.md"><img title="Française" alt="Française" src="https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/fr.svg" width="22"></a></kbd>
-<kbd><a href="https://github.com/z-shell/zw/blob/main/.github/README.md"><img title="English (UK)" alt="English" src="https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/gb.svg" width="22"></a></kbd>
+  <a href="https://digitalclouds.crowdin.com/z-shell/">《🌐》Traduire </a>
 </h3>
   </td></tr>
 <tr>
@@ -75,24 +71,25 @@
  </tr>
  <tr><td align="left">
   <hr />
- <h2 align="left">Project assistance</h2>
- <p> If you want to say <b>thank you</b> or/and support the active development.</p>
- <p> - Add a <a href="https://github.com/z-shell/zi">GitHub Star</a> to the project, and follow <a href="https://github.com/z-shell">Z-Shell</a> organization. </p>
- <p> - Write interesting articles about the project on: <br />
-  <a href="https://dev.to/">Dev.to</a>, <a href="https://medium.com/">Medium.com</a>, <a href="https://news.ycombinator.com/news">Hacker News</a>, <a href="https://community.ops.io/zsh">Community.ops.io</a>, <a href="https://www.reddit.com/r/zsh/">Reddit</a>, <a href="https://twitter.com/zshell_zi">Twitter</a> or your blog. Let us know so can share your post, especially if it's in other languages or some interesting zshrc configurations </p>
- <p> Participate in the community by showing the <a href="https://github.com/z-shell/community/issues/new?assignees=&labels=%F0%9F%91%A5+member&template=membership.yml&title=team%3A+">interst</a> to the project, as it may bring us together, then great things may happen. If you would like to participate, but are not sure about what and how - do not hesitate to contact us so we can discuss the situation 👍. We've all been there, we all had to start from something - together is much easier, just need to do the first step 🚀. </p>
+ <h2 align="left">Assistance</h2>
+ <p> Si vous voulez dire <b>merci</b> ou/et supporter le développement.</p>
+ <p> - Ajouter une <a href="https://github.com/z-shell/zi">étoile GitHub</a> au projet et suivez l'organisation <a href="https://github.com/z-shell">Z-Shell</a></p>
+ <p> - Ecrivez des articles interessant sur: <br />
+  <a href="https://dev.to/">Dev.to</a>, <a href="https://medium.com/">Medium.com</a>, <a href="https://news.ycombinator.com/news">Hacker News</a>, <a href="https://community.ops.io/zsh">Community.ops.io</a>, <a href="https://www.reddit.com/r/zsh/">Reddit</a>, <a href="https://twitter.com/zshell_zi">Twitter</a> ou sur votre blog. Faites-le nous savoir afin de pouvoir partager votre message, surtout s'il est dans d'autres langues ou dans des configurations zshrc intéressantes </p>
+ <p> Participez à la communauté en montrant votre <a href="https://github.com/z-shell/community/issues/new?assignees=&labels=%F0%9F%91%A5+member&template=membership.yml&title=team%3A+">intêret</a> au projet, comme cela peut nous rapprocher, alors de grandes choses peuvent se produire. Si vous souhaitez participer, mais n'êtes pas sûr de quoi et comment - n'hésitez pas à nous contacter afin que nous puissions discuter de la situation 👍. Nous sommes tous passés par là, nous avons tous dû commencer par quelque chose - ensemble, c'est beaucoup plus facile, il suffit de faire le premier pas 🚀.</p>
  <hr />
- <h2 align="left">Security</h2>
- <p> - Z-Shell ZI follows good practices of security, but 100% security cannot be assured.</p>
- <p> - Z-Shell ZI is provided <bold>"as is"</bold> without any <bold>warranty</bold>. Use at your own risk. </p>
- <p> - For more information and to report security issues, please refer to our <a href="https://github.com/z-shell/zi/blob/main/docs/SECURITY.md">security documentation</a>.</p>
+ <h2 align="left">Securité</h2>
+ <p> - Z-Shell ZI suit les bonnes pratiques de sécurité, mais la sécurité à 100% ne peut être assurée.</p>
+ <p> - Z-Shell ZI est fournis <bold>"tel quel"</bold> sans aucunes <bold>garantis</bold>. Utilisez le à votre risque. </p>
+ <p> - Pour plus d'informations et pour signaler des problèmes de sécurité, veuillez consulter notre<a href="https://github.com/z-shell/zi/blob/main/docs/SECURITY.md">documentation</a>.</p>
  <hr />
- <h2 align="left">Acknowledgements</h2>
- <p> The <a href="https://github.com/z-shell">Z-Shell</a> organization was created to recover the <a href="https://github.com/zdharma">Zdharma</a> organization which was deleted by the owner for an unknown reason. It took a lot of time and offer for all those who liked the project and were depending on it don't want to depend on an unreliable source. </p>
- <p> <a href="https://github.com/z-shell/zi">ZI</a>, formerly known as zplugin, zinit, is an open-source community project released under the <a href="https://github.com/z-shell/zi/blob/main/LICENSE">MIT License</a>.</p>
+ <h2 align="left">Remerciements</h2>
+ <p> L'organisation <a href="https://github.com/z-shell">Z-Shell</a> a été crée pour récupérer l'organisation <a href="https://github.com/zdharma">Zdharma</a> qui a été supprimé par le propriétaire pour une raison inconnue. Cela a pris beaucoup de temps et d'offre pour tous ceux qui ont aimé le projet et qui en dépendaient ne veulent pas dépendre d'une source peu fiable. </p>
+ <p> <a href="https://github.com/z-shell/zi">ZI</a>, anciennement connu sous le nom de zplugin, zinit, est un projet communautaire open source publié sous la
+ <a href="https://github.com/z-shell/zi/blob/main/LICENSE">MIT License</a>.</p>
 <hr />
-<h2 align="left">Authors & contributors</h2>
- <p> Check the list of authors and contributors in this <a href="https://github.com/z-shell/zi/contributors">repository</a> and also all other repositories under <a href="https://github.com/z-shell">Z-Shell</a> organization. We will inlclude all showning the interest or dedicated their time to take a part.
+<h2 align="left">Auteurs & contributeurs</h2>
+ <p> Consultez la liste des auteurs et contributeurs dans ce <a href="https://github.com/z-shell/zi/contributors">dépot</a> et aussi dans tous les dépots de l'organisation <a href="https://github.com/z-shell">Z-Shell</a>. Nous inclurons tous ceux qui manifestent de l'intérêt ou consacrent leur temps à participer.
  </p>
  </td>
  </tr><tr><td align="center">
