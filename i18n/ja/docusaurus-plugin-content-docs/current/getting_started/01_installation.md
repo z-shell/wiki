@@ -195,7 +195,7 @@ typeset -g ZI_MOD_DEBUG=1
 
 ### Installer
 
-| Service        | URL                                                                       |
+| サービス           | URL                                                                       |
 |:-------------- | ------------------------------------------------------------------------- |
 | [Redirect][1]: | <https://get.zshell.dev>                                                  |
 | [IPFS][2]      | <https://ipfs.zshell.dev/sh/install.sh>                                   |
@@ -203,7 +203,7 @@ typeset -g ZI_MOD_DEBUG=1
 
 ### Loader
 
-| Service        | URL                                                                      |
+| サービス           | URL                                                                      |
 |:-------------- | ------------------------------------------------------------------------ |
 | [Redirect][3]: | <https://init.zshell.dev>                                                |
 | [IPFS][2]      | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |

@@ -1,35 +1,26 @@
 {
   "homepage.video.heading.1": {
-    "message": "⚡ Rapide et riche en fonctionnalités",
+    "message": "⚡ Fast and feature-rich",
     "description": "The homepage video conatainer heading 1"
   },
   "homepage.video.heading.2": {
-    "message": "✨ Soigné et flexible",
+    "message": "✨ Neat and flexible",
     "description": "The homepage video container heading 2"
   },
+  "Community": {
+    "message": "Communauté"
+  },
   "homepage.feature1.title": {
-    "message": "Démarrage Zsh 50 à 80% plus rapide",
+    "message": "Zsh Startup 50-80% Faster",
     "description": "Title of feature 1 (left) on the home page"
   },
-  "home.fetaure1": {
-    "message": "Instant prompt postponing plugins loading to a moment when the processing of .zshrc file is finished.",
-    "description": "Description of first featured banner in homepage"
-  },
   "homepage.feature2.title": {
-    "message": "Concentrez-vous sur ce qui compte",
+    "message": "Focus on What Matters",
     "description": "Title of feature 2 (middle) on the home page"
   },
-  "home.fetaure2": {
-    "message": "Statistiques sur les plugins, décrivant quelles fonctions, bindkeys, complétions et autres éléments un plugin a mis en place.",
-    "description": "Description of second featured banner in homepage"
-  },
   "homepage.feature3.title": {
-    "message": "Large éventail de fonctionnalités",
+    "message": "Wide Range of Features",
     "description": "Title of feature 3 (right) on the home page"
-  },
-  "home.fetaure3": {
-    "message": "Prend en charge Oh-My-Zsh et Prezto - non spécifique au framework. Produisez vos plugins, bibliothèques et thèmes sans effort.",
-    "description": "Description of third featured banner in homepage"
   },
   "theme.ErrorPageContent.title": {
     "message": "Cette page a planté.",
@@ -51,14 +42,6 @@
     "message": "Veuillez contacter le propriétaire du site qui vous a lié à l'URL d'origine et leur faire savoir que leur lien est cassé.",
     "description": "The 2nd paragraph of the 404 page"
   },
-  "theme.AnnouncementBar.closeButtonAriaLabel": {
-    "message": "Fermer",
-    "description": "The ARIA label for close button of announcement bar"
-  },
-  "theme.BackToTopButton.buttonAriaLabel": {
-    "message": "Retour au début de la page",
-    "description": "The ARIA label for the back to top button"
-  },
   "theme.admonition.note": {
     "message": "remarque",
     "description": "The default label used for the Note admonition (:::note)"
@@ -78,6 +61,14 @@
   "theme.admonition.caution": {
     "message": "attention",
     "description": "The default label used for the Caution admonition (:::caution)"
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "Fermer",
+    "description": "The ARIA label for close button of announcement bar"
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "Retour au début de la page",
+    "description": "The ARIA label for the back to top button"
   },
   "theme.blog.archive.title": {
     "message": "Archive",
@@ -213,10 +204,6 @@
   "theme.common.skipToMainContent": {
     "message": "Aller au contenu principal",
     "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
-  },
-  "theme.tags.tagsListLabel": {
-    "message": "Tags :",
-    "description": "The label alongside a tag list"
   },
   "theme.blog.sidebar.navAriaLabel": {
     "message": "Navigation article de blog récent",
@@ -362,7 +349,7 @@
     "description": "The help text for error screen of search modal"
   },
   "theme.SearchModal.footer.selectText": {
-    "message": "pour sélectionner",
+    "message": "sélectionner",
     "description": "The explanatory text of the action for the enter key"
   },
   "theme.SearchModal.footer.selectKeyAriaLabel": {
@@ -370,11 +357,11 @@
     "description": "The ARIA label for the Enter key button that makes the selection"
   },
   "theme.SearchModal.footer.navigateText": {
-    "message": "pour naviguer",
+    "message": "naviguer",
     "description": "The explanatory text of the action for the Arrow up and Arrow down key"
   },
   "theme.SearchModal.footer.navigateUpKeyAriaLabel": {
-    "message": "flèche vers le haut",
+    "message": "Flèche vers le haut",
     "description": "The ARIA label for the Arrow up key button that makes the navigation"
   },
   "theme.SearchModal.footer.navigateDownKeyAriaLabel": {
@@ -382,7 +369,7 @@
     "description": "The ARIA label for the Arrow down key button that makes the navigation"
   },
   "theme.SearchModal.footer.closeText": {
-    "message": "pour fermer",
+    "message": "fermer",
     "description": "The explanatory text of the action for Escape key"
   },
   "theme.SearchModal.footer.closeKeyAriaLabel": {

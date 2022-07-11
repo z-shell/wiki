@@ -24,7 +24,7 @@ At a simple level, a plugin:
 
    2.1 The first point allows plugins to provide completions and functions that are loaded via Zsh’s `autoload` mechanism (a single function per file).
 
-3. From a more broad perspective, a plugin consists of:
+3. より広い観点からは見ると、プラグインは次のもので構成されています:
 
    3.1. a directory containing various files (the main script, autoload functions, completions, Makefiles, backend programs, documentation).
 
@@ -53,9 +53,9 @@ Then `${0:h}` to get the plugin’s directory.
 
 The one-line code above will:
 
-1. Be backward-compatible with normal `$0` setting and usage.
+1. 通常の `$0` の設定や使用方法と後方互換性があります。
 
-2. Use `ZERO` if it’s not empty,
+2. ゼロが空でない場合は `ZERO` を使用します。
 
    2.1. the plugin manager will be easily able to alter effective `$0` before loading a plugin,
 

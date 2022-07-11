@@ -1,27 +1,4 @@
 {
-  "homepage.video.heading.1": {
-    "message": "⚡ Fast and feature-rich",
-    "description": "The homepage video conatainer heading 1"
-  },
-  "homepage.video.heading.2": {
-    "message": "✨ Neat and flexible",
-    "description": "The homepage video container heading 2"
-  },
-  "Community": {
-    "message": "Community"
-  },
-  "homepage.feature1.title": {
-    "message": "Zsh Startup 50-80% Faster",
-    "description": "Title of feature 1 (left) on the home page"
-  },
-  "homepage.feature2.title": {
-    "message": "Focus on What Matters",
-    "description": "Title of feature 2 (middle) on the home page"
-  },
-  "homepage.feature3.title": {
-    "message": "Wide Range of Features",
-    "description": "Title of feature 3 (right) on the home page"
-  },
   "theme.ErrorPageContent.title": {
     "message": "此頁已當機。",
     "description": "The title of the fallback page when the page crashed"

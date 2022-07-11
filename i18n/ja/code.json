@@ -1,33 +1,21 @@
 {
-  "homepage.video.heading.1": {
-    "message": "⚡ Fast and feature-rich",
-    "description": "The homepage video conatainer heading 1"
-  },
-  "homepage.video.heading.2": {
-    "message": "✨ Neat and flexible",
-    "description": "The homepage video container heading 2"
-  },
   "Community": {
-    "message": "Community"
+    "message": "コミュニティ"
   },
   "homepage.feature1.title": {
-    "message": "Zsh Startup 50-80% Faster",
+    "message": "Zshの起動を50-80%高速化",
     "description": "Title of feature 1 (left) on the home page"
   },
   "homepage.feature2.title": {
-    "message": "Focus on What Matters",
+    "message": "大事なことに集中する",
     "description": "Title of feature 2 (middle) on the home page"
   },
-  "homepage.feature3.title": {
-    "message": "Wide Range of Features",
-    "description": "Title of feature 3 (right) on the home page"
-  },
   "theme.ErrorPageContent.title": {
-    "message": "This page crashed.",
+    "message": "ページがクラッシュしました。",
     "description": "The title of the fallback page when the page crashed"
   },
   "theme.ErrorPageContent.tryAgain": {
-    "message": "Try again",
+    "message": "やり直す",
     "description": "The label of the button to try again when the page crashed"
   },
   "theme.NotFound.title": {
@@ -42,36 +30,24 @@
     "message": "このページにリンクしているサイトの所有者に連絡をしてリンクが壊れていることを伝えてください。",
     "description": "The 2nd paragraph of the 404 page"
   },
-  "theme.admonition.note": {
-    "message": "note",
-    "description": "The default label used for the Note admonition (:::note)"
-  },
   "theme.admonition.tip": {
     "message": "tip",
     "description": "The default label used for the Tip admonition (:::tip)"
   },
-  "theme.admonition.danger": {
-    "message": "danger",
-    "description": "The default label used for the Danger admonition (:::danger)"
-  },
   "theme.admonition.info": {
     "message": "info",
     "description": "The default label used for the Info admonition (:::info)"
-  },
-  "theme.admonition.caution": {
-    "message": "caution",
-    "description": "The default label used for the Caution admonition (:::caution)"
   },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
     "message": "閉じる",
     "description": "The ARIA label for close button of announcement bar"
   },
   "theme.BackToTopButton.buttonAriaLabel": {
-    "message": "Scroll back to top",
+    "message": "ページトップへ戻る",
     "description": "The ARIA label for the back to top button"
   },
   "theme.blog.archive.title": {
-    "message": "Archive",
+    "message": "アーカイブ",
     "description": "The page & hero title of the blog archive page"
   },
   "theme.blog.archive.description": {
@@ -115,27 +91,19 @@
     "description": "The label of the link targeting the tag list page"
   },
   "theme.colorToggle.ariaLabel": {
-    "message": "Switch between dark and light mode (currently {mode})",
+    "message": "ダークモードとライトモードの切り替え(現在は {mode})",
     "description": "The ARIA label for the navbar color mode toggle"
   },
   "theme.colorToggle.ariaLabel.mode.dark": {
-    "message": "dark mode",
+    "message": "ダークモード",
     "description": "The name for the dark color mode"
   },
   "theme.colorToggle.ariaLabel.mode.light": {
-    "message": "light mode",
+    "message": "ライトモード",
     "description": "The name for the light color mode"
   },
-  "theme.docs.breadcrumbs.home": {
-    "message": "Home page",
-    "description": "The ARIA label for the home page in the breadcrumbs"
-  },
-  "theme.docs.breadcrumbs.navAriaLabel": {
-    "message": "Breadcrumbs",
-    "description": "The ARIA label for the breadcrumbs"
-  },
   "theme.docs.DocCard.categoryDescription": {
-    "message": "{count} items",
+    "message": "{count} 件",
     "description": "The default description for a category card in the generated index about how many items this category includes"
   },
   "theme.docs.paginator.navAriaLabel": {
@@ -151,15 +119,15 @@
     "description": "The label used to navigate to the next doc"
   },
   "theme.docs.tagDocListPageTitle.nDocsTagged": {
-    "message": "One doc tagged|{count} docs tagged",
+    "message": "このタグのドキュメント1件 | このタグのドキュメント {count} 件",
     "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
   "theme.docs.tagDocListPageTitle": {
-    "message": "{nDocsTagged} with \"{tagName}\"",
+    "message": "「{tagName}」が{nDocsTagged} あります",
     "description": "The title of the page for a docs tag"
   },
   "theme.docs.versionBadge.label": {
-    "message": "Version: {versionLabel}"
+    "message": "バージョン: {versionLabel}"
   },
   "theme.docs.versions.unreleasedVersionLabel": {
     "message": "これはリリース前の{siteTitle} {versionLabel}のドキュメントです。",
@@ -198,7 +166,7 @@
     "description": "The sentence used to display when a page has been last updated, and by who"
   },
   "theme.navbar.mobileVersionsDropdown.label": {
-    "message": "Versions",
+    "message": "バージョン",
     "description": "The label for the navbar versions dropdown on mobile view"
   },
   "theme.common.skipToMainContent": {
@@ -210,7 +178,7 @@
     "description": "The label alongside a tag list"
   },
   "theme.blog.sidebar.navAriaLabel": {
-    "message": "Blog recent posts navigation",
+    "message": "最近のブログ記事",
     "description": "The ARIA label for recent posts in the blog sidebar"
   },
   "theme.CodeBlock.copied": {
@@ -225,20 +193,16 @@
     "message": "コピー",
     "description": "The copy button label on code blocks"
   },
-  "theme.CodeBlock.wordWrapToggle": {
-    "message": "Toggle word wrap",
-    "description": "The title attribute for toggle word wrapping button of code block lines"
-  },
   "theme.DocSidebarItem.toggleCollapsedCategoryAriaLabel": {
-    "message": "Toggle the collapsible sidebar category '{label}'",
+    "message": "サイドバーのカテゴリー \"{label}\" を折りたたむ/開く",
     "description": "The ARIA label to toggle the collapsible sidebar category"
   },
   "theme.navbar.mobileLanguageDropdown.label": {
-    "message": "Languages",
+    "message": "言語",
     "description": "The label for the mobile language switcher dropdown"
   },
   "theme.TOCCollapsible.toggleButtonLabel": {
-    "message": "On this page",
+    "message": "目次",
     "description": "The label used by the button on the collapsible TOC component"
   },
   "theme.blog.post.readMore": {
@@ -246,7 +210,7 @@
     "description": "The label used in blog post item excerpts to link to full blog posts"
   },
   "theme.blog.post.readMoreLabel": {
-    "message": "Read more about {title}",
+    "message": "{title} について詳しく見る",
     "description": "The ARIA label for the link to full blog posts from excerpts"
   },
   "theme.blog.post.readingTime.plurals": {
@@ -262,7 +226,7 @@
     "description": "The title attribute for collapse button of doc sidebar"
   },
   "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
-    "message": "← Back to main menu",
+    "message": "← メインメニューに戻る",
     "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
   },
   "theme.docs.sidebar.expandButtonTitle": {
@@ -274,7 +238,7 @@
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
   },
   "theme.SearchBar.seeAll": {
-    "message": "See all {count} results"
+    "message": "{count} 件の結果を見る"
   },
   "theme.SearchPage.documentsFound.plurals": {
     "message": "{count}件のドキュメントが見つかりました",
@@ -312,116 +276,24 @@
     "message": "検索",
     "description": "The ARIA label and placeholder for search button"
   },
-  "theme.SearchModal.searchBox.resetButtonTitle": {
-    "message": "Clear the query",
-    "description": "The label and ARIA label for search box reset button"
-  },
-  "theme.SearchModal.searchBox.cancelButtonText": {
-    "message": "Cancel",
-    "description": "The label and ARIA label for search box cancel button"
-  },
-  "theme.SearchModal.startScreen.recentSearchesTitle": {
-    "message": "Recent",
-    "description": "The title for recent searches"
-  },
-  "theme.SearchModal.startScreen.noRecentSearchesText": {
-    "message": "No recent searches",
-    "description": "The text when no recent searches"
-  },
-  "theme.SearchModal.startScreen.saveRecentSearchButtonTitle": {
-    "message": "Save this search",
-    "description": "The label for save recent search button"
-  },
-  "theme.SearchModal.startScreen.removeRecentSearchButtonTitle": {
-    "message": "Remove this search from history",
-    "description": "The label for remove recent search button"
-  },
-  "theme.SearchModal.startScreen.favoriteSearchesTitle": {
-    "message": "Favorite",
-    "description": "The title for favorite searches"
-  },
-  "theme.SearchModal.startScreen.removeFavoriteSearchButtonTitle": {
-    "message": "Remove this search from favorites",
-    "description": "The label for remove favorite search button"
-  },
-  "theme.SearchModal.errorScreen.titleText": {
-    "message": "Unable to fetch results",
-    "description": "The title for error screen of search modal"
-  },
-  "theme.SearchModal.errorScreen.helpText": {
-    "message": "You might want to check your network connection.",
-    "description": "The help text for error screen of search modal"
-  },
-  "theme.SearchModal.footer.selectText": {
-    "message": "to select",
-    "description": "The explanatory text of the action for the enter key"
-  },
-  "theme.SearchModal.footer.selectKeyAriaLabel": {
-    "message": "Enter key",
-    "description": "The ARIA label for the Enter key button that makes the selection"
-  },
-  "theme.SearchModal.footer.navigateText": {
-    "message": "to navigate",
-    "description": "The explanatory text of the action for the Arrow up and Arrow down key"
-  },
-  "theme.SearchModal.footer.navigateUpKeyAriaLabel": {
-    "message": "Arrow up",
-    "description": "The ARIA label for the Arrow up key button that makes the navigation"
-  },
-  "theme.SearchModal.footer.navigateDownKeyAriaLabel": {
-    "message": "Arrow down",
-    "description": "The ARIA label for the Arrow down key button that makes the navigation"
-  },
-  "theme.SearchModal.footer.closeText": {
-    "message": "to close",
-    "description": "The explanatory text of the action for Escape key"
-  },
-  "theme.SearchModal.footer.closeKeyAriaLabel": {
-    "message": "Escape key",
-    "description": "The ARIA label for the Escape key button that close the modal"
-  },
-  "theme.SearchModal.footer.searchByText": {
-    "message": "Search by",
-    "description": "The text explain that the search is making by Algolia"
-  },
-  "theme.SearchModal.noResultsScreen.noResultsText": {
-    "message": "No results for",
-    "description": "The text explains that there are no results for the following search"
-  },
-  "theme.SearchModal.noResultsScreen.suggestedQueryText": {
-    "message": "Try searching for",
-    "description": "The text for the suggested query when no results are found for the following search"
-  },
-  "theme.SearchModal.noResultsScreen.reportMissingResultsText": {
-    "message": "Believe this query should return results?",
-    "description": "The text for the question where the user thinks there are missing results"
-  },
-  "theme.SearchModal.noResultsScreen.reportMissingResultsLinkText": {
-    "message": "Let us know.",
-    "description": "The text for the link to report missing results"
-  },
-  "theme.SearchModal.placeholder": {
-    "message": "Search docs",
-    "description": "The placeholder of the input of the DocSearch pop-up modal"
-  },
   "theme.IdealImageMessage.loading": {
-    "message": "Loading...",
+    "message": "読み込み中…",
     "description": "When the full-scale image is loading"
   },
   "theme.IdealImageMessage.load": {
-    "message": "Click to load{sizeMessage}",
+    "message": "クリックして{sizeMessage} を読み込む",
     "description": "To prompt users to load the full image. sizeMessage is a parenthesized size figure."
   },
   "theme.IdealImageMessage.offline": {
-    "message": "Your browser is offline. Image not loaded",
+    "message": "お使いのブラウザはオフラインです。画像が読み込まれません",
     "description": "When the user is viewing an offline document"
   },
   "theme.IdealImageMessage.404error": {
-    "message": "404. Image not found",
+    "message": "404. 画像が見つかりません",
     "description": "When the image is not found"
   },
   "theme.IdealImageMessage.error": {
-    "message": "Error. Click to reload",
+    "message": "エラー クリックで再読み込み",
     "description": "When the image fails to load for unknown error"
   },
   "theme.PwaReloadPopup.info": {

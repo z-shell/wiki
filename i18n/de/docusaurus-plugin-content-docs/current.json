@@ -1,1 +1,6 @@
-{}
+{
+  "version.label": {
+    "message": "Weiter",
+    "description": "The label for version current"
+  }
+}

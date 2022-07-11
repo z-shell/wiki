@@ -1,24 +1,4 @@
 {
-  "homepage.video.heading.1": {
-    "message": "⚡ Fast and feature-rich",
-    "description": "The homepage video conatainer heading 1"
-  },
-  "homepage.video.heading.2": {
-    "message": "✨ Neat and flexible",
-    "description": "The homepage video container heading 2"
-  },
-  "homepage.feature1.title": {
-    "message": "Zsh Startup 50-80% Faster",
-    "description": "Title of feature 1 (left) on the home page"
-  },
-  "homepage.feature2.title": {
-    "message": "Focus on What Matters",
-    "description": "Title of feature 2 (middle) on the home page"
-  },
-  "homepage.feature3.title": {
-    "message": "Wide Range of Features",
-    "description": "Title of feature 3 (right) on the home page"
-  },
   "theme.ErrorPageContent.title": {
     "message": "Die Seite ist abgestürzt.",
     "description": "The title of the fallback page when the page crashed"
@@ -39,25 +19,13 @@
     "message": "Bitte kontaktieren Sie den Besitzer der Seite, die Sie mit der ursprünglichen URL verlinkt hat, und teilen Sie ihm mit, dass der Link nicht mehr funktioniert.",
     "description": "The 2nd paragraph of the 404 page"
   },
-  "theme.admonition.note": {
-    "message": "note",
-    "description": "The default label used for the Note admonition (:::note)"
-  },
   "theme.admonition.tip": {
     "message": "tip",
     "description": "The default label used for the Tip admonition (:::tip)"
   },
-  "theme.admonition.danger": {
-    "message": "danger",
-    "description": "The default label used for the Danger admonition (:::danger)"
-  },
   "theme.admonition.info": {
     "message": "info",
     "description": "The default label used for the Info admonition (:::info)"
-  },
-  "theme.admonition.caution": {
-    "message": "caution",
-    "description": "The default label used for the Caution admonition (:::caution)"
   },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
     "message": "Schließen",
@@ -123,14 +91,6 @@
     "message": "heller Modus",
     "description": "The name for the light color mode"
   },
-  "theme.docs.breadcrumbs.home": {
-    "message": "Home page",
-    "description": "The ARIA label for the home page in the breadcrumbs"
-  },
-  "theme.docs.breadcrumbs.navAriaLabel": {
-    "message": "Breadcrumbs",
-    "description": "The ARIA label for the breadcrumbs"
-  },
   "theme.docs.DocCard.categoryDescription": {
     "message": "{count} Einträge",
     "description": "The default description for a category card in the generated index about how many items this category includes"
@@ -154,9 +114,6 @@
   "theme.docs.tagDocListPageTitle": {
     "message": "{nDocsTagged} mit \"{tagName}\"",
     "description": "The title of the page for a docs tag"
-  },
-  "theme.docs.versionBadge.label": {
-    "message": "Version: {versionLabel}"
   },
   "theme.docs.versions.unreleasedVersionLabel": {
     "message": "Das ist die unveröffentlichte Dokumentation für {siteTitle} {versionLabel}.",
@@ -202,10 +159,6 @@
     "message": "Zum Hauptinhalt springen",
     "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
   },
-  "theme.tags.tagsListLabel": {
-    "message": "Tags:",
-    "description": "The label alongside a tag list"
-  },
   "theme.blog.sidebar.navAriaLabel": {
     "message": "Navigation der letzten Beiträge im Blog",
     "description": "The ARIA label for recent posts in the blog sidebar"
@@ -221,10 +174,6 @@
   "theme.CodeBlock.copy": {
     "message": "Kopieren",
     "description": "The copy button label on code blocks"
-  },
-  "theme.CodeBlock.wordWrapToggle": {
-    "message": "Toggle word wrap",
-    "description": "The title attribute for toggle word wrapping button of code block lines"
   },
   "theme.DocSidebarItem.toggleCollapsedCategoryAriaLabel": {
     "message": "Umschalten der Seitenleiste mit einklappbarer Kategorie '{label}'",
@@ -348,58 +297,6 @@
   "theme.SearchModal.errorScreen.helpText": {
     "message": "You might want to check your network connection.",
     "description": "The help text for error screen of search modal"
-  },
-  "theme.SearchModal.footer.selectText": {
-    "message": "to select",
-    "description": "The explanatory text of the action for the enter key"
-  },
-  "theme.SearchModal.footer.selectKeyAriaLabel": {
-    "message": "Enter key",
-    "description": "The ARIA label for the Enter key button that makes the selection"
-  },
-  "theme.SearchModal.footer.navigateText": {
-    "message": "to navigate",
-    "description": "The explanatory text of the action for the Arrow up and Arrow down key"
-  },
-  "theme.SearchModal.footer.navigateUpKeyAriaLabel": {
-    "message": "Arrow up",
-    "description": "The ARIA label for the Arrow up key button that makes the navigation"
-  },
-  "theme.SearchModal.footer.navigateDownKeyAriaLabel": {
-    "message": "Arrow down",
-    "description": "The ARIA label for the Arrow down key button that makes the navigation"
-  },
-  "theme.SearchModal.footer.closeText": {
-    "message": "to close",
-    "description": "The explanatory text of the action for Escape key"
-  },
-  "theme.SearchModal.footer.closeKeyAriaLabel": {
-    "message": "Escape key",
-    "description": "The ARIA label for the Escape key button that close the modal"
-  },
-  "theme.SearchModal.footer.searchByText": {
-    "message": "Search by",
-    "description": "The text explain that the search is making by Algolia"
-  },
-  "theme.SearchModal.noResultsScreen.noResultsText": {
-    "message": "No results for",
-    "description": "The text explains that there are no results for the following search"
-  },
-  "theme.SearchModal.noResultsScreen.suggestedQueryText": {
-    "message": "Try searching for",
-    "description": "The text for the suggested query when no results are found for the following search"
-  },
-  "theme.SearchModal.noResultsScreen.reportMissingResultsText": {
-    "message": "Believe this query should return results?",
-    "description": "The text for the question where the user thinks there are missing results"
-  },
-  "theme.SearchModal.noResultsScreen.reportMissingResultsLinkText": {
-    "message": "Let us know.",
-    "description": "The text for the link to report missing results"
-  },
-  "theme.SearchModal.placeholder": {
-    "message": "Search docs",
-    "description": "The placeholder of the input of the DocSearch pop-up modal"
   },
   "theme.IdealImageMessage.loading": {
     "message": "Wird geladen...",

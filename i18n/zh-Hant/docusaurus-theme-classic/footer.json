@@ -1,24 +1,4 @@
 {
-  "link.title.Docs": {
-    "message": "Docs",
-    "description": "The title of the footer links column with title=Docs in the footer"
-  },
-  "link.title.Community": {
-    "message": "Community",
-    "description": "The title of the footer links column with title=Community in the footer"
-  },
-  "link.title.More": {
-    "message": "More",
-    "description": "The title of the footer links column with title=More in the footer"
-  },
-  "link.title.Legal": {
-    "message": "Legal",
-    "description": "The title of the footer links column with title=Legal in the footer"
-  },
-  "link.item.label.Introduction": {
-    "message": "Introduction",
-    "description": "The label of footer link with label=Introduction linking to /docs/intro"
-  },
   "link.item.label.Community": {
     "message": "Community",
     "description": "The label of footer link with label=Community linking to /community/intro"
@@ -38,30 +18,6 @@
   "link.item.label.Gitter.im": {
     "message": "Gitter.im",
     "description": "The label of footer link with label=Gitter.im linking to https://gitter.im/z-shell/zi"
-  },
-  "link.item.label.GitHub Discussions": {
-    "message": "GitHub Discussions",
-    "description": "The label of footer link with label=GitHub Discussions linking to https://github.com/orgs/z-shell/discussions/"
-  },
-  "link.item.label.GitHub Organization": {
-    "message": "GitHub Organization",
-    "description": "The label of footer link with label=GitHub Organization linking to https://github.com/z-shell/"
-  },
-  "link.item.label.Crowdin Translations": {
-    "message": "Crowdin Translations",
-    "description": "The label of footer link with label=Crowdin Translations linking to https://digitalclouds.crowdin.com/z-shell/"
-  },
-  "link.item.label.Privacy Policy": {
-    "message": "Privacy Policy",
-    "description": "The label of footer link with label=Privacy Policy linking to legal/PRIVACY/"
-  },
-  "link.item.label.Code of Conduct": {
-    "message": "Code of Conduct",
-    "description": "The label of footer link with label=Code of Conduct linking to legal/CODE_OF_CONDUCT/"
-  },
-  "link.item.label.Contributing": {
-    "message": "Contributing",
-    "description": "The label of footer link with label=Contributing linking to legal/CONTRIBUTING/"
   },
   "copyright": {
     "message": "Copyright © 2022 Z-Shell Community.",

@@ -1,18 +1,18 @@
 {
   "version.label": {
-    "message": "Next",
+    "message": "次へ",
     "description": "The label for version current"
   },
   "sidebar.SideBar.category.🚀 Getting Started": {
-    "message": "🚀 Getting Started",
+    "message": "🚀 はじめに",
     "description": "The label for category 🚀 Getting Started in sidebar SideBar"
   },
   "sidebar.SideBar.category.💡 Guides": {
-    "message": "💡 Guides",
+    "message": "💡 ガイド",
     "description": "The label for category 💡 Guides in sidebar SideBar"
   },
   "sidebar.SideBar.category.✍️ Syntax": {
-    "message": "✍️ Syntax",
+    "message": "✍️ 構文",
     "description": "The label for category ✍️ Syntax in sidebar SideBar"
   }
 }
