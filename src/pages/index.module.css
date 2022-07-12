@@ -14,13 +14,13 @@
 }
 
 .features {
-  display: inline;
+  display: block;
   align-items: center;
   width: 100%;
 }
 
 .asciicasts {
-  display: inline;
+  display: block;
   align-items: center;
   width: 100%;
 }
@@ -131,7 +131,7 @@ div[class^='announcementBarContent'] a:hover {
 @keyframes jack-in-the-box {
   from {
     opacity: 0;
-    transform: scale(0.1) rotate(30deg);
+    transform: scale(0.2) rotate(180deg);
     transform-origin: center bottom;
   }
 
@@ -150,7 +150,7 @@ div[class^='announcementBarContent'] a:hover {
 }
 
 .heroLogo {
-  animation-duration: 2s;
+  animation-duration: 3s;
   animation-name: jack-in-the-box;
   float: right;
   margin-top: 20px;
@@ -159,7 +159,7 @@ div[class^='announcementBarContent'] a:hover {
 }
 
 .indexCtas {
-  --ifm-button-size-multiplier: 1.6;
+  --ifm-button-size-multiplier: 1.4;
 
   display: flex;
   flex-wrap: wrap;

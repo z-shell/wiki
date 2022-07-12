@@ -13,7 +13,7 @@ const override: CSSProperties = {
   color: 'var(--ifm-color-primary)',
 };
 
-function Spinner(): JSX.Element {
+function ClipSpinner(): JSX.Element {
   const loading = useState(true);
   const color = useState('#ffffff');
   return (
@@ -22,14 +22,14 @@ function Spinner(): JSX.Element {
         color={color}
         loading={loading}
         cssOverride={override}
-        size={420}
+        size={240}
       />
     </div>
   );
 }
 
 function loadable(func): JSX.Element {
-  return baseLoad(func, { fallback: <Spinner /> });
+  return baseLoad(func, { fallback: <ClipSpinner /> });
 }
 
 const AsciinemaPlayer = loadable(
