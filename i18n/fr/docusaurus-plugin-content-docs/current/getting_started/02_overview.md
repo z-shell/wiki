@@ -139,21 +139,21 @@ zi ice as"program" mv"httpstat.sh -> httpstat" \
 zi light b4b4r07/httpstat
 ```
 
-If `atpull` starts with an exclamation mark, then it will be run before `git pull`, and before `mv`. Nevertheless, `atpull`, `mv`, `cp` are run **only if new commits are to be fetched**.
+Si `atpull` commence par un point d'exclamation, alors il sera exécuté avant `git pull`, et avant `mv`. Néanmoins, `atpull`, `mv`, `cp` sont exécutés **uniquement si de nouveaux commits doivent être récupérés**.
 
-So in summary, when the user runs `zi update b4b4r07/httpstat` to update this plugin, and there are new commits, what happens first is that `git reset --hard` is run – and it **restores** original `httpstat.sh`, **then** `git pull` is ran and it downloads new commits (doing fast-forward), **then** `mv` is running again so that the command is `httpstat` not `httpstat.sh`.
+Donc, en résumé, lorsque l'utilisateur exécute `zi update b4b4r07/httpstat` pour mettre à jour ce plugin, et qu'il y a de nouvelles commits, ce qui se passe d'abord est que `git reset --hard` est exécuté - et il **restaure** original `httpstat.sh`, **puis** `git pull` est exécuté et il télécharge les nouveaux commits (en faisant une avance rapide), **puis** `mv` est exécuté à nouveau de sorte que la commande est `httpstat` et non `httpstat.sh`.
 
-This way the `mv` ice can be used to induce permanent changes into the plugin's contents without blocking the ability to update it with `git` (or with `subversion` in case of snippets, more on this below).
+De cette façon, la glace `mv` peut être utilisée pour induire des changements permanents dans le contenu du plugin sans bloquer la possibilité de le mettre à jour avec `git` (ou avec `subversion` dans le cas des snippets, plus à ce sujet ci-dessous).
 
 :::info
 
-For exclamation marks to not be expanded by Zsh an interactive session, use `'…'` not `"…"` to enclose contents of `atpull` [ice-modifier](/search?q=ice-modifier).
+Pour que les points d'exclamation ne soient pas développés par Zsh lors d'une session interactive, utilisez `'…'` pas `"…"` pour enfermer le contenu de `atpull` [, le modificateur de glace](/search?q=ice-modifier).
 
 :::
 
-## Snippets as'…' commands
+## Snippets en tant que'…' commandes (`as'...'`)
 
-Commands can also be added to `$PATH` using **snippets**:
+Les commandes peuvent également être ajoutées à `$PATH` à l'aide de **snippets**:
 
 ```shell {2} showLineNumbers
 zi ice mv"httpstat.sh -> httpstat" \
@@ -163,7 +163,7 @@ zi snippet https://github.com/b4b4r07/httpstat/blob/master/httpstat.sh
 
 :::tip
 
-Snippets also support `atpull`, so it’s possible to do e.g. `atpull'!svn revert'`. There’s also an `atinit` ice-modifier, executed before each loading of plugin or snippet.
+Les snippets supportent également `atpull`, il est donc possible de faire par exemple `atpull '!svn revert'`. Il y a aussi un modificateur de glace `atinit` , exécuté avant chaque chargement de plugin ou de snippet.
 
 :::
 
@@ -244,7 +244,7 @@ zi snippet https://github.com/zsh-users/zsh-completions/trunk/src
 
 :::tip
 
-For Oh-My-Zsh and Prezto, the OMZ:: and PZT:: prefixes work without the need to add the `/trunk/` infix, however, the path should point to a directory, not to a file.
+Pour Oh-My-Zsh et Prezto, les préfixes OMZ: : et PZT: : fonctionnent sans qu'il soit nécessaire d'ajouter l'infixe `/trunk/` . Cependant, le chemin d'accès doit pointer vers un répertoire, et non vers un fichier.
 
 :::
 
