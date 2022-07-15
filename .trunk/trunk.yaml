@@ -1,6 +1,6 @@
 version: 0.1
 cli:
-  version: 0.14.1-beta
+  version: 0.15.0-beta
 repo:
   repo:
     host: github.com
@@ -12,10 +12,14 @@ lint:
     - hadolint
     - taplo
   linters:
+    - name: prettier
+      command: [prettier, -q, --config, .github/.prettierrc, "${target}"]
+      direct_configs: [.github/.prettierrc]
     - name: markdownlint
-      command: [markdownlint, -q, --config, .github/.markdownlint.yaml, '${target}']
+      command: [markdownlint, -q, --config, .github/.markdownlint.yaml, "${target}"]
       direct_configs: [.github/.markdownlint.yaml]
   enabled:
+    - git-diff-check@SYSTEM
     - actionlint@1.6.15
     - eslint@8.19.0
     - gitleaks@8.8.12
@@ -26,12 +30,12 @@ lint:
   ignore:
     - linters: [ALL]
       paths:
-        - 'i18n/**'
-        - '!18n/en/**'
-        - 'build/**'
-        - 'static/img/**'
-        - 'static/assets/**'
-        - '.docusaurus/**'
+        - "i18n/**"
+        - "!18n/en/**"
+        - "build/**"
+        - "static/img/**"
+        - "static/assets/**"
+        - ".docusaurus/**"
     - linters: [gitleaks]
       paths:
-        - 'pnpm-lock.yaml'
+        - "pnpm-lock.yaml"

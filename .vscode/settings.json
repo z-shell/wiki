@@ -6,14 +6,10 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.markdownlint": true
   },
-  "conventionalCommits.scopes": [
-    "maintenance",
-    "workspace",
-    "community",
-    "general",
-    "misc"
-  ],
+  "conventionalCommits.scopes": ["maintenance", "workspace", "community", "general", "misc"],
   "markdownlint.config": {
-    "extends": ".github/.markdownlint.yaml",
-  }
+    "extends": ".github/.markdownlint.yaml"
+  },
+  "prettier.configPath": ".github/.prettierrc",
+  "shellformat.useEditorConfig": true
 }

@@ -22,7 +22,7 @@ function ClipSpinner(): JSX.Element {
         color={color}
         loading={loading}
         cssOverride={override}
-        size={240}
+        size={160}
       />
     </div>
   );
