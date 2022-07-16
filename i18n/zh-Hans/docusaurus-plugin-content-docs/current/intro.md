@@ -70,7 +70,7 @@ The [Python](https://python.org) modules, [$VIRTUALENV][] are automatically mana
 
 ## <i class="fa-solid fa-list-check"></i> 摘要
 
-[![Z-Shell Organization Projects](https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/projects/projects.svg#center)](https://github.com/orgs/z-shell/projects) [![Z-Shell Organization FollowUp](https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg#center)](https://github.com/z-shell/)
+[![Z-Shell Organization FollowUp](https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg#center)](https://github.com/z-shell/)
 
 [5]: /ecosystem/annexes
 [6]: /ecosystem/packages

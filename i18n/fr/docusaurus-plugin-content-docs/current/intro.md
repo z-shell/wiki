@@ -71,7 +71,7 @@ Installez et contrôlez presque tout à partir de [GitHub](https://github.com) :
 
 ## <i class="fa-solid fa-list-check"></i> Récapitulatif
 
-[![Projets de l'organisation Z-Shell](https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/projects/projects.svg#center)](https://github.com/orgs/z-shell/projects) [![Suivi de l'organisation Z-Shell](https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg#center)](https://github.com/z-shell/)
+[![Z-Shell Organization FollowUp](https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg#center)](https://github.com/z-shell/)
 
 [5]: /ecosystem/annexes
 [6]: /ecosystem/packages
