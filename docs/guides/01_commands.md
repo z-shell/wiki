@@ -137,7 +137,7 @@ It is recommended to run `compinit` call in `atinit` or `atload` hook of the las
 
 ### Summary of `compinit` call
 
-```shell {10} title=""~/.zshrc" showLineNumbers
+```shell {10} title="~/.zshrc" showLineNumbers
 source ~/.zi/bin/zi.zsh
 
 # Load using the for-syntax
