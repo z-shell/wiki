@@ -202,11 +202,6 @@ Installs the node module of name `{node-module}` inside the plugin's or snippet'
 Example:
 
 ```shell showLineNumbers
-% zi delete z-shell/null
-Delete /home/sg/.zi/plugins/z-shell---null?
-[yY/n…]
-y
-Done (action executed, exit code: 0)
 % zi ice node'remark <- !remark-cli -> remark; remark-man'
 % zi load z-shell/null
 …installation messages…
@@ -218,33 +213,28 @@ remark () {
 }
 ```
 
-In this case, the name of the binary program provided by the node module is different from its name, hence the second
-form with the `b <- a -> c` syntax has been used.
+In this case, the name of the binary program provided by the node module is different from its name, hence the second form with the `b <- a -> c` syntax has been used.
 
 #### `PIP''`
 
 `pip'{pip-package}; …'`
 
-**`node'[{path-to-binary} <-] !{pip-package} [-> {name-of-the-function}]; …'`**
+**`pip'[{path-to-binary} <-] !{pip-package} [-> {name-of-the-function}]; …'`**
 
 Installs the node module of name `{pip-package}` inside the plugin's or snippet's directory. In the second form, it also creates a wrapper function identical to the one created with `fbin''` ice.
 
 Example:
 
 ```shell showLineNumbers
-% zi delete z-shell/null
-Delete /home/sg/.zi/plugins/z-shell---null?
-[yY/n…]
-y
-Done (action executed, exit code: 0)
-% zi ice node'ansible <- !ansible -> ansible; ansible-lint'
+% zi ice pip'youtube-dl <- !youtube-dl -> youtube-dl'
 % zi load z-shell/null
 …installation messages…
-% which remark
-ansible () {
-        local bindir="/home/sg/.zi/plugins/z-shell---null/venv/bin"
-        local -x VIRTUALENV="/home/sg/.zi/plugins/z-shell---null"/venv
-        "$bindir"/"ansible" "$@"
+% which youtube-dl  
+youtube-dl () {
+        local bindir="/home/user/.zi/plugins/z-shell---null/venv/bin" 
+        local -x VIRTUALENV="/home/user/.zi/plugins/z-shell---null"/venv 
+        local -xU PATH="/home/user/.zi/plugins/z-shell---null"/venv/bin:"$bindir":"$PATH" 
+        "$bindir"/"youtube-dl" "$@"
 }
 ```
 
