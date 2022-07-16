@@ -2,25 +2,24 @@
 # They are safe for immutable caching, as filename change when content change
 
 /assets/*
-  Access-Control-Allow-Origin: *
   Cache-Control: public
-  Cache-Control: s-maxage=365000000
+  Cache-Control: max-age=365000000
   Cache-Control: immutable
-  X-Robots-Tag: noindex
+
+/fr/assets/*
+  Cache-Control: public
+  Cache-Control: max-age=365000000
+  Cache-Control: immutable
 
 /ja/assets/*
-  Access-Control-Allow-Origin: *
   Cache-Control: public
-  Cache-Control: s-maxage=365000000
+  Cache-Control: max-age=365000000
   Cache-Control: immutable
-  X-Robots-Tag: noindex
 
 /zh-Hans/assets/*
-  Access-Control-Allow-Origin: *
   Cache-Control: public
-  Cache-Control: s-maxage=365000000
+  Cache-Control: max-age=365000000
   Cache-Control: immutable
-  X-Robots-Tag: noindex
 
 https://:z-shell.pages.dev/*
   X-Robots-Tag: noindex
