@@ -191,7 +191,7 @@ zi light zsh-users/zsh-completions
 ### COMP: [zchee/zsh-completions](https://github.com/zchee/zsh-completions)
 
 ```shell showLineNumbers
-zi ice lucid wait as'completion' blockf pick'src/go' src'src/zsh'
+zi ice lucid wait as'completion' blockf
 zi light zchee/zsh-completions
 ```
 
