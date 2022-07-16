@@ -54,11 +54,11 @@ function FeaturesContainer(): JSX.Element {
               </Translate>
             </h2>
             <AsciinemaPlayer
-              src="https://asciinema.org/a/459358.cast"
+              src="https://asciinema.org/a/509113.cast"
               /* poster="npt:0:30" */
-              rows={30}
-              cols={210}
-              speed={3}
+              rows={34}
+              cols={231}
+              speed={2}
               idleTimeLimit={1}
               preload
             />
@@ -78,9 +78,9 @@ function FeaturesContainer(): JSX.Element {
             <AsciinemaPlayer
               /* poster="npt:2:34" */
               src="https://asciinema.org/a/497831.cast"
-              rows={30}
-              cols={210}
-              speed={3}
+              rows={34}
+              cols={231}
+              speed={2}
               idleTimeLimit={1}
               preload
             />
