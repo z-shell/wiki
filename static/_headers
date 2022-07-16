@@ -4,25 +4,22 @@
 /assets/*
   Access-Control-Allow-Origin: *
   Cache-Control: public
-  Cache-Control: max-age=365000000
+  Cache-Control: s-maxage=365000000
   Cache-Control: immutable
-  X-Robots-Tag: nosnippet
   X-Robots-Tag: noindex
 
 /ja/assets/*
   Access-Control-Allow-Origin: *
   Cache-Control: public
-  Cache-Control: max-age=365000000
+  Cache-Control: s-maxage=365000000
   Cache-Control: immutable
-  X-Robots-Tag: nosnippet
   X-Robots-Tag: noindex
 
 /zh-Hans/assets/*
   Access-Control-Allow-Origin: *
   Cache-Control: public
-  Cache-Control: max-age=365000000
+  Cache-Control: s-maxage=365000000
   Cache-Control: immutable
-  X-Robots-Tag: nosnippet
   X-Robots-Tag: noindex
 
 https://:z-shell.pages.dev/*
