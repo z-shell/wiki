@@ -73,7 +73,6 @@ Invocations][7].
 
 ## <i class="fa-solid fa-list-check"></i> Summary
 
-[![Z-Shell Organization Projects](https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/projects/projects.svg#center)](https://github.com/orgs/z-shell/projects)
 [![Z-Shell Organization FollowUp](https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg#center)](https://github.com/z-shell/)
 
 [1]: /ecosystem/annexes/bin-gem-node
