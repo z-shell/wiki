@@ -2,12 +2,12 @@
 id: ice
 title: 🧊 Ice Syntax
 sidebar_position: 3
+toc_max_heading_level: 3
 image: img/png/ice-239x200.png
 description: Ice syntax documentation
 keywords:
   - ice
   - syntax
-toc_max_heading_level: 3
 ---
 
 import Image from '@theme/IdealImage';
@@ -53,7 +53,7 @@ Order of execution of related ice modifiers is as follows:
 A swiss-knife tool for unpacking all kinds of archives – the `extract'…'` ice. It works in two modes – automatic
 mode and fixed mode.
 
-#### Automatic mode
+### Automatic mode
 
 It is active if the ice is empty (or contains only flags – more on them later). It works as follows:
 
@@ -63,18 +63,18 @@ It is active if the ice is empty (or contains only flags – more on them later)
    - The directory-level requirement is imposed also during this stage - files located deeper in the tree than in a sub-directory are omitted.
 3. If no archive files will be discovered then no action is being performed and also no warning message is being printed.
 
-#### Fixed mode
+### Fixed mode
 
 It is active when a filename is being passed as the `extract`'s argument, e.g.: `zi extract=archive.zip for z-shell/null`. Multiple files can be specified – separated by spaces. In this mode all and only the specified files are being extracted.
 
-#### Filenames with spaces
+### Filenames with spaces
 
 The filenames with spaces in them are supported by a trick – to correctly pass such a filename to `extract` use the
 non-breaking space in place of the in-filename original spaces.
 
 The non-breaking space is easy to type by pressing right <kbd>ALT</kbd> and the <kbd>SPACE</kbd>.
 
-#### Flags
+### Flags
 
 The value of the ice can begin with a two special characters:
 
