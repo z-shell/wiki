@@ -6,6 +6,7 @@ overrides:
 
 specifiers:
   '@babel/core': 7.18.6
+  '@cloudflare/workers-types': ^3.14.1
   '@docusaurus/core': 0.0.0-5210
   '@docusaurus/eslint-plugin': 0.0.0-5210
   '@docusaurus/module-type-aliases': 0.0.0-5210
@@ -54,6 +55,7 @@ dependencies:
 
 devDependencies:
   '@babel/core': 7.18.6
+  '@cloudflare/workers-types': 3.14.1
   '@docusaurus/eslint-plugin': 0.0.0-5210_4x5o4skxv6sl53vpwefgt23khm
   '@docusaurus/module-type-aliases': 0.0.0-5210_sfoxds7t5ydpegc3knd667wn6m
   '@tsconfig/docusaurus': 1.0.6
@@ -1530,6 +1532,10 @@ packages:
     dependencies:
       '@babel/helper-validator-identifier': 7.18.6
       to-fast-properties: 2.0.0
+
+  /@cloudflare/workers-types/3.14.1:
+    resolution: {integrity: sha512-B1/plF62pt+H2IJHvApK8fdOJAVsvojvacuac8x8s+JIyqbropMyqNqHTKLm3YD8ZFLGwYeFTudU+PQ7vGvBdA==}
+    dev: true
 
   /@colors/colors/1.5.0:
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
@@ -3536,7 +3542,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.2
-      caniuse-lite: 1.0.30001366
+      caniuse-lite: 1.0.30001367
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -3758,7 +3764,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001366
+      caniuse-lite: 1.0.30001367
       electron-to-chromium: 1.4.191
       node-releases: 2.0.6
       update-browserslist-db: 1.0.4_browserslist@4.21.2
@@ -3851,13 +3857,13 @@ packages:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
       browserslist: 4.21.2
-      caniuse-lite: 1.0.30001366
+      caniuse-lite: 1.0.30001367
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
     dev: false
 
-  /caniuse-lite/1.0.30001366:
-    resolution: {integrity: sha512-yy7XLWCubDobokgzudpkKux8e0UOOnLHE6mlNJBzT3lZJz6s5atSEzjoL+fsCPkI0G8MP5uVdDx1ur/fXEWkZA==}
+  /caniuse-lite/1.0.30001367:
+    resolution: {integrity: sha512-XDgbeOHfifWV3GEES2B8rtsrADx4Jf+juKX2SICJcaUhjYBO3bR96kvEIHa15VU6ohtOhBZuPGGYGbXMRn0NCw==}
 
   /ccount/1.1.0:
     resolution: {integrity: sha512-vlNK021QdI7PNeiUh/lKkC/mNHHfV0m/Ad5JoI0TYtlBnJAslM/JIkm/tGC88bkLIwO6OQ5uV6ztS6kVAtCDlg==}
