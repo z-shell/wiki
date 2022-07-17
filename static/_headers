@@ -3,22 +3,26 @@
 
 /assets/*
   Cache-Control: public
-  Cache-Control: max-age=365000000
+  Cache-Control: max-age=31536000
+  Cache-Control: s-maxage=31536000
   Cache-Control: immutable
 
 /fr/assets/*
   Cache-Control: public
-  Cache-Control: max-age=365000000
+  Cache-Control: max-age=31536000
+  Cache-Control: s-maxage=31536000
   Cache-Control: immutable
 
 /ja/assets/*
   Cache-Control: public
-  Cache-Control: max-age=365000000
+  Cache-Control: max-age=31536000
+  Cache-Control: s-maxage=31536000
   Cache-Control: immutable
 
 /zh-Hans/assets/*
   Cache-Control: public
-  Cache-Control: max-age=365000000
+  Cache-Control: max-age=31536000
+  Cache-Control: s-maxage=31536000
   Cache-Control: immutable
 
 https://:z-shell.pages.dev/*
