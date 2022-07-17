@@ -1,6 +1,6 @@
 ---
 id: intro
-title: '🎉 Introduction'
+title: "🎉 Introduction"
 sidebar_position: 1
 image: img/logo/320x320.png
 description: Introduction à un couteau suisse pour Zsh, anciennement connu sous le nom de zplugin, zinit.

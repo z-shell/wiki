@@ -410,7 +410,7 @@ The ZI scheduler will distribute the work over time and will allow activation of
 
 ## <i class="fa-solid fa-microchip"></i> `wrap'…'` {#wrap}
 
-The `wrap'…'` ice-modifier allows to extend the tracking (e.g: gathering of report and unload data) of a plugin beyond the moment of sourcing it's main file(s). It works by wrapping the given functions with a tracking-enabling and disabling snippet of code. This is useful especially with prompts, as they very often do their initialization in the first call to their `precmd` [hook][5] function.
+The `wrap' …'` ice-modifier allows to extend the tracking (e.g: gathering of report and unload data) of a plugin beyond the moment of sourcing it's main file(s). It works by wrapping the given functions with a tracking-enabling and disabling snippet of code. This is useful especially with prompts, as they very often do their initialization in the first call to their `precmd` [hook][5] function.
 
 For example, [romkatv/powerlevel10k][6] works this way. The ice takes a list of function names, with the elements separated by `;`:
 
@@ -453,7 +453,7 @@ Zstyle :vcs_info:* check-for-changes true
 Zstyle :vcs_info:* get-revision false
 Autoload add-zsh-hook with options -U -z
 Zle -F 22_gitstatus_process_response_POWERLEVEL9K
-Autoload_gitstatus_cleanup_15877_0_16212
+Autoload_gitstatus_cleanup_15877_0_16212/docs/guides/syntax/wrap
 Zle -N -- zle-line-pre-redraw _p9k_wrapper__p9k_zle_line_pre_redraw
 Note: a new widget created via zle -N: zle-line-pre-redraw
 Zle -N -- zle-keymap-select _p9k_wrapper__p9k_zle_keymap_select

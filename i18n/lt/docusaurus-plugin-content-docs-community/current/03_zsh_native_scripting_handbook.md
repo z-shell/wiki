@@ -165,8 +165,6 @@ var=abcd; print ${${${(M)var:#abc}:+is abc}:-not abc} ▶ not abc
 
 A one-line "if var = x, then …, else …". Again, can spare a great amount of boring code that makes a 10-line function a 20-line one.
 
-[#built-in-regular-expressions-engine]
-
 ### Using built-in regular expressions engine
 
 ```shell

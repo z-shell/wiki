@@ -5,7 +5,7 @@ sidebar_position: 1
 image: img/logo/320x320.png
 keywords:
   - documentation
-  - communauté
+  - community
   - zsh-lovers
   - gallery
 ---

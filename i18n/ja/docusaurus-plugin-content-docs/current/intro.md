@@ -1,6 +1,6 @@
 ---
 id: intro
-title: '🎉 Introduction'
+title: "🎉 Introduction"
 sidebar_position: 1
 image: img/logo/320x320.png
 description: Zshのためのスイスアーミーナイフ ― かつての zplugin, zinit ― の紹介です。

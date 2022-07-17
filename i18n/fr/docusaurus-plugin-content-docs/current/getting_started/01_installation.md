@@ -1,5 +1,5 @@
 ---
-title: '⚡️ Installation'
+title: "⚡️ Installation"
 sidebar_position: 1
 image: img/logo/320x320.png
 description: Guide d'installation
@@ -9,7 +9,7 @@ keywords:
   - installation
 ---
 
-## <i class="fas fa-spinner fa-spin"></i> Installation Rapide
+## <i class="fas fa-spinner fa-spin"></i> Quick setup {#quick-setup}
 
 ```shell title="~/.zshrc"
 source <(curl -sL https://git.io/zi-loader); zzinit
@@ -69,7 +69,7 @@ fi
 
 :::tip
 
-Le chargeur peut être récupéré manuellement à partir des liens disponibles [](#loader) à n'importe quel emplacement sur le système, et extrait de `.zshrc` ou comme indiqué dans l'[installation rapide](#-quick-setup).
+The loader can be manually fetched from available [links](#loader) to any location on the system, and sourced from `.zshrc` or as shown in the [quick-setup](#quick-setup).
 
 :::
 
@@ -199,25 +199,25 @@ typeset -g ZI_MOD_DEBUG=1
 
 ### Installateur
 
-| Service        | URL                                                                       |
-|:-------------- | ------------------------------------------------------------------------- |
-| [Redirect][1]: | <https://get.zshell.dev>                                                  |
-| [IPFS][2]      | <https://ipfs.zshell.dev/sh/install.sh>                                   |
-| [Direct][5]:   | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
+| Service                    | URL                                                                       |
+|:-------------------------- | ------------------------------------------------------------------------- |
+| [Redirect][get.zshell.dev] | <https://get.zshell.dev>                                                  |
+| [IPFS][ipfs.io]            | <https://ipfs.zshell.dev/sh/install.sh>                                   |
+| [Direct][direct-install]   | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
 ### Chargeur
 
-| Service           | URL                                                                      |
-|:----------------- | ------------------------------------------------------------------------ |
-| [Redirection][3]: | <https://init.zshell.dev>                                                |
-| [IPFS][2]         | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
-| [Direct][4]:      | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
+| Service                     | URL                                                                      |
+|:--------------------------- | ------------------------------------------------------------------------ |
+| [Redirect][init.zshell.dev] | <https://init.zshell.dev>                                                |
+| [IPFS][ipfs.io]             | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
+| [Direct][direct-init]       | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
 
-[1]: https://get.zshell.dev
-[2]: https://ipfs.io
-[3]: https://init.zshell.dev
-[4]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh
-[5]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
+[get.zshell.dev]: https://get.zshell.dev
+[ipfs.io]: https://ipfs.io
+[init.zshell.dev]: https://init.zshell.dev
+[direct-init]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh
+[direct-install]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
 [6]: https://github.com/z-shell/zi/issues/new/choose
 [7]: https://github.com/orgs/z-shell/discussions/new
 [8]: https://digitalclouds.crowdin.com/z-shell

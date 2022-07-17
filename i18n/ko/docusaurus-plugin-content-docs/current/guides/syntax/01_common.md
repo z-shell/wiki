@@ -35,7 +35,7 @@ The `Makefile` with 2 tasks, can use:
 
 :::info
 
-[$ZPFX][8] is provided by ZI, it is set to `~/.zi/polaris` by default. However, it can be changed by specifying: `$ZPFX=` target.
+[$ZPFX][zpfx] is provided by ZI, it is set to `~/.zi/polaris` by default. However, it can be changed by specifying: `$ZPFX=` target.
 
 :::
 
@@ -55,7 +55,7 @@ zi light vim/vim
 | `make`             | Run `make` after `atclone'…'` and `atpull'…'` (note: `make'!'` will execute before them). |
 | `pick'src/vim'`    | Set executable flag on `src/vim`, hint that `src/` should be added to `$PATH`.            |
 
-The same but with **installation** (`make install`) under [$ZPFX][8] by default:
+The same but with **installation** (`make install`) under [$ZPFX][zpfx] by default:
 
 ```shell showLineNumbers
 zi ice as'program' atclone'rm -f src/auto/config.cache; \
@@ -209,6 +209,6 @@ The original motivation behind the standard syntax was: to utilize the syntax hi
 [4]: /search?q=exclamation+mark
 [5]: https://github.com/direnv/direnv
 [6]: https://github.com/direnv/direnv/releases/
-[8]: /docs/guides/customization#$ZPFX
+[zpfx]: /docs/guides/customization#$ZPFX
 [9]: /docs/getting_started/overview
 [11]: https://github.com/z-shell/zi-vim-syntax

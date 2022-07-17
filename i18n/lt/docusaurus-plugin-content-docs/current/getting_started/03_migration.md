@@ -1,5 +1,5 @@
 ---
-title: '♻️ Migracija'
+title: "♻️ Migracija"
 image: img/logo/320x320.png
 description: Migration guide
 keywords:

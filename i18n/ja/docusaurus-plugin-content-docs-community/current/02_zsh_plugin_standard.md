@@ -18,7 +18,7 @@ keywords:
 
 At a simple level, a plugin:
 
-1. Has its directory added to `$fpath` ([Zsh documentation: #Autoloading-Functions][]). This is being done either by a plugin manager or by the plugin itself (see [5th section](#run-on-unload-call) for more information).
+1. Has its directory added to `$fpath` ([Zsh documentation: #Autoloading-Functions][autoloading-functions]). This is being done either by a plugin manager or by the plugin itself (see [5th section](#run-on-unload-call) for more information).
 
 2. Has it's first `*.plugin.zsh` file sourced (or `*.zsh`, `init.zsh`, `*.sh`, these are non-standard).
 
@@ -101,7 +101,7 @@ Despite that, the current-standard plugins have their main directory added to `$
 
 ```shell showLineNumbers
 if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}/functions]} ]] {
-    fpath+=( "${0:h}/functions" )
+  fpath+=( "${0:h}/functions" )
 }
 ```
 
@@ -109,7 +109,7 @@ or, via use of the `PMSPEC` [parameter](#pmspec):
 
 ```shell showLineNumbers
 if [[ $PMSPEC != *f* ]] {
-    fpath+=( "${0:h}/functions" )
+  fpath+=( "${0:h}/functions" )
 }
 ```
 
@@ -137,7 +137,7 @@ The runnable should be put into the directory with a `+x` access right assigned.
 
 ```shell showLineNumbers
 if [[ $PMSPEC != *b* ]] {
-    path+=( "${0:h}/bin" )
+  path+=( "${0:h}/bin" )
 }
 ```
 
@@ -219,7 +219,7 @@ The second item allows a plugin to e.g. set up `$fpath`, knowing that plugin man
 
 ```shell showLineNumbers
 if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}]} ]] {
-    fpath+=( "${0:h}" )
+  fpath+=( "${0:h}" )
 }
 ```
 
@@ -285,7 +285,7 @@ The contents of the parameter describing a fully-compliant plugin manager should
 
 ```shell showLineNumbers
 if [[ $PMSPEC != *f* ]] {
-    fpath+=( "${0:h}/functions" )
+  fpath+=( "${0:h}/functions" )
 }
 ```
 
@@ -391,7 +391,7 @@ Their use is naturally limited to the functions called from the main function of
 
 The recommendation is the purely subjective opinion of the author.
 
-It can evolve – if you have any remarks, don’t hesitate to [fill them][].
+It can evolve – if you have any remarks, don’t hesitate to [fill-them][].
 
 ## The problems solved by the proposition
 
@@ -515,8 +515,8 @@ Following the [Standard Plugins Hash](#standard-plugins-hash) section, the plugi
 [GitHub search loaded]: https://github.com/search?q=if+%22zsh_loaded_plugins%22&type=Code
 [agkozak/zhooks is using]: https://github.com/agkozak/zhooks/blob/628e1e3b8373bf31c26cb154f71c16ebe9d13b51/zhooks.plugin.zsh#L75-L82
 [tj/git-extras]: https://github.com/tj/git-extras
-[fill them]: https://github.com/z-shell/zw/issues/new
+[fill-them]: https://github.com/z-shell/zw/issues/new
 [zsh-workers post]: https://www.zsh.org/mla/workers/2011/msg01050.html
-[Zsh documentation: #Autoloading-Functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions
+[autoloading-functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions
 [Zsh documentation: #Special-Widgets]: http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Special-Widgets
 [Zsh documentation: #Hook-Functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions
