@@ -1,21 +1,21 @@
 ---
-name: '🚀 Deploy'
+name: "🚀 Deploy"
 on:
   workflow_dispatch: {}
 
 jobs:
   deploy:
-    name: '🚀'
+    name: "🚀"
     uses: z-shell/.github/.github/workflows/trunk.yml@main
     with:
-      node_version: '16'
-      pnpm_arguments: 'pnpm i && pnpm run build'
+      node_version: "16"
+      pnpm_arguments: "pnpm i && pnpm run build"
 
   upload:
-    name: '🆙'
+    name: "🆙"
     uses: z-shell/.github/.github/workflows/trunk.yml@main
     secrets:
       trunk-token: ${{ secrets.TRUNK_TOKEN }}
     with:
-      node_version: '16'
-      pnpm_arguments: 'pnpm i'
+      node_version: "16"
+      pnpm_arguments: "pnpm i"

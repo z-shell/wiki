@@ -12,18 +12,17 @@ lint:
     - hadolint
     - taplo
   linters:
-    - name: prettier
-      command: [prettier, -q, --config, .github/.prettierrc, "${target}"]
-      direct_configs: [.github/.prettierrc]
     - name: markdownlint
-      command: [markdownlint, -q, --config, .github/.markdownlint.yaml, "${target}"]
+      command:
+        [markdownlint, -q, --config, .github/.markdownlint.yaml, "${target}"]
       direct_configs: [.github/.markdownlint.yaml]
+      success_codes: [0, 1]
   enabled:
     - git-diff-check@SYSTEM
     - actionlint@1.6.15
-    - eslint@8.19.0
+    - eslint@8.20.0
     - gitleaks@8.8.12
-    - markdownlint@0.31.1
+    - markdownlint@0.32.0
     - prettier@2.7.1
     - shfmt@3.5.0
     - stylelint@14.9.1

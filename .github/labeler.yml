@@ -1,44 +1,44 @@
 documentation 📝:
-  - 'community/**'
-  - 'ecosystem/**'
-  - 'docs/**'
+  - "community/**"
+  - "ecosystem/**"
+  - "docs/**"
 dependencies 📦:
-  - 'package.json'
-  - 'pnpm-lock.yaml'
-  - 'yarn.lock'
+  - "package.json"
+  - "pnpm-lock.yaml"
+  - "yarn.lock"
 enhancement ✨:
-  - 'functions/**'
-  - 'src/**'
-  - 'lib/**'
+  - "functions/**"
+  - "src/**"
+  - "lib/**"
 maintenance 📈:
-  - '.github/CODEOWNERS'
-  - '.github/*.md'
-  - '.github/*.yml'
-  - '.github/*.json'
-  - '.vscode'
-  - 'tsconfig.json'
-  - 'babel.config.js'
-  - 'docusaurus.config.js'
-  - '.all-contributorsrc'
-  - 'crowdin.yml'
-  - 'netlify.toml'
-  - '.prettierrc'
-  - '.prettierignore'
-  - '.markdownlint.json'
-  - '.deepsource.toml'
-  - '.trunk/*.yaml'
-  - '.trunk/*.json'
-  - '.trunk/*rc'
+  - ".github/CODEOWNERS"
+  - ".github/*.md"
+  - ".github/*.yml"
+  - ".github/*.json"
+  - ".vscode"
+  - "tsconfig.json"
+  - "babel.config.js"
+  - "docusaurus.config.js"
+  - ".all-contributorsrc"
+  - "crowdin.yml"
+  - "netlify.toml"
+  - ".prettierrc"
+  - ".prettierignore"
+  - ".markdownlint.json"
+  - ".deepsource.toml"
+  - ".trunk/*.yaml"
+  - ".trunk/*.json"
+  - ".trunk/*rc"
 i18n 🌐:
-  - 'i18n/**'
+  - "i18n/**"
 annex 🌀:
-  - 'ecosystem/annexes/**/*.md'
-  - 'i18n/**/docusaurus-plugin-content-ecosystem/**/annexes/**/*.md'
+  - "ecosystem/annexes/**/*.md"
+  - "i18n/**/docusaurus-plugin-content-ecosystem/**/annexes/**/*.md"
 package 📦:
-  - 'ecosystem/packages/**/*.md'
-  - 'i18n/**/docusaurus-plugin-content-ecosystem/**/packages/**/*.md'
+  - "ecosystem/packages/**/*.md"
+  - "i18n/**/docusaurus-plugin-content-ecosystem/**/packages/**/*.md"
 plugin ⚙️:
-  - 'ecosystem/plugins/**.md'
-  - 'i18n/**/docusaurus-plugin-content-ecosystem/**/plugins/**/*.md'
+  - "ecosystem/plugins/**.md"
+  - "i18n/**/docusaurus-plugin-content-ecosystem/**/plugins/**/*.md"
 ci 🤖:
-  - '.github/workflows/*.yml'
+  - ".github/workflows/*.yml"

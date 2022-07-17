@@ -1,6 +1,6 @@
 ---
 id: completions
-title: '🔺 Completions'
+title: "🔺 Completions"
 description: The Collection of Completions
 keywords:
   - collection

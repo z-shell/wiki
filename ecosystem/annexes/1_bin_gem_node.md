@@ -229,11 +229,11 @@ Example:
 % zi ice pip'youtube-dl <- !youtube-dl -> youtube-dl'
 % zi load z-shell/null
 …installation messages…
-% which youtube-dl  
+% which youtube-dl
 youtube-dl () {
-        local bindir="/home/user/.zi/plugins/z-shell---null/venv/bin" 
-        local -x VIRTUALENV="/home/user/.zi/plugins/z-shell---null"/venv 
-        local -xU PATH="/home/user/.zi/plugins/z-shell---null"/venv/bin:"$bindir":"$PATH" 
+        local bindir="/home/user/.zi/plugins/z-shell---null/venv/bin"
+        local -x VIRTUALENV="/home/user/.zi/plugins/z-shell---null"/venv
+        local -xU PATH="/home/user/.zi/plugins/z-shell---null"/venv/bin:"$bindir":"$PATH"
         "$bindir"/"youtube-dl" "$@"
 }
 ```

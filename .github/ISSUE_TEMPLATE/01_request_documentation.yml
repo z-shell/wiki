@@ -1,7 +1,7 @@
 name: 📚 Documentation
 description: The issue related to documentation
 labels: [documentation 📝]
-title: 'docs: '
+title: "docs: "
 body:
   - type: markdown
     attributes:

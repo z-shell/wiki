@@ -1,6 +1,6 @@
 ---
 id: themes
-title: '🔺 Themes'
+title: "🔺 Themes"
 description: The Collection of Themes
 keywords:
   - collection

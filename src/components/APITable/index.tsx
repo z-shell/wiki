@@ -5,12 +5,12 @@ import React, {
   isValidElement,
   useRef,
   useEffect,
-} from 'react';
-import { useHistory } from '@docusaurus/router';
-import styles from './styles.module.css';
+} from "react";
+import { useHistory } from "@docusaurus/router";
+import styles from "./styles.module.css";
 
 interface Props {
-  readonly children: ReactElement<ComponentProps<'table'>>;
+  readonly children: ReactElement<ComponentProps<"table">>;
   readonly name?: string;
 }
 
@@ -27,7 +27,7 @@ function APITableRow(
   {
     name,
     children,
-  }: { name: string | undefined; children: ReactElement<ComponentProps<'tr'>> },
+  }: { name: string | undefined; children: ReactElement<ComponentProps<"tr">> },
   ref: React.ForwardedRef<HTMLTableRowElement>
 ) {
   const entryName = getText(children);
@@ -43,7 +43,7 @@ function APITableRow(
         history.push(anchor);
       }}
       onKeyDown={(e: React.KeyboardEvent) => {
-        if (e.key === 'Enter') {
+        if (e.key === "Enter") {
           history.push(anchor);
         }
       }}
@@ -71,7 +71,7 @@ export default function APITable({ children, name }: Props): JSX.Element {
   }, [highlightedRow]);
   const rows = React.Children.map(
     tbody.props.children,
-    (row: ReactElement<ComponentProps<'tr'>>) => (
+    (row: ReactElement<ComponentProps<"tr">>) => (
       <APITableRowComp name={name} ref={highlightedRow}>
         {row}
       </APITableRowComp>

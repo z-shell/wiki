@@ -1,6 +1,6 @@
 ---
 id: programs
-title: '🔺 Programs'
+title: "🔺 Programs"
 description: The Collection of Programs
 keywords:
   - collection

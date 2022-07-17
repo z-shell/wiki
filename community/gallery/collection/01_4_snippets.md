@@ -1,6 +1,6 @@
 ---
 id: snippets
-title: '🔺 Snippets'
+title: "🔺 Snippets"
 description: The Collection of Snippets
 keywords:
   - collection

@@ -1,6 +1,6 @@
 ---
 id: plugins
-title: '🔺 Plugins'
+title: "🔺 Plugins"
 description: The Collection of Plugins
 keywords:
   - Collection

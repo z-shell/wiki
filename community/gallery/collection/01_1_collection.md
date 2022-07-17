@@ -1,6 +1,6 @@
 ---
 slug: /gallery/collection
-title: '🔺 Quick Introduction'
+title: "🔺 Quick Introduction"
 image: img/logo/320x320.png
 description: The Gallery of Invocations
 keywords:

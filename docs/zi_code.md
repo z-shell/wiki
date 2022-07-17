@@ -1,6 +1,6 @@
 ---
 id: code
-title: '🔖 Code documentation'
+title: "🔖 Code documentation"
 description: The documentation lists all functions, interactions between them, their comments, and features.
 keywords:
   - code

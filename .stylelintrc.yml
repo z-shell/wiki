@@ -7,5 +7,5 @@ ignoreFiles:
   - node_modules/**/*
   - static/**
 rules:
-  'csstree/validator': true
-  'selector-class-pattern': false
+  "csstree/validator": true
+  "selector-class-pattern": false

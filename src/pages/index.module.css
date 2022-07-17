@@ -53,7 +53,7 @@
   --docusaurus-announcement-bar-height: auto !important;
 }
 
-div[class^='announcementBarContent'] {
+div[class^="announcementBarContent"] {
   line-height: 18px;
   font-size: 14px;
   font-weight: bold;
@@ -65,7 +65,7 @@ div[class^='announcementBarContent'] {
   color: black;
 }
 
-div[class^='announcementBarContent'] a {
+div[class^="announcementBarContent"] a {
   text-decoration: underline;
   display: inline-block;
   color: var(--ifm-color-primary) !important;
@@ -79,28 +79,28 @@ div[class^='announcementBarContent'] a {
   margin: 20px 36px;
 }
 
-html[data-theme='light'] div[class^='announcementBar_'] {
+html[data-theme="light"] div[class^="announcementBar_"] {
   color: #000;
   background: #f6f8fa;
 }
 
-html[data-theme='dark'] div[class^='announcementBar_'] {
+html[data-theme="dark"] div[class^="announcementBar_"] {
   color: #fff;
   background: #24292e;
 }
 
-div[class^='announcementBarContent'] a:hover {
+div[class^="announcementBarContent"] a:hover {
   color: var(--brand) !important;
 }
 
 @media only screen and (max-width: 768px) {
-  div[class^='announcementBarContent'] {
+  div[class^="announcementBarContent"] {
     font-size: 12px;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  div[class^='announcementBarContent'] {
+  div[class^="announcementBarContent"] {
     font-size: 12px;
     line-height: 24px;
     padding: 4px 32px;

@@ -1,6 +1,6 @@
 ---
 id: services
-title: '🔺 Services'
+title: "🔺 Services"
 description: The Collection of Services
 keywords:
   - collection

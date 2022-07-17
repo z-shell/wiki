@@ -1,5 +1,5 @@
 ---
-title: '⚡️ Installation'
+title: "⚡️ Installation"
 sidebar_position: 1
 image: img/logo/320x320.png
 description: Installation Guide

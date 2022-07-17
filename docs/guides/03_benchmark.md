@@ -1,6 +1,6 @@
 ---
 id: benchmark
-title: '⏲ Benchmarking'
+title: "⏲ Benchmarking"
 sidebar_position: 3
 image: img/logo/320x320.png
 description: Benchmarking, Profiling & Statistics

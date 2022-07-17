@@ -8,7 +8,7 @@ extends:
   - plugin:@typescript-eslint/recommended
   - airbnb
   - prettier
-parser: '@typescript-eslint/parser'
+parser: "@typescript-eslint/parser"
 parserOptions:
   ecmaFeatures:
     jsx: true
@@ -17,15 +17,24 @@ parserOptions:
 plugins:
   - react
   - react-hooks
-  - '@docusaurus'
-  - '@typescript-eslint'
+  - "@docusaurus"
+  - "@typescript-eslint"
 rules:
   {
-    'no-undef': 0,
-    'global-require': 0,
-    'react/no-array-index-key': 0,
-    'import/no-unresolved': [2, { 'ignore': ['^@theme', '^@docusaurus', '^@site'] }],
-    'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
-    'react/require-default-props':
-      [1, { 'forbidDefaultForRequired': false, 'classes': 'ignore', 'functions': 'ignore' }],
+    "no-undef": 0,
+    "global-require": 0,
+    "react/no-array-index-key": 0,
+    "import/no-unresolved":
+      [2, { "ignore": ["^@theme", "^@docusaurus", "^@site"] }],
+    "react/jsx-filename-extension":
+      [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/require-default-props":
+      [
+        1,
+        {
+          "forbidDefaultForRequired": false,
+          "classes": "ignore",
+          "functions": "ignore",
+        },
+      ],
   }
