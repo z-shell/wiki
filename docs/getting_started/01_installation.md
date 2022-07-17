@@ -87,14 +87,18 @@ Then reload shell with: `exec zsh`. All done!
 
 ```shell showLineNumbers
 typeset -Ag ZI
+export ZI[HOME_DIR]="${HOME}/.zi"
 export ZI[BIN_DIR]="${HOME}/.zi/bin"
 command mkdir -p "$ZI[BIN_DIR]"
 ```
 
 ### <i class="fa-brands fa-git-alt"></i> Clone repository
 
-```shell showLineNumbers
-command chmod g-rwX "$ZI[BIN_DIR]"
+Setting the current user as the owner of directories, then removing group/others write permissions:
+
+```shell
+compaudit | xargs chown -R "$(whoami)" "$ZI[HOME_DIR]"
+compaudit | xargs chmod -R go-w "$ZI[HOME_DIR]"
 command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
 ```
 
