@@ -200,7 +200,6 @@ plugin, hence the `atinit'…'` ice, which will load `compinit` right before loa
 [6]: /search/?q=turbo+mode
 [7]: /search/?q=oh+my+zsh
 [8]: /search/?q=snippets
-[9]: /docs/getting_started/overview#turbo-mode-zsh--53
 [10]: /docs/guides/syntax/for
 [11]: https://github.com/z-shell/F-Sy-H
 [12]: https://github.com/zsh-users/zsh-syntax-highlighting

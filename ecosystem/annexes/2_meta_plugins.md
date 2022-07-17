@@ -58,27 +58,25 @@ skip'vivid exa tig' @console-tools
 
 ## Available meta-plugins
 
-| Meta plugin name | Consisting plugins                                                                        |
-| ---------------- | ----------------------------------------------------------------------------------------- |
-| @annexes         | [bin-gem-node][1], [readurl][2], [patch-dl][3], [rust][4], [default-ice][7], [unscope][6] |
-| @annexes+        | @annexes + [submods][5], [test][8]                                                        |
-
-|
-| @z-shell | [F-Sy-H][10], [H-S-MW][11], [zsh-diff-so-fancy][12] |
-| @z-shell2 | [zconvey][13], [zui][14], [zflai][15] |
-| @zsh-users | [zsh-syntax-highlighting][16], [zsh-autosuggestions][17], [zsh-completions][18] |
-| @zsh-users+fast | [F-Sy-H][10], [zsh-autosuggestions][17], [zsh-completions][18] |
-| @romkatv | [powerlevel10k][19] |
-| @zunit | [color][20], [revolver][21], [zunit][22] |
-| @sharkdp | [fd][23], [bat][24], [hexyl][25], [hyperfine][26], [vivid][27] |
-| @developer-tools | [color][20], [revolver][21], [zunit][22], [gitignore.plugin.zsh][28], [tig][29] |
-| @console-tools | [dircolors-material][30] (package), [fd][23], [bat][24], [hexyl][25], [hyperfine][26], [vivid][27], [exa][31], [ripgrep][32], [tig][29] |
-| @fuzzy | [fzf][33] (package), [fzy][34] (package), [skim][35], [peco][36] |
-| @fuzzy-src | fzf-go, [fzy][34], skim-cargo, peco-go |
-| @ext-git | [git-open][37], [git-recent][38], [git-my][39], [git-quick-stats][40], [git-now][41], [git-extras][42], [forgit][43] |
-| @rust-utils | rust-toolchain, cargo-extensions |
-| @py-utils | [pyenv][44] (package) |
-| @prezto | PZTM::archive, PZTM::directory, PZTM::utility |
+| Meta plugin name | Consisting plugins                                                                                                                      |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| @annexes         | [bin-gem-node][1], [readurl][2], [patch-dl][3], [rust][4], [default-ice][7], [unscope][6]                                               |
+| @annexes+        | @annexes + [submods][5], [test][8]                                                                                                      |
+| @z-shell         | [F-Sy-H][10], [H-S-MW][11], [zsh-diff-so-fancy][12]                                                                                     |
+| @z-shell2        | [zconvey][13], [zui][14], [zflai][15]                                                                                                   |
+| @zsh-users       | [zsh-syntax-highlighting][16], [zsh-autosuggestions][17], [zsh-completions][18]                                                         |
+| @zsh-users+fast  | [F-Sy-H][10], [zsh-autosuggestions][17], [zsh-completions][18]                                                                          |
+| @romkatv         | [powerlevel10k][19]                                                                                                                     |
+| @zunit           | [color][20], [revolver][21], [zunit][22]                                                                                                |
+| @sharkdp         | [fd][23], [bat][24], [hexyl][25], [hyperfine][26], [vivid][27]                                                                          |
+| @developer-tools | [color][20], [revolver][21], [zunit][22], [gitignore.plugin.zsh][28], [tig][29]                                                         |
+| @console-tools   | [dircolors-material][30] (package), [fd][23], [bat][24], [hexyl][25], [hyperfine][26], [vivid][27], [exa][31], [ripgrep][32], [tig][29] |
+| @fuzzy           | [fzf][33] (package), [fzy][34] (package), [skim][35], [peco][36]                                                                        |
+| @fuzzy-src       | fzf-go, [fzy][34], skim-cargo, peco-go                                                                                                  |
+| @ext-git         | [git-open][37], [git-recent][38], [git-my][39], [git-quick-stats][40], [git-now][41], [git-extras][42], [forgit][43]                    |
+| @rust-utils      | rust-toolchain, cargo-extensions                                                                                                        |
+| @py-utils        | [pyenv][44] (package)                                                                                                                   |
+| @prezto          | PZTM::archive, PZTM::directory, PZTM::utility                                                                                           |
 
 ## Summary
 
@@ -116,7 +114,6 @@ Other unique benefits of the meta plugins annex:
 [6]: https://github.com/z-shell/z-a-unscope
 [7]: https://github.com/z-shell/z-a-default-ice
 [8]: https://github.com/z-shell/z-a-test
-[9]: https://github.com/z-shell/zi-console
 [10]: https://github.com/z-shell/F-Sy-H
 [11]: https://github.com/z-shell/H-S-MW
 [12]: https://github.com/z-shell/zsh-diff-so-fancy

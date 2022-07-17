@@ -81,7 +81,7 @@ zi ice id-as"rust" wait"0" lucid rustup as"command" pick"bin/rustc" atload="expo
 zi load z-shell/null
 ```
 
-A little more complex rustup configuration that uses Bin-Gem-Node annex and installs the cargo completion provided with rustup, using [for][1] syntax:
+A little more complex rustup configuration that uses Bin-Gem-Node annex and installs the cargo completion provided with rustup, using the [for](/docs/guides/syntax/for) syntax:
 
 ```shell showLineNumbers
 zi id-as=rust wait=1 as=null sbin="bin/*" lucid rustup \
@@ -128,5 +128,6 @@ bin-gem-node annex: Created the rust-lldb shim and set +x on the rust-lldb binar
 bin-gem-node annex: Created the rustup shim and set +x on the rustup binary
 ```
 
-[1]: /docs/guides/syntax/for
+<!-- end-of-file -->
+
 [z-shell/z-a-rust]: https://github.com/z-shell/z-a-rust

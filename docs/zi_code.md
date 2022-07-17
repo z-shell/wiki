@@ -10,7 +10,7 @@ keywords:
 
 :::info
 
-Documentation automatically updated every `Thursday 4:30 UTC` at [z-shell/docs][1].
+Documentation automatically updated every `Thursday 4:30 UTC` at [z-shell/docs][].
 
 :::
 
@@ -19,10 +19,10 @@ Documentation automatically updated every `Thursday 4:30 UTC` at [z-shell/docs][
 | [zi.zsh][2]          | [adoc][3], [pdf][4], [html][5]    | The main script which is always loaded, in `.zshrc`           |
 | [side.zsh][6]        | [adoc][7], [pdf][8], [html][9]    | Functions, loaded by `install.zsh` and `autoload.zsh` scripts |
 | [install.zsh][10]    | [adoc][11], [pdf][12], [html][13] | Functions used only when installing a plugin or snippet       |
-| [autoload.zsh][14]   | [adoc][15], [pdf][16], [html][17] | Functions used only in interactive `ZI` invocations           |
+| [autoload.zsh][14]   | [adoc][15], [pdf][16], [html][17] | Functions used only in interactive `Zi` invocations           |
 | [additional.zsh][18] | [adoc][19], [pdf][20], [html][21] | Additonal support for functions                               |
 
-[1]: https://github.com/z-shell/docs
+[z-shell/docs]: https://github.com/z-shell/docs
 [2]: https://github.com/z-shell/zi/blob/main/zi.zsh
 [3]: https://github.com/z-shell/docs/blob/main/code/zsdoc/asciidoc/zi.zsh.adoc
 [4]: https://github.com/z-shell/docs/blob/main/code/zsdoc/pdf/zi.zsh.pdf
@@ -43,5 +43,3 @@ Documentation automatically updated every `Thursday 4:30 UTC` at [z-shell/docs][
 [19]: https://github.com/z-shell/docs/blob/main/code/zsdoc/asciidoc/additional.zsh.adoc
 [20]: https://github.com/z-shell/docs/blob/main/code/zsdoc/pdf/additional.zsh.pdf
 [21]: https://z-shell.github.io/docs/code/html/additional.zsh.html
-[22]: https://z-shell.github.io/docs/zsh/Zsh-Plugin-Standard.html
-[23]: https://z-shell.github.io/docs/zsh/Zsh-Native-Scripting-Handbook.html

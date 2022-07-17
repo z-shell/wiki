@@ -57,7 +57,7 @@ mode and fixed mode.
 
 It is active if the ice is empty (or contains only flags – more on them later). It works as follows:
 
-1. At first, a recursive search for files of known [file extensions](#supported-file-formats) located not deeper than in a sub-directory is being performed. All such found files are then extracted.
+1. At first, a recursive search for files of known [file extensions](supported-file-formats) located not deeper than in a sub-directory is being performed. All such found files are then extracted.
    - The directory-level limit is to skip extraction of some helper archive files, which are typically located somewhere deeper in the directory tree.
 2. **IF** no such files will be found, then a recursive search for files of known archive **types** will be performed. This is basically done by running the `file` Unix command on each file in the plugin or snippet directory and then grepping the output for strings like `Zip`, `bzip2`, etc. All such discovered files are then extracted.
    - The directory-level requirement is imposed also during this stage - files located deeper in the tree than in a sub-directory are omitted.
@@ -495,7 +495,7 @@ This is handy when the same tasks have to be performed on clone **and** on updat
 
 ### `atload'!…'` with exclamation mark preceded
 
-The [wrap'…'](#wrap) ice-modifier allows to track and unload plugins that defer their initialization into a function run later after sourcing the plugin's script – when the function is called, the plugin is then being fully initialized.
+The [wrap'…'](wrap) ice-modifier allows to track and unload plugins that defer their initialization into a function run later after sourcing the plugin's script – when the function is called, the plugin is then being fully initialized.
 
 However, if the function is being called from the `atload'…'` ice, then an the _exclamation mark_-preceded method can be used with `atload'…'` contents. The exclamation mark causes the effects of the execution of the code passed to `atload'…'` ice to be recorded.
 
@@ -530,7 +530,7 @@ Unregistering plugin test
 Plugin report saved to $LASTREPORT
 ```
 
-The same example as in the [wrap'…'](#use-case-for-wrap) article, but using the _exclamation mark_-preceded `atload'…'` instead of `wrap'…'`:
+The same example as in the [wrap'…'](use-case-for-wrap) article, but using the _exclamation mark_-preceded `atload'…'` instead of `wrap'…'`:
 
 Load when - `MYPROMPT == 4`
 

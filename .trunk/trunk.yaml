@@ -11,12 +11,6 @@ lint:
     - shellcheck
     - hadolint
     - taplo
-  linters:
-    - name: markdownlint
-      command:
-        [markdownlint, -q, --config, .github/.markdownlint.yaml, "${target}"]
-      direct_configs: [.github/.markdownlint.yaml]
-      success_codes: [0, 1]
   enabled:
     - git-diff-check@SYSTEM
     - actionlint@1.6.15

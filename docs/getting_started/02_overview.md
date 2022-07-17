@@ -354,7 +354,7 @@ zi ice wait'!' lucid nocd \
 zi load robobenklein/zinc
 ```
 
-The exclamation mark in `atload'!…'` is to track the functions allowing the plugin to be unloaded, as described [here][11]. It might be useful for the multi-prompt setup described next.
+The exclamation mark in `atload'!…'` is to track the functions allowing the plugin to be unloaded, as described [here](/docs/guides/syntax/ice#atclone-atpull-atinit-atload). It might be useful for the multi-prompt setup described next.
 
 ### Summary of turbo mode
 
@@ -399,11 +399,11 @@ Tracking causes a slight slowdown, however, this doesn’t influence Zsh startup
 
 :::tip
 
-See: [multiple prompts][15] for more information. It contains more real-world examples of a multi-prompt setup, which is being close to what the author uses in his setup.
+See: [multiple prompts](/docs/guides/customization#multiple-prompts) for more information. It contains more real-world examples of a multi-prompt setup, which is being close to what the author uses in his setup.
 
 :::
 
-This is [powerlevel10k][18], [pure][17], [starship][16] sample:
+This is [powerlevel10k](https://github.com/romkatv/powerlevel10k), [pure](https://github.com/sindresorhus/pure), [starship](https://github.com/starship/starship) sample:
 
 Load powerlevel10k theme.
 
@@ -459,7 +459,7 @@ zi update --plugins
 zi update --snipets
 ```
 
-Update specific plugin. Default is GitHub but can specify any with ice [from'…'][2]:
+Update specific plugin. Default is GitHub but can specify any with ice [from'…'](/search?q=from):
 
 ```shell
 zi update <user>/<repo>
@@ -545,20 +545,10 @@ zi ice as"program" make'!' \
 zi light direnv/direnv
 ```
 
-If you are interested to try out more then check out the [playground repository][19] where users have uploaded the `~/.zshrc` and other ZI configurations. Feel free to [submit][20] your `~/.zshrc` there if it contains ZI commands.
+If you are interested to try out more then check out the [playground repository](https://github.com/z-shell/playground) where users have uploaded the `~/.zshrc` and other ZI configurations. Feel free to [submit](https://github.com/z-shell/playground/issues/new?template=request-to-add-zshrc-to-the-zi-configs-repo.md) your `~/.zshrc` there if it contains ZI commands.
 
 Additional examples: [collection][10].
 
 [1]: /search?q=ice+modifiers
-[2]: /search?q=from
-[3]: /search?q=for+syntax
 [10]: /community/gallery/collection
-[11]: /docs/guides/syntax/ice#-atclone-atpull-atinit-atload
 [12]: /community/zsh_plugin_standard#use-of-add-zsh-hook-to-install-hooks
-[13]: /docs/guides/syntax/ice#-src-pick-multisrc
-[15]: /docs/guides/customization#-multiple-prompts
-[16]: https://github.com/starship/starship
-[17]: https://github.com/sindresorhus/pure
-[18]: https://github.com/romkatv/powerlevel10k
-[19]: https://github.com/z-shell/playground
-[20]: https://github.com/z-shell/playground/issues/new?template=request-to-add-zshrc-to-the-zi-configs-repo.md

@@ -38,15 +38,15 @@ zi load …
 
 Example activation in the default quiet mode:
 
-![z-a-test activation][]
+![z-p-test-1][]
 
 Example activation in non-quiet mode:
 
-![z-a-test activation][]
+![z-p-test-2][]
 
 ![z-a-test][]
 
-[z-a-test activation]: https://raw.githubusercontent.com/z-shell/z-a-test/main/docs/images/z-p-test-1.png#center
-[z-a-test activation]: https://raw.githubusercontent.com/z-shell/z-a-test/main/docs/images/z-p-test-2.png#center
+[z-p-test-1]: https://raw.githubusercontent.com/z-shell/z-a-test/main/docs/images/z-p-test-1.png#center
+[z-p-test-2]: https://raw.githubusercontent.com/z-shell/z-a-test/main/docs/images/z-p-test-2.png#center
 [z-a-test]: https://user-images.githubusercontent.com/59910950/162143845-c44ead50-b21a-46c0-8372-18325eb1f33a.gif#center
 [z-shell/z-a-test]: https://github.com/z-shell/z-a-test

@@ -167,6 +167,5 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 [8]: /docs/guides/syntax/bindkey
 [9]: /docs/guides/syntax/ice#wrap
 [10]: /docs/guides/syntax/ice#extract
-[11]: https://github.com/z-shell/zi-vim-syntax
 [12]: /ecosystem/annexes
 [alternate-syntax]: /docs/guides/syntax/common#the-alternative-syntaxes

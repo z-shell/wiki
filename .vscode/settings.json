@@ -13,8 +13,5 @@
     "general",
     "misc"
   ],
-  "markdownlint.config": {
-    "extends": ".github/.markdownlint.yaml"
-  },
   "shellformat.useEditorConfig": true
 }

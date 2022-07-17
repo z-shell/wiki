@@ -126,7 +126,7 @@ Initialization to be called **after emulate**. `emulate` is the command that mak
 -zui_std_stalog <Text 1> [Text 2] ...
 ```
 
-Appends message to the status window logs. Each text argument has a color assigned – see the `log_colors` [Zstyle](#Zstyles), it controls the colors.
+Appends message to the status window logs. Each text argument has a color assigned – see the `log_colors` [zstyle](#zstyles), it controls the colors.
 
 ---
 

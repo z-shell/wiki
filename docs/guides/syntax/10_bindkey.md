@@ -103,7 +103,7 @@ When the investigation mode is on i.e.:
 
 In the non-investigation:
 
-- the [light mode][4] – activated when `zi light …` or the `light-mode` ice is being used – the `bindmap'…'` is unavailable, unless the `trackbinds` ice is specified:
+- the [light mode](/search/?q=light+mode) – activated when `zi light …` or the `light-mode` ice is being used – the `bindmap'…'` is unavailable, unless the `trackbinds` ice is specified:
 
 ```shell showLineNumbers
 # With use of the light-mode ice and the for-syntax:
@@ -129,6 +129,5 @@ The benefits of using the <kbd>UPAR</kbd>, … shorthands is that they cover mul
 [1]: /search/?q=binkey
 [2]: /search/?q=ice+modifier
 [3]: /docs/guides/syntax/ice
-[4]: /search/?q=light+mode
 [5]: https://en.wikipedia.org/wiki/Caret_notation
 [6]: https://en.wikipedia.org/wiki/Escape_sequence
