@@ -60,10 +60,9 @@ skip'vivid exa tig' @console-tools
 
 | Meta plugin name | Consisting plugins                                                                                                                      |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| @annexes         | [bin-gem-node][1], [readurl][2], [patch-dl][3], [rust][4]                                                                               |
-| @annexes+rec     | @annexes + [submods][5], [unscope][6]                                                                                                   |
-| @annexes+add     | @annexes+rec + [default-ice][7], [test][8]                                                                                              |
-| @annexes+con     | @annexes + [zi-console][9]                                                                                                              |
+| @annexes         | [bin-gem-node][1], [readurl][2], [patch-dl][3], [rust][4], [default-ice][7], [unscope][6]                                                                     |
+| @annexes+         | @annexes + [submods][5], [test][8]
+|
 | @z-shell         | [F-Sy-H][10], [H-S-MW][11], [zsh-diff-so-fancy][12]                                                                                     |
 | @z-shell2        | [zconvey][13], [zui][14], [zflai][15]                                                                                                   |
 | @zsh-users       | [zsh-syntax-highlighting][16], [zsh-autosuggestions][17], [zsh-completions][18]                                                         |
