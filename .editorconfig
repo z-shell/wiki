@@ -34,6 +34,9 @@ indent_style = tab
 [*.{md,mdx,rst}]
 trim_trailing_whitespace = false
 
+[*.{js,ts,jsx,tsx}]
+quote_type = single
+
 [*.{cmd,bat}]
 end_of_line = crlf
 

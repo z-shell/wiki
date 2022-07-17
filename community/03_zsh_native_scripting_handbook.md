@@ -154,7 +154,7 @@ local needle="?" required_preceding='[[:space:]]#'
 
 It does a single fork (calls `svn` status). The `${~variable}` means (the`~` init): "the variable is holding a pattern,
 interpret it". All in all, instead of regular expressions we were using patterns (globs) (see
-[this section](built-in-regular-expressions-engine)).
+[this section](#built-in-regular-expressions-engine)).
 
 ### Pattern matching in AND-fashion
 
@@ -200,8 +200,6 @@ var=abcd; print ${${${(M)var:#abc}:+is abc}:-not abc} ▶ not abc
 
 A one-line "if var = x, then …, else …". Again, can spare a great amount of boring code that makes a 10-line function a
 20-line one.
-
-[#built-in-regular-expressions-engine]
 
 ### Using built-in regular expressions engine
 

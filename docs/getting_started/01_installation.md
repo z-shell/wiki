@@ -69,7 +69,7 @@ fi
 
 :::tip
 
-The loader can be manually fetched from available [links](loader) to any location on the system, and sourced from `.zshrc` or as shown in the [quick-setup](quick-setup).
+The loader can be manually fetched from available [links](#loader) to any location on the system, and sourced from `.zshrc` or as shown in the [quick-setup](#quick-setup).
 
 :::
 

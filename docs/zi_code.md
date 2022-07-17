@@ -10,7 +10,7 @@ keywords:
 
 :::info
 
-Documentation automatically updated every `Thursday 4:30 UTC` at [z-shell/docs][].
+Documentation is automatically updated every `Thursday` at `4:30 UTC` at [z-shell/docs][].
 
 :::
 

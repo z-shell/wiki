@@ -126,7 +126,7 @@ Thus, summing up 1. with 4., it might be nice/convenient too, for example, have 
 [any-gem]: https://github.com/z-shell/any-gem
 [any-node]: https://github.com/z-shell/any-node
 [bin-gem-node]: /ecosystem/annexes/bin-gem-node
-[ice-modifiers]: /docs/guides/ice-modifiers
+[ice-modifiers]: /docs/guides/syntax/ice-modifiers
 [ecs-cli]: https://github.com/z-shell/ecs-cli
 [z-shell]: https://github.com/z-shell
 [ices]: /docs/guides/syntax/ice

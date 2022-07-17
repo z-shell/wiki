@@ -38,7 +38,7 @@ After executing this command you can then use the dl'' and patch'' ice-modifiers
 
 ### How it works – bird's-eye view
 
-The `sbin''` ice that creates forwarder-scripts instead of forwarder-functions (created by the `fbin''` ice and elaborated in this `How it works …` section) turned out to be the proper, best method for exposing binary programs and scripts. You can jump to the `sbin''` ice [section](5-sbingncneopath-to-binary---name-of-the-script-) if you want.
+The `sbin''` ice that creates forwarder-scripts instead of forwarder-functions (created by the `fbin''` ice and elaborated in this `How it works …` section) turned out to be the proper, best method for exposing binary programs and scripts. You can jump to the `sbin''` ice [section](#sbin) if you want.
 This way there is no need to add anything to `$PATH` – `z-a-bin-gem-node` will automatically create a function that will wrap the binary and provide it on the command line as if it was being placed in the `$PATH`.
 Also, as mentioned in the enumeration, the function can automatically export `$GEM_HOME`, `$NODE_PATH`, `$VIRTUALENV` shell variables and also automatically cd into the plugin or snippet directory right before executing the binary and then cd back to the original directory after the execution is finished.
 Also, as already mentioned, instead of the function an automatically created script – the so-called `shim` – can be used for the same purpose and with the same functionality, so that the command is being accessible practically fully normally – not only in the live Zsh session (only within which the functions created by `fbin''` exist) but also from any Zsh script.
@@ -86,16 +86,16 @@ Running the script will forward the call to the program accessed through an embe
 
 There are 7 ice modifiers provided and handled by the annex:
 
-| Ice modifier     | Description                                                                                              |
-| :--------------- | :------------------------------------------------------------------------------------------------------- |
-| [`sbin''`](sbin) | Creates `shims` for binaries and scripts.                                                                |
-| [`fbin''`](fbin) | Creates functions for binaries and scripts.                                                              |
-| [`gem''`](gem)   | Installs and updates gems + creates functions for gems' binaries.                                        |
-| [`node''`](node) | Installs and updates node_modules + creates functions for binaries of the modules.                       |
-| [`pip''`](pip)   | Installs and updates python packages into a virtualenv + creates functions for binaries of the packages. |
-| [`fmod''`](fmod) | Creates wrapping functions for other functions.                                                          |
-| [`fsrc''`](fsrc) | Creates functions that source given scripts.                                                             |
-| [`ferc''`](ferc) | The same as [`fsrc''`](fscr), but using an alternate script-loading method.                              |
+| Ice modifier      | Description                                                                                              |
+| :---------------- | :------------------------------------------------------------------------------------------------------- |
+| [`sbin''`](#sbin) | Creates `shims` for binaries and scripts.                                                                |
+| [`fbin''`](#fbin) | Creates functions for binaries and scripts.                                                              |
+| [`gem''`](#gem)   | Installs and updates gems + creates functions for gems' binaries.                                        |
+| [`node''`](#node) | Installs and updates node_modules + creates functions for binaries of the modules.                       |
+| [`pip''`](#pip)   | Installs and updates python packages into a virtualenv + creates functions for binaries of the packages. |
+| [`fmod''`](#fmod) | Creates wrapping functions for other functions.                                                          |
+| [`fsrc''`](#fsrc) | Creates functions that source given scripts.                                                             |
+| [`ferc''`](#ferc) | The same as [`fsrc''`](#fscr), but using an alternate script-loading method.                             |
 
 #### `SBIN''` {#sbin}
 

@@ -1,21 +1,21 @@
-import React, { useState, CSSProperties } from "react";
-import ClipLoader from "react-spinners/ClipLoader";
-import baseLoad from "@loadable/component";
-import Layout from "@theme/Layout";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import Translate, { translate } from "@docusaurus/Translate";
-import Link from "@docusaurus/Link";
-import styles from "./index.module.css";
+import React, { useState, CSSProperties } from 'react';
+import ClipLoader from 'react-spinners/ClipLoader';
+import baseLoad from '@loadable/component';
+import Layout from '@theme/Layout';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Translate, { translate } from '@docusaurus/Translate';
+import Link from '@docusaurus/Link';
+import styles from './index.module.css';
 
 const override: CSSProperties = {
-  display: "block",
-  margin: "0 auto",
-  color: "var(--ifm-color-primary)",
+  display: 'block',
+  margin: '0 auto',
+  color: 'var(--ifm-color-primary)',
 };
 
 function ClipSpinner(): JSX.Element {
   const loading = useState(true);
-  const color = useState("#ffffff");
+  const color = useState('#ffffff');
   return (
     <div className="sweet-loading">
       <ClipLoader
@@ -33,10 +33,10 @@ function loadable(func): JSX.Element {
 }
 
 const AsciinemaPlayer = loadable(
-  () => import("@site/src/components/AsciinemaPlayer")
+  () => import('@site/src/components/AsciinemaPlayer')
 );
 const HomeFeatures = loadable(
-  () => import("@site/src/components/HomeFeatures")
+  () => import('@site/src/components/HomeFeatures')
 );
 
 function FeaturesContainer(): JSX.Element {
@@ -97,7 +97,7 @@ function HeroBanner(): JSX.Element {
       <div className={styles.heroInner}>
         <h1 className={styles.heroProjectTagline}>
           <img
-            alt={translate({ message: "ZI logo" })}
+            alt={translate({ message: 'ZI logo' })}
             className={styles.heroLogo}
             src="/img/logo.svg"
             width="200"
@@ -108,11 +108,11 @@ function HeroBanner(): JSX.Element {
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html: translate({
-                id: "homepage.hero.title",
+                id: 'homepage.hero.title',
                 message:
-                  "A <b>Swiss Army</b> Knife  for <b>Zsh</b> unix <b>Shell</b>",
+                  'A <b>Swiss Army</b> Knife  for <b>Zsh</b> unix <b>Shell</b>',
                 description:
-                  "Home page hero title, can contain simple html tags",
+                  'Home page hero title, can contain simple html tags',
               }),
             }}
           />

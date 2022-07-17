@@ -18,7 +18,7 @@ Historically, Zsh plugins were first defined by Oh My Zsh. They provide a way to
 
 At a simple level, a plugin:
 
-1. Has its directory added to `$fpath` ([Zsh documentation: #Autoloading-Functions][autoloading-functions]). This is being done either by a plugin manager or by the plugin itself (see [5th section](run-on-unload-call) for more information).
+1. Has its directory added to `$fpath` ([Zsh documentation: #Autoloading-Functions][autoloading-functions]). This is being done either by a plugin manager or by the plugin itself (see [5th section](#run-on-unload-call) for more information).
 
 2. Has it's first `*.plugin.zsh` file sourced (or `*.zsh`, `init.zsh`, `*.sh`, these are non-standard).
 
@@ -28,7 +28,7 @@ At a simple level, a plugin:
 
    3.1. a directory containing various files (the main script, autoload functions, completions, Makefiles, backend programs, documentation).
 
-   3.2. a sourceable script that obtains the path to its directory via `$0` (see the [next section](zero-handling) for a related enhancement proposal).
+   3.2. a sourceable script that obtains the path to its directory via `$0` (see the [next section](#zero-handling) for a related enhancement proposal).
 
    3.3. Github (or another site) repository identified by two components **username**/**pluginname**.
 
@@ -99,7 +99,7 @@ When you’ll set e.g.: the `zsh` emulation in a function, you in general don’
 
 > [ functions-directory ]
 
-Despite that, the current-standard plugins have their main directory added to `$fpath`, a more clean approach is being proposed: that the plugins use a subdirectory called `functions` to store their completions and autoload functions. This will allow a much cleaner design of plugins. The plugin manager should add such a directory to `$fpath`. The lack of support of the current plugin managers can be easily resolved via the [indicator](indicator):
+Despite that, the current-standard plugins have their main directory added to `$fpath`, a more clean approach is being proposed: that the plugins use a subdirectory called `functions` to store their completions and autoload functions. This will allow a much cleaner design of plugins. The plugin manager should add such a directory to `$fpath`. The lack of support of the current plugin managers can be easily resolved via the [indicator](#indicator):
 
 ```shell showLineNumbers
 if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}/functions]} ]] {
@@ -107,7 +107,7 @@ if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}/functions]} ]]
 }
 ```
 
-or, via use of the `PMSPEC` [parameter](pmspec):
+or, via use of the `PMSPEC` [parameter](#pmspec):
 
 ```shell showLineNumbers
 if [[ $PMSPEC != *f* ]] {
@@ -181,7 +181,7 @@ The plugin manager can provide a function `@zsh-plugin-run-on-unload` which has 
 @zsh-plugin-run-on-unload "{code-snippet-1}" "{code-snippet-2}" …
 ```
 
-The function registers pieces of code to be run by the plugin manager **on unload of the plugin**. The execution of the code should be done by the `eval` built-in in the same order as they are passed to the call. The code should be executed in the plugin’s directory, in the current shell. The mechanism thus provides another way, side to the [unload function](unload-function), for the plugin to participate in the process of unloading it.
+The function registers pieces of code to be run by the plugin manager **on unload of the plugin**. The execution of the code should be done by the `eval` built-in in the same order as they are passed to the call. The code should be executed in the plugin’s directory, in the current shell. The mechanism thus provides another way, side to the [unload function](#unload-function), for the plugin to participate in the process of unloading it.
 
 ### **STATUS:** [ run-on-unload-call ]
 
@@ -393,7 +393,7 @@ Their use is naturally limited to the functions called from the main function of
 
 The recommendation is the purely subjective opinion of the author.
 
-It can evolve – if you have any remarks, don’t hesitate to [fill them][].
+It can evolve – if you have any remarks, don’t hesitate to [fill-them][].
 
 ## The problems solved by the proposition
 
@@ -433,7 +433,7 @@ The proposition of the standard prefixes is as follows:
 
 4. `/`: for debugging functions, i.e: for functions that output debugs messages to the screen or a log or e.g.: gather some debug data. **Note:** the slash makes it impossible for such functions to be auto-loaded via the `autoload` mechanism. It is somewhat risky to assume, that this will never be needed for the functions, however, the limited number of available ASCII characters justifies such allocation. Example function name: `/prompt_zinc_dmsg`.
 
-5. `@`: for API-like functions, i.e: for functions that are on a boundary to a subsystem and expose their functionality through a well-defined, generally fixed interface. For example, this plugin standard [defines](update-register-call) the function `@zsh-plugin-run-on-update`, which is exposing a plugin manager’s functionality in a well-defined way.
+5. `@`: for API-like functions, i.e: for functions that are on a boundary to a subsystem and expose their functionality through a well-defined, generally fixed interface. For example, this plugin standard [defines](#update-register-call) the function `@zsh-plugin-run-on-update`, which is exposing a plugin manager’s functionality in a well-defined way.
 
 ## Example code utilizing the prefixes
 
@@ -501,7 +501,7 @@ PlgMap[some_array__1]=state
 
 The use of this method is very unproblematic. The author reduced the number of global parameters in one of the projects by 21 by using an automatic conversion with Vim substitution patterns with backreferences without any problems.
 
-Following the [Standard Plugins Hash](standard-plugins-hash) section, the plugin could even use a common hash name – `Plugins` – to lower the pollution even more.
+Following the [Standard Plugins Hash](#standard-plugins-hash) section, the plugin could even use a common hash name – `Plugins` – to lower the pollution even more.
 
 [zi]: https://github.com/z-shell/zi
 [zinit]: https://github.com/zdharma-continuum/zinit
@@ -517,7 +517,7 @@ Following the [Standard Plugins Hash](standard-plugins-hash) section, the plugin
 [github search loaded]: https://github.com/search?q=if+%22zsh_loaded_plugins%22&type=Code
 [agkozak/zhooks is using]: https://github.com/agkozak/zhooks/blob/628e1e3b8373bf31c26cb154f71c16ebe9d13b51/zhooks.plugin.zsh#L75-L82
 [tj/git-extras]: https://github.com/tj/git-extras
-[fill them]: https://github.com/z-shell/zw/issues/new
+[fill-them]: https://github.com/z-shell/zw/issues/new
 [zsh-workers post]: https://www.zsh.org/mla/workers/2011/msg01050.html
 [autoloading-functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions
 [zsh documentation: #special-widgets]: http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Special-Widgets

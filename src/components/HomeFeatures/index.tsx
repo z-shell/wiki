@@ -1,7 +1,7 @@
-import React from "react";
-import clsx from "clsx";
-import Translate, { translate } from "@docusaurus/Translate";
-import styles from "./styles.module.css";
+import React from 'react';
+import clsx from 'clsx';
+import Translate, { translate } from '@docusaurus/Translate';
+import styles from './styles.module.css';
 
 const turboSvg = () => (
   <span className="fa-6x">
@@ -24,9 +24,9 @@ const createSvg = () => (
 const features = [
   {
     title: translate({
-      id: "homepage.feature1.title",
-      message: "Zsh Startup 50-80% Faster",
-      description: "Title of feature 1 (left) on the home page",
+      id: 'homepage.feature1.title',
+      message: 'Zsh Startup 50-80% Faster',
+      description: 'Title of feature 1 (left) on the home page',
     }),
     Svg: turboSvg,
     description: (
@@ -41,9 +41,9 @@ const features = [
   },
   {
     title: translate({
-      id: "homepage.feature2.title",
-      message: "Focus on What Matters",
-      description: "Title of feature 2 (middle) on the home page",
+      id: 'homepage.feature2.title',
+      message: 'Focus on What Matters',
+      description: 'Title of feature 2 (middle) on the home page',
     }),
     Svg: statsSvg,
     description: (
@@ -58,9 +58,9 @@ const features = [
   },
   {
     title: translate({
-      id: "homepage.feature3.title",
-      message: "Wide Range of Features",
-      description: "Title of feature 3 (right) on the home page",
+      id: 'homepage.feature3.title',
+      message: 'Wide Range of Features',
+      description: 'Title of feature 3 (right) on the home page',
     }),
     Svg: createSvg,
     description: (
@@ -81,7 +81,7 @@ function HomeFeatures(): JSX.Element {
       <div className="container">
         <div className="row">
           {features.map(({ title, Svg, description }, idx) => (
-            <div key={idx} className={clsx("col col--4", styles.features)}>
+            <div key={idx} className={clsx('col col--4', styles.features)}>
               {Svg && (
                 <div className={styles.featureimage}>
                   <Svg role="img" alt={title} />

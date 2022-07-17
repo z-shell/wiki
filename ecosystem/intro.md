@@ -4,7 +4,7 @@ title: 🌐 Ecosystem
 sidebar_position: 1
 image: img/logo/320x320.png
 description: Introduction to the ZI ecosystem.
-  keywords:
+keywords:
   - annexes
   - packages
   - toolchain
