@@ -3,9 +3,10 @@ id: commands
 title: '🛠 Commands'
 sidebar_position: 1
 image: img/logo/320x320.png
-description: ZI Commands
+description: ZI commands & functions
 keywords:
   - commands
+  - functions
 ---
 
 import APITable from '@site/src/components/APITable';
@@ -128,6 +129,8 @@ Performance gains are huge, for example, shell startup time with double `compini
 ## Calling `compinit` with turbo mode
 
 If you load completions using `wait'…'` [turbo mode][2] then you can add `atinit'zicompinit'` to the syntax-highlighting plugin (which should be the last one loaded, as their (2 projects, [zsh-syntax-highlighting][3] & [F-Sy-H][4]) documentation state), or `atload'zicompinit'` to last completion-related plugin. `zicompinit` is a function that just runs `autoload compinit; compinit`, created for convenience.
+
+Alternatively the `zicompinit` can be replaced with `zicompinit_fast` which checks the cached `.zcompdump` and determines when to regenerate the file. This restricts checking it once a day, as compinit doesn't always need to modify the compdump and compiles mapped to share in background in multiple shells.
 
 There's also `zicdreplay` which will replay any caught compdefs so you can also do: `atinit'zicompinit; zicdreplay'`, etc.
 

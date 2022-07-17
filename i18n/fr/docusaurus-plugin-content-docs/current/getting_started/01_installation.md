@@ -87,20 +87,24 @@ Ensuite, rechargez le shell avec : `exec zsh`. Terminé !
 
 ```shell showLineNumbers
 typeset -Ag ZI
+export ZI[HOME_DIR]="${HOME}/.zi"
 export ZI[BIN_DIR]="${HOME}/.zi/bin"
 command mkdir -p "$ZI[BIN_DIR]"
 ```
 
 ### <i class="fa-brands fa-git-alt"></i> Cloner le dépôt
 
-```shell showLineNumbers
-commande chmod g-rwX "$ZI[BIN_DIR]"
-commande git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
+Setting the current user as the owner of directories, then removing group/others write permissions:
+
+```shell
+compaudit | xargs chown -R "$(whoami)" "$ZI[HOME_DIR]"
+compaudit | xargs chmod -R go-w "$ZI[HOME_DIR]"
+command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
 ```
 
 ### <i class="fa-solid fa-circle-nodes"></i> Activer ZI
 
-Sourcez `zi.zsh` dans votre `.zshrc` à partir du répertoire créé précédemment :
+Source `zi.zsh` in your `.zshrc` from previously created directory:
 
 ```shell showLineNumbers
 typeset -A ZI
@@ -112,7 +116,7 @@ source "${ZI[BIN_DIR]}/zi.zsh"
 
 :::info
 
-Les deux lignes suivantes doivent être en dessous des deux précédentes :
+The next two lines must be below the above two:
 
 :::
 
@@ -123,13 +127,13 @@ autoload -Uz _zi
 
 ## <i class="fas fa-spinner fa-spin"></i> Post-installation
 
-Après une nouvelle installation, il est recommandé de recharger le shell avec `exec zsh` et de compiler ZI avec `zi self-update`. Exécutez `zi -h` pour voir toutes les commandes disponibles. Augmentez les fonctionnalités et les performances de ZI ou commencez par explorer le wiki.
+After a fresh install, recommended to reload the shell with `exec zsh` and compile ZI with `zi self-update`. Run `zi -h` to see all available commands. Increase ZI functionality, performance or get started by exploring the wiki.
 
-Si vous avez un problème ou avez besoin d'aide 🤦‍♂️, laissez [discuter ][7] ou ouvrez un [problème][6] dans n'importe quelle langue.
+If you have any issue or need help 🤦‍♂️, lets [discuss][7] it or open an [issue][6] in any language.
 
-Cela nous aide à améliorer et à améliorer ZI. N'oubliez pas d'aider le projet : partagez, contribuez, ou [traduisez][8] 🌐 🥰 🤓.
+It helps us to improve and make ZI better. Don't forget to help the project: share, contribute, or [translate][8] 🌐 🥰 🤓.
 
-Collons tout ensemble pour créer une chaîne d'outils qui fonctionne pour NOUS 🚀.
+Let's glue everything together to create a toolchain that works for US 🚀.
 
 ## <i class="fas fa-sync-alt fa-spin"></i> Vous avez des idées ?
 
@@ -149,12 +153,12 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 
 ### <i class="fa-brands fa-docker"></i> Turbo ZI dans Docker
 
-Si vous créez une image Docker qui utilise ZI, installez les plugins Turbo-loaded avant que le shell ne démarre de manière interactive, avec la fonction `@zi-scheduler` de telle manière, qu'il :
+If you create a Docker image that uses ZI, install Turbo-loaded plugins before the shell starts interactively, with the `@zi-scheduler` function in such a way, that it:
 
 - installe les plugins sans attendre l'invite (c'est-à-dire qu'il est compatible avec les scripts),
 - installe tous les plugins instantanément, sans respecter l'argument ''attendre''.
 
-Pour ce faire, utilisez l'argument burst et appelez la fonction `@zi-scheduler` :
+To accomplish this, use burst argument and call `@zi-scheduler` function:
 
 ```docker
 RUN zsh -i -c -- '@zi-scheduler burst || true'
@@ -175,7 +179,7 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
 
 :::info
 
-ZI doit être installé pour construire le module. Dépôt de modules : [z-shell/zpmod][9]
+ZI has to be installed to build the module. Module repository: [z-shell/zpmod][9]
 
 :::
 
@@ -183,7 +187,7 @@ ZI doit être installé pour construire le module. Dépôt de modules : [z-shell
 zi module build
 ```
 
-Pour activer les messages de débogage de l'ensemble de modules :
+To enable debug messages from the module set:
 
 ```shell
 typeset -g ZI_MOD_DEBUG=1
@@ -191,7 +195,7 @@ typeset -g ZI_MOD_DEBUG=1
 
 ## <i class="fas fa-sync-alt fa-spin"></i> Liens disponibles
 
-[Page de statut : :heavy_check_mark:][10]
+[Status page: :heavy_check_mark:][10]
 
 ### Installateur
 
