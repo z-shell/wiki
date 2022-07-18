@@ -42,7 +42,7 @@
     "react-spinners": "0.13.3"
   },
   "devDependencies": {
-    "@babel/core": "7.18.6",
+    "@babel/core": "7.18.9",
     "@docusaurus/eslint-plugin": "0.0.0-5214",
     "@docusaurus/module-type-aliases": "0.0.0-5214",
     "@tsconfig/docusaurus": "1.0.6",
