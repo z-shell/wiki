@@ -580,7 +580,7 @@ zi for as'program' nocompile'!' depth'1' \
 ```
 
 [1]: https://github.com/junegunn/fzf
-[2]: https://github.com/shakrdp/fd
+[2]: https://github.com/sharkdp/fd
 [3]: https://github.com/sharkdp/bat
 [4]: https://github.com/sharkdp/exa
 [5]: https://github.com/dandavison/delta
