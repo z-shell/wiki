@@ -88,7 +88,7 @@ Then reload shell with: `exec zsh`. All done!
 ```shell showLineNumbers
 typeset -Ag ZI
 export ZI[HOME_DIR]="${HOME}/.zi"
-export ZI[BIN_DIR]="${HOME}/.zi/bin"
+export ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
 command mkdir -p "$ZI[BIN_DIR]"
 ```
 
