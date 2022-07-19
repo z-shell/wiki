@@ -7,6 +7,7 @@ keywords:
   - annex
   - zsh-plugins
   - meta-plugins
+  - optimised-zsh-plugins
 ---
 
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-meta-plugins][45]
@@ -62,7 +63,7 @@ skip'vivid exa tig' @console-tools
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | @annexes         | [bin-gem-node][1], [readurl][2], [patch-dl][3], [rust][4], [default-ice][7], [unscope][6]                                               |
 | @annexes+        | @annexes + [submods][5], [test][8]                                                                                                      |
-| @z-shell         | [F-Sy-H][10], [H-S-MW][11], [zsh-diff-so-fancy][12], [z-shell/zsh-select][49]                                                                                     |
+| @z-shell         | [F-Sy-H][10], [H-S-MW][11], [zsh-diff-so-fancy][12], [z-shell/zsh-select][49]                                                           |
 | @z-shell+        | [zconvey][13], [zui][14], [zflai][15]                                                                                                   |
 | @zsh-users       | [zsh-syntax-highlighting][16], [zsh-autosuggestions][17], [zsh-completions][18]                                                         |
 | @zsh-users+fast  | [F-Sy-H][10], [zsh-autosuggestions][17], [zsh-completions][18]                                                                          |
