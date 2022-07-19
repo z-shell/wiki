@@ -11,7 +11,7 @@ keywords:
 
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-meta-plugins][45]
 
-An annex has the curated, optimal [ice][46] lists automatically applied.
+An annex has the curated, optimal [ice][46] lists automatically applied. For more details refer to [z-a-meta-plugins.plugin.zsh][50] file.
 
 - To create your group of plugins as meta-plugins propose them in a new [issue][47].
 
@@ -62,8 +62,8 @@ skip'vivid exa tig' @console-tools
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | @annexes         | [bin-gem-node][1], [readurl][2], [patch-dl][3], [rust][4], [default-ice][7], [unscope][6]                                               |
 | @annexes+        | @annexes + [submods][5], [test][8]                                                                                                      |
-| @z-shell         | [F-Sy-H][10], [H-S-MW][11], [zsh-diff-so-fancy][12]                                                                                     |
-| @z-shell2        | [zconvey][13], [zui][14], [zflai][15]                                                                                                   |
+| @z-shell         | [F-Sy-H][10], [H-S-MW][11], [zsh-diff-so-fancy][12], [z-shell/zsh-select][49]                                                                                     |
+| @z-shell+        | [zconvey][13], [zui][14], [zflai][15]                                                                                                   |
 | @zsh-users       | [zsh-syntax-highlighting][16], [zsh-autosuggestions][17], [zsh-completions][18]                                                         |
 | @zsh-users+fast  | [F-Sy-H][10], [zsh-autosuggestions][17], [zsh-completions][18]                                                                          |
 | @romkatv         | [powerlevel10k][19]                                                                                                                     |
@@ -153,3 +153,5 @@ Other unique benefits of the meta plugins annex:
 [46]: /docs/guides/syntax/ice
 [47]: https://github.com/z-shell/z-a-meta-plugins/issues/new
 [48]: https://raw.githubusercontent.com/z-shell/z-a-meta-plugins/main/docs/images/fuzzy-mplg-ex.png#center
+[49]: https://github.com/z-shell/zsh-select
+[50]: https://github.com/z-shell/z-a-meta-plugins/blob/main/z-a-meta-plugins.plugin.zsh
