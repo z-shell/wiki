@@ -1,0 +1,19 @@
+.features {
+  text-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 0;
+}
+
+.featureimage {
+  display: inline;
+  height: 200px;
+  width: 200px;
+}
+
+@media screen and (max-width: 966px) {
+  .features {
+    padding: 2rem 0;
+  }
+}

@@ -1,0 +1,32 @@
+---
+name: "🌐 Crowdin Upload"
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+    paths: ["docs/**", "community/**", "src/pages/**", "blog/**"]
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+  CROWDIN_PROJECT: ${{ secrets.CROWDIN_PROJECT }}
+  CROWDIN_TOKEN: ${{ secrets.CROWDIN_TOKEN }}
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+    timeout-minutes: 10
+    steps:
+      - name: "⤵️ Check out code from GitHub"
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: "🚀 Crowdin Upload"
+        uses: crowdin/github-action@1.4.10
+        with:
+          upload_sources: true
+          upload_translations: false
+          download_translations: false

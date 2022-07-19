@@ -1,0 +1,32 @@
+---
+name: "⭕ Trunk"
+on:
+  push:
+    branches: [main]
+    tags: ["v*.*.*"]
+  pull_request:
+    types: [opened, synchronize]
+  schedule:
+    - cron: "0 07 * * 5"
+  workflow_dispatch: {}
+
+env:
+  NODE_VERSION: 16
+
+jobs:
+  check:
+    if: github.event.schedule != '0 07 * * 5'
+    name: "⚡"
+    uses: z-shell/.github/.github/workflows/trunk.yml@main
+    with:
+      node_version: "16"
+      pnpm_arguments: "pnpm i && pnpm build"
+  upload:
+    if: github.event.schedule == '0 07 * * 5'
+    name: "🆙"
+    uses: z-shell/.github/.github/workflows/trunk.yml@main
+    secrets:
+      trunk-token: ${{ secrets.TRUNK_TOKEN }}
+    with:
+      node_version: "16"
+      pnpm_arguments: "pnpm i && pnpm build"

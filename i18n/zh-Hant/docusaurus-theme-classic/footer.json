@@ -1,0 +1,26 @@
+{
+  "link.item.label.Community": {
+    "message": "Community",
+    "description": "The label of footer link with label=Community linking to /community/intro"
+  },
+  "link.item.label.Ecosystem": {
+    "message": "Ecosystem",
+    "description": "The label of footer link with label=Ecosystem linking to /ecosystem/intro"
+  },
+  "link.item.label.Slack.com": {
+    "message": "Slack.com",
+    "description": "The label of footer link with label=Slack.com linking to https://join.slack.com/t/z-shell/shared_invite/zt-16twpopd2-p08ROUeT2aGZ5njJwysawA"
+  },
+  "link.item.label.Matrix.org": {
+    "message": "Matrix.org",
+    "description": "The label of footer link with label=Matrix.org linking to https://matrix.to/#/#z-shell_zi:gitter.im"
+  },
+  "link.item.label.Gitter.im": {
+    "message": "Gitter.im",
+    "description": "The label of footer link with label=Gitter.im linking to https://gitter.im/z-shell/zi"
+  },
+  "copyright": {
+    "message": "Copyright © 2022 Z-Shell Community.",
+    "description": "The footer copyright"
+  }
+}

@@ -1,0 +1,226 @@
+.herobanner {
+  padding: 2rem 0;
+  text-align: right;
+  position: relative;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.videocontainer {
+  padding: 4rem 0;
+  text-align: justify;
+  position: relative;
+  overflow: hidden;
+}
+
+.features {
+  display: block;
+  align-items: center;
+  width: 100%;
+}
+
+.asciicasts {
+  display: block;
+  align-items: center;
+  width: 100%;
+}
+
+@media only screen and (max-width: 996px) {
+  .herobanner {
+    padding: 1rem 0;
+  }
+
+  .videocontainer {
+    padding: 2rem 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .herobanner {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .herobanner {
+    animation: vibrate 0.3s linear infinite both;
+  }
+}
+
+/* Announcement banner */
+
+:root {
+  --docusaurus-announcement-bar-height: auto !important;
+}
+
+div[class^="announcementBarContent"] {
+  line-height: 18px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px 24px;
+  transition-duration: 1s !important;
+}
+
+.indexCtas a {
+  color: black;
+}
+
+div[class^="announcementBarContent"] a {
+  text-decoration: underline;
+  display: inline-block;
+  color: var(--ifm-color-primary) !important;
+}
+
+.indexCtas a:hover {
+  color: black;
+}
+
+.indexCtas a:last-of-type {
+  margin: 20px 36px;
+}
+
+html[data-theme="light"] div[class^="announcementBar_"] {
+  color: #000;
+  background: #f6f8fa;
+}
+
+html[data-theme="dark"] div[class^="announcementBar_"] {
+  color: #fff;
+  background: #24292e;
+}
+
+div[class^="announcementBarContent"] a:hover {
+  color: var(--brand) !important;
+}
+
+@media only screen and (max-width: 768px) {
+  div[class^="announcementBarContent"] {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  div[class^="announcementBarContent"] {
+    font-size: 12px;
+    line-height: 24px;
+    padding: 4px 32px;
+  }
+}
+
+.hero {
+  background-color: #2b3137;
+  padding: 48px;
+}
+
+.heroInner {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 0 20px;
+}
+
+.heroProjectTagline {
+  color: #fff;
+  font-size: 60px;
+  margin: 0;
+}
+
+.heroTitleTextHtml b {
+  color: var(--ifm-color-primary);
+}
+
+@keyframes jack-in-the-box {
+  from {
+    opacity: 0;
+    transform: scale(0.2) rotate(180deg);
+    transform-origin: center bottom;
+  }
+
+  50% {
+    transform: rotate(-10deg);
+  }
+
+  70% {
+    transform: rotate(3deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.heroLogo {
+  animation-duration: 3s;
+  animation-name: jack-in-the-box;
+  float: right;
+  margin-top: 20px;
+  padding: 0 20px 20px;
+  height: auto;
+}
+
+.indexCtas {
+  --ifm-button-size-multiplier: 1.4;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.indexCtasGitHubButtonWrapper {
+  display: flex;
+}
+
+.indexCtasGitHubButton {
+  overflow: hidden;
+}
+
+.indexCtaTryNowButton:hover {
+  color: var(--ifm-color-primary);
+}
+
+@media only screen and (max-width: 768px) {
+  .hero {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .heroInner {
+    padding: 0;
+  }
+
+  .heroProjectTagline {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .heroLogo {
+    display: block;
+    float: none;
+    margin: 0 auto;
+  }
+
+  .indexCtas {
+    justify-content: center;
+  }
+
+  .indexCtas a {
+    margin: 20px 36px;
+  }
+
+  .indexCtasGitHubButton {
+    display: none;
+  }
+}
+
+.section {
+  padding: 72px 0;
+}
+
+.sectionAlt {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.sectionInner {
+  margin: 0 auto;
+}
