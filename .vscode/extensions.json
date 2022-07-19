@@ -12,6 +12,7 @@
     "stylelint.vscode-stylelint",
     "silvenon.mdx",
     "dbaeumer.vscode-eslint",
-    "Crowdin.vscode-crowdin"
+    "crowdin.vscode-crowdin",
+    "CodeSandbox-io.codesandbox-projects"
   ]
 }
