@@ -32,3 +32,4 @@ lint:
     - linters: [gitleaks]
       paths:
         - "pnpm-lock.yaml"
+        - "docusaurus.config.js"

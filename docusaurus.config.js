@@ -155,9 +155,9 @@ const config = {
         content: `If you like ❮ Zi ❯ - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi"><i class="fa-solid fa-star"></i></a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell"><i class="fa-brands fa-github-alt"></i></a> or <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/zshell_zi"><i class="fa-brands fa-twitter"></i></a>`,
       },
       algolia: {
-        appId: '8A6CKETM6G',
-        apiKey: '1750c7420e10ff8acf4d4f1f7ca0de90',
-        indexName: 'z-digitalclouds',
+        appId: 'FMPN8VE51Y',
+        apiKey: 'dc79b7c21de40f86bcf82f144a69e8a8',
+        indexName: 'zshell',
         contextualSearch: true,
       },
       navbar: {
