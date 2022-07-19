@@ -1,6 +1,6 @@
 // @ts-check
 
-const setURL = process.env.URL ?? 'https://z.digitalclouds.dev';
+const setURL = process.env.URL ?? 'https://wiki.zshell.dev';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {

@@ -64,7 +64,7 @@ Designed to glue everything together. 🔗
 
 ✴️ Quickly familiarize oneself with a new plugin and provides rich and easy-to-digest information that might be helpful on various occasions.
 
-✴️ [Load, unload](/docs/guides/commands#loading-and-unloading) plugins when required, use the ability to [manage](https://z.digitalclouds.dev/docs/guides/commands#completions-management) completions.
+✴️ [Load, unload](/docs/guides/commands#loading-and-unloading) plugins when required, use the ability to [manage](/docs/guides/commands#completions-management) completions.
 
 ✴️ Docker [playground](https://github.com/z-shell/playground) to test, view, or propose configurations.
 

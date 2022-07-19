@@ -78,6 +78,9 @@
       , <a href="https://z-shell.pages.dev" rel="external nofollow noopener" target="_blank">
         https://z-shell.pages.dev
       </a>
+      , <a href="https://wiki.zshell.dev" rel="external nofollow noopener" target="_blank">
+        https://wiki.zshell.dev
+      </a>
     </p>
   </li>
   <li>

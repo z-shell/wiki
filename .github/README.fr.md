@@ -12,7 +12,7 @@
   </h2>
 <h3>
   <a href="https://github.com/orgs/z-shell/discussions/">《❔ Poser une question</a>
-  <a href="https://z.digitalclouds.dev/search/">《💡》Rechercher sur le Wiki </a>
+  <a href="https://wiki.zshell.dev/search/">《💡》Rechercher sur le Wiki </a>
   <a href="https://github.com/z-shell/community/issues/new?assignees=&labels=%F0%9F%91%A5+member&template=membership.yml&title=team%3A+">《💜》Join </a>
   <a href="https://digitalclouds.crowdin.com/z-shell/">《🌐》Traduire </a>
 </h3>

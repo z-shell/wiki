@@ -1,4 +1,8 @@
 {
+  "homepage.hero.title": {
+    "message": "<b>Zsh</b> unix <b>シェル</b>のための<b>スイス アーミー</b>ナイフ",
+    "description": "Home page hero title, can contain simple html tags"
+  },
   "Community": {
     "message": "コミュニティ"
   },

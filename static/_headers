@@ -25,5 +25,5 @@
   Cache-Control: s-maxage=31536000
   Cache-Control: immutable
 
-https://:z-shell.pages.dev/*
+https://:zsh.pages.dev/*
   X-Robots-Tag: noindex

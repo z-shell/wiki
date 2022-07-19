@@ -22,7 +22,7 @@ on:
       ]
 
 env:
-  URL: "https://z.digitalclouds.dev"
+  URL: "https://wiki.zshell.dev"
 
 jobs:
   build-size:

@@ -18,9 +18,10 @@
     "write-community-version": "docusaurus docs:version:community",
     "write-ecosystem-version": "docusaurus docs:version:ecosystem",
     "crowdin:sync": "docusaurus write-translations && crowdin upload sources && crowdin download",
-    "prebuild": "test \"$CF_PAGES\" = 1 && npx pnpm install --prod || echo Skipping pnpm install",
+    "prebuild": "test \"$CF_PAGES\" = 1 && npx pnpm install --prod --store=node_modules/.pnpm-store || echo Install not required...",
     "clean": "pnpm exec rm -rf node_modules build pnpm-lock.yaml",
     "preinstall": "npx only-allow pnpm",
+    "postinstall": "pnpm audit",
     "prepare": "husky install",
     "check": "pnpm exec ./.trunk/bin/trunk check --all",
     "test": "pnpm run check && pnpm run build",
@@ -60,23 +61,15 @@
     "stylelint": "14.9.1",
     "stylelint-config-prettier": "9.0.3",
     "stylelint-config-standard": "26.0.0",
-    "stylelint-config-standard-scss": "5.0.0",
     "stylelint-csstree-validator": "2.0.0",
     "typescript": "4.7.4"
   },
   "packageManager": "pnpm@7.5.2",
   "pnpm": {
-    "peerDependencyRules": {
-      "allowedVersions": {
-        "@mdx-js/react": "1.6",
-        "rehype-katex": "6",
-        "remark-math": "3",
-        "react": "17"
-      }
-    },
     "overrides": {
       "trim@<0.0.3": ">=0.0.3",
-      "got@<11.8.5": ">=11.8.5"
+      "got@<11.8.5": ">=11.8.5",
+      "glob-parent@<6.0.1": ">=6.0.1"
     }
   },
   "engines": {
