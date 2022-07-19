@@ -246,7 +246,7 @@ const config = {
                 label: 'Crowdin Translations',
                 href: 'https://digitalclouds.crowdin.com/z-shell/',
               },
-              /** {html: ``}, */
+              /* {html: ``}, */
             ],
           },
           {
