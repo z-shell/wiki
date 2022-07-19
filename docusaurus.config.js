@@ -156,7 +156,7 @@ const config = {
       },
       algolia: {
         appId: 'FMPN8VE51Y',
-        apiKey: 'dc79b7c21de40f86bcf82f144a69e8a8',
+        apiKey: 'a3d13a1058ae9304a8c987ea67b08ce4',
         indexName: 'zshell',
         contextualSearch: true,
       },
