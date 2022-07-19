@@ -2,23 +2,20 @@
 <table style="width:100%;height:auto">
  <tr align="justify" margin-left="auto" margin-right="auto"><td align="center">
   <h1>
-   <a title="❮ ZW ❯" target="_self" href="https://github.com/z-shell/zw">
+   <a title="❮ Zi ❯" target="_self" href="https://github.com/z-shell/wiki">
   <img style="width:60;height:60px"
     src="https://raw.githubusercontent.com/z-shell/zi/main/docs/images/favicon.svg"
-    alt="Logo" /></a>❮ ZW ❯
+    alt="Logo" /></a>❮ Zi ❯
   </h1>
-  <h2>
-    Z-Shell Wiki
-  </h2>
-<h3>
+<h2>
   <a href="https://github.com/orgs/z-shell/discussions/">《❔》Ask a Question </a>
   <a href="https://wiki.zshell.dev/search/">《💡》Search Wiki </a>
   <a href="https://github.com/z-shell/community/issues/new?assignees=&labels=%F0%9F%91%A5+member&template=membership.yml&title=team%3A+">《💜》Join </a>
   <a href="https://digitalclouds.crowdin.com/z-shell/">《🌐》Localize </a>
-</h3>
+</h2>
 <h3>
-<kbd><a href="https://github.com/z-shell/zw/blob/main/.github/README.fr.md"><img title="Française" alt="Française" src="https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/fr.svg" width="22"></a></kbd>
-<kbd><a href="https://github.com/z-shell/zw/blob/main/.github/README.md"><img title="English (UK)" alt="English" src="https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/gb.svg" width="22"></a></kbd>
+<kbd><a href="https://github.com/z-shell/wiki/blob/main/.github/README.fr.md"><img title="Française" alt="Française" src="https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/fr.svg" width="22"></a></kbd>
+<kbd><a href="https://github.com/z-shell/wiki/blob/main/.github/README.md"><img title="English (UK)" alt="English" src="https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/gb.svg" width="22"></a></kbd>
 </h3>
   </td></tr>
 <tr>
@@ -27,17 +24,17 @@
     <img align="center" src="https://badges.crowdin.net/e/f108c12713ee8526ac878d5671ad6e29/localized.svg" />
   </a>
   <!--
-  <a title="Releases" target="_self" href="https://github.com/z-shell/zw/releases">
-    <img align="center" src="https://img.shields.io/github/tag/z-shell/zw.svg" alt="Version" />
+  <a title="Releases" target="_self" href="https://github.com/z-shell/wiki/releases">
+    <img align="center" src="https://img.shields.io/github/tag/z-shell/wiki.svg" alt="Version" />
   </a>
   -->
-  <a title="License GPL-3.0" target="_self" href="https://www.gnu.org/licenses/gpl-3.0/">
+  <a title="License GPL-3.0" target="_self" href="https://www.gnu.org/licenses/gpl-3.0">
     <img align="center" src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="Project License" />
   </a>
-  <a title="VIM" target="_self" href="https://github.com/z-shell/zi-vim-syntax/">
+  <a title="VIM" target="_self" href="https://github.com/z-shell/zi-vim-syntax">
     <img align="center" src="https://img.shields.io/badge/--019733?logo=vim" alt="VIM" />
   </a>
-  <a title="ZW" target="_self" href="https://open.vscode.dev/z-shell/zw/">
+  <a title="wiki" target="_self" href="https://open.vscode.dev/z-shell/wiki">
     <img
       align="center"
       src="https://img.shields.io/badge/--007ACC?logo=visual%20studio%20code&logoColor=ffffff"
@@ -50,21 +47,17 @@
   <td align="center">
   <img
     align="center" style="width:80%;height:auto"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/zw_followup.svg"
+    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/wiki_followup.svg"
   />
   <img
     align="center" style="width:80%;height:auto"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
   />
-  <img
-    align="center" style="width:80%;height:auto"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/projects/projects.svg"
-  />
   </td>
 </tr>
 <tr>
 <td align="center">
-<a title="ZI WIKI" target="_self" href="https://github.com/z-shell/zw">
+<a title="ZI WIKI" target="_self" href="https://github.com/z-shell/wiki">
   <img
     align="center" style="width:80%;height:auto"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/pagespeed/detailed.svg"
