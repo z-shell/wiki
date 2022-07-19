@@ -1,4 +1,8 @@
 {
   "tabWidth": 2,
-  "useTabs": false
+  "useTabs": false,
+  "insertPragma": true,
+  "requirePragma": true,
+  "jsxSingleQuote": true,
+  "singleAttributePerLine": true
 }

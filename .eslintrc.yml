@@ -18,11 +18,13 @@ plugins:
   - react
   - react-hooks
   - "@docusaurus"
-  - "@typescript-eslint"
 rules:
   {
     "no-undef": 0,
     "global-require": 0,
+    "@docusaurus/string-literal-i18n-messages": "error",
+    "@docusaurus/no-untranslated-text":
+      ["warn", { ignoredStrings: ["·", "—", "×"] }],
     "react/no-array-index-key": 0,
     "import/no-unresolved":
       [2, { "ignore": ["^@theme", "^@docusaurus", "^@site"] }],
