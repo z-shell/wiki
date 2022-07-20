@@ -11,7 +11,7 @@
     "message": "Logo ZI"
   },
   "homepage.hero.title": {
-    "message": "Un couteau <b>suisse</b> pour <b>Zsh</b> unix <b>Shell</b>",
+    "message": "Un couteau <b>suisse</b> pour le shell <b>*nix Zsh</b> ",
     "description": "Home page hero title, can contain simple html tags"
   },
   "Get Started": {
