@@ -14,10 +14,18 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 import Image from '@theme/IdealImage';
 import ZGitImg from '@site/static/img/png/z_git.png';
 
-<Image className="ScreenView" img={ZGitImg} />
-
-[![Z-Shell Organization Stats](https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg#center)](https://github.com/z-shell)
-
+<p>
+  <Image className="ScreenView" img={ZGitImg} />
+</p>
+<p>
+  <a href="https://github.com/orgs/z-shell/">
+    <img
+      className="ScreenView"
+      alt="Z-Shell Organization Stats"
+      src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg#center"
+     />
+  </a>
+</p>
 <Tabs>
   <TabItem value="gems" label="RubyGems">
 
@@ -70,7 +78,17 @@ The [Python](https://python.org) modules, [$VIRTUALENV][] are automatically mana
 
 ## <i class="fa-solid fa-list-check"></i> 摘要
 
-[![Z-Shell Organization FollowUp](https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg#center)](https://github.com/z-shell/)
+<p>
+  <a href="https://github.com/orgs/z-shell/projects/">
+    <img
+      className="ScreenView"
+      alt="Z-Shell Organization FollowUp"
+      src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg#center"
+    />
+  </a>
+</p>
+
+<!-- end-of-file -->
 
 [5]: /ecosystem/annexes
 [6]: /ecosystem/packages
