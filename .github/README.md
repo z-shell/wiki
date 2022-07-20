@@ -13,11 +13,9 @@
   <a href="https://github.com/z-shell/community/issues/new?assignees=&labels=%F0%9F%91%A5+member&template=membership.yml&title=team%3A+">《💜》Join </a>
   <a href="https://digitalclouds.crowdin.com/z-shell/">《🌐》Localize </a>
 </h2>
-<h3>
-<kbd><a href="https://github.com/z-shell/wiki/blob/main/.github/README.fr.md"><img title="Française" alt="Française" src="https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/fr.svg" width="22"></a></kbd>
-<kbd><a href="https://github.com/z-shell/wiki/blob/main/.github/README.md"><img title="English (UK)" alt="English" src="https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/gb.svg" width="22"></a></kbd>
-</h3>
-  </td></tr>
+
+
+  </tr>
 <tr>
 <td align="center">
   <a title="Crowdin" target="_self" href="https://crowdin.digitalclouds.dev/z-shell">
