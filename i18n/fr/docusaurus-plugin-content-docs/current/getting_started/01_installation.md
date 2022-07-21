@@ -9,7 +9,7 @@ keywords:
   - installation
 ---
 
-## <i class="fas fa-spinner fa-spin"></i> Quick setup {#quick-setup}
+## <i class="fas fa-spinner fa-spin"></i> Installation Rapide {#quick-setup}
 
 ```shell title="~/.zshrc"
 source <(curl -sL https://git.io/zi-loader); zzinit
@@ -69,7 +69,7 @@ fi
 
 :::tip
 
-The loader can be manually fetched from available [links](#loader) to any location on the system, and sourced from `.zshrc` or as shown in the [quick-setup](#quick-setup).
+Le chargeur peut être récupéré manuellement à partir des liens disponibles [](#loader) à n'importe quel emplacement sur le système, et extrait de `.zshrc` ou comme indiqué dans l'[installation rapide](#quick-setup).
 
 :::
 
@@ -94,7 +94,7 @@ command mkdir -p "$ZI[BIN_DIR]"
 
 ### <i class="fa-brands fa-git-alt"></i> Cloner le dépôt
 
-Setting the current user as the owner of directories, then removing group/others write permissions:
+Définir l'utilisateur actuel comme propriétaire des répertoires, puis supprimer les droits d'écriture des groupes/autres :
 
 ```shell
 compaudit | xargs chown -R "$(whoami)" "$ZI[HOME_DIR]"
@@ -104,7 +104,7 @@ command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
 
 ### <i class="fa-solid fa-circle-nodes"></i> Activer ZI
 
-Source `zi.zsh` in your `.zshrc` from previously created directory:
+Sourcez `zi.zsh` dans votre `.zshrc` à partir du répertoire créé précédemment :
 
 ```shell showLineNumbers
 typeset -A ZI
@@ -116,7 +116,7 @@ source "${ZI[BIN_DIR]}/zi.zsh"
 
 :::info
 
-The next two lines must be below the above two:
+Les deux lignes suivantes doivent être en dessous des deux précédentes :
 
 :::
 
@@ -127,13 +127,13 @@ autoload -Uz _zi
 
 ## <i class="fas fa-spinner fa-spin"></i> Post-installation
 
-After a fresh install, recommended to reload the shell with `exec zsh` and compile ZI with `zi self-update`. Run `zi -h` to see all available commands. Increase ZI functionality, performance or get started by exploring the wiki.
+Après une nouvelle installation, il est recommandé de recharger le shell avec `exec zsh` et de compiler ZI avec `zi self-update`. Exécutez `zi -h` pour voir toutes les commandes disponibles. Augmentez les fonctionnalités et les performances de ZI ou commencez par explorer le wiki.
 
-If you have any issue or need help 🤦‍♂️, lets [discuss][7] it or open an [issue][6] in any language.
+Si vous avez un problème ou avez besoin d'aide 🤦‍♂️, [discuter ][7] ou ouvrez un [problème][6] dans n'importe quelle langue.
 
-It helps us to improve and make ZI better. Don't forget to help the project: share, contribute, or [translate][8] 🌐 🥰 🤓.
+Cela nous aide à améliorer et à améliorer ZI. N'oubliez pas d'aider le projet : partagez, contribuez, ou [traduisez][8] 🌐 🥰 🤓.
 
-Let's glue everything together to create a toolchain that works for US 🚀.
+Collons tout ensemble pour créer une chaîne d'outils qui fonctionne pour NOUS 🚀.
 
 ## <i class="fas fa-sync-alt fa-spin"></i> Vous avez des idées ?
 
@@ -153,12 +153,12 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 
 ### <i class="fa-brands fa-docker"></i> Turbo ZI dans Docker
 
-If you create a Docker image that uses ZI, install Turbo-loaded plugins before the shell starts interactively, with the `@zi-scheduler` function in such a way, that it:
+Si vous créez une image Docker qui utilise ZI, installez les plugins Turbo-loaded avant que le shell ne démarre de manière interactive, avec la fonction `@zi-scheduler` de telle manière, qu'il :
 
 - installe les plugins sans attendre l'invite (c'est-à-dire qu'il est compatible avec les scripts),
 - installe tous les plugins instantanément, sans respecter l'argument ''attendre''.
 
-To accomplish this, use burst argument and call `@zi-scheduler` function:
+Pour ce faire, utilisez l'argument burst et appelez la fonction `@zi-scheduler` :
 
 ```docker
 RUN zsh -i -c -- '@zi-scheduler burst || true'
@@ -179,7 +179,7 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
 
 :::info
 
-ZI has to be installed to build the module. Module repository: [z-shell/zpmod][9]
+ZI doit être installé pour construire le module. Dépôt de modules : [z-shell/zpmod][9]
 
 :::
 
@@ -187,7 +187,7 @@ ZI has to be installed to build the module. Module repository: [z-shell/zpmod][9
 zi module build
 ```
 
-To enable debug messages from the module set:
+Pour activer les messages de débogage de l'ensemble de modules :
 
 ```shell
 typeset -g ZI_MOD_DEBUG=1
@@ -195,23 +195,23 @@ typeset -g ZI_MOD_DEBUG=1
 
 ## <i class="fas fa-sync-alt fa-spin"></i> Liens disponibles
 
-[Status page: :heavy_check_mark:][10]
+[Page de statut : :heavy_check_mark:][10]
 
 ### Installateur
 
-| Service                    | URL                                                                       |
-|:-------------------------- | ------------------------------------------------------------------------- |
-| [Redirect][get.zshell.dev] | <https://get.zshell.dev>                                                  |
-| [IPFS][ipfs.io]            | <https://ipfs.zshell.dev/sh/install.sh>                                   |
-| [Direct][direct-install]   | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
+| Service                       | URL                                                                       |
+|:----------------------------- | ------------------------------------------------------------------------- |
+| [Redirection][get.zshell.dev] | <https://get.zshell.dev>                                                  |
+| [IPFS][ipfs.io]               | <https://ipfs.zshell.dev/sh/install.sh>                                   |
+| [Direct][direct-install]      | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
 ### Chargeur
 
-| Service                     | URL                                                                      |
-|:--------------------------- | ------------------------------------------------------------------------ |
-| [Redirect][init.zshell.dev] | <https://init.zshell.dev>                                                |
-| [IPFS][ipfs.io]             | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
-| [Direct][direct-init]       | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
+| Service                        | URL                                                                      |
+|:------------------------------ | ------------------------------------------------------------------------ |
+| [Redirection][init.zshell.dev] | <https://init.zshell.dev>                                                |
+| [IPFS][ipfs.io]                | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
+| [Direct][direct-init]          | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
 
 [get.zshell.dev]: https://get.zshell.dev
 [ipfs.io]: https://ipfs.io
