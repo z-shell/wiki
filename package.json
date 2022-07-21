@@ -90,7 +90,6 @@
     ]
   },
   "lint-staged": {
-    "**/*": "pnpm exec ./.trunk/bin/trunk check",
     "**/*": "prettier --write --ignore-unknown"
   }
 }
