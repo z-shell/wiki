@@ -12,21 +12,23 @@ keywords:
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
+import Link from '@docusaurus/Link';
 import Image from '@theme/IdealImage';
 import ZGitImg from '@site/static/img/png/z_git.png';
 
-<p>
-  <Image className="ScreenView" img={ZGitImg} />
-</p>
-<p>
-  <a href="https://github.com/orgs/z-shell/">
+<div className="ScreenView">
+  <Image img={ZGitImg} />
+</div>
+<div className="ScreenView">
+  <Link href="https://github.com/orgs/z-shell/">
     <img
-      className="ScreenView"
+      width="1024"
+      height="768"
       alt="Z-Shell Organization Stats"
-      src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg#center"
+      src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
      />
-  </a>
-</p>
+  </Link>
+</div>
 
 <Tabs>
   <TabItem value="gems" label="RubyGems">
@@ -81,15 +83,16 @@ Invocations][7].
 
 ## <i class="fa-solid fa-list-check"></i> Summary
 
-<p>
-  <a href="https://github.com/orgs/z-shell/projects/">
+<div className="ScreenView">
+  <Link href="https://github.com/orgs/z-shell/projects/">
     <img
-      className="ScreenView"
+      width="1024"
+      height="768"
       alt="Z-Shell Organization FollowUp"
-      src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg#center"
+      src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg"
     />
-  </a>
-</p>
+  </Link>
+</div>
 
 <!-- end-of-file -->
 
