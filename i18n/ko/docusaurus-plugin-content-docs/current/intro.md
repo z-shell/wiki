@@ -1,5 +1,6 @@
 ---
 id: intro
+slug: /
 title: "🎉 Introduction"
 sidebar_position: 1
 image: img/logo/320x320.png

@@ -1,9 +1,10 @@
 ---
 id: intro
+slug: /
 title: "🎉 Introduction"
 sidebar_position: 1
 image: img/logo/320x320.png
-description: Introduction à un couteau suisse pour Zsh, anciennement connu sous le nom de zplugin, zinit.
+description: Introduction to a Swiss Army Knife for Zsh, formerly known as zplugin, zinit.
 keywords:
   - introduction
   - zi features

@@ -13,7 +13,7 @@
   },
   "link.item.label.Introduction": {
     "message": "はじめに",
-    "description": "The label of footer link with label=Introduction linking to /docs/intro"
+    "description": "The label of footer link with label=Introduction linking to /docs"
   },
   "link.item.label.Community": {
     "message": "Community",
