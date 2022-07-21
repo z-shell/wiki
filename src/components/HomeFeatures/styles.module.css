@@ -1,3 +1,16 @@
+.videocontainer {
+  padding: 4rem 0;
+  text-align: justify;
+  position: relative;
+  overflow: hidden;
+}
+
+.featurecontainer {
+  display: block;
+  align-items: center;
+  width: 100%;
+}
+
 .features {
   text-align: center;
   align-items: center;
@@ -12,8 +25,12 @@
   width: 200px;
 }
 
-@media screen and (max-width: 966px) {
+@media only screen and (max-width: 996px) {
   .features {
+    padding: 2rem 0;
+  }
+
+  .videocontainer {
     padding: 2rem 0;
   }
 }

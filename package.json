@@ -44,9 +44,10 @@
   },
   "devDependencies": {
     "@babel/core": "7.18.9",
+    "@cloudflare/workers-types": "3.14.1",
     "@docusaurus/eslint-plugin": "0.0.0-5214",
     "@docusaurus/module-type-aliases": "0.0.0-5214",
-    "@tsconfig/docusaurus": "1.0.6",
+    "@types/node": "18.0.6",
     "@typescript-eslint/eslint-plugin": "5.30.7",
     "@typescript-eslint/parser": "5.30.7",
     "eslint": "8.20.0",
@@ -90,7 +91,6 @@
     ]
   },
   "lint-staged": {
-    "**/*": "pnpm exec ./.trunk/bin/trunk check",
     "**/*": "prettier --write --ignore-unknown"
   }
 }
