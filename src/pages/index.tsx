@@ -40,7 +40,7 @@ function HeroBanner() {
           >
             <Translate> Get Started </Translate>
           </Link>
-          <Link className={clsx('button button--secondary')} to="/community/intro">
+          <Link className={clsx('button button--secondary')} to="/community">
             <Translate> Community </Translate>
           </Link>
           <span className={styles.indexCtasGitHubButtonWrapper}>

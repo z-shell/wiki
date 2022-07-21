@@ -17,10 +17,10 @@ keywords:
 
 <p align="center">
   <a href="#gh-dark-mode-only">
-    <img src="/img/zsh/zsh1.png" />
+    <img className="ScreenView" src="/img/zsh/zsh1.png" alt="Zsh Dark" />
   </a>
   <a href="#gh-light-mode-only">
-    <img src="/img/zsh/zsh2.png" />
+    <img className="ScreenView" src="/img/zsh/zsh2.png" alt="Zsh Light" />
   </a>
 </p>
 <p align="center">

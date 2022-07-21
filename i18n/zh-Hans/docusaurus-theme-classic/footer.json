@@ -21,11 +21,11 @@
   },
   "link.item.label.Community": {
     "message": "Community",
-    "description": "The label of footer link with label=Community linking to /community/intro"
+    "description": "The label of footer link with label=Community linking to /community"
   },
   "link.item.label.Ecosystem": {
     "message": "Ecosystem",
-    "description": "The label of footer link with label=Ecosystem linking to /ecosystem/intro"
+    "description": "The label of footer link with label=Ecosystem linking to /ecosystem"
   },
   "link.item.label.Slack.com": {
     "message": "Slack.com",

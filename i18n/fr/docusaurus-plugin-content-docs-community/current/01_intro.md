@@ -1,6 +1,7 @@
 ---
-id: intro
-title: '👥 Documentation de la communauté'
+id: community
+slug: /
+title: '👥 Community Docs'
 sidebar_position: 1
 image: img/logo/320x320.png
 keywords:
@@ -10,12 +11,22 @@ keywords:
   - gallery
 ---
 
-<div align="center">
-
-![zsh](/img/zsh/zsh1.png#gh-dark-mode-only)![zsh](/img/zsh/zsh2.png#gh-light-mode-only)
-
-</div>
-
-- [Norme de plug-in Zsh (Zsh Plugin Standard)](/community/zsh_plugin_standard)
-- [Manuel de Script Natif Zsh (Zsh Native Scripting Handbook)](/community/zsh_handbook)
-- [Galerie des Invocations](/community/gallery/collection)
+<p align="center">
+  <a href="#gh-dark-mode-only">
+    <img src="/img/zsh/zsh1.png" />
+  </a>
+  <a href="#gh-light-mode-only">
+    <img src="/img/zsh/zsh2.png" />
+  </a>
+</p>
+<ul>
+  <li>
+    <a href="/community/zsh_plugin_standard">Norme de plug-in Zsh (Zsh Plugin Standard)</a>
+  </li>
+  <li>
+    <a href="/community/zsh_handbook">Manuel de Script Natif Zsh (Zsh Native Scripting Handbook)</a>
+  </li>
+  <li>
+    <a href="/community/gallery/collection">Galerie des Invocations</a>
+  </li>
+</ul>

@@ -21,11 +21,11 @@
   },
   "link.item.label.Community": {
     "message": "Communauté",
-    "description": "The label of footer link with label=Community linking to /community/intro"
+    "description": "The label of footer link with label=Community linking to /community"
   },
   "link.item.label.Ecosystem": {
     "message": "Éco-système",
-    "description": "The label of footer link with label=Ecosystem linking to /ecosystem/intro"
+    "description": "The label of footer link with label=Ecosystem linking to /ecosystem"
   },
   "link.item.label.GitHub Discussions": {
     "message": "Discussions sur GitHub",
