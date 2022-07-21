@@ -145,8 +145,7 @@ const config = {
         { name: 'twitter:card', content: 'summary' },
         {
           name: 'keywords',
-          content:
-            'zsh, zsh-plugins, plugin-manager, zinit, zplugin, oh-my-zsh, prezto, zi',
+          content: 'zsh, zsh-plugins, plugin-manager, zinit, zplugin, oh-my-zsh, prezto, zi',
         },
       ],
       announcementBar: {
@@ -201,7 +200,7 @@ const config = {
             items: [
               {
                 label: 'Introduction',
-                to: '/docs/intro',
+                to: '/docs',
               },
               {
                 label: 'Ecosystem',
