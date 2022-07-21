@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import HomeFeatures from '@site/src/components/HomeFeatures';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -15,8 +16,6 @@ function HeroBanner() {
             alt={translate({ message: 'ZI logo' })}
             className={styles.heroLogo}
             src="/img/logo.svg"
-            width="200"
-            height="200"
           />
           <span
             className={styles.heroTitleTextHtml}
@@ -34,12 +33,12 @@ function HeroBanner() {
         </h1>
         <div className={styles.indexCtas}>
           <Link
-            className="button button--primary"
+            className={clsx('button button--primary')}
             to="/docs/getting_started/installation"
           >
             <Translate> Get Started </Translate>
           </Link>
-          <Link className="button button--secondary" to="/community/intro">
+          <Link className={clsx('button button--secondary')} to="/community/intro">
             <Translate> Community </Translate>
           </Link>
           <span className={styles.indexCtasGitHubButtonWrapper}>

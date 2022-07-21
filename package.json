@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.18.9",
+    "@cloudflare/workers-types": "^3.14.1",
     "@docusaurus/eslint-plugin": "0.0.0-5214",
     "@docusaurus/module-type-aliases": "0.0.0-5214",
     "@tsconfig/docusaurus": "1.0.6",
