@@ -12,11 +12,11 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: '/img/favicon.ico',
-  projectName: 'zw',
+  projectName: 'wiki',
   organizationName: 'z-shell',
   staticDirectories: ['static'],
   stylesheets: ['/assets/css/all.min.css'],
-  i18n: { defaultLocale: 'en', locales: ['en', 'ja', 'zh-Hans', 'fr'] },
+  i18n: { defaultLocale: 'en', locales: ['en', 'fr', 'ja', 'zh-Hans',] },
   presets: [
     [
       'classic',
@@ -32,7 +32,7 @@ const config = {
             if (locale !== 'en') {
               return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
             }
-            return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
+            return `https://github.com/z-shell/wiki/tree/main/${versionDocsDirPath}/${docPath}`;
           },
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
@@ -43,7 +43,7 @@ const config = {
             if (locale !== 'en') {
               return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
             }
-            return `https://github.com/z-shell/zw/tree/main/${blogDirPath}/${blogPath}`;
+            return `https://github.com/z-shell/wiki/tree/main/${blogDirPath}/${blogPath}`;
           },
         },
         sitemap: { changefreq: 'daily', priority: 0.5 },
@@ -54,7 +54,7 @@ const config = {
     [
       'ideal-image',
       /** @type {import('@docusaurus/plugin-ideal-image').PluginOptions} */
-      ({ max: 1030, min: 120, disableInDev: false }),
+      ({ max: 1030, min: 100, disableInDev: false }),
     ],
     [
       'pwa',
@@ -106,7 +106,7 @@ const config = {
           if (locale !== 'en') {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
           }
-          return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/z-shell/wiki/tree/main/${versionDocsDirPath}/${docPath}`;
         },
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
@@ -124,7 +124,7 @@ const config = {
           if (locale !== 'en') {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
           }
-          return `https://github.com/z-shell/zw/tree/main/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/z-shell/wiki/tree/main/${versionDocsDirPath}/${docPath}`;
         },
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
@@ -171,8 +171,8 @@ const config = {
         },
         items: [
           { type: 'doc', docId: 'intro', position: 'left', label: 'Docs' },
-          { to: 'ecosystem/intro', position: 'left', label: 'Ecosystem' },
-          { to: 'community/intro', position: 'left', label: 'Community' },
+          { to: 'ecosystem', position: 'left', label: 'Ecosystem' },
+          { to: 'community', position: 'left', label: 'Community' },
           { to: 'blog', position: 'left', label: 'Blog' },
           {
             type: 'localeDropdown',
@@ -204,12 +204,12 @@ const config = {
                 to: '/docs/intro',
               },
               {
-                label: 'Community',
-                to: '/community/intro',
+                label: 'Ecosystem',
+                to: '/ecosystem',
               },
               {
-                label: 'Ecosystem',
-                to: '/ecosystem/intro',
+                label: 'Community',
+                to: '/community',
               },
             ],
           },

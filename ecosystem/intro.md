@@ -1,9 +1,10 @@
 ---
-id: intro
+id: ecosystem
+slug: /
 title: 🌐 Ecosystem
 sidebar_position: 1
 image: img/logo/320x320.png
-description: Introduction to the ZI ecosystem.
+description: Introduction to the ecosystem.
 keywords:
   - annexes
   - packages
@@ -14,13 +15,17 @@ keywords:
   - awesome-zsh
 ---
 
-<div align="center">
-
-![zsh](/img/zsh/zsh1.png#gh-dark-mode-only)![zsh](/img/zsh/zsh2.png#gh-light-mode-only)
-
-Designed to glue everything together, a <b>Zsh-powered</b> toolchain that works for you.
-
-</div>
+<p align="center">
+  <a href="#gh-dark-mode-only">
+    <img src="/img/zsh/zsh1.png" />
+  </a>
+  <a href="#gh-light-mode-only">
+    <img src="/img/zsh/zsh2.png" />
+  </a>
+</p>
+<p align="center">
+  Designed to glue everything together, a <strong>Zsh-powered</strong> toolchain that works for you.
+</p>
 
 ### <i class="fa-brands fa-superpowers"></i> [Annexes](/ecosystem/annexes/)
 

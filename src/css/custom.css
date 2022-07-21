@@ -154,6 +154,11 @@ html[data-theme="dark"] img[src$="#gh-light-mode-only"] {
   display: none;
 }
 
+html[data-theme="light"] a[href$="#gh-dark-mode-only"],
+html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
+  display: none;
+}
+
 .IceLogo {
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
