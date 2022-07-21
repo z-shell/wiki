@@ -25,7 +25,7 @@ specifiers:
   eslint-config-airbnb: 19.0.4
   eslint-config-prettier: 8.5.0
   eslint-plugin-import: 2.26.0
-  eslint-plugin-jsx-a11y: 6.6.0
+  eslint-plugin-jsx-a11y: 6.6.1
   eslint-plugin-react: 7.30.1
   eslint-plugin-react-hooks: 4.6.0
   husky: 8.0.1
@@ -66,10 +66,10 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.30.7_6wltbjakwuqm7awqswigmiuhd4
   '@typescript-eslint/parser': 5.30.7_he2ccbldppg44uulnyq4rwocfa
   eslint: 8.20.0
-  eslint-config-airbnb: 19.0.4_tgbv5s3xwpbknoi6v46ipgy4ay
+  eslint-config-airbnb: 19.0.4_ot4ntprzzmtrg3dwojd2mbktke
   eslint-config-prettier: 8.5.0_eslint@8.20.0
   eslint-plugin-import: 2.26.0_xconv27bia2733zao6ipggqv2i
-  eslint-plugin-jsx-a11y: 6.6.0_eslint@8.20.0
+  eslint-plugin-jsx-a11y: 6.6.1_eslint@8.20.0
   eslint-plugin-react: 7.30.1_eslint@8.20.0
   eslint-plugin-react-hooks: 4.6.0_eslint@8.20.0
   lint-staged: 13.0.3
@@ -4889,7 +4889,7 @@ packages:
       semver: 6.3.0
     dev: true
 
-  /eslint-config-airbnb/19.0.4_tgbv5s3xwpbknoi6v46ipgy4ay:
+  /eslint-config-airbnb/19.0.4_ot4ntprzzmtrg3dwojd2mbktke:
     resolution: {integrity: sha512-T75QYQVQX57jiNgpF9r1KegMICE94VYwoFQyMGhrvc+lB8YF2E/M/PYDaQe1AJcWaEgqLE+ErXV1Og/+6Vyzew==}
     engines: {node: ^10.12.0 || ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -4902,7 +4902,7 @@ packages:
       eslint: 8.20.0
       eslint-config-airbnb-base: 15.0.0_afl3vkhn63baibzal45igheroq
       eslint-plugin-import: 2.26.0_xconv27bia2733zao6ipggqv2i
-      eslint-plugin-jsx-a11y: 6.6.0_eslint@8.20.0
+      eslint-plugin-jsx-a11y: 6.6.1_eslint@8.20.0
       eslint-plugin-react: 7.30.1_eslint@8.20.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.20.0
       object.assign: 4.1.2
@@ -4984,8 +4984,8 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-jsx-a11y/6.6.0_eslint@8.20.0:
-    resolution: {integrity: sha512-kTeLuIzpNhXL2CwLlc8AHI0aFRwWHcg483yepO9VQiHzM9bZwJdzTkzBszbuPrbgGmq2rlX/FaT2fJQsjUSHsw==}
+  /eslint-plugin-jsx-a11y/6.6.1_eslint@8.20.0:
+    resolution: {integrity: sha512-sXgFVNHiWffBq23uiS/JaP6eVR622DqwB4yTzKvGZGcPq6/yZ3WmOZfuBks/vHWo9GaFOqC2ZK4i6+C35knx7Q==}
     engines: {node: '>=4.0'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
