@@ -1,97 +1,12 @@
-import React, { useState, CSSProperties } from 'react';
-import ClipLoader from 'react-spinners/ClipLoader';
-import baseLoad from '@loadable/component';
+import React from 'react';
 import Layout from '@theme/Layout';
+import HomeFeatures from '@site/src/components/HomeFeatures';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Translate, { translate } from '@docusaurus/Translate';
 import Link from '@docusaurus/Link';
 import styles from './index.module.css';
 
-const override: CSSProperties = {
-  display: 'block',
-  margin: '0 auto',
-  color: 'var(--ifm-color-primary)',
-};
-
-function ClipSpinner(): JSX.Element {
-  const loading = useState(true);
-  const color = useState('#ffffff');
-  return (
-    <div className="sweet-loading">
-      <ClipLoader
-        color={color}
-        loading={loading}
-        cssOverride={override}
-        size={160}
-      />
-    </div>
-  );
-}
-
-function loadable(func): JSX.Element {
-  return baseLoad(func, { fallback: <ClipSpinner /> });
-}
-
-const AsciinemaPlayer = loadable(
-  () => import('@site/src/components/AsciinemaPlayer')
-);
-const HomeFeatures = loadable(
-  () => import('@site/src/components/HomeFeatures')
-);
-
-function FeaturesContainer(): JSX.Element {
-  return (
-    <section className={styles.videocontainer}>
-      <div className="container">
-        <div className="col">
-          <div className={styles.asciicasts}>
-            <h2>
-              <Translate
-                id="homepage.video.heading.1"
-                description="The homepage video conatainer heading 1"
-              >
-                ⚡ Fast and feature-rich
-              </Translate>
-            </h2>
-            <AsciinemaPlayer
-              src="https://asciinema.org/a/509113.cast"
-              /* poster="npt:0:30" */
-              rows={34}
-              cols={231}
-              speed={2}
-              idleTimeLimit={1}
-              preload
-            />
-          </div>
-          <div className={styles.features}>
-            <HomeFeatures />
-          </div>
-          <div className={styles.asciicasts}>
-            <h2>
-              <Translate
-                id="homepage.video.heading.2"
-                description="The homepage video container heading 2"
-              >
-                ✨ Neat and flexible
-              </Translate>
-            </h2>
-            <AsciinemaPlayer
-              /* poster="npt:2:34" */
-              src="https://asciinema.org/a/497831.cast"
-              rows={34}
-              cols={231}
-              speed={2}
-              idleTimeLimit={1}
-              preload
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function HeroBanner(): JSX.Element {
+function HeroBanner() {
   return (
     <div className={styles.hero} data-theme="dark">
       <div className={styles.heroInner}>
@@ -122,10 +37,10 @@ function HeroBanner(): JSX.Element {
             className="button button--primary"
             to="/docs/getting_started/installation"
           >
-            <Translate>Get Started</Translate>
+            <Translate> Get Started </Translate>
           </Link>
           <Link className="button button--secondary" to="/community/intro">
-            <Translate>Community</Translate>
+            <Translate> Community </Translate>
           </Link>
           <span className={styles.indexCtasGitHubButtonWrapper}>
             <iframe
@@ -150,7 +65,7 @@ function Home(): JSX.Element {
         <HeroBanner />
       </header>
       <main>
-        <FeaturesContainer />
+        <HomeFeatures />
       </main>
     </Layout>
   );

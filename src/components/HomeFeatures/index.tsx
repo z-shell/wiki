@@ -1,7 +1,17 @@
 import React from 'react';
 import clsx from 'clsx';
+import Spinner from '@site/src/components/Spinner';
+import baseLoad from '@loadable/component';
 import Translate, { translate } from '@docusaurus/Translate';
 import styles from './styles.module.css';
+
+function loadable(func) {
+  return baseLoad(func, { fallback: <Spinner /> });
+}
+
+const AsciinemaPlayer = loadable(
+  () => import('@site/src/components/AsciinemaPlayer')
+);
 
 const turboSvg = () => (
   <span className="fa-6x">
@@ -75,7 +85,7 @@ const features = [
   },
 ];
 
-function HomeFeatures(): JSX.Element {
+function Features() {
   return (
     <section className={styles.features}>
       <div className="container">
@@ -84,13 +94,65 @@ function HomeFeatures(): JSX.Element {
             <div key={idx} className={clsx('col col--4', styles.features)}>
               {Svg && (
                 <div className={styles.featureimage}>
-                  <Svg role="img" alt={title} />
+                  <Svg />
                 </div>
               )}
               <h3>{title}</h3>
               <p>{description}</p>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HomeFeatures(): JSX.Element {
+  return (
+    <section className={styles.videocontainer}>
+      <div className="container">
+        <div className="col">
+          <div className={styles.featurecontainer}>
+            <h2>
+              <Translate
+                id="homepage.video.heading.1"
+                description="The homepage video conatainer heading 1"
+              >
+                ⚡ Fast and feature-rich
+              </Translate>
+            </h2>
+            <AsciinemaPlayer
+              src="https://asciinema.org/a/509113.cast"
+              /* poster="npt:0:30" */
+              rows={34}
+              cols={231}
+              speed={2}
+              idleTimeLimit={1}
+              preload
+            />
+          </div>
+          <div className={styles.featurecontainer}>
+            <Features />
+          </div>
+          <div className={styles.featurecontainer}>
+            <h2>
+              <Translate
+                id="homepage.video.heading.2"
+                description="The homepage video container heading 2"
+              >
+                ✨ Neat and flexible
+              </Translate>
+            </h2>
+            <AsciinemaPlayer
+              /* poster="npt:2:34" */
+              src="https://asciinema.org/a/497831.cast"
+              rows={34}
+              cols={231}
+              speed={2}
+              idleTimeLimit={1}
+              preload
+            />
+          </div>
         </div>
       </div>
     </section>

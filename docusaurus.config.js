@@ -2,7 +2,6 @@
 
 const setURL = process.env.URL ?? 'https://wiki.zshell.dev';
 
-/** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '❮ Zi ❯',
   tagline: 'A Swiss Army Knife for Zsh Unix shell',
