@@ -3,10 +3,22 @@
   "display": "Docusaurus v2",
   "docs": "https://v2.docusaurus.io/docs/typescript-support",
 
-  "extends": "@tsconfig/docusaurus/tsconfig.json",
   "exclude": ["functions/**/*"],
   "compilerOptions": {
+    "allowJs": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "lib": ["DOM"],
+    "noEmit": true,
+    "types": [
+      "node",
+      "@docusaurus/module-type-aliases",
+      "@docusaurus/preset-classic"
+    ],
     "baseUrl": ".",
-    "types": ["@docusaurus/module-type-aliases", "@docusaurus/preset-classic"]
+    "paths": {
+      "@site/*": ["./*"]
+    },
+    "skipLibCheck": true
   }
 }

@@ -158,10 +158,6 @@ div[class^="announcementBarContent"] a:hover {
 }
 
 @media only screen and (max-width: 768px) {
-  .indexCtas {
-    --ifm-button-size-multiplier: 1;
-  }
-
   .hero {
     padding-left: 1.8rem;
     padding-right: 1.8rem;
@@ -184,9 +180,9 @@ div[class^="announcementBarContent"] a:hover {
   }
 
   .indexCtas {
-    justify-content: center;
-
     --ifm-button-size-multiplier: 1;
+
+    justify-content: center;
   }
 
   .indexCtas a {

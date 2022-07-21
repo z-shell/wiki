@@ -7,7 +7,7 @@ overrides:
 
 specifiers:
   '@babel/core': 7.18.9
-  '@cloudflare/workers-types': ^3.14.1
+  '@cloudflare/workers-types': 3.14.1
   '@docusaurus/core': 0.0.0-5214
   '@docusaurus/eslint-plugin': 0.0.0-5214
   '@docusaurus/module-type-aliases': 0.0.0-5214
@@ -16,7 +16,7 @@ specifiers:
   '@docusaurus/preset-classic': 0.0.0-5214
   '@loadable/component': 5.15.2
   '@mdx-js/react': 1.6.22
-  '@tsconfig/docusaurus': 1.0.6
+  '@types/node': 18.0.6
   '@typescript-eslint/eslint-plugin': 5.30.7
   '@typescript-eslint/parser': 5.30.7
   asciinema-player: 3.0.1
@@ -62,7 +62,7 @@ devDependencies:
   '@cloudflare/workers-types': 3.14.1
   '@docusaurus/eslint-plugin': 0.0.0-5214_he2ccbldppg44uulnyq4rwocfa
   '@docusaurus/module-type-aliases': 0.0.0-5214_sfoxds7t5ydpegc3knd667wn6m
-  '@tsconfig/docusaurus': 1.0.6
+  '@types/node': 18.0.6
   '@typescript-eslint/eslint-plugin': 5.30.7_6wltbjakwuqm7awqswigmiuhd4
   '@typescript-eslint/parser': 5.30.7_he2ccbldppg44uulnyq4rwocfa
   eslint: 8.20.0
@@ -2228,7 +2228,7 @@ packages:
     resolution: {integrity: sha512-Wlu2aUT6LJRtLtEY7AFn84FyGuBy0Dxdo3RoIEeo5i1j1xuAnwMHAivMyrKRfChJoOc8ZnMivbVQbH+YkdREQw==}
     engines: {node: '>=16.14'}
     peerDependencies:
-      react: ^16.8.4 || ^17.0.0 || 17
+      react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
       '@docusaurus/mdx-loader': 0.0.0-5214_zg4cyh6kf7kpa7s2wnd25kpnym
@@ -2319,7 +2319,7 @@ packages:
   /@docusaurus/types/0.0.0-5214_sfoxds7t5ydpegc3knd667wn6m:
     resolution: {integrity: sha512-cGWul7SN5ohLf3aY+oosaIlub9QfjkIePOlP0YApyzGu/zU55P51jFFEDgx0LbwwAXS5abL2T/Ef/emU1YvMkA==}
     peerDependencies:
-      react: ^16.8.4 || ^17.0.0 || 17
+      react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
       '@types/history': 4.7.11
@@ -2498,7 +2498,7 @@ packages:
     resolution: {integrity: sha512-ryFAZOX5P2vFkUdzaAtTG88IGnr9qxSdvLRvJySXcUA4B4xVWurUNADu3AnKPksxOZajljqTrDEDcYjeL4lvLw==}
     engines: {node: '>=8'}
     peerDependencies:
-      react: '>=16.3.0 || 17'
+      react: '>=16.3.0'
     dependencies:
       '@babel/runtime': 7.18.9
       hoist-non-react-statics: 3.3.2
@@ -2817,10 +2817,6 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: false
 
-  /@tsconfig/docusaurus/1.0.6:
-    resolution: {integrity: sha512-1QxDaP54hpzM6bq9E+yFEo4F9WbWHhsDe4vktZXF/iDlc9FqGr9qlg+3X/nuKQXx8QxHV7ue8NXFazzajsxFBA==}
-    dev: true
-
   /@types/body-parser/1.19.2:
     resolution: {integrity: sha512-ALYone6pm6QmwZoAgeyNksccT9Q4AWZQ6PvfwR37GT6r6FWUPguq6sUmNGSMV2Wr761oQoBxwGGa6DR5o1DC9g==}
     dependencies:
@@ -3021,7 +3017,7 @@ packages:
   /@types/sax/1.2.4:
     resolution: {integrity: sha512-pSAff4IAxJjfAXUG6tFkO7dsSbTmf8CtUpfhhZ5VhkRpC4628tJhh3+V6H1E+/Gs9piSzYKT5yzHO5M4GG9jkw==}
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 18.0.6
     dev: false
 
   /@types/scheduler/0.16.2:
