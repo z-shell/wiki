@@ -24,15 +24,14 @@ authors:
 
 ## 🧙‍♂️ 🪄 [❮ ZI ❯](https://github.com/z-shell/zi) - A Swiss Army Knife for [Zsh](https://zsh.sourceforge.io/) - [Unix shell](https://en.wikipedia.org/wiki/Unix_shell)
 
-<div align="center">
-
-![zsh](/img/zsh/zsh1.png#gh-dark-mode-only)![zsh](/img/zsh/zsh2.png#gh-light-mode-only)
-
+<div className="ScreenView">
+  <img height="1024" width="768" src="/img/zsh/zsh1.png#gh-dark-mode-only" alt="Zsh Dark" />
+  <img height="1024" width="768" src="/img/zsh/zsh2.png#gh-light-mode-only" alt="Zsh Light" />
 </div>
 
 Designed to glue everything together. 🔗
 
-[https://z.digitalclouds.dev](https://z.digitalclouds.dev) | [GitHub](https://github.com/z-shell/) | [Discussions](https://github.com/orgs/z-shell/discussions/) | [Localize](https://digitalclouds.crowdin.com/z-shell)
+[https://wiki.zshell.dev](https://wiki.zshell.dev) | [GitHub](https://github.com/z-shell/) | [Discussions](https://github.com/orgs/z-shell/discussions/) | [Localize](https://digitalclouds.crowdin.com/z-shell)
 
 ### ⚡️ Fast and feature-rich
 

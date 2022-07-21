@@ -48,7 +48,7 @@ div[class^="announcementBarContent"] a {
 }
 
 .indexCtas {
-  --ifm-button-size-multiplier: 1;
+  --ifm-button-size-multiplier: 1.4;
 
   display: flex;
   flex-wrap: wrap;
@@ -123,7 +123,7 @@ div[class^="announcementBarContent"] a:hover {
   }
 
   50% {transform: rotate(-20deg);}
-  70% {transform: rotate(3deg);}
+  70% {transform: rotate(5deg);}
 
   to {
     opacity: 1;
@@ -132,7 +132,7 @@ div[class^="announcementBarContent"] a:hover {
 }
 
 .heroLogo {
-  animation-duration: 3.5s;
+  animation-duration: 4s;
   animation-name: jack-in-the-box;
   float: right;
   margin-top: 20px;
@@ -177,6 +177,8 @@ div[class^="announcementBarContent"] a:hover {
   }
 
   .indexCtas {
+  --ifm-button-size-multiplier: 1.2;
+
     justify-content: center;
   }
 
@@ -193,6 +195,10 @@ div[class^="announcementBarContent"] a:hover {
   .heroProjectTagline {
     font-size: 1.8rem;
     text-align: center;
+  }
+
+  .indexCtas {
+    --ifm-button-size-multiplier: 1;
   }
 
   .heroLogo {

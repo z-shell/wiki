@@ -11,22 +11,7 @@ keywords:
   - gallery
 ---
 
-<p align="center">
-  <a href="#gh-dark-mode-only">
-    <img className="ScreenView" src="/img/zsh/zsh1.png" alt="Zsh Dark" />
-  </a>
-  <a href="#gh-light-mode-only">
-    <img className="ScreenView" src="/img/zsh/zsh2.png" alt="Zsh Light" />
-  </a>
-</p>
-<ul>
-  <li>
-    <a href="/community/zsh_plugin_standard">Zsh Plugin Standard</a>
-  </li>
-  <li>
-    <a href="/community/zsh_handbook">Zsh Native Scripting Handbook</a>
-  </li>
-  <li>
-    <a href="/community/gallery/collection">Gallery of Invocations</a>
-  </li>
-</ul>
+<div align="ScreenView">
+  <img height="1024" width="768" src="/img/zsh/zsh1.png#gh-dark-mode-only" alt="Zsh Dark" />
+  <img height="1024" width="768" src="/img/zsh/zsh2.png#gh-light-mode-only" alt="Zsh Light" />
+</div>

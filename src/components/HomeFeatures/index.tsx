@@ -107,7 +107,7 @@ function Features() {
   );
 }
 
-function HomeFeatures(): JSX.Element {
+export default function HomeFeatures(): JSX.Element {
   return (
     <section className={styles.videocontainer}>
       <div className="container">
@@ -158,5 +158,3 @@ function HomeFeatures(): JSX.Element {
     </section>
   );
 }
-
-export default HomeFeatures;

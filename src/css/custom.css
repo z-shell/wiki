@@ -1,4 +1,7 @@
+@import 'https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap';
+
 :root {
+  --ifm-font-family-base: 'JetBrains Mono', monospace;
   --site-primary-hue-saturation: 167 68%;
   --site-primary-hue-saturation-light: 167 56%;
   --ifm-color-primary: hsl(var(--site-primary-hue-saturation) 30%);
@@ -172,29 +175,20 @@ html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding: 0.2rem;
-  text-align: center;
+  padding: 0 var(--ifm-pre-padding);
   height: auto;
-  width: 90%;
+  max-width: 100%;
 }
 
 @media only screen and (max-width: 768px) {
   .IceLogo {
     max-width: 130px;
   }
-
-  .ScreenView {
-    max-width: 95%;
-  }
 }
 
 @media only screen and (max-width: 500px) {
   .IceLogo {
     max-width: 110px;
-  }
-
-  .ScreenView {
-    max-width: 100%;
   }
 }
 
