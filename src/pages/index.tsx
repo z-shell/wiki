@@ -16,8 +16,8 @@ function HeroBanner() {
             alt={translate({ message: 'ZI logo' })}
             className={styles.heroLogo}
             src="/img/logo.svg"
-            height="auto"
-            width="200px"
+            height="200"
+            width="200"
           />
           <span
             className={styles.heroTitleTextHtml}

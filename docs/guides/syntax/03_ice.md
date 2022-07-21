@@ -3,7 +3,7 @@ id: ice
 title: 🧊 Ice Syntax
 sidebar_position: 3
 toc_max_heading_level: 3
-image: img/png/ice-239x200.png
+image: img/png/ice_180x170.png
 description: Ice syntax documentation
 keywords:
   - ice
@@ -11,19 +11,18 @@ keywords:
 ---
 
 import Image from '@theme/IdealImage';
-import ZIceImg from '@site/static/img/png/ice-239x200.png';
-
-<div align="right">
-   <Image className="IceLogo" img={ZIceImg} alt="What is ice" />
-</div>
+import ZIceImg from '@site/static/img/png/ice_180x170.png';
 
 :::info FAQ: What is ice?
 
-The word **ice** means something that's added (like ice to a drink) – and in ZI syntax it means adding a modifier to a next zi command. Something that's temporary because it melts – and this means that the modification will last only for next zi command.
+<span>
+  <Image className="IceLogo" img={ZIceImg} alt="What is ice" />
+  The <strong>ice</strong> is something that melts in a drink, though in Zi syntax, it means adding an <strong>ice-modifier</strong> that's temporary because it disappears – which means that the <strong>ice-modifier</strong> will last only for the next Zi command.
+</span>
 
 :::
 
-## <i class="fa-solid fa-arrow-down-short-wide"></i> Order of execution {#order-of-execution}
+## <i class="fas fa-arrow-down-short-wide"></i> Order of execution {#order-of-execution}
 
 Order of execution of related ice modifiers is as follows:
 
@@ -34,21 +33,22 @@ Order of execution of related ice modifiers is as follows:
         mv'' →
           cp'' →
             make'!' →
-              atclone''/atpull'' →
-                make'!' → <plugin script loading> →
+              atclone'' / atpull'' →
+                make'!' →
+                [ plugin script loading ] →
                   src'' →
                     multisrc'' →
                       atload''
 ```
 
-### <i class="fa-solid fa-circle-info"></i> A few remarks {#a-few-remarks}
+### <i class="fas fa-circle-info"></i> A few remarks {#a-few-remarks}
 
 - The syntax automatically detects if the object is a snippet or a plugin, by checking if the object is an URL, i.e.: if it starts with `http*://` or `OMZ::`, etc.
 - To load a local-file snippet (which will be treated as a local-directory plugin by default) use the `is-snippet` ice,
 - To load a plugin in `light` mode use the `light-mode` ice.
 - If the plugin name collides with an ice name, precede the plugin name with `@`, e.g.: `@sharkdp/fd` (collides with the `sh` ice, ZI will take the plugin name as `sh"arkdp/fd"`), see the next section for an example.
 
-## <i class="fa-solid fa-microchip"></i> `extract'…'` {#extract}
+## <i class="fas fa-microchip"></i> `extract'…'` {#extract}
 
 A swiss-knife tool for unpacking all kinds of archives – the `extract'…'` ice. It works in two modes – automatic
 mode and fixed mode.
@@ -85,7 +85,7 @@ The value of the ice can begin with a two special characters:
 
 The flags can be combined in any order: `extract'!-'`.
 
-### <i class="fa-solid fa-gears"></i> `ziextract` {#ziextract}
+### <i class="fas fa-gears"></i> `ziextract` {#ziextract}
 
 Sometimes a more uncommon unpacking operation is needed. In such case you can directly use the function that implements the ice – it is called `ziextract`.
 
@@ -97,11 +97,11 @@ It recognizes the following options:
 4. `--norm` - prevents the archive file removal.
 5. And also one option specific only to the function: `--nobkp`, which prevents clearing of the plugin's dir before the extraction – normally all the files except the archive are being moved into `._backup` directory and after that the extraction is performed. - `extract` ice also skips creating the backup **if** more than one archive is found or given as the argument.
 
-### <i class="fa-solid fa-circle-info"></i> Supported file formats {#supported-file-formats}
+### <i class="fas fa-circle-info"></i> Supported file formats {#supported-file-formats}
 
 Zip, rar, tar.gz, tar.bz2, tar.xz, tar.7z, tar, tgz, tbz2, gz, bz2, txz, xz, 7z, exe, deb, OS X (dmg).
 
-## <i class="fa-solid fa-microchip"></i> `from'…'` {#from}
+## <i class="fas fa-microchip"></i> `from'…'` {#from}
 
 In order to install and load a plugin whose repository is private - e.g: requires providing credentials in order to log in – use the `from'…'` ice in the following way:
 
@@ -140,11 +140,11 @@ In order to change the protocol, use the `proto'…'` ice.
 
 :::
 
-### <i class="fa-solid fa-book-bookmark"></i> Summary of `from'…'` {#summary-of-from}
+### <i class="fas fa-book-bookmark"></i> Summary of `from'…'` {#summary-of-from}
 
 By using this method you can clone plugins from e.g. GitHub Enterprise or embed the passwords as plain text in `.zshrc`.
 
-## <i class="fa-solid fa-microchip"></i> `id-as'…'` {#id-as}
+## <i class="fas fa-microchip"></i> `id-as'…'` {#id-as}
 
 Load a plugin or snippet with a nickname with the `id-as'…'` ice-modifier. For example, one could try to load [docker/compose][1] from GitHub binary releases:
 
@@ -216,7 +216,7 @@ zi ice wait lucid id-as
 zi load hlissner/zsh-autopair
 ```
 
-## <i class="fa-solid fa-microchip"></i> `wait'…'` {#wait}
+## <i class="fas fa-microchip"></i> `wait'…'` {#wait}
 
 :::note
 
@@ -296,7 +296,7 @@ zi-turbo '1b' for \
   MichaelAquilina/zsh-you-should-use
 ```
 
-## <i class="fa-solid fa-microchip"></i> `src'…'` `pick'…'` `multisrc'…'` {#src-pick-multisrc}
+## <i class="fas fa-microchip"></i> `src'…'` `pick'…'` `multisrc'…'` {#src-pick-multisrc}
 
 Normally `src'…'` can be used to specify additional file to source:
 
@@ -413,7 +413,7 @@ The multiple snippets loaded with the `for` syntax are being loaded _separately_
 
 The ZI scheduler will distribute the work over time and will allow activation of keyboard in between the snippets. The `multisrc'…'` way doesn't work this way – sourcing many files can cause noticeable keyboard freezes (in Turbo).
 
-## <i class="fa-solid fa-microchip"></i> `wrap'…'` {#wrap}
+## <i class="fas fa-microchip"></i> `wrap'…'` {#wrap}
 
 The `wrap' …'` ice-modifier allows to extend the tracking (e.g: gathering of report and unload data) of a plugin beyond the moment of sourcing it's main file(s). It works by wrapping the given functions with a tracking-enabling and disabling snippet of code. This is useful especially with prompts, as they very often do their initialization in the first call to their `precmd` [hook][5] function.
 
@@ -474,7 +474,7 @@ Functions created:
 
 As it can be seen, creation of four additional Zle-widgets has been recorded - `Zle -N …` lines. They will be properly deleted/restored on the plugin unload with `MYPROMPT=3` as example and the shell state will be clean, ready to load a new prompt.
 
-## <i class="fa-solid fa-microchip"></i> `atclone'…'` `atpull'…'` `atinit'…'` `atload'…'` {#atclone-atpull-atinit-atload}
+## <i class="fas fa-microchip"></i> `atclone'…'` `atpull'…'` `atinit'…'` `atload'…'` {#atclone-atpull-atinit-atload}
 
 There are four code-receiving ices: `atclone'…'`, `atpull'…'`, `atinit'…'`, `atload'…'`.
 
@@ -539,6 +539,7 @@ zi ice load'![[ $MYPROMPT = 4 ]]' unload'![[ $MYPROMPT != 4 ]]' \
   atload'!source ~/.p10k.zsh; _p9k_precmd'
 zi load romkatv/powerlevel10k
 ```
+<!-- end-of-file -->
 
 [1]: https://github.com/docker/compose
 [2]: https://github.com/z-shell/F-Sy-H

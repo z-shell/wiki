@@ -31,15 +31,14 @@
 }
 
 div[class^="announcementBarContent"] {
-  line-height: 18px;
+  line-height: 16px;
   font-size: 14px;
   font-weight: bold;
-  padding: 6px 24px;
   transition-duration: 1s !important;
 }
 
 .indexCtas a {
-  color: black;
+  color: var(--ifm-color-black) !important;
 }
 
 div[class^="announcementBarContent"] a {
@@ -48,12 +47,22 @@ div[class^="announcementBarContent"] a {
   color: var(--ifm-color-primary) !important;
 }
 
+.indexCtas {
+  --ifm-button-size-multiplier: 1;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 18px;
+}
+
 .indexCtas a:hover {
-  color: black;
+  color: var(--ifm-color-primary) !important;
+  background: #24292e;
 }
 
 .indexCtas a:last-of-type {
-  margin: 20px 36px;
+  margin: 16px 24px;
 }
 
 html[data-theme="light"] div[class^="announcementBar_"] {
@@ -73,12 +82,13 @@ div[class^="announcementBarContent"] a:hover {
 @media only screen and (max-width: 768px) {
   div[class^="announcementBarContent"] {
     font-size: 12px;
+    line-height: 18px;
+    padding: 4px 32px;
   }
 }
 
 @media only screen and (max-width: 500px) {
   div[class^="announcementBarContent"] {
-    font-size: 12px;
     line-height: 24px;
     padding: 4px 32px;
   }
@@ -92,7 +102,7 @@ div[class^="announcementBarContent"] a:hover {
 .heroInner {
   margin: 0 auto;
   max-width: 1100px;
-  padding: 0 2rem;
+  padding: 0 4rem;
 }
 
 .heroProjectTagline {
@@ -108,39 +118,27 @@ div[class^="announcementBarContent"] a:hover {
 @keyframes jack-in-the-box {
   from {
     opacity: 0;
-    transform: scale(0.2) rotate(180deg);
+    transform: scale(0.1) rotate(180deg);
     transform-origin: center bottom;
   }
 
-  50% {
-    transform: rotate(-10deg);
-  }
-
-  70% {
-    transform: rotate(3deg);
-  }
+  50% {transform: rotate(-20deg);}
+  70% {transform: rotate(3deg);}
 
   to {
     opacity: 1;
-    transform: scale(0.8, 0.8);
+    transform: scale(1);
   }
 }
 
 .heroLogo {
-  animation-duration: 3s;
+  animation-duration: 3.5s;
   animation-name: jack-in-the-box;
   float: right;
   margin-top: 20px;
   padding: 0 20px 20px;
-}
-
-.indexCtas {
-  --ifm-button-size-multiplier: 1.2;
-
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-top: 24px;
+  height: auto;
+  max-width: 100%;
 }
 
 .indexCtasGitHubButtonWrapper {
@@ -157,8 +155,8 @@ div[class^="announcementBarContent"] a:hover {
 
 @media only screen and (max-width: 768px) {
   .hero {
-    padding-left: 1.8rem;
-    padding-right: 1.8rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   .heroInner {
@@ -166,7 +164,7 @@ div[class^="announcementBarContent"] a:hover {
   }
 
   .heroProjectTagline {
-    font-size: 2.2rem;
+    font-size: 2rem;
     text-align: center;
   }
 
@@ -174,21 +172,31 @@ div[class^="announcementBarContent"] a:hover {
     display: block;
     float: none;
     margin: 0 auto;
-    width: 140px;
+    height: auto;
+    max-width: 30%;
   }
 
   .indexCtas {
-    --ifm-button-size-multiplier: 1;
-
     justify-content: center;
   }
 
   .indexCtas a {
-    margin: 20px 36px;
+    margin: 14px 18px;
   }
 
   .indexCtasGitHubButton {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .heroProjectTagline {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .heroLogo {
+    display: none
   }
 }
 
