@@ -335,7 +335,7 @@ zi load z-shell/history-search-multi-word
 
 ## Turbo avec des invites sophistiquées
 
-Pour certains thèmes, principalement les thèmes avancés, l'initialisation de l'invite est effectuée dans un `precmd`-hook, c'est-à-dire dans une fonction qui est appelée avant chaque invite. The hook is installed by the [add-zsh-hook][12] Zsh function by adding its name to the `$precmd_functions` array.
+Pour certains thèmes, principalement les thèmes avancés, l'initialisation de l'invite est effectuée dans un `precmd`-hook, c'est-à-dire dans une fonction qui est appelée avant chaque invite. Le hook est installé par la fonction Zsh [add-zsh-hook][12] en ajoutant son nom au tableau `$precmd_functions` .
 
 Pour que le prompt soit complètement initialisé après le chargement de Turbo au milieu du prompt, la même situation qu'avec le plugin `zsh-autosuggestions` , le hook doit être appelé à partir de `atload''` ice`.
 
@@ -354,7 +354,7 @@ zi ice wait'!' lucid nocd \
 zi load robobenklein/zinc
 ```
 
-The exclamation mark in `atload'!…'` is to track the functions allowing the plugin to be unloaded, as described [here](/docs/guides/syntax/ice#atclone-atpull-atinit-atload). Il peut être utile pour la configuration à plusieurs invites décrite ci-dessous.
+Le point d'exclamation dans `atload ' !…'` est pour suivre les fonctions permettant de décharger le plugin, comme décrit [ici](/docs/guides/syntax/ice#atclone-atpull-atinit-atload). Il peut être utile pour la configuration à plusieurs invites décrite ci-dessous.
 
 ### Récapitulatif du mode turbo
 
@@ -399,11 +399,11 @@ Le suivi entraîne un léger ralentissement, cependant, cela n'influence pas le 
 
 :::tip
 
-See: [multiple prompts](/docs/guides/customization#multiple-prompts) for more information. Il contient des exemples plus réels d'une configuration multi-prompts, qui est proche de ce que l'auteur utilise dans son installation.
+Voir : [invites multiples](/docs/guides/customization#multiple-prompts) pour plus d'informations. Il contient des exemples plus réels d'une configuration multi-prompts, qui est proche de ce que l'auteur utilise dans son installation.
 
 :::
 
-This is [powerlevel10k](https://github.com/romkatv/powerlevel10k), [pure](https://github.com/sindresorhus/pure), [starship](https://github.com/starship/starship) sample:
+Il s'agit des exemples [powerlevel10k](https://github.com/romkatv/powerlevel10k), [pure](https://github.com/sindresorhus/pure), [starship](https://github.com/starship/starship) :
 
 Chargez le thème powerlevel10k.
 
@@ -459,7 +459,7 @@ zi update --plugins
 zi update --snipets
 ```
 
-Mettre à jour un plug-in spécifique. Default is GitHub but can specify any with ice [from'…'](/search?q=from):
+Mettre à jour un plug-in spécifique. La valeur par défaut est GitHub mais vous pouvez en spécifier une autre avec l'ice [from'…'](/search?q=from):
 
 ```shell
 zi update <user>/<repo>
@@ -544,9 +544,9 @@ zi ice as"program" make'!' \
 zi light direnv/direnv
 ```
 
-If you are interested to try out more then check out the [playground repository](https://github.com/z-shell/playground) where users have uploaded the `~/.zshrc` and other ZI configurations. Feel free to [submit](https://github.com/z-shell/playground/issues/new?template=request-to-add-zshrc-to-the-zi-configs-repo.md) your `~/.zshrc` there if it contains ZI commands.
+Si vous souhaitez en essayer davantage, consultez le dépôt [playground](https://github.com/z-shell/playground) où les utilisateurs ont téléchargé le fichier `~/.zshrc` et d'autres configurations ZI. N'hésitez pas à [soumettre](https://github.com/z-shell/playground/issues/new?template=request-to-add-zshrc-to-the-zi-configs-repo.md) votre `~/.zshrc` là s'il contient des commandes ZI.
 
-Additional examples: [collection][10].
+Exemples supplémentaires : [collection][10].
 
 [1]: /search?q=ice+modifiers
 
