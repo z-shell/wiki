@@ -1,7 +1,20 @@
-/* @import 'https://wiki.zshell.dev/r2/assets/webfonts/JetBrainsMono-Regular.ttf&display=swap'; */
+/* @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap'); */
+@font-face {
+  src: url('/r2/assets/webfonts/JetBrainsMono-Regular.ttf') format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap
+}
+@font-face {
+  src: url('/r2/assets/webfonts/JetBrainsMono-SemiBold.ttf') format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap
+}
 
 :root {
-  --ifm-font-family-base: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono', monospace;
+
   --site-primary-hue-saturation: 167 68%;
   --site-primary-hue-saturation-light: 167 56%;
   --ifm-color-primary: hsl(var(--site-primary-hue-saturation) 30%);
