@@ -15,7 +15,7 @@ const config = {
   projectName: 'wiki',
   organizationName: 'z-shell',
   staticDirectories: ['static'],
-  stylesheets: ['/r2/assets/css/all.min.css'],
+  stylesheets: ['https://wiki.zshell.dev/r2/assets/css/all.min.css'],
   i18n: { defaultLocale: 'en', locales: ['en', 'fr', 'ja', 'zh-Hans',] },
   presets: [
     [
