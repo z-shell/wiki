@@ -1,7 +1,6 @@
 /* @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap'); */
 
 @font-face {
-  font-family: 'JetBrains Mono', monospace;
 	font-weight: 300 800;
 	src: url('@site/static/r2/fonts/variable/JetBrainsMono[wght].ttf') format('truetype');
   font-style: normal;
