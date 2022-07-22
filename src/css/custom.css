@@ -1,12 +1,12 @@
 /* @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap'); */
 @font-face {
-  src: url('/r2/assets/webfonts/JetBrainsMono-Regular.ttf') format("truetype");
+  src: url('/r2/fa/webfonts/JetBrainsMono-Regular.ttf') format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap
 }
 @font-face {
-  src: url('/r2/assets/webfonts/JetBrainsMono-SemiBold.ttf') format("truetype");
+  src: url('/r2/fa/webfonts/JetBrainsMono-SemiBold.ttf') format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap

@@ -1,7 +1,7 @@
 // @ts-check
 
 const setURL = process.env.URL ?? 'https://wiki.zshell.dev';
-const setASSETS = process.env.ASSETS ?? '/r2/assets/css/all.min.css';
+const setASSETS = process.env.ASSETS ?? '/r2/fa/css/all.min.css';
 
 const config = {
   title: '❮ Zi ❯',
