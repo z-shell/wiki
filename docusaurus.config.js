@@ -17,7 +17,9 @@ const config = {
   organizationName: 'z-shell',
   staticDirectories: ['static'],
   stylesheets: [{href: setASSETS, crossorigin: 'anonymous'}],
-  i18n: { defaultLocale: 'en', locales: ['en', 'fr', 'ja', 'zh-Hans',] },
+  i18n: {
+    defaultLocale: 'en', locales: ['en', 'fr', 'ja', 'zh-Hans'], localeConfigs: { en: { htmlLang: 'en-US' }},
+  },
   presets: [
     [
       'classic',
@@ -263,7 +265,7 @@ const config = {
         darkTheme: require('prism-react-renderer/themes/dracula'),
         defaultLanguage: 'shell',
       },
-      tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 4 },
+      tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 5 },
     }),
 };
 

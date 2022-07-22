@@ -18,6 +18,7 @@
     "write-community-version": "docusaurus docs:version:community",
     "write-ecosystem-version": "docusaurus docs:version:ecosystem",
     "crowdin:sync": "docusaurus write-translations && crowdin upload sources && crowdin download",
+    "crowdin:check": "crowdin lint && crowdin status",
     "prebuild": "test \"$CF_PAGES\" = 1 && npx pnpm install --prod --store=node_modules/.pnpm-store || echo Install not required...",
     "clean": "pnpm exec rm -rf node_modules build pnpm-lock.yaml",
     "preinstall": "npx only-allow pnpm",
@@ -28,6 +29,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@crowdin/cli": "3.7.9",
     "@docusaurus/core": "0.0.0-5214",
     "@docusaurus/plugin-ideal-image": "0.0.0-5214",
     "@docusaurus/plugin-pwa": "0.0.0-5214",
@@ -66,7 +68,7 @@
     "stylelint-csstree-validator": "2.0.0",
     "typescript": "4.7.4"
   },
-  "packageManager": "pnpm@7.5.2",
+  "packageManager": "pnpm@7.6.0",
   "pnpm": {
     "overrides": {
       "trim@<0.0.3": ">=0.0.3",
