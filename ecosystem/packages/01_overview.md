@@ -11,6 +11,8 @@ keywords:
   - zi-package
 ---
 
+<!-- @format -->
+
 The motivation for adding packages functionality:
 
 1. ZI is a flexible and feature-rich plugin manager, however, users often feel overwhelmed by its configuration.

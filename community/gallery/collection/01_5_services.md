@@ -7,6 +7,8 @@ keywords:
   - services
 ---
 
+<!-- @format -->
+
 ### ZS: [z-shell/redis](https://github.com/z-shell/redis)
 
 ```shell showLineNumbers

@@ -8,6 +8,8 @@ keywords:
   - zsh-select
 ---
 
+<!-- @format -->
+
 import Image from '@theme/IdealImage'; import Asciinema1 from '@site/static/img/asciinema/48490.png';
 
 - [z-shell/zsh-select](https://github.com/z-shell/zsh-select)

@@ -7,6 +7,8 @@ keywords:
   - snippets
 ---
 
+<!-- @format -->
+
 :::info Related:
 
 1. [Ice: svn](/docs/guides/syntax/ice#the-ice-ice)

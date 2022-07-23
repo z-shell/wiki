@@ -8,6 +8,8 @@ keywords:
   - gallery
 ---
 
+<!-- @format -->
+
 :::info
 
 - Recommended to familiarize with [common syntax][8].

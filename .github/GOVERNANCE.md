@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Governance Policy
 
 This document provides the governance policy for the Project. Maintainers agree to this policy and to abide by all Project polices, including the [code of conduct](https://github.com/z-shell/.github/blob/main/docs/CODE-OF-CONDUCT.md), [trademark policy](https://github.com/z-shell/.github/blob/main/docs/TRADEMARKS.md), and [antitrust policy](https://github.com/z-shell/.github/blob/main/docs/ANTITRUST.md) by adding their name to the [maintainers.md file](./MAINTAINERS.md).

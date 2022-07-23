@@ -10,6 +10,8 @@ keywords:
   - user-interface
 ---
 
+<!-- @format -->
+
 import Image from '@theme/IdealImage';
 import Screen1 from '@site/static/img/png/hello-world-fs8.png';
 import Screen2 from '@site/static/img/png/zui-text-fields-fs8.png';

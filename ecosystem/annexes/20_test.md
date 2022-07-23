@@ -9,6 +9,8 @@ keywords:
   - zsh
 ---
 
+<!-- @format -->
+
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-test][]
 
 An annex runs tests (for example `make test``) – if found will autorun it after installing and updating a plugin or snippet.

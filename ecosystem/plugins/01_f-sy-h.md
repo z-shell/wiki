@@ -12,6 +12,8 @@ keywords:
   - zsh-plugin
 ---
 
+<!-- @format -->
+
 import Image from '@theme/IdealImage';
 
 ## <i class="fa-brands fa-github"></i> [z-shell/f-sy-h][1]

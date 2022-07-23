@@ -9,6 +9,8 @@ keywords:
   - z-a-bin-gem-node
 ---
 
+<!-- @format -->
+
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-bin-gem-node][1]
 
 An annex provides the following functionality:

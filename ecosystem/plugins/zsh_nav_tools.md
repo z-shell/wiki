@@ -8,6 +8,8 @@ keywords:
   - zsh-plugin
 ---
 
+<!-- @format -->
+
 - [z-shell/zsh-navigation-tools](https://github.com/z-shell/zsh-navigation-tools)
 
 ## Zsh Navigation Tools

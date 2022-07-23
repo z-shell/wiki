@@ -8,6 +8,8 @@ keywords:
   - zsh-plugin
 ---
 
+<!-- @format -->
+
 - [z-shell/zsh-cmd-architect](https://github.com/z-shell/zsh-cmd-architect)
 
 The Zsh Command Architect allows to copy segments of commands in history, rearrange segments of current command, delete segments of current command. This way user glues command from parts without using a mouse. Advanced history search (multi word, without duplicate lines) allows to quickly find the parts.

@@ -8,6 +8,8 @@ keywords:
   - themes
 ---
 
+<!-- @format -->
+
 :::info Related
 
 1. [Multiple prompts](/docs/guides/customization#multiple-prompts)

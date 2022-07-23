@@ -10,6 +10,8 @@ keywords:
   - optimised-zsh-plugins
 ---
 
+<!-- @format -->
+
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-meta-plugins][45]
 
 An annex has the curated, optimal [ice][46] lists automatically applied. For more details refer to [z-a-meta-plugins.plugin.zsh][50] file.

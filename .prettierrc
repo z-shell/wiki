@@ -1,8 +1,11 @@
+# @format
+
 {
   "tabWidth": 2,
-  "useTabs": false,
-  "insertPragma": true,
+  "useTabs": true,
+  "insertPragma": false,
   "requirePragma": true,
   "jsxSingleQuote": true,
-  "singleAttributePerLine": true
+  "singleAttributePerLine": true,
+  "vueIndentScriptAndStyle": true,
 }

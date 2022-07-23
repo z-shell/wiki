@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <!-- markdownlint-disable MD041 -->
 <table style="width:100%;height:auto">
  <tr align="justify" margin-left="auto" margin-right="auto"><td align="center">
@@ -13,7 +15,6 @@
   <a href="https://github.com/z-shell/community/issues/new?assignees=&labels=%F0%9F%91%A5+member&template=membership.yml&title=team%3A+">《💜》Join </a>
   <a href="https://digitalclouds.crowdin.com/z-shell/">《🌐》Localize </a>
 </h2>
-
 
   </tr>
 <tr>

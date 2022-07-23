@@ -9,6 +9,8 @@ keywords:
   - zsh-completion
 ---
 
+<!-- @format -->
+
 - [z-shell/zzcomplete](https://github.com/z-shell/zzcomplete)
 
 Complete options from manual pages – press <kbd>Ctrl-F</kbd> to start the completer.

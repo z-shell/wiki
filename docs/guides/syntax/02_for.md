@@ -11,6 +11,8 @@ keywords:
   - the-for-syntax
 ---
 
+<!-- @format -->
+
 The `for` syntax is the most popular, more concise, and more optimized. The single command will work the same as the classic-syntax invocation.
 
 It allows providing common/default ices for a <b> set of plugins </b> or to source <b> multiple files </b> with ices: [src, pick, multisrc][ice#src-pick-multisrc].

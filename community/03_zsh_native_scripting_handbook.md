@@ -7,6 +7,8 @@ keywords:
   - zsh-handbook
 ---
 
+<!-- @format -->
+
 ## Information
 
 ### @ is about keeping array form

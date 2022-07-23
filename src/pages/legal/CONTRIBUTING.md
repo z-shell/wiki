@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Contributing
 
 This Project welcomes contributions, suggestions, and feedback. All contributions, suggestions, and feedback you submitted are accepted under the [Project's license](https://github.com/z-shell/zw/blob/main/LICENSE).

@@ -12,6 +12,8 @@ keywords:
   - best-pratices
 ---
 
+<!-- @format -->
+
 ## What is a Zsh plugin?
 
 Historically, Zsh plugins were first defined by Oh My Zsh. They provide a way to package together files that extend or configure the shell’s functionality in a particular way.

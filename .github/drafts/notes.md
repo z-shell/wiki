@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Notes
 
 ## <i class="fa-brands fa-superpowers"></i> [Annexes](/ecosystem/annexes/)
@@ -23,7 +25,6 @@
 [gh-zpackage]: https://github.com/topics/zpackage
 [zplugin]: https://github.com/search?q=topic%3Azplugin+org%3Az-shell&type=Repositories
 [gh-zplugin]: https://github.com/topics/zplugin
-
 
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->

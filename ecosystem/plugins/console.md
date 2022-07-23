@@ -9,6 +9,8 @@ keywords:
   - zi-console
 ---
 
+<!-- @format -->
+
 - [z-shell/zi-console](https://github.com/z-shell/zi-console)
 
 A console for [ZI][1] – based on the `zsh/zcurses` Zshell module allows the user to:

@@ -9,6 +9,8 @@ keywords:
   - unscope
 ---
 
+<!-- @format -->
+
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-unscope][]
 
 An aannex allows to install plugins without specifying the GitHub user name.

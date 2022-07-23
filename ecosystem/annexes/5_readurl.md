@@ -8,6 +8,8 @@ keywords:
   - readurl
 ---
 
+<!-- @format -->
+
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-readurl][]
 
 An aannex allows to automatically download the newest version of a file to which URL is hosted on a webpage.

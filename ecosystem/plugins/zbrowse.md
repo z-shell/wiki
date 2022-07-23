@@ -9,6 +9,8 @@ keywords:
   - zsh-plugin
 ---
 
+<!-- @format -->
+
 import Image from '@theme/IdealImage';
 import Screen1 from '@site/static/img/png/zbrowse.png';
 import Asciinema1 from '@site/static/img/png/122018.png';

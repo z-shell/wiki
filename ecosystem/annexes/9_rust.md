@@ -10,6 +10,8 @@ keywords:
   - zsh
 ---
 
+<!-- @format -->
+
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-rust][]
 
 An annex installs rust and cargo packages locally inside the plugin or snippet directories. The crate can then have a so-called _shim_ created (a name borrowed from `rbenv`) – a script that's located in the standard `$PATH` entry "`$ZPFX/bin" of the following contents (example):

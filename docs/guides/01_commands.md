@@ -9,6 +9,8 @@ keywords:
   - functions
 ---
 
+<!-- @format -->
+
 import APITable from '@site/src/components/APITable';
 
 ## Commands available using <kbd>^TAB</kbd> [completion][6]

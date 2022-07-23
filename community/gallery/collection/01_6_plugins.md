@@ -7,6 +7,8 @@ keywords:
   - plugins
 ---
 
+<!-- @format -->
+
 :::info
 
 Related:

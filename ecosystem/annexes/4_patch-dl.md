@@ -8,6 +8,8 @@ keywords:
   - patch-dl
 ---
 
+<!-- @format -->
+
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-patch-dl][]
 
 An annex downloads files and applies patches and adds two ice modifiers:

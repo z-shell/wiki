@@ -9,6 +9,8 @@ keywords:
   - prompt
 ---
 
+<!-- @format -->
+
 import Image from '@theme/IdealImage'; import Asciinema1 from '@site/static/img/asciinema/48122.png';
 
 - [z-shell/zprompts][1]

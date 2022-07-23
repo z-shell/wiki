@@ -1,36 +1,38 @@
+/** @format */
+
 .videocontainer {
-  padding: 4rem 0;
-  text-align: justify;
-  position: relative;
-  overflow: hidden;
+	padding: 4rem 0;
+	text-align: justify;
+	position: relative;
+	overflow: hidden;
 }
 
 .featurecontainer {
-  display: block;
-  align-items: center;
-  width: 100%;
+	display: block;
+	align-items: center;
+	width: 100%;
 }
 
 .features {
-  text-align: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  padding: 4rem 0;
+	text-align: center;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+	padding: 4rem 0;
 }
 
 .featureimage {
-  display: inline;
-  height: 200px;
-  width: 200px;
+	display: inline;
+	height: 200px;
+	width: 200px;
 }
 
 @media only screen and (max-width: 996px) {
-  .features {
-    padding: 2rem 0;
-  }
+	.features {
+		padding: 2rem 0;
+	}
 
-  .videocontainer {
-    padding: 2rem 0;
-  }
+	.videocontainer {
+		padding: 2rem 0;
+	}
 }

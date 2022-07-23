@@ -8,6 +8,8 @@ keywords:
   - unique-id
 ---
 
+<!-- @format -->
+
 - [z-shell/zsh-unique-id](https://github.com/z-shell/zsh-unique-id)
 
 This plugin provides a **unique number** that identifies a **running** Zshell session, in its shell variable `$ZUID_ID`.

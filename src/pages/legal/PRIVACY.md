@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <h1>Privacy Policy</h1>
 <p>Last updated: February 10, 2022</p>
 <p>

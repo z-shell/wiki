@@ -9,6 +9,8 @@ keywords:
   - zannex
 ---
 
+<!-- @format -->
+
 1. Add a new ZI subcommand (i.e. the [command][1] that’s placed after the function `zi …` when calling ZI).
 
 2. Add new [ice-modifiers][2].

@@ -10,6 +10,8 @@ keywords:
   - zsh
 ---
 
+<!-- @format -->
+
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-linkbin][]
 
 An annex expose a binary program without modifying `$PATH` – `z-a-linkbin` and automatically create a hard or soft link to the binary at `$ZPFX/bin` exposing the program to the command line as if it were being placed in `$PATH`.

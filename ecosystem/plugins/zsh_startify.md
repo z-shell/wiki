@@ -8,6 +8,8 @@ keywords:
   - plugin
 ---
 
+<!-- @format -->
+
 - [z-shell/zsh-startify](https://github.com/z-shell/zsh-startify)
 
 A plugin that aims at providing what [vim-startify](https://github.com/mhinz/vim-startify) plugin does, but in Zsh. The analogy isn't fully easy to make. `vim-startify` states - it provides dynamically created headers or footers and uses configurable lists to show recently used or bookmarked files and persistent sessions.

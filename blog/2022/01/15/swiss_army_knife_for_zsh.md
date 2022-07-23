@@ -22,6 +22,8 @@ authors:
     image_url: https://github.com/ss-o.png
 ---
 
+<!-- @format -->
+
 ## 🧙‍♂️ 🪄 [❮ ZI ❯](https://github.com/z-shell/zi) - A Swiss Army Knife for [Zsh](https://zsh.sourceforge.io/) - [Unix shell](https://en.wikipedia.org/wiki/Unix_shell)
 
 <div className="ScreenView">

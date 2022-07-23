@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <!-- markdownlint-disable MD041 -->
 
 ## Introduction

@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Security Policy
 
 ## Reporting a Vulnerability

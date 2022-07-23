@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Governance Policy
 
 This document provides the governance policy for the Project. Maintainers agree to this policy and to abide by all Project polices, including the [code of conduct](/legal/CODE_OF_CONDUCT/), [trademark policy](/legal/TRADEMARKS/), and [antitrust policy](/legal/ANTITRUST/) by adding their name to the [maintainers.md file](/legal/MAINTAINERS/).

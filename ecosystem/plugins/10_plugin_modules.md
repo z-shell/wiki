@@ -13,6 +13,8 @@ keywords:
   - zsh-plugins
 ---
 
+<!-- @format -->
+
 ## <i class="fa-brands fa-github"></i> [z-shell/zpmod][1]
 
 The module is a binary Zsh module, think about `zmodload` Zsh command, it's that topic, which transparently and automatically **compiles sourced scripts**.

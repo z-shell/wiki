@@ -1,18 +1,18 @@
 {
-  "recommendations": [
-    "firefox-devtools.vscode-firefox-debug",
-    "gruntfuggly.todo-tree",
-    "sourcegraph.sourcegraph",
-    "davidanson.vscode-markdownlint",
-    "editorconfig.editorconfig",
-    "vivaxy.vscode-conventional-commits",
-    "mgmcdermott.vscode-language-babel",
-    "esbenp.prettier-vscode",
-    "blanu.vscode-styled-jsx",
-    "stylelint.vscode-stylelint",
-    "silvenon.mdx",
-    "dbaeumer.vscode-eslint",
-    "crowdin.vscode-crowdin",
-    "CodeSandbox-io.codesandbox-projects"
-  ]
+	"recommendations": [
+		"firefox-devtools.vscode-firefox-debug",
+		"gruntfuggly.todo-tree",
+		"sourcegraph.sourcegraph",
+		"davidanson.vscode-markdownlint",
+		"editorconfig.editorconfig",
+		"vivaxy.vscode-conventional-commits",
+		"mgmcdermott.vscode-language-babel",
+		"esbenp.prettier-vscode",
+		"blanu.vscode-styled-jsx",
+		"stylelint.vscode-stylelint",
+		"silvenon.mdx",
+		"dbaeumer.vscode-eslint",
+		"crowdin.vscode-crowdin",
+		"CodeSandbox-io.codesandbox-projects"
+	]
 }
