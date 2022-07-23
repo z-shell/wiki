@@ -9,6 +9,8 @@ keywords:
   - ice-modifiers
 ---
 
+<!-- @format -->
+
 import APITable from '@site/src/components/APITable';
 
 An ice modifiers are [passed][alternate-syntax] to `zi ice …` to obtain described effects, additionally can be added with [annexes][12]. To see all available ice modifiers run `zi -h`.

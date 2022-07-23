@@ -9,6 +9,8 @@ keywords:
   - migration
 ---
 
+<!-- @format -->
+
 ## Oh-My-Zsh
 
 ### OMZ Shorthand Syntax

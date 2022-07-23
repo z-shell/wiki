@@ -9,6 +9,8 @@ keywords:
   - installation
 ---
 
+<!-- @format -->
+
 ## <i class="fas fa-spinner fa-spin"></i> Quick setup {#quick-setup}
 
 ```shell title="~/.zshrc"

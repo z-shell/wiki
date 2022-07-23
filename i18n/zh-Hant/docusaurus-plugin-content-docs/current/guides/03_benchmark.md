@@ -10,6 +10,8 @@ keywords:
   - profiling
 ---
 
+<!-- @format -->
+
 :::info
 
 Run `zi analytics` to see the available ZI sub-commands for statistics and information.

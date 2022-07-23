@@ -10,6 +10,8 @@ keywords:
   - how-to-use
 ---
 
+<!-- @format -->
+
 :::tip
 
 It is recommended to familiarize with [getting_started/oveview][9] before this.

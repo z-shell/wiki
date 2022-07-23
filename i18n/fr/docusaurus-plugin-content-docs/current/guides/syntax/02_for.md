@@ -11,6 +11,8 @@ keywords:
   - the-for-syntax
 ---
 
+<!-- @format -->
+
 La syntaxe `for` est la plus populaire, plus concise, et plus optimisée. La commande unique fonctionnera de la même manière que l'invocation en syntaxe classique.
 
 Il permet de fournir des ices communs/par défaut pour un <b> ensemble de plugins </b> ou de sourcer <b> plusieurs fichiers </b> avec des ices : [src, pick, multisrc][ice#src-pick-multisrc].
@@ -97,7 +99,7 @@ zi wait lucid light-mode for \
 | `atpull'…'`  | Exécutez après avoir mis à jour le plugin - la commande dans la glace installera toutes les nouvelles complétions. |
 | `atinit'…'`  | Exécutez le code avant chargement du plug-in.                                                                      |
 | `atload'…'`  | Exécutez le code après le chargement du plugin.                                                                    |
-| `zicompinit` | Equals to `autoload compinit; compinit`.                                                                           |
+| `zicompinit` | Equivaut à`autoload compinit; compinit`.                                                                           |
 | `zicdreplay` | Exécuter les appels de `compdef …` que les plugins ont fait. Plus ci-dessous [^2].                                 |
 
 ## <i class="fa-solid fa-list"></i> Oh-My-Zsh, [turbo][6] Oh-My-Zsh et la syntaxe [for][10]
@@ -130,19 +132,19 @@ zi ice atinit"zicompinit; zicdreplay"
 zi light z-shell/F-Sy-H
 ```
 
-### <i class="fa-solid fa-forward-fast"></i> With [turbo mode][6] and [for][10]
+### <i class="fa-solid fa-forward-fast"></i> Avec [mode turbo][6] et [for][10]
 
 ```shell showLineNumbers
 # A.
 setopt promptsubst
 
 # B, C.
-zi wait lucid for \
+zi wait lucid pour \
   OMZL::git.zsh \
-  atload"unalias grv" \
+  atload "unalias grv" \
   OMZP::git
 
-# Provide a simple prompt till the theme loads to visualise the effect.
+# Fournir une simple invite jusqu'à ce que le thème se charge pour visualiser l'effet.
 PS1="READY >"
 
 # D.
@@ -161,34 +163,34 @@ zi wait lucid for \
 
 :::info
 
-**A** - Most themes use this option.
+**A** - La plupart des thèmes utilisent cette option.
 
-**B, C** - OMZ themes use this library and some other use also the plugin. It provides many aliases – `atload'…'` shows how to disable some of them (e.g.: to use program `rgburke/grv`).
+**B, C** - Les thèmes OMZ utilisent cette bibliothèque et certains autres utilisent également le plugin. Il fournit de nombreux alias - `atload'…'` montre comment désactiver certains d'entre eux (par exemple : pour utiliser le programme `rgburke/grv`).
 
-**D** - Set OMZ theme. Loaded separately because the theme needs the `!` passed to the `wait` ice to reset the prompt after loading the snippet in turbo mode.
+**D** - Définissez le thème OMZ. Chargé séparément car le thème a besoin que le `!` soit passé au `wait` glace pour réinitialiser l'invite après le chargement du snippet en mode turbo.
 
-**E, F, G** - Some plugins:
+**E, F, G** - Certains plugins :
 
-1. syntax-highlighting, loaded possibly early for a better user experience).
-2. example functional plugin.
-3. docker completion.
+1. syntax-highlighting, chargée éventuellement en avance pour une meilleure expérience utilisateur).
+2. exemple de plugin fonctionnel.
+3. complétion de docker.
 
 :::
 
-Above setup loads everything after prompt, because of preceding `wait` ice. That is called **turbo mode**, it shortens Zsh startup time by <u>50%-80%</u>, e.g. instead of 200 ms, it'll be getting your shell started up after **40 ms**.
+La configuration ci-dessus charge tout après l'invite, à cause de la glace précédente `wait` . Cela s'appelle le **mode turbo mode**, il raccourcit le temps de démarrage de Zsh par <u>50%-80%</u>, par exemple au lieu de 200 ms, il vous fera démarrer après **40 ms**.
 
-Try both setups on the daily basis to notice the difference. The features of ZI can do much more than this simple example.
+Essayez les deux configurations au quotidien pour constater la différence. Les fonctionnalités de ZI peuvent faire beaucoup plus que ce simple exemple.
 
 ## <i class="fa-solid fa-book-bookmark"></i> Récapitulatif
 
-In general, [turbo mode][6] can be optionally enabled only for a subset of plugins or for all plugins.
+En général, le [ mode turbo][6] ne peut être activé que pour un sous-ensemble de plugins ou pour tous les plugins.
 
-Syntax-highlighting plugins, like [F-Sy-H][11] or [zsh-syntax-highlighting][12], theoretically expect to be loaded last, even after the completion initialization as `compinit` function.
+Les plug-ins de mise en évidence de syntaxe, tels que [F-Sy-H][11] ou [zsh-syntax-highlighting][12], s'attendent théoriquement à être chargés en dernier, même après l'initialisation de l'achèvement en tant que fonction `compinit`.
 
-However in practice, you just have to ensure that such plugin is loaded after plugins that are issuing `compdef` – which basically means completions that aren't using the underscore-starting function file; the completion initialization still has to be performed before syntax-highlighting plugin, hence the `atinit'…'` ice, which will load `compinit` right before loading the plugin, the syntax-highlighting and suggestions plugins are loaded early for a better user experience.
+Cependant, en pratique, il suffit de s'assurer qu'un tel plugin est chargé après les plugins qui émettent `compdef` - ce qui signifie essentiellement les complétions qui n'utilisent pas le fichier de fonction de début de soulignement ; l'initialisation de la complétion doit toujours être effectuée avant le plugin de mise en évidence syntaxique , d'où la glace `atinit'…'` , qui chargera `compinit` juste avant de charger le plugin, les plugins de mise en évidence syntaxique et de suggestions sont chargés tôt pour une meilleure expérience utilisateur.
 
-[^1]: Then the tracking of plugin, activity report gathering, accessible via the `zi report {plugin-name}` subcommand) is being disabled. Note that for turbo mode, the performance gains are almost `0`, so in this mode, you can load all plugins with the tracking and the `light-mode` ice can be removed from the command.
-[^2]: They were recorded and `compinit` can be called later. `compinit` fournit la fonction `compdef` , elle doit donc être exécutée avant d'émettre la reprise `compdef`s avec `zicdreplay`.
+[^1]: Ensuite, le suivi du plugin, la collecte des rapports d'activité, accessible via la sous-commande `zi report {plugin-name}` ) est désactivé. Notez que pour le mode turbo, les gains de performance sont presque `0`, donc dans ce mode, vous pouvez charger tous les plugins avec le suivi et la glace `light-mode` peut être supprimé de la commande.
+[^2]: Ils ont été enregistrés et `compinit` peut être appelé plus tard. `compinit` fournit la fonction `compdef` , elle doit donc être exécutée avant d'émettre la reprise `compdef`s avec `zicdreplay`.
 
 [1]: /search/?q=GH-R
 
@@ -198,6 +200,7 @@ However in practice, you just have to ensure that such plugin is loaded after pl
 [3]: /search/?q=ice
 [4]: /search/?q=bin+gem+node
 [5]: /search/?q=annex
+[6]: /search/?q=turbo+mode
 [6]: /search/?q=turbo+mode
 [6]: /search/?q=turbo+mode
 [6]: /search/?q=turbo+mode

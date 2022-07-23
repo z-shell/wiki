@@ -10,6 +10,8 @@ keywords:
   - syntax
 ---
 
+<!-- @format -->
+
 import Image from '@theme/IdealImage';
 import ZIceImg from '@site/static/img/png/ice_180x170.png';
 
@@ -534,6 +536,7 @@ zi ice load'![[ $MYPROMPT = 4 ]]' unload'![[ $MYPROMPT != 4 ]]' \
   atload'!source ~/.p10k.zsh; _p9k_precmd'
 zi load romkatv/powerlevel10k
 ```
+
 <!-- end-of-file -->
 
 [^1]: Note that `atload'…'` uses apostrophes not double quotes, to literally put `$f` into the string, `atload'…'`'s code is automatically being run **within the snippet's (or plugin's) directory**.
