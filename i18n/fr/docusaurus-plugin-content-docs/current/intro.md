@@ -4,11 +4,11 @@ slug: /
 title: "🎉 Introduction"
 sidebar_position: 1
 image: img/logo/320x320.png
-description: Introduction to a Swiss Army Knife for Zsh, formerly known as zplugin, zinit.
+description: Introduction à un couteau suisse pour Zsh, anciennement connu sous le nom de zplugin, zinit.
 keywords:
   - introduction
-  - zi features
-  - about zi
+  - caractéristiques de zi
+  - à propos de zi
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
@@ -24,7 +24,7 @@ import ZGitImg from '@site/static/img/png/z_git.png';
     <img
       width="1024"
       height="768"
-      alt="Z-Shell Organization Stats"
+      alt="Statistiques de l'organisation Z-Shell"
       src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
      />
   </Link>
@@ -88,7 +88,7 @@ Installez et contrôlez presque tout à partir de [GitHub](https://github.com) :
     <img
       width="1024"
       height="768"
-      alt="Z-Shell Organization FollowUp"
+      alt="Suivi de l'organisation Z-Shell"
       src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg"
     />
   </Link>
