@@ -1,5 +1,5 @@
 ---
-name: "🚀 Deploy"
+name: "🚀 Test Build"
 on:
   workflow_dispatch: {}
 
@@ -10,12 +10,5 @@ jobs:
     with:
       node_version: "16"
       pnpm_arguments: "pnpm i && pnpm run build"
-
-  upload:
-    name: "🆙"
-    uses: z-shell/.github/.github/workflows/trunk.yml@main
     secrets:
       trunk-token: ${{ secrets.TRUNK_TOKEN }}
-    with:
-      node_version: "16"
-      pnpm_arguments: "pnpm i"
