@@ -12,6 +12,8 @@ keywords:
   - best-pratices
 ---
 
+<!-- @format -->
+
 ## What is a Zsh plugin?
 
 从历史上看，Zsh 插件最初是由 Oh My Zsh 定义的。 They provide a way to package together files that extend or configure the shell’s functionality in a particular way.

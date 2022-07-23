@@ -8,6 +8,8 @@ keywords:
   - documentation
 ---
 
+<!-- @format -->
+
 :::info
 
 Documentation mise à jour automatiquement tous les `jeudi 4:30 UTC` à [z-shell/docs][1].

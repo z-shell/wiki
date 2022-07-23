@@ -11,6 +11,8 @@ keywords:
   - à propos de zi
 ---
 
+<!-- @format -->
+
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
 import Image from '@theme/IdealImage';

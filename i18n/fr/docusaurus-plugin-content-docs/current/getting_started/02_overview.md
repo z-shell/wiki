@@ -6,6 +6,8 @@ keywords:
   - overview
 ---
 
+<!-- @format -->
+
 Cet aperçu couvrira les éléments de base pour :
 
 1. [Oh-My-Zsh & Prezto](/search?q=Oh+My+Zsh+%26+Prezto)

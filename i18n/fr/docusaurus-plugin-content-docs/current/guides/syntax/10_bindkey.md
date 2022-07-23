@@ -11,6 +11,8 @@ keywords:
   - how-to-use
 ---
 
+<!-- @format -->
+
 ## <i class="fa-solid fa-keyboard"></i> Bindkey
 
 The `bindkey` key mappings can be very confusing to decipher. It can use multiple different notations but it's smart to use the same key notation throughout your configuration.
