@@ -2240,7 +2240,7 @@ packages:
     resolution: {integrity: sha512-Wlu2aUT6LJRtLtEY7AFn84FyGuBy0Dxdo3RoIEeo5i1j1xuAnwMHAivMyrKRfChJoOc8ZnMivbVQbH+YkdREQw==}
     engines: {node: '>=16.14'}
     peerDependencies:
-      react: ^16.8.4 || ^17.0.0
+      react: ^16.8.4 || ^17.0.0 || 17
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
       '@docusaurus/mdx-loader': 0.0.0-5214_zg4cyh6kf7kpa7s2wnd25kpnym
@@ -2331,7 +2331,7 @@ packages:
   /@docusaurus/types/0.0.0-5214_sfoxds7t5ydpegc3knd667wn6m:
     resolution: {integrity: sha512-cGWul7SN5ohLf3aY+oosaIlub9QfjkIePOlP0YApyzGu/zU55P51jFFEDgx0LbwwAXS5abL2T/Ef/emU1YvMkA==}
     peerDependencies:
-      react: ^16.8.4 || ^17.0.0
+      react: ^16.8.4 || ^17.0.0 || 17
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
       '@types/history': 4.7.11
@@ -2510,7 +2510,7 @@ packages:
     resolution: {integrity: sha512-ryFAZOX5P2vFkUdzaAtTG88IGnr9qxSdvLRvJySXcUA4B4xVWurUNADu3AnKPksxOZajljqTrDEDcYjeL4lvLw==}
     engines: {node: '>=8'}
     peerDependencies:
-      react: '>=16.3.0'
+      react: '>=16.3.0 || 17'
     dependencies:
       '@babel/runtime': 7.18.9
       hoist-non-react-statics: 3.3.2
@@ -3784,7 +3784,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001368
-      electron-to-chromium: 1.4.198
+      electron-to-chromium: 1.4.199
       node-releases: 2.0.6
       update-browserslist-db: 1.0.5_browserslist@4.21.2
 
@@ -4779,8 +4779,8 @@ packages:
       jake: 10.8.5
     dev: false
 
-  /electron-to-chromium/1.4.198:
-    resolution: {integrity: sha512-jwqQPdKGeAslcq8L+1SZZgL6uDiIDmTe9Gq4brsdWAH27y7MJ2g9Ue6MyST3ogmSM49EAQP7bype1V5hsuNrmQ==}
+  /electron-to-chromium/1.4.199:
+    resolution: {integrity: sha512-WIGME0Cs7oob3mxsJwHbeWkH0tYkIE/sjkJ8ML2BYmuRcjhRl/q5kVDXG7W9LOOKwzPU5M0LBlXRq9rlSgnNlg==}
 
   /emoji-regex/8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}

@@ -1,12 +1,41 @@
-/* @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;800&display=swap'); */
 
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 300;
+  src: local("JetBrains Mono Light"), local("JetBrainsMono-Light"), url("@site/static/r2/fonts/webfonts/JetBrainsMono-Light.woff2") format("woff2");
+  font-display: swap; }
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local("JetBrains Mono Regular"), local("JetBrainsMono-Regular"), url("@site/static/r2/fonts/webfonts/JetBrainsMono-Regular.woff2") format("woff2");
+  font-display: swap; }
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  src: local("JetBrains Mono Medium"), local("JetBrainsMono-Medium"), url("@site/static/r2/fonts/webfonts/JetBrainsMono-Medium.woff2") format("woff2");
+  font-display: swap; }
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: local("JetBrains Mono Bold"), local("JetBrainsMono-Bold"), url("@site/static/r2/fonts/webfonts/JetBrainsMono-Bold.woff2") format("woff2");
+  font-display: swap; }
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 800;
+  src: local("JetBrains Mono ExtraBold"), local("JetBrainsMono-ExtraBold"), url("@site/static/r2/fonts/webfonts/JetBrainsMono-ExtraBold.woff2") format("woff2");
+  font-display: swap; }
 @font-face {
 	font-weight: 300 800;
 	src: url('@site/static/r2/fonts/variable/JetBrainsMono[wght].ttf') format('truetype');
   font-style: normal;
   font-variation-settings: 'wght' 500;
-  font-display: swap;
-}
+  font-display: swap; }
 
 :root {
   font-family: 'JetBrains Mono', monospace;
@@ -254,42 +283,3 @@ html[data-theme="dark"] .header-github-link::before {
   --fa-beat-fade-opacity: 0.67;
   --fa-beat-fade-scale: 1.075;
 }
-
-/**
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 300;
-  src: local("JetBrains Mono Light"), local("JetBrainsMono-Light"), url("@site/static/r2/fonts/webfonts/JetBrainsMono-Light.woff2") format("woff2");
-  font-display: swap; }
-
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400;
-  src: local("JetBrains Mono Regular"), local("JetBrainsMono-Regular"), url("@site/static/r2/fonts/webfonts/JetBrainsMono-Regular.woff2") format("woff2");
-  font-display: swap; }
-
-
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 500;
-  src: local("JetBrains Mono Medium"), local("JetBrainsMono-Medium"), url("@site/static/r2/fonts/webfonts/JetBrainsMono/JetBrainsMono-Medium.woff2") format("woff2");
-  font-display: swap; }
-
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 700;
-  src: local("JetBrains Mono Bold"), local("JetBrainsMono-Bold"), url("@site/static/r2/fonts/webfonts/JetBrainsMono-Bold.woff2") format("woff2");
-  font-display: swap; }
-
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 800;
-  src: local("JetBrains Mono ExtraBold"), local("JetBrainsMono-ExtraBold"), url("@site/static/r2/webfonts/JetBrainsMono-ExtraBold.woff2") format("woff2");
-  font-display: swap; }
-
-*/
