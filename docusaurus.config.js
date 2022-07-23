@@ -1,7 +1,7 @@
 // @ts-check
 
 const setURL = process.env.URL ?? 'https://wiki.zshell.dev';
-const setASSETS = process.env.STYLESHEET ?? '/r2/fa/css/all.css';
+const setAssets = process.env.STYLESHEET ?? '/r2/fa/css/all.min.css';
 
 const config = {
   title: '❮ Zi ❯',
@@ -16,7 +16,7 @@ const config = {
   projectName: 'wiki',
   organizationName: 'z-shell',
   staticDirectories: ['static'],
-  stylesheets: [{href: setASSETS, crossorigin: 'anonymous'}],
+  stylesheets: [{href: setAssets, crossorigin: 'anonymous'}],
   i18n: {
     defaultLocale: 'en', locales: ['en', 'fr', 'ja', 'zh-Hans'], localeConfigs: { en: { htmlLang: 'en-US' }},
   },
