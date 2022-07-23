@@ -1,15 +1,19 @@
 /** @format */
 
 .videocontainer {
-	padding: 4rem 0;
-	text-align: justify;
-	position: relative;
-	overflow: hidden;
+	display: block;
+	height: auto;
+	width: 100%;
+}
+
+.videocontainer h1 {
+	text-align: left;
 }
 
 .featurecontainer {
 	display: block;
 	align-items: center;
+	height: auto;
 	width: 100%;
 }
 
@@ -31,8 +35,14 @@
 	.features {
 		padding: 2rem 0;
 	}
+}
+
+@media only screen and (max-width: 700px) {
+	.features {
+		padding: 0;
+	}
 
 	.videocontainer {
-		padding: 2rem 0;
+		display: none;
 	}
 }

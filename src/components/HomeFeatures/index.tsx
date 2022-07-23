@@ -114,18 +114,18 @@ function Features() {
 
 export default function HomeFeatures(): JSX.Element {
 	return (
-		<section className={styles.videocontainer}>
+		<section className={styles.features}>
 			<div className='container'>
 				<div className='col'>
-					<div className={styles.featurecontainer}>
-						<h2>
+					<div className={styles.videocontainer}>
+						<h1 className={styles.videotitle}>
 							<Translate
 								id='homepage.video.heading.1'
 								description='The homepage video conatainer heading 1'
 							>
 								⚡ Fast and feature-rich
 							</Translate>
-						</h2>
+						</h1>
 						<AsciinemaPlayer
 							src='https://asciinema.org/a/509113.cast'
 							/* poster="npt:0:30" */
@@ -139,15 +139,15 @@ export default function HomeFeatures(): JSX.Element {
 					<div className={styles.featurecontainer}>
 						<Features />
 					</div>
-					<div className={styles.featurecontainer}>
-						<h2>
+					<div className={styles.videocontainer}>
+						<h1 className={styles.videotitle}>
 							<Translate
 								id='homepage.video.heading.2'
 								description='The homepage video container heading 2'
 							>
 								✨ Neat and flexible
 							</Translate>
-						</h2>
+						</h1>
 						<AsciinemaPlayer
 							/* poster="npt:2:34" */
 							src='https://asciinema.org/a/497831.cast'

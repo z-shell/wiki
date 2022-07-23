@@ -9,8 +9,7 @@
 	font-style: normal;
 	font-weight: 300;
 	src: local("JetBrains Mono Light"), local("JetBrainsMono-Light"),
-		url("@site/static/r2/fonts/webfonts/JetBrainsMono-Light.woff2")
-			format("woff2");
+		url("/r2/fonts/webfonts/JetBrainsMono-Light.woff2") format("woff2");
 	font-display: swap;
 }
 @font-face {
@@ -18,8 +17,7 @@
 	font-style: normal;
 	font-weight: 400;
 	src: local("JetBrains Mono Regular"), local("JetBrainsMono-Regular"),
-		url("@site/static/r2/fonts/webfonts/JetBrainsMono-Regular.woff2")
-			format("woff2");
+		url("/r2/fonts/webfonts/JetBrainsMono-Regular.woff2") format("woff2");
 	font-display: swap;
 }
 @font-face {
@@ -27,8 +25,7 @@
 	font-style: normal;
 	font-weight: 500;
 	src: local("JetBrains Mono Medium"), local("JetBrainsMono-Medium"),
-		url("@site/static/r2/fonts/webfonts/JetBrainsMono-Medium.woff2")
-			format("woff2");
+		url("/r2/fonts/webfonts/JetBrainsMono-Medium.woff2") format("woff2");
 	font-display: swap;
 }
 @font-face {
@@ -36,8 +33,7 @@
 	font-style: normal;
 	font-weight: 700;
 	src: local("JetBrains Mono Bold"), local("JetBrainsMono-Bold"),
-		url("@site/static/r2/fonts/webfonts/JetBrainsMono-Bold.woff2")
-			format("woff2");
+		url("/r2/fonts/webfonts/JetBrainsMono-Bold.woff2") format("woff2");
 	font-display: swap;
 }
 @font-face {
@@ -45,16 +41,17 @@
 	font-style: normal;
 	font-weight: 800;
 	src: local("JetBrains Mono ExtraBold"), local("JetBrainsMono-ExtraBold"),
-		url("@site/static/r2/fonts/webfonts/JetBrainsMono-ExtraBold.woff2")
-			format("woff2");
+		url("/r2/fonts/webfonts/JetBrainsMono-ExtraBold.woff2") format("woff2");
 	font-display: swap;
 }
+
 @font-face {
+	font-family: "JetBrains Mono";
 	font-weight: 300 800;
-	src: url("@site/static/r2/fonts/variable/JetBrainsMono[wght].ttf")
-		format("truetype");
+	src: local("JetBrains Mono"), local("JetBrainsMono"),
+		url("/r2/fonts/variable/JetBrainsMono[wght].ttf") format("truetype");
 	font-style: normal;
-	font-variation-settings: "wght" 500;
+	font-variation-settings: "wght" var(--text-axis);
 	font-display: swap;
 }
 
@@ -239,6 +236,13 @@ html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
 	max-width: 100%;
 }
 
+.RightView {
+	display: block;
+	float: right;
+	height: auto;
+	max-width: 100%;
+}
+
 @media only screen and (max-width: 768px) {
 	.IceLogo {
 		max-width: 130px;
@@ -268,14 +272,14 @@ img[src$="#floatleft"] {
 	display: block;
 	float: left;
 	height: auto;
-	max-width: 90%;
+	max-width: 100%;
 }
 
 img[src$="#floatright"] {
 	display: block;
 	float: right;
 	height: auto;
-	max-width: 90%;
+	max-width: 100%;
 }
 
 .header-github-link:hover {

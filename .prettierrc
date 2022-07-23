@@ -3,7 +3,7 @@
 {
   "tabWidth": 2,
   "useTabs": true,
-  "insertPragma": false,
+  "insertPragma": true,
   "requirePragma": true,
   "jsxSingleQuote": true,
   "singleAttributePerLine": true,
