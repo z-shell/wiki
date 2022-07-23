@@ -1,9 +1,9 @@
 ---
 id: for
-title: '✨ The "For" Syntax'
+title: '✨ La syntaxe "For"'
 sidebar_position: 2
 image: img/logo/320x320.png
-description: The "For" Syntax documentation
+description: La documentation sur la syntaxe "For"
 keywords:
   - for
   - syntax
@@ -11,13 +11,13 @@ keywords:
   - the-for-syntax
 ---
 
-The `for` syntax is the most popular, more concise, and more optimized. The single command will work the same as the classic-syntax invocation.
+La syntaxe `for` est la plus populaire, plus concise, et plus optimisée. La commande unique fonctionnera de la même manière que l'invocation en syntaxe classique.
 
-It allows providing common/default ices for a <b> set of plugins </b> or to source <b> multiple files </b> with ices: [src, pick, multisrc][ice#src-pick-multisrc].
+Il permet de fournir des ices communs/par défaut pour un <b> ensemble de plugins </b> ou de sourcer <b> plusieurs fichiers </b> avec des ices : [src, pick, multisrc][ice#src-pick-multisrc].
 
 :::tip
 
-To find more information about anything use [search][3] or just <kbd>CTRL+K</kbd>.
+Pour trouver plus d'informations sur quoi que ce soit, utilisez [search][3] ou simplement <kbd>CTRL+K</kbd>.
 
 :::
 
@@ -30,7 +30,7 @@ zi light-mode for \
       sindresorhus/pure
 ```
 
-It is best presented by a real-world examples:
+Elle est mieux présentée par un exemple concret :
 
 ```shell showLineNumbers
 zi wait"3" lucid for as"null" \
@@ -42,9 +42,9 @@ zi wait"3" lucid for as"null" \
   make"PREFIX=$ZPFX" tj/git-extras
 ```
 
-Above single command installs 6 plugins ([git extension][2] packages), with the base ices `as"null" wait"3" lucid` that are common to all of the plugins and 6 plugin-specific add-on ices.
+La commande unique ci-dessus installe 6 plugins ([git extension][2] packages), avec les ices de base `as "null" wait "3" lucid` qui sont communs à tous les plugins et 6 ices complémentaires spécifiques aux plugins.
 
-Load a few useful binary packages from the [GitHub releases][1], utils:
+Chargez quelques paquets binaires utiles à partir des versions GitHub de [][1], et utilitaires :
 
 ```shell showLineNumbers
 zi for as"null" wait"2" lucid from"gh-r" \
@@ -55,12 +55,12 @@ zi for as"null" wait"2" lucid from"gh-r" \
 
 :::note
 
-- `sbin'…'` is an [ice][3] added by the [bin-gem-node][4] [annex][5], it provides the command to the command line without altering `$PATH`.
-- If the name of the command is the same as the name of the plugin, the ice contents can be skipped.
+- `sbin'…'` est une [ice][3] ajouté par [bin-gem-node][4] [annexe][5], il fournit la commande à la ligne de commande sans modification de `$PATH`.
+- Si le nom de la commande est le même que le nom du plugin, le contenu de l'ice peut être ignoré.
 
 :::
 
-[Turbo][6] load some plugins, without any plugin-specific ices:
+[Turbo][6] charge certains plugins, sans les glaces spécifiques aux plugins :
 
 ```shell showLineNumbers
 zi wait lucid for \
@@ -68,7 +68,7 @@ zi wait lucid for \
   urbainvaes/fzf-marks
 ```
 
-Load two [Oh-My-Zsh][7] files as [snippets][8], in turbo mode:
+Chargez deux fichiers [Oh-My-Zsh][7] comme [snippets][8], en mode turbo :
 
 ```shell showLineNumbers
 zi wait lucid for \
@@ -77,7 +77,7 @@ zi wait lucid for \
     OMZ::plugins/git/git.plugin.zsh
 ```
 
-Popular plugin set with [turbo][6] and [for][10]:
+Ensemble de plugins populaires avec [turbo][6] et [for][10]:
 
 ```shell {1} showLineNumbers
 zi wait lucid light-mode for \
@@ -89,20 +89,20 @@ zi wait lucid light-mode for \
     zsh-users/zsh-completions
 ```
 
-| Syntax       | Description                                                                                  |
-| ------------ |:-------------------------------------------------------------------------------------------- |
-| `wait`       | Load 0 seconds (about 5 ms exactly) after prompt ([turbo mode][6]).                          |
-| `lucid`      | Silence the under-prompt messages ("`Loaded {name of the plugin}`").                         |
-| `light-mode` | Load the plugin in `light` mode. [^1].                                                       |
-| `atpull'…'`  | Execute after updating the plugin – the command in the ice will install any new completions. |
-| `atinit'…'`  | Execute code before loading plugin.                                                          |
-| `atload'…'`  | Execute code after loading plugin.                                                           |
-| `zicompinit` | Equals to `autoload compinit; compinit`.                                                     |
-| `zicdreplay` | Execute `compdef …` calls that plugins did. More below [^2].                                 |
+| Syntax       | Description                                                                                                        |
+| ------------ |:------------------------------------------------------------------------------------------------------------------ |
+| `wait`       | Chargement 0 seconde (environ 5 ms exactement) après l'invite ([turbo mode][6]).                                   |
+| `lucid`      | Faites taire les messages sous l'invite ("`Loaded {name of the plugin}`").                                         |
+| `light-mode` | Chargez le plugin en mode `light`. [^1].                                                                           |
+| `atpull'…'`  | Exécutez après avoir mis à jour le plugin - la commande dans la glace installera toutes les nouvelles complétions. |
+| `atinit'…'`  | Exécutez le code avant chargement du plug-in.                                                                      |
+| `atload'…'`  | Exécutez le code après le chargement du plugin.                                                                    |
+| `zicompinit` | Equals to `autoload compinit; compinit`.                                                                           |
+| `zicdreplay` | Exécuter les appels de `compdef …` que les plugins ont fait. Plus ci-dessous [^2].                                 |
 
-## <i class="fa-solid fa-list"></i> Oh-My-Zsh, [turbo][6] Oh-My-Zsh and the [for][10] syntax
+## <i class="fa-solid fa-list"></i> Oh-My-Zsh, [turbo][6] Oh-My-Zsh et la syntaxe [for][10]
 
-### <i class="fa-solid fa-forward-step"></i> Without [turbo mode][6] and [for][10]
+### <i class="fa-solid fa-forward-step"></i> Sans [mode turbo][6] et [for][10]
 
 ```shell showLineNumbers
 # A.
@@ -188,7 +188,9 @@ Syntax-highlighting plugins, like [F-Sy-H][11] or [zsh-syntax-highlighting][12],
 However in practice, you just have to ensure that such plugin is loaded after plugins that are issuing `compdef` – which basically means completions that aren't using the underscore-starting function file; the completion initialization still has to be performed before syntax-highlighting plugin, hence the `atinit'…'` ice, which will load `compinit` right before loading the plugin, the syntax-highlighting and suggestions plugins are loaded early for a better user experience.
 
 [^1]: Then the tracking of plugin, activity report gathering, accessible via the `zi report {plugin-name}` subcommand) is being disabled. Note that for turbo mode, the performance gains are almost `0`, so in this mode, you can load all plugins with the tracking and the `light-mode` ice can be removed from the command.
-[^2]: They were recorded and `compinit` can be called later. `compinit` provides the `compdef` function, so it must be ran before issuing the taken-over `compdef`s with `zicdreplay`.
+[^2]: They were recorded and `compinit` can be called later. `compinit` fournit la fonction `compdef` , elle doit donc être exécutée avant d'émettre la reprise `compdef`s avec `zicdreplay`.
+
+[1]: /search/?q=GH-R
 
 [1]: /search/?q=GH-R
 [2]: /search/?q=git+ext
@@ -196,6 +198,7 @@ However in practice, you just have to ensure that such plugin is loaded after pl
 [3]: /search/?q=ice
 [4]: /search/?q=bin+gem+node
 [5]: /search/?q=annex
+[6]: /search/?q=turbo+mode
 [6]: /search/?q=turbo+mode
 [6]: /search/?q=turbo+mode
 [6]: /search/?q=turbo+mode

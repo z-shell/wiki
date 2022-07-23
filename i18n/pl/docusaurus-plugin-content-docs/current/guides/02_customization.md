@@ -46,7 +46,7 @@ Variables has to be set before loading ZI, i.e `source "path/to/zi/bin/zi.zsh"`.
 | `ZI[SNIPPETS_DIR]`    | As above, but for snippets                                                                                                                                                              |
 | `ZI[ZMODULES_DIR]`    | Override single working directory – for Zsh modules e.g: "/opt/zsh/zi/zmodules"                                                                                                         |
 | `ZI[ZCOMPDUMP_PATH]`  | Path to `.zcompdump` file, with the file included (e.g: its name can be different)                                                                                                      |
-| `$ZPFX`               | Directory where binary and their related files are stored (software with `Makefile` can use `atclone'./configure --prefix=$ZPFX'`). Set by default to `$ZI[HOME_DIR]}/polaris`.         |
+| [`ZPFX`][zpfx]       | Directory where binary and their related files are stored (software with `Makefile` can use `atclone'./configure --prefix=$ZPFX'`). Set by default to `$ZI[HOME_DIR]}/polaris`.         |
 | `ZI[MAN_DIR]`         | Directory where plugins can store their manpages (`atclone"cp -vf man.1 $ZI[MAN_DIR]/man1"`). If overridden, this directory will not necessarily be used by man. Default: `${ZPFX}/man` |
 
 </APITable>

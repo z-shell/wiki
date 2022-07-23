@@ -1,9 +1,9 @@
 ---
 id: benchmark
-title: "⏲ Benchmarking"
+title: "⏲ Analyse comparative"
 sidebar_position: 3
 image: img/logo/320x320.png
-description: Benchmarking, Profiling & Statistics
+description: Analyse comparative, profilage & Statistiques
 keywords:
   - statistics
   - benchmark
@@ -12,11 +12,11 @@ keywords:
 
 :::info
 
-Run `zi analytics` to see the available ZI sub-commands for statistics and information.
+Exécutez `zi analytics` pour voir les sous-commandes ZI disponibles pour les statistiques et les informations.
 
 :::
 
-## <i class="fa-solid fa-gauge-high"></i> Profile plugins
+## <i class="fa-solid fa-gauge-high"></i> Plugins de profilage
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice atinit'zmodload zsh/zprof' \
@@ -24,18 +24,18 @@ zi ice atinit'zmodload zsh/zprof' \
 zi light z-shell/F-Sy-H
 ```
 
-| Syntax      | Description                                                                                                              |
-| ----------- |:------------------------------------------------------------------------------------------------------------------------ |
-| `atinit'…'` | loads the`zsh/zprof` module, shipped with Zsh, before loading the plugin – this starts the profiling.                    |
-| `atload'…'` | works after loading the plugin – shows profiling results `zprof / head`, unloads `zsh/zprof` - this stops the profiling. |
+| Syntax      | Description                                                                                                                                   |
+| ----------- |:--------------------------------------------------------------------------------------------------------------------------------------------- |
+| `atinit'…'` | charge le module`zsh/zprof` , livré avec Zsh, avant de charger le plugin - cela lance le profilage.                                           |
+| `atload'…'` | fonctionne après le chargement du plugin - montre les résultats du profilage `zprof / head`, décharge `zsh/zprof` - ceci arrête le profilage. |
 
-While in effect, only a single plugin, in this case, `z-shell/F-Sy-H`, will be profiled.
+Lorsqu'il est en vigueur, seul un seul plugin, dans ce cas, `z-shell/F-Sy-H`, sera profilé.
 
-The rest plugins will go on completely normally, as when plugins are loaded with `light` - reporting is disabled.
+Les autres plugins se dérouleront tout à fait normalement, comme lorsque les plugins sont chargés avec `light` - le reporting est désactivé.
 
-Less code is being run in the background, the automatic data gathering, during loading of a plugin, for the reports and the possibility to unload the plugin will be activated and the functions will not appear in the `zprof` report.
+Moins de code est exécuté en arrière-plan, la collecte automatique de données, lors du chargement d'un plugin, pour les rapports et la possibilité de décharger le plugin sera activée et les fonctions n'apparaîtront pas dans le rapport `zprof` .
 
-- Example `zprof` report:
+- Exemple de rapport `zprof`:
 
 ```shell {3} title="zprof" showLineNumbers
 num calls    time                self                 name
@@ -58,24 +58,24 @@ num calls    time                self                 name
 -----------------------------------------------------------------------------------
 ```
 
-- The first column is the time in milliseconds:
+- La première colonne est le temps en millisecondes :
 
-  - It denotes the amount of time spent in a function in total.
-  - For example, `--zi-shadow-autoload` consumed 10.71 ms of the execution time,
+  - Il indique le temps total passé dans une fonction.
+  - Par exemple, `--zi-shadow-autoload` a consommé 10,71 ms du temps d'exécution,
 
-- The fourth column is also a time in milliseconds, but it denotes the amount of time spent on executing only of function's **own code**, it doesn't count the time spent in **descendant functions** that are called from the function;
+- La quatrième colonne est également un temps en millisecondes, mais elle indique le temps passé à exécuter uniquement le code propre à la fonction ****, elle ne compte pas le temps passé dans les fonctions descendantes **** qui sont appelées depuis la fonction ;
 
-  - For example, `--zi-shadow-autoload` spent 8.71 ms on executing only its code.
+  - Par exemple, `--zi-shadow-autoload` a dépensé 8,71 ms pour exécuter uniquement son code.
 
-- The table is sorted in the **self-time** column.
+- Le tableau est trié dans la colonne **self-time** .
 
-## <i class="fas fa-spinner fa-spin"></i> Profile `.zshrc` startup
+## <i class="fas fa-spinner fa-spin"></i> Profilage du démarrage de `.zshrc`
 
-### Method 1
+### Méthode 1
 
-> `PROFILE_STARTUP=true` to enable profiling.
+> `PROFILE_STARTUP=true` pour activer le profilage.
 
-Place snippet below at the top of `.zshrc`.
+Placez le snippet ci-dessous en haut de `.zshrc`.
 
 ```shell title="~/.zshrc" showLineNumbers
 PROFILE_STARTUP=false
@@ -90,11 +90,11 @@ fi
 
 :::info PS4 Prompt Expansion
 
-Zsh Sourceforge docs: [Prompt Expansion][]
+Docs Zsh Sourceforge : [Expansion des invites][]
 
 :::
 
-Place at the bottom of `.zshrc`
+Placez au bas de `.zshrc`
 
 ```shell title="~/.zshrc" showLineNumbers
 if [[ "$PROFILE_STARTUP" == true ]]; then
@@ -103,19 +103,19 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
 fi
 ```
 
-The next time your `.zshrc` is sourced it will generate 2 files in the `$HOME` directory.
+La prochaine fois, votre `.zshrc` sera exécuté, il générera 2 fichiers dans le répertoire `$HOME`.
 
-### Method 2
+### Méthode 2
 
-Store multiple values to a variable:
+Enregistrez plusieurs valeurs dans une variable :
 
 ```shell title="~/.zshrc" showLineNumbers
-# Set variable
+# Définir la variable
 typeset -Ag ZLOGS
-# Message to store
-zmsg() { ZLOGS+=( "\n[$1]: ${(M)$(( SECONDS * 1000 ))#*.?} ms" ); }
+# Message à stocker
+zmsg() { ZLOGS+=( "\n[$1] : ${(M)$(( SECONDS * 1000 ))#*.?} ms" ) ; } }
 
-# Start profiling
+# Démarrer le profilage
 typeset -F4 SECONDS=0
 
 # <RUN SOME FUNCTIONS TO MEASURE>
@@ -131,7 +131,7 @@ zmsg "Loaded something else"
 zmsg "Done"
 ```
 
-Then use the `$ZLOGS` variable to retrieve:
+Utilisez ensuite la variable `$ZLOGS` pour récupérer :
 
 ```shell showLineNumbers
 ❯ echo $ZLOGS
@@ -141,4 +141,4 @@ Then use the `$ZLOGS` variable to retrieve:
 [Done]: 0.1 ms
 ```
 
-[Prompt Expansion]: https://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+[Expansion des invites]: https://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
