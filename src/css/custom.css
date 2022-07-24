@@ -9,7 +9,8 @@
 	font-style: normal;
 	font-weight: 300;
 	src: local("JetBrains Mono Light"), local("JetBrainsMono-Light"),
-		url("/r2/fonts/webfonts/JetBrainsMono-Light.woff2") format("woff2");
+		url("/r2/fonts/webfonts/JetBrainsMono-Light.woff2") format("woff2"),
+		url("/r2/fonts/ttf/JetBrainsMono-Light.ttf") format("truetype");
 	font-display: swap;
 }
 @font-face {
@@ -17,7 +18,8 @@
 	font-style: normal;
 	font-weight: 400;
 	src: local("JetBrains Mono Regular"), local("JetBrainsMono-Regular"),
-		url("/r2/fonts/webfonts/JetBrainsMono-Regular.woff2") format("woff2");
+		url("/r2/fonts/webfonts/JetBrainsMono-Regular.woff2") format("woff2"),
+		url("/r2/fonts/ttf/JetBrainsMono-Regular.ttf") format("truetype");
 	font-display: swap;
 }
 @font-face {
@@ -25,7 +27,8 @@
 	font-style: normal;
 	font-weight: 500;
 	src: local("JetBrains Mono Medium"), local("JetBrainsMono-Medium"),
-		url("/r2/fonts/webfonts/JetBrainsMono-Medium.woff2") format("woff2");
+		url("/r2/fonts/webfonts/JetBrainsMono-Medium.woff2") format("woff2"),
+		url("/r2/fonts/ttf/JetBrainsMono-Medium.ttf") format("truetype");
 	font-display: swap;
 }
 @font-face {
@@ -33,7 +36,8 @@
 	font-style: normal;
 	font-weight: 700;
 	src: local("JetBrains Mono Bold"), local("JetBrainsMono-Bold"),
-		url("/r2/fonts/webfonts/JetBrainsMono-Bold.woff2") format("woff2");
+		url("/r2/fonts/webfonts/JetBrainsMono-Bold.woff2") format("woff2"),
+		url("/r2/fonts/ttf/JetBrainsMono-Bold.ttf") format("truetype");
 	font-display: swap;
 }
 @font-face {
@@ -41,7 +45,8 @@
 	font-style: normal;
 	font-weight: 800;
 	src: local("JetBrains Mono ExtraBold"), local("JetBrainsMono-ExtraBold"),
-		url("/r2/fonts/webfonts/JetBrainsMono-ExtraBold.woff2") format("woff2");
+		url("/r2/fonts/webfonts/JetBrainsMono-ExtraBold.woff2") format("woff2"),
+		url("/r2/fonts/ttf/JetBrainsMono-ExtraBold.ttf") format("truetype");
 	font-display: swap;
 }
 
@@ -58,11 +63,14 @@
 :root {
 	font-family: "JetBrains Mono", monospace;
 
+	--ifm-font-family-monospace: "JetBrains Mono", monospace;
+	--ifm-font-family-base: "JetBrains Mono";
 	--site-primary-hue-saturation: 167 68%;
 	--site-primary-hue-saturation-light: 167 56%;
 	--ifm-color-primary: hsl(var(--site-primary-hue-saturation) 30%);
 	--ifm-breadcrumb-color-active: var(--ifm-color-primary-darker) !important;
 	--ifm-menu-color-active: var(--ifm-color-primary-darker) !important;
+	--ifm-code-font-size: 90%;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -242,6 +250,14 @@ html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
 	height: auto;
 	max-width: 100%;
 }
+
+/**
+@media screen and (min-width: 997px) {
+	div[class^="tableOfContentsInline"] {
+		display: none;
+	}
+}
+*/
 
 @media only screen and (max-width: 768px) {
 	.IceLogo {

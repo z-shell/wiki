@@ -5,6 +5,7 @@
 const setURL = process.env.URL ?? 'https://wiki.zshell.dev';
 const setAssets = process.env.STYLESHEET ?? '/r2/fa/css/all.min.css';
 
+/** @type {import('@docusaurus/types').Config} */
 const config = {
 	title: '❮ Zi ❯',
 	tagline: 'A Swiss Army Knife for Zsh Unix shell',
@@ -53,7 +54,7 @@ const config = {
 					},
 					showReadingTime: true,
 				},
-				sitemap: { changefreq: 'daily', priority: 0.5 },
+				sitemap: { changefreq: 'daily' },
 			}),
 		],
 	],

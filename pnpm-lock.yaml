@@ -15,6 +15,7 @@ specifiers:
   '@docusaurus/plugin-ideal-image': 0.0.0-5222
   '@docusaurus/plugin-pwa': 0.0.0-5222
   '@docusaurus/preset-classic': 0.0.0-5222
+  '@docusaurus/types': 0.0.0-5222
   '@loadable/component': 5.15.2
   '@mdx-js/react': 1.6.22
   '@types/node': 18.0.6
@@ -63,6 +64,7 @@ devDependencies:
   '@cloudflare/workers-types': 3.14.1
   '@docusaurus/eslint-plugin': 0.0.0-5222_he2ccbldppg44uulnyq4rwocfa
   '@docusaurus/module-type-aliases': 0.0.0-5222_sfoxds7t5ydpegc3knd667wn6m
+  '@docusaurus/types': 0.0.0-5222_sfoxds7t5ydpegc3knd667wn6m
   '@types/node': 18.0.6
   '@typescript-eslint/eslint-plugin': 5.30.7_6wltbjakwuqm7awqswigmiuhd4
   '@typescript-eslint/parser': 5.30.7_he2ccbldppg44uulnyq4rwocfa
@@ -3530,7 +3532,7 @@ packages:
     resolution: {integrity: sha512-plm/C/MhOtZWysrfcT/rzxOuu8vxvvDSvF50pqZS6KpJUDmATedAhO54zktbE/g7RiaaYfzgX8xjRhlQdgISwA==}
     dependencies:
       '@babel/runtime': 7.18.9
-      solid-js: 1.4.7
+      solid-js: 1.4.8
     dev: false
 
   /ast-types-flow/0.0.7:
@@ -9030,8 +9032,8 @@ packages:
       websocket-driver: 0.7.4
     dev: false
 
-  /solid-js/1.4.7:
-    resolution: {integrity: sha512-u3hoe5w3xseAc/8zLwYaQVGanWXknMMQkzryNz7lOPy2ygW6DhCtfMseun4kLflRNRzrUUpTV3W5p7j2SGcHCQ==}
+  /solid-js/1.4.8:
+    resolution: {integrity: sha512-XErZdnnYYXF7OwGSUAPcua2y5/ELB/c53zFCpWiEGqxTNoH1iQghzI8EsHJXk06sNn+Z/TGhb8bPDNNGSgimag==}
     dev: false
 
   /sort-css-media-queries/2.0.4:
