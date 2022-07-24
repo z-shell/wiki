@@ -45,13 +45,13 @@ const config = {
 					showLastUpdateTime: true,
 				},
 				blog: {
-					showReadingTime: true,
 					editUrl: ({ locale, blogDirPath, blogPath }) => {
 						if (locale !== 'en') {
 							return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
 						}
 						return `https://github.com/z-shell/wiki/tree/main/${blogDirPath}/${blogPath}`;
 					},
+					showReadingTime: true,
 				},
 				sitemap: { changefreq: 'daily', priority: 0.5 },
 			}),

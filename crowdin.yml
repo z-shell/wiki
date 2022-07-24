@@ -7,16 +7,26 @@ preserve_hierarchy: true
 commit_message: "[Skip CI]"
 files:
   ### JSON translation files
-  - source: "/i18n/en/**/*"
-    translation: "/i18n/%two_letters_code%/**/%original_file_name%"
+  - source: /i18n/en/**/*
+    translation: /i18n/%two_letters_code%/**/%original_file_name%
   ### Docs Markdown files
-  - source: "/docs/**/*"
-    translation: "/i18n/%two_letters_code%/docusaurus-plugin-content-docs/current/**/%original_file_name%"
-  ### Community Docs Markdown files
-  #- source: '/ecosystem/**/*'
-  #  translation: '/i18n/%two_letters_code%/docusaurus-plugin-content-docs-ecosystem/current/**/%original_file_name%'
-  ### Community Docs Markdown files
-  - source: "/community/**/*"
+  - source: /docs/**/*
+    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs/current/**/%original_file_name%
+  ### Ecosystem Docs Markdown files
+  - source: /ecosystem/**/*
+    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs-ecosystem/current/**/%original_file_name%
     ignore:
-      - "/community/gallery/**"
-    translation: "/i18n/%two_letters_code%/docusaurus-plugin-content-docs-community/current/**/%original_file_name%"
+      - /ecosystem/plugins/**
+  ### Community Docs Markdown files
+  - source: /community/**/*
+    ignore:
+      - /community/gallery/**
+    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs-community/current/**/%original_file_name%
+  ### Blog Markdown files
+  #- source: /blog/**/*
+  #  translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog/current/**/%original_file_name%
+  ### Pages files
+  - source: /src/pages/**/*
+    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-pages/current/**/%original_file_name%
+    ignore:
+      [/**/*.js, /**/*.jsx, /**/*.ts, /**/*.tsx, /**/*.css, /src/pages/legal/*]

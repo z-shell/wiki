@@ -18,7 +18,7 @@ function HeroBanner() {
 			<div className={styles.heroInner}>
 				<h1 className={styles.heroProjectTagline}>
 					<img
-						alt={translate({ message: 'ZI logo' })}
+						alt={translate({ id: 'zi.logo', message: 'ZI logo' })}
 						className={styles.heroLogo}
 						src='/img/logo.svg'
 						height='200'
@@ -43,13 +43,23 @@ function HeroBanner() {
 						className={clsx('button button--primary')}
 						to='/docs/getting_started/installation'
 					>
-						<Translate> Get Started </Translate>
+						<Translate
+							id='homepage.banner.button.1'
+							description='The homepage get started button'
+						>
+							Get Started
+						</Translate>
 					</Link>
 					<Link
 						className={clsx('button button--secondary')}
 						to='/community'
 					>
-						<Translate> Community </Translate>
+						<Translate
+							id='homepage.banner.button.2'
+							description='The homepage community button'
+						>
+							Community
+						</Translate>
 					</Link>
 					<span className={styles.indexCtasGitHubButtonWrapper}>
 						<iframe
