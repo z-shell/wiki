@@ -13,7 +13,7 @@ keywords:
 
 <!-- @format -->
 
-<div align="ScreenView">
+<div className="RightView">
   <img height="1024" width="768" src="/img/zsh/zsh1.png#gh-dark-mode-only" alt="Zsh Dark" />
   <img height="1024" width="768" src="/img/zsh/zsh2.png#gh-light-mode-only" alt="Zsh Light" />
 </div>
