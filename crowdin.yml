@@ -26,7 +26,7 @@ files:
   #- source: /blog/**/*
   #  translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog/current/**/%original_file_name%
   ### Pages files
-  - source: /src/pages/**/*
-    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-pages/current/**/%original_file_name%
-    ignore:
-      [/**/*.js, /**/*.jsx, /**/*.ts, /**/*.tsx, /**/*.css, /src/pages/legal/*]
+  #- source: /src/pages/**/*
+  #  translation: /i18n/%two_letters_code%/docusaurus-plugin-content-pages/current/**/%original_file_name%
+  #  ignore:
+  #    [/**/*.js, /**/*.jsx, /**/*.ts, /**/*.tsx, /**/*.css, /src/pages/legal/*]
