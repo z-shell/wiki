@@ -26,7 +26,7 @@ zi ice atinit'zmodload zsh/zprof' \
 zi light z-shell/F-Sy-H
 ```
 
-| Syntax      | Description                                                                                                                                   |
+| Syntaxe     | Description                                                                                                                                   |
 | ----------- |:--------------------------------------------------------------------------------------------------------------------------------------------- |
 | `atinit'…'` | charge le module`zsh/zprof` , livré avec Zsh, avant de charger le plugin - cela lance le profilage.                                           |
 | `atload'…'` | fonctionne après le chargement du plugin - montre les résultats du profilage `zprof / head`, décharge `zsh/zprof` - ceci arrête le profilage. |

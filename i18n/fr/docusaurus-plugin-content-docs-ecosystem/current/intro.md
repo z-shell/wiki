@@ -1,13 +1,13 @@
 ---
 id: ecosystem
 slug: /
-title: '🌐 Ecosystem'
+title: '🌐 Ecosystème'
 sidebar_position: 1
 image: img/logo/320x320.png
-description: Introduction to the ecosystem.
+description: Introduction à l'écosystème.
 keywords:
   - annexes
-  - packages
+  - paquets
   - toolchain
   - zsh-plugins
   - zsh-modules

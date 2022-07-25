@@ -1,9 +1,9 @@
 ---
 id: common
-title: '🔀 Common Syntax'
+title: '🔀 Syntaxe commune'
 sidebar_position: 1
 image: img/logo/320x320.png
-description: The Fundamental ZI syntax.
+description: La syntaxe fondamentale de ZI.
 keywords:
   - common
   - syntax
@@ -14,34 +14,34 @@ keywords:
 
 :::tip
 
-It is recommended to familiarize with [getting_started/oveview][9] before this.
+Il est recommandé de se familiariser avec [getting_started/oveview][9] avant cela.
 
 :::
 
-## <i class="fa-solid fa-circle-nodes"></i> The make syntax {#the-make-syntax}
+## <i class="fa-solid fa-circle-nodes"></i> La syntaxe make {#the-make-syntax}
 
 ```shell showLineNumbers
 zi ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
 zi light tj/git-extras
 ```
 
-The `Makefile` of the project above has only 2 tasks:
+Le fichier `Makefile` du projet ci-dessus ne comporte que 2 tâches:
 
-1. Install the target.
-2. Build scripts that are required for installation.
+1. Installez la cible.
+2. Les scripts de construction qui sont nécessaires à l'installation.
 
-The `Makefile` with 2 tasks, can use:
+Le `Makefile` avec 2 tâches, peut utiliser :
 
 1. `make"all install PREFIX=…"`,
-2. `pick'…'` will `chmod +x` all matching files and add `$ZPFX/bin/` to `$PATH`.
+2. `pick'…'` va `chmod +x` tous les fichiers correspondants et ajouter `$ZPFX/bin/` à `$PATH`.
 
 :::info
 
-[$ZPFX][zpfx] is provided by ZI, it is set to `~/.zi/polaris` by default. However, it can be changed by specifying: `$ZPFX=` target.
+[$ZPFX][zpfx] est fournie par ZI, elle est définie par défaut sur `~/.zi/polaris` . Cependant, il peut être modifié en spécifiant : `$ZPFX=` cible.
 
 :::
 
-## <i class="fa-solid fa-arrows-to-dot"></i> Compiling programs {#compiling-programs}
+## <i class="fa-solid fa-arrows-to-dot"></i> Compilation de programmes {#compiling-programs}
 
 ```shell showLineNumbers
 zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
@@ -49,15 +49,15 @@ zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
 zi light vim/vim
 ```
 
-| Syntax             | Description                                                                               |
-| ------------------ |:----------------------------------------------------------------------------------------- |
-| `as'program'`      | Add file selected by `pick'…'` to `$PATH`, and do not source it.                          |
-| `atclone'…'`       | Execute code after downloading.                                                           |
-| `atpull'%atclone'` | Execute the same code `atclone'…'` is given, but after successful update.                 |
-| `make`             | Run `make` after `atclone'…'` and `atpull'…'` (note: `make'!'` will execute before them). |
-| `pick'src/vim'`    | Set executable flag on `src/vim`, hint that `src/` should be added to `$PATH`.            |
+| Syntaxe            | Description                                                                                     |
+| ------------------ |:----------------------------------------------------------------------------------------------- |
+| `as'program'`      | Ajouter le fichier sélectionné par `pick'…'` à `$PATH`, et ne pas le sourcer.                   |
+| `atclone'…'`       | Exécuter le code après le téléchargement.                                                       |
+| `atpull'%atclone'` | Exécutez le même code `atclone'…'` est donné, mais après une mise à jour réussie.               |
+| `make`             | Exécutez `make` après `atclone'…'` et `atpull'…'` (remarque : `make'!'` s'exécutera avant eux). |
+| `pick'src/vim'`    | Activez le drapeau exécutable sur `src/vim`, et indiquez que `src/` doit être ajouté à `$PATH`. |
 
-The same but with **installation** (`make install`) under [$ZPFX][zpfx] by default:
+La même chose mais avec **installation** (`make install`) sous [$ZPFX][zpfx] par défaut :
 
 ```shell showLineNumbers
 zi ice as'program' atclone'rm -f src/auto/config.cache; \
@@ -65,13 +65,13 @@ zi ice as'program' atclone'rm -f src/auto/config.cache; \
 zi light vim/vim
 ```
 
-| Syntax             | Description                                                                                  |
-| ------------------ |:-------------------------------------------------------------------------------------------- |
-| `as'program'`      | As above.                                                                                    |
-| `atclone'…'`       | As above **plus** pass `--prefix=$ZPFX` to `./configure`, to set the installation directory. |
-| `atpull'%atclone'` | As above.                                                                                    |
-| `make`             | As above, but also run the `install` target.                                                 |
-| `pick'src/vim'`    | as above, but for different path `$ZPFX/bin/vim`.                                            |
+| Syntaxe            | Description                                                                                                  |
+| ------------------ |:------------------------------------------------------------------------------------------------------------ |
+| `as'program'`      | Comme ci-dessus.                                                                                             |
+| `atclone'…'`       | Comme ci-dessus **plus** passer `--prefix=$ZPFX` à `./configure`, pour définir le répertoire d'installation. |
+| `atpull'%atclone'` | Comme ci-dessus.                                                                                             |
+| `make`             | Comme ci-dessus, mais exécutez également la cible `install` .                                                |
+| `pick'src/vim'`    | as above, but for different path `$ZPFX/bin/vim`.                                                            |
 
 ## <i class="fa-solid fa-palette"></i> LS_COLORS {#ls_colors}
 
@@ -84,7 +84,7 @@ zi ice atclone'dircolors -b LS_COLORS > clrs.zsh' \
 zi light trapd00r/LS_COLORS
 ```
 
-| Syntax             | Description                                                                                                 |
+| Syntaxe            | Description                                                                                                 |
 | ------------------ |:----------------------------------------------------------------------------------------------------------- |
 | `atclone'…'`       | Generate shell script, but instead of passing it to `eval`. More: [^1]                                      |
 | `atpull'%atclone'` | Do the same at any update of the plugin. More: [^2]                                                         |
@@ -111,9 +111,9 @@ In general, direnv works by hooking up to Zsh. The code that does this is provid
 
 Above `atclone'…'` puts this code into file `zhook.zsh`, `src''` sources it. This way `direnv hook zsh` is executed only on clone and update, and Zsh starts faster.
 
-## <i class="fa-solid fa-wand-magic-sparkles"></i> Glance at the 'for' syntax {#glance-at-the-for-syntax}
+## <i class="fa-solid fa-wand-magic-sparkles"></i> Coup d'œil sur la syntaxe 'for' {#glance-at-the-for-syntax}
 
-The drawback of this standard procedure is that the `direnv` binary is run on every shell startup and significantly slows it down. ZI allows to solve this in the following way:
+L'inconvénient de cette procédure standard est que le binaire `direnv` est exécuté à chaque démarrage du shell et le ralentit considérablement. ZI permet de résoudre ce problème de la manière suivante :
 
 ```shell showLineNumbers
 zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
@@ -121,14 +121,14 @@ zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
     direnv/direnv
 ```
 
-| Syntax             | Description                                                                                                          |
-| ------------------ |:-------------------------------------------------------------------------------------------------------------------- |
-| `make'!'`          | Compile `direnv`, the exclamation mark means: run the `make` first, before `atclone'…'` and `atpull'…'` hooks.       |
-| `atclone'…'`       | As soon as plugin installed generate the registration code and save it to `zhook.zsh`, instead of passing to `eval`. |
-| `atpull'%atclone'` | The `atclone'…'` runs on **installation** while `atpull'…'` runs on **update** of the plugin.                        |
-| `src'zhook.zsh'`   | Load generated registration code                                                                                     |
-| `pick'direnv'`     | Ensure `+x` permission on the binary                                                                                 |
-| `as'program'`      | The plugin is a program, there's no main file to the source.                                                         |
+| Syntaxe            | Description                                                                                                                              |
+| ------------------ |:---------------------------------------------------------------------------------------------------------------------------------------- |
+| `make'!'`          | Compilez `direnv`, le point d'exclamation signifie : exécutez d'abord le `make `, avant les hooks `atclone'…'` et `atpull'…'` .          |
+| `atclone'…'`       | Dès que le plugin est installé, générez le code d'enregistrement et sauvegardez-le dans `zhook.zsh`, au lieu de le transmettre à `eval`. |
+| `atpull'%atclone'` | Le `atclone'…'` s'exécute sur **installation** et `atpull'…'` s'exécute à la **mise à jour** du plugin.                                  |
+| `src'zhook.zsh'`   | Charger le code d'enregistrement généré                                                                                                  |
+| `pick'direnv'`     | Assurez-vous que la permission `+x` est autorisée sur le binaire                                                                         |
+| `as'program'`      | The plugin is a program, there's no main file to the source.                                                                             |
 
 This way registration code is generated once every installation and update, to then be simply sourced without running `direnv`. The project is also available as a binary [GitHub releases][6]. This distribution can be installed by:
 
@@ -139,7 +139,7 @@ zi from"gh-r" as"program" mv"direnv* -> direnv" \
     direnv/direnv
 ```
 
-| Syntax                     | Description                                                                |
+| Syntaxe                    | Description                                                                |
 | -------------------------- |:-------------------------------------------------------------------------- |
 | `from'gh-r'`               | Install from `direnv` from [GitHub releases][6].                           |
 | `mv'direnv* -> direnv'` | After installation, rename `direnv.linux-386` or similar file to `direnv`. |

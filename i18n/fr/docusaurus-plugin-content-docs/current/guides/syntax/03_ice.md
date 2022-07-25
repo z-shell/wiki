@@ -305,7 +305,7 @@ zi ice pick'powerless.zsh' src'utilities.zsh'
 zi light martinrotter/powerless
 ```
 
-|  Syntax   | Description                                                                                        |
+|  Syntaxe  | Description                                                                                        |
 |:---------:|:-------------------------------------------------------------------------------------------------- |
 | `pick'…'` | Provide main file to source - like `*.sh`, otherwise alphabetically first matched file is sourced. |
 | `src'…'`  | Provide second file to source - not a pattern - plain file name.                                   |
@@ -320,7 +320,7 @@ zi ice svn pick'completion.zsh' \
 zi snippet OMZ::lib
 ```
 
-|   Syntax    | Description                                                                                                                        |
+|   Syntaxe   | Description                                                                                                                        |
 |:-----------:|:---------------------------------------------------------------------------------------------------------------------------------- |
 |    `svn`    | Use Subversion to clone `OMZ::lib` (the whole Oh-My-Zsh `lib/` directory). More [^1].                                              |
 | `atload'…'` | Code isn't tracked and cannot be unloaded. The `atload'…'` is executed after loading main files `pick'…'` and `src'…'`. More [^2]. |
@@ -384,7 +384,7 @@ zi snippet OMZ::lib
 
 Extended with the [for][8] syntax which can in some situations replace a typical `multisrc'…'` loading. The point is that this syntax allows to easily specify snippets to source – and do this within a single ZI command.
 
-Instead of:
+Au lieu de:
 
 ```shell showLineNumbers
 zi ice multisrc'(functions|misc|completion).zsh'
@@ -477,7 +477,7 @@ There are four code-receiving ices: `atclone'…'`, `atpull'…'`, `atinit'…'`
 
 Their role is to **receive a portion of Zsh code and execute it in certain moments of the plugin life-cycle**.
 
-|    Syntax    | Execution moment                                                |
+|   Syntaxe    | Execution moment                                                |
 |:------------:|:--------------------------------------------------------------- |
 | `atclone'…'` | **after cloning** the associated plugin or snippet to the disk. |
 | `atpull'…'`  | **after updating** the associated plugin or snippet.            |

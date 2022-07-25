@@ -1,8 +1,8 @@
 ---
 id: default-ice
-title: '🌀 Default Ice'
+title: '🌀 Glace par défaut'
 image: img/logo/320x320.png
-description: Annex - Default Ice documentation
+description: Annexe - Documentation sur la glace par défaut
 keywords:
   - ice
   - annex
@@ -14,7 +14,7 @@ keywords:
 
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-default-ice][]
 
-An annex delivers the capability to set **default ices** for the next `zi` command. It adds subcommand: **default-ice** which has the following synopsis:
+Une annexe offre la possibilité de définir **des glaces par défaut** pour la prochaine commande `zi` . Il ajoute la sous-commande : **default-ice** qui a le synopsis suivant :
 
 ```shell showLineNumbers
 —— default-ice --help/-h --clear/-c --show/-s --get/-g --quiet/-q --stats/-t
@@ -29,7 +29,7 @@ An annex delivers the capability to set **default ices** for the next `zi` comma
  --stats/-t →      show some statistics
 ```
 
-## Install Default Ice
+## Installation de la glace par défaut
 
 Simply load like a regular plugin, i.e.:
 
@@ -37,12 +37,12 @@ Simply load like a regular plugin, i.e.:
 zi light z-shell/z-a-default-ice
 ```
 
-## Usage with [ZI][z-shell/zi]
+## Utilisation avec [ZI][z-shell/zi]
 
 ```shell showLineNumbers
-zi default-ice lucid from"gh-r"
+zi default-ice lucid from "gh-r"
 
-# Will download from gh-r and also use the lucid ice by default.
+# Téléchargera depuis gh-r et utilisera également la glace lucid par défaut.
 zi wait for \
   sbin        junegunn/fzf-bin \
   sbin"**/pk" peco/peco
@@ -50,7 +50,7 @@ zi wait for \
 
 :::caution
 
-The `wait''` ice cannot be made default by using this subcommand.
+La glace `wait''` ne peut pas être rendue par défaut en utilisant cette sous-commande.
 
 :::
 

@@ -2,7 +2,7 @@
 id: submods
 title: '🌀 Submods'
 image: img/logo/320x320.png
-description: Annex - Submods documentation.
+description: Annexe-Documentation des sous-modules.
 keywords:
   - annex
   - zannex
@@ -13,31 +13,31 @@ keywords:
 
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-submods][]
 
-An annex delivers the capability to clone additional submodules while installing a plugin or snippet. The submodules are then automatically updated on the `zi update …` command.
+Une annexe offre la possibilité de cloner des sous-modules supplémentaires tout en installant un plugin ou un snippet. Les sous-modules sont alors automatiquement mis à jour sur la commande `zi update …` .
 
-This annex adds `submods''` ice to ZI which has the following syntax:
+Cette annexe ajoute la glace `submods''` à ZI qui a la syntaxe suivante :
 
 ```shell
 submods'{user}/{plugin} -> {output directory}; …'
 ```
 
-An example command utilizing the annex and its ice:
+Un exemple de commande utilisant l'annexe et sa glace :
 
-> Load zsh-autosuggestions plugin via Prezto module: autosuggestions
+> Charger le plugin zsh-autosuggestions via le module Prezto : autosuggestions
 
 ```shell showLineNumbers
 zi ice svn submods'zsh-users/zsh-autosuggestions -> external'
 zi snippet PZT::modules/autosuggestions
 ```
 
-## Install Submods
+## Installer les Submods
 
-Simply load as a plugin. The following command will install the annex within ZI:
+Il suffit de le charger comme un plugin. La commande suivante installera l'annexe dans ZI :
 
 ```shell
 zi light z-shell/z-a-submods
 ```
 
-After executing this command you can then use the `submods''` ice. The command should be placed in `~/.zshrc`.
+Après avoir exécuté cette commande, vous pouvez alors utiliser la glace `submods''` . La commande doit être placée dans `~/.zshrc`.
 
 [z-shell/z-a-submods]: https://github.com/z-shell/z-a-submods

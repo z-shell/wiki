@@ -1,9 +1,9 @@
 ---
 id: bindkey
-title: '🗒 Bindkeys Map'
+title: '🗒 Carte de Bindkeys'
 sidebar_position: 5
 image: img/logo/320x320.png
-description: The Bindmap & Bindkey ZI syntax
+description: La syntaxe ZI de Bindmap & Bindkey
 keywords:
   - syntax
   - binkey
@@ -15,44 +15,44 @@ keywords:
 
 ## <i class="fa-solid fa-keyboard"></i> Bindkey
 
-The `bindkey` key mappings can be very confusing to decipher. It can use multiple different notations but it's smart to use the same key notation throughout your configuration.
+Les mappages de clés `bindkey` peuvent être très confus à déchiffrer. Il peut utiliser plusieurs notations différentes, mais il est judicieux d'utiliser la même notation de clé dans toute votre configuration.
 
-You can print all of your current key bindings in the current keymap with `bindkey`. To print the full `bindkey` command to add to your `.zshrc` file use `bindkey -L`.
+Vous pouvez imprimer toutes vos liaisons de touches actuelles dans la carte des touches en cours avec `bindkey`. Pour imprimer la commande complète `bindkey` à ajouter à votre fichier `.zshrc` , utilisez `bindkey -L`.
 
-In general you'll bind a widget so a key sequence or a key with modifier. This can be declared in [caret notation][5] using `^`, using [escape sequences][6] using `\`, in octal (`\NNN`), hex (`\xNN`), or unicode (`\uNNNN`). None of these are particularly great for people to read.
+En général, vous liez un widget à une séquence de touches ou à une touche avec modificateur. Ceci peut être déclaré dans la notation [caret][5] en utilisant `^`, à l'aide de [séquences d'échappement][6] à l'aide de `\`, en octal (`\NNN`), hexadécimal (`\xNN`), ou unicode (`\uNNN`). Aucune d'entre elles n'est particulièrement intéressante à lire pour les gens.
 
-This is also tricky because it depends on your keyboard, operating system, and shell. Here are some basics
+C'est également délicat car cela dépend de votre clavier, de votre système d'exploitation et de votre shell. Voici quelques principes de base
 
-- `\e`, `\E`, = Escape
-- `^[` = Alt key (on some keyboards this is the same as escape)
-- `^?` = Delete
-- `^X`, `^` = Control
+- `\e`, `\E`, = Échap
+- `^[` = touche Alt (sur certains claviers, c'est la même chose que Echap)
+- `^ ?` = Supprimer
+- `^X`, `^` = Contrôle
 
-The keys that come after the modifier can add more confusion.
+Les touches qui viennent après le modificateur peuvent ajouter encore plus de confusion.
 
-## <i class="fa-solid fa-delete-left"></i> Delete key binding
+## <i class="fa-solid fa-delete-left"></i> Supprimer la liaison
 
-To delete a key binding you can use `bindkey -d $KEYS`. Make sure you don't delete characters you need for typing.
+Pour supprimer une liaison de touches, vous pouvez utiliser `bindkey -d $KEYS`. Veillez à ne pas supprimer les caractères dont vous avez besoin pour taper.
 
-## <i class="fa-solid fa-sliders"></i> The `bindmap'…'` keybindings
+## <i class="fa-solid fa-sliders"></i> Les liaisons de touches `bindmap'…'`
 
-Sometimes plugins call [bindkey][1] to assign keyboard shortcuts. This can cause problems because multiple plugins can bind the same keys.
+Parfois, les plugins appellent [bindkey][1] pour attribuer des raccourcis clavier. Cela peut poser des problèmes car plusieurs plugins peuvent lier les mêmes clés.
 
-Also, the user might want a different binding(s), which will require complicated, additional `bindkey` commands in `.zshrc`.
+De plus, l'utilisateur peut vouloir une ou plusieurs liaisons différentes, ce qui nécessitera des commandes supplémentaires compliquées `bindkey` dans `.zshrc`.
 
-ZI provides a solution to this problem – the ability to remap the bindkeys with a short [ice-modifier][2] specification with the `bindmap'…'` [ice][3].
+ZI fournit une solution à ce problème - la possibilité de remapper les bindkeys avec un court [ice-modifier][2] spécification avec le `bindmap'…'` [ice][3].
 
-### <i class="fa-solid fa-circle-check"></i> Examples for `bindmap'…'`
+### <i class="fa-solid fa-circle-check"></i> Exemples pour `bindmap'…'`
 
-Map Ctrl-G instead of Ctrl-R for the history searcher.
+Mappez Ctrl-G au lieu de Ctrl-R pour la recherche d'historique.
 
 ```shell
 zi bindmap'^R -> ^G' for z-shell/history-search-multi-word
 ```
 
-Map Ctrl-Shift-Left and …-Right used by URxvt instead of the Xterms' ones. Load with the bindkey-tracking ↔ with light-loading for anything else.
+Mapper Ctrl-Shift-Gauche et …-Droit utilisés par URxvt à la place de ceux de Xterms. Chargez avec le bindkey-tracking ↔ avec le light-loading pour tout le reste.
 
-Could also separate the bindmaps with a semicolon, i.e.:
+On pourrait également séparer les bindmaps par un point-virgule, par exemple .:
 
 ```shell
 bindmap'"\\e[1\;6D" -> \\e[1\;5D ; "\\e[1\;6C" -> ^[[1\;5C' \
@@ -64,7 +64,7 @@ zi wait light-mode trackbinds bindmap'"\\e[1\;6D" -> \\e[1\;5D"' \
   michaelxmcbride/zsh-dircycle
 ```
 
-Map space to regular space and Ctrl-Space to the `globalias' widget, which expands the alias entered on the left, provided by OMZ globalias plugin.
+Mettez en correspondance l'espace avec l'espace normal et Ctrl-Espace avec le widget `globalias', qui développe l'alias saisi à gauche, fourni par le plugin OMZ globalias.
 
 ```shell showLineNumbers
 zi bindmap='!" " -> magic-space; !"^ " -> globalias' nocompletions \
@@ -72,60 +72,60 @@ zi bindmap='!" " -> magic-space; !"^ " -> globalias' nocompletions \
   ohmyzsh/ohmyzsh
 ```
 
-### <i class="fa-solid fa-circle-check"></i> Explanation
+### <i class="fa-solid fa-circle-check"></i> Explications
 
-The `bindmap'…'` ice has two modes of operation: normal and exclamation-mark (`bindmap'!…'`). In the first mode, the remapping is being done from-key to-key, i.e.: `bindmap'fromkey -> to-key'`.
+La glace `bindmap'…'` a deux modes de fonctionnement : normal et point d'exclamation (`bindmap' !…'`). Dans le premier mode, le remappage se fait de clé à clé, c'est-à-dire : `bindmap 'fromkey -> to-key'`.
 
-The given key is being changed to the second given key in the `bindkey` command that's being issued when loading the plugin. In the second mode, the remapping is being done from-key to-widget, e.g: `bindmap'!from-key -> to-widget'`.
+La clé donnée est remplacée par la deuxième clé donnée dans la commande `bindkey` qui est lancée lors du chargement du plugin. Dans le second mode, le remappage se fait de la clé vers le widget, par exemple : `bindmap'!from-key -> to-widget'`.
 
-In this mode, the given key is being mapped to the given widget instead of the widget specified in the `bindkey` command e.g.:
+Dans ce mode, la touche donnée est mappée sur le widget donné au lieu du widget spécifié dans la commande `bindkey` ; par exemple .:
 
-Instead of:
+Au lieu de:
 
 ```shell showLineNumbers
 bindkey "^ " magic-space
 bindkey " " globalias
 ```
 
-The actual call that'll be done will be:
+L'appel réel qui sera fait sera :
 
 ```shell showLineNumbers
 bindkey "^ " globalias
 bindkey " " magic-space
 ```
 
-For the `bindmap='!" " -> magic-space; !"^ " -> globalias'` ice.
+Pour le `bindmap=' !" " -> magic-space ; !"^ " -> globalias'` ice.
 
-### <i class="fa-solid fa-circle-check"></i> Using `bindmap'…'` in light mode
+### <i class="fa-solid fa-circle-check"></i> Utilisation de `bindmap'…'` en mode light
 
-When the investigation mode is on i.e.:
+Quand le mode d'investigation est activé, c'est à dire .:
 
-- when the full loading mode is being used, default in the `for` syntax and when `zi load …` is used, then the `bindmap'…'` ice works normally.
+- lorsque le mode de chargement complet est utilisé, par défaut dans la syntaxe `for` et lorsque `zi load …` est utilisé, alors le `bindmap'…'` ice fonctionne normalement.
 
-In the non-investigation:
+Dans le cadre de la non-enquête:
 
-- the [light mode](/search/?q=light+mode) – activated when `zi light …` or the `light-mode` ice is being used – the `bindmap'…'` is unavailable, unless the `trackbinds` ice is specified:
+- le [light mode](/search/?q=light+mode) - activé lorsque `zi light …` ou le `light-mode` est utilisé-le `bindmap'…'` n'est pas disponible, sauf si la la glace `trackbinds` est spécifié:
 
 ```shell showLineNumbers
-# With use of the light-mode ice and the for-syntax:
-zi light-mode trackbinds bindmap'^R -> ^G' for z-shell/history-search-multi-word
+# Avec l'utilisation de la glace light-mode et de la syntaxe for :
+zi light-mode trackbinds bindmap '^R -> ^G' for z-shell/history-search-multi-word
 ```
 
 ```shell showLineNumbers
-# With use of the classic syntax:
-zi trackbinds bindmap'^R -> ^G' for z-shell/history-search-multi-word
+# Avec l'utilisation de la syntaxe classique :
+zi trackbinds bindmap '^R -> ^G' for z-shell/history-search-multi-word
 zi light z-shell/history-search-multi-word
 ```
 
-### <i class="fa-solid fa-circle-check"></i> Using the <kbd>UPAR</kbd> shorthands
+### <i class="fa-solid fa-circle-check"></i> Utilisation des raccourcis de <kbd>UPAR</kbd>
 
-There are four special values that can be used on the left side of the bind-map: <kbd>UPAR</kbd>, <kbd>DOWNAR</kbd>, <kbd>LEFTAR</kbd>, <kbd>RIGHTAR</kbd>. They'll match up arrow, down arrow, etc. So that it's possible to do:
+Il existe quatre valeurs spéciales qui peuvent être utilisées sur le côté gauche du bind-map : <kbd>UPAR</kbd>, <kbd>DOWNAR</kbd>, <kbd>LEFTAR</kbd>, <kbd>RIGHTAR</kbd>. Elles correspondent à la flèche vers le haut, la flèche vers le bas, etc. Il est donc possible de faire:
 
 ```shell
 zi bindmap='LEFTAR -> ^F; RIGHTAR -> ^G' …
 ```
 
-The benefits of using the <kbd>UPAR</kbd>, … shorthands is that they cover multiple possible cursor-key codes for each of the cursor key, so that they'll work regardless of the terminal being used.
+L'avantage d'utiliser les raccourcis <kbd>UPAR</kbd>, … est qu'ils couvrent plusieurs codes de touche de curseur possibles pour chacune des touches de curseur, de sorte qu'ils fonctionnent quel que soit le terminal utilisé.
 
 [1]: /search/?q=binkey
 [2]: /search/?q=ice+modifier
