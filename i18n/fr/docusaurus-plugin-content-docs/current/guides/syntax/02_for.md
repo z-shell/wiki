@@ -91,7 +91,7 @@ zi wait lucid light-mode for \
     zsh-users/zsh-completions
 ```
 
-| Syntax       | Description                                                                                                        |
+| Syntaxe      | Description                                                                                                        |
 | ------------ |:------------------------------------------------------------------------------------------------------------------ |
 | `wait`       | Chargement 0 seconde (environ 5 ms exactement) après l'invite ([turbo mode][6]).                                   |
 | `lucid`      | Faites taire les messages sous l'invite ("`Loaded {name of the plugin}`").                                         |

@@ -2,7 +2,7 @@
 id: test
 title: '🌀 Test'
 image: img/logo/320x320.png
-description: Annex - Test documentation
+description: Annexe - Documentation des tests
 keywords:
   - annex
   - test
@@ -13,9 +13,9 @@ keywords:
 
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-test][]
 
-An annex runs tests (for example `make test``) – if found will autorun it after installing and updating a plugin or snippet.
+Une annexe exécute des tests (par exemple `make test``) - si elle est trouvée, elle sera exécutée automatiquement après l'installation et la mise à jour d'un plugin ou d'un snippet.
 
-Simply load it like any other plugin to make it active:
+Il suffit de le charger comme n'importe quel autre plugin pour le rendre actif :
 
 ```shell
 zi light z-shell/z-a-test
@@ -23,26 +23,26 @@ zi light z-shell/z-a-test
 
 ## Configuration
 
-To run the tests in a verbose mode, issue:
+Pour exécuter les tests en mode verbeux, exécutez:
 
 ```shell
 zstyle :zi:annex:test quiet 0
 ```
 
-before installing or updating the plugin. To skip tests for a single plugin, add `notest` ice:
+avant d'installer ou de mettre à jour le plugin. Pour sauter les tests d'un seul plugin, ajoutez la glace `notest`:
 
 ```shell showLineNumbers
 zi ice notest
 zi load …
 ```
 
-### Annex showcase
+### Démonstration de l'annexe
 
-Example activation in the default quiet mode:
+Exemple d'activation en mode silencieux par défaut :
 
 ![z-p-test-1][2]
 
-Example activation in non-quiet mode:
+Exemple d'activation en mode non silencieux :
 
 ![z-p-test-2][3]
 
