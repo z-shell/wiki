@@ -87,7 +87,6 @@ Install and control almost everything from [GitHub](https://github.com): [Annexe
 <div className="ScreenView">
   <Link href="https://github.com/orgs/z-shell/projects/">
     <img
-      className="ScreenView"
       width="976"
       height="444"
       alt="Z-Shell Organization FollowUp"
