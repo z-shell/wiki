@@ -24,8 +24,8 @@ import ZGitImg from '@site/static/img/png/z_git.png';
 <div className="ScreenView">
   <Link href="https://github.com/orgs/z-shell/">
     <img
-      width="1024"
-      height="768"
+      height="auto"
+      width="90%"
       alt="Statistiques de l'organisation Z-Shell"
       src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
      />
@@ -55,8 +55,7 @@ Les paquets [Rust](https://crates.io) sont gérés par l'annexe [rust][4].
   </TabItem>
   <TabItem value="github" label="GitHub" default>
 
-Installez et contrôlez presque tout à partir de [GitHub](https://github.com) : [Annexes][5], [Packages][6], [Galerie d'invocations
-][7].
+Install and control almost everything from [GitHub](https://github.com): [Annexes][5], [Packages][6], [Gallery of Invocations][7].
 
 </TabItem>
 </Tabs>
@@ -66,11 +65,11 @@ Installez et contrôlez presque tout à partir de [GitHub](https://github.com) :
 - [Meta plugins][16] allow installing groups of plugins via a single, friendly label.
 - [Les paquets][6] dispensent l'utilisateur de fournir des commandes longues et complexes.
 - [Les annexes][5] permettent d'étendre le gestionnaire de plugins avec de nouvelles commandes.
-- [Le mode Turbo][8] permet un démarrage de Zsh 50-80% plus rapide de ****.
+- [Le mode Turbo][8] permet un démarrage de Zsh 50-80% plus rapide de \*\*\*\*.
 
 ## <i className="fa-beat" class="fa-solid fa-heart fa-beat"></i> Soigné et flexible
 
-- [Personnalisez les chemins][9], utilisez [plusieurs invites][10] ou créez [vos propres plugins][11] .
+- [Customize paths][9], use [multiple prompts][10] or create [your own][11] plugins.
 - Prend en charge les plugins et bibliothèques [Oh My Zsh][12] et [Prezto][12] . ([migration][13]).
 - N'utilise pas `$FPATH`, le chargement de plusieurs plugins n'encombre pas `$FPATH` avec le même nombre d'entrées, par exemple : 10, 15, ou plus.
 - Le code est immunisé contre `KSH_ARRAYS` et d'autres options causant généralement des problèmes de compatibilité.
@@ -78,9 +77,9 @@ Installez et contrôlez presque tout à partir de [GitHub](https://github.com) :
 
 ## <i className="fa-beat-fade" class="fa-solid fa-circle-info fa-beat-fade"></i> Familiarisez-vous et contrôlez
 
-- Visualisez les données : **alias**, **fonctions**, **bindkeys**, **Zle widgets**, **zstyles**, **completions**, **variables**, `$PATH`, and `$FPATH` elements a plugin has set up.
-- Familieusement avec un nouveau plugin et fournit des informations riches et faciles à digérer qui peuvent être utiles à diverses occasions.
-- [Chargez ou déchargez les plugins][14] , utilisez la capacité [à gérer][15] compléments.
+- Visualise data: **aliases**, **functions**, **bindkeys**, **Zle widgets**, **zstyles**, **completions**, **variables**, `$PATH`, and `$FPATH` elements a plugin has set up.
+- Quickly familiarize oneself with a new plugin and provides rich and easy-to-digest information that might be helpful on various occasions.
+- [Load or unload][14] plugins, use the ability to [manage][15] completions.
 - Docker [playground][], tester ou proposer des configurations.
 
 ## <i class="fa-solid fa-list-check"></i> Récapitulatif
@@ -88,8 +87,8 @@ Installez et contrôlez presque tout à partir de [GitHub](https://github.com) :
 <div className="ScreenView">
   <Link href="https://github.com/orgs/z-shell/projects/">
     <img
-      width="1024"
-      height="768"
+      height="auto"
+      width="90%"
       alt="Suivi de l'organisation Z-Shell"
       src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg"
     />
@@ -103,9 +102,9 @@ Installez et contrôlez presque tout à partir de [GitHub](https://github.com) :
 [8]: /docs/getting_started/overview#turbo-mode-zsh--53
 [13]: /docs/getting_started/migration
 [9]: /docs/guides/customization#-customizing-paths
-[10]: /docs/guides/customization#-multiple-prompts
+[10]: /docs/guides/customization#multiple-prompts
 [16]: /search?q=meta+plugins
-[11]: /docs/guides/customization#-non-github-local-plugins
+[11]: /docs/guides/customization#non-github-local-plugins
 [12]: /docs/getting_started/overview#oh-my-zsh-prezto
 [12]: /docs/getting_started/overview#oh-my-zsh-prezto
 [14]: /docs/guides/commands#loading-and-unloading

@@ -24,8 +24,8 @@ import ZGitImg from '@site/static/img/png/z_git.png';
 <div className="ScreenView">
   <Link href="https://github.com/orgs/z-shell/">
     <img
-      width="1024"
-      height="768"
+      height="auto"
+      width="90%"
       alt="Z-Shell Organization Stats"
       src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
      />
@@ -55,8 +55,7 @@ The [Rust](https://crates.io) packages are managed by the [rust annex][4].
   </TabItem>
   <TabItem value="github" label="GitHub" default>
 
-Install and control almost everything from [GitHub](https://github.com): [Annexes][5], [Packages][6], [Gallery of
-Invocations][7].
+Install and control almost everything from [GitHub](https://github.com): [Annexes][5], [Packages][6], [Gallery of Invocations][7].
 
 </TabItem>
 </Tabs>
@@ -88,8 +87,8 @@ Invocations][7].
 <div className="ScreenView">
   <Link href="https://github.com/orgs/z-shell/projects/">
     <img
-      width="1024"
-      height="768"
+      height="auto"
+      width="90%"
       alt="Z-Shell Organization FollowUp"
       src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg"
     />
@@ -102,8 +101,8 @@ Invocations][7].
 [6]: /ecosystem/packages
 [8]: /docs/getting_started/overview#turbo-mode-zsh--53
 [9]: /docs/guides/customization#-customizing-paths
-[10]: /docs/guides/customization#-multiple-prompts
-[11]: /docs/guides/customization#-non-github-local-plugins
+[10]: /docs/guides/customization#multiple-prompts
+[11]: /docs/guides/customization#non-github-local-plugins
 [12]: /docs/getting_started/overview#oh-my-zsh-prezto
 [12]: /docs/getting_started/overview#oh-my-zsh-prezto
 [13]: /docs/getting_started/migration
