@@ -55,8 +55,7 @@ The [Rust](https://crates.io) packages are managed by the [rust annex][4].
   </TabItem>
   <TabItem value="github" label="GitHub" default>
 
-Install and control almost everything from [GitHub](https://github.com): [Annexes][5], [Packages][6], [Gallery of
-Invocations][7].
+Install and control almost everything from [GitHub](https://github.com): [Annexes][5], [Packages][6], [Gallery of Invocations][7].
 
 </TabItem>
 </Tabs>
@@ -78,10 +77,8 @@ Invocations][7].
 
 ## <i className="fa-beat-fade" class="fa-solid fa-circle-info fa-beat-fade"></i> Familiarize and control
 
-- Visualise data: **aliases**, **functions**, **bindkeys**, **Zle widgets**, **zstyles**, **completions**,
-  **variables**, `$PATH`, and `$FPATH` elements a plugin has set up.
-- Quickly familiarize oneself with a new plugin and provides rich and easy-to-digest information that might be helpful
-  on various occasions.
+- Visualise data: **aliases**, **functions**, **bindkeys**, **Zle widgets**, **zstyles**, **completions**, **variables**, `$PATH`, and `$FPATH` elements a plugin has set up.
+- Quickly familiarize oneself with a new plugin and provides rich and easy-to-digest information that might be helpful on various occasions.
 - [Load or unload][14] plugins, use the ability to [manage][15] completions.
 - Docker [playground], test or propose configurations.
 
