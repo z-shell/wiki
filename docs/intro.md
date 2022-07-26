@@ -35,27 +35,27 @@ import ZGitImg from '@site/static/img/png/z_git.png';
 <Tabs>
   <TabItem value="gems" label="RubyGems">
 
-The [RubyGems](https://rubygems.org) and [$GEM_HOME][] are automatically managed by the [bin-gem-node][] annex or installed by the [any-gem][] package.
+The [RubyGems](https://rubygems.org) and [$GEM_HOME](https://guides.rubygems.org/command-reference/#gem-environment) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex or installed by the [any-gem](https://github.com/z-shell/any-gem) package.
 
   </TabItem>
   <TabItem value="node" label="Node">
 
-The [Node](https://www.npmjs.com) modules and [$NODE_PATH][] are automatically managed by the [bin-gem-node][] annex or installed by the [any-node][] package.
+The [Node](https://www.npmjs.com) modules and [$NODE_PATH](https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex or installed by the [any-node](https://github.com/z-shell/any-node) package.
 
   </TabItem>
   <TabItem value="pip" label="Python">
 
-The [Python](https://python.org) modules, [$VIRTUALENV][] are automatically managed by the [bin-gem-node][] annex.
+The [Python](https://python.org) modules, [$VIRTUALENV](https://docs.python.org/3/tutorial/venv.html) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex.
 
   </TabItem>
   <TabItem value="rust" label="Rust">
 
-The [Rust](https://crates.io) packages are managed by the [rust][] annex.
+The [Rust](https://crates.io) packages are managed by the [rust](/ecosystem/annexes/rust) annex.
 
   </TabItem>
   <TabItem value="github" label="GitHub" default>
 
-Install and control almost everything from [GitHub](https://github.com): [Annexes][annexes], [Packages][packages], [Gallery of Invocations][collection].
+Install and control almost everything from [GitHub](https://github.com): [Annexes](/ecosystem/annexes), [Packages](/ecosystem/packages), [Gallery of Invocations](/community/gallery/collection).
 
 </TabItem>
 </Tabs>
@@ -63,14 +63,14 @@ Install and control almost everything from [GitHub](https://github.com): [Annexe
 ## <i class="fa-solid fa-spinner fa-spin-pulse"></i> Fast and feature-rich
 
 - [Meta plugins][16] allow installing groups of plugins via a single, friendly label.
-- [Packages][6] offload the user from providing long and complex commands.
-- [Annexes][5] allow to extend the plugin manager with new commands.
+- [Packages](/ecosystem/packages) offload the user from providing long and complex commands.
+- [Annexes](/ecosystem/annexes) allow to extend the plugin manager with new commands.
 - [Turbo][8] mode yields **50-80%** faster Zsh startup.
 
 ## <i className="fa-beat" class="fa-solid fa-heart fa-beat"></i> Neat and flexible
 
 - [Customize paths][9], use [multiple prompts][10] or create [your own][11] plugins.
-- Supports [Oh My Zsh][oh-my-zsh] and [Prezto][prezto] plugins and libraries. ([migration][13]).
+- Supports [Oh My Zsh][oh-my-zsh] and [Prezto][prezto] plugins and libraries. ([migration][migration]).
 - Does not use `$FPATH`, loading multiple plugins doesn't clutter `$FPATH` with the same number of entries, e.g: 10, 15, or more.
 - Code is immune to `KSH_ARRAYS` and other options typically causing compatibility problems.
 - Do not require `sudo`, and provide many workarounds e.g: setting so-called **shims** locally.
@@ -97,13 +97,6 @@ Install and control almost everything from [GitHub](https://github.com): [Annexe
 
 <!-- end-of-file -->
 
-[bin-gem-node]: /ecosystem/annexes/bin-gem-node
-[any-gem]: https://github.com/z-shell/any-gem
-[any-node]: https://github.com/z-shell/any-node
-[rust]: /ecosystem/annexes/rust
-[annexes]: /ecosystem/annexes
-[packages]: /ecosystem/packages
-[collection]: /community/gallery/collection
 [8]: /docs/getting_started/overview#turbo-mode-zsh--53
 [9]: /docs/guides/customization#customizing-paths
 [10]: /docs/guides/customization#multiple-prompts
@@ -115,6 +108,3 @@ Install and control almost everything from [GitHub](https://github.com): [Annexe
 [15]: /docs/guides/commands#completions-management
 [16]: /search?q=meta+plugins
 [playground]: https://github.com/z-shell/playground
-[$gem_home]: https://guides.rubygems.org/command-reference/#gem-environment
-[$node_path]: https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders
-[$virtualenv]: https://docs.python.org/3/tutorial/venv.html
