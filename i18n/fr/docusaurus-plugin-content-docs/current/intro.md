@@ -24,11 +24,11 @@ import ZGitImg from '@site/static/img/png/z_git.png';
 <div className="ScreenView">
   <Link href="https://github.com/orgs/z-shell/">
     <img
-      height="auto"
-      width="90%"
+      width="976"
+      height="434"
       alt="Statistiques de l'organisation Z-Shell"
       src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
-     />
+    />
   </Link>
 </div>
 
@@ -87,8 +87,9 @@ Install and control almost everything from [GitHub](https://github.com): [Annexe
 <div className="ScreenView">
   <Link href="https://github.com/orgs/z-shell/projects/">
     <img
-      height="auto"
-      width="90%"
+      className="ScreenView"
+      width="976"
+      height="444"
       alt="Suivi de l'organisation Z-Shell"
       src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg"
     />
