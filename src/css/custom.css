@@ -71,6 +71,7 @@
 	--ifm-breadcrumb-color-active: var(--ifm-color-primary-darker) !important;
 	--ifm-menu-color-active: var(--ifm-color-primary-darker) !important;
 	--ifm-code-font-size: 90%;
+	--docusaurus-announcement-bar-height: auto !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -251,14 +252,6 @@ html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
 	max-width: 100%;
 }
 
-/**
-@media screen and (min-width: 997px) {
-	div[class^="tableOfContentsInline"] {
-		display: none;
-	}
-}
-*/
-
 @media only screen and (max-width: 768px) {
 	.IceLogo {
 		max-width: 130px;
@@ -323,4 +316,48 @@ html[data-theme="dark"] .header-github-link::before {
 .fa-beat-fade {
 	--fa-beat-fade-opacity: 0.67;
 	--fa-beat-fade-scale: 1.075;
+}
+
+/* Announcement banner */
+
+div[class^="announcementBarContent"] {
+	line-height: 16px;
+	font-size: 14px;
+	font-weight: bold;
+	transition-duration: 1s !important;
+}
+
+div[class^="announcementBarContent"] a {
+	text-decoration: underline;
+	display: inline-block;
+	color: var(--ifm-color-primary) !important;
+}
+
+html[data-theme="light"] div[class^="announcementBar_"] {
+	color: #000;
+	background: #f6f8fa;
+}
+
+html[data-theme="dark"] div[class^="announcementBar_"] {
+	color: #fff;
+	background: #24292e;
+}
+
+div[class^="announcementBarContent"] a:hover {
+	color: var(--brand) !important;
+}
+
+@media only screen and (max-width: 768px) {
+	div[class^="announcementBarContent"] {
+		font-size: 12px;
+		line-height: 18px;
+		padding: 4px 32px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	div[class^="announcementBarContent"] {
+		line-height: 24px;
+		padding: 4px 32px;
+	}
 }

@@ -1,5 +1,3 @@
-/** @format */
-
 .herobanner {
 	padding: 2rem 0;
 	text-align: right;
@@ -23,76 +21,6 @@
 @media (prefers-reduced-motion: no-preference) {
 	.herobanner {
 		animation: vibrate 0.3s linear infinite both;
-	}
-}
-
-/* Announcement banner */
-
-:root {
-	--docusaurus-announcement-bar-height: auto !important;
-}
-
-div[class^="announcementBarContent"] {
-	line-height: 16px;
-	font-size: 14px;
-	font-weight: bold;
-	transition-duration: 1s !important;
-}
-
-.indexCtas a {
-	color: var(--ifm-color-black) !important;
-}
-
-div[class^="announcementBarContent"] a {
-	text-decoration: underline;
-	display: inline-block;
-	color: var(--ifm-color-primary) !important;
-}
-
-.indexCtas {
-	--ifm-button-size-multiplier: 1.4;
-
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	margin-top: 18px;
-}
-
-.indexCtas a:hover {
-	color: var(--ifm-color-primary) !important;
-	background: #24292e;
-}
-
-.indexCtas a:last-of-type {
-	margin: 16px 24px;
-}
-
-html[data-theme="light"] div[class^="announcementBar_"] {
-	color: #000;
-	background: #f6f8fa;
-}
-
-html[data-theme="dark"] div[class^="announcementBar_"] {
-	color: #fff;
-	background: #24292e;
-}
-
-div[class^="announcementBarContent"] a:hover {
-	color: var(--brand) !important;
-}
-
-@media only screen and (max-width: 768px) {
-	div[class^="announcementBarContent"] {
-		font-size: 12px;
-		line-height: 18px;
-		padding: 4px 32px;
-	}
-}
-
-@media only screen and (max-width: 500px) {
-	div[class^="announcementBarContent"] {
-		line-height: 24px;
-		padding: 4px 32px;
 	}
 }
 
@@ -161,6 +89,28 @@ div[class^="announcementBarContent"] a:hover {
 
 .indexCtaTryNowButton:hover {
 	color: var(--ifm-color-primary);
+}
+
+.indexCtas a {
+	color: var(--ifm-color-black) !important;
+}
+
+.indexCtas {
+	--ifm-button-size-multiplier: 1.4;
+
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	margin-top: 18px;
+}
+
+.indexCtas a:hover {
+	color: var(--ifm-color-primary) !important;
+	background: #24292e;
+}
+
+.indexCtas a:last-of-type {
+	margin: 16px 24px;
 }
 
 @media only screen and (max-width: 768px) {
