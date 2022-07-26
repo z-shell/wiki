@@ -24,8 +24,8 @@ import ZGitImg from '@site/static/img/png/z_git.png';
 <div className="ScreenView">
   <Link href="https://github.com/orgs/z-shell/">
     <img
-      width="1024"
-      height="768"
+      height="auto"
+      width="90%"
       alt="Z-Shell Organization Stats"
       src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
      />
@@ -90,8 +90,8 @@ Invocations][7].
 <div className="ScreenView">
   <Link href="https://github.com/orgs/z-shell/projects/">
     <img
-      width="1024"
-      height="768"
+      height="auto"
+      width="90%"
       alt="Z-Shell Organization FollowUp"
       src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg"
     />
@@ -109,8 +109,8 @@ Invocations][7].
 [7]: /community/gallery/collection
 [8]: /docs/getting_started/overview#turbo-mode-zsh--53
 [9]: /docs/guides/customization#-customizing-paths
-[10]: /docs/guides/customization#-multiple-prompts
-[11]: /docs/guides/customization#-non-github-local-plugins
+[10]: /docs/guides/customization#multiple-prompts
+[11]: /docs/guides/customization#non-github-local-plugins
 [12]: /docs/getting_started/overview#oh-my-zsh-prezto
 [13]: /docs/getting_started/migration
 [14]: /docs/guides/commands#loading-and-unloading
