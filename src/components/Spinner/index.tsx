@@ -18,7 +18,7 @@ function Spinner(): JSX.Element {
 				color={color}
 				loading={loading}
 				cssOverride={override}
-				size={320}
+				size={160}
 			/>
 		</div>
 	);
