@@ -3,7 +3,6 @@
 // @ts-check
 
 const setURL = process.env.URL ?? 'https://wiki.zshell.dev';
-const setAssets = process.env.STYLESHEET ?? '/r2/fa/css/all.min.css';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -19,7 +18,7 @@ const config = {
 	projectName: 'wiki',
 	organizationName: 'z-shell',
 	staticDirectories: ['static'],
-	stylesheets: [{ href: setAssets, crossorigin: 'anonymous' }],
+	stylesheets: ['/r2/fa/css/all.min.css'],
 	i18n: {
 		defaultLocale: 'en',
 		locales: ['en', 'fr', 'ja', 'zh-Hans'],
