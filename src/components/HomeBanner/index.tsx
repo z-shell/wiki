@@ -17,7 +17,7 @@ export default function HeroBanner(): JSX.Element {
 					<img
 						alt={translate({ id: 'zi.logo', message: 'ZI logo' })}
 						className={styles.heroLogo}
-						src='/img/logo.svg'
+						src='/img/logo.svg?static=true'
 						height='200'
 						width='200'
 					/>

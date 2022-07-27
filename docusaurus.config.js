@@ -14,11 +14,11 @@ const config = {
 	titleDelimiter: '|',
 	onBrokenLinks: 'throw',
 	onBrokenMarkdownLinks: 'warn',
-	favicon: '/img/favicon.ico',
+	favicon: '/img/favicon.ico?static=true',
 	projectName: 'wiki',
 	organizationName: 'z-shell',
 	staticDirectories: ['static'],
-	stylesheets: ['/assets/fa/css/all.min.css'],
+	stylesheets: ['/assets/fa/css/all.min.css?static=true'],
 	i18n: {
 		defaultLocale: 'en',
 		locales: ['en', 'fr', 'ja', 'zh-Hans'],
@@ -52,6 +52,9 @@ const config = {
 						return `https://github.com/z-shell/wiki/tree/main/${blogDirPath}/${blogPath}`;
 					},
 					showReadingTime: true,
+					feedOptions: {
+						type: 'all',
+					},
 				},
 				sitemap: { changefreq: 'daily' },
 			}),
@@ -146,7 +149,7 @@ const config = {
 				disableSwitch: false,
 				respectPrefersColorScheme: true,
 			},
-			image: 'img/logo/320x320.png',
+			image: 'img/logo/320x320.png?static=true',
 			metadata: [
 				{ name: 'twitter:card', content: 'summary' },
 				{
@@ -170,7 +173,7 @@ const config = {
 				title: '❮ Zi ❯',
 				logo: {
 					alt: 'A Swiss Army Knife for Zsh Unix shell - ❮ Zi ❯',
-					src: 'img/logo.svg',
+					src: 'img/logo.svg?static=true',
 					target: '_self',
 					width: 32,
 					height: 32,
@@ -179,14 +182,35 @@ const config = {
 					{ type: 'doc', docId: 'intro', position: 'left', label: 'Docs' },
 					{ to: 'ecosystem', position: 'left', label: 'Ecosystem' },
 					{ to: 'community', position: 'left', label: 'Community' },
-					{ to: 'blog', position: 'left', label: 'Blog' },
+					/* { to: 'blog', position: 'left', label: 'Blog' }, */
 					{
 						type: 'localeDropdown',
 						position: 'right',
 						dropdownItemsAfter: [
 							{
-								href: 'https://digitalclouds.crowdin.com/z-shell',
+								href: 'https://translate.zshell.dev/',
 								label: 'Help Us Translate',
+							},
+						],
+					},
+					{
+						type: 'dropdown',
+						label: 'Feed',
+						position: 'right',
+						className: 'rss-link',
+						'aria-label': 'Feed',
+						items: [
+							{
+								label: 'JSON',
+								to: '/blog/feed.json',
+							},
+							{
+								label: 'RSS',
+								to: '/blog/rss.xml',
+							},
+							{
+								label: 'Atom',
+								to: '/blog/atom.xml',
 							},
 						],
 					},
@@ -241,7 +265,7 @@ const config = {
 						items: [
 							{
 								label: 'GitHub Discussions',
-								href: 'https://github.com/orgs/z-shell/discussions/',
+								href: 'https://discussions.zshell.dev/',
 							},
 							{
 								label: 'GitHub Organization',
@@ -249,7 +273,7 @@ const config = {
 							},
 							{
 								label: 'Crowdin Translations',
-								href: 'https://digitalclouds.crowdin.com/z-shell/',
+								href: 'https://translate.zshell.dev/',
 							},
 							/* {html: ``}, */
 						],
