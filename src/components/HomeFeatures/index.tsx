@@ -1,16 +1,18 @@
 /** @format */
 
 import React from 'react';
-import Loadable from 'react-loadable';
-import Loading from '@site/src/components/Spinner';
+import Loadable from '@loadable/component';
+import Spinner from '@site/src/components/Spinner';
 import clsx from 'clsx';
 import Translate, { translate } from '@docusaurus/Translate';
 import styles from './styles.module.css';
 
-const AsciinemaPlayer = Loadable({
-	loader: () => import('@site/src/components/AsciinemaPlayer'),
-	loading: Loading,
-});
+function load(func) {
+	return Loadable(func, { fallback: <Spinner /> });
+}
+const AsciinemaPlayer = load(
+	() => import('@site/src/components/AsciinemaPlayer')
+);
 
 const turboSvg = () => (
 	<span className='fa-6x'>
