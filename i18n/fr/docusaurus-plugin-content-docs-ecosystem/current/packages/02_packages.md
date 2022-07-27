@@ -1,5 +1,5 @@
 ---
-id: paquets-disponibles
+id: available-packages
 title: '📦 Paquets disponibles'
 image: img/logo/320x320.png
 description: Les paquets de l'organisation Z-Shell
@@ -17,10 +17,10 @@ Pour tous les paquets disponibles, utilisez la [Recherche GitHub][22].
 |      [any-node][1]       | Le(s) module(s) Node quelconque(s) localement dans un répertoire de plugins nouvellement créé.                         |
 |       [any-gem][2]       | Le(s) Gem(s) quelconque(s) localement dans un répertoire de plugins nouvellement créé.                                 |
 |         [apr][3]         | La bibliothèque Apache Portable Runtime (APR).                                                                         |
-|         [fzf][4]         | L'outil de recherche de ligne de commande fzf.                                                                         |
+|         [fzf][4]         | The fzf command-line fuzzy finder.                                                                                     |
 |         [fzy][5]         | Le chercheur flou en ligne de commande.                                                                                |
 |        [pyenv][6]        | Le gestionnaire d'environnement virtuel Python pyenv.                                                                  |
-|      [remarque][7]       | Le processeur Markdown remark.                                                                                         |
+|       [remark][7]        | Le processeur Markdown remark.                                                                                         |
 |       [doctoc][8]        | Le processeur doctoc Markdown.                                                                                         |
 |      [ls_colors][9]      | Configurez un schéma de couleurs du système de complétion zsh.                                                         |
 | [dircolors-material][10] | Configurez un schéma de couleurs du système de complétion zsh.                                                         |
