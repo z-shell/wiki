@@ -18,7 +18,12 @@ const config = {
 	projectName: 'wiki',
 	organizationName: 'z-shell',
 	staticDirectories: ['static'],
-	stylesheets: ['/assets/fa/css/all.min.css'],
+	stylesheets: [
+		{
+			href: 'https://cdn.zshell.dev/fa/css/all.min.css',
+			crossorigin: 'anonymous',
+		},
+	],
 	i18n: {
 		defaultLocale: 'en',
 		locales: ['en', 'fr', 'ja', 'zh-Hans'],
