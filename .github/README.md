@@ -3,23 +3,23 @@
 <!-- markdownlint-disable MD041 -->
 <table style="width:100%;height:auto">
  <tr align="justify" margin-left="auto" margin-right="auto"><td align="center">
-  <h1>
+  <h2>
    <a title="❮ Zi ❯" target="_self" href="https://github.com/z-shell/wiki">
   <img style="width:60;height:60px"
     src="https://raw.githubusercontent.com/z-shell/zi/main/docs/images/favicon.svg"
     alt="Logo" /></a>❮ Zi ❯
-  </h1>
-<h2>
-  <a href="https://github.com/orgs/z-shell/discussions/">《❔》Ask a Question </a>
+  </h2>
+<h3>
+  <a href="https://discussions.zshell.dev/">《❔》Ask a Question </a>
   <a href="https://wiki.zshell.dev/search/">《💡》Search Wiki </a>
   <a href="https://github.com/z-shell/community/issues/new?assignees=&labels=%F0%9F%91%A5+member&template=membership.yml&title=team%3A+">《💜》Join </a>
-  <a href="https://digitalclouds.crowdin.com/z-shell/">《🌐》Localize </a>
-</h2>
+  <a href="https://translate.zshell.dev/">《🌐》Localize </a>
+</h3>
 
   </tr>
 <tr>
 <td align="center">
-  <a title="Crowdin" target="_self" href="https://crowdin.digitalclouds.dev/z-shell">
+  <a title="Crowdin" target="_self" href="https://translate.zshell.dev/">
     <img align="center" src="https://badges.crowdin.net/e/f108c12713ee8526ac878d5671ad6e29/localized.svg" />
   </a>
   <!--
