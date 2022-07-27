@@ -9,12 +9,17 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 function Home(): JSX.Element {
 	const { siteConfig } = useDocusaurusContext();
 	return (
-		<Layout title={siteConfig.tagline}>
-			<header>
-				<HomeBanner />
-			</header>
+		<Layout
+			title={siteConfig.tagline}
+			description={siteConfig.tagline}
+		>
 			<main>
-				<HomeFeatures />
+				<div>
+					<HomeBanner />
+				</div>
+				<div>
+					<HomeFeatures />
+				</div>
 			</main>
 		</Layout>
 	);
