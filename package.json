@@ -34,8 +34,8 @@
 		"@docusaurus/plugin-ideal-image": "0.0.0-5222",
 		"@docusaurus/plugin-pwa": "0.0.0-5222",
 		"@docusaurus/preset-classic": "0.0.0-5222",
-		"@loadable/babel-plugin": "5.13.2",
 		"@loadable/component": "5.15.2",
+		"@loadable/babel-plugin": "5.13.2",
 		"@mdx-js/react": "1.6.22",
 		"asciinema-player": "3.0.1",
 		"clsx": "1.2.1",
@@ -46,7 +46,6 @@
 		"react-spinners": "0.13.3"
 	},
 	"devDependencies": {
-		"@babel/core": "7.18.9",
 		"@cloudflare/workers-types": "3.14.1",
 		"@docusaurus/eslint-plugin": "0.0.0-5222",
 		"@docusaurus/module-type-aliases": "0.0.0-5222",

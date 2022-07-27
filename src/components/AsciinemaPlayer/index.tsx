@@ -20,7 +20,7 @@ export interface AsciinemaPlayerProps {
 	fontSize: string;
 }
 
-function AsciinemaPlayer({
+export default function AsciinemaPlayer({
 	src,
 	...asciinemaOptions
 }: AsciinemaPlayerProps): JSX.Element {
@@ -28,9 +28,7 @@ function AsciinemaPlayer({
 	useEffect(() => {
 		const currentRef = ref.current;
 		AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
-	}, [src]);
+	}, [src, asciinemaOptions]);
 
 	return <div ref={ref} />;
 }
-
-export default AsciinemaPlayer;

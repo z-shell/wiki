@@ -1,10 +1,10 @@
 /** @format */
 
 import React from 'react';
-import Loadable from '@loadable/component';
-import Spinner from '@site/src/components/Spinner';
 import clsx from 'clsx';
+import Loadable from '@loadable/component';
 import Translate, { translate } from '@docusaurus/Translate';
+import Spinner from '@site/src/components/Spinner';
 import styles from './styles.module.css';
 
 function load(func) {

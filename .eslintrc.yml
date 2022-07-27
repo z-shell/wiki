@@ -2,13 +2,15 @@
 
 env:
   browser: true
-  es2021: true
+  commonjs: true
   node: true
 extends:
+  - eslint:recommended
   - plugin:react/recommended
-  - plugin:@docusaurus/recommended
-  - plugin:@typescript-eslint/recommended
+  - plugin:react-hooks/recommended
   - airbnb
+  - plugin:@typescript-eslint/recommended
+  - plugin:@docusaurus/recommended
   - prettier
 parser: "@typescript-eslint/parser"
 parserOptions:
@@ -19,26 +21,83 @@ parserOptions:
 plugins:
   - react
   - react-hooks
+  - "@typescript-eslint"
   - "@docusaurus"
 rules:
   {
     "no-undef": 0,
     "global-require": 0,
-    "@docusaurus/string-literal-i18n-messages": "error",
-    "@docusaurus/no-untranslated-text":
-      ["warn", { ignoredStrings: ["·", "—", "×"] }],
-    "react/no-array-index-key": 0,
-    "import/no-unresolved":
-      [2, { "ignore": ["^@theme", "^@docusaurus", "^@site"] }],
-    "react/jsx-filename-extension":
-      [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
-    "react/require-default-props":
+    "no-await-in-loop": 0,
+    "no-case-declarations": 1,
+    "no-console": 0,
+    "no-constant-binary-expression": 2,
+    "no-continue": 0,
+    "no-control-regex": 1,
+    "no-else-return": [1, { allowElseIf: true }],
+    "no-empty": [1, { allowEmptyCatch: true }],
+    "no-lonely-if": 1,
+    "no-nested-ternary": 1,
+    "no-param-reassign": [1, { props: false }],
+    "no-prototype-builtins": 1,
+    "no-template-curly-in-string": 1,
+    "no-unused-expressions": [1, { allowTaggedTemplates: true }],
+    "no-useless-escape": 1,
+    "no-void": [2, { allowAsStatement: true }],
+    "prefer-destructuring": 1,
+    "prefer-named-capture-group": 1,
+    "prefer-template": 1,
+    "jsx-a11y/click-events-have-key-events": 1,
+    "jsx-a11y/no-noninteractive-element-interactions": 1,
+    "jsx-a11y/html-has-lang": 0,
+    "react-hooks/rules-of-hooks": 2,
+    "react-hooks/exhaustive-deps": 2,
+    "react/destructuring-assignment": 0,
+    "react/function-component-definition":
       [
         1,
         {
-          "forbidDefaultForRequired": false,
-          "classes": "ignore",
-          "functions": "ignore",
+          namedComponents: "function-declaration",
+          unnamedComponents: "arrow-function",
         },
       ],
+    "react/jsx-filename-extension": 0,
+    "react/jsx-key": [2, { checkFragmentShorthand: true }],
+    "react/jsx-no-useless-fragment": [1, { allowExpressions: true }],
+    "react/jsx-props-no-spreading": 0,
+    "react/no-array-index-key": 0,
+    "react/no-unstable-nested-components": [1, { allowAsProps: true }],
+    "react/prefer-stateless-function": 1,
+    "react/prop-types": 0,
+    "react/require-default-props": [2, { ignoreFunctionalComponents: true }],
+    "@docusaurus/string-literal-i18n-messages": 2,
+    "@docusaurus/no-untranslated-text":
+      [1, { ignoredStrings: ["·", "—", "×"] }],
+    "import/extensions": 0,
+    "import/no-unresolved":
+      [2, { "ignore": ["^@theme", "^@docusaurus", "^@site"] }],
+    "import/order":
+      [
+        1,
+        {
+          groups:
+            [
+              "builtin",
+              "external",
+              "internal",
+              ["parent", "sibling", "index"],
+              "type",
+            ],
+          pathGroups:
+            [
+              { pattern: "react", group: "builtin", position: "before" },
+              { pattern: "clsx", group: "external", position: "before" },
+              { pattern: "@theme/**", group: "internal" },
+              { pattern: "@site/**", group: "internal" },
+              { pattern: "@theme-init/**", group: "internal" },
+              { pattern: "@theme-original/**", group: "internal" },
+            ],
+          pathGroupsExcludedImportTypes: [],
+        },
+      ],
+    "import/prefer-default-export": 0,
   }
