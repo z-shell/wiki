@@ -207,7 +207,7 @@ zi snippet https://github.com/git/git/blob/master/contrib/completion/git-complet
 ### COMP: [bun-sh](https://github.com/oven-sh/bun/blob/main/completions/bun.zsh)
 
 ```shell showLineNumbers
-zi ice lucid wait as'completion' blockf  has'bun'
+zi ice lucid wait as'completion' blockf has'bun'
 zi snippet https://github.com/oven-sh/bun/blob/main/completions/bun.zsh
 ```
 
