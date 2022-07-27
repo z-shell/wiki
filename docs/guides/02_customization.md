@@ -12,8 +12,6 @@ keywords:
 
 <!-- @format -->
 
-import APITable from '@site/src/components/APITable';
-
 ## <i class="fa-solid fa-hashtag"></i> Hash parameter
 
 :::info Related
@@ -37,8 +35,6 @@ Variables has to be set before loading ZI, i.e `source "path/to/zi/bin/zi.zsh"`.
 
 ### <i class="fa-solid fa-sliders"></i> Customize paths {#customizing-paths}
 
-<APITable>
-
 | Hash Field                           | Description                                                                                                                                                                             |
 | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ZI[BIN_DIR]`                        | Where ZI code resides, e.g: "~/.zi/bin"                                                                                                                                                 |
@@ -51,11 +47,7 @@ Variables has to be set before loading ZI, i.e `source "path/to/zi/bin/zi.zsh"`.
 | [ZPFX][global-parameter-with-prefix] | Directory where binary and their related files are stored (software with `Makefile` can use `atclone'./configure --prefix=$ZPFX'`). Set by default to `$ZI[HOME_DIR]}/polaris`.         |
 | `ZI[MAN_DIR]`                        | Directory where plugins can store their manpages (`atclone"cp -vf man.1 $ZI[MAN_DIR]/man1"`). If overridden, this directory will not necessarily be used by man. Default: `${ZPFX}/man` |
 
-</APITable>
-
 ### <i class="fa-solid fa-sliders"></i> Modify settings {#modify-settings}
-
-<APITable>
 
 | Hash Field                       | Description                                                                                                                                                                                                                                                                                                                                                                                        |
 | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -63,8 +55,6 @@ Variables has to be set before loading ZI, i.e `source "path/to/zi/bin/zi.zsh"`.
 | `ZI[COMPINIT_OPTS]`              | Options for `compinit` call (e.g: done by `zicompinit`), use to pass -C to speed up loading                                                                                                                                                                                                                                                                                                        |
 | `ZI[MUTE_WARNINGS]`              | If set to `1`, then mutes some of the ZI warnings, specifically the `plugin already registered` warning                                                                                                                                                                                                                                                                                            |
 | `ZI[PKG_OWNER]`                  | Change the owner of the [packages][packages] (`zi pack …`).                                                                                                                                                                                                                                                                                                                                        |
-
-</APITable>
 
 ## <i class="fa-solid fa-square-up-right"></i> Non-GitHub (Local) Plugins {#non-github-local-plugins}
 
