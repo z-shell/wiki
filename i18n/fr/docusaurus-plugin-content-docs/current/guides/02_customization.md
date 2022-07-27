@@ -12,8 +12,6 @@ keywords:
 
 <!-- @format -->
 
-import APITable from '@site/src/components/APITable';
-
 ## <i class="fa-solid fa-hashtag"></i> Hash parameter
 
 :::info Related
@@ -37,25 +35,19 @@ Variables has to be set before loading ZI, i.e `source "path/to/zi/bin/zi.zsh"`.
 
 ### <i class="fa-solid fa-sliders"></i> Customize paths {#customizing-paths}
 
-<APITable>
-
-| Hash Field            | Description                                                                                                                                                                             |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ZI[BIN_DIR]`         | Where ZI code resides, e.g: "~/.zi/bin"                                                                                                                                                 |
-| `ZI[HOME_DIR]`        | Where ZI should create all working directories, e.g: "~/.zi"                                                                                                                            |
-| `ZI[PLUGINS_DIR]`     | Override single working directory – for plugins, e.g: "/opt/zsh/zi/plugins"                                                                                                             |
-| `ZI[COMPLETIONS_DIR]` | As above, but for completion files, e.g: "/opt/zsh/zi/root_completions"                                                                                                                 |
-| `ZI[SNIPPETS_DIR]`    | As above, but for snippets                                                                                                                                                              |
-| `ZI[ZMODULES_DIR]`    | Override single working directory – for Zsh modules e.g: "/opt/zsh/zi/zmodules"                                                                                                         |
-| `ZI[ZCOMPDUMP_PATH]`  | Path to `.zcompdump` file, with the file included (e.g: its name can be different)                                                                                                      |
-| [`ZPFX`][zpfx]        | Directory where binary and their related files are stored (software with `Makefile` can use `atclone'./configure --prefix=$ZPFX'`). Set by default to `$ZI[HOME_DIR]}/polaris`.         |
-| `ZI[MAN_DIR]`         | Directory where plugins can store their manpages (`atclone"cp -vf man.1 $ZI[MAN_DIR]/man1"`). If overridden, this directory will not necessarily be used by man. Default: `${ZPFX}/man` |
-
-</APITable>
+| Hash Field                           | Description                                                                                                                                                                             |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ZI[BIN_DIR]`                        | Where ZI code resides, e.g: "~/.zi/bin"                                                                                                                                                 |
+| `ZI[HOME_DIR]`                       | Where ZI should create all working directories, e.g: "~/.zi"                                                                                                                            |
+| `ZI[PLUGINS_DIR]`                    | Override single working directory – for plugins, e.g: "/opt/zsh/zi/plugins"                                                                                                             |
+| `ZI[COMPLETIONS_DIR]`                | As above, but for completion files, e.g: "/opt/zsh/zi/root_completions"                                                                                                                 |
+| `ZI[SNIPPETS_DIR]`                   | As above, but for snippets                                                                                                                                                              |
+| `ZI[ZMODULES_DIR]`                   | Override single working directory – for Zsh modules e.g: "/opt/zsh/zi/zmodules"                                                                                                         |
+| `ZI[ZCOMPDUMP_PATH]`                 | Path to `.zcompdump` file, with the file included (e.g: its name can be different)                                                                                                      |
+| [ZPFX][global-parameter-with-prefix] | Directory where binary and their related files are stored (software with `Makefile` can use `atclone'./configure --prefix=$ZPFX'`). Set by default to `$ZI[HOME_DIR]}/polaris`.         |
+| `ZI[MAN_DIR]`                        | Directory where plugins can store their manpages (`atclone"cp -vf man.1 $ZI[MAN_DIR]/man1"`). If overridden, this directory will not necessarily be used by man. Default: `${ZPFX}/man` |
 
 ### <i class="fa-solid fa-sliders"></i> Modify settings {#modify-settings}
-
-<APITable>
 
 | Hash Field                       | Description                                                                                                                                                                                                                                                                                                                                                                                        |
 | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -63,8 +55,6 @@ Variables has to be set before loading ZI, i.e `source "path/to/zi/bin/zi.zsh"`.
 | `ZI[COMPINIT_OPTS]`              | Options for `compinit` call (e.g: done by `zicompinit`), use to pass -C to speed up loading                                                                                                                                                                                                                                                                                                        |
 | `ZI[MUTE_WARNINGS]`              | If set to `1`, then mutes some of the ZI warnings, specifically the `plugin already registered` warning                                                                                                                                                                                                                                                                                            |
 | `ZI[PKG_OWNER]`                  | Change the owner of the [packages][packages] (`zi pack …`).                                                                                                                                                                                                                                                                                                                                        |
-
-</APITable>
 
 ## <i class="fa-solid fa-square-up-right"></i> Non-GitHub (Local) Plugins {#non-github-local-plugins}
 
@@ -349,4 +339,6 @@ zi lucid load'![[ $MYPROMPT = 8 ]]' unload'![[ $MYPROMPT != 8 ]]' \
 [13]: https://github.com/wfxr/forgit
 [14]: https://unix.stackexchange.com/questions/214657/what-does-zstyle-do/239980
 [15]: https://linuxshellaccount.blogspot.com/2008/12/color-completion-using-zsh-modules-on.html
+[packages]: /ecosystem/packages
 [standard parameter naming]: /community/zsh_plugin_standard#standard-parameter-naming
+[global-parameter-with-prefix]: /community/zsh_plugin_standard#global-parameter-with-prefix
