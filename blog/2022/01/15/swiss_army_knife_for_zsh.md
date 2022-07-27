@@ -1,6 +1,7 @@
 ---
 slug: swiss-army-knife-for-zsh
 title: Fast and feature-rich plugin manager for Zsh
+authors: ss-o
 sidebar_position: 1
 hide_title: false
 hide_table_of_contents: true
@@ -15,11 +16,6 @@ keywords:
   - introduction
 tags: [github, zsh]
 image: img/logo/320x320.png
-authors:
-  - name: Salvydas Lukosius
-    title: Maintainer
-    url: https://ss-o.github.io
-    image_url: https://github.com/ss-o.png
 ---
 
 <!-- @format -->
@@ -34,6 +30,8 @@ authors:
 Designed to glue everything together. 🔗
 
 [https://wiki.zshell.dev](https://wiki.zshell.dev) | [GitHub](https://github.com/z-shell/) | [Discussions](https://github.com/orgs/z-shell/discussions/) | [Localize](https://digitalclouds.crowdin.com/z-shell)
+
+/<!--\s*(truncate)\s*-->/
 
 ### ⚡️ Fast and feature-rich
 

@@ -52,8 +52,10 @@ const config = {
 						return `https://github.com/z-shell/wiki/tree/main/${blogDirPath}/${blogPath}`;
 					},
 					showReadingTime: true,
+					postsPerPage: 'ALL',
 					feedOptions: {
 						type: 'all',
+						copyright: `Copyright © ${new Date().getFullYear()} Z-Shell Community.`,
 					},
 				},
 				sitemap: { changefreq: 'daily' },
@@ -202,15 +204,15 @@ const config = {
 						items: [
 							{
 								label: 'JSON',
-								to: '/blog/feed.json',
+								href: 'https://wiki.zshell.dev/blog/feed.json/',
 							},
 							{
 								label: 'RSS',
-								to: '/blog/rss.xml',
+								href: 'https://wiki.zshell.dev/blog/rss.xml',
 							},
 							{
 								label: 'Atom',
-								to: '/blog/atom.xml',
+								href: 'https://wiki.zshell.dev/blog/atom.xml',
 							},
 						],
 					},
