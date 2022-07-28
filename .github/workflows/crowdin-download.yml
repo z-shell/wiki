@@ -31,4 +31,4 @@ jobs:
           upload_translations: false
           download_translations: true
           github_user_name: digital-teams[bot]
-          github_user_email: digital-teams@pm.me
+          github_user_email: actions@zshell.dev
