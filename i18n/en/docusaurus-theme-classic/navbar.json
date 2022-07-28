@@ -15,8 +15,20 @@
     "message": "Community",
     "description": "Navbar item with label Community"
   },
-  "item.label.Blog": {
-    "message": "Blog",
-    "description": "Navbar item with label Blog"
+  "item.label.Feed": {
+    "message": "Feed",
+    "description": "Navbar item with label Feed"
+  },
+  "item.label.JSON": {
+    "message": "JSON",
+    "description": "Navbar item with label JSON"
+  },
+  "item.label.RSS": {
+    "message": "RSS",
+    "description": "Navbar item with label RSS"
+  },
+  "item.label.Atom": {
+    "message": "Atom",
+    "description": "Navbar item with label Atom"
   }
 }

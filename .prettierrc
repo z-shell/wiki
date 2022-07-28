@@ -1,8 +1,6 @@
 # @format
 
 {
-  "tabWidth": 2,
-  "useTabs": true,
   "insertPragma": true,
   "requirePragma": true,
   "jsxSingleQuote": true,

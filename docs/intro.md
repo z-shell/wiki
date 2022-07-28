@@ -70,7 +70,7 @@ Install and control almost everything from [GitHub](https://github.com): [Annexe
 ## <i className="fa-beat" class="fa-solid fa-heart fa-beat"></i> Neat and flexible
 
 - [Customize paths][9], use [multiple prompts][10] or create [your own][11] plugins.
-- Supports [Oh My Zsh][oh-my-zsh] and [Prezto][prezto] plugins and libraries. ([migration][migration]).
+- Supports [Oh My Zsh][oh-my-zsh] and [Prezto][] plugins and libraries. ([migration][]).
 - Does not use `$FPATH`, loading multiple plugins doesn't clutter `$FPATH` with the same number of entries, e.g: 10, 15, or more.
 - Code is immune to `KSH_ARRAYS` and other options typically causing compatibility problems.
 - Do not require `sudo`, and provide many workarounds e.g: setting so-called **shims** locally.
@@ -80,7 +80,7 @@ Install and control almost everything from [GitHub](https://github.com): [Annexe
 - Visualise data: **aliases**, **functions**, **bindkeys**, **Zle widgets**, **zstyles**, **completions**, **variables**, `$PATH`, and `$FPATH` elements a plugin has set up.
 - Quickly familiarize oneself with a new plugin and provides rich and easy-to-digest information that might be helpful on various occasions.
 - [Load or unload][14] plugins, use the ability to [manage][15] completions.
-- Docker [playground], test or propose configurations.
+- Docker [playground][], test or propose configurations.
 
 ## <i class="fa-solid fa-list-check"></i> Summary
 

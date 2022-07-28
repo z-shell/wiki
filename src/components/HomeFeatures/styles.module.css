@@ -1,48 +1,48 @@
 /** @format */
 
 .videocontainer {
-	display: block;
-	height: auto;
-	width: 100%;
+  display: block;
+  height: auto;
+  width: 100%;
 }
 
 .videocontainer h2 {
-	text-align: left;
+  text-align: left;
 }
 
 .featurecontainer {
-	display: block;
-	align-items: center;
-	height: auto;
-	width: 100%;
+  display: block;
+  align-items: center;
+  height: auto;
+  width: 100%;
 }
 
 .features {
-	text-align: center;
-	align-items: center;
-	position: relative;
-	overflow: hidden;
-	padding: 4rem 0;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 0;
 }
 
 .featureimage {
-	display: inline;
-	height: 200px;
-	width: 200px;
+  display: inline;
+  height: 200px;
+  width: 200px;
 }
 
 @media only screen and (max-width: 996px) {
-	.features {
-		padding: 2rem 0;
-	}
+  .features {
+    padding: 2rem 0;
+  }
 }
 
 @media only screen and (max-width: 700px) {
-	.features {
-		padding: 0;
-	}
+  .features {
+    padding: 0;
+  }
 
-	.videocontainer {
-		display: none;
-	}
+  .videocontainer {
+    display: none;
+  }
 }

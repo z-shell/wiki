@@ -1,23 +1,22 @@
-# @format
-
 env:
   browser: true
   commonjs: true
+  es2021: true
   node: true
 extends:
   - eslint:recommended
   - plugin:react/recommended
   - plugin:react-hooks/recommended
-  - airbnb
   - plugin:@typescript-eslint/recommended
   - plugin:@docusaurus/recommended
+  - airbnb
   - prettier
-parser: "@typescript-eslint/parser"
+parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaFeatures:
     jsx: true
   ecmaVersion: latest
-  sourceType: module
+  type: molule
 plugins:
   - react
   - react-hooks
@@ -100,4 +99,5 @@ rules:
         },
       ],
     "import/prefer-default-export": 0,
+    "@typescript-eslint/no-var-requires": 0,
   }
