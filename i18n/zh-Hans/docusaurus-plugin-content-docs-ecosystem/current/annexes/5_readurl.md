@@ -68,7 +68,7 @@ zi as'readurl|command' extract for \
   http://domain.com/download-page/removed-section+++/archive.zip
 ```
 
-## 摘要
+## Summary
 
 The annex provides:
 

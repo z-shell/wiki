@@ -37,11 +37,11 @@
   },
   "link.item.label.GitHub Discussions": {
     "message": "GitHubで議論",
-    "description": "The label of footer link with label=GitHub Discussions linking to https://github.com/orgs/z-shell/discussions/"
+    "description": "The label of footer link with label=GitHub Discussions linking to https://discussions.zshell.dev/"
   },
   "link.item.label.Privacy Policy": {
     "message": "プライバシーポリシー",
-    "description": "The label of footer link with label=Privacy Policy linking to legal/PRIVACY/"
+    "description": "The label of footer link with label=Privacy Policy linking to legal/PRIVACY?static=true"
   },
   "copyright": {
     "message": "Copyright © 2022 Z-Shell Community.",

@@ -3,7 +3,7 @@ title: "♻️ Migration"
 image: img/logo/320x320.png
 description: Guide de migration
 keywords:
-  - configuration
+  - setup
   - prezto
   - oh-my-zsh
   - migration

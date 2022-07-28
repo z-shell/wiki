@@ -53,7 +53,7 @@ Besides the GitHub-API querying, there's also a fixed, curated list of mappings 
 |           arch            | PZTM::archive                     |
 |         directory         | PZTM::directory                   |
 |            dir            | PZTM::directory                   |
-|       environnement       | PZTM::environment                 |
+|        environment        | PZTM::environment                 |
 |            env            | PZTM::environment                 |
 |          utility          | PZTM::utility                     |
 |           util            | PZTM::utility                     |

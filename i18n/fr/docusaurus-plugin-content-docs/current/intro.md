@@ -70,7 +70,7 @@ Install and control almost everything from [GitHub](https://github.com): [Annexe
 ## <i className="fa-beat" class="fa-solid fa-heart fa-beat"></i> Soigné et flexible
 
 - [Customize paths][9], use [multiple prompts][10] or create [your own][11] plugins.
-- Supports [Oh My Zsh][oh-my-zsh] and [Prezto][prezto] plugins and libraries. ([migration][migration]).
+- Supports [Oh My Zsh][oh-my-zsh] and [Prezto][] plugins and libraries. ([migration][]).
 - N'utilise pas `$FPATH`, le chargement de plusieurs plugins n'encombre pas `$FPATH` avec le même nombre d'entrées, par exemple : 10, 15, ou plus.
 - Le code est immunisé contre `KSH_ARRAYS` et d'autres options causant généralement des problèmes de compatibilité.
 - Ne nécessite pas `sudo`, et fournit de nombreuses solutions de contournement, par exemple: définir les **shims** localement.
@@ -102,7 +102,7 @@ Install and control almost everything from [GitHub](https://github.com): [Annexe
 [10]: /docs/guides/customization#multiple-prompts
 [11]: /docs/guides/customization#non-github-local-plugins
 [oh-my-zsh]: /docs/getting_started/overview#oh-my-zsh-prezto
-[prezto]: /docs/getting_started/overview#oh-my-zsh-prezto
+[Prezto]: /docs/getting_started/overview#oh-my-zsh-prezto
 [migration]: /docs/getting_started/migration
 [14]: /docs/guides/commands#loading-and-unloading
 [15]: /docs/guides/commands#completions-management

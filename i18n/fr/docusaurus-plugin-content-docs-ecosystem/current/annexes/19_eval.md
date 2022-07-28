@@ -69,7 +69,7 @@ zi ice eval"dircolors -b LS_COLORS" \
 zi light trapd00r/LS_COLORS
 ```
 
-## Sans ZI
+## Without ZI
 
 ```shell
 if [[ "${+commands[kubectl]}" == 1 ]]; then

@@ -1,5 +1,5 @@
 ---
-id: paquets
+id: packages
 slug: /packages
 title: '📦 Synopsis of packages'
 sidebar_position: 1

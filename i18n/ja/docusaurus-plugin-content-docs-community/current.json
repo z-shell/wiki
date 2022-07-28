@@ -1,8 +1,4 @@
 {
-  "version.label": {
-    "message": "次へ",
-    "description": "The label for version current"
-  },
   "sidebar.SideBar.category.✨ Gallery of Invocations": {
     "message": "✨ 呼び出しの一覧",
     "description": "The label for category ✨ Gallery of Invocations in sidebar SideBar"

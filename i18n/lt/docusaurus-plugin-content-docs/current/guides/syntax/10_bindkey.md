@@ -107,12 +107,12 @@ In the non-investigation:
 - the [light mode](/search/?q=light+mode) – activated when `zi light …` or the `light-mode` ice is being used – the `bindmap'…'` is unavailable, unless the `trackbinds` ice is specified:
 
 ```shell showLineNumbers
-# With use of the light-mode ice and the for-syntax:
+# With the use of the light-mode ice and the for-syntax:
 zi light-mode trackbinds bindmap'^R -> ^G' for z-shell/history-search-multi-word
 ```
 
 ```shell showLineNumbers
-# With use of the classic syntax:
+# With the use of the traditional syntax:
 zi trackbinds bindmap'^R -> ^G' for z-shell/history-search-multi-word
 zi light z-shell/history-search-multi-word
 ```
@@ -125,7 +125,7 @@ There are four special values that can be used on the left side of the bind-map:
 zi bindmap='LEFTAR -> ^F; RIGHTAR -> ^G' …
 ```
 
-The benefits of using the <kbd>UPAR</kbd>, … shorthands is that they cover multiple possible cursor-key codes for each of the cursor key, so that they'll work regardless of the terminal being used.
+The benefit of using the <kbd>UPAR</kbd>, … shorthands is that they cover multiple possible cursor-key codes for each of the cursor keys so that they'll work regardless of the terminal is used.
 
 [1]: /search/?q=binkey
 [2]: /search/?q=ice+modifier

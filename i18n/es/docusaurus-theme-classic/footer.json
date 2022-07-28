@@ -11,13 +11,9 @@
     "message": "Introducción",
     "description": "The label of footer link with label=Introduction linking to /docs"
   },
-  "link.item.label.Community": {
-    "message": "Comunidad",
-    "description": "The label of footer link with label=Community linking to /community"
-  },
   "link.item.label.GitHub Discussions": {
     "message": "Discusiones en GitHub",
-    "description": "The label of footer link with label=GitHub Discussions linking to https://github.com/orgs/z-shell/discussions/"
+    "description": "The label of footer link with label=GitHub Discussions linking to https://discussions.zshell.dev/"
   },
   "link.item.label.GitHub Organization": {
     "message": "Organización de GitHub",
@@ -25,6 +21,6 @@
   },
   "link.item.label.Privacy Policy": {
     "message": "Política de Privacidad",
-    "description": "The label of footer link with label=Privacy Policy linking to legal/PRIVACY/"
+    "description": "The label of footer link with label=Privacy Policy linking to legal/PRIVACY?static=true"
   }
 }

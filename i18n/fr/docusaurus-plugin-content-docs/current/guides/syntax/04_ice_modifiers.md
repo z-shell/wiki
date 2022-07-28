@@ -100,7 +100,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 
 </APITable>
 
-## <i class="fa-solid fa-list"></i> Complétions {#completions}
+## <i class="fa-solid fa-list"></i> Completions {#completions}
 
 <APITable>
 

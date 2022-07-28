@@ -81,7 +81,7 @@ skip'vivid exa tig' @console-tools
 | @py-utils        | [pyenv][44] (package)                                                                                                                   |
 | @prezto          | PZTM::archive, PZTM::directory, PZTM::utility                                                                                           |
 
-## Récapitulatif
+## Summary
 
 It consumes time to:
 
@@ -105,11 +105,11 @@ Other unique benefits of the meta plugins annex:
 
 ---
 
-![screenshot meta-plugins annex][50]
+![screenshot meta-plugins annex][z-a-meta-plugins.plugin.zsh]
 
 <!-- end-of-file -->
 
-[50]: https://raw.githubusercontent.com/z-shell/z-a-meta-plugins/main/docs/images/fuzzy-mplg-ex.png#center
+[50]: https://github.com/z-shell/z-a-meta-plugins/blob/main/z-a-meta-plugins.plugin.zsh
 
 [1]: https://github.com/z-shell/z-a-bin-gem-node
 [2]: https://github.com/z-shell/z-a-readurl
@@ -159,4 +159,3 @@ Other unique benefits of the meta plugins annex:
 [46]: /docs/guides/syntax/ice
 [47]: https://github.com/z-shell/z-a-meta-plugins/issues/new
 [49]: https://github.com/z-shell/zsh-select
-[50]: https://github.com/z-shell/z-a-meta-plugins/blob/main/z-a-meta-plugins.plugin.zsh

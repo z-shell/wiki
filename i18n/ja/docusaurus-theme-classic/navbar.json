@@ -6,9 +6,5 @@
   "item.label.Community": {
     "message": "Community",
     "description": "Navbar item with label Community"
-  },
-  "item.label.Blog": {
-    "message": "ブログ",
-    "description": "Navbar item with label Blog"
   }
 }

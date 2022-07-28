@@ -91,7 +91,7 @@ zi wait lucid light-mode for \
     zsh-users/zsh-completions
 ```
 
-| Syntaxe      | Description                                                                                                        |
+| Syntax       | Description                                                                                                        |
 | ------------ |:------------------------------------------------------------------------------------------------------------------ |
 | `wait`       | Chargement 0 seconde (environ 5 ms exactement) après l'invite ([turbo mode][6]).                                   |
 | `lucid`      | Faites taire les messages sous l'invite ("`Loaded {name of the plugin}`").                                         |
@@ -181,7 +181,7 @@ La configuration ci-dessus charge tout après l'invite, à cause de la glace pr�
 
 Essayez les deux configurations au quotidien pour constater la différence. Les fonctionnalités de ZI peuvent faire beaucoup plus que ce simple exemple.
 
-## <i class="fa-solid fa-book-bookmark"></i> Récapitulatif
+## <i class="fa-solid fa-book-bookmark"></i> Summary
 
 En général, le [ mode turbo][6] ne peut être activé que pour un sous-ensemble de plugins ou pour tous les plugins.
 

@@ -3,7 +3,7 @@ id: common
 title: '🔀 常用语法'
 sidebar_position: 1
 image: img/logo/320x320.png
-description: The Fundamental ZI syntax.
+description: The Fundamental syntax.
 keywords:
   - common
   - syntax
@@ -18,7 +18,7 @@ It is recommended to familiarize with [getting_started/oveview][9] before this.
 
 :::
 
-## <i class="fa-solid fa-circle-nodes"></i> The make syntax {#the-make-syntax}
+## <i class="fa-solid fa-circle-nodes"></i> The "make" syntax {#the-make-syntax}
 
 ```shell showLineNumbers
 zi ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
@@ -37,7 +37,7 @@ The `Makefile` with 2 tasks, can use:
 
 :::info
 
-[$ZPFX][zpfx] is provided by ZI, it is set to `~/.zi/polaris` by default. However, it can be changed by specifying: `$ZPFX=` target.
+[$ZPFX][zpfx] is provided by Zi, it is set to `~/.zi/polaris` by default. However, it can be changed by specifying: `$ZPFX=` target.
 
 :::
 
@@ -194,7 +194,7 @@ zi --wait=1 --from=gh-r --atload="print Hello World"
 zi load …
 ```
 
-## <i class="fa-solid fa-book-bookmark"></i> 摘要 {#summary}
+## <i class="fa-solid fa-book-bookmark"></i> Summary {#summary}
 
 It's up to the user which syntax to choose.
 

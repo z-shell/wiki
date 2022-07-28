@@ -181,7 +181,7 @@ Above setup loads everything after prompt, because of preceding `wait` ice. That
 
 Try both setups on the daily basis to notice the difference. The features of ZI can do much more than this simple example.
 
-## <i class="fa-solid fa-book-bookmark"></i> 摘要
+## <i class="fa-solid fa-book-bookmark"></i> Summary
 
 In general, [turbo mode][6] can be optionally enabled only for a subset of plugins or for all plugins.
 

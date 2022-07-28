@@ -224,7 +224,7 @@ skip_global_compinit=1
 
 ## <i class="fa-solid fa-list-check"></i> Multiple prompts {#multiple-prompts}
 
-| Syntaxe     | Description                                                   |
+| Syntax      | Description                                                   |
 | ----------- |:------------------------------------------------------------- |
 | `load'…'`   | condition that when fulfilled will cause plugin to be loaded. |
 | `unload'…'` | as above, but will unload plugin.                             |
@@ -235,7 +235,7 @@ skip_global_compinit=1
 
 :::
 
-| Syntaxe      | Description                                                                                           |
+| Syntax       | Description                                                                                           |
 | ------------ |:----------------------------------------------------------------------------------------------------- |
 | `atload'!…'` | run the `precmd` hooks to make the prompts fully initialized when loaded in the middle of the prompt. |
 | `precmd`     | hooks are being normally run before each **new** prompt.                                              |
