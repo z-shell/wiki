@@ -3,9 +3,9 @@
 name: "🌐 Crowdin Download"
 
 on:
-  workflow_dispatch:
   schedule:
     - cron: "0 */4 * * *"
+  workflow_dispatch: {}
 
 env:
   GITHUB_TOKEN: ${{ secrets.GH_PAT }}
