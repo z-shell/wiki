@@ -69,10 +69,11 @@ const config = {
     [
       "ideal-image",
       /** @type {import('@docusaurus/plugin-ideal-image').PluginOptions} */
-      ({ max: 1030, min: 100, disableInDev: false }),
+      ({ max: 1030, min: 480, disableInDev: false }),
     ],
     [
       "pwa",
+      /** @type {import('@docusaurus/plugin-pwa').PluginOptions} */
       {
         debug: true,
         offlineModeActivationStrategies: [

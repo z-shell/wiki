@@ -1468,7 +1468,7 @@ packages:
       babel-plugin-polyfill-corejs2: 0.3.2_@babel+core@7.18.9
       babel-plugin-polyfill-corejs3: 0.5.3_@babel+core@7.18.9
       babel-plugin-polyfill-regenerator: 0.3.1_@babel+core@7.18.9
-      core-js-compat: 3.24.0
+      core-js-compat: 3.24.1
       semver: 6.3.0
     transitivePeerDependencies:
       - supports-color
@@ -1520,7 +1520,7 @@ packages:
     resolution: {integrity: sha512-qZEWeccZCrHA2Au4/X05QW5CMdm4VjUDCrGq5gf1ZDcM4hRqreKrtwAn7yci9zfgAS9apvnsFXiGBHBAxZdK9A==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      core-js-pure: 3.24.0
+      core-js-pure: 3.24.1
       regenerator-runtime: 0.13.9
 
   /@babel/runtime/7.18.9:
@@ -1645,7 +1645,7 @@ packages:
       '@docusaurus/utils-validation': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
       '@slorber/static-site-generator-webpack-plugin': 4.0.7
       '@svgr/webpack': 6.3.1
-      autoprefixer: 10.4.7_postcss@8.4.14
+      autoprefixer: 10.4.8_postcss@8.4.14
       babel-loader: 8.2.5_y3lv6tn6yokher4u7xj4j22px4
       babel-plugin-dynamic-import-node: 2.3.3
       boxen: 6.2.1
@@ -1656,7 +1656,7 @@ packages:
       combine-promises: 1.1.0
       commander: 5.1.0
       copy-webpack-plugin: 11.0.0_webpack@5.74.0
-      core-js: 3.24.0
+      core-js: 3.24.1
       css-loader: 6.7.1_webpack@5.74.0
       css-minimizer-webpack-plugin: 4.0.0_kwz7aenajwsweas6icw5ncsgdy
       cssnano: 5.1.12_postcss@8.4.14
@@ -2082,7 +2082,7 @@ packages:
       '@docusaurus/utils-validation': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
       babel-loader: 8.2.5_y3lv6tn6yokher4u7xj4j22px4
       clsx: 1.2.1
-      core-js: 3.24.0
+      core-js: 3.24.1
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       terser-webpack-plugin: 5.3.3_webpack@5.74.0
@@ -2930,7 +2930,7 @@ packages:
       '@types/body-parser': 1.19.2
       '@types/express-serve-static-core': 4.17.30
       '@types/qs': 6.9.7
-      '@types/serve-static': 1.13.10
+      '@types/serve-static': 1.15.0
     dev: false
 
   /@types/hast/2.3.4:
@@ -2983,8 +2983,8 @@ packages:
       '@types/unist': 2.0.6
     dev: false
 
-  /@types/mime/1.3.2:
-    resolution: {integrity: sha512-YATxVxgRqNH6nHEIsvg6k2Boc1JHI9ZbH5iWFFv/MTkchz3b1ieGDa5T0a9RznNdI0KhVbdbWSN+KWWrQZRxTw==}
+  /@types/mime/3.0.0:
+    resolution: {integrity: sha512-fccbsHKqFDXClBZTDLA43zl0+TbxyIwyzIzwwhvoJvhNjOErCdeX2xJbURimv2EbSVUGav001PaCJg4mZxMl4w==}
     dev: false
 
   /@types/minimist/1.2.2:
@@ -3078,10 +3078,10 @@ packages:
       '@types/express': 4.17.13
     dev: false
 
-  /@types/serve-static/1.13.10:
-    resolution: {integrity: sha512-nCkHGI4w7ZgAdNkrEu0bv+4xNV/XDqW+DydknebMOQwkpDGx8G+HTlj7R7ABI8i8nKxVw0wtKPi1D+lPOkh4YQ==}
+  /@types/serve-static/1.15.0:
+    resolution: {integrity: sha512-z5xyF6uh8CbjAu9760KDKsH2FcDxZ2tFCsA4HIMWE6IkiYMXfVoa+4f9KX+FN0ZLsaMw1WNG2ETLA6N+/YA+cg==}
     dependencies:
-      '@types/mime': 1.3.2
+      '@types/mime': 3.0.0
       '@types/node': 18.0.6
     dev: false
 
@@ -3590,8 +3590,8 @@ packages:
     engines: {node: '>= 4.0.0'}
     dev: false
 
-  /autoprefixer/10.4.7_postcss@8.4.14:
-    resolution: {integrity: sha512-ypHju4Y2Oav95SipEcCcI5J7CGPuvz8oat7sUtYj3ClK44bldfvtvcxK6IEK++7rqB7YchDGzweZIBG+SD0ZAA==}
+  /autoprefixer/10.4.8_postcss@8.4.14:
+    resolution: {integrity: sha512-75Jr6Q/XpTqEf6D2ltS5uMewJIx5irCU1oBYJrWjFenq/m12WRRrz6g15L1EIoYvPLXTbEry7rDOwrcYNj77xw==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
     peerDependencies:
@@ -3680,7 +3680,7 @@ packages:
     dependencies:
       '@babel/core': 7.18.9
       '@babel/helper-define-polyfill-provider': 0.3.2_@babel+core@7.18.9
-      core-js-compat: 3.24.0
+      core-js-compat: 3.24.1
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -4287,19 +4287,19 @@ packages:
       webpack: 5.74.0
     dev: false
 
-  /core-js-compat/3.24.0:
-    resolution: {integrity: sha512-F+2E63X3ff/nj8uIrf8Rf24UDGIz7p838+xjEp+Bx3y8OWXj+VTPPZNCtdqovPaS9o7Tka5mCH01Zn5vOd6UQg==}
+  /core-js-compat/3.24.1:
+    resolution: {integrity: sha512-XhdNAGeRnTpp8xbD+sR/HFDK9CbeeeqXT6TuofXh3urqEevzkWmLRgrVoykodsw8okqo2pu1BOmuCKrHx63zdw==}
     dependencies:
       browserslist: 4.21.3
       semver: 7.0.0
     dev: false
 
-  /core-js-pure/3.24.0:
-    resolution: {integrity: sha512-uzMmW8cRh7uYw4JQtzqvGWRyC2T5+4zipQLQdi2FmiRqP83k3d6F3stv2iAlNhOs6cXN401FCD5TL0vvleuHgA==}
+  /core-js-pure/3.24.1:
+    resolution: {integrity: sha512-r1nJk41QLLPyozHUUPmILCEMtMw24NG4oWK6RbsDdjzQgg9ZvrUsPBj1MnG0wXXp1DCDU6j+wUvEmBSrtRbLXg==}
     requiresBuild: true
 
-  /core-js/3.24.0:
-    resolution: {integrity: sha512-IeOyT8A6iK37Ep4kZDD423mpi6JfPRoPUdQwEWYiGolvn4o6j2diaRzNfDfpTdu3a5qMbrGUzKUpYpRY8jXCkQ==}
+  /core-js/3.24.1:
+    resolution: {integrity: sha512-0QTBSYSUZ6Gq21utGzkfITDylE8jWC9Ne1D2MrhvlsZBI1x39OdDIVbzSqtgMndIy6BlHxBXpMGqzZmnztg2rg==}
     requiresBuild: true
     dev: false
 
@@ -4461,7 +4461,7 @@ packages:
     peerDependencies:
       postcss: ^8.2.15
     dependencies:
-      autoprefixer: 10.4.7_postcss@8.4.14
+      autoprefixer: 10.4.8_postcss@8.4.14
       cssnano-preset-default: 5.2.12_postcss@8.4.14
       postcss: 8.4.14
       postcss-discard-unused: 5.1.0_postcss@8.4.14
@@ -10160,7 +10160,7 @@ packages:
       '@types/connect-history-api-fallback': 1.3.5
       '@types/express': 4.17.13
       '@types/serve-index': 1.9.1
-      '@types/serve-static': 1.13.10
+      '@types/serve-static': 1.15.0
       '@types/sockjs': 0.3.33
       '@types/ws': 8.5.3
       ansi-html-community: 0.0.8

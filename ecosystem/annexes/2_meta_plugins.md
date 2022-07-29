@@ -105,7 +105,7 @@ Other unique benefits of the meta plugins annex:
 
 ---
 
-![screenshot meta-plugins annex][48]
+![meta-plugins][48]
 
 <!-- end-of-file -->
 
