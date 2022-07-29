@@ -1,6 +1,6 @@
 ---
 id: available-packages
-title: 📦 Available packages
+title: "📦 Available packages"
 image: img/logo/320x320.png
 description: The Z-Shell Organization packages
 keywords:
@@ -25,8 +25,8 @@ For all the available packages use [GitHub search][22].
 |      [ls_colors][9]      | The ls_colors and setup a zsh-completion system color-scheme.                                    |
 | [dircolors-material][10] | The dircolors-material and setup a zsh-completion system color-scheme.                           |
 |    [asciidoctor][11]     | The asciidoctor Markdown processor.                                                              |
-| [system-completions][12] | Moves the stock Zsh completions under the control of ZI.                                         |
-|  [brew-completions][21]  | The Homebrew Shell Completion under the control of Zsh & ZI.                                     |
+| [system-completions][12] | Moves the stock Zsh completions under the control of Zi.                                         |
+|  [brew-completions][21]  | The Homebrew Shell Completion under the control of Zsh & Zi.                                     |
 |      [ecs-cli][13]       | The AWS ECS CLI                                                                                  |
 |     [subversion][14]     | The Subversion client                                                                            |
 |   [github-issues][15]    | The GitHub Issues client                                                                         |

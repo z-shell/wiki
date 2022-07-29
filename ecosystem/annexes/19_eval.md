@@ -1,6 +1,6 @@
 ---
 id: eval
-title: 🌀 Eval
+title: "🌀 Eval"
 image: img/logo/320x320.png
 description: Annex - Eval documentation.
 keywords:
@@ -16,15 +16,15 @@ keywords:
 
 The output of a slow initialization command is redirected to a file located within the plugin/snippets directory and sourced while loading. The next time the plugin/snippet is loaded, this file will be sourced skipping the need to run the initialization command.
 
-The ice-modifier `eval''` provided and handled by this annex creates a `cache` in the plugin/snippets root directory which stores the commands output.
+The ice-modifier `eval'…'` provided and handled by this annex creates a `cache` in the plugin/snippets root directory which stores the commands output.
 
 This cache is regenerated when:
 
 - The plugin/snippet is updated.
 - The cache file is removed.
-- With the new ZI subcommand `recache`.
+- With the new Zi subcommand `recache`.
 
-> The optional preceding `!` flag means to store command output regardless of exit code. Otherwise `eval''` will avoid caching ouput of code which returns a non-zero exit code.
+> The optional preceding `!` flag means to store command output regardless of exit code. Otherwise `eval'…'` will avoid caching ouput of code which returns a non-zero exit code.
 
 ## Synopsis
 
@@ -69,7 +69,7 @@ zi ice eval"dircolors -b LS_COLORS" \
 zi light trapd00r/LS_COLORS
 ```
 
-## Without ZI
+## Without Zi
 
 ```shell
 if [[ "${+commands[kubectl]}" == 1 ]]; then
@@ -77,7 +77,7 @@ if [[ "${+commands[kubectl]}" == 1 ]]; then
 fi
 ```
 
-## With ZI and z-a-eval
+## With Zi and z-a-eval
 
 ```shell
 ## Updated during `zi update`

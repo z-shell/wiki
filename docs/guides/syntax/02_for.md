@@ -1,6 +1,6 @@
 ---
 id: for
-title: ✨ The "For" Syntax
+title: '✨ The "For" Syntax'
 sidebar_position: 2
 image: img/logo/320x320.png
 description: The "For" Syntax documentation
@@ -15,7 +15,7 @@ keywords:
 
 The `for` syntax is the most popular, more concise, and more optimized. The single command will work the same as the classic-syntax invocation.
 
-It allows providing common/default ices for a <b> set of plugins </b> or to source <b> multiple files </b> with ices: [src, pick, multisrc][ice#src-pick-multisrc].
+It allows providing common/default ices for a <b> set of plugins </b> or to source <b> multiple files </b> with the ices: [src, pick, multisrc][ice#src-pick-multisrc].
 
 :::tip
 
@@ -98,12 +98,9 @@ zi wait lucid light-mode for \
 | `light-mode` | Load the plugin in `light` mode. [^1].                                                       |
 | `atpull'…'`  | Execute after updating the plugin – the command in the ice will install any new completions. |
 | `atinit'…'`  | Execute code before loading plugin.                                                          |
-| `atload'…'`  | Execute code after loading plugin.                                                           |
+| `atload'…'`  | Execute code after loading the plugin.                                                       |
 | `zicompinit` | Equals to `autoload compinit; compinit`.                                                     |
-| `zicdreplay` | Execute `compdef …` calls that plugins did. More below [^2].                                 |
-
-[^1]: Then the tracking of plugin, activity report gathering, accessible via the `zi report {plugin-name}` subcommand) is being disabled. Note that for turbo mode, the performance gains are almost `0`, so in this mode, you can load all plugins with the tracking and the `light-mode` ice can be removed from the command.
-[^2]: They were recorded and `compinit` can be called later. `compinit` provides the `compdef` function, so it must be ran before issuing the taken-over `compdef`s with `zicdreplay`.
+| `zicdreplay` | Execute `compdef …` calls by plugins. More below [^2].                                       |
 
 ## <i class="fa-solid fa-list"></i> Oh-My-Zsh, [turbo][6] Oh-My-Zsh and the [for][10] syntax
 
@@ -182,7 +179,7 @@ zi wait lucid for \
 
 Above setup loads everything after prompt, because of preceding `wait` ice. That is called **turbo mode**, it shortens Zsh startup time by <u>50%-80%</u>, e.g. instead of 200 ms, it'll be getting your shell started up after **40 ms**.
 
-Try both setups on the daily basis to notice the difference. The features of ZI can do much more than this simple example.
+Try both setups on the daily basis to notice the difference. The features of Zi can do much more than this simple example.
 
 ## <i class="fa-solid fa-book-bookmark"></i> Summary
 
@@ -190,9 +187,15 @@ In general, [turbo mode][6] can be optionally enabled only for a subset of plugi
 
 Syntax-highlighting plugins, like [F-Sy-H][11] or [zsh-syntax-highlighting][12], theoretically expect to be loaded last, even after the completion initialization as `compinit` function.
 
-However in practice, you just have to ensure that such plugin is loaded after plugins that are issuing `compdef` – which basically means completions that aren't using the
-underscore-starting function file; the completion initialization still has to be performed before syntax-highlighting
-plugin, hence the `atinit'…'` ice, which will load `compinit` right before loading the plugin, the syntax-highlighting and suggestions plugins are loaded early for a better user experience.
+However, in practice, you just have to ensure that such plugin is loaded after plugins that are issuing `compdef` – which basically means completions that aren't using the underscore-starting function file; the completion initialization still has to be performed before syntax-highlighting plugin, hence the `atinit'…'` ice, which will load `compinit` right before loading the plugin, the syntax-highlighting and suggestions plugins are loaded early for a better user experience.
+
+<!-- end-of-file -->
+<!-- footnotes -->
+
+[^1]: Then the tracking of plugin, activity report gathering, accessible via the `zi report {plugin-name}` subcommand) is being disabled. Note that for turbo mode, the performance gains are almost `0`, so in this mode, you can load all plugins with the tracking and the `light-mode` ice can be removed from the command.
+[^2]: They were recorded and `compinit` can be called later. `compinit` provides the `compdef` function, so it must be ran before issuing the taken-over `compdef`s with `zicdreplay`.
+
+<!-- links -->
 
 [1]: /search/?q=GH-R
 [2]: /search/?q=git+ext

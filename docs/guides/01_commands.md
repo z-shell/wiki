@@ -3,7 +3,7 @@ id: commands
 title: "🛠 Commands"
 sidebar_position: 1
 image: img/logo/320x320.png
-description: ZI commands & functions
+description: Zi commands & functions
 keywords:
   - commands
   - functions
@@ -72,24 +72,23 @@ zstatus                -- Check and provide status information
 
 ## Updates
 
-To update ZI run `zi self-update` in the command line. To update all plugins and snippets, issue `zi update`. To update all in parallel (up to 40 at the time) `zi update -p 40` If you wish to update only a single plugin/snippet instead issue `zi update NAME_OF_PLUGIN`. A list of commits will be shown if any.
+To update Zi run `zi self-update` in the command line. To update all plugins and snippets, issue `zi update`. To update all in parallel (up to 40 at the time) `zi update -p 40` If you wish to update only a single plugin/snippet instead issue `zi update NAME_OF_PLUGIN`. A list of commits will be shown if any.
 
-Some plugins require performing an action each time they're updated. One way you can do this is by using the `atpull` ice modifier.
-For example, writing `zi ice atpull'./configure'` before loading a plugin will execute `./configure` after a successful update. Refer to [Ice Modifiers][1] for more information.
+Some plugins require performing an action each time they're updated. One way you can do this is by using the `atpull'…'` ice modifier. For example, writing `zi ice atpull'./configure'` before loading a plugin will execute `./configure` after a successful update. Refer to [Ice Modifiers][1] for more information.
 
 The ice modifiers for any plugin or snippet are stored in their directory in a `._zi` subdirectory, hence the plugin doesn't have to be loaded to be correctly updated. There's one other file created there, `.zi_lstupd` – it holds the log of the new commits pulled-in in the last update.
 
 :::tip
 
-It is possible to combine system updates with tools like [topgrade][5] which will run ZI updates automatically.
+It is possible to combine system updates with tools like [topgrade][5] which will run Zi updates automatically.
 
 :::
 
 ## Calling `compinit` without turbo mode
 
-With no Turbo mode in use, compinit can be called normally, i.e.: as `autoload compinit; compinit`. This should be done after loading of all plugins and before possibly calling `zi cdreplay`. The `cdreplay` subcommand is provided to re-play all caught `compdef` calls. The `compdef` calls are used to define a completion for a command. For example, `compdef _git git` defines that the `git` command should be completed by a `_git` function. The `compdef` function is provided by `compinit` call.
+With no turbo mode in use, compinit can be called normally, i.e.: as `autoload compinit; compinit`. This should be done after loading of all plugins and before possibly calling `zi cdreplay`. The `cdreplay` subcommand is provided to re-play all caught `compdef` calls. The `compdef` calls are used to define a completion for a command. For example, `compdef _git git` defines that the `git` command should be completed by a `_git` function. The `compdef` function is provided by `compinit` call.
 
-As it should be called later, after loading all of the plugins, ZI provides its own `compdef` function that catches (i.e.: records in an array) the arguments of the call, so that the loaded plugins can freely call `compdef`. Then, the `cdreplay` (compdef-replay) can be used, after `compinit` will be called (and the original `compdef` function will become available), to execute all detected `compdef` calls.
+As it should be called later, after loading all of the plugins, Zi provides its own `compdef` function that catches (i.e.: records in an array) the arguments of the call, so that the loaded plugins can freely call `compdef`. Then, the `cdreplay` (compdef-replay) can be used, after `compinit` will be called (and the original `compdef` function will become available), to execute all detected `compdef` calls.
 
 Summary:
 
@@ -189,12 +188,9 @@ Following commands are passed to `zi …` to obtain described effects.
 |     `load` `'…'`     | Load plugin, can also receive absolute local path.                                                |
 |  `light` `-b` `'…'`  | Light plugin load, without reporting/investigating. `-b` – investigate `bindkey`-calls only. [^1] |
 | `unload` `-q` `'…'`  | Unload plugin loaded with `zi load …`. `-q` – quiet.                                              |
-| `snippet` `-f` `URL` | Source local or remote file (by direct URL). `-f` – don't use cache (force redownload). [^2]      |
+| `snippet` `-f` `URL` | Source local (full path) or remote file (URL). `-f` – don't use cache (force redownload). [^2]    |
 
 </APITable>
-
-[^1]: There's also `light-mode` ice which can be used to induce the no-investigating (i.e.: _light_) loading, regardless of the command used.
-[^2]: The URL can use the following shorthands: `PZT::` (Prezto), `PZTM::` (Prezto module), `OMZ::` (Oh-My-Zsh), `OMZP::` (OMZ plugin), `OMZL::` (OMZ library), `OMZT::` (OMZ theme), e.g.: `PZTM::environment`, `OMZP::git`, etc.
 
 ## Completions management
 
@@ -266,7 +262,7 @@ Following commands are passed to `zi …` to obtain described effects.
 
 |                         Command                          | Description                                                                                                                                                |
 | :------------------------------------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                      `self-update`                       | Updates and compiles ZI.                                                                                                                                   |
+|                      `self-update`                       | Updates and compiles Zi.                                                                                                                                   |
 |           `update` `-q` `-r` `'…'` or `--all`            | Update all plugins and snippets with `--all` – for quiet `-q` – execute `git reset --hard` or `svn revert` before pulling changes with `-r`.               |
 |                        `ice '…'`                         | Add ice to next command, argument e.g.: from"gitlab".                                                                                                      |
 |           `delete` `'…'` or `--clean` `--all`            | Remove plugin or snippet from disk (good to forget wrongly passed ice-modifiers) `--all` – delete plugins and snippets that are not loaded with `--clean`. |
@@ -285,15 +281,22 @@ Following commands are passed to `zi …` to obtain described effects.
 
 </APITable>
 
-[^3]: The `'…'` can be absolute path, i.e.: it's possible to also add regular directories. If the option `-f` or `--front` is given, the directory path is prepended instead of appended to `$fpath`.
-[^4]: If the option `-l` will be given then the plugin should be skipped – the option will cause the previous plugin to be reused.
-
 ## Help & Manual
 
 |  Command   | Description        |
 | :--------: | ------------------ |
 | `-h, help` | Usage information. |
 |   `man`    | Manual.            |
+
+<!-- end-of-file -->
+<!--footnotes-->
+
+[^1]: There's also `light-mode` ice which can be used to induce the no-investigating (i.e.: _light_) loading, regardless of the command used.
+[^2]: The URL can use the following shorthands: `PZT::` (Prezto), `PZTM::` (Prezto module), `OMZ::` (Oh-My-Zsh), `OMZP::` (OMZ plugin), `OMZL::` (OMZ library), `OMZT::` (OMZ theme), e.g.: `PZTM::environment`, `OMZP::git`, etc.
+[^3]: The `'…'` can be absolute path, i.e.: it's possible to also add regular directories. If the option `-f` or `--front` is given, the directory path is prepended instead of appended to `$fpath`.
+[^4]: If the option `-l` will be given then the plugin should be skipped – the option will cause the previous plugin to be reused.
+
+<!-- links -->
 
 [1]: /search/?q=ice-modifiers
 [2]: /search?q=turbo+mode

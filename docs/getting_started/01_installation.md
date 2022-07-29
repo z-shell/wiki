@@ -104,7 +104,7 @@ compaudit | xargs chmod -R go-w "$ZI[HOME_DIR]"
 command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
 ```
 
-### <i class="fa-solid fa-circle-nodes"></i> Enable ZI
+### <i class="fa-solid fa-circle-nodes"></i> Enable Zi
 
 Source `zi.zsh` in your `.zshrc` from previously created directory:
 
@@ -129,13 +129,11 @@ autoload -Uz _zi
 
 ## <i class="fas fa-spinner fa-spin"></i> Post-install
 
-After a fresh install, recommended to reload the shell with `exec zsh` and compile ZI with `zi self-update`.
-Run `zi -h` to see all available commands. Increase ZI functionality, performance or get started by exploring the wiki.
+After a fresh install, recommended to reload the shell with `exec zsh` and compile ZI with `zi self-update`. Run `zi -h` to see all available commands. Increase Zi functionality, performance or get started by exploring the wiki.
 
 If you have any issue or need help 🤦‍♂️, lets [discuss][7] it or open an [issue][6] in any language.
 
-It helps us to improve and make ZI better.
-Don't forget to help the project: share, contribute, or [translate][8] 🌐 🥰 🤓.
+It helps us to improve and make Zi better. Don't forget to help the project: share, contribute, or [translate][8] 🌐 🥰 🤓.
 
 Let's glue everything together to create a toolchain that works for US 🚀.
 
@@ -155,9 +153,9 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a ???
 docker run --rm -it ghcr.io/z-shell/zd:latest
 ```
 
-### <i class="fa-brands fa-docker"></i> Turbo ZI in Docker
+### <i class="fa-brands fa-docker"></i> Turbo Zi in Docker
 
-If you create a Docker image that uses ZI, install Turbo-loaded plugins before the shell starts interactively, with the `@zi-scheduler` function in such a way, that it:
+If you create a Docker image that uses Zi, install Turbo-loaded plugins before the shell starts interactively, with the `@zi-scheduler` function in such a way, that it:
 
 - installs plugins without waiting for the prompt (i.e. it's script friendly),
 - installs all plugins instantly, without respecting the wait'' argument.
@@ -171,20 +169,19 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 > - An example: [Dockerfile][11]
 > - In action: [Dockerfile][12]
 
-## <i class="fas fa-cog fa-pulse"></i> Build ZI Module
+## <i class="fas fa-cog fa-pulse"></i> Build Zi Module
 
-### <i class="fa-solid fa-compass-drafting"></i> Without ZI
+### <i class="fa-solid fa-compass-drafting"></i> Without Zi
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
 ```
 
-### <i class="fa-solid fa-screwdriver-wrench"></i> With ZI
+### <i class="fa-solid fa-screwdriver-wrench"></i> With Zi
 
 :::info
 
-ZI has to be installed to build the module.
-Module repository: [z-shell/zpmod][9]
+Zi has to be installed to build the module. Module repository: [z-shell/zpmod][9]
 
 :::
 

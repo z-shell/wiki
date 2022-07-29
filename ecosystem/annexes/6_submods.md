@@ -1,6 +1,6 @@
 ---
 id: submods
-title: 🌀 Submods
+title: "🌀 Submods"
 image: img/logo/320x320.png
 description: Annex - Submods documentation.
 keywords:
@@ -15,7 +15,7 @@ keywords:
 
 An annex delivers the capability to clone additional submodules while installing a plugin or snippet. The submodules are then automatically updated on the `zi update …` command.
 
-This annex adds `submods''` ice to ZI which has the following syntax:
+This annex adds `submods'…'` ice to Zi which has the following syntax:
 
 ```shell
 submods'{user}/{plugin} -> {output directory}; …'
@@ -32,12 +32,12 @@ zi snippet PZT::modules/autosuggestions
 
 ## Install Submods
 
-Simply load as a plugin. The following command will install the annex within ZI:
+Simply load as a plugin. The following command will install the annex within Zi:
 
 ```shell
 zi light z-shell/z-a-submods
 ```
 
-After executing this command you can then use the `submods''` ice. The command should be placed in `~/.zshrc`.
+After executing this command you can then use the `submods'…'` ice. The command should be placed in `~/.zshrc`.
 
 [z-shell/z-a-submods]: https://github.com/z-shell/z-a-submods

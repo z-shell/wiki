@@ -1,9 +1,9 @@
 ---
 id: common
-title: 🔀 Common Syntax
+title: "🔀 Common Syntax"
 sidebar_position: 1
 image: img/logo/320x320.png
-description: The Fundamental ZI syntax.
+description: The Fundamental syntax.
 keywords:
   - common
   - syntax
@@ -18,7 +18,7 @@ It is recommended to familiarize with [getting_started/oveview][9] before this.
 
 :::
 
-## <i class="fa-solid fa-circle-nodes"></i> The make syntax {#the-make-syntax}
+## <i class="fa-solid fa-circle-nodes"></i> The "make" syntax {#the-make-syntax}
 
 ```shell showLineNumbers
 zi ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
@@ -37,7 +37,7 @@ The `Makefile` with 2 tasks, can use:
 
 :::info
 
-[$ZPFX][zpfx] is provided by ZI, it is set to `~/.zi/polaris` by default. However, it can be changed by specifying: `$ZPFX=` target.
+[$ZPFX][zpfx] is provided by Zi, it is set to `~/.zi/polaris` by default. However, it can be changed by specifying: `$ZPFX=` target.
 
 :::
 
@@ -75,7 +75,7 @@ zi light vim/vim
 
 ## <i class="fa-solid fa-palette"></i> LS_COLORS {#ls_colors}
 
-A repository [trapd00r/LS_COLORS][1] provides a file with color definitions for GNU `ls` command, and also for [ogham/exa][2]. Typically one does `eval $( dircolors -b $HOME/LS_COLORS)` to process this file and set the environment for `ls`. This means `dircolors` is run every shell startup. This costs much time because a fork has to be done and the program, i.e. `dircolors`, binary needs to be loaded and executed, and because `dircolors` loads the colors' definitions and processes them. Following ZI invocation solves this problem:
+A repository [trapd00r/LS_COLORS][1] provides a file with color definitions for GNU `ls` command, and also for [ogham/exa][2]. Typically one does `eval $( dircolors -b $HOME/LS_COLORS)` to process this file and set the environment for `ls`. This means `dircolors` is run every shell startup. It costs much time to create a fork and program, i.e., `dircolors` binary needs to be loaded to obtain and process the colors definitions. Following invocation solves this problem:
 
 ```shell showLineNumbers
 zi ice atclone'dircolors -b LS_COLORS > clrs.zsh' \
@@ -86,14 +86,11 @@ zi light trapd00r/LS_COLORS
 
 | Syntax             | Description                                                                                                 |
 | ------------------ | :---------------------------------------------------------------------------------------------------------- |
-| `atclone'…'`       | Generate shell script, but instead of passing it to `eval`. More: [^1]                                      |
+| `atclone'…'`       | Generate shell script, passing it to `eval`. More: [^1]                                                     |
 | `atpull'%atclone'` | Do the same at any update of the plugin. More: [^2]                                                         |
 | `pick"clrs.zsh"`   | Source the previously generated file `clrs zsh`.                                                            |
 | `nocompile'!'`     | Invokes compilation **after** the `atclone'…'` [ice-modifier][3] and the [exclamation mark][4] causes this. |
 | `atload'…'`        | Additionally sets up the Zsh completion to use the colors provided by the trapd00r package.                 |
-
-[^1]: Save it to file. The `atclone'…'` is being ran on the **installation** while the `atpull'…'` hook is being run on an **update** of the [**trapd00r/LS_COLORS**][1] plugin.
-[^2]: The `%atclone` is just a special string that denotes the `atclone'…'` hook and is copied onto the `atpull'…'` hook.
 
 This way, except for the plugin installation and update, `dircolors` isn't ran, just normal sourcing is done. The everyday sourced file, i.e. `clrs.zsh`, is being compiled to speed up the loading.
 
@@ -116,7 +113,7 @@ Above `atclone'…'` puts this code into file `zhook.zsh`, `src''` sources it. T
 
 ## <i class="fa-solid fa-wand-magic-sparkles"></i> Glance at the 'for' syntax {#glance-at-the-for-syntax}
 
-The drawback of this standard procedure is that the `direnv` binary is run on every shell startup and significantly slows it down. ZI allows to solve this in the following way:
+The drawback of this standard procedure is that the `direnv` binary is run on every shell startup and significantly slows it down. Zi allows to solve this in the following way:
 
 ```shell showLineNumbers
 zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
@@ -133,7 +130,7 @@ zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
 | `pick'direnv'`     | Ensure `+x` permission on the binary                                                                                 |
 | `as'program'`      | The plugin is a program, there's no main file to the source.                                                         |
 
-This way registration code is generated once every installation and update, to then be simply sourced without running `direnv`. The project is also available as a binary [GitHub releases][6]. This distribution can be installed by:
+In this method, the registered code is generated once on every installation or update, then sourced without running `direnv` itself. The project is also available as a binary [GitHub releases][6]. This distribution can be installed by:
 
 ```shell showLineNumbers
 zi from"gh-r" as"program" mv"direnv* -> direnv" \
@@ -161,7 +158,7 @@ zi unload …
 zi snippet …
 ```
 
-The normal way of specifying ices and their values:
+The standard method of specifying ices and their values:
 
 ```shell showLineNumbers
 zi wait"1" from"gh-r" atload"print Hello World"
@@ -170,13 +167,13 @@ zi load …
 
 :::note
 
-There's no `ice` subcommand - that is currently being fully allowed.
+There's no `ice` that can be used as subcommand.
 
 :::
 
 ## <i class="fa-solid fa-file-pen"></i> The alternative syntaxes {#the-alternative-syntaxes}
 
-However, ZI supports also other syntaxes: the equal (`=`) syntax:
+However, Zi also supports syntaxes such as: the equal (`=`) syntax:
 
 ```shell
 zi wait=1 from=gh-r atload="print Hello World"
@@ -199,9 +196,17 @@ zi load …
 
 ## <i class="fa-solid fa-book-bookmark"></i> Summary {#summary}
 
-It's up to the user which syntax to choose.
+It's up to the user which syntax to use.
 
-The original motivation behind the standard syntax was: to utilize the syntax highlighting of editors like Vim – and have the strings following ice names colorized with a distinct color and this way separated from them. However, with the [zi/zi-vim-syntax][11] syntax definition this motivation can be superseded with the ZI-specific highlighting, at least for Vim.
+The motivation behind the syntaxes is to utilize the syntax highlighting of editors like Vim – and have the strings and ice expressions colorized with a distinct color. However, with the [zi/zi-vim-syntax][11] syntax definition this motivation can be superseded with the highlighting specificaly for Zi.
+
+<!-- end-of-file -->
+<!-- footnotes -->
+
+[^1]: Save it to file. The `atclone'…'` is being ran on the **installation** while the `atpull'…'` hook is being run on an **update** of the [**trapd00r/LS_COLORS**][1] plugin.
+[^2]: The `%atclone` is just a special string that denotes the `atclone'…'` hook and is copied onto the `atpull'…'` hook.
+
+<!-- links -->
 
 [1]: https://github.com/trapd00r/LS_COLORS
 [2]: https://github.com/ogham/exa

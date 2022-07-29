@@ -32,7 +32,7 @@ At a simple level, a plugin:
 
    3.2. a sourceable script that obtains the path to its directory via `$0` (see the [next section](#zero-handling) for a related enhancement proposal).
 
-   3.3. Github (or another site) repository identified by two components **username**/**pluginname**.
+   3.3. GitHub (or another site) repository identified by two components **username**/**plugin-name**.
 
    3.4. software package containing any type of command line artifacts – when used with advanced plugin managers that have hooks, can run Makefiles, add directories to `$PATH`.
 
@@ -65,11 +65,9 @@ The one-line code above will:
 
 3. Use `$0` if it doesn’t contain the path to the Zsh binary,
 
-   3.1. plugin manager will still be able to set `$0`, although more difficultly, requires `unsetopt function_argzero`
-   before sourcing plugin script, and `0=…​` assignment after sourcing plugin script.
+   3.1. plugin manager will still be able to set `$0`, although more difficultly, requires `unsetopt function_argzero` before sourcing plugin script, and `0=…​` assignment after sourcing plugin script.
 
-   3.2. `unsetopt function_argzero` will be detected (it causes `$0` not to contain a plugin-script path, but the path to
-   Zsh binary, if not overwritten by a `0=…​` assignment),
+   3.2. `unsetopt function_argzero` will be detected (it causes `$0` not to contain a plugin-script path, but the path to Zsh binary, if not overwritten by a `0=…​` assignment),
 
    3.3. `setopt posix_argzero` will be detected (as above).
 

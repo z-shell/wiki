@@ -20,16 +20,16 @@ keywords:
 
 :::
 
-Following variables can be set to custom values, before sourcing ZI.
+Following variables can be set to custom values, before sourcing Zi.
 
 ```shell showLineNumbers
-# Initial ZI's hash definition
+# Initial Zi's hash definition
 typeset -A ZI
 ```
 
 :::caution
 
-Variables has to be set before loading ZI, i.e `source "path/to/zi/bin/zi.zsh"`.
+Variables has to be set before loading Zi, i.e `source "path/to/zi/bin/zi.zsh"`.
 
 :::
 
@@ -37,8 +37,8 @@ Variables has to be set before loading ZI, i.e `source "path/to/zi/bin/zi.zsh"`.
 
 | Hash Field                           | Description                                                                                                                                                                             |
 | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ZI[BIN_DIR]`                        | Where ZI code resides, e.g: "~/.zi/bin"                                                                                                                                                 |
-| `ZI[HOME_DIR]`                       | Where ZI should create all working directories, e.g: "~/.zi"                                                                                                                            |
+| `ZI[BIN_DIR]`                        | Where Zi code resides, e.g: "~/.zi/bin"                                                                                                                                                 |
+| `ZI[HOME_DIR]`                       | Where Zi should create all working directories, e.g: "~/.zi"                                                                                                                            |
 | `ZI[PLUGINS_DIR]`                    | Override single working directory – for plugins, e.g: "/opt/zsh/zi/plugins"                                                                                                             |
 | `ZI[COMPLETIONS_DIR]`                | As above, but for completion files, e.g: "/opt/zsh/zi/root_completions"                                                                                                                 |
 | `ZI[SNIPPETS_DIR]`                   | As above, but for snippets                                                                                                                                                              |
@@ -49,22 +49,22 @@ Variables has to be set before loading ZI, i.e `source "path/to/zi/bin/zi.zsh"`.
 
 ### <i class="fa-solid fa-sliders"></i> Modify settings {#modify-settings}
 
-| Hash Field                       | Description                                                                                                                                                                                                                                                                                                                                                                                        |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ZI[OPTIMIZE_OUT_DISK_ACCESSES]` | If set to `1`, then ZI will skip checking if a Turbo-loaded object exists on the disk. By default, ZI skips Turbo for non-existing objects (plugins or snippets) to install them before the first prompt – without any delays, during the normal processing of `zshrc`. This option can give a performance gain of about 10 ms out of 150 ms (e.g: Zsh will start-up in 140 ms instead of 150 ms). |
-| `ZI[COMPINIT_OPTS]`              | Options for `compinit` call (e.g: done by `zicompinit`), use to pass -C to speed up loading                                                                                                                                                                                                                                                                                                        |
-| `ZI[MUTE_WARNINGS]`              | If set to `1`, then mutes some of the ZI warnings, specifically the `plugin already registered` warning                                                                                                                                                                                                                                                                                            |
-| `ZI[PKG_OWNER]`                  | Change the owner of the [packages][packages] (`zi pack …`).                                                                                                                                                                                                                                                                                                                                        |
+| Hash Field                       | Description                                                                                                                                                                                                                                                                                                                                                                                              |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ZI[OPTIMIZE_OUT_DISK_ACCESSES]` | If set to `1`, then Zi will skip checking if a Turbo-loaded object exists on the disk. By default, Zi skips turbo mode for non-existing objects (plugins or snippets) to install them before the first prompt – without any delays, during the normal processing of `.zshrc`. This option can give a performance gain of about 10 ms out of 150 ms (e.g: Zsh will start-up in 140 ms instead of 150 ms). |
+| `ZI[COMPINIT_OPTS]`              | Options for `compinit` call (e.g: done by `zicompinit`), use to pass -C to speed up loading                                                                                                                                                                                                                                                                                                              |
+| `ZI[MUTE_WARNINGS]`              | If set to `1`, then mutes some of the Zi warnings, specifically the `plugin already registered` warning                                                                                                                                                                                                                                                                                                  |
+| `ZI[PKG_OWNER]`                  | Change the owner of the [packages][packages] (`zi pack …`).                                                                                                                                                                                                                                                                                                                                              |
 
 ## <i class="fa-solid fa-square-up-right"></i> Non-GitHub (Local) Plugins {#non-github-local-plugins}
 
 Use `create` subcommand with user name `_local` (the default) to create the plugin's skeleton in `$ZI[PLUGINS_DIR]`. It will be not connected with the GitHub repository (because of the user name being `_local`). To enter the plugin's directory use the `cd` command with just the plugin's name (without `_local`, it's optional).
 
-If the user name will not be `_local`, then ZI will create a repository also on GitHub and set up the correct repository origin.
+If the user name will not be `_local`, then Zi will create a repository also on GitHub and set up the correct repository origin.
 
 ## <i class="fa-brands fa-git-alt"></i> Extending Git {#extending-git}
 
-Several projects provide git extensions. Installing them with ZI has many benefits:
+Several projects provide git extensions. Installing them with Zi has many benefits:
 
 - all files are under `$HOME` – no administrator rights needed,
 - declarative setup (like Chef or Puppet) – copying `.zshrc` to a different account brings also git-related setup,

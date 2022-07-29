@@ -1,6 +1,6 @@
 ---
 id: linkbin
-title: 🌀 Link Bin
+title: "🌀 Link Bin"
 image: img/logo/320x320.png
 description: Annex - Link Bin documentation.
 keywords:

@@ -1,6 +1,6 @@
 ---
 id: zsh_handbook
-title: 🔤 Zsh Native Scripting Handbook
+title: "🔤 Zsh Native Scripting Handbook"
 sidebar_position: 3
 image: img/logo/320x320.png
 keywords:
@@ -13,26 +13,17 @@ keywords:
 
 ### @ is about keeping array form
 
-How do access all array elements in a shell? The standard answer: `use @ subscript`, i.e. `${array[@]}`. However, this
-is the Bash & Ksh way (and with the option `KSH_ARRAYS`, Zsh also works this way, i.e. needs `@` to access the whole
-array). Z shell **is different**: it is `$array` that refers to all elements anyway. There is no need for the `@`
-subscript.
+How do access all array elements in a shell? The standard answer: `use @ subscript`, i.e. `${array[@]}`. However, this is the Bash & Ksh way (and with the option `KSH_ARRAYS`, Zsh also works this way, i.e. needs `@` to access the whole array). Z shell **is different**: it is `$array` that refers to all elements anyway. There is no need for the `@` subscript.
 
-So what use has `@` in the Zsh-world? It is: "`keep array form`" or "`do not join`". When is it activated? When the user
-quotes the array, i.e. invokes `"$array"`, he induces _joining_ of all array elements (into a single string). `@` is to
-have elements still quoted (so empty elements are preserved), but not joined.
+So what use has `@` in the Zsh-world? It is: "`keep array form`" or "`do not join`". When is it activated? When the user quotes the array, i.e. invokes `"$array"`, he induces _joining_ of all array elements (into a single string). `@` is to have elements still quoted (so empty elements are preserved), but not joined.
 
-Two forms are available, `"$array[@]"` and `"${(@)array}"`. The first form has an additional effect – when an option
-`KSH_ARRAYS` is set, it indeed induces referencing to the whole array instead of a first element only. It should then
-use braces, i.e. `${array[@]}`, `"${array[@]}"` (`KSH_ARRAYS` requirement).
+Two forms are available, `"$array[@]"` and `"${(@)array}"`. The first form has an additional effect – when an option `KSH_ARRAYS` is set, it indeed induces referencing to the whole array instead of a first element only. It should then use braces, i.e. `${array[@]}`, `"${array[@]}"` (`KSH_ARRAYS` requirement).
 
-In practice, if you'll use `@` as a subscript – `[@]`, not as a flag – `${(@)...}`, then you'll make the code
-`KSH_ARRAYS`-compatible.
+In practice, if you'll use `@` as a subscript – `[@]`, not as a flag – `${(@)...}`, then you'll make the code `KSH_ARRAYS`-compatible.
 
 ### extended_glob
 
-Glob-flags `#b` and `#m` require `setopt extended_glob`. Patterns utilizing `~` and `^` also require it. Extended-glob
-is one of the main features of Zsh.
+Glob-flags `#b` and `#m` require `setopt extended_glob`. Patterns utilizing `~` and `^` also require it. Extended-glob is one of the main features of Zsh.
 
 ## Constructs
 
@@ -42,9 +33,7 @@ is one of the main features of Zsh.
 declare -a lines; lines=( "${(@f)"$(<path/file)"}" )
 ```
 
-This preserves empty lines because of double-quoting (the outside one). `@`-flag is used to obtain an array instead of a
-scalar. If you don't want empty lines preserved, you can also skip `@`-splitting, as is explained in the
-[Information](#information) section:
+This preserves empty lines because of double-quoting (the outside one). `@`-flag is used to obtain an array instead of a scalar. If you don't want empty lines preserved, you can also skip `@`-splitting, as is explained in the [Information](#information) section:
 
 ```shell
 declare -a lines; lines=( ${(f)"$(<path/file)"} )
@@ -54,26 +43,19 @@ Note: `$(<...)` construct strips trailing empty lines.
 
 ### Reading from stdin
 
-This topic is governed by the same principles a the previous paragraph (`Reading a file`), with the single difference
-that instead of the substitution `"$(<file-path)"` the substitution that should be used is `"$(command arg1 ...)"`,
-i.e.:
+This topic is governed by the same principles a the previous paragraph (`Reading a file`), with the single difference that instead of the substitution `"$(<file-path)"` the substitution that should be used is `"$(command arg1 ...)"`, i.e.:
 
 ```shell
 declare -a lines; lines=( ${(f)"$(command arg1 ...)"} )
 ```
 
-This will read the `command's` output into the array `lines`. The version that does `@` splitting and retains any empty
-lines are:
+This will read the `command's` output into the array `lines`. The version that does `@` splitting and retains any empty lines are:
 
 ```shell
 declare -a lines; lines=( "${(f@)$(command arg1 ...)}" )
 ```
 
-Note that instead of four double-quotes `"`, an idiom that is justified (simply suggested) by the Zsh documentation (and
-was used in the previous paragraph, in the snippet `... "${(@f)"$(<path/file)"}" ...`), only **two** double-quotes are
-being used. I've investigated this form with the main Zsh developers on the `zsh-workers@zsh.org` mailing list and it
-was clearly stated that single, outside quoting of `${(f@)...}` substitution works as if it was also separately applied
-to `$(command ...)` (or to `$(<file-path)`) inner substitution, so the second double-quoting isn't needed.
+Note that instead of four double-quotes `"`, an idiom that is justified (simply suggested) by the Zsh documentation (and was used in the previous paragraph, in the snippet `... "${(@f)"$(<path/file)"}" ...`), only **two** double-quotes are being used. I've investigated this form with the main Zsh developers on the `zsh-workers@zsh.org` mailing list and it was clearly stated that single, outside quoting of `${(f@)...}` substitution works as if it was also separately applied to `$(command ...)` (or to `$(<file-path)`) inner substitution, so the second double-quoting isn't needed.
 
 ### Skipping dirname basename
 
@@ -103,17 +85,13 @@ declare -a grepped; grepped=( ${(M)lines:#*query*} )
 
 To have the `grep -v` effect, skip the `M`-flag. To grep case-insensitively, use `\#i` glob flag (`...:#(#i)\*query*}`).
 
-As it can be seen, `${...:#...}` substitution is filtering of the array, which by default filters-out elements (`(M)`
-flag induces the opposite behavior). When used with a string, not an array, it behaves similarly: returns an empty string
-when `{input_string_var:#pattern}` matches the whole input string.
+As it can be seen, `${...:#...}` substitution is filtering of the array, which by default filters-out elements (`(M)` flag induces the opposite behavior). When used with a string, not an array, it behaves similarly: returns an empty string when `{input_string_var:#pattern}` matches the whole input string.
 
-Side-note: `(M)` flag can be used also with `${(M)var#pattern}` and other substitutions, to retain what's matched by the
-pattern instead of removing that.
+Side-note: `(M)` flag can be used also with `${(M)var#pattern}` and other substitutions, to retain what's matched by the pattern instead of removing that.
 
 #### Multi-line matching like with grep
 
-Suppose you have a Subversion repository and want to check if it contains files not under version control. You
-could do this in Bash style like follows:
+Suppose you have a Subversion repository and want to check if it contains files not under version control. You could do this in Bash style like follows:
 
 ```shell
 local svn_status="$(svn status)"
@@ -122,9 +100,7 @@ if [[ -n "$(echo "$svn_status" | \grep \^\?)" ]]; then
 fi
 ```
 
-Those are 3 forks: for `svn status`, for `echo`, and for `grep`. This can be solved by the `:#` substitution and `(M)`
-flag described above in this section (just check if the number of matched lines is greater than 0). However, there's a
-more direct approach:
+Those are 3 forks: for `svn status`, for `echo`, and for `grep`. This can be solved by the `:#` substitution and `(M)` flag described above in this section (just check if the number of matched lines is greater than 0). However, there's a more direct approach:
 
 ```shell
 local svn_status="$(svn status)" nl=$'\n'
@@ -133,11 +109,9 @@ if [[ "$svn_status" = *((#s)|$nl)\?* ]]; then
 fi
 ```
 
-This requires `extendedglob`. The `(#s)` means: "start of the string". So `((#s)|$nl)` means "start of the string OR
-preceded by a new-line".
+This requires `extendedglob`. The `(#s)` means: "start of the string". So `((#s)|$nl)` means "start of the string OR preceded by a new-line".
 
-If the `extendedglob` option cannot be used for some reason, this can be achieved also without it, but essentially it
-means that the alternative (i.e. `|`) of two versions of the pattern will have to be matched:
+If the `extendedglob` option cannot be used for some reason, this can be achieved also without it, but essentially it means that the alternative (i.e. `|`) of two versions of the pattern will have to be matched:
 
 ```shell
 setopt localoptions noextendedglob
@@ -154,9 +128,7 @@ local needle="?" required_preceding='[[:space:]]#'
 [[ "$(svn status)" = *((#s)|$nl)${~required_preceding}${needle}* ]] && echo found
 ```
 
-It does a single fork (calls `svn` status). The `${~variable}` means (the`~` init): "the variable is holding a pattern,
-interpret it". All in all, instead of regular expressions we were using patterns (globs) (see
-[this section](#built-in-regular-expressions-engine)).
+It does a single fork (calls `svn` status). The `${~variable}` means (the`~` init): "the variable is holding a pattern, interpret it". All in all, instead of regular expressions we were using patterns (globs) (see [this section](#built-in-regular-expressions-engine)).
 
 ### Pattern matching in AND-fashion
 
@@ -164,10 +136,7 @@ interpret it". All in all, instead of regular expressions we were using patterns
 [[ "abc xyz efg" = *abc*~^*efg* ]] && print Match found
 ```
 
-The `~` is a negation -- `match \*abc* but not ...`. Then, `^` is also a negation. The effect is:
-`\*ABC* but not those that don't have \*efg*` which equals to: `\*ABC* but those that have also \*efg*`. This is a
-regular pattern and it can be used with `:#` above to search arrays, or with the `R`-subscript flag to search hashes
-(`${hsh[\(R)\*pattern*]}`), etc. The inventor of those patterns is Mikael Magnusson.
+The `~` is a negation -- `match \*abc* but not ...`. Then, `^` is also a negation. The effect is: `\*ABC* but not those that don't have \*efg*` which equals to: `\*ABC* but those that have also \*efg*`. This is a regular pattern and it can be used with `:#` above to search arrays, or with the `R`-subscript flag to search hashes (`${hsh[\(R)\*pattern*]}`), etc. The inventor of those patterns is Mikael Magnusson.
 
 ### Skipping tr
 
@@ -178,8 +147,7 @@ text=( ${text[@]//(#m)?/${map[$MATCH]}} )
 print $text ▶ 12 21
 ```
 
-`#m` flag enables the `$MATCH` parameter. At each `//` substitution, `$map` is queried for character-replacement. You
-can substitute a text variable too, just skip `[@]` and parentheses in the assignment.
+`#m` flag enables the `$MATCH` parameter. At each `//` substitution, `$map` is queried for character-replacement. You can substitute a text variable too, just skip `[@]` and parentheses in the assignment.
 
 ### Ternary expressions with `+,-,:+,:-` substitutions
 
@@ -188,10 +156,7 @@ HELP="yes"; print ${${HELP:+help enabled}:-help disabled} ▶ help enabled
 HELP=""; print ${${HELP:+help enabled}:-help disabled} ▶ help disabled
 ```
 
-Ternary expression is known from the `C` language but exists also in Zsh, but directly only in a math context, i.e.
-`\(( a = a > 0 ? b : c ))`. The flexibility of Zsh allows such expressions also in a normal context. Above is an
-example. `:+` is "if not empty, substitute …" `:-` is "if empty, substitute …". You can save a great number of lines of
-code with those substitutions, it's normally at least 4-lines `if` condition or lengthy `&&`/`||` use.
+Ternary expression is known from the `C` language but exists also in Zsh, but directly only in a math context, i.e. `\(( a = a > 0 ? b : c ))`. The flexibility of Zsh allows such expressions also in a normal context. Above is an example. `:+` is "if not empty, substitute …" `:-` is "if empty, substitute …". You can save a great number of lines of code with those substitutions, it's normally at least 4-lines `if` condition or lengthy `&&`/`||` use.
 
 ### Ternary expressions with `:#` substitution
 
@@ -200,8 +165,7 @@ var=abc; print ${${${(M)var:#abc}:+is abc}:-not abc} ▶ is abc
 var=abcd; print ${${${(M)var:#abc}:+is abc}:-not abc} ▶ not abc
 ```
 
-A one-line "if var = x, then …, else …". Again, can spare a great amount of boring code that makes a 10-line function a
-20-line one.
+A one-line "if var = x, then …, else …". Again, can spare a great amount of boring code that makes a 10-line function a 20-line one.
 
 ### Using built-in regular expressions engine
 
@@ -209,13 +173,9 @@ A one-line "if var = x, then …, else …". Again, can spare a great amount of 
 [[ "aabbb" = (#b)(a##)*(b(#c2,2)) ]] && print ${match[1]}-${match[2]} ▶ aa-bb
 ```
 
-`\##` is: "1 or more". `(#c2,2)` is: "exactly 2". A few other constructs: `#` is "0 or more", `?` is "any character",
-`(a|b|)` is "a or b or empty match". `#b` enables the `$match` parameters. There's also `#m` but it has one parameter
-`$MATCH` for whole matched text, not for any parenthesis.
+`\##` is: "1 or more". `(#c2,2)` is: "exactly 2". A few other constructs: `#` is "0 or more", `?` is "any character", `(a|b|)` is "a or b or empty match". `#b` enables the `$match` parameters. There's also `#m` but it has one parameter `$MATCH` for whole matched text, not for any parenthesis.
 
-Zsh patterns are a custom regular expressions engine. They are slightly faster than the `zsh/regex` module (used for
-`=~` operator) and don't have that dependency (regex module can be not present, e.g. in default static build of Zsh).
-Also, they can be used in substitutions, for example in `//` substitution.
+Zsh patterns are a custom regular expressions engine. They are slightly faster than the `zsh/regex` module (used for `=~` operator) and don't have that dependency (regex module can be not present, e.g. in default static build of Zsh). Also, they can be used in substitutions, for example in `//` substitution.
 
 ### Skipping uniq
 
@@ -233,10 +193,7 @@ declare -a list; list=( "a,b,c,1,e" "p,q,r,2,t" );
 print "${list[@]/(#b)([^,]##,)(#c3,3)([^,]##)*/${match[2]}}" ▶ 1 2
 ```
 
-The pattern specifies 3 blocks of `[^,]##,` so 3 "not-comma multiple times, then comma", then the single block of
-"not-comma multiple times" in second parentheses -- and then replaces this with second parentheses. The result is the
-4th column extracted from multiple lines of text, something `awk` is often used for. Another method is the use of the
-`s`-flag. For a single line of text:
+The pattern specifies 3 blocks of `[^,]##,` so 3 "not-comma multiple times, then comma", then the single block of "not-comma multiple times" in second parentheses -- and then replaces this with second parentheses. The result is the 4th column extracted from multiple lines of text, something `awk` is often used for. Another method is the use of the `s`-flag. For a single line of text:
 
 ```shell
 text="a,b,c,1,e"; print ${${(s:,:)text}[4]} ▶ 1
@@ -249,12 +206,7 @@ declare -a list; list=( "a,b,c,1,e" "p,q,r,2,t" );
 print "${list[@]/(#m)*/${${(s:,:)MATCH}[4]}}" ▶ 1 2
 ```
 
-There is a problem with the `(s::)` flag that can be solved if Zsh is version `5.4` or higher: if there will be single
-input column, e.g. `list=( "column1" "a,b")` instead of two or more columns (i.e. `list=( "column1,column2" "a,b" )`),
-then `(s::)` will return **string** instead of 1-element **array**. So the index `[4]` in the above snippet will index a
-string, and show its 4-th letter. Starting with Zsh 5.4, thanks to a patch by Bart Schaefer
-(`40640: the (A) parameter flag forces array result even if...`), it is possible to force **array**-kind of result even
-for a single column, by adding `(A)` flag, i.e.:
+There is a problem with the `(s::)` flag that can be solved if Zsh is version `5.4` or higher: if there will be single input column, e.g. `list=( "column1" "a,b")` instead of two or more columns (i.e. `list=( "column1,column2" "a,b" )`), then `(s::)` will return **string** instead of 1-element **array**. So the index `[4]` in the above snippet will index a string, and show its 4th letter. Starting with Zsh 5.4, thanks to a patch by Bart Schaefer (`40640: the (A) parameter flag forces array result even if...`), it is possible to force **array**-kind of result even for a single column, by adding `(A)` flag, i.e.:
 
 ```shell
 declare -a list; list=( "a,b,c,1,e" "p,q,r,2,t" "column1" );
@@ -262,8 +214,7 @@ print "${list[@]/(#m)*/${${(As:,:)MATCH}[4]}}" ▶ 1 2
 print "${list[@]/(#m)*/${${(s:,:)MATCH}[4]}}" ▶ 1 2 u
 ```
 
-Side-note: `(A)` flag is often used together with `::=` assignment-substitution and `(P)` flag, to assign arrays and
-hashes by-name.
+Side-note: `(A)` flag is often used together with `::=` assignment-substitution and `(P)` flag, to assign arrays and hashes by-name.
 
 ### Searching arrays
 
@@ -286,8 +237,7 @@ declare -a gathered; integer idx=0
 print $gathered ▶ Value 1 Value 2
 ```
 
-Use of the `#b` glob flag enables math-code execution (and not only) in `/` and `//` substitutions. Implementation is very
-fast.
+Use of the `#b` glob flag enables math-code execution (and not only) in `/` and `//` substitutions. Implementation is very fast.
 
 ### Serializing data
 
@@ -298,15 +248,11 @@ deserialized=( "${(Q@)${(z@)serialized}}" )
 print ${(kv)deserialized} ▶ key value
 ```
 
-`j`-flag means join -- by spaces, in this case. Flags `kv` mean: keys and values, interleaving. Important `q`-flag
-means: quote. So what is obtained is each key and value quoted, and put into a string separated by spaces.
+`j`-flag means join -- by spaces, in this case. Flags `kv` mean: keys and values, interleaving. Important `q`-flag means: quote. So what is obtained is each key and value quoted, and put into a string separated by spaces.
 
-`z`-flag means: split as if Zsh parser would split. So quoting (with backslashes, double quoting, and others) is
-recognized. Obtained is array `( "key" "value")` which is then de-quoted with `Q`-flag. This yields original data,
-assigned to hash `deserialized`. Use this to e.g. implement an array of hashes.
+`z`-flag means: split as if Zsh parser would split. So quoting (with backslashes, double quoting, and others) is recognized. Obtained is array `( "key" "value")` which is then de-quoted with `Q`-flag. This yields original data, assigned to hash `deserialized`. Use this to e.g. implement an array of hashes.
 
-Note: to be compatible with `setopt ksharrays`, use `[@]` instead of `(@)`, e.g.:
-`...( "${(Q)${(z)serialized[@]}[@]}" )`
+Note: to be compatible with `setopt ksharrays`, use `[@]` instead of `(@)`, e.g.: `...( "${(Q)${(z)serialized[@]}[@]}" )`
 
 #### Tip: serializing with Bash
 
@@ -316,8 +262,7 @@ printf -v serialized "%q " "${array[@]}"
 eval "deserialized=($serialized)"
 ```
 
-This method works also with Zsh. The drawback is the use of `eval`, however, no problem may occur unless someone
-compromises variable's value, but as always, `eval` should be avoided if possible.
+This method works also with Zsh. The drawback is the use of `eval`, however, no problem may occur unless someone compromises variable's value, but as always, `eval` should be avoided if possible.
 
 ## Real-world examples
 
@@ -344,11 +289,9 @@ The result is just `1` fork.
 
 ### Counting unquoted-only apostrophes
 
-A project was needing this to do some Zle line-continuation tricks (when you put a backslash-\ at the end of the line
-and press enters – it is the line-continuation that occurs at that moment).
+A project was needing this to do some Zle line-continuation tricks (when you put a backslash-\ at the end of the line and press enters – it is the line-continuation that occurs at that moment).
 
-The required functionality is: in the given string, count the number of apostrophes, but _only the unquoted ones_. This
-means that only apostrophes with null or an even number of preceding backslashes should be accepted into the count:
+The required functionality is: in the given string, count the number of apostrophes, but _only the unquoted ones_. This means that only apostrophes with null or an even number of preceding backslashes should be accepted into the count:
 
 ```shell
 buf="word'continue\'after\\\'afterSecnd\\''afterPair"
@@ -357,8 +300,7 @@ integer count=0
 echo $count ▶ 3
 ```
 
-The answer (i.e. the output) to the above presentation and example is: `3` (there are `3` unquoted apostrophes in total
-in the string kept in the variable `$buf`).
+The answer (i.e. the output) to the above presentation and example is: `3` (there are `3` unquoted apostrophes in total in the string kept in the variable `$buf`).
 
 Below follows a variation of the above snippet that doesn't use math-code execution:
 
@@ -369,16 +311,13 @@ integer count=${#buf}
 echo $count ▶ 3
 ```
 
-This is possible thanks to `(S)` flag – non-greedy matching, `([\\][\\])#` trick – it matches only unquoted following
-`(\'\'##)` characters (which are the apostrophes) and a general strategy to replace `anything-apostrope(s)` (unquoted
-ones) with `the-apostrope(s)` (and then count them with `${#buf}`).
+This is possible thanks to `(S)` flag – non-greedy matching, `([\\][\\])#` trick – it matches only unquoted following `(\'\'##)` characters (which are the apostrophes) and a general strategy to replace `anything-apostrope(s)` (unquoted ones) with `the-apostrope(s)` (and then count them with `${#buf}`).
 
 ## Tips and Tricks
 
 ### Parsing INI file
 
-With Zshell `extended_glob` parsing an `ini` file is an easy task. It will not result in a nested-arrays data structure
-(Zsh doesn't support nested hashes), but the hash keys like `$DB_CONF[db1_<connection>_host]` is actually intuitive.
+With Zshell `extended_glob` parsing an `ini` file is an easy task. It will not result in a nested-arrays data structure (Zsh doesn't support nested hashes), but the hash keys like `$DB_CONF[db1_<connection>_host]` is actually intuitive.
 
 The code should be placed in a file named `read-ini-file`, in `$fpath`, and `autoload read-ini-file` should be invoked.
 

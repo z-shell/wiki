@@ -1,7 +1,7 @@
 ---
 id: packages
 slug: /packages
-title: 📦 Synopsis of packages
+title: "📦 Synopsis of packages"
 sidebar_position: 1
 image: img/logo/320x320.png
 description: Introduction to packages.
@@ -15,7 +15,7 @@ keywords:
 
 The motivation for adding packages functionality:
 
-1. ZI is a flexible and feature-rich plugin manager, however, users often feel overwhelmed by its configuration.
+1. Zi is a flexible and feature-rich plugin manager, however, users often feel overwhelmed by its configuration.
 
 2. It has multiple package-manager like features, such as:
 
@@ -28,7 +28,7 @@ The motivation for adding packages functionality:
    - extend `$PATH` to expose the binaries,
    - it can run `Makefiles` and more.
 
-3. In general, ZI has many hooks which allow surprising things, however, their content often evolves to a gradually better one and it's hard to keep track of all the current versions.
+3. In general, Zi has many hooks which allow surprising things, however, their content often evolves to a gradually better one and it's hard to keep track of all the current versions.
 
 :::info
 
@@ -45,11 +45,11 @@ zi pack param='GEM -> rails' for any-gem
 zi pack param='MOD -> doctoc' for any-node
 ```
 
-If the installation is used in the `.zshrc` file then use `id-as'…'`, then ZI knows that the package is already installed.
+If the installation is used in the `.zshrc` file then use `id-as'…'`, then Zi knows that the package is already installed.
 
 :::note
 
-The Unicode arrow is allowed in ZI syntax as in the example below.
+The Unicode arrow is allowed in Zi syntax as in the example below.
 
 :::
 
@@ -82,19 +82,19 @@ to get the complete setup of the fuzzy finder, including:
 - the completion,
 - the additional executable script `fzf-tmux`.
 
-The installation is real, package-manager -like, because you don't need to invoke ZI anymore once installed to use `fzf` (that's because `fzf` is just a binary program and not e.g.: a shell function).
+The installation is real, package-manager -like, because you don't need to invoke Zi anymore once installed to use `fzf` (that's because `fzf` is just a binary program and not e.g.: a shell function).
 
 You can also update the package with `zi update fzf` – it'll cause the project to refresh and rebuild, like with a "normal" package manager such as `apt-get`.
 
-However, it'll be more like to `emerge` from Gentoo, because the installation will be from the source… unless… the user will pick up a binary installation by profile argument specified in the `pack''` ice.
+However, it'll be more like to `emerge` from Gentoo, because the installation will be from the source… unless… the user will pick up a binary installation by profile argument specified in the `pack'…'` ice.
 
-## Pros of using the ZI package for regular software installations
+## Pros of using the Zi package for regular software installations
 
 Using ZI to install software where one could use a regular package manager has several advantages:
 
-1. **Pro:** The ZI packages typically use the URLs to the official and _latest_ distributions of the software (e.g.: the [ecs-cli][] package, which uses the URL: `https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest` when installing on Linux).
+1. **Pro:** The Zi packages typically use the URLs to the official and _latest_ distributions of the software (e.g.: the [ecs-cli][] package, which uses the URL: `https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest` when installing on Linux).
 
-2. **Pro:** You can influence the installation easily by specifying ZI ice-mods, e.g.:
+2. **Pro:** You can influence the installation easily by specifying Zi ice-modifiers, e.g.:
 
    ```shell
    zi pack=bgn atclone="cp fzy.1 $ZPFX/man/man1" for fzy
@@ -112,8 +112,7 @@ Using ZI to install software where one could use a regular package manager has s
 
 5. **Con:** You're somewhat "on your own", with no support from any package maintainer.
 
-Thus, summing up 1. with 4., it might be nice/convenient too, for example, have the latest ECS CLI binary installed in the home directory, without using root access and always the latest, and – summing up with 2. and 3. – to, for example, have always the latest `README` downloaded by additional ice:
-`dl'https://raw.githubusercontent.com/aws/amazon-ecs-cli/master/README.md'` (and then to have the `README` converted into a man page by the `remark` Markdown processor or other via an `atclone''` ice, as the tool doesn't have any official man page).
+Thus, summing up 1. with 4., it might be nice/convenient too, for example, have the latest ECS CLI binary installed in the home directory, without using root access and always the latest, and – summing up with 2. and 3. – to, for example, have always the latest `README` downloaded by additional ice: `dl'https://raw.githubusercontent.com/aws/amazon-ecs-cli/master/README.md'` (and then to have the `README` converted into a man page by the `remark` Markdown processor or other via an `atclone''` ice, as the tool doesn't have any official man page).
 
 ## Adding your package
 
@@ -121,7 +120,7 @@ Thus, summing up 1. with 4., it might be nice/convenient too, for example, have 
 
 2. Populate the `package.json` – I suggest grabbing the one for `fzf` or `doctoc` and doing a few substitutions like [doctoc][] → `your-project` and then simply filling the `default` profile in the `zi-ices` object – it is same as passing ices to `zi ice …` but in JSON.
 
-3. The project name in the `package.json` should start with `zsh-`. The prefix will be skipped when specifying it with ZI.
+3. The project name in the `package.json` should start with `zsh-`. The prefix will be skipped when specifying it with Zi.
 
 4. Commit and push.
 

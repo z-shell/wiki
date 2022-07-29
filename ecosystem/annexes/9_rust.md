@@ -1,6 +1,6 @@
 ---
 id: rust
-title: 🌀 Rust
+title: "🌀 Rust"
 image: img/logo/320x320.png
 description: Annex - Eval documentation.
 keywords:
@@ -47,7 +47,7 @@ zi ice rustup cargo'!lsd'
 zi load z-shell/null
 ```
 
-Installs rust and then the `exa' crate and creates the `ls' shim exposing the`exa' binary:
+Installs rust and then the `exa' crate and creates the`ls' shim exposing the`exa' binary:
 
 ```shell showLineNumbers
 zi ice rustup cargo'!exa -> ls'
@@ -109,7 +109,7 @@ Simply load like a regular plugin, i.e.:
 zi light z-shell/z-a-rust
 ```
 
-This installs the annex and makes the `rustup` and `cargo''` ices available.
+This installs the annex and makes the `rustup` and `cargo'…'` ices available.
 
 ## Rust tools meta plugin
 

@@ -1,6 +1,6 @@
 ---
 id: unscope
-title: 🌀 Unscope
+title: "🌀 Unscope"
 image: img/logo/320x320.png
 description: Annex - Unscope documentation
 keywords:

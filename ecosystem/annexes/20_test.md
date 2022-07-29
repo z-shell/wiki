@@ -1,6 +1,6 @@
 ---
 id: test
-title: 🌀 Test
+title: "🌀 Test"
 image: img/logo/320x320.png
 description: Annex - Test documentation
 keywords:
@@ -40,15 +40,15 @@ zi load …
 
 Example activation in the default quiet mode:
 
-![z-p-test-1][]
+![z-p-test-1][2]
 
 Example activation in non-quiet mode:
 
-![z-p-test-2][]
+![z-p-test-2][3]
 
-![z-a-test][]
+![z-a-test][4]
 
-[z-p-test-1]: https://raw.githubusercontent.com/z-shell/z-a-test/main/docs/images/z-p-test-1.png#center
-[z-p-test-2]: https://raw.githubusercontent.com/z-shell/z-a-test/main/docs/images/z-p-test-2.png#center
-[z-a-test]: https://user-images.githubusercontent.com/59910950/162143845-c44ead50-b21a-46c0-8372-18325eb1f33a.gif#center
+[3]: https://raw.githubusercontent.com/z-shell/z-a-test/main/docs/images/z-p-test-2.png#center
+[2]: https://raw.githubusercontent.com/z-shell/z-a-test/main/docs/images/z-p-test-1.png#center
+[4]: https://user-images.githubusercontent.com/59910950/162143845-c44ead50-b21a-46c0-8372-18325eb1f33a.gif#center
 [z-shell/z-a-test]: https://github.com/z-shell/z-a-test

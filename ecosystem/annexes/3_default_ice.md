@@ -1,6 +1,6 @@
 ---
 id: default-ice
-title: 🌀 Default Ice
+title: "🌀 Default Ice"
 image: img/logo/320x320.png
 description: Annex - Default Ice documentation
 keywords:
@@ -37,7 +37,7 @@ Simply load like a regular plugin, i.e.:
 zi light z-shell/z-a-default-ice
 ```
 
-## Usage with [ZI][z-shell/zi]
+## Usage with [Zi][z-shell/zi]
 
 ```shell showLineNumbers
 zi default-ice lucid from"gh-r"
@@ -50,7 +50,7 @@ zi wait for \
 
 :::caution
 
-The `wait''` ice cannot be made default by using this subcommand.
+The `wait` ice cannot be made default by using this subcommand.
 
 :::
 

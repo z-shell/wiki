@@ -142,8 +142,7 @@ ZSH_THEME="robbyrussell"
 
 However, ZI doesn't support the `ZSH_THEME` variable natively.
 
-To use **themes** created for OMZ, it requires loading shown below as it would be the same as OMZ does in the
-background.
+To use **themes** created for OMZ, it requires loading shown below as it would be the same as OMZ does in the background.
 
 > Some themes may require additional configuration it can be determined from the theme configuration file.
 
@@ -250,7 +249,7 @@ Prezto Setting:
 zstyle ':prezto:load' pmodule 'environment' 'terminal'
 ```
 
-ZI Setting:
+Zi Setting:
 
 > Import raw syntax from URL.
 
@@ -305,7 +304,7 @@ zi ice svn blockf \
 zi snippet PZTM::completion
 ```
 
-Use `blockf` to prevent any unnecessary additions to fpath, as ZI manages fpath.
+Use `blockf` to prevent any unnecessary additions to fpath, as Zi manages fpath.
 
 :::tip
 

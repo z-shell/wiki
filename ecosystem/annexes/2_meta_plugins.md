@@ -1,6 +1,6 @@
 ---
 id: meta-plugins
-title: 🌀 Meta Plugins
+title: "🌀 Meta Plugins"
 image: img/logo/320x320.png
 description: Annex meta-plugins documentation
 keywords:
@@ -89,11 +89,11 @@ It consumes time to:
 - Over and over reconstruct the new findings on the new machines.
 - Constantly extend and tweak the ice list of each plugin, so that it's hard on the eyes, especially for an outsider.
 
-|                        Problem                        | Solution                                                                                                                                                                                                                                                                           |
-| :---------------------------------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|               (1) _finding new plugins_               | the annex contains a curated, broad list of plugins, e.g.: all the console tools like `fd`, `fzf`, `exa`, `ripgrep`, etc.,                                                                                                                                                         |
-| (2) _reconstructing the findings in new environments_ | it's easy to say and memorize e.g.: `zi for console-tools` – one label pulls a group of plugins and also the curated, optimal, default ice lists for each of them,                                                                                                                 |
-| (3) _constant increase of complexity of the commands_ | the provided, hopefully, best/optimal ices for each plugin are handled transparently and automatically; care is given to each ice list so that the plugin loads without any glitches (e.g.: without "No files for compilation found." message and other, even such slight issues). |
+|                        Problem                        | Solution                                                                                                                                                                                                                                                                               |
+| :---------------------------------------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|               (1) _finding new plugins_               | the annex contains a curated, broad list of plugins, e.g.: all the console tools like `fd`, `fzf`, `exa`, `ripgrep`, etc.,                                                                                                                                                             |
+| (2) _reconstructing the findings in new environments_ | it's easy to say and memorize e.g.: `zi for console-tools` – one label pulls a group of plugins and also the curated, optimal, default ice lists for each of them,                                                                                                                     |
+| (3) _constant increase of complexity of the commands_ | the provided, hopefully, best/optimal ices for each plugin are handled transparently and automatically; care is given to each ice list so that the plugin loads without any glitches (e.g.: without the "No files for compilation found." message and other, even such slight issues). |
 
 Other unique benefits of the meta plugins annex:
 
@@ -152,8 +152,8 @@ Other unique benefits of the meta plugins annex:
 [42]: https://github.com/tj/git-extras
 [43]: https://github.com/wfxr/forgit
 [44]: https://github.com/z-shell/pyenv
-[45]: https://github.com/z-shell/z-a-meta-plugins
 [46]: /docs/guides/syntax/ice
+[45]: https://github.com/z-shell/z-a-meta-plugins
 [47]: https://github.com/z-shell/z-a-meta-plugins/issues/new
 [48]: https://raw.githubusercontent.com/z-shell/z-a-meta-plugins/main/docs/images/fuzzy-mplg-ex.png#center
 [49]: https://github.com/z-shell/zsh-select

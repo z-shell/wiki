@@ -1,7 +1,7 @@
 ---
 id: community
 slug: /
-title: 👥 Community Docs
+title: "👥 Community Docs"
 sidebar_position: 1
 image: img/logo/320x320.png
 keywords:

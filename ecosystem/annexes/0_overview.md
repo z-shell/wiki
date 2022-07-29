@@ -1,7 +1,7 @@
 ---
 id: annexes
 slug: /annexes
-title: 🌀 What can Annexes do?
+title: "🌀 What can Annexes do?"
 sidebar_position: 1
 image: img/logo/320x320.png
 description: Annex Introduction
@@ -11,7 +11,7 @@ keywords:
 
 <!-- @format -->
 
-1. Add a new ZI subcommand (i.e. the [command][1] that’s placed after the function `zi …` when calling ZI).
+1. Add a new Zi subcommand (i.e. the [command][1] that’s placed after the function `zi …` when calling Zi).
 
 2. Add new [ice-modifiers][2].
 
