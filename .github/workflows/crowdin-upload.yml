@@ -34,6 +34,6 @@ jobs:
         uses: crowdin/github-action@1.4.10
         with:
           upload_sources: true
-          upload_translations: true
+          upload_translations: false
           import_eq_suggestions: true
           download_translations: false
