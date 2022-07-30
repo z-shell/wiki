@@ -105,7 +105,7 @@ Other unique benefits of the meta plugins annex:
 
 ---
 
-![meta-plugins][48]
+![meta-plugins](https://raw.githubusercontent.com/z-shell/z-a-meta-plugins/main/docs/images/fuzzy-mplg-ex.png#center)
 
 <!-- end-of-file -->
 
@@ -155,6 +155,5 @@ Other unique benefits of the meta plugins annex:
 [46]: /docs/guides/syntax/ice
 [45]: https://github.com/z-shell/z-a-meta-plugins
 [47]: https://github.com/z-shell/z-a-meta-plugins/issues/new
-[48]: https://raw.githubusercontent.com/z-shell/z-a-meta-plugins/main/docs/images/fuzzy-mplg-ex.png#center
 [49]: https://github.com/z-shell/zsh-select
 [50]: https://github.com/z-shell/z-a-meta-plugins/blob/main/z-a-meta-plugins.plugin.zsh

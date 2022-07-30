@@ -34,7 +34,7 @@ The keys that come after the modifier can add more confusion.
 
 To delete a key binding you can use `bindkey -d $KEYS`. Make sure you don't delete characters you need for typing.
 
-## <i class="fa-solid fa-sliders"></i> The `bindmap'…'` keybindings
+## <i class="fa-solid fa-sliders"></i> The `bindmap'…'` keybindings {#bindmap}
 
 Sometimes plugins call [bindkey][1] to assign keyboard shortcuts. This can cause problems because multiple plugins can bind the same keys.
 
@@ -96,7 +96,7 @@ bindkey " " magic-space
 
 For the `bindmap='!" " -> magic-space; !"^ " -> globalias'` ice.
 
-### <i class="fa-solid fa-circle-check"></i> Using `bindmap'…'` in light mode
+### <i class="fa-solid fa-circle-check"></i> Using `bindmap'…'` in light mode {#trackbinds}
 
 When the investigation mode is on i.e.:
 

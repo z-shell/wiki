@@ -63,14 +63,13 @@
 
   --ifm-font-family-monospace: "JetBrains Mono", monospace;
   --ifm-font-family-base: "JetBrains Mono";
-  --site-primary-hue-saturation: 167 68%;
-  --site-primary-hue-saturation-light: 167 56%;
+  --site-primary-hue-saturation: 168 70%;
+  --site-primary-hue-saturation-light: 167 60%;
   --site-color-favorite-background: #f6f8fa;
   --site-color-tooltip-background: #353738;
   --site-color-feedback-background: #fff;
   --site-color-tooltip: #fff;
 
-  --ifm-color-primary: hsl(var(--site-primary-hue-saturation) 30%);
   --ifm-breadcrumb-color-active: var(--ifm-color-primary-darker) !important;
   --ifm-menu-color-active: var(--ifm-color-primary-darker) !important;
   --ifm-code-font-size: 90%;
@@ -92,9 +91,10 @@ html[data-theme="dark"] {
 }
 
 [data-theme="light"] {
-  --ifm-color-primary-dark: hsl(var(--site-primary-hue-saturation) 26%);
+  --ifm-color-primary: hsl(var(--site-primary-hue-saturation) 28%);
+  --ifm-color-primary-dark: hsl(var(--site-primary-hue-saturation) 24%);
   --ifm-color-primary-darker: hsl(var(--site-primary-hue-saturation) 20%);
-  --ifm-color-primary-darkest: hsl(var(--site-primary-hue-saturation) 17%);
+  --ifm-color-primary-darkest: hsl(var(--site-primary-hue-saturation) 16%);
   --ifm-color-primary-light: hsl(var(--site-primary-hue-saturation-light) 36%);
   --ifm-color-primary-lighter: hsl(
     var(--site-primary-hue-saturation-light) 47%
@@ -266,6 +266,20 @@ html[data-theme="dark"] .header-github-link::before {
     no-repeat;
 }
 
+/* API Table */
+
+.apitable table {
+  font-size: 14px;
+}
+
+.apitable table th {
+  font-weight: bold;
+}
+
+.apitable table th:first-of-type {
+  width: 18%;
+}
+
 /* RSS Link */
 .rss-link::before {
   display: inline-block;
@@ -288,7 +302,6 @@ html[data-theme="dark"] .header-github-link::before {
 }
 
 /* Announcement banner */
-
 div[class^="announcementBarContent"] {
   line-height: 16px;
   font-size: 14px;
