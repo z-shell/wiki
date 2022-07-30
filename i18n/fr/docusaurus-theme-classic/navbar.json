@@ -1,0 +1,10 @@
+{
+  "item.label.Ecosystem": {
+    "message": "Éco-système",
+    "description": "Navbar item with label Ecosystem"
+  },
+  "item.label.Community": {
+    "message": "Communauté",
+    "description": "Navbar item with label Community"
+  }
+}
