@@ -37,7 +37,7 @@ specifiers:
   raw-loader: 4.0.2
   react: 17.0.2
   react-dom: 17.0.2
-  react-spinners: 0.13.3
+  react-spinners: 0.13.4
   rehype-katex: 5.0.0
   remark-math: 3.0.1
   stylelint: 14.9.1
@@ -62,7 +62,7 @@ dependencies:
   raw-loader: 4.0.2_webpack@5.74.0
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
-  react-spinners: 0.13.3_sfoxds7t5ydpegc3knd667wn6m
+  react-spinners: 0.13.4_sfoxds7t5ydpegc3knd667wn6m
   rehype-katex: 5.0.0
   remark-math: 3.0.1
 
@@ -8394,8 +8394,8 @@ packages:
       tiny-warning: 1.0.3
     dev: false
 
-  /react-spinners/0.13.3_sfoxds7t5ydpegc3knd667wn6m:
-    resolution: {integrity: sha512-FHQMH6dAl1Vw4Lxv0H7hbGsjBs0aKNVwjGrDJLuD9R/C3h9+IuBhKJOJyCcegxMaLiBSBV96Tp+XV3OwPK8Vtw==}
+  /react-spinners/0.13.4_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-V6IURjYOwomhdngMfuVxBp4utCF6v21sjQ6r4K2JoKl8fwXZp1UeHMBLf+2SU+cts8hAVj9rHOJ8kdT5UqqaJw==}
     peerDependencies:
       react: ^16.0.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
