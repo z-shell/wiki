@@ -230,15 +230,15 @@ const config = {
             items: [
               {
                 label: "JSON",
-                href: "blog/feed.json",
+                href: "https://wiki.zshell.dev/blog/feed.json",
               },
               {
                 label: "RSS",
-                href: "blog/rss.xml",
+                href: "https://wiki.zshell.dev/blog/rss.xml",
               },
               {
                 label: "Atom",
-                href: "blog/atom.xml",
+                href: "https://wiki.zshell.dev/blog/atom.xml",
               },
             ],
           },
