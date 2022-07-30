@@ -63,6 +63,7 @@
 
   --ifm-font-family-monospace: "JetBrains Mono", monospace;
   --ifm-font-family-base: "JetBrains Mono";
+  --ifm-color-primary: #25c2a0;
   --site-primary-hue-saturation: 168 70%;
   --site-primary-hue-saturation-light: 167 60%;
   --site-color-favorite-background: #f6f8fa;
@@ -314,6 +315,10 @@ div[class^="announcementBarContent"] a {
   color: var(--ifm-color-primary) !important;
 }
 
+div[class^="announcementBarContent"] a:hover {
+  color: var(--ifm-color-brand) !important;
+}
+
 html[data-theme="light"] div[class^="announcementBar_"] {
   color: #000;
   background: #f6f8fa;
@@ -324,10 +329,6 @@ html[data-theme="dark"] div[class^="announcementBar_"] {
   color: #fff;
   background: #24292e;
   transition-duration: 1s !important;
-}
-
-div[class^="announcementBarContent"] a:hover {
-  color: var(--brand) !important;
 }
 
 @media only screen and (max-width: 768px) {
