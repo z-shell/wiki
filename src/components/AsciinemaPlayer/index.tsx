@@ -1,4 +1,5 @@
 /** @format */
+// @ts-check
 
 import React, { useEffect, useRef } from "react";
 import * as AsciinemaPlayerLibrary from "asciinema-player";

@@ -19,7 +19,7 @@ const config = {
   projectName: "wiki",
   organizationName: "z-shell",
   staticDirectories: ["static"],
-  stylesheets: ["/assets/fa/css/all.min.css?static=true"],
+  stylesheets: ["/assets/fa/css/all.min.css"],
   i18n: {
     defaultLocale: "en",
     locales: ["en", "fr", "ja", "zh-Hans"],
@@ -85,6 +85,24 @@ const config = {
           { tagName: "link", rel: "icon", href: "/img/logo.svg" },
           { tagName: "link", rel: "manifest", href: "/manifest.json" },
           { tagName: "link", rel: "browserconfig", href: "/browserconfig.xml" },
+          {
+            tagName: "link",
+            rel: "alternate",
+            type: "application/json",
+            href: "/blog/feed.json",
+          },
+          {
+            tagName: "link",
+            rel: "alternate",
+            type: "application/rss+xml",
+            href: "/blog/rss.xml",
+          },
+          {
+            tagName: "link",
+            rel: "alternate",
+            type: "application/atom+xml",
+            href: "/blog/atom.xml",
+          },
           {
             tagName: "meta",
             name: "theme-color",
@@ -212,15 +230,15 @@ const config = {
             items: [
               {
                 label: "JSON",
-                href: "https://wiki.zshell.dev/blog/feed.json/",
+                href: "blog/feed.json",
               },
               {
                 label: "RSS",
-                href: "https://wiki.zshell.dev/blog/rss.xml",
+                href: "blog/rss.xml",
               },
               {
                 label: "Atom",
-                href: "https://wiki.zshell.dev/blog/atom.xml",
+                href: "blog/atom.xml",
               },
             ],
           },

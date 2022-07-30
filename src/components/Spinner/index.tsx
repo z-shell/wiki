@@ -1,4 +1,5 @@
 /** @format */
+// @ts-check
 
 import React, { useState, CSSProperties } from "react";
 import ClipLoader from "react-spinners/ClipLoader";

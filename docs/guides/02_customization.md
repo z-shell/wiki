@@ -35,6 +35,8 @@ Variables has to be set before loading Zi, i.e `source "path/to/zi/bin/zi.zsh"`.
 
 ### <i class="fa-solid fa-sliders"></i> Customize paths {#customizing-paths}
 
+<div className="apitable">
+
 | Hash Field                           | Description                                                                                                                                                                             |
 | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ZI[BIN_DIR]`                        | Where Zi code resides, e.g: "~/.zi/bin"                                                                                                                                                 |
@@ -47,7 +49,11 @@ Variables has to be set before loading Zi, i.e `source "path/to/zi/bin/zi.zsh"`.
 | [ZPFX][global-parameter-with-prefix] | Directory where binary and their related files are stored (software with `Makefile` can use `atclone'./configure --prefix=$ZPFX'`). Set by default to `$ZI[HOME_DIR]}/polaris`.         |
 | `ZI[MAN_DIR]`                        | Directory where plugins can store their manpages (`atclone"cp -vf man.1 $ZI[MAN_DIR]/man1"`). If overridden, this directory will not necessarily be used by man. Default: `${ZPFX}/man` |
 
+</div>
+
 ### <i class="fa-solid fa-sliders"></i> Modify settings {#modify-settings}
+
+<div className="apitable">
 
 | Hash Field                       | Description                                                                                                                                                                                                                                                                                                                                                                                              |
 | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -55,6 +61,8 @@ Variables has to be set before loading Zi, i.e `source "path/to/zi/bin/zi.zsh"`.
 | `ZI[COMPINIT_OPTS]`              | Options for `compinit` call (e.g: done by `zicompinit`), use to pass -C to speed up loading                                                                                                                                                                                                                                                                                                              |
 | `ZI[MUTE_WARNINGS]`              | If set to `1`, then mutes some of the Zi warnings, specifically the `plugin already registered` warning                                                                                                                                                                                                                                                                                                  |
 | `ZI[PKG_OWNER]`                  | Change the owner of the [packages][packages] (`zi pack …`).                                                                                                                                                                                                                                                                                                                                              |
+
+</div>
 
 ## <i class="fa-solid fa-square-up-right"></i> Non-GitHub (Local) Plugins {#non-github-local-plugins}
 
@@ -224,10 +232,14 @@ skip_global_compinit=1
 
 ## <i class="fa-solid fa-list-check"></i> Multiple prompts {#multiple-prompts}
 
+<div className="apitable">
+
 | Syntax      | Description                                                   |
 | ----------- | :------------------------------------------------------------ |
 | `load'…'`   | condition that when fulfilled will cause plugin to be loaded. |
 | `unload'…'` | as above, but will unload plugin.                             |
+
+</div>
 
 :::note
 
@@ -235,10 +247,14 @@ skip_global_compinit=1
 
 :::
 
+<div className="apitable">
+
 | Syntax       | Description                                                                                           |
 | ------------ | :---------------------------------------------------------------------------------------------------- |
 | `atload'!…'` | run the `precmd` hooks to make the prompts fully initialized when loaded in the middle of the prompt. |
 | `precmd`     | hooks are being normally run before each **new** prompt.                                              |
+
+</div>
 
 :::info
 
@@ -247,6 +263,8 @@ Exclamation mark causes the effects of the functions to be tracked.
 :::
 
 To allow better unloading, conditions are checked every second, you can use conditions like:
+
+<div className="apitable">
 
 | Condition                 | Description                                                                                                                                          |
 | ------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -257,6 +275,8 @@ To allow better unloading, conditions are checked every second, you can use cond
 | `lucid`                   | Don't show the under-prompt message that says e.g: `Loaded geometry-zsh/geometry`.                                                                   |
 | `nocd`                    | Don't cd into the plugin's directory when executing the `atload'…'`.                                                                                 |
 | `atload'…'`               | This ice can make the path that's displayed by the theme to point to that directory.                                                                 |
+
+</div>
 
 ### <i class="fa-solid fa-layer-group"></i> Loading and unloading themes (8 examples) {#loading-and-unloading-themes-8-examples}
 

@@ -91,6 +91,8 @@ zi wait lucid light-mode for \
     zsh-users/zsh-completions
 ```
 
+<div className="apitable">
+
 | Syntax       | Description                                                                                  |
 | ------------ | :------------------------------------------------------------------------------------------- |
 | `wait`       | Load 0 seconds (about 5 ms exactly) after prompt ([turbo mode][6]).                          |
@@ -101,6 +103,8 @@ zi wait lucid light-mode for \
 | `atload'…'`  | Execute code after loading the plugin.                                                       |
 | `zicompinit` | Equals to `autoload compinit; compinit`.                                                     |
 | `zicdreplay` | Execute `compdef …` calls by plugins. More below [^2].                                       |
+
+</div>
 
 ## <i class="fa-solid fa-list"></i> Oh-My-Zsh, [turbo][6] Oh-My-Zsh and the [for][10] syntax
 

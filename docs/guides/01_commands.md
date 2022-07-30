@@ -11,8 +11,6 @@ keywords:
 
 <!-- @format -->
 
-import APITable from '@site/src/components/APITable';
-
 ## Commands available using <kbd>^TAB</kbd> [completion][6]
 
 ```jsx title="zi ^TAB"
@@ -181,7 +179,7 @@ Following commands are passed to `zi …` to obtain described effects.
 
 ## Loading and unloading
 
-<APITable>
+<div className="apitable">
 
 |       Command        | Description                                                                                       |
 | :------------------: | ------------------------------------------------------------------------------------------------- |
@@ -190,11 +188,11 @@ Following commands are passed to `zi …` to obtain described effects.
 | `unload` `-q` `'…'`  | Unload plugin loaded with `zi load …`. `-q` – quiet.                                              |
 | `snippet` `-f` `URL` | Source local (full path) or remote file (URL). `-f` – don't use cache (force redownload). [^2]    |
 
-</APITable>
+</div>
 
 ## Completions management
 
-<APITable>
+<div className="apitable">
 
 |                   Command                    | Description                                                                                                                             |
 | :------------------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -210,11 +208,11 @@ Following commands are passed to `zi …` to obtain described effects.
 |               `cdreplay` `-q`                | Replay compdefs (to be done after compinit). `-q` – quiet.                                                                              |
 |                `cdclear` `-q`                | Clear compdef replay list. `-q` – quiet.                                                                                                |
 
-</APITable>
+</div>
 
 ## Tracking of the active session
 
-<APITable>
+<div className="apitable">
 
 |     Command      | Description                                       |
 | :--------------: | ------------------------------------------------- |
@@ -224,11 +222,11 @@ Following commands are passed to `zi …` to obtain described effects.
 |    `dreport`     | Report what was going on in session.              |
 |     `dclear`     | Clear report of what was going on in session.     |
 
-</APITable>
+</div>
 
 ## Reports and statistics
 
-<APITable>
+<div className="apitable">
 
 |             Command             | Description                                                                                                                                                |
 | :-----------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -242,11 +240,11 @@ Following commands are passed to `zi …` to obtain described effects.
 |     `recently` `time-spec`      | Show plugins that changed recently, argument is e.g. 1 month 2 days.                                                                                       |
 |           `bindkeys`            | Lists bindkeys set up by each plugin.                                                                                                                      |
 
-</APITable>
+</div>
 
 ## Compiling
 
-<APITable>
+<div className="apitable">
 
 |          Command          | Description                                                         |
 | :-----------------------: | ------------------------------------------------------------------- |
@@ -254,11 +252,11 @@ Following commands are passed to `zi …` to obtain described effects.
 | `uncompile` `'…'` `--all` | Remove compiled version of plugin. `--all` – do it for all plugins. |
 |        `compiled`         | List plugins that are compiled.                                     |
 
-</APITable>
+</div>
 
 ## Other commands
 
-<APITable>
+<div className="apitable">
 
 |                         Command                          | Description                                                                                                                                                |
 | :------------------------------------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -279,14 +277,18 @@ Following commands are passed to `zi …` to obtain described effects.
 | `add-fpath` `fpath` `-f` `--front` `'…'` `sub-directory` | Adds given plugin (not yet snippet) directory to `$fpath`. If the second argument is given, it is appended to the directory path. [^3]                     |
 |             `run` `-l` `plugin` `{command}`              | Runs the given command in the given plugin's directory. [^4]                                                                                               |
 
-</APITable>
+</div>
 
 ## Help & Manual
+
+<div className="apitable">
 
 |  Command   | Description        |
 | :--------: | ------------------ |
 | `-h, help` | Usage information. |
 |   `man`    | Manual.            |
+
+</div>
 
 <!-- end-of-file -->
 <!--footnotes-->

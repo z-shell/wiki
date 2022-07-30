@@ -49,6 +49,8 @@ zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
 zi light vim/vim
 ```
 
+<div className="apitable">
+
 | Syntax             | Description                                                                               |
 | ------------------ | :---------------------------------------------------------------------------------------- |
 | `as'program'`      | Add file selected by `pick'…'` to `$PATH`, and do not source it.                          |
@@ -56,6 +58,8 @@ zi light vim/vim
 | `atpull'%atclone'` | Execute the same code `atclone'…'` is given, but after successful update.                 |
 | `make`             | Run `make` after `atclone'…'` and `atpull'…'` (note: `make'!'` will execute before them). |
 | `pick'src/vim'`    | Set executable flag on `src/vim`, hint that `src/` should be added to `$PATH`.            |
+
+</div>
 
 The same but with **installation** (`make install`) under [$ZPFX][zpfx] by default:
 
@@ -65,6 +69,8 @@ zi ice as'program' atclone'rm -f src/auto/config.cache; \
 zi light vim/vim
 ```
 
+<div className="apitable">
+
 | Syntax             | Description                                                                                  |
 | ------------------ | :------------------------------------------------------------------------------------------- |
 | `as'program'`      | As above.                                                                                    |
@@ -72,6 +78,8 @@ zi light vim/vim
 | `atpull'%atclone'` | As above.                                                                                    |
 | `make`             | As above, but also run the `install` target.                                                 |
 | `pick'src/vim'`    | as above, but for different path `$ZPFX/bin/vim`.                                            |
+
+</div>
 
 ## <i class="fa-solid fa-palette"></i> LS_COLORS {#ls_colors}
 
@@ -84,6 +92,8 @@ zi ice atclone'dircolors -b LS_COLORS > clrs.zsh' \
 zi light trapd00r/LS_COLORS
 ```
 
+<div className="apitable">
+
 | Syntax             | Description                                                                                                 |
 | ------------------ | :---------------------------------------------------------------------------------------------------------- |
 | `atclone'…'`       | Generate shell script, passing it to `eval`. More: [^1]                                                     |
@@ -91,6 +101,8 @@ zi light trapd00r/LS_COLORS
 | `pick"clrs.zsh"`   | Source the previously generated file `clrs zsh`.                                                            |
 | `nocompile'!'`     | Invokes compilation **after** the `atclone'…'` [ice-modifier][3] and the [exclamation mark][4] causes this. |
 | `atload'…'`        | Additionally sets up the Zsh completion to use the colors provided by the trapd00r package.                 |
+
+</div>
 
 This way, except for the plugin installation and update, `dircolors` isn't ran, just normal sourcing is done. The everyday sourced file, i.e. `clrs.zsh`, is being compiled to speed up the loading.
 
@@ -121,6 +133,8 @@ zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
     direnv/direnv
 ```
 
+<div className="apitable">
+
 | Syntax             | Description                                                                                                          |
 | ------------------ | :------------------------------------------------------------------------------------------------------------------- |
 | `make'!'`          | Compile `direnv`, the exclamation mark means: run the `make` first, before `atclone'…'` and `atpull'…'` hooks.       |
@@ -129,6 +143,8 @@ zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
 | `src'zhook.zsh'`   | Load generated registration code                                                                                     |
 | `pick'direnv'`     | Ensure `+x` permission on the binary                                                                                 |
 | `as'program'`      | The plugin is a program, there's no main file to the source.                                                         |
+
+</div>
 
 In this method, the registered code is generated once on every installation or update, then sourced without running `direnv` itself. The project is also available as a binary [GitHub releases][6]. This distribution can be installed by:
 
@@ -139,6 +155,8 @@ zi from"gh-r" as"program" mv"direnv* -> direnv" \
     direnv/direnv
 ```
 
+<div className="apitable">
+
 | Syntax                    | Description                                                                |
 | ------------------------- | :------------------------------------------------------------------------- |
 | `from'gh-r'`              | Install from `direnv` from [GitHub releases][6].                           |
@@ -146,6 +164,8 @@ zi from"gh-r" as"program" mv"direnv* -> direnv" \
 | `atclone'…'`, `atpull'…'` | As in above example.                                                       |
 | `pick'direnv'`            | As in above example.                                                       |
 | `as'program'`             | As in above example.                                                       |
+
+</div>
 
 ## <i class="fa-solid fa-pen-to-square"></i> Standart syntax {#standart-syntax}
 

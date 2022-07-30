@@ -305,10 +305,14 @@ zi ice pick'powerless.zsh' src'utilities.zsh'
 zi light martinrotter/powerless
 ```
 
+<div className="apitable">
+
 |  Syntax   | Description                                                                                        |
 | :-------: | :------------------------------------------------------------------------------------------------- |
 | `pick'…'` | Provide main file to source - like `*.sh`, otherwise alphabetically first matched file is sourced. |
 | `src'…'`  | Provide second file to source - not a pattern - plain file name.                                   |
+
+</div>
 
 ### The `svn` ice {#the-svn-ice}
 
@@ -320,10 +324,14 @@ zi ice svn pick'completion.zsh' \
 zi snippet OMZ::lib
 ```
 
+<div className="apitable">
+
 |   Syntax    | Description                                                                                                                        |
 | :---------: | :--------------------------------------------------------------------------------------------------------------------------------- |
 |    `svn`    | Use Subversion to clone `OMZ::lib` (the whole Oh-My-Zsh `lib/` directory). More [^1].                                              |
 | `atload'…'` | Code isn't tracked and cannot be unloaded. The `atload'…'` is executed after loading main files `pick'…'` and `src'…'`. More [^2]. |
+
+</div>
 
 ### The `multisrc'…'` ice {#the-multisrc-ice}
 
@@ -477,12 +485,16 @@ There are four code-receiving ices: `atclone'…'`, `atpull'…'`, `atinit'…'`
 
 Their role is to **receive a portion of Zsh code and execute it in specific moments of the plugin life-cycle**.
 
+<div className="apitable">
+
 |    Syntax    | Execution moment                                                |
 | :----------: | :-------------------------------------------------------------- |
 | `atclone'…'` | **after cloning** the associated plugin or snippet to the disk. |
 | `atpull'…'`  | **after updating** the associated plugin or snippet.            |
 | `atinit'…'`  | **before loading** of the associated plugin or snippet.         |
 | `atload'…'`  | **after loading** of the associated plugin or snippet.          |
+
+</div>
 
 For convenience, you can use each of the ices multiple times in a single `zi ice …` invocation – all commands will run in the given order.
 

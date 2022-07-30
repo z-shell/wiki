@@ -265,15 +265,27 @@ html[data-theme="dark"] .header-github-link::before {
 
 /* API Table */
 
-.apitable table {
+.apitable {
   font-size: 14px;
 }
 
-.apitable table th {
+.apitable tbody tr {
+  transition: box-shadow 0.2s;
+}
+
+.apitable tbody tr:focus,
+.apitable tbody tr:hover {
+  outline: none;
+  box-shadow: 0 0 7px 0 inset var(--ifm-color-primary);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.apitable tbody th {
   font-weight: bold;
 }
 
-.apitable table th:first-of-type {
+.apitable tbody th:first-of-type {
   width: 18%;
 }
 
