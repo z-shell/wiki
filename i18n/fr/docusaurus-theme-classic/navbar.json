@@ -1,4 +1,8 @@
 {
+  "item.label.Docs": {
+    "message": "Documentation",
+    "description": "Navbar item with label Docs"
+  },
   "item.label.Ecosystem": {
     "message": "Éco-système",
     "description": "Navbar item with label Ecosystem"
@@ -6,5 +10,9 @@
   "item.label.Community": {
     "message": "Communauté",
     "description": "Navbar item with label Community"
+  },
+  "item.label.Feed": {
+    "message": "Flux",
+    "description": "Navbar item with label Feed"
   }
 }
