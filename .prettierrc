@@ -2,7 +2,7 @@
 
 {
   "insertPragma": true,
-  "requirePragma": true,
+  "requirePragma": false,
   "jsxSingleQuote": true,
   "singleAttributePerLine": true,
   "vueIndentScriptAndStyle": true,
