@@ -55,7 +55,7 @@ Les paquets [Rust](https://crates.io) sont gérés par l'annexe [rust](/ecosyste
   </TabItem>
   <TabItem value="github" label="GitHub" default>
 
-Installez et contrôlez presque tout depuis [GitHub](https://github.com) : [Annexes](/ecosystem/annexes), [Packages](/ecosystem/packages), [Galerie des invocations](/community/gallery/collection).
+Install and control almost everything from [GitHub](https://github.com): [Annexes](/ecosystem/annexes), [Packages](/ecosystem/packages), [Gallery of Invocations](/community/gallery/collection).
 
 </TabItem>
 </Tabs>
@@ -71,7 +71,7 @@ Installez et contrôlez presque tout depuis [GitHub](https://github.com) : [Anne
 
 - [Personnalisez les chemins][9], utilisez [plusieurs invites][10] ou créez [vos propres plugins][11] .
 - Prend en charge les plugins et bibliothèques [Oh My Zsh][oh-my-zsh] et [Prezto][] . ([migration][]).
-- N'utilise pas `$FPATH`, le chargement de plusieurs plugins n'encombre pas `$FPATH` avec le même nombre d'entrées, par exemple : 10, 15, ou plus.
+- Does not use `$FPATH`, loading multiple plugins doesn't clutter `$FPATH` with the same number of entries, e.g: 10, 15, or more.
 - Le code est immunisé contre `KSH_ARRAYS` et d'autres options causant généralement des problèmes de compatibilité.
 - Ne nécessite pas `sudo`, et fournit de nombreuses solutions de contournement, par exemple: définir les **shims** localement.
 
