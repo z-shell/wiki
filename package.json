@@ -34,7 +34,7 @@
 		"@docusaurus/plugin-ideal-image": "0.0.0-5225",
 		"@docusaurus/plugin-pwa": "0.0.0-5225",
 		"@docusaurus/preset-classic": "0.0.0-5225",
-		"@docusaurus/theme-common": "^2.0.1",
+		"@docusaurus/theme-common": "0.0.0-5225",
 		"@loadable/babel-plugin": "5.13.2",
 		"@loadable/component": "5.15.2",
 		"@mdx-js/react": "1.6.22",
