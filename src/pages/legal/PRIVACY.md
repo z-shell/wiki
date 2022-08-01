@@ -80,6 +80,9 @@
       , <a href="https://z-shell.pages.dev" rel="external nofollow noopener" target="_blank">
         https://z-shell.pages.dev
       </a>
+      , <a href="https://zsh.pages.dev" rel="external nofollow noopener" target="_blank">
+        https://zsh.pages.dev
+      </a>
       , <a href="https://wiki.zshell.dev" rel="external nofollow noopener" target="_blank">
         https://wiki.zshell.dev
       </a>
@@ -376,5 +379,5 @@
 <h1>Contact Us</h1>
 <p>If you have any questions about this Privacy Policy, You can contact us:</p>
 <ul>
-  <li>By email: z-shell@digitalclouds.dev</li>
+  <li>By email: team@zshell.dev</li>
 </ul>
