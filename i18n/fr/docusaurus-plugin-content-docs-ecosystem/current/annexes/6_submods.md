@@ -15,15 +15,15 @@ keywords:
 
 Une annexe offre la possibilité de cloner des sous-modules supplémentaires tout en installant un plugin ou un snippet. Les sous-modules sont alors automatiquement mis à jour sur la commande `zi update …` .
 
-This annex adds `submods'…'` ice to Zi which has the following syntax:
+Cette annexe ajoute la glace `submods'…'` à Zi qui a la syntaxe suivante:
 
 ```shell
 submods'{user}/{plugin} -> {output directory}; …'
 ```
 
-An example command utilizing the annex and its ice:
+Un exemple de commande utilisant l'annexe et sa glace:
 
-> Load zsh-autosuggestions plugin via Prezto module: autosuggestions
+> Charger le plugin zsh-autosuggestions via le module Prezto: autosuggestions
 
 ```shell showLineNumbers
 zi ice svn submods'zsh-users/zsh-autosuggestions -> external'
@@ -32,7 +32,7 @@ zi snippet PZT::modules/autosuggestions
 
 ## Installer les Submods
 
-Il suffit de le charger comme un plugin. The following command will install the annex within Zi:
+Il suffit de le charger comme un plugin. La commande suivante installera l'annexe dans Zi:
 
 ```shell
 zi light z-shell/z-a-submods
