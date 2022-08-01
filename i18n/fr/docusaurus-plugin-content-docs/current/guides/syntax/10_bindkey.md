@@ -34,7 +34,7 @@ Les touches qui viennent après le modificateur peuvent ajouter encore plus de c
 
 Pour supprimer une liaison de touches, vous pouvez utiliser `bindkey -d $KEYS`. Veillez à ne pas supprimer les caractères dont vous avez besoin pour taper.
 
-## <i class="fa-solid fa-sliders"></i> The `bindmap'…'` keybindings {#bindmap}
+## <i class="fa-solid fa-sliders"></i> Les raccourcis clavier `bindmap'…'` {#bindmap}
 
 Parfois, les plugins appellent [bindkey][1] pour attribuer des raccourcis clavier. Cela peut poser des problèmes car plusieurs plugins peuvent lier les mêmes clés.
 
@@ -96,7 +96,7 @@ bindkey " " magic-space
 
 Pour le `bindmap=' !" " -> magic-space ; !"^ " -> globalias'` ice.
 
-### <i class="fa-solid fa-circle-check"></i> Using `bindmap'…'` in light mode {#trackbinds}
+### <i class="fa-solid fa-circle-check"></i> Utilisation de la bindmap `'…'` en mode léger {#trackbinds}
 
 Quand le mode d'investigation est activé, c'est à dire .:
 
@@ -106,14 +106,14 @@ Dans le cadre de la non-enquête:
 
 - le [light mode](/search/?q=light+mode) - activé lorsque `zi light …` ou le `light-mode` est utilisé-le `bindmap'…'` n'est pas disponible, sauf si la la glace `trackbinds` est spécifié:
 
-With the use of the light-mode ice and the for-syntax:
+Avec l'utilisation de la glace en mode lumière et de la syntaxe for:
 
 ```shell showLineNumbers
 zi light-mode for trackbinds bindmap'^R -> ^G' \
   z-shell/history-search-multi-word
 ```
 
-With the use of the traditional syntax:
+Avec l'utilisation de la syntaxe traditionnelle:
 
 ```shell showLineNumbers
 zi ice trackbinds bindmap'^R -> ^G'
@@ -122,13 +122,13 @@ zi light z-shell/history-search-multi-word
 
 ### <i class="fa-solid fa-circle-check"></i> Utilisation des raccourcis de <kbd>UPAR</kbd>
 
-There are four special values that can be used on the left side of the bind-map: <kbd>UPAR</kbd>, <kbd>DOWNAR</kbd>, <kbd>LEFTAR</kbd>, <kbd>RIGHTAR</kbd>. They'll match up arrow, down arrow, etc. So that it's possible to do:
+Il y a quatre valeurs spéciales qui peuvent être utilisées sur le côté gauche du bind-map: <kbd>UPAR</kbd>, <kbd>DOWNAR</kbd>, <kbd>LEFTAR</kbd>, <kbd>RIGHTAR</kbd>. Elles correspondent à la flèche vers le haut, la flèche vers le bas, etc. Il est donc possible de faire:
 
 ```shell
 zi bindmap='LEFTAR -> ^F; RIGHTAR -> ^G' …
 ```
 
-The benefit of using the <kbd>UPAR</kbd>, … shorthands is that they cover multiple possible cursor-key codes for each of the cursor keys so that they'll work regardless of the terminal is used.
+L'avantage d'utiliser les raccourcis <kbd>UPAR</kbd>, … est qu'ils couvrent plusieurs codes de touche de curseur possibles pour chacune des touches de curseur afin qu'ils fonctionnent quel que soit le terminal utilisé.
 
 [1]: /search/?q=binkey
 [2]: /search/?q=ice+modifier
