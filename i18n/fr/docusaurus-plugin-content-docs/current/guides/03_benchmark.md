@@ -60,12 +60,12 @@ num calls    time                self                 name
 -----------------------------------------------------------------------------------
 ```
 
-- The first column is the time in milliseconds:
+- La première colonne est le temps en millisecondes:
 
   - Il indique le temps total passé dans une fonction.
   - Par exemple, `--zi-shadow-autoload` a consommé 10,71 ms du temps d'exécution,
 
-- The fourth column is also a time in milliseconds, but it denotes the amount of time spent on executing only of function's **own code**, it doesn't count the time spent in **descendant functions** that are called from the function;
+- La quatrième colonne est également un temps en millisecondes, mais elle indique le temps passé à exécuter uniquement le propre code**de la fonction **, elle ne compte pas le temps passé dans **fonctions descendantes** qui sont appelées depuis la fonction;
 
   - Par exemple, `--zi-shadow-autoload` a dépensé 8,71 ms pour exécuter uniquement son code.
 
@@ -90,7 +90,7 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
 fi
 ```
 
-:::info PS4 Prompt Expansion
+:::info Extension d'invite PS4
 
 Docs Zsh Sourceforge : [Expansion des invites][]
 

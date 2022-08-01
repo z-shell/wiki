@@ -14,7 +14,7 @@ keywords:
 
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-default-ice][]
 
-Une annexe offre la possibilité de définir **des glaces par défaut** pour la prochaine commande `zi` . It adds subcommand: **default-ice** which has the following synopsis:
+Une annexe offre la possibilité de définir **des glaces par défaut** pour la prochaine commande `zi` . Il ajoute la sous-commande: **default-ice** qui a le synopsis suivant:
 
 ```shell showLineNumbers
 —— default-ice --help/-h --clear/-c --show/-s --get/-g --quiet/-q --stats/-t

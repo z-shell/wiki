@@ -15,7 +15,7 @@ keywords:
 
 Une annexe exécute des tests (par exemple `make test``) - si elle est trouvée, elle sera exécutée automatiquement après l'installation et la mise à jour d'un plugin ou d'un snippet.
 
-Simply load it like any other plugin to make it active:
+Il suffit de le charger comme n'importe quel autre plugin pour le rendre actif:
 
 ```shell
 zi light z-shell/z-a-test
@@ -38,11 +38,11 @@ zi load …
 
 ### Démonstration de l'annexe
 
-Example activation in the default quiet mode:
+Exemple d'activation en mode silencieux par défaut:
 
 ![z-p-test-1][2]
 
-Example activation in non-quiet mode:
+Exemple d'activation en mode non silencieux:
 
 ![z-p-test-2][3]
 

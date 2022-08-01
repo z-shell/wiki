@@ -2,7 +2,7 @@
 id: patch-dl
 title: "🌀 Patch DL"
 image: img/logo/320x320.png
-description: Annex - Patch DL documentation
+description: Annexe - Documentation Patch DL
 keywords:
   - annex,
   - patch-dl
@@ -12,23 +12,23 @@ keywords:
 
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-patch-dl][]
 
-An annex downloads files and applies patches and adds two ice modifiers:
+Une annexe télécharge des fichiers et applique des correctifs et ajoute deux modificateurs de glace:
 
-First:
+D'abord:
 
 ```shell
 zi ice dl'{URL} [-> {optional-output-file-name}]; …' …
 ```
 
-Second:
+Ensuite:
 
 ```shell
 zi ice patch'{file-name-with-the-patch-to-apply}; …' …
 ```
 
-The annex (i.e. Zi extension) will download the given `{URL}` under the path `{optional-output-file-name}` (if no file name given, then it is taken from last segment of the URL) in case of the `dl'…'` ice-modifier, and apply a patch given by the `{file-name-with-the-patch-to-apply}` in case of the `patch'…'` ice-modfier.
+L'annexe (ex. Une extension Zi) téléchargera le `{URL}` donné sous le chemin `{optional-output-file-name}` (si aucun nom de fichier n'est donné, il est extrait du dernier segment de l'URL) dans le cas du modificateur de glace `dl'…'` , et applique un patch donné par le `{file-name-with-the-patch-to-apply}` dans le cas du `patch'…'` ice-modfier.
 
-You can use this functionality to download and apply patches. For example, to install `fbterm`, two patches are being needed, one to fix the operation, the other one to fix the build:
+Vous pouvez utiliser cette fonctionnalité pour télécharger et appliquer des correctifs. Par exemple, pour installer `fbterm`, deux correctifs sont nécessaires, l'un pour corriger l'opération, l'autre pour corriger la génération:
 
 ```shell showLineNumbers
 zi ice as"command" pick"$ZPFX/bin/fbterm" \
@@ -40,18 +40,18 @@ zi ice as"command" pick"$ZPFX/bin/fbterm" \
 zi load izmntuk/fbterm
 ```
 
-This command will result in:
+Cette commande aura pour résultat:
 
-![fbterm example](https://raw.githubusercontent.com/z-shell/z-a-patch-dl/main/docs/images/fbterm-ex.png#center)
+![exemple fbterm](https://raw.githubusercontent.com/z-shell/z-a-patch-dl/main/docs/images/fbterm-ex.png#center)
 
-## Install Patch DL
+## Installer Patch DL
 
-Simply load like a plugin, i.e.:
+Chargez simplement comme un plugin, c.-à-d.:
 
 ```shell
 zi light z-shell/z-a-patch-dl
 ```
 
-After executing this command you can then use the `dl'…'` and `patch'…'` ice-mods.
+Après avoir exécuté cette commande, vous pouvez ensuite utiliser les modules de glace `dl'…'` et `patch'…'`.
 
 [z-shell/z-a-patch-dl]: https://github.com/z-shell/z-a-patch-dl
