@@ -8,14 +8,14 @@ overrides:
 specifiers:
   '@cloudflare/workers-types': 3.14.1
   '@crowdin/cli': 3.7.9
-  '@docusaurus/core': 0.0.0-5225
-  '@docusaurus/eslint-plugin': 0.0.0-5225
-  '@docusaurus/module-type-aliases': 0.0.0-5225
-  '@docusaurus/plugin-ideal-image': 0.0.0-5225
-  '@docusaurus/plugin-pwa': 0.0.0-5225
-  '@docusaurus/preset-classic': 0.0.0-5225
-  '@docusaurus/theme-common': 0.0.0-5225
-  '@docusaurus/types': 0.0.0-5225
+  '@docusaurus/core': canary
+  '@docusaurus/eslint-plugin': canary
+  '@docusaurus/module-type-aliases': canary
+  '@docusaurus/plugin-ideal-image': canary
+  '@docusaurus/plugin-pwa': canary
+  '@docusaurus/preset-classic': canary
+  '@docusaurus/theme-common': canary
+  '@docusaurus/types': canary
   '@loadable/babel-plugin': 5.13.2
   '@loadable/component': 5.15.2
   '@mdx-js/react': 1.6.22
@@ -49,11 +49,11 @@ specifiers:
 
 dependencies:
   '@crowdin/cli': 3.7.9
-  '@docusaurus/core': 0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe
-  '@docusaurus/plugin-ideal-image': 0.0.0-5225_cj5dgpazpmgolt6ez7d6ejnxdy
-  '@docusaurus/plugin-pwa': 0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq
-  '@docusaurus/preset-classic': 0.0.0-5225_mwyhk2gjgcotqcfwvsmdr5xnmq
-  '@docusaurus/theme-common': 0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe
+  '@docusaurus/core': 0.0.0-5233_sxiheznrmcmopcp763m46wjbeu
+  '@docusaurus/plugin-ideal-image': 0.0.0-5233_cj5dgpazpmgolt6ez7d6ejnxdy
+  '@docusaurus/plugin-pwa': 0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq
+  '@docusaurus/preset-classic': 0.0.0-5233_mwyhk2gjgcotqcfwvsmdr5xnmq
+  '@docusaurus/theme-common': 0.0.0-5233_sxiheznrmcmopcp763m46wjbeu
   '@loadable/babel-plugin': 5.13.2_@babel+core@7.18.10
   '@loadable/component': 5.15.2_react@17.0.2
   '@mdx-js/react': 1.6.22_react@17.0.2
@@ -70,9 +70,9 @@ dependencies:
 
 devDependencies:
   '@cloudflare/workers-types': 3.14.1
-  '@docusaurus/eslint-plugin': 0.0.0-5225_qugx7qdu5zevzvxaiqyxfiwquq
-  '@docusaurus/module-type-aliases': 0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m
-  '@docusaurus/types': 0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m
+  '@docusaurus/eslint-plugin': 0.0.0-5233_qugx7qdu5zevzvxaiqyxfiwquq
+  '@docusaurus/module-type-aliases': 0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m
+  '@docusaurus/types': 0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m
   '@types/node': 18.0.6
   '@typescript-eslint/eslint-plugin': 5.31.0_jnss7dz76sznncvpyatba5hbxa
   '@typescript-eslint/parser': 5.31.0_qugx7qdu5zevzvxaiqyxfiwquq
@@ -1626,8 +1626,8 @@ packages:
       - '@algolia/client-search'
     dev: false
 
-  /@docusaurus/core/0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe:
-    resolution: {integrity: sha512-tK3uvP4wjXTyIO3NeSmRC4mVLjZwfA7NLeN4Q1O74NZpb+Ws0C0xLKKk1c6rxKQgmVS8lSkfnCddjSX6oXmuAA==}
+  /@docusaurus/core/0.0.0-5233_sxiheznrmcmopcp763m46wjbeu:
+    resolution: {integrity: sha512-LJKOST/5GlSuGLUTl1mBROy+rNCXZ2WPEbM2+WZttfsGY/12VhS6ppsuU+W32B5sE7jrZ7g4svyFa+KrWaWQFg==}
     engines: {node: '>=16.14'}
     hasBin: true
     peerDependencies:
@@ -1644,13 +1644,13 @@ packages:
       '@babel/runtime': 7.18.9
       '@babel/runtime-corejs3': 7.18.9
       '@babel/traverse': 7.18.10
-      '@docusaurus/cssnano-preset': 0.0.0-5225
-      '@docusaurus/logger': 0.0.0-5225
-      '@docusaurus/mdx-loader': 0.0.0-5225_i7z67k6xyi3plytz2amnmub2j4
+      '@docusaurus/cssnano-preset': 0.0.0-5233
+      '@docusaurus/logger': 0.0.0-5233
+      '@docusaurus/mdx-loader': 0.0.0-5233_22erqvn6pamviuoign5kffwuoq
       '@docusaurus/react-loadable': 5.5.2_react@17.0.2
-      '@docusaurus/utils': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
-      '@docusaurus/utils-common': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
-      '@docusaurus/utils-validation': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
+      '@docusaurus/utils': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
+      '@docusaurus/utils-common': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
+      '@docusaurus/utils-validation': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
       '@slorber/static-site-generator-webpack-plugin': 4.0.7
       '@svgr/webpack': 6.3.1
       autoprefixer: 10.4.8_postcss@8.4.14
@@ -1724,8 +1724,8 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/cssnano-preset/0.0.0-5225:
-    resolution: {integrity: sha512-DfEbtwK2CVqxn5FliF4lkpPdwu9asidOXZSTNu1+2OWjD+wnZqg7uupY+OwLuKcs+T7Heltnhh4gFrgbQMJKjQ==}
+  /@docusaurus/cssnano-preset/0.0.0-5233:
+    resolution: {integrity: sha512-342iWYqXj+79lD7eNV0KNXHXg5o6xGJ5Re7L6LVZi5CGjXF8Szn1j5E56i7VDIuPhyOvWGWLHBjgf9+KRa3FXw==}
     engines: {node: '>=16.14'}
     dependencies:
       cssnano-preset-advanced: 5.3.8_postcss@8.4.14
@@ -1734,8 +1734,8 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /@docusaurus/eslint-plugin/0.0.0-5225_qugx7qdu5zevzvxaiqyxfiwquq:
-    resolution: {integrity: sha512-9Nl1ieX5y2RynhFNyV4X7Wpw8c5K/t6WS54yGh2p34gZCaQpxU7ziY6POfxcqw58KvBpuVYE7okShmcoW1x4GQ==}
+  /@docusaurus/eslint-plugin/0.0.0-5233_qugx7qdu5zevzvxaiqyxfiwquq:
+    resolution: {integrity: sha512-+Y2MVVmEADY5ZrVJhOzqM3Ce9ZcXDCl5fCzX7yzKBjFHMAJTaS8ZF/mwgIOf0zaO52ScX4r9YV3xQFEePzpsMA==}
     engines: {node: '>=16.14'}
     peerDependencies:
       eslint: '>=6'
@@ -1748,19 +1748,19 @@ packages:
       - typescript
     dev: true
 
-  /@docusaurus/logger/0.0.0-5225:
-    resolution: {integrity: sha512-cmgbTcXDSWSmwZY0Epa7C+HUyaGyOAGM0ARpbIM6h2ljsP+5T/5Dd3apKI/tgyAL5QNR/CKLlg8+5kvGuEkBFA==}
+  /@docusaurus/logger/0.0.0-5233:
+    resolution: {integrity: sha512-JhsiApBD9r1H/b59IphI4BFajvpDWDah6gS89M6hesTrDOWfJGomA82UYfDfwjd+myVEvsXsKzWONwC62XrIOg==}
     engines: {node: '>=16.14'}
     dependencies:
       chalk: 4.1.2
       tslib: 2.4.0
     dev: false
 
-  /@docusaurus/lqip-loader/0.0.0-5225_webpack@5.74.0:
-    resolution: {integrity: sha512-rPE/rU3CZEnczZygw4dVVxTkMG8aNeJ//BTQANoinxCTF84lbODPx2yNSuls0hMAK/55W2MFW3IWbXivZIlGmw==}
+  /@docusaurus/lqip-loader/0.0.0-5233_webpack@5.74.0:
+    resolution: {integrity: sha512-lCud22HvK5RTUS3Ypu9H8WAtmWSqiTpl0R9iRfSWnV2KAFcU5Wl3c4H7GilhaqvEZ9uUrY1hCoqKeMIRRdZ8pA==}
     engines: {node: '>=16.14'}
     dependencies:
-      '@docusaurus/logger': 0.0.0-5225
+      '@docusaurus/logger': 0.0.0-5233
       file-loader: 6.2.0_webpack@5.74.0
       lodash: 4.17.21
       sharp: 0.30.7
@@ -1769,8 +1769,8 @@ packages:
       - webpack
     dev: false
 
-  /@docusaurus/mdx-loader/0.0.0-5225_i7z67k6xyi3plytz2amnmub2j4:
-    resolution: {integrity: sha512-nEavU76ZzTSapVoH2qNrEUwlG5MAN1+xZKFWsrDjhOYDjlR0Dv0RXIioybQhSgsidnAxe7KGcnELu2NpT/Cv9Q==}
+  /@docusaurus/mdx-loader/0.0.0-5233_22erqvn6pamviuoign5kffwuoq:
+    resolution: {integrity: sha512-KdCdAK3UTlaYyIW0abfUTVlV65vvFMPxJJ3PNUTz2KepazYtYVaHC45tKXxgBgj8nXWCn1lt2lfTPwO9JI/bNQ==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
@@ -1778,8 +1778,8 @@ packages:
     dependencies:
       '@babel/parser': 7.18.10
       '@babel/traverse': 7.18.10
-      '@docusaurus/logger': 0.0.0-5225
-      '@docusaurus/utils': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
+      '@docusaurus/logger': 0.0.0-5233
+      '@docusaurus/utils': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
       '@mdx-js/mdx': 1.6.22
       escape-html: 1.0.3
       file-loader: 6.2.0_webpack@5.74.0
@@ -1804,14 +1804,14 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/module-type-aliases/0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m:
-    resolution: {integrity: sha512-y/UCJXfGpzw/wWdZoR2lf60QSUywOMkB+NHJTcf8uq/lxSIPg6cdZoaOEaVJm5i0EYKChBJuF3HfH6UXy6rD+Q==}
+  /@docusaurus/module-type-aliases/0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-ytUL9MncgTGGibsFbx4SKtWygYyeeh7XmiZVKibj7S29AN1OB/xZUno9zRjRzb+bNP60ZODs1LGL/C6qwmM+GA==}
     peerDependencies:
       react: '*'
       react-dom: '*'
     dependencies:
       '@docusaurus/react-loadable': 5.5.2_react@17.0.2
-      '@docusaurus/types': 0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m
+      '@docusaurus/types': 0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m
       '@types/history': 4.7.11
       '@types/react': 18.0.15
       '@types/react-router-config': 5.0.6
@@ -1826,20 +1826,20 @@ packages:
       - uglify-js
       - webpack-cli
 
-  /@docusaurus/plugin-content-blog/0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq:
-    resolution: {integrity: sha512-XVfXtzkl6IyPV3YooI6r27hu/Tmr8lpGyx5KFT+S0I5ZDHt6TY+TaGArWWXS6DJYMxEnWVLJ/WSxppVzCF5Zyg==}
+  /@docusaurus/plugin-content-blog/0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq:
+    resolution: {integrity: sha512-+XZjHVWrxsP4baHV629EteUGAsuC76swG+4DrHQd3eVdOE0g49DdOI9xqy8T+d8keHJXZpwu3tUUbUIC3mc4Eg==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
-      '@docusaurus/core': 0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe
-      '@docusaurus/logger': 0.0.0-5225
-      '@docusaurus/mdx-loader': 0.0.0-5225_i7z67k6xyi3plytz2amnmub2j4
-      '@docusaurus/types': 0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m
-      '@docusaurus/utils': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
-      '@docusaurus/utils-common': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
-      '@docusaurus/utils-validation': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
+      '@docusaurus/core': 0.0.0-5233_sxiheznrmcmopcp763m46wjbeu
+      '@docusaurus/logger': 0.0.0-5233
+      '@docusaurus/mdx-loader': 0.0.0-5233_22erqvn6pamviuoign5kffwuoq
+      '@docusaurus/types': 0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m
+      '@docusaurus/utils': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
+      '@docusaurus/utils-common': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
+      '@docusaurus/utils-validation': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
       cheerio: 1.0.0-rc.12
       feed: 4.2.2
       fs-extra: 10.1.0
@@ -1867,20 +1867,20 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/plugin-content-docs/0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq:
-    resolution: {integrity: sha512-OlY8Wv7Xmgi3M4iCiC3j4Kd9zgM/oRX1fcGOpE/0Nn/KEHd8HQGp6LKFBCPBLsBlhs8MnTHtIZnra8ottUwTFA==}
+  /@docusaurus/plugin-content-docs/0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq:
+    resolution: {integrity: sha512-MnkSgkmxnA4KaUaU0kk+080fOBLpJ8TAm03XJ2aBPq+jpSSy2KQa1NEx73ir4EG/Qy2nepk/lhL6B4BdKp7rMA==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
-      '@docusaurus/core': 0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe
-      '@docusaurus/logger': 0.0.0-5225
-      '@docusaurus/mdx-loader': 0.0.0-5225_i7z67k6xyi3plytz2amnmub2j4
-      '@docusaurus/module-type-aliases': 0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m
-      '@docusaurus/types': 0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m
-      '@docusaurus/utils': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
-      '@docusaurus/utils-validation': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
+      '@docusaurus/core': 0.0.0-5233_sxiheznrmcmopcp763m46wjbeu
+      '@docusaurus/logger': 0.0.0-5233
+      '@docusaurus/mdx-loader': 0.0.0-5233_22erqvn6pamviuoign5kffwuoq
+      '@docusaurus/module-type-aliases': 0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m
+      '@docusaurus/types': 0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m
+      '@docusaurus/utils': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
+      '@docusaurus/utils-validation': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
       '@types/react-router-config': 5.0.6
       combine-promises: 1.1.0
       fs-extra: 10.1.0
@@ -1908,18 +1908,18 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/plugin-content-pages/0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq:
-    resolution: {integrity: sha512-N9UqHtopbCbBZzRfXve+IlleraiG0SDSyXILXoOztK7kichP8blJHl/7y4aKYJVWZk1uhY4vuJoZVvUS0ipWKQ==}
+  /@docusaurus/plugin-content-pages/0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq:
+    resolution: {integrity: sha512-Ufpx26SfEPooYU/vYBLcP5mJ7lesacwPqYlUBVjNGvPefY9FJeCPjPpm+eVymFepKHFvYoQkmKvmgA5410ufag==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
-      '@docusaurus/core': 0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe
-      '@docusaurus/mdx-loader': 0.0.0-5225_i7z67k6xyi3plytz2amnmub2j4
-      '@docusaurus/types': 0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m
-      '@docusaurus/utils': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
-      '@docusaurus/utils-validation': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
+      '@docusaurus/core': 0.0.0-5233_sxiheznrmcmopcp763m46wjbeu
+      '@docusaurus/mdx-loader': 0.0.0-5233_22erqvn6pamviuoign5kffwuoq
+      '@docusaurus/types': 0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m
+      '@docusaurus/utils': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
+      '@docusaurus/utils-validation': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
       fs-extra: 10.1.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -1941,16 +1941,16 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/plugin-debug/0.0.0-5225_wvz3yuqupbqnztgkrtx4vm77ba:
-    resolution: {integrity: sha512-GfaheUgcgRigHflLSYriWtxA4aPSphksMIK2XtglRsnxIUxJnhjn8wT+ucrnNi7iGuDMOhhPNbQQ/SZCczmPyQ==}
+  /@docusaurus/plugin-debug/0.0.0-5233_wvz3yuqupbqnztgkrtx4vm77ba:
+    resolution: {integrity: sha512-d0L6E8h01/9CAZoZ6H3AoOid1byFZJ4SsPWrJrj/Y1TWgTa6w/JODJaWPIc3o+9lCKB5IggyFOhnpB2q7WIshg==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
-      '@docusaurus/core': 0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe
-      '@docusaurus/types': 0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m
-      '@docusaurus/utils': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
+      '@docusaurus/core': 0.0.0-5233_sxiheznrmcmopcp763m46wjbeu
+      '@docusaurus/types': 0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m
+      '@docusaurus/utils': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
       fs-extra: 10.1.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -1974,16 +1974,16 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/plugin-google-analytics/0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq:
-    resolution: {integrity: sha512-9M3/0qrj3sLLbWAJJxlApEPK+h4J6H73l0B6jraZUq3vdr2gdqC8aSweHzigHHCllayz3CAYgOPKIvtGLJ2N4A==}
+  /@docusaurus/plugin-google-analytics/0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq:
+    resolution: {integrity: sha512-oXOTrEHzPIDxfBD3ZD+On+I6VQDLBXfFCWHFrZvQgPtcT4AsTU+2eWC50S/PkOXz5vd8ql+qmcZ4i45weoyabg==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
-      '@docusaurus/core': 0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe
-      '@docusaurus/types': 0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m
-      '@docusaurus/utils-validation': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
+      '@docusaurus/core': 0.0.0-5233_sxiheznrmcmopcp763m46wjbeu
+      '@docusaurus/types': 0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m
+      '@docusaurus/utils-validation': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       tslib: 2.4.0
@@ -2003,16 +2003,16 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/plugin-google-gtag/0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq:
-    resolution: {integrity: sha512-Pt0kfOzM1ebtu9TxevEBf1gUrl2l9Wm7+j/Z1sUiGKZI44AjTO+YOq48edgfeZxTXSmfWDgFzhhsIX3olfuljg==}
+  /@docusaurus/plugin-google-gtag/0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq:
+    resolution: {integrity: sha512-DwkyN5jyGgZ+VvM65o1loxqtljpQuVF/tTXKIGGN1Y26ocnVDCoo5p5mTz9ilpoSt8FWL6QGj1u3tKkntdTCfw==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
-      '@docusaurus/core': 0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe
-      '@docusaurus/types': 0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m
-      '@docusaurus/utils-validation': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
+      '@docusaurus/core': 0.0.0-5233_sxiheznrmcmopcp763m46wjbeu
+      '@docusaurus/types': 0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m
+      '@docusaurus/utils-validation': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       tslib: 2.4.0
@@ -2032,8 +2032,8 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/plugin-ideal-image/0.0.0-5225_cj5dgpazpmgolt6ez7d6ejnxdy:
-    resolution: {integrity: sha512-m5q9igr8ntCOR9Wn8g1/Y6H7XLB4uytlawJieLRqsie/Xxfj0QI0cWHn8IDlQONcsiZo49mtfds/cTHqyI0Akg==}
+  /@docusaurus/plugin-ideal-image/0.0.0-5233_cj5dgpazpmgolt6ez7d6ejnxdy:
+    resolution: {integrity: sha512-OngZjTtyCrTPXe3hJWkccYFDabyK8KHQeqVZE+osBc6EwAMPcj2GPw0hFHmnOaOguYXIUBJAzv/VaudrV1w7mg==}
     engines: {node: '>=16.14'}
     peerDependencies:
       jimp: '*'
@@ -2043,12 +2043,12 @@ packages:
       jimp:
         optional: true
     dependencies:
-      '@docusaurus/core': 0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe
-      '@docusaurus/lqip-loader': 0.0.0-5225_webpack@5.74.0
+      '@docusaurus/core': 0.0.0-5233_sxiheznrmcmopcp763m46wjbeu
+      '@docusaurus/lqip-loader': 0.0.0-5233_webpack@5.74.0
       '@docusaurus/responsive-loader': 1.7.0_sharp@0.30.7
-      '@docusaurus/theme-translations': 0.0.0-5225
-      '@docusaurus/types': 0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m
-      '@docusaurus/utils-validation': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
+      '@docusaurus/theme-translations': 0.0.0-5233
+      '@docusaurus/types': 0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m
+      '@docusaurus/utils-validation': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
       '@endiliey/react-ideal-image': 0.0.11_heenzz3sedzuyc4i7bmlcntetu
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -2073,8 +2073,8 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/plugin-pwa/0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq:
-    resolution: {integrity: sha512-b/9yPvpEyhWbDGkJQ67EqQqi34+msb56Bxzz+BNvBsr8qn2YLw8BF0Ll8JwyKcv4jnEL1dD+27pNphNuU9cOAQ==}
+  /@docusaurus/plugin-pwa/0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq:
+    resolution: {integrity: sha512-aEF7k9MN5+GtrEziX+oOEbiSRzeTxYJsc2tBr6GF/ISa8Om85nnk7m4moErZE2+Nc9LYjMxT/9fa6CLUtZLQvg==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
@@ -2082,12 +2082,12 @@ packages:
     dependencies:
       '@babel/core': 7.18.10
       '@babel/preset-env': 7.18.10_@babel+core@7.18.10
-      '@docusaurus/core': 0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe
-      '@docusaurus/theme-common': 0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe
-      '@docusaurus/theme-translations': 0.0.0-5225
-      '@docusaurus/types': 0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m
-      '@docusaurus/utils': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
-      '@docusaurus/utils-validation': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
+      '@docusaurus/core': 0.0.0-5233_sxiheznrmcmopcp763m46wjbeu
+      '@docusaurus/theme-common': 0.0.0-5233_sxiheznrmcmopcp763m46wjbeu
+      '@docusaurus/theme-translations': 0.0.0-5233
+      '@docusaurus/types': 0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m
+      '@docusaurus/utils': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
+      '@docusaurus/utils-validation': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
       babel-loader: 8.2.5_xc6oct4hcywdrbo4ned6ytbybm
       clsx: 1.2.1
       core-js: 3.24.1
@@ -2117,19 +2117,19 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/plugin-sitemap/0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq:
-    resolution: {integrity: sha512-38Bmz4ghCak7naGbuYtdRY4PQylCsyNLSHFfp72RA3rF4SvascabSWECsu22gAdCm7T9yw22RmoSD8YdB2tA+g==}
+  /@docusaurus/plugin-sitemap/0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq:
+    resolution: {integrity: sha512-CfljYR5lw0kedl+iGg5j+F8oXW0ClGZqMf5bsiZ12v+YRTzw3k+BeYNeYz9hn0xtdVT7NzAd58yMGeuZqPE+/w==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
-      '@docusaurus/core': 0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe
-      '@docusaurus/logger': 0.0.0-5225
-      '@docusaurus/types': 0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m
-      '@docusaurus/utils': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
-      '@docusaurus/utils-common': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
-      '@docusaurus/utils-validation': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
+      '@docusaurus/core': 0.0.0-5233_sxiheznrmcmopcp763m46wjbeu
+      '@docusaurus/logger': 0.0.0-5233
+      '@docusaurus/types': 0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m
+      '@docusaurus/utils': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
+      '@docusaurus/utils-common': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
+      '@docusaurus/utils-validation': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
       fs-extra: 10.1.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -2151,25 +2151,25 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/preset-classic/0.0.0-5225_mwyhk2gjgcotqcfwvsmdr5xnmq:
-    resolution: {integrity: sha512-SVkyCsSroJ+qdpxiBTz77ZlMp2tMpGpqV/FSoOsr9ZuX67cZj/f+9TgDkCe1IzDP9SAr9TYXfeMhyfPgjGvs0g==}
+  /@docusaurus/preset-classic/0.0.0-5233_mwyhk2gjgcotqcfwvsmdr5xnmq:
+    resolution: {integrity: sha512-ECqIkU8z9neea10xZv306Yv5ib70YBkNgq9nmCN98wszuXGxCWyjbV8pKj0hV8uEDYTVe+RhBAEtaLQofTovNw==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
-      '@docusaurus/core': 0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe
-      '@docusaurus/plugin-content-blog': 0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq
-      '@docusaurus/plugin-content-docs': 0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq
-      '@docusaurus/plugin-content-pages': 0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq
-      '@docusaurus/plugin-debug': 0.0.0-5225_wvz3yuqupbqnztgkrtx4vm77ba
-      '@docusaurus/plugin-google-analytics': 0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq
-      '@docusaurus/plugin-google-gtag': 0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq
-      '@docusaurus/plugin-sitemap': 0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq
-      '@docusaurus/theme-classic': 0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq
-      '@docusaurus/theme-common': 0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe
-      '@docusaurus/theme-search-algolia': 0.0.0-5225_x53fskmha5duwucqmzx55lbnvq
-      '@docusaurus/types': 0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m
+      '@docusaurus/core': 0.0.0-5233_sxiheznrmcmopcp763m46wjbeu
+      '@docusaurus/plugin-content-blog': 0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq
+      '@docusaurus/plugin-content-docs': 0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq
+      '@docusaurus/plugin-content-pages': 0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq
+      '@docusaurus/plugin-debug': 0.0.0-5233_wvz3yuqupbqnztgkrtx4vm77ba
+      '@docusaurus/plugin-google-analytics': 0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq
+      '@docusaurus/plugin-google-gtag': 0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq
+      '@docusaurus/plugin-sitemap': 0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq
+      '@docusaurus/theme-classic': 0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq
+      '@docusaurus/theme-common': 0.0.0-5233_sxiheznrmcmopcp763m46wjbeu
+      '@docusaurus/theme-search-algolia': 0.0.0-5233_w4vt274ow3fa3j7nwch6lxmvua
+      '@docusaurus/types': 0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
     transitivePeerDependencies:
@@ -2216,25 +2216,25 @@ packages:
       sharp: 0.30.7
     dev: false
 
-  /@docusaurus/theme-classic/0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq:
-    resolution: {integrity: sha512-8brs5/f1XOjhsBHUYyq2goUh0RZ3aA8j7zu8AvULybCyGClQelfO1L4+WAPuGYbOWxMnFDrM3akEqrRuSDQN1w==}
+  /@docusaurus/theme-classic/0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq:
+    resolution: {integrity: sha512-6xNqGh7C5A+mzg9AA566ikZK/riKJ2KHAoKmGFdkWJNUlJFAO9tKe37PH1YiptmNEbJaNkhI34TUNI9140kYzw==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
-      '@docusaurus/core': 0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe
-      '@docusaurus/mdx-loader': 0.0.0-5225_i7z67k6xyi3plytz2amnmub2j4
-      '@docusaurus/module-type-aliases': 0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m
-      '@docusaurus/plugin-content-blog': 0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq
-      '@docusaurus/plugin-content-docs': 0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq
-      '@docusaurus/plugin-content-pages': 0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq
-      '@docusaurus/theme-common': 0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe
-      '@docusaurus/theme-translations': 0.0.0-5225
-      '@docusaurus/types': 0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m
-      '@docusaurus/utils': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
-      '@docusaurus/utils-common': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
-      '@docusaurus/utils-validation': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
+      '@docusaurus/core': 0.0.0-5233_sxiheznrmcmopcp763m46wjbeu
+      '@docusaurus/mdx-loader': 0.0.0-5233_22erqvn6pamviuoign5kffwuoq
+      '@docusaurus/module-type-aliases': 0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m
+      '@docusaurus/plugin-content-blog': 0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq
+      '@docusaurus/plugin-content-docs': 0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq
+      '@docusaurus/plugin-content-pages': 0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq
+      '@docusaurus/theme-common': 0.0.0-5233_sxiheznrmcmopcp763m46wjbeu
+      '@docusaurus/theme-translations': 0.0.0-5233
+      '@docusaurus/types': 0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m
+      '@docusaurus/utils': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
+      '@docusaurus/utils-common': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
+      '@docusaurus/utils-validation': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
       '@mdx-js/react': 1.6.22_react@17.0.2
       clsx: 1.2.1
       copy-text-to-clipboard: 3.0.1
@@ -2266,19 +2266,19 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/theme-common/0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe:
-    resolution: {integrity: sha512-iXL8uBGRQu8P18ln2LOD8U1h3wfaaho5KnjL/Pbnao89skfdIY1q4vLzLcLuAxwsa9hvvg+Ik+f7TfTv6/zQBQ==}
+  /@docusaurus/theme-common/0.0.0-5233_sxiheznrmcmopcp763m46wjbeu:
+    resolution: {integrity: sha512-i1ENGcKGhkaUyTeRym9talLmXRflJdvxIx6mbPl/BVpX8agj+yxd31q2yHDsShKlTSS7vpCpCQcLQpR+ZbnhGg==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
-      '@docusaurus/mdx-loader': 0.0.0-5225_i7z67k6xyi3plytz2amnmub2j4
-      '@docusaurus/module-type-aliases': 0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m
-      '@docusaurus/plugin-content-blog': 0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq
-      '@docusaurus/plugin-content-docs': 0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq
-      '@docusaurus/plugin-content-pages': 0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq
-      '@docusaurus/utils': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
+      '@docusaurus/mdx-loader': 0.0.0-5233_22erqvn6pamviuoign5kffwuoq
+      '@docusaurus/module-type-aliases': 0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m
+      '@docusaurus/plugin-content-blog': 0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq
+      '@docusaurus/plugin-content-docs': 0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq
+      '@docusaurus/plugin-content-pages': 0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq
+      '@docusaurus/utils': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
       '@types/history': 4.7.11
       '@types/react': 18.0.15
       '@types/react-router-config': 5.0.6
@@ -2306,21 +2306,21 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/theme-search-algolia/0.0.0-5225_x53fskmha5duwucqmzx55lbnvq:
-    resolution: {integrity: sha512-9pZ34mPC2y81+vv9uu38K0KDCSAkCJzyhdqXTGLDmtg5RX+75HgjBv/yCqeoIK5pUw8Q2FioS1JbP5ryZxXoaQ==}
+  /@docusaurus/theme-search-algolia/0.0.0-5233_w4vt274ow3fa3j7nwch6lxmvua:
+    resolution: {integrity: sha512-vIhjaN874O5mYYyGRFYxkkJnoEP+MDLZZt8XYbq1w+12mPibr6NKpepa1ZyxascK1rk1PWUhjvvu7vYOORCQNw==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
       '@docsearch/react': 3.1.1_3ymxsswml5rx4wm3yzyz2ytrfa
-      '@docusaurus/core': 0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe
-      '@docusaurus/logger': 0.0.0-5225
-      '@docusaurus/plugin-content-docs': 0.0.0-5225_dxrqcwl5hktnwvawqvmvmvc3vq
-      '@docusaurus/theme-common': 0.0.0-5225_zdijycjwaw5l7h7ffmymzpu2qe
-      '@docusaurus/theme-translations': 0.0.0-5225
-      '@docusaurus/utils': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
-      '@docusaurus/utils-validation': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
+      '@docusaurus/core': 0.0.0-5233_sxiheznrmcmopcp763m46wjbeu
+      '@docusaurus/logger': 0.0.0-5233
+      '@docusaurus/plugin-content-docs': 0.0.0-5233_dxrqcwl5hktnwvawqvmvmvc3vq
+      '@docusaurus/theme-common': 0.0.0-5233_sxiheznrmcmopcp763m46wjbeu
+      '@docusaurus/theme-translations': 0.0.0-5233
+      '@docusaurus/utils': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
+      '@docusaurus/utils-validation': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
       algoliasearch: 4.14.2
       algoliasearch-helper: 3.10.0_algoliasearch@4.14.2
       clsx: 1.2.1
@@ -2350,16 +2350,16 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/theme-translations/0.0.0-5225:
-    resolution: {integrity: sha512-nfU+W+MkcBe2RGa0y8DUQqTpHUPfsKd/GXcs4+uH0E81nZDrwYIW5nHnlvYeHHpBbVc46LwFmvg4AMbh084dcg==}
+  /@docusaurus/theme-translations/0.0.0-5233:
+    resolution: {integrity: sha512-trg1ejlhtXy/ds3KZm5YxIv56E61+KquZZZisU82lKDMrPsazmG4mox179UmqrwJBBurCtfYIFEEaP8IMMv6pA==}
     engines: {node: '>=16.14'}
     dependencies:
       fs-extra: 10.1.0
       tslib: 2.4.0
     dev: false
 
-  /@docusaurus/types/0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m:
-    resolution: {integrity: sha512-cvb5Om71lCfAjkV7QihTgzGBDUlHX33FL53vF/9BGT5k6XpHD8Ilr0YoJpDnfeD2OUbM5HtvpihYC9/OuAW57A==}
+  /@docusaurus/types/0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-wARhXKxGEia18D+MRO9ku8mKJWVsCV8aH99AFm0OIJ7QNOXPc7r5Ooyt4mv6Wa0JmxKjgU1P1XSmMSVBfEhlCQ==}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
@@ -2380,8 +2380,8 @@ packages:
       - uglify-js
       - webpack-cli
 
-  /@docusaurus/utils-common/0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i:
-    resolution: {integrity: sha512-1d8rrvo0tVRMl1xieUqonbjhOgSasnCZ1lh78LULWsXeiCRNekZGbMWHNWfBU6mbmMLGiMejPZB+LS12xb0gbg==}
+  /@docusaurus/utils-common/0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a:
+    resolution: {integrity: sha512-hRxCRbPT6hmLKrffcrdEHqZPkhvtwJ4tWyWEx72pBPH8IcmJv5dazKiNWTesBuc3zPrDepHKYlVxq5n2w8fxlg==}
     engines: {node: '>=16.14'}
     peerDependencies:
       '@docusaurus/types': '*'
@@ -2389,16 +2389,16 @@ packages:
       '@docusaurus/types':
         optional: true
     dependencies:
-      '@docusaurus/types': 0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m
+      '@docusaurus/types': 0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m
       tslib: 2.4.0
     dev: false
 
-  /@docusaurus/utils-validation/0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i:
-    resolution: {integrity: sha512-sVI8U6jQQX89yy7AguFWgPNydurDCMPLIt79mA3kmgJBGgwvkQqRd1+5wSJl1v+rS2Z4MC1m0SZ+pReIsTLCbg==}
+  /@docusaurus/utils-validation/0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a:
+    resolution: {integrity: sha512-WbKHJnZ4LTWW2LPsK1f0LLPSLIHP5ycb8WJAW4GWChQOPID2ZzdsbqgrsCaxMZ4+6x4N61O5AYTh7aivG00Mlw==}
     engines: {node: '>=16.14'}
     dependencies:
-      '@docusaurus/logger': 0.0.0-5225
-      '@docusaurus/utils': 0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i
+      '@docusaurus/logger': 0.0.0-5233
+      '@docusaurus/utils': 0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a
       joi: 17.6.0
       js-yaml: 4.1.0
       tslib: 2.4.0
@@ -2411,8 +2411,8 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/utils/0.0.0-5225_ecevsytdaq2zkg4q2pseulim5i:
-    resolution: {integrity: sha512-3vtJ78CtUHukW4rwqpmUSyXggyxCTFG5GmzL6EFWrD+GnSHX3AjQCept8Ebe1aVDTiYOeBZYLJfz2RsAhT+lmw==}
+  /@docusaurus/utils/0.0.0-5233_2qw6nyeh5gnf2e6co4uj2wjx5a:
+    resolution: {integrity: sha512-x7RKYVtByDTGSd0NPH+B3ZpFaXrAW4i3uaErngUwGP15RrAG2xWE/W425ORDwMcqjn4ZoEoR7qUDaXu9LJxSVQ==}
     engines: {node: '>=16.14'}
     peerDependencies:
       '@docusaurus/types': '*'
@@ -2420,8 +2420,8 @@ packages:
       '@docusaurus/types':
         optional: true
     dependencies:
-      '@docusaurus/logger': 0.0.0-5225
-      '@docusaurus/types': 0.0.0-5225_sfoxds7t5ydpegc3knd667wn6m
+      '@docusaurus/logger': 0.0.0-5233
+      '@docusaurus/types': 0.0.0-5233_sfoxds7t5ydpegc3knd667wn6m
       '@svgr/webpack': 6.3.1
       file-loader: 6.2.0_webpack@5.74.0
       fs-extra: 10.1.0
