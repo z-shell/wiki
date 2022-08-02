@@ -271,7 +271,7 @@ The `zi-turbo` is a funtion to simplify `wait`:
 
 ```shell showLineNumbers
 zi-turbo () {
-   zi depth'3' lucid ${1/#[0-9][a-d]/wait"${1}"} "${@:2}"
+   zi depth'3' lucid ${1/#[0-9][a-c]/wait"${1}"} "${@:2}"
 }
 ```
 
@@ -287,12 +287,12 @@ zi-turbo '0b' for \
   OMZL::prompt_info_functions.zsh OMZL::spectrum.zsh \
   OMZL::clipboard.zsh OMZL::termsupport.zsh OMZL::directories.zsh
 
-zi-turbo '1a' for \
+zi-turbo '0c' for \
   OMZP::sudo OMZP::encode64 \
     atload"unalias grv g" OMZP::git \
   OMZP::gcloud OMZP::nvm OMZP::gem OMZP::rust
 
-zi-turbo '1b' for \
+zi-turbo '1a' for \
   MichaelAquilina/zsh-you-should-use
 ```
 
