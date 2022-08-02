@@ -54,13 +54,7 @@ rules:
     "react-hooks/exhaustive-deps": 2,
     "react/destructuring-assignment": 0,
     "react/function-component-definition":
-      [
-        1,
-        {
-          namedComponents: "function-declaration",
-          unnamedComponents: "arrow-function",
-        },
-      ],
+      [2, { namedComponents: "function-declaration" }],
     "react/jsx-filename-extension": 0,
     "react/jsx-key": [2, { checkFragmentShorthand: true }],
     "react/jsx-no-useless-fragment": [1, { allowExpressions: true }],

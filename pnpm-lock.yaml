@@ -2034,17 +2034,17 @@ packages:
       postcss-selector-parser: 6.0.10
     dev: true
 
-  /@docsearch/css/3.1.1:
+  /@docsearch/css/3.2.0:
     resolution:
       {
-        integrity: sha512-utLgg7E1agqQeqCJn05DWC7XXMk4tMUUnL7MZupcknRu2OzGN13qwey2qA/0NAKkVBGugiWtON0+rlU0QIPojg==,
+        integrity: sha512-jnNrO2JVYYhj2pP2FomlHIy6220n6mrLn2t9v2/qc+rM7M/fbIcKMgk9ky4RN+L/maUEmteckzg6/PIYoAAXJg==,
       }
     dev: false
 
-  /@docsearch/react/3.1.1_3ymxsswml5rx4wm3yzyz2ytrfa:
+  /@docsearch/react/3.2.0_3ymxsswml5rx4wm3yzyz2ytrfa:
     resolution:
       {
-        integrity: sha512-cfoql4qvtsVRqBMYxhlGNpvyy/KlCoPqjIsJSZYqYf9AplZncKjLBTcwBu6RXFMVCe30cIFljniI4OjqAU67pQ==,
+        integrity: sha512-ATS3w5JBgQGQF0kHn5iOAPfnCCaoLouZQMmI7oENV//QMFrYbjhUZxBU9lIwAT7Rzybud+Jtb4nG5IEjBk3Ixw==,
       }
     peerDependencies:
       "@types/react": ">= 16.8.0 < 19.0.0"
@@ -2053,7 +2053,7 @@ packages:
     dependencies:
       "@algolia/autocomplete-core": 1.7.1
       "@algolia/autocomplete-preset-algolia": 1.7.1_qs6lk5nhygj2o3hj4sf6xnr724
-      "@docsearch/css": 3.1.1
+      "@docsearch/css": 3.2.0
       "@types/react": 18.0.15
       algoliasearch: 4.14.2
       react: 17.0.2
@@ -2815,7 +2815,7 @@ packages:
       react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
-      "@docsearch/react": 3.1.1_3ymxsswml5rx4wm3yzyz2ytrfa
+      "@docsearch/react": 3.2.0_3ymxsswml5rx4wm3yzyz2ytrfa
       "@docusaurus/core": 0.0.0-5239_bvruubzxvqjaxvnt4j7viopfqe
       "@docusaurus/logger": 0.0.0-5239
       "@docusaurus/plugin-content-docs": 0.0.0-5239_dxrqcwl5hktnwvawqvmvmvc3vq
@@ -4922,7 +4922,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001373
-      electron-to-chromium: 1.4.208
+      electron-to-chromium: 1.4.209
       node-releases: 2.0.6
       update-browserslist-db: 1.0.5_browserslist@4.21.3
 
@@ -6350,10 +6350,10 @@ packages:
       jake: 10.8.5
     dev: false
 
-  /electron-to-chromium/1.4.208:
+  /electron-to-chromium/1.4.209:
     resolution:
       {
-        integrity: sha512-diMr4t69FigAGUk2KovP0bygEtN/9AkqEVkzjEp0cu+zFFbZMVvwACpTTfuj1mAmFR5kNoSW8wGKDFWIvmThiQ==,
+        integrity: sha512-SfWI9G/e3rxGIUalHbUCH9yEsTpO+72y+cD1Sw0tYtuTrdOPaFAgZKXM1crWVJwTNmj6KIPbbx0NIoV8a2cFJw==,
       }
 
   /emoji-regex/8.0.0:
@@ -7073,10 +7073,10 @@ packages:
       punycode: 1.4.1
     dev: false
 
-  /fastest-levenshtein/1.0.15:
+  /fastest-levenshtein/1.0.16:
     resolution:
       {
-        integrity: sha512-aYZINfCOOFyc7ESp43on+C4h5nptX4NtS+PcZ7laFSmzINN00MJ9MfV7WUAuKC8OPNpSwz5CbJa10NaxUwmBzA==,
+        integrity: sha512-eRnCtTTtGZFpQCwhJiUOuxPQWRXVKYDn0b2PeHfXL6/Zi53SLAzAHfVhVWK2AryC/WH05kGfxhFIPvTF0SXQzg==,
       }
     engines: { node: ">= 4.9.1" }
     dev: true
@@ -12975,7 +12975,7 @@ packages:
       debug: 4.3.4
       execall: 2.0.0
       fast-glob: 3.2.11
-      fastest-levenshtein: 1.0.15
+      fastest-levenshtein: 1.0.16
       file-entry-cache: 6.0.1
       get-stdin: 8.0.0
       global-modules: 2.0.0

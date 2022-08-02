@@ -5,8 +5,9 @@ import React, { useEffect, useRef } from "react";
 import * as AsciinemaPlayerLibrary from "asciinema-player";
 import "asciinema-player/dist/bundle/asciinema-player.css";
 
-export interface AsciinemaPlayerProps {
+type AsciinemaPlayerProps = {
   src: string;
+  // START asciinemaOptions
   cols: string;
   rows: string;
   autoPlay: boolean;
@@ -19,13 +20,15 @@ export interface AsciinemaPlayerProps {
   poster: string;
   fit: string;
   fontSize: string;
-}
+  // END asciinemaOptions
+};
 
 export default function AsciinemaPlayer({
   src,
   ...asciinemaOptions
 }: AsciinemaPlayerProps): JSX.Element {
   const ref = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const currentRef = ref.current;
     AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
