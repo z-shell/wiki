@@ -17,13 +17,26 @@ keywords:
 source <(curl -sL https://git.io/zi-loader); zzinit
 ```
 
-Rechargez le shell avec `exec zsh` et exécutez `zi -h` pour obtenir des informations sur l'utilisation.
+Alternatively - update and verify `sha256` [checksum][checksum] for a file: `lib/zsh/init.zsh`:
+
+```shell showLineNumbers title="~/.zshrc"
+local chsm_ok='7fab1ecb8d2ffbdb4aa98dd1e51cebaeaa4d8137e1de11938f3e0df24af262bb'
+local chsm="$(command curl -fsL 'https://git.io/zi-loader' | sha256sum | awk '{print $1}')"
+if [[ ${chsm_ok} == ${chsm} ]]; then
+  source <(curl -sL https://git.io/zi-loader); zzinit
+else
+  print "Houston, we have a problem"; exit 1
+fi
+```
+
+Reload shell with `exec zsh` and run `zi -h` for usage information.
 
 ## <i class="fas fa-spinner fa-spin"></i> Installation automatique
 
 :::tip
 
-If required append `-b <tag>` or `-b <branch>` e.g:
+- Verify `sha256` [checksum][checksum] for file: `lib/sh/install.sh`
+- If required append `-b <tag>` or `-b <branch>` e.g:
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip -b main
@@ -131,7 +144,7 @@ autoload -Uz _zi
 
 Après une nouvelle installation, il est recommandé de recharger le shell avec `exec zsh` et de compiler ZI avec `zi self-update`. Exécutez `zi -h` pour voir toutes les commandes disponibles. Augmentez les fonctionnalités et les performances de ZI ou commencez par explorer le wiki.
 
-Si vous avez un problème ou avez besoin d'aide 🤦‍♂️, [discuter ][7] ou ouvrez un [problème][6] dans n'importe quelle langue.
+If you have any issue or need help 🤦‍♂️, lets [discuss][7] it or open an [issue][6] in any language.
 
 Cela nous aide à améliorer et à améliorer ZI. Don't forget to help the project: share, contribute, or [translate][8] 🌐 🥰 🤓.
 
@@ -157,8 +170,8 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 
 Si vous créez une image Docker qui utilise Zi, installez les plug-ins chargés par Turbo avant que le shell ne démarre de manière interactive, avec la fonction `@zi-scheduler` de telle manière qu'elle:
 
-- installe les plugins sans attendre l'invite (c'est-à-dire qu'il est compatible avec les scripts),
-- installe tous les plugins instantanément, sans respecter l'argument ''attendre''.
+- installs plugins without waiting for the prompt (i.e. it's script friendly),
+- installs all plugins instantly, without respecting the wait'' argument.
 
 Pour ce faire, utilisez l'argument burst et appelez la fonction `@zi-scheduler`:
 
@@ -215,11 +228,15 @@ typeset -g ZI_MOD_DEBUG=1
 | [IPFS][ipfs.io]                | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
 | [Direct][direct-init]          | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
 
+<!-- end-of-file -->
+<!-- links -->
+
 [get.zshell.dev]: https://get.zshell.dev
 [ipfs.io]: https://ipfs.io
 [init.zshell.dev]: https://init.zshell.dev
 [direct-init]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh
 [direct-install]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
+[checksum]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt
 [6]: https://github.com/z-shell/zi/issues/new/choose
 [7]: https://github.com/orgs/z-shell/discussions/new
 [8]: https://digitalclouds.crowdin.com/z-shell

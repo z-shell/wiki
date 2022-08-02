@@ -239,9 +239,9 @@ zi light z-shell/zi-crasis
 
 - screencast that presents the feature:
 
-<div className="ScreenView">
-  <img src="/asciicast/crasis_01.svg?static=true" alt="asciicast/crasis_01" />
-</div>
+<picture className="ScreenView">
+  <img src="/asciicast/crasis_01.svg?static=true" alt="asciicast/crasis_01" loading="lazy" decoding="async" />
+</picture>
 
 - `$ZLAST_COMMANDS` is an array build by [F-Sy-H][2], it contains commands currently entered at prompt,
 - `(r)` searches for element that matches given pattern (`cras*`) and returns it,
@@ -275,8 +275,8 @@ In other words, instead of `wait'1'` you can enter `wait'1a'`, `wait'1b'` and `w
 The `zi-turbo` is a funtion to simplify `wait`:
 
 ```shell showLineNumbers
-zi-turbo () {
-   zi depth'3' lucid ${1/#[0-9][a-c]/wait"${1}"} "${@:2}"
+zi-turbo() {
+  zi depth'3' lucid ${1/#[0-9][a-c]/wait"${1}"} "${@:2}"
 }
 ```
 
