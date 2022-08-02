@@ -52,7 +52,7 @@ zi bindmap'^R -> ^G' for z-shell/history-search-multi-word
 
 Mapper Ctrl-Shift-Gauche et …-Droit utilisés par URxvt à la place de ceux de Xterms. Chargez avec le bindkey-tracking ↔ avec le light-loading pour tout le reste.
 
-On pourrait également séparer les bindmaps par un point-virgule, par exemple .:
+Could also separate the bindmaps with a semicolon, i.e.:
 
 ```shell
 bindmap'"\\e[1\;6D" -> \\e[1\;5D ; "\\e[1\;6C" -> ^[[1\;5C' \
@@ -64,7 +64,7 @@ zi wait light-mode trackbinds bindmap'"\\e[1\;6D" -> \\e[1\;5D"' \
   michaelxmcbride/zsh-dircycle
 ```
 
-Mettez en correspondance l'espace avec l'espace normal et Ctrl-Espace avec le widget `globalias', qui développe l'alias saisi à gauche, fourni par le plugin OMZ globalias.
+Map space to regular space and <kbd>Ctrl-Space</kbd> to the `globalias' widget, which expands the alias entered on the left, provided by OMZ globalias plugin.
 
 ```shell showLineNumbers
 zi bindmap='!" " -> magic-space; !"^ " -> globalias' nocompletions \
@@ -74,11 +74,11 @@ zi bindmap='!" " -> magic-space; !"^ " -> globalias' nocompletions \
 
 ### <i class="fa-solid fa-circle-check"></i> Explications
 
-La glace `bindmap'…'` a deux modes de fonctionnement : normal et point d'exclamation (`bindmap' !…'`). Dans le premier mode, le remappage se fait de clé à clé, c'est-à-dire : `bindmap 'fromkey -> to-key'`.
+The `bindmap'…'` ice has two modes of operation: normal and exclamation-mark (`bindmap'!…'`). In the first mode, the remapping is being done from-key to-key, i.e.: `bindmap'fromkey -> to-key'`.
 
-La clé donnée est remplacée par la deuxième clé donnée dans la commande `bindkey` qui est lancée lors du chargement du plugin. Dans le second mode, le remappage se fait de la clé vers le widget, par exemple : `bindmap'!from-key -> to-widget'`.
+La clé donnée est remplacée par la deuxième clé donnée dans la commande `bindkey` qui est lancée lors du chargement du plugin. In the second mode, the remapping is being done from-key to-widget, e.g: `bindmap'!from-key -> to-widget'`.
 
-Dans ce mode, la touche donnée est mappée sur le widget donné au lieu du widget spécifié dans la commande `bindkey` ; par exemple .:
+In this mode, the given key is being mapped to the given widget instead of the widget specified in the `bindkey` command e.g.:
 
 Au lieu de:
 
@@ -87,7 +87,7 @@ bindkey "^ " magic-space
 bindkey " " globalias
 ```
 
-L'appel réel qui sera fait sera :
+The actual call that'll be done will be:
 
 ```shell showLineNumbers
 bindkey "^ " globalias
@@ -98,7 +98,7 @@ Pour le `bindmap=' !" " -> magic-space ; !"^ " -> globalias'` ice.
 
 ### <i class="fa-solid fa-circle-check"></i> Utilisation de la bindmap `'…'` en mode léger {#trackbinds}
 
-Quand le mode d'investigation est activé, c'est à dire .:
+When the investigation mode is on i.e.:
 
 - lorsque le mode de chargement complet est utilisé, par défaut dans la syntaxe `for` et lorsque `zi load …` est utilisé, alors le `bindmap'…'` ice fonctionne normalement.
 

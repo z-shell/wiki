@@ -25,7 +25,7 @@ zi snippet OMZP::<PATH> # Shorthand OMZ/plugins/  (http://github.com/ohmyzsh/ohm
 
 ### Bibliothèque OMZ
 
-Importation du [presse-papiers][1] et [termsupport][2] à partir de l'échantillon de la bibliothèque OMZ:
+Importing the [clipboard][1] and [termsupport][2] from the OMZ library sample:
 
 Syntaxe brute:
 
@@ -41,7 +41,7 @@ zi snippet OMZ::lib/clipboard.zsh
 zi snippet OMZ::lib/termsupport.zsh
 ```
 
-Syntaxe abrégée OMZ:
+Syntaxe abrégée OMZL:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZL::clipboard.zsh
@@ -92,7 +92,7 @@ zi is-snippet wait lucid for \
 
 :::tip
 
-Regroupez l'exemple ci-dessus dans un seul fichier :
+Regroupez l'exemple ci-dessus dans un seul fichier:
 
 `zi snippet <some/path/or/url/bundled-snippets.zsh`
 
@@ -134,7 +134,7 @@ zi snippet OMZP::ag/_ag
 
 ### Thèmes OMZ
 
-Les thèmes sont stockés dans le répertoire `themes` . Tout est chargé en arrière-plan. avec une syntaxe simple :
+Themes are stored in the `themes` directory. Tout est chargé en arrière-plan. with the simple syntax:
 
 ```shell title="~/.zshrc"
 ZSH_THEME="robbyrussell"
@@ -142,22 +142,22 @@ ZSH_THEME="robbyrussell"
 
 Cependant, ZI ne prend pas en charge la variable `ZSH_THEME` de manière native.
 
-Pour utiliser les thèmes **** créés pour OMZ, il faut procéder au chargement indiqué ci-dessous car il serait le même que celui d'OMZ dans le fond .
+To use **themes** created for OMZ, it requires loading shown below as it would be the same as OMZ does in the background.
 
-> Certains thèmes peuvent nécessiter une configuration supplémentaire ; celle-ci peut être déterminée à partir du fichier de configuration du thème.
+> Some themes may require additional configuration it can be determined from the theme configuration file.
 
 - Charger la bibliothèque `Git`
 - Charger le plug-in `Git`
 - Charger les dépendances de la bibliothèque
 - Activer `setopt promptsubst`
 
-Si l'un des éléments ci-dessus n'est pas dans l'ordre ou est manquant, le thème se brisera comme indiqué ci-dessous :
+If any of the above are not in order or missing, the theme will break similar as shown below:
 
 ```shell
 … $(build_prompt) …
 ```
 
-Si la bibliothèque `Git` n'est pas chargée ou si elle est chargée dans le mauvais ordre, le message peut ressembler à ce qui suit :
+If the `Git` library is not loaded or loaded in the wrong order, then it may appear similar to the following:
 
 ```shell showLineNumbers
 ........:1: Commande introuvable: git_prompt_status
@@ -168,7 +168,7 @@ Si vous rencontrez un problème avec le thème, les bibliothèques de support OM
 
 - Si votre thème ne se colore pas comme il le devrait, vous devrez charger `theme-and-appearance.zsh`
 
-- Si vous rencontrez un message d'erreur similaire à :
+- If you encounter an error message similar to:
 
 ```shell showLineNumbers
 zsh: command not found: ruby_prompt_info
@@ -176,7 +176,7 @@ zsh: command not found: ruby_prompt_info
 
 Vous devez charger `prompt_info_functions.zsh`
 
-L'ensemble ressemble à ceci :
+All together it looks like this:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZL::git.zsh
@@ -187,22 +187,22 @@ zi snippet OMZL::prompt_info_functions.zsh
 zi cdclear -q
 ```
 
-Chargez ensuite l'invite :
+Then load the prompt:
 
 ```shell showLineNumbers
 setopt promptsubst
 zi snippet OMZT::robbyrussell
 ```
 
-### Exemple de thème externe : [NicoSantangelo/Alpharized][3]
+### External theme sample: [NicoSantangelo/Alpharized][3]
 
-Chargez avec OMZ :
+Load with OMZ:
 
 ```shell title="~/.zshrc"
 ZSH_THEME="alpharized"
 ```
 
-Chargement avec ZI :
+Load with ZI:
 
 ```shell title="~/.zshrc"
 zi snippet OMZL::git.zsh
@@ -221,19 +221,19 @@ zi light NicoSantangelo/Alpharized
 
 ## Principes de base de Prezto
 
-Syntaxe brute avec URL :
+Raw Syntax with URL:
 
 ```shell title="~/.zshrc"
 zi snippet <URL>
 ```
 
-Abréviation PZT : <https://github.com/sorin-ionescu/prezto/tree/master/>
+Shorthand PZT: <https://github.com/sorin-ionescu/prezto/tree/master/>
 
 ```shell title="~/.zshrc"
 zi snippet PZT::<PATH>
 ```
 
-Abréviation de PZT/modules :
+Shorthand PZT/modules:
 
 ```shell title="~/.zshrc"
 zi snippet PZTM::<PATH>
@@ -241,7 +241,7 @@ zi snippet PZTM::<PATH>
 
 ### Modules Prezto
 
-Importation de l'environnement [][9] et du terminal [][10] Exemple de modules Prezto :
+Importing the [environment][9] and [terminal][10] Prezto Modules Sample:
 
 Paramètre Prezto:
 
@@ -265,7 +265,7 @@ zi snippet PZT::modules/environment
 zi snippet PZT::modules/terminal
 ```
 
-Syntaxe sténographique PZTM :
+PZTM Shorthand Syntax:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet PZTM::environment
@@ -311,7 +311,7 @@ Utilisez `blockf` pour empêcher tout ajout inutile à fpath, car ZI gère fpath
 Qu'est-ce que `zstyle`?
 
 - Officiel (zsh.sourceforge.net) : [zstyle][15]
-- StackExchange : [Que fait `zstyle` ?][16]
+- StackExchange: [What does `zstyle` do?][16]
 
 :::
 
@@ -357,7 +357,7 @@ Qu'est-ce que `zstyle`?
 + zi snippet PZTM::<modulename>
 ```
 
-Chargez les dépôts en tant que plugins prezto :
+Load repositories as prezto plugins:
 
 ```diff title="~/.zshrc" showLineNumbers
 - zgen pmodule <reponame> <branch>
@@ -408,16 +408,14 @@ Pour l' `emplacement`: voir [sélection des fichiers][17]
 - `lazy` => `autoload`
 - `depth` => `depth`
 
-[1]: https://github. com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
-[2]: https://github. com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh
+[1]: https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
+[2]: https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh
 [3]: https://github.com/nicosantangelo/Alpharized
 [4]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/gitfast
 [5]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/osx
 [6]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
 [7]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fd
 [9]: https://github.com/sorin-ionescu/prezto/tree/master/modules/environment
-[9]: https://github.com/sorin-ionescu/prezto/tree/master/modules/environment
-[10]: https://github.com/sorin-ionescu/prezto/tree/master/modules/terminal
 [10]: https://github.com/sorin-ionescu/prezto/tree/master/modules/terminal
 [11]: https://github.com/sorin-ionescu/prezto/tree/master/modules/docker
 [12]: https://github.com/sorin-ionescu/prezto/tree/master/modules/git

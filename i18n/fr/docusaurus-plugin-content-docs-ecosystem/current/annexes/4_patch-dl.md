@@ -46,7 +46,7 @@ Cette commande aura pour résultat:
 
 ## Installer Patch DL
 
-Chargez simplement comme un plugin, c.-à-d.:
+Simply load like a plugin, i.e.:
 
 ```shell
 zi light z-shell/z-a-patch-dl
