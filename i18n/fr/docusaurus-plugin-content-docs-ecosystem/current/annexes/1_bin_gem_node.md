@@ -83,7 +83,7 @@ Running the script will forward the call to the program accessed through an embe
 There are 7 ice modifiers provided and handled by the annex:
 
 | Ice modifier      | Description                                                                                              |
-| :---------------- | :------------------------------------------------------------------------------------------------------- |
+|:----------------- |:-------------------------------------------------------------------------------------------------------- |
 | [`sbin''`](#sbin) | Creates `shims` for binaries and scripts.                                                                |
 | [`fbin''`](#fbin) | Creates functions for binaries and scripts.                                                              |
 | [`gem''`](#gem)   | Installs and updates gems + creates functions for gems binaries.                                         |
@@ -135,15 +135,15 @@ The same trailing component would be set for the snippet URL, for any alphabetic
 
 Creates a wrapper function of the name the same as the last segment of the path or as `{name-of-the-function}`.
 
-| Flag | Description                                                                                                           |
-| :--- | :-------------------------------------------------------------------------------------------------------------------- |
-| `g`  | Set `$GEM_HOME` variable to `{plugin-dir}`.                                                                           |
-| `n`  | Set `$NODE_PATH` variable to `{plugin-dir}/node_modules`.                                                             |
-| `p`  | Set `$VIRTUALENV` variable to `{plugin-dir}/venv`.                                                                    |
-| `c`  | `cd` to the plugin's directory before running the program and then cd back after it has been run.                     |
+| Flag | Description                                                                                                                  |
+|:---- |:---------------------------------------------------------------------------------------------------------------------------- |
+| `g`  | Set `$GEM_HOME` variable to `{plugin-dir}`.                                                                                  |
+| `n`  | Set `$NODE_PATH` variable to `{plugin-dir}/node_modules`.                                                                    |
+| `p`  | Set `$VIRTUALENV` variable to `{plugin-dir}/venv`.                                                                           |
+| `c`  | `cd` to the plugin's directory before running the program and then cd back after it has been run.                            |
 | `N`  | Append `&>/dev/null` to the call of the binary, i.e. redirect both standard output and standard error to `/dev/null`. |
-| `E`  | Append `2>/dev/null` to the call of the binary, i.e. redirect standard error to `/dev/null`.                          |
-| `O`  | Append `>/dev/null` to the call of the binary, i.e. redirect standard output to `/dev/null`.                          |
+| `E`  | Append `2>/dev/null` to the call of the binary, i.e. redirect standard error to `/dev/null`.                              |
+| `O`  | Append `>/dev/null` to the call of the binary, i.e. redirect standard output to `/dev/null`.                              |
 
 Example:
 
@@ -333,7 +333,7 @@ zi shim-list [-h/--help] [-t|--this-dir] [-i|--from-ices] [-o|--one-line] [-s|--
 ```
 
 | Flag               | Description                                                                                       |
-| :----------------- | :------------------------------------------------------------------------------------------------ |
+|:------------------ |:------------------------------------------------------------------------------------------------- |
 | `-h` `--help`      | Shows usage information.                                                                          |
 | `-t` `--this-dir`  | Instructs Zi to look for shims in the current directory instead of `$ZPFX/bin`.                   |
 | `-i` `--from-ices` | Normally the code looks for the shim files by examining their contents (**more info below [!]**). |
