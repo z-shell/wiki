@@ -1,7 +1,7 @@
 ---
 title: "☑️ Aperçu général"
 image: img/logo/320x320.png
-description: Aperçu des cas d'utilisation avec ZI
+description: Aperçu des cas d'utilisation avec Zi
 keywords:
   - overview
 ---
@@ -84,7 +84,7 @@ zi snippet PZT::modules/helper/init.zsh
 
 Moreover, GitHub support Subversion protocol for snippets. Cela permet de charger des extraits qui sont multi-fichiers (par exemple, un module Prezto peut être constitué de deux ou plusieurs fichiers, par exemple `init.zsh` et `alias.zsh`).
 
-Les fichiers par défaut qui seront sourcés sont : `*.plugin.zsh`, `init.zsh`, `*.zsh-theme`:
+Default files that will be sourced are: `*.plugin.zsh`, `init.zsh`, `*.zsh-theme`:
 
 L'URL pointe vers un répertoire:
 
@@ -101,7 +101,7 @@ L'utilisation de `curl`, `wget`, etc. avec Subversion permet d'éviter presque c
 
 La commande `zi ice` fournit [ice modificateurs][1] pour la commande unique suivante.
 
-La logique est que "la glace" est quelque chose qui est ajouté, par exemple à une boisson ou à un café, et dans le sens ZI, cela signifie que la glace est un modificateur ajouté à la prochaine commande ZI, et aussi quelque chose qui fond, donc qui ne dure pas longtemps, - et dans l'utilisation ZI, cela signifie que le modificateur ne dure que pour la prochaine commande ZI unique.
+La logique est que "la glace" est quelque chose qui est ajouté, par exemple à une boisson ou à un café, et dans le sens Zi, cela signifie que la glace est un modificateur ajouté à la prochaine commande Zi, et aussi quelque chose qui fond, donc qui ne dure pas longtemps, - et dans l'utilisation Zi, cela signifie que le modificateur ne dure que pour la prochaine commande Zi unique.
 
 En utilisant un autre modificateur de glace "**pick**" les utilisateurs peuvent explicitement **sélectionner le fichier à sourcer**:
 
@@ -110,7 +110,7 @@ zi ice svn pick"init.zsh"
 zi snippet PZT::modules/git
 ```
 
-Le contenu du modificateur de glace est simplement mis dans `"…"`, `'…'`, ou `$'…'`. Il n'est pas nécessaire d'ajouter `" :"` après le nom de l'ice-mod (bien qu'il soit autorisé, comme le signe égal `=`, donc par exemple `pick="init.zsh"` ou `pick=init.zsh` sont correctement reconnus).
+Le contenu du modificateur de glace est simplement mis dans `"…"`, `'…'`, ou `$'…'`. No need for `":"` after the ice-modier name (although it's allowed: as the equal sign `=`, e.g. `pick="init.zsh"` or `pick=init.zsh`).
 
 De cette façon, des éditeurs comme `vim` et `emacs` et aussi `zsh-users/zsh-syntax-highlighting` et `z-shell/F-Sy-H` mettront en évidence le contenu des modificateurs de glace.
 
@@ -123,7 +123,7 @@ zi ice as"program" cp"httpstat.sh -> httpstat" pick"httpstat"
 zi light b4b4r07/httpstat
 ```
 
-La commande ci-dessus ajoutera le répertoire plugin à `$PATH`, copiera le fichier `httpstat.sh` dans `httpstat` et ajoutera des droits d'exécution (`+x`) au fichier sélectionné avec `pick`, c'est-à-dire à `httpstat`. Il existe un autre ice-mod, `mv`, qui fonctionne comme `cp` mais **déplace** un fichier au lieu de **le copier** . `mv` est exécuté avant `cp`.
+La commande ci-dessus ajoutera le répertoire plugin à `$PATH`, copiera le fichier `httpstat.sh` dans `httpstat` et ajoutera des droits d'exécution (`+x`) au fichier sélectionné avec `pick`, c'est-à-dire à `httpstat`. Another ice-mod exists, `mv`, which works like `cp` but **moves** a file instead of **copying** it. `mv` est exécuté avant `cp`.
 
 :::tip
 
@@ -165,7 +165,7 @@ zi snippet https://github.com/b4b4r07/httpstat/blob/master/httpstat.sh
 
 :::tip
 
-Les snippets supportent également `atpull`, il est donc possible de faire par exemple `atpull '!svn revert'`. Il y a aussi un modificateur de glace `atinit`, exécuté avant chaque chargement de plugin ou de snippet.
+Snippets also support `atpull`, e.g. `atpull'!svn revert'`. Il y a aussi un modificateur de glace `atinit`, exécuté avant chaque chargement de plugin ou de snippet.
 
 :::
 
@@ -180,14 +180,14 @@ zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_doc
 
 ## La gestion des complétions
 
-ZI permet de désactiver et d'activer chaque complétion dans chaque plugin. Essayez d'installer un plugin populaire qui fournit des complétions:
+Zi permet de désactiver et d'activer chaque complétion dans chaque plugin. Essayez d'installer un plugin populaire qui fournit des complétions:
 
 ```shell {1} showLineNumbers
 zi ice blockf
 zi light zsh-users/zsh-completions
 ```
 
-La première commande, le `blockf` ice, bloquera la méthode traditionnelle d'ajout de complétions. ZI utilise sa méthode, basée sur les liens symboliques au lieu d'ajouter plusieurs répertoires à `$fpath`. ZI **installera** automatiquement les complétions d'un plugin nouvellement téléchargé.
+La première commande, le `blockf` ice, bloquera la méthode traditionnelle d'ajout de complétions. Zi utilise sa méthode, basée sur les liens symboliques au lieu d'ajouter plusieurs répertoires à `$fpath`. Zi **installera** automatiquement les complétions d'un plugin nouvellement téléchargé.
 
 Pour désinstaller et installer les complétions:
 
@@ -246,7 +246,7 @@ zi snippet https://github.com/zsh-users/zsh-completions/trunk/src
 
 :::tip
 
-Pour Oh-My-Zsh et Prezto, les préfixes OMZ: : et PZT: : fonctionnent sans qu'il soit nécessaire d'ajouter l'infixe `/trunk/` . Cependant, le chemin d'accès doit pointer vers un répertoire, et non vers un fichier.
+For Oh-My-Zsh and Prezto, the OMZ:: and PZT:: prefixes work without the need to add the `/trunk/` infix, however, the path should point to a directory, not to a file.
 
 :::
 
@@ -283,7 +283,7 @@ zi load halfo/lambda-mod-zsh-theme
 
 Ceci définit le plugin `halfo/lambda-mod-zsh-theme` pour être chargé `0` secondes après `zshrc`. Il s'incendiera après le c.a. 1 ms d'affichage de l'invite de base `READY >`.
 
-Vous ne chargerez probablement pas l'invite de cette manière, mais c'est un bon exemple dans lequel Turbo peut être directement observé. Le point d'exclamation fait en sorte que ZI réinitialise l'invite après le chargement du plugin - il est nécessaire pour les thèmes. Idem avec les invites Prezto, avec un délai plus long:
+Vous ne chargerez probablement pas l'invite de cette manière, mais c'est un bon exemple dans lequel Turbo peut être directement observé. Le point d'exclamation fait en sorte que Zi réinitialise l'invite après le chargement du plugin - il est nécessaire pour les thèmes. Idem avec les invites Prezto, avec un délai plus long:
 
 ```shell showLineNumbers
 zi ice svn silent wait'!1' atload'prompt smiley'
@@ -341,7 +341,7 @@ Pour certains thèmes, principalement les thèmes avancés, l'initialisation de 
 
 Pour que l'invite soit pleinement initialisée après le chargement du mode turbo au milieu de l'invite, la même situation qu'avec le plug-in `zsh-autosuggestions` , le crochet doit être appelé à partir la de `atload'…'`\`.
 
-Tout d'abord, trouvez le nom de la fonction hook en examinant le tableau `$precmd_functions`. Par exemple, pour le thème `robobenklein/zinc` , ce seront deux fonctions : `prompt_zinc_setup` et `prompt_zinc_precmd`:
+Tout d'abord, trouvez le nom de la fonction hook en examinant le tableau `$precmd_functions`. For example, for the `robobenklein/zinc` theme, they'll be two functions: `prompt_zinc_setup` and `prompt_zinc_precmd`:
 
 ```shell showLineNumbers
 root@user > ~ > print $precmd_functions < ✔ < 22:21:33
@@ -370,7 +370,7 @@ La glace `lucid` fait que le message sous l'invite disant `Loaded zsh-users/zsh-
 
 ## Chargement basé sur la condition automatique & déchargement
 
-Les glaces `load` et `unload` permettent de définir quand vous voulez que les plugins soient actifs ou inactifs :
+Ices `load` and `unload` allow defining when you want plugins active or inactive:
 
 Charger quand dans ~/tmp
 
@@ -497,14 +497,14 @@ zi light junegunn/fzf
 
 Une autre version binaire doit être renommée de `docker-compose-Linux-x86_64`. Ceci peut être fait par le [modificateur de glace][1]: `mv'{from} -> {to}'`.
 
-Il y a plusieurs paquets par version unique, pour OS X, Linux et Windows - ainsi le modificateur de glace `bpick` est utilisé pour sélectionner le paquet Linux - dans ce cas, ce n'est pas nécessaire, ZI va grep le nom du système d'exploitation et l'architecture automatiquement quand il n'y a pas `bpick`.
+Il y a plusieurs paquets par version unique, pour OS X, Linux et Windows - ainsi le modificateur de glace `bpick` est utilisé pour sélectionner le paquet Linux - dans ce cas, ce n'est pas nécessaire, Zi va grep le nom du système d'exploitation et l'architecture automatiquement quand il n'y a pas `bpick`.
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*"
 zi load docker/compose
 ```
 
-Dépôt Vim sur GitHub - un code source typique qui nécessite une compilation, ZI peut la gérer pour vous si vous le souhaitez, exécutez `./configure` et `make`. Le modificateur de glace `pick` sélectionne un programme binaire à ajouter au $PATH. Vous pouvez également installer le paquet sous le chemin $ZPFX.
+Dépôt Vim sur GitHub - un code source typique qui nécessite une compilation, Zi peut la gérer pour vous si vous le souhaitez, exécutez `./configure` et `make`. Le modificateur de glace `pick` sélectionne un programme binaire à ajouter au $PATH. Vous pouvez également installer le paquet sous le chemin $ZPFX.
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
@@ -523,13 +523,13 @@ zi ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
 zi light tj/git-extras
 ```
 
-Gère les complétions sans charger de plugin, voir la commande `clist` . Celui-ci ne doit être exécuté qu'une seule fois, lors d'une session interactive.
+Handle completions without loading any plugin, see `clist` command. Celui-ci ne doit être exécuté qu'une seule fois, lors d'une session interactive.
 
 ```shell title="~/.zshrc"
 zi creinstall %HOME/my_completions
 ```
 
-Pour GNU ls les binaires peuvent être gls, gdircolors, mais pas sur OS X lors de l'installation du paquet coreutils de Homebrew.
+For GNU "ls" the binaries can be gls, gdircolors, but not on OS X when installing the coreutils package from Homebrew.
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice atclone"dircolors -b LS_COLORS > c.zsh" \
@@ -546,7 +546,7 @@ zi ice as"program" make'!' \
 zi light direnv/direnv
 ```
 
-Si vous souhaitez en essayer davantage, consultez le dépôt [playground](https://github.com/z-shell/playground) où les utilisateurs ont téléchargé le fichier `~/.zshrc` et d'autres configurations ZI. Feel free to [submit](https://github.com/z-shell/playground/issues/new?template=request-to-add-zshrc-to-the-zi-configs-repo.md) your `~/.zshrc` configuration.
+Si vous souhaitez en essayer davantage, consultez le dépôt [playground](https://github.com/z-shell/playground) où les utilisateurs ont téléchargé le fichier `~/.zshrc` et d'autres configurations Zi. Feel free to [submit](https://github.com/z-shell/playground/issues/new?template=request-to-add-zshrc-to-the-zi-configs-repo.md) your `~/.zshrc` configuration.
 
 Additional examples: [collection][10].
 

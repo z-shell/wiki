@@ -25,8 +25,8 @@ Pour tous les paquets disponibles, utilisez la [Recherche GitHub][22].
 |      [ls_colors][9]      | Configurez un schéma de couleurs du système de complétion zsh.                                                         |
 | [dircolors-material][10] | Configurez un schéma de couleurs du système de complétion zsh.                                                         |
 |    [asciidoctor][11]     | Le processeur Markdown d'asciidoctor.                                                                                  |
-| [system-completions][12] | Déplace le stock de compléments Zsh sous le contrôle de ZI.                                                            |
-|  [brew-completions][21]  | La complétion Homebrew Shell sous le contrôle de Zsh & ZI.                                                             |
+| [system-completions][12] | Déplace le stock de compléments Zsh sous le contrôle de Zi.                                                            |
+|  [brew-completions][21]  | La complétion Homebrew Shell sous le contrôle de Zsh & Zi.                                                             |
 |      [ecs-cli][13]       | La CLI ECS AWS                                                                                                         |
 |     [subversion][14]     | Le client Subversion                                                                                                   |
 |   [github-issues][15]    | Le client GitHub Issues                                                                                                |

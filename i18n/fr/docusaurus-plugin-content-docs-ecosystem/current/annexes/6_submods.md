@@ -13,7 +13,7 @@ keywords:
 
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-submods][]
 
-Une annexe offre la possibilité de cloner des sous-modules supplémentaires tout en installant un plugin ou un snippet. Les sous-modules sont alors automatiquement mis à jour sur la commande `zi update …` .
+Une annexe offre la possibilité de cloner des sous-modules supplémentaires tout en installant un plugin ou un snippet. The submodules are then automatically updated on the `zi update …` command.
 
 Cette annexe ajoute la glace `submods'…'` à Zi qui a la syntaxe suivante:
 
@@ -38,6 +38,6 @@ Il suffit de le charger comme un plugin. La commande suivante installera l'annex
 zi light z-shell/z-a-submods
 ```
 
-Après avoir exécuté cette commande, vous pouvez alors utiliser la glace `submods''` . La commande doit être placée dans `~/.zshrc`.
+After executing this command you can then use the `submods'…'` ice. La commande doit être placée dans `~/.zshrc`.
 
 [z-shell/z-a-submods]: https://github.com/z-shell/z-a-submods

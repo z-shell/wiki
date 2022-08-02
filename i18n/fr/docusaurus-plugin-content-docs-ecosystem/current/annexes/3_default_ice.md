@@ -14,7 +14,7 @@ keywords:
 
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-default-ice][]
 
-Une annexe offre la possibilité de définir **des glaces par défaut** pour la prochaine commande `zi` . Il ajoute la sous-commande: **default-ice** qui a le synopsis suivant:
+An annex delivers the capability to set **default ices** for the next `zi` command. Il ajoute la sous-commande: **default-ice** qui a le synopsis suivant:
 
 ```shell showLineNumbers
 —— default-ice --help/-h --clear/-c --show/-s --get/-g --quiet/-q --stats/-t
@@ -37,7 +37,7 @@ Simply load like a regular plugin, i.e.:
 zi light z-shell/z-a-default-ice
 ```
 
-## Utilisation avec [ZI][z-shell/zi]
+## Utilisation avec [Zi][z-shell/zi]
 
 ```shell showLineNumbers
 zi default-ice lucid from "gh-r"
@@ -50,7 +50,7 @@ zi wait for \
 
 :::caution
 
-La glace `wait''` ne peut pas être rendue par défaut en utilisant cette sous-commande.
+La glace `wait` ne peut pas être rendue par défaut en utilisant cette sous-commande.
 
 :::
 

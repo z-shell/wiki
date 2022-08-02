@@ -249,7 +249,7 @@ Paramètre Prezto:
 zstyle ":prezto:load" pmodule "environnement" "terminal"
 ```
 
-Réglage ZI:
+Réglage Zi:
 
 > Importer les données à partir d'une URL.
 
@@ -294,7 +294,7 @@ zi ice svn as"null"
 zi snippet PZTM::archive
 ```
 
-Utilisez `zi ice atclone "git clone <repo> <location>"` si le module a un module externe.
+Use `zi ice atclone"git clone <repo> <location>"` if module have external module.
 
 - [complétion][14]:
 
@@ -304,13 +304,13 @@ zi ice svn blockf \
 zi snippet PZTM::completion
 ```
 
-Utilisez `blockf` pour empêcher tout ajout inutile à fpath, car ZI gère fpath.
+Use `blockf` to prevent any unnecessary additions to fpath, as Zi manages fpath.
 
 :::tip
 
 Qu'est-ce que `zstyle`?
 
-- Officiel (zsh.sourceforge.net) : [zstyle][15]
+- Official (zsh.sourceforge.net): [zstyle][15]
 - StackExchange: [What does `zstyle` do?][16]
 
 :::

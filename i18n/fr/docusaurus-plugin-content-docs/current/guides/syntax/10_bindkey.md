@@ -3,7 +3,7 @@ id: bindkey
 title: "🗒 Carte de Bindkeys"
 sidebar_position: 5
 image: img/logo/320x320.png
-description: La syntaxe ZI de Bindmap & Bindkey
+description: The Bindmap & Bindkey Zi syntax
 keywords:
   - syntax
   - binkey
@@ -17,7 +17,7 @@ keywords:
 
 Les mappages de clés `bindkey` peuvent être très confus à déchiffrer. Il peut utiliser plusieurs notations différentes, mais il est judicieux d'utiliser la même notation de clé dans toute votre configuration.
 
-Vous pouvez imprimer toutes vos liaisons de touches actuelles dans la carte des touches en cours avec `bindkey`. Pour imprimer la commande complète `bindkey` à ajouter à votre fichier `.zshrc` , utilisez `bindkey -L`.
+Vous pouvez imprimer toutes vos liaisons de touches actuelles dans la carte des touches en cours avec `bindkey`. To print the full `bindkey` command to add to your `.zshrc` file use `bindkey -L`.
 
 En général, vous liez un widget à une séquence de touches ou à une touche avec modificateur. Ceci peut être déclaré dans la notation [caret][5] en utilisant `^`, à l'aide de [séquences d'échappement][6] à l'aide de `\`, en octal (`\NNN`), hexadécimal (`\xNN`), ou unicode (`\uNNN`). Aucune d'entre elles n'est particulièrement intéressante à lire pour les gens.
 
@@ -40,17 +40,17 @@ Parfois, les plugins appellent [bindkey][1] pour attribuer des raccourcis clavie
 
 De plus, l'utilisateur peut vouloir une ou plusieurs liaisons différentes, ce qui nécessitera des commandes supplémentaires compliquées `bindkey` dans `.zshrc`.
 
-ZI fournit une solution à ce problème - la possibilité de remapper les bindkeys avec un court [ice-modifier][2] spécification avec le `bindmap'…'` [ice][3].
+Zi fournit une solution à ce problème - la possibilité de remapper les bindkeys avec un court [ice-modifier][2] spécification avec le `bindmap'…'` [ice][3].
 
 ### <i class="fa-solid fa-circle-check"></i> Exemples pour `bindmap'…'`
 
-Mappez Ctrl-G au lieu de Ctrl-R pour la recherche d'historique.
+Map <kbd>Ctrl-G</kbd> instead of <kbd>Ctrl-R</kbd> for the history searcher.
 
 ```shell
 zi bindmap'^R -> ^G' for z-shell/history-search-multi-word
 ```
 
-Mapper Ctrl-Shift-Gauche et …-Droit utilisés par URxvt à la place de ceux de Xterms. Chargez avec le bindkey-tracking ↔ avec le light-loading pour tout le reste.
+Map <kbd>Ctrl-Shift-Left</kbd> and <kbd>Ctrl-Shift-Right</kbd> used by URxvt instead of the Xterms' ones. Chargez avec le bindkey-tracking ↔ avec le light-loading pour tout le reste.
 
 Could also separate the bindmaps with a semicolon, i.e.:
 
