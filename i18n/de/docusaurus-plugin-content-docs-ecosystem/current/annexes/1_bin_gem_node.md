@@ -44,7 +44,7 @@ The `sbin'…'` ice that creates forwarder-scripts instead of forwarder-function
 Suppose that you would want to install `junegunn/fzf` plugin from GitHub Releases, which contains only a single file – the `fzf` binary for the selected architecture. It is possible to do it in the standard way – by adding the plugin's directory to the `$PATH`:
 
 ```shell showLineNumbers
-zi ice as"command" from"gh-r"
+zi ice as'program' from'gh-r'
 zi load junegunn/fzf
 ```
 
@@ -58,7 +58,7 @@ After this command, the `$PATH` variable will contain e.g.:
 For many such programs loaded as plugins, the PATH can become quite cluttered. I've had 26 entries before switching to `z-a-bin-gem-node`. To solve this, load with the use of `sbin'…'` ice provided and handled by `z-a-bin-gem-node`:
 
 ```shell showLineNumbers
-zi ice from"gh-r" sbin"fzf"
+zi ice as'program' from'gh-r' sbin'fzf'
 zi load junegunn/fzf
 ```
 
