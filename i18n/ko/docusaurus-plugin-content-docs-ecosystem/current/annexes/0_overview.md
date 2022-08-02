@@ -25,7 +25,7 @@ keywords:
 
    3.4. `atload` hook – run after loading any plugin/snippet.
 
-4. Register hooks for generating help text, shown by the `zi help` subcommand.
+4. Register hooks for generating help text, shown by the `zi icemods` subcommand.
 
 ## Recommended annexes
 
