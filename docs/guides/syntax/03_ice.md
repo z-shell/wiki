@@ -237,11 +237,16 @@ zi ice wait'[[ -n ${ZLAST_COMMANDS[(r)cras*]} ]]'
 zi light z-shell/zi-crasis
 ```
 
+- screencast that presents the feature:
+
+<div className="ScreenView">
+  <img src="/asciicast/crasis_01.svg?static=true" alt="asciicast/crasis_01" />
+</div>
+
 - `$ZLAST_COMMANDS` is an array build by [F-Sy-H][2], it contains commands currently entered at prompt,
 - `(r)` searches for element that matches given pattern (`cras*`) and returns it,
 - `-n` means: not-empty, so it will be true when users enters "cras",
 - after 1 second or less, Zi will detect that `wait'…'` condition is true, and load the plugin, which provides command _crasis_,
-- screencast that presents the feature: [![screencast][3]][4]
 
 ```shell showLineNumbers
 zi ice wait'[[ $PWD = */github || $PWD = */github/* ]]'
@@ -557,10 +562,8 @@ zi load romkatv/powerlevel10k
 
 <!-- links -->
 
-[3]: https://asciinema.org/a/149725.svg#center
 [1]: https://github.com/docker/compose
 [2]: https://github.com/z-shell/F-Sy-H
-[4]: https://asciinema.org/a/149725
 [5]: https://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions
 [6]: https://github.com/romkatv/powerlevel10k
 [7]: /docs/guides/customization#multiple-prompts

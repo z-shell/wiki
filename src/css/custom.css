@@ -210,6 +210,7 @@ html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  align-items: center;
   padding: 0 var(--ifm-pre-padding);
   height: auto;
   max-width: 100%;
@@ -227,7 +228,7 @@ img[src$="#center"] {
   margin-left: auto;
   margin-right: auto;
   height: auto;
-  width: 90%;
+  width: 100%;
 }
 
 img[src$="#floatleft"] {
