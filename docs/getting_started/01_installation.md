@@ -17,13 +17,26 @@ keywords:
 source <(curl -sL https://git.io/zi-loader); zzinit
 ```
 
+Alternatively - update and verify `sha256` [checksum][checksum] for a file: `lib/zsh/init.zsh`:
+
+```shell showLineNumbers title="~/.zshrc"
+local chsm_ok='7fab1ecb8d2ffbdb4aa98dd1e51cebaeaa4d8137e1de11938f3e0df24af262bb'
+local chsm="$(command curl -fsL 'https://git.io/zi-loader' | sha256sum | awk '{print $1}')"
+if [[ ${chsm_ok} == ${chsm} ]]; then
+  source <(curl -sL https://git.io/zi-loader); zzinit
+else
+  print "Houston, we have a problem"; exit 1
+fi
+```
+
 Reload shell with `exec zsh` and run `zi -h` for usage information.
 
 ## <i class="fas fa-spinner fa-spin"></i> Automated setup
 
 :::tip
 
-If required append `-b <tag>` or `-b <branch>` e.g:
+- Verify `sha256` [checksum][checksum] for file: `lib/sh/install.sh`
+- If required append `-b <tag>` or `-b <branch>` e.g:
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip -b main
@@ -215,11 +228,14 @@ typeset -g ZI_MOD_DEBUG=1
 | [IPFS][ipfs.io]             | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
 | [Direct][direct-init]       | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
 
+<!-- end-of-file -->
+<!-- links -->
 [get.zshell.dev]: https://get.zshell.dev
 [ipfs.io]: https://ipfs.io
 [init.zshell.dev]: https://init.zshell.dev
 [direct-init]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh
 [direct-install]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
+[checksum]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt
 [6]: https://github.com/z-shell/zi/issues/new/choose
 [7]: https://github.com/orgs/z-shell/discussions/new
 [8]: https://digitalclouds.crowdin.com/z-shell
