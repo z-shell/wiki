@@ -11,19 +11,6 @@ keywords:
 
 <!-- @format -->
 
-export const Svg = ({src, alt}) => (
-<span className="ScreenView">
-<img
-      className="ImageView"
-      loading="lazy"
-      width="700"
-      height="400"
-      src={src}
-      alt={alt}
-    />
-</span>
-)
-
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-bin-gem-node][1]
 
 An annex provides the following functionality:
@@ -328,10 +315,15 @@ To view subcommands registred by annexes run: `zi subcmds`.
 There's an additional Zi subcommand that is provided by annex –`shim-list`. It searches for and displays any shims that are currently stored under `$ZPFX/bin`:
 
 <div className="ScreenView">
-  <Svg
+<span className="ScreenView">
+  <img
+    className="ImageView"
+    width="1000"
+    height="500"
     src="https://github.com/z-shell/z-a-bin-gem-node/raw/7f9ed8918d15bc0b2fad4329bc867b022856f4e5/docs/images/shim-list.png"
     alt= "shim-list invocation"
    />
+</span>
 </div>
 
 Available flags are:

@@ -8,19 +8,6 @@ keywords:
 
 <!-- @format -->
 
-export const Svg = ({src, alt}) => (
-<span className="ScreenView">
-<img
-      className="ImageView"
-      loading="lazy"
-      width="1000"
-      height="500"
-      src={src}
-      alt={alt}
-    />
-</span>
-)
-
 This overview will cover basics for:
 
 1. [Oh-My-Zsh & Prezto](/search?q=Oh+My+Zsh+%26+Prezto)
@@ -217,11 +204,25 @@ zi clist
 
 This command is adapted for plugins like `zsh-users/zsh-completions`, which provide many completions – listing will have `3` completions per line, and a smaller number of terminal pages can be occupied like this:
 
-<Svg src="/asciicast/zi_clist.svg" alt="Zi completion list" />
+<span className="ScreenView">
+  <img
+    className="ImageView"
+    width="1000"
+    height="500"
+    src="/asciicast/zi_clist.svg" alt="Zi completion list"
+  />
+</span>
 
 To show more completions per line by providing an **argument** to `clist`, e.g.: `zi clist 6`, will show:
 
-<Svg src="/asciicast/zi_clist_6.svg" alt="Zi completion list 6" />
+<span className="ScreenView">
+  <img
+    className="ImageView"
+    width="1000"
+    height="500"
+    src="/asciicast/zi_clist_6.svg" alt="Zi completion list 6"
+  />
+</span>
 
 ### Enabling / disabling - completions
 
@@ -236,7 +237,14 @@ Enabled cmake completion belonging to zsh-users/zsh-completions
 
 Command `zi csearch` will **search** all plugin directories for available completions:
 
-<Svg src="/asciicast/zi_csearch.svg" alt="Zi completion search" />
+<span className="ScreenView">
+  <img
+    className="ImageView"
+    width="1000"
+    height="500"
+    src="/asciicast/zi_csearch.svg" alt="Zi completion search"
+  />
+</span>
 
 ## The subversion for subdirectories
 
@@ -383,7 +391,14 @@ zi ice load'![[ $PWD = */tmp* ]]' unload'![[ $PWD != */tmp* ]]' \
 zi load z-shell/zprompts
 ```
 
-<Svg src="/asciicast/zi_load_at_tmp.svg" alt="Zi load at /tmp" />
+<span className="ScreenView">
+  <img
+    className="ImageView"
+    width="1000"
+    height="500"
+    src="/asciicast/zi_load_at_tmp.svg" alt="Zi load at /tmp"
+  />
+</span>
 
 Load when NOT in ~/tmp
 
@@ -392,7 +407,14 @@ zi ice load'![[ $PWD != */tmp* ]]' unload'![[ $PWD = */tmp* ]]'
 zi load russjohnson/angry-fly-zsh
 ```
 
-<Svg src="/asciicast/zi_load_not_tmp.svg" alt="Zi load not at /tmp" />
+<span className="ScreenView">
+  <img
+    className="ImageView"
+    width="1000"
+    height="500"
+    src="/asciicast/zi_load_not_tmp.svg" alt="Zi load not at /tmp"
+  />
+</span>
 
 Two prompts, each active in different directories. This technique can be used to have plugin-sets, e.g. by defining parameter `$PLUGINS` with possible values like `cpp`, `web`, `admin` and by setting `load` / `unload` conditions to activate different plugins on `cpp`, on `web`, etc.
 

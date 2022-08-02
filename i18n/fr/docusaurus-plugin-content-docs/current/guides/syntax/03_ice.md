@@ -3,7 +3,7 @@ id: ice
 title: "🧊 Ice Syntax"
 sidebar_position: 3
 toc_max_heading_level: 3
-image: img/png/ice_180x170.png
+image: /img/png/ice_180x170.png
 description: Ice syntax documentation
 keywords:
   - ice
@@ -13,14 +13,11 @@ keywords:
 <!-- @format -->
 
 import Image from '@theme/IdealImage';
-import ZIceImg from '@site/static/img/png/ice_180x170.png';
+import ZIceImg from '/img/png/ice_180x170.png';
 
 :::info FAQ: What is ice?
 
-<span>
-  <Image className="IceLogo" img={ZIceImg} alt="What is ice" />
-  The <strong>ice</strong> is something that melts in a drink, though in Zi syntax, it means adding an <strong>ice-modifier</strong> that's temporary because it disappears – which means that the <strong>ice-modifier</strong> will last only for the next Zi command.
-</span>
+<Image className="IceLogo" img={ZIceImg} alt="What is ice" /> The <strong>ice</strong> is something that melts in a drink, though in Zi syntax, it means adding an <strong>ice-modifier</strong> that's temporary because it disappears – which means that the <strong>ice-modifier</strong> will last only for the next Zi command.
 
 :::
 
@@ -112,21 +109,21 @@ zi load user/fsh-auto-themes
 
 Current preset:
 
-| Ice name   | Domain name / URL                      |
-|:---------- |:-------------------------------------- |
-| ge         | gitee.com                              |
-| gitee      | gitee.com                              |
-| github     | github.com                             |
-| gh         | github.com                             |
-| gitlab     | gitlab.com                             |
-| gl         | gitlab.com                             |
-| notabug    | notabug.org                            |
-| nb         | notabug.org                            |
-| bitbucket  | bitbucket.org                          |
-| bb         | bitbucket.org                          |
+| Ice name   | Domain name / URL                    |
+| :--------- | :----------------------------------- |
+| ge         | gitee.com                            |
+| gitee      | gitee.com                            |
+| github     | github.com                           |
+| gh         | github.com                           |
+| gitlab     | gitlab.com                           |
+| gl         | gitlab.com                           |
+| notabug    | notabug.org                          |
+| nb         | notabug.org                          |
+| bitbucket  | bitbucket.org                        |
+| bb         | bitbucket.org                        |
 | github-rel | github.com/$remote_url_path/releases |
 | gh-r       | github.com/$remote_url_path/releases |
-| cygwin     | cygwin                                 |
+| cygwin     | cygwin                               |
 
 :::note
 
@@ -239,9 +236,14 @@ zi light z-shell/zi-crasis
 
 - screencast that presents the feature:
 
-<picture className="ScreenView">
-  <img src="/asciicast/crasis_01.svg?static=true" alt="asciicast/crasis_01" loading="lazy" decoding="async" />
-</picture>
+<span className="ScreenView">
+  <img
+    className="ImageView"
+    width="1000"
+    height="500"
+    src="/asciicast/crasis_01.svg" alt="Crasis example screencast" />
+  />
+</span>
 
 - `$ZLAST_COMMANDS` is an array build by [F-Sy-H][2], it contains commands currently entered at prompt,
 - `(r)` searches for element that matches given pattern (`cras*`) and returns it,
@@ -556,8 +558,6 @@ zi load romkatv/powerlevel10k
 
 <!-- end-of-file -->
 <!-- footnotes -->
-
-
 
 <!-- links -->
 

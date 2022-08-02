@@ -15,19 +15,6 @@ keywords:
 import Image from '@theme/IdealImage';
 import ZIceImg from '/img/png/ice_180x170.png';
 
-export const Svg = ({src, alt}) => (
-<span className="ScreenView">
-<img
-      className="ImageView"
-      loading="lazy"
-      width="1000"
-      height="500"
-      src={src}
-      alt={alt}
-    />
-</span>
-)
-
 :::info FAQ: What is ice?
 
 <Image className="IceLogo" img={ZIceImg} alt="What is ice" />
@@ -250,7 +237,14 @@ zi light z-shell/zi-crasis
 
 - screencast that presents the feature:
 
-<Svg src="/asciicast/crasis_01.svg" alt="Crasis example screencast" />
+<span className="ScreenView">
+  <img
+    className="ImageView"
+    width="1000"
+    height="500"
+    src="/asciicast/crasis_01.svg" alt="Crasis example screencast" />
+  />
+</span>
 
 - `$ZLAST_COMMANDS` is an array build by [F-Sy-H][2], it contains commands currently entered at prompt,
 - `(r)` searches for element that matches given pattern (`cras*`) and returns it,

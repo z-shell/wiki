@@ -19,18 +19,19 @@ import Image from '@theme/IdealImage';
 import ZGitImg from '@site/static/img/png/z_git.png';
 
 <div className="ScreenView">
-  <Image img={ZGitImg} />
+  <Image className="ImageView" img={ZGitImg} />
 </div>
-<div className="ScreenView">
+<span className="ScreenView">
   <Link href="https://github.com/orgs/z-shell/">
-    <img
-      width="976"
-      height="434"
-      alt="Z-Shell Organization Stats"
-      src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
-    />
+  <img
+    className="ImageView"
+    width="1000"
+    height="500"
+    alt="Z-Shell Organization Stats"
+    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
+  />
   </Link>
-</div>
+</span>
 
 <Tabs>
   <TabItem value="gems" label="RubyGems">
@@ -84,16 +85,18 @@ Install and control almost everything from [GitHub](https://github.com): [Annexe
 
 ## <i class="fa-solid fa-list-check"></i> 摘要
 
-<div className="ScreenView">
+<span className="ScreenView">
   <Link href="https://github.com/orgs/z-shell/projects/">
-    <img
-      width="976"
-      height="444"
-      alt="Z-Shell Organization FollowUp"
-      src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg"
-    />
+  <img
+    className="ImageView"
+    loading="lazy"
+    width="1000"
+    height="500"
+    alt="Z-Shell Organization FollowUp"
+    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg"
+  />
   </Link>
-</div>
+</span>
 
 <!-- end-of-file -->
 
@@ -102,7 +105,7 @@ Install and control almost everything from [GitHub](https://github.com): [Annexe
 [10]: /docs/guides/customization#multiple-prompts
 [11]: /docs/guides/customization#non-github-local-plugins
 [oh-my-zsh]: /docs/getting_started/overview#oh-my-zsh-prezto
-[Prezto]: /docs/getting_started/overview#oh-my-zsh-prezto
+[prezto]: /docs/getting_started/overview#oh-my-zsh-prezto
 [migration]: /docs/getting_started/migration
 [14]: /docs/guides/commands#loading-and-unloading
 [15]: /docs/guides/commands#completions-management
