@@ -117,7 +117,7 @@ compaudit | xargs chmod -R go-w "$ZI[HOME_DIR]"
 command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
 ```
 
-### <i class="fa-solid fa-circle-nodes"></i> Activer ZI
+### <i class="fa-solid fa-circle-nodes"></i> Enable Zi
 
 Sourcez `zi.zsh` dans votre `.zshrc` à partir du répertoire créé précédemment:
 
@@ -142,11 +142,11 @@ autoload -Uz _zi
 
 ## <i class="fas fa-spinner fa-spin"></i> Post-installation
 
-Après une nouvelle installation, il est recommandé de recharger le shell avec `exec zsh` et de compiler ZI avec `zi self-update`. Exécutez `zi -h` pour voir toutes les commandes disponibles. Augmentez les fonctionnalités et les performances de ZI ou commencez par explorer le wiki.
+Après une nouvelle installation, il est recommandé de recharger le shell avec `exec zsh` et de compiler ZI avec `zi self-update`. Exécutez `zi -h` pour voir toutes les commandes disponibles. Augmentez les fonctionnalités et les performances de Zi ou commencez par explorer le wiki.
 
 If you have any issue or need help 🤦‍♂️, lets [discuss][7] it or open an [issue][6] in any language.
 
-Cela nous aide à améliorer et à améliorer ZI. Don't forget to help the project: share, contribute, or [translate][8] 🌐 🥰 🤓.
+Cela nous aide à améliorer et à améliorer Zi. Don't forget to help the project: share, contribute, or [translate][8] 🌐 🥰 🤓.
 
 Collons tout ensemble pour créer une chaîne d'outils qui fonctionne pour NOUS 🚀.
 
@@ -166,7 +166,7 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a ???
 docker run --rm -it ghcr.io/z-shell/zd:latest
 ```
 
-### <i class="fa-brands fa-docker"></i> Turbo ZI dans Docker
+### <i class="fa-brands fa-docker"></i> Turbo Zi dans Docker
 
 Si vous créez une image Docker qui utilise Zi, installez les plug-ins chargés par Turbo avant que le shell ne démarre de manière interactive, avec la fonction `@zi-scheduler` de telle manière qu'elle:
 
@@ -182,19 +182,19 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 > - An example: [Dockerfile][11]
 > - In action: [Dockerfile][12]
 
-## <i class="fas fa-cog fa-pulse"></i> Construire un module ZI
+## <i class="fas fa-cog fa-pulse"></i> Construire un module Zi
 
-### <i class="fa-solid fa-compass-drafting"></i> Sans ZI
+### <i class="fa-solid fa-compass-drafting"></i> Sans Zi
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
 ```
 
-### <i class="fa-solid fa-screwdriver-wrench"></i> Avec ZI
+### <i class="fa-solid fa-screwdriver-wrench"></i> Avec Zi
 
 :::info
 
-ZI doit être installé pour construire le module. Module repository: [z-shell/zpmod][9]
+Zi doit être installé pour construire le module. Module repository: [z-shell/zpmod][9]
 
 :::
 

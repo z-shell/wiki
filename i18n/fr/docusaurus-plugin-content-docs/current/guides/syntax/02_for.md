@@ -44,7 +44,7 @@ zi wait"3" lucid for as"null" \
   make"PREFIX=$ZPFX" tj/git-extras
 ```
 
-La commande unique ci-dessus installe 6 plugins ([git extension][2] packages), avec les ices de base `as "null" wait "3" lucid` qui sont communs à tous les plugins et 6 ices complémentaires spécifiques aux plugins.
+Above single command installs 6 plugins ([git extension][2] packages), with the base ices `as"null" wait"3" lucid` that are common to all of the plugins and 6 plugin-specific add-on ices.
 
 Load a few useful binary packages from the [GitHub releases][1], utils:
 
@@ -169,7 +169,7 @@ zi wait lucid for \
 
 **A** - La plupart des thèmes utilisent cette option.
 
-**B, C** - Les thèmes OMZ utilisent cette bibliothèque et certains autres utilisent également le plugin. Il fournit de nombreux alias - `atload'…'` montre comment désactiver certains d'entre eux (par exemple : pour utiliser le programme `rgburke/grv`).
+**B, C** - Les thèmes OMZ utilisent cette bibliothèque et certains autres utilisent également le plugin. It provides many aliases – `atload'…'` shows how to disable some of them (e.g.: to use program `rgburke/grv`).
 
 **D** - Définissez le thème OMZ. Chargé séparément car le thème a besoin que le `!` soit passé au `wait` glace pour réinitialiser l'invite après le chargement du snippet en mode turbo.
 
@@ -181,9 +181,9 @@ zi wait lucid for \
 
 :::
 
-La configuration ci-dessus charge tout après l'invite, à cause de la glace précédente `wait` . Cela s'appelle le **mode turbo mode**, il raccourcit le temps de démarrage de Zsh par <u>50%-80%</u>, par exemple au lieu de 200 ms, il vous fera démarrer après **40 ms**.
+Above setup loads everything after prompt, because of preceding `wait` ice. Cela s'appelle le **mode turbo mode**, il raccourcit le temps de démarrage de Zsh par <u>50%-80%</u>, par exemple au lieu de 200 ms, il vous fera démarrer après **40 ms**.
 
-Essayez les deux configurations au quotidien pour constater la différence. Les fonctionnalités de ZI peuvent faire beaucoup plus que ce simple exemple.
+Essayez les deux configurations au quotidien pour constater la différence. The features of Zi can do much more than this simple example.
 
 ## <i class="fa-solid fa-book-bookmark"></i> Récapitulatif
 
