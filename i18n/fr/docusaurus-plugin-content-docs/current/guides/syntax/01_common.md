@@ -30,14 +30,14 @@ Le fichier `Makefile` du projet ci-dessus ne comporte que 2 tâches:
 1. Installez la cible.
 2. Les scripts de construction qui sont nécessaires à l'installation.
 
-Le `Makefile` avec 2 tâches, peut utiliser :
+The `Makefile` with 2 tasks, can use:
 
 1. `make"all install PREFIX=…"`,
 2. `pick'…'` va `chmod +x` tous les fichiers correspondants et ajouter `$ZPFX/bin/` à `$PATH`.
 
 :::info
 
-[$ZPFX][zpfx] est fournie par ZI, elle est définie par défaut sur `~/.zi/polaris` . However, it can be changed by specifying: `$ZPFX=` target.
+[$ZPFX][zpfx] is provided by Zi, it is set to `~/.zi/polaris` by default. However, it can be changed by specifying: `$ZPFX=` target.
 
 :::
 

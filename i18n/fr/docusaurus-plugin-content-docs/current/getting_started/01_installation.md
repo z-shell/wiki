@@ -23,7 +23,7 @@ Rechargez le shell avec `exec zsh` et exécutez `zi -h` pour obtenir des informa
 
 :::tip
 
-Si nécessaire, ajoutez `-b <tag>` ou `-b <branch>` par ex :
+If required append `-b <tag>` or `-b <branch>` e.g:
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip -b main
@@ -75,7 +75,7 @@ Le chargeur peut être récupéré manuellement à partir des liens disponibles 
 
 :::
 
-Ensuite, rechargez le shell avec : `exec zsh`. Terminé !
+Then reload shell with: `exec zsh`. All done!
 
 ## <i class="fas fa-spinner fa-spin"></i> Configuration manuelle
 
@@ -118,7 +118,7 @@ source "${ZI[BIN_DIR]}/zi.zsh"
 
 :::info
 
-Les deux lignes suivantes doivent être en dessous des deux précédentes :
+The next two lines must be below the above two:
 
 :::
 
@@ -133,19 +133,19 @@ Après une nouvelle installation, il est recommandé de recharger le shell avec 
 
 Si vous avez un problème ou avez besoin d'aide 🤦‍♂️, [discuter ][7] ou ouvrez un [problème][6] dans n'importe quelle langue.
 
-Cela nous aide à améliorer et à améliorer ZI. N'oubliez pas d'aider le projet : partagez, contribuez, ou [traduisez][8] 🌐 🥰 🤓.
+Cela nous aide à améliorer et à améliorer ZI. Don't forget to help the project: share, contribute, or [translate][8] 🌐 🥰 🤓.
 
 Collons tout ensemble pour créer une chaîne d'outils qui fonctionne pour NOUS 🚀.
 
-## <i class="fas fa-sync-alt fa-spin"></i> Vous avez des idées ?
+## <i class="fas fa-sync-alt fa-spin"></i> Have ideas?
 
-### <i class="fa-solid fa-list-check"></i> Proposez votre configuration : <a href="https://github.com/z-shell/playground">z-shell/playground</a>
+### <i class="fa-solid fa-list-check"></i> Suggest your configuration: <a href="https://github.com/z-shell/playground">z-shell/playground</a>
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a ???
 ```
 
-## <i class="fas fa-sync-alt fa-spin"></i> Besoin d'un échauffement ?
+## <i class="fas fa-sync-alt fa-spin"></i> Need warm-up?
 
 ### <i class="fa-brands fa-docker"></i> <a href="https://github.com/z-shell/zd/pkgs/container/zd">Docker Alpine</a>
 
@@ -166,8 +166,8 @@ Pour ce faire, utilisez l'argument burst et appelez la fonction `@zi-scheduler`:
 RUN zsh -i -c -- '@zi-scheduler burst || true'
 ```
 
-> - Un exemple : [Dockerfile][11]
-> - En action : [Dockerfile][12]
+> - An example: [Dockerfile][11]
+> - In action: [Dockerfile][12]
 
 ## <i class="fas fa-cog fa-pulse"></i> Construire un module ZI
 
@@ -181,7 +181,7 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
 
 :::info
 
-ZI doit être installé pour construire le module. Dépôt de modules : [z-shell/zpmod][9]
+ZI doit être installé pour construire le module. Module repository: [z-shell/zpmod][9]
 
 :::
 

@@ -65,12 +65,12 @@ Install and control almost everything from [GitHub](https://github.com): [Annexe
 - [Les meta plugins][16] permettent d'installer des groupes de plugins via une étiquette unique et conviviale.
 - [Les paquets](/ecosystem/packages) dispensent l'utilisateur de fournir des commandes longues et complexes.
 - [Les annexes](/ecosystem/annexes) permettent d'étendre le gestionnaire de plugins avec de nouvelles commandes.
-- [Le mode Turbo][8] permet un démarrage de Zsh **50-80%** plus rapide .
+- [Turbo][8] mode yields **50-80%** faster Zsh startup.
 
 ## <i className="fa-beat" class="fa-solid fa-heart fa-beat"></i> Soigné et flexible
 
-- [Personnalisez les chemins][9], utilisez [plusieurs invites][10] ou créez [vos propres plugins][11] .
-- Prend en charge les plugins et bibliothèques [Oh My Zsh][oh-my-zsh] et [Prezto][] . ([migration][]).
+- [Customize paths][9], use [multiple prompts][10] or create [your own][11] plugins.
+- Supports [Oh My Zsh][oh-my-zsh] and [Prezto][] plugins and libraries. ([migration][]).
 - Does not use `$FPATH`, loading multiple plugins doesn't clutter `$FPATH` with the same number of entries, e.g: 10, 15, or more.
 - Le code est immunisé contre `KSH_ARRAYS` et d'autres options causant généralement des problèmes de compatibilité.
 - Ne nécessite pas `sudo`, et fournit de nombreuses solutions de contournement, par exemple: définir les **shims** localement.

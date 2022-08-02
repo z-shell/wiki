@@ -35,7 +35,7 @@ Lorsqu'il est en vigueur, seul un seul plugin, dans ce cas, `z-shell/F-Sy-H`, se
 
 Les autres plugins se dérouleront tout à fait normalement, comme lorsque les plugins sont chargés avec `light` - le reporting est désactivé.
 
-Moins de code est exécuté en arrière-plan, la collecte automatique de données, lors du chargement d'un plugin, pour les rapports et la possibilité de décharger le plugin sera activée et les fonctions n'apparaîtront pas dans le rapport `zprof` .
+Less code is being run in the background, the automatic data gathering, during loading of a plugin, for the reports and the possibility to unload the plugin will be activated and the functions will not appear in the `zprof` report.
 
 - Exemple de rapport `zprof`:
 
@@ -69,7 +69,7 @@ num calls    time                self                 name
 
   - Par exemple, `--zi-shadow-autoload` a dépensé 8,71 ms pour exécuter uniquement son code.
 
-- Le tableau est trié dans la colonne **self-time** .
+- The table is sorted in the **self-time** column.
 
 ## <i class="fas fa-spinner fa-spin"></i> Profilage du démarrage de `.zshrc`
 
@@ -109,7 +109,7 @@ La prochaine fois, votre `.zshrc` sera exécuté, il générera 2 fichiers dans 
 
 ### Méthode 2
 
-Enregistrez plusieurs valeurs dans une variable :
+Store multiple values to a variable:
 
 ```shell title="~/.zshrc" showLineNumbers
 # Définir la variable
@@ -133,7 +133,7 @@ zmsg "Loaded something else"
 zmsg "Done"
 ```
 
-Utilisez ensuite la variable `$ZLOGS` pour récupérer :
+Then use the `$ZLOGS` variable to retrieve:
 
 ```shell showLineNumbers
 ❯ echo $ZLOGS

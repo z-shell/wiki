@@ -47,7 +47,7 @@ Plug-in de recherche historique multi-mots chargé avec enquête:
 zi load z-shell/H-S-MW
 ```
 
-Deux plugins ordinaires ont été chargés sans enquête :
+Two regular plugins loaded without investigating:
 
 ```shell showLineNumbers
 zi light zsh-users/zsh-autosuggestions
@@ -68,7 +68,7 @@ En mode de chargement turbo, le ralentissement par le suivi des plugins se fait 
 
 ## Oh-My-Zsh, Prezto
 
-Pour charger les plugins Oh-My-Zsh et Prezto, utilisez la fonction `snippet` . Les extraits sont des **fichiers uniques** téléchargés par `curl`, `wget`, etc., la détection automatique de l'outil de téléchargement est effectuée, directement à partir de l'URL:
+To load Oh-My-Zsh and Prezto plugins, use the `snippet` feature. Les extraits sont des **fichiers uniques** téléchargés par `curl`, `wget`, etc., la détection automatique de l'outil de téléchargement est effectuée, directement à partir de l'URL:
 
 ```shell showLineNumbers
 zi snippet 'https://github.com/robbyrussell/oh-my-zsh/raw/master/plugins/git/git.plugin.zsh'
@@ -82,7 +82,7 @@ zi snippet OMZ::plugins/git/git.plugin.zsh
 zi snippet PZT::modules/helper/init.zsh
 ```
 
-De plus, les snippets supportent le protocole subversion, supporté également par Github. Cela permet de charger des extraits qui sont multi-fichiers (par exemple, un module Prezto peut être constitué de deux ou plusieurs fichiers, par exemple `init.zsh` et `alias.zsh`).
+Moreover, GitHub support Subversion protocol for snippets. Cela permet de charger des extraits qui sont multi-fichiers (par exemple, un module Prezto peut être constitué de deux ou plusieurs fichiers, par exemple `init.zsh` et `alias.zsh`).
 
 Les fichiers par défaut qui seront sourcés sont : `*.plugin.zsh`, `init.zsh`, `*.zsh-theme`:
 
@@ -95,7 +95,7 @@ zi snippet PZT::modules/docker
 
 ## Snippets et performance
 
-L'utilisation de `curl`, `wget`, etc. avec Subversion permet d'éviter presque complètement le code dédié à Oh-My-Zsh et Prezto, ainsi qu'à d'autres frameworks. Cela permet d'améliorer les performances de `ZI`, qui est très rapide et compact (faible empreinte mémoire et temps de chargement court).
+L'utilisation de `curl`, `wget`, etc. avec Subversion permet d'éviter presque complètement le code dédié à Oh-My-Zsh et Prezto, ainsi qu'à d'autres frameworks. It delivers better performance as has a low footprint on memory and shorter loading times.
 
 ## Ice modifiers (Modificateurs de glace)
 
@@ -127,13 +127,13 @@ La commande ci-dessus ajoutera le répertoire plugin à `$PATH`, copiera le fich
 
 :::tip
 
-Les glaces `cp` et `mv` (et aussi comme d'autres, comme `atclone`) sont en cours d'exécution lorsque le plugin ou l'extrait est en cours d'installation __. Pour les tester à nouveau, supprimez d'abord le plugin ou le snippet (exemple : `zi delete PZT::modules/osx`).
+Les glaces `cp` et `mv` (et aussi comme d'autres, comme `atclone`) sont en cours d'exécution lorsque le plugin ou l'extrait est en cours d'installation __. To test them again first delete the plugin or snippet (example: `zi delete PZT::modules/osx`).
 
 :::
 
 ## À propos d'atpull"…"
 
-La copie du fichier est sûre pour les mises à jour ultérieures - les fichiers originaux du dépôt ne sont pas modifiés et `Git` ne signalera aucun conflit. Cependant, `mv` peut également être utilisé, si un `atpull`approprié, un modificateur de glace exécuté à **update** du plugin, sera utilisé :
+La copie du fichier est sûre pour les mises à jour ultérieures - les fichiers originaux du dépôt ne sont pas modifiés et `Git` ne signalera aucun conflit. However, `mv` also can be used, if a proper `atpull`, an ice-modifier ran at **update** of the plugin:
 
 ```shell showLineNumbers
 zi ice as"program" mv"httpstat.sh -> httpstat" \
@@ -165,13 +165,13 @@ zi snippet https://github.com/b4b4r07/httpstat/blob/master/httpstat.sh
 
 :::tip
 
-Les snippets supportent également `atpull`, il est donc possible de faire par exemple `atpull '!svn revert'`. Il y a aussi un modificateur de glace `atinit` , exécuté avant chaque chargement de plugin ou de snippet.
+Les snippets supportent également `atpull`, il est donc possible de faire par exemple `atpull '!svn revert'`. Il y a aussi un modificateur de glace `atinit`, exécuté avant chaque chargement de plugin ou de snippet.
 
 :::
 
 ## Extraits as'…' complétions
 
-En utilisant le modificateur de glace `as''` avec la valeur `completion` vous pouvez faire pointer la sous-commande `snippet` directement vers un fichier completion :
+By using the `as''` ice modifier with value `completion` you can point the `snippet` subcommand directly to a completion file:
 
 ```shell {1} showLineNumbers
 zi ice as"completion"
@@ -196,13 +196,13 @@ Pour désinstaller et installer les complétions:
 
 ### Liste des complétions disponibles
 
-Pour voir quelles complétions fournissent **tous les plugins** , avec une mise en forme tabulaire et avec le nom de chaque plugin:
+Pour voir quels complétions **tous les plugins** fournissent, sous forme de tableau et avec le nom de chaque plugin:
 
 ```shell
 zi clist
 ```
 
-Cette commande est spécialement adaptée pour les plugins tels que `zsh-users/zsh-completions`, qui fournissent plusieurs complétions – la liste aura `3` complétions par ligne, pour qu'un nombre plus petit de pages de terminal soient occupées comme ceci :
+Cette commande est adaptée aux plugins comme `zsh-users/zsh-completions`, qui fournissent de nombreux complétions - le listing aura `3` complétions par ligne, et un plus petit nombre de pages de terminal peut être occupé de cette manière:
 
 ```shell showLineNumbers
 …
@@ -212,7 +212,7 @@ cask, cf, chattr zsh-users/zsh-completions
 …
 ```
 
-Pour afficher plus de complétions par ligne en fournissant un argument **** à `clist`, par exemple : `zi clist 6`, affichera :
+Pour afficher plus d'une complétions par ligne en fournissant un argument **** à `clist`, par exemple: `zi clist 6`, affichera:
 
 ```shell showLineNumbers
 …
@@ -237,7 +237,7 @@ C'est tout sur les complétions. Il y a une autre commande, `zi csearch`, qui va
 
 ## Subversion pour les sous-répertoires
 
-En général, pour utiliser les **sous-répertoires** des projets Github en tant qu'extraits, ajoutez `/trunk/{path-to-dir}` à l'URL :
+In general, to use **subdirectories** of Github projects as snippets add `/trunk/{path-to-dir}` to URL:
 
 ```shell showLineNumbers
 zi ice svn
@@ -337,11 +337,11 @@ zi load z-shell/history-search-multi-word
 
 ## Turbo avec des invites sophistiquées
 
-Pour certains thèmes, principalement les thèmes avancés, l'initialisation de l'invite est effectuée dans un `precmd`-hook, c'est-à-dire dans une fonction qui est appelée avant chaque invite. Le hook est installé par la fonction Zsh [add-zsh-hook][12] en ajoutant son nom au tableau `$precmd_functions` .
+Pour certains thèmes, principalement les thèmes avancés, l'initialisation de l'invite est effectuée dans un `precmd`-hook, c'est-à-dire dans une fonction qui est appelée avant chaque invite. Le hook est installé par la fonction Zsh [add-zsh-hook][12] en ajoutant son nom au tableau `$precmd_functions`.
 
-Pour que le prompt soit complètement initialisé après le chargement de Turbo au milieu du prompt, la même situation qu'avec le plugin `zsh-autosuggestions` , le hook doit être appelé à partir de `atload''` ice`.
+Pour que l'invite soit pleinement initialisée après le chargement du mode turbo au milieu de l'invite, la même situation qu'avec le plug-in `zsh-autosuggestions` , le crochet doit être appelé à partir la de `atload'…'`\`.
 
-Tout d'abord, trouvez le nom de la fonction hook en examinant le tableau `$precmd_functions` . Par exemple, pour le thème `robobenklein/zinc` , il y aura deux fonctions : `prompt_zinc_setup` et `prompt_zinc_precmd`:
+Tout d'abord, trouvez le nom de la fonction hook en examinant le tableau `$precmd_functions`. Par exemple, pour le thème `robobenklein/zinc` , ce seront deux fonctions : `prompt_zinc_setup` et `prompt_zinc_precmd`:
 
 ```shell showLineNumbers
 root@user > ~ > print $precmd_functions < ✔ < 22:21:33
@@ -380,7 +380,7 @@ zi ice load'![[ $PWD = */tmp* ]]' unload'![[ $PWD != */tmp* ]]' \
 zi load z-shell/zprompts
 ```
 
-Charger lorsqu'IL N'est PAS dans ~ / tmp
+Charger lorsqu'IL N'est PAS dans ~/tmp
 
 ```shell {1} showLineNumbers
 zi ice load'![[ $PWD != */tmp* ]]' unload'![[ $PWD = */tmp* ]]'
@@ -516,7 +516,7 @@ Scripts qui sont construits lors de l'installation
 
 > Il y a une seule cible make par défaut, "install", et elle construit des scripts.
 
-La glace `make''` pourrait aussi être : `make"install PREFIX=$ZPFX"`, si "install" n'est pas la seule cible par défaut.
+The `make''` ice could also be: `make"install PREFIX=$ZPFX"`, if "install" wouldn't be the only, default target.
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
@@ -546,9 +546,9 @@ zi ice as"program" make'!' \
 zi light direnv/direnv
 ```
 
-Si vous souhaitez en essayer davantage, consultez le dépôt [playground](https://github.com/z-shell/playground) où les utilisateurs ont téléchargé le fichier `~/.zshrc` et d'autres configurations ZI. N'hésitez pas à [soumettre](https://github.com/z-shell/playground/issues/new?template=request-to-add-zshrc-to-the-zi-configs-repo.md) votre `~/.zshrc` là s'il contient des commandes ZI.
+Si vous souhaitez en essayer davantage, consultez le dépôt [playground](https://github.com/z-shell/playground) où les utilisateurs ont téléchargé le fichier `~/.zshrc` et d'autres configurations ZI. Feel free to [submit](https://github.com/z-shell/playground/issues/new?template=request-to-add-zshrc-to-the-zi-configs-repo.md) your `~/.zshrc` configuration.
 
-Exemples supplémentaires : [collection][10].
+Additional examples: [collection][10].
 
 <!-- end-of-file -->
 <!-- links -->

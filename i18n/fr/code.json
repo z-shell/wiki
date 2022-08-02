@@ -405,10 +405,6 @@
     "message": "Essayez de chercher",
     "description": "The text for the suggested query when no results are found for the following search"
   },
-  "theme.SearchModal.noResultsScreen.reportMissingResultsText": {
-    "message": "Vous pensez que cette requête doit donner des résultats ?",
-    "description": "The text for the question where the user thinks there are missing results"
-  },
   "theme.SearchModal.noResultsScreen.reportMissingResultsLinkText": {
     "message": "Faites-le nous savoir.",
     "description": "The text for the link to report missing results"
@@ -416,10 +412,6 @@
   "theme.SearchModal.placeholder": {
     "message": "Rechercher des docs",
     "description": "The placeholder of the input of the DocSearch pop-up modal"
-  },
-  "theme.IdealImageMessage.loading": {
-    "message": "Chargement ...",
-    "description": "When the full-scale image is loading"
   },
   "theme.IdealImageMessage.load": {
     "message": "Cliquez pour charger{sizeMessage}",

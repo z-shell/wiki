@@ -191,7 +191,7 @@ En général, le [ mode turbo][6] ne peut être activé que pour un sous-ensembl
 
 Les plug-ins de mise en évidence de syntaxe, tels que [F-Sy-H][11] ou [zsh-syntax-highlighting][12], s'attendent théoriquement à être chargés en dernier, même après l'initialisation de l'achèvement en tant que fonction `compinit`.
 
-Cependant, en pratique, il suffit de s'assurer qu'un tel plugin est chargé après les plugins qui émettent `compdef` - ce qui signifie essentiellement les complétions qui n'utilisent pas le fichier de fonction de début de soulignement ; l'initialisation de la complétion doit toujours être effectuée avant le plugin de mise en évidence syntaxique , d'où la glace `atinit'…'` , qui chargera `compinit` juste avant de charger le plugin, les plugins de mise en évidence syntaxique et de suggestions sont chargés tôt pour une meilleure expérience utilisateur.
+However, in practice, you just have to ensure that such plugin is loaded after plugins that are issuing `compdef` – which basically means completions that aren't using the underscore-starting function file; the completion initialization still has to be performed before syntax-highlighting plugin, hence the `atinit'…'` ice, which will load `compinit` right before loading the plugin, the syntax-highlighting and suggestions plugins are loaded early for a better user experience.
 
 <!-- end-of-file -->
 <!-- footnotes -->
