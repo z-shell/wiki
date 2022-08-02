@@ -230,6 +230,7 @@ typeset -g ZI_MOD_DEBUG=1
 
 <!-- end-of-file -->
 <!-- links -->
+
 [get.zshell.dev]: https://get.zshell.dev
 [ipfs.io]: https://ipfs.io
 [init.zshell.dev]: https://init.zshell.dev
