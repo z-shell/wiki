@@ -8,6 +8,19 @@ keywords:
 
 <!-- @format -->
 
+export const Svg = ({src, alt}) => (
+<span className="ScreenView">
+<img
+      className="ImageView"
+      loading="lazy"
+      width="1000"
+      height="500"
+      src={src}
+      alt={alt}
+    />
+</span>
+)
+
 此概览包括：
 
 1. [Oh-My-Zsh & Prezto](/search?q=Oh+My+Zsh+%26+Prezto)
@@ -153,7 +166,7 @@ For exclamation marks to not be expanded by Zsh an interactive session, use `'�
 
 :::
 
-## Snippet as'…' 命令
+## Snippets as'…' program
 
 Commands can also be added to `$PATH` using **snippets**:
 
@@ -169,7 +182,7 @@ Snippets also support `atpull`, e.g. `atpull'!svn revert'`. There’s also an `a
 
 :::
 
-## Snippet as'…' 补全
+## Snippets as'…' completion
 
 By using the `as''` ice modifier with value `completion` you can point the `snippet` subcommand directly to a completion file:
 
@@ -204,23 +217,11 @@ zi clist
 
 This command is adapted for plugins like `zsh-users/zsh-completions`, which provide many completions – listing will have `3` completions per line, and a smaller number of terminal pages can be occupied like this:
 
-```shell showLineNumbers
-…
-atach, bitcoin-cli, bower zsh-users/zsh-completions
-bundle, caffeinate, cap zsh-users/zsh-completions
-cask, cf, chattr zsh-users/zsh-completions
-…
-```
+<Svg src="/asciicast/zi_clist.svg" alt="Zi completion list" >
 
 To show more completions per line by providing an **argument** to `clist`, e.g.: `zi clist 6`, will show:
 
-```shell showLineNumbers
-…
-bundle, caffeinate, cap, cask, cf, chattr zsh-users/zsh-completions
-cheat, choc, cmake, coffee, column, composer zsh-users/zsh-completions
-console, dad, debuild, dget, dhcpcd, diana zsh-users/zsh-completions
-…
-```
+<Svg src="/asciicast/zi_clist_6.svg" alt="Zi completion list 6" >
 
 ### 启用/禁用 - 补全
 
@@ -233,7 +234,9 @@ $ zi cenable cmake
 Enabled cmake completion belonging to zsh-users/zsh-completions
 ```
 
-That’s all on completions. There’s one more command, `zi csearch`, that will **search** all plugin directories for available completions.
+Command `zi csearch` will **search** all plugin directories for available completions:
+
+<Svg src="/asciicast/zi_csearch.svg" alt="Zi completion search" >
 
 ## 对子目录的 subversion
 
@@ -362,7 +365,7 @@ The exclamation mark in `atload'!…'` is to track the functions allowing the pl
 
 Autosuggestions use the `precmd` hook, which is being called right after processing `.zshrc` – `precmd` hooks are being called **right before displaying each prompt**.
 
-Turbo mode with the empty `wait` ice will postpone the loading `1` ms after that, so `precmd` will not be called at that first prompt. 这会使自动建议在第一个提示时不可用。
+Turbo mode with the empty `wait` ice will postpone the loading `1` ms after that, so `precmd` will not be called at that first prompt. This makes autosuggestions inactive at the first prompt.
 
 **However** the given `atload'…'` ice-modifier fixes this, it calls the same function that `precmd` would, right after loading autosuggestions, resulting in the same behavior of the plugin.
 
@@ -376,9 +379,11 @@ Load when in ~/tmp
 
 ```shell {1} showLineNumbers
 zi ice load'![[ $PWD = */tmp* ]]' unload'![[ $PWD != */tmp* ]]' \
-  atload"!promptinit; prompt sprint3"
+  atload'!promptinit; prompt sprint3'
 zi load z-shell/zprompts
 ```
+
+<Svg src="/asciicast/zi_load_at_tmp.svg" alt="Zi load at /tmp" >
 
 Load when NOT in ~/tmp
 
@@ -386,6 +391,8 @@ Load when NOT in ~/tmp
 zi ice load'![[ $PWD != */tmp* ]]' unload'![[ $PWD = */tmp* ]]'
 zi load russjohnson/angry-fly-zsh
 ```
+
+<Svg src="/asciicast/zi_load_not_tmp.svg" alt="Zi load not at /tmp" >
 
 Two prompts, each active in different directories. This technique can be used to have plugin-sets, e.g. by defining parameter `$PLUGINS` with possible values like `cpp`, `web`, `admin` and by setting `load` / `unload` conditions to activate different plugins on `cpp`, on `web`, etc.
 

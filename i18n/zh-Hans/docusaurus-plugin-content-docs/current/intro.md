@@ -18,14 +18,25 @@ import Link from '@docusaurus/Link';
 import Image from '@theme/IdealImage';
 import ZGitImg from '@site/static/img/png/z_git.png';
 
+export const Svg = ({src, alt}) => (
+<span className="ScreenView">
+<img
+    className="ImageView"
+    loading="lazy"
+    width="1000"
+    height="500"
+    src={src}
+    alt={alt}
+  />
+</span>
+)
+
 <div className="ScreenView">
-  <Image img={ZGitImg} />
+  <Image className="ImageView" img={ZGitImg} />
 </div>
 <div className="ScreenView">
   <Link href="https://github.com/orgs/z-shell/">
-    <img
-      width="976"
-      height="434"
+    <Svg
       alt="Z-Shell Organization Stats"
       src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
     />
@@ -86,9 +97,7 @@ Install and control almost everything from [GitHub](https://github.com): [Annexe
 
 <div className="ScreenView">
   <Link href="https://github.com/orgs/z-shell/projects/">
-    <img
-      width="976"
-      height="444"
+    <Svg
       alt="Z-Shell Organization FollowUp"
       src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg"
     />

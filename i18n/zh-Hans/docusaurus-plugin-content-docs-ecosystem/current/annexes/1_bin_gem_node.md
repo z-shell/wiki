@@ -11,6 +11,19 @@ keywords:
 
 <!-- @format -->
 
+export const Svg = ({src, alt}) => (
+<span className="ScreenView">
+<img
+      className="ImageView"
+      loading="lazy"
+      width="700"
+      height="400"
+      src={src}
+      alt={alt}
+    />
+</span>
+)
+
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-bin-gem-node][1]
 
 An annex provides the following functionality:
@@ -314,7 +327,12 @@ To view subcommands registred by annexes run: `zi subcmds`.
 
 There's an additional Zi subcommand that is provided by annex –`shim-list`. It searches for and displays any shims that are currently stored under `$ZPFX/bin`:
 
-![shim-list invocation][8]
+<div className="ScreenView">
+  <Svg
+    src="https://github.com/z-shell/z-a-bin-gem-node/raw/7f9ed8918d15bc0b2fad4329bc867b022856f4e5/docs/images/shim-list.png"
+    alt= "shim-list invocation"
+   />
+</div>
 
 Available flags are:
 
@@ -342,8 +360,8 @@ zi pack=bgn for firefox
 ```
 
 <!-- end-of-file -->
+<!-- links -->
 
-[8]: https://github.com/z-shell/z-a-bin-gem-node/raw/7f9ed8918d15bc0b2fad4329bc867b022856f4e5/docs/images/shim-list.png#center
 [1]: https://github.com/z-shell/z-a-bin-gem-node
 [2]: https://github.com/rubygems/rubygems
 [3]: https://github.com/npm/cli
