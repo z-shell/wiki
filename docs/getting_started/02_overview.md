@@ -8,6 +8,19 @@ keywords:
 
 <!-- @format -->
 
+export const Svg = ({src, alt}) => (
+<span className="ScreenView">
+<img
+      className="ImageView"
+      loading="lazy"
+      width="1000"
+      height="500"
+      src={src}
+      alt={alt}
+    />
+</span>
+)
+
 This overview will cover basics for:
 
 1. [Oh-My-Zsh & Prezto](/search?q=Oh+My+Zsh+%26+Prezto)
@@ -153,7 +166,7 @@ For exclamation marks to not be expanded by Zsh an interactive session, use `'�
 
 :::
 
-## Snippets as'…' commands
+## Snippets as'…' program
 
 Commands can also be added to `$PATH` using **snippets**:
 
@@ -169,7 +182,7 @@ Snippets also support `atpull`, e.g. `atpull'!svn revert'`. There’s also an `a
 
 :::
 
-## Snippets as'…' completions
+## Snippets as'…' completion
 
 By using the `as''` ice modifier with value `completion` you can point the `snippet` subcommand directly to a completion file:
 
@@ -204,23 +217,11 @@ zi clist
 
 This command is adapted for plugins like `zsh-users/zsh-completions`, which provide many completions – listing will have `3` completions per line, and a smaller number of terminal pages can be occupied like this:
 
-```shell showLineNumbers
-…
-atach, bitcoin-cli, bower zsh-users/zsh-completions
-bundle, caffeinate, cap zsh-users/zsh-completions
-cask, cf, chattr zsh-users/zsh-completions
-…
-```
+<Svg src="/asciicast/zi_clist.svg" alt="Zi completion list" />
 
 To show more completions per line by providing an **argument** to `clist`, e.g.: `zi clist 6`, will show:
 
-```shell showLineNumbers
-…
-bundle, caffeinate, cap, cask, cf, chattr zsh-users/zsh-completions
-cheat, choc, cmake, coffee, column, composer zsh-users/zsh-completions
-console, dad, debuild, dget, dhcpcd, diana zsh-users/zsh-completions
-…
-```
+<Svg src="/asciicast/zi_clist_6.svg" alt="Zi completion list 6" />
 
 ### Enabling / disabling - completions
 
@@ -233,7 +234,9 @@ $ zi cenable cmake
 Enabled cmake completion belonging to zsh-users/zsh-completions
 ```
 
-That’s all on completions. There’s one more command, `zi csearch`, that will **search** all plugin directories for available completions.
+Command `zi csearch` will **search** all plugin directories for available completions:
+
+<Svg src="/asciicast/zi_csearch.svg" alt="Zi completion search" />
 
 ## The subversion for subdirectories
 
@@ -376,9 +379,11 @@ Load when in ~/tmp
 
 ```shell {1} showLineNumbers
 zi ice load'![[ $PWD = */tmp* ]]' unload'![[ $PWD != */tmp* ]]' \
-  atload"!promptinit; prompt sprint3"
+  atload'!promptinit; prompt sprint3'
 zi load z-shell/zprompts
 ```
+
+<Svg src="/asciicast/zi_load_at_tmp.svg" alt="Zi load at /tmp" />
 
 Load when NOT in ~/tmp
 
@@ -386,6 +391,8 @@ Load when NOT in ~/tmp
 zi ice load'![[ $PWD != */tmp* ]]' unload'![[ $PWD = */tmp* ]]'
 zi load russjohnson/angry-fly-zsh
 ```
+
+<Svg src="/asciicast/zi_load_not_tmp.svg" alt="Zi load not at /tmp" />
 
 Two prompts, each active in different directories. This technique can be used to have plugin-sets, e.g. by defining parameter `$PLUGINS` with possible values like `cpp`, `web`, `admin` and by setting `load` / `unload` conditions to activate different plugins on `cpp`, on `web`, etc.
 

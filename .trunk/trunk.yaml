@@ -7,7 +7,7 @@ repo:
   repo:
     host: github.com
     owner: z-shell
-    name: zw
+    name: wiki
 lint:
   disabled:
     - shellcheck
@@ -26,7 +26,6 @@ lint:
     - linters: [ALL]
       paths:
         - "i18n/**"
-        - "!18n/en/**"
         - "build/**"
         - "static/**"
         - ".docusaurus/**"

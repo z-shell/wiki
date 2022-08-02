@@ -206,18 +206,24 @@ html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
   width: 150px;
 }
 
+.ImageView {
+  border-radius: 0.5rem;
+  max-width: 100%;
+  height: auto;
+}
+
 .ScreenView {
   display: block;
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
-  align-items: center;
-  padding: 0 var(--ifm-pre-padding);
-  height: auto;
   max-width: 100%;
+  height: auto;
 }
 
 .RightView {
   display: block;
+  text-align: right;
   float: right;
   height: auto;
   max-width: 100%;
@@ -235,14 +241,14 @@ img[src$="#floatleft"] {
   display: block;
   float: left;
   height: auto;
-  max-width: 100%;
+  width: 100%;
 }
 
 img[src$="#floatright"] {
   display: block;
   float: right;
   height: auto;
-  max-width: 100%;
+  width: 100%;
 }
 
 /* Github Link */
