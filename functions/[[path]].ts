@@ -1,7 +1,7 @@
 /** @format */
 
 export const onRequest = [
-  async ({ request, env, context }) => {
+  async ({ request, context }) => {
     try {
       const cacheUrl = new URL(request.url);
       const cacheKey = new Request(cacheUrl.toString(), request);
