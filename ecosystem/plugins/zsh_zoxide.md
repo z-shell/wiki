@@ -14,7 +14,12 @@ keywords:
 
 - [z-shell/zsh-zoxide](https://github.com/z-shell/zsh-zoxide)
 
-### Install zoxide
+[`ajeetdsouza/zoxide`](https://github.com/ajeetdsouza/zoxide) is a smarter `cd` command, inspired by `z` and `autojump`.
+
+It remembers which directories you use most frequently, so you can "jump" to them in just a few keystrokes.
+zoxide works on all major shells.
+
+### Install `zoxide`
 
 - [Official install](https://github.com/ajeetdsouza/zoxide#step-1-install-zoxide) (recommended)
 - With Zi:
@@ -24,7 +29,7 @@ zi ice as'null' from"gh-r" sbin
 zi light ajeetdsouza/zoxide
 ```
 
-### Install zsh-zoxide
+### Install `zsh-zoxide`
 
 #### Standart syntax
 
@@ -48,6 +53,10 @@ zi has'zoxide' wait lucid for \
 ```
 
 > Wiki: [automatic, condition based (loading/unloading)](https://wiki.zshell.dev/docs/getting_started/overview#automatic-condition-based---load--unload)
+
+### Add interactive selection with [`fzf`](https://github.com/z-shell/fzf)
+
+[fzf](https://github.com/junegunn/fzf) is a command-line fuzzy finder, used by zoxide for interactive selection. It can be installed from [here](https://github.com/z-shell/fzf) as a zi package.
 
 ### Environment variables and usage with Zi
 
@@ -86,3 +95,19 @@ before the installation of zoxide
 ### Environment variables and usage with other plugin managers
 
 The plugin will call `zoxide init` with prefixed commands `z`, `zi`.
+
+### Import your data
+
+If you currently use any of the following utilities, you may want to import your data into zoxide:
+
+#### autojump
+
+```shell
+x import --from autojump path/to/db # replace x with your alias
+```
+
+#### z, z.lua or zsh-z
+
+```shell
+x import --from z path/to/db # replace x with your alias
+```
