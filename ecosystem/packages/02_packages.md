@@ -1,7 +1,7 @@
 ---
 id: available-packages
 title: "📦 Available packages"
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: The Z-Shell Organization packages
 keywords:
   - zpackage
@@ -36,6 +36,57 @@ For all the available packages use [GitHub search][22].
 |         [nb][19]         | Bookmarking, and archiving with linking, tagging, search, Git syncing, Pandoc conversion, + more |
 |      [zsh-bin][20]       | Package of statically-linked, hermetic, relocatable - romkatv/zsh-bin                            |
 
+## Package profiles
+
+### Fzf
+
+Download the package with the default ice list.
+
+```shell
+zi pack for fzf
+```
+
+Download the package with the default ice list + setting up the key bindings.
+
+```shell
+zi pack"default+keys" for fzf
+```
+
+Download the package with the [bin-gem-node][] annex-utilizing ice list.
+
+```shell
+zi pack"bgn" for fzf
+```
+
+Download the package with the [bin-gem-node][] annex-utilizing ice list + setting up the key bindings. 
+
+> The "+keys" variants are available for each profile.
+
+```shell
+zi pack"bgn+keys" for fzf
+```
+
+Download with the [bin-gem-node][] annex-utilizing ice list **from _GitHub_ repository**.
+
+```shell
+zi pack"bgn" git for fzf
+```
+
+Download the binary from the Github releases (like from'gh-r' ice).
+
+```shell
+zi pack"binary" for fzf
+```
+
+Download the binary from the GitHub releases and install using [bin-gem-node][] + shims.
+
+```shell
+zi pack"bgn-binary" for fzf
+```
+
+<!-- end-of-file -->
+<!-- links -->
+
 [1]: https://github.com/z-shell/any-node
 [2]: https://github.com/z-shell/any-gem
 [3]: https://github.com/z-shell/apr
@@ -58,3 +109,4 @@ For all the available packages use [GitHub search][22].
 [20]: https://github.com/z-shell/zsh-bin
 [21]: https://github.com/z-shell/brew-completions
 [22]: https://github.com/search?q=topic%3Azpackage+org%3Az-shell&type=Repositories
+[bin-gem-node]: https://wiki.zshell.dev/ecosystem/annexes/bin-gem-node
