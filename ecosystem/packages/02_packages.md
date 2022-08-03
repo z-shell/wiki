@@ -38,7 +38,34 @@ For all the available packages use [GitHub search][22].
 
 ## Package profiles
 
-### Fzf
+### The fzf command-line fuzzy finder
+
+<h3 align="center">
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <b>Package source:</b>
+        </td>
+        <td>Source Tarball</td>
+        <td>Binary</td>
+        <td>Git</td>
+        <td>Node</td>
+        <td>Gem</td>
+      </tr>
+      <tr>
+        <td>
+          <b>Status:</b>
+        </td>
+        <td>✔️ (default)</td>
+        <td>✔️</td>
+        <td>✔️</td>
+        <td>❌</td>
+        <td>❌</td>
+      </tr>
+    </tbody>
+  </table>
+</h3>
 
 Download the package with the default ice list.
 
