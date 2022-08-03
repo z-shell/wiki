@@ -126,7 +126,7 @@ Download the package with the [bin-gem-node][] annex.
 zi pack"bgn" for fzf
 ```
 
-Download the package with the [bin-gem-node][] annex + key bindings. 
+Download the package with the [bin-gem-node][] annex-utilizing ice list + setting up the key bindings.
 
 > The "+keys" variants are available for each profile.
 
