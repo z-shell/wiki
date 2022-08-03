@@ -25,17 +25,25 @@ color, blink, underline, italic, etc...
 
 ## Modifiers list
 
-| Modifier  | Output                                                                  |
-| --------- | ----------------------------------------------------------------------- |
-| `st`      | <Image img={require('@site/static/img/png/zi-messages/st.png')} />      |
-| `term`    | <Image img={require('@site/static/img/png/zi-messages/term.png')} />    |
-| `th-bar`  | <Image img={require('@site/static/img/png/zi-messages/th-bar.png')} />  |
-| `txt`     | <Image img={require('@site/static/img/png/zi-messages/txt.png')} />     |
-| `u-warn`  | <Image img={require('@site/static/img/png/zi-messages/u-warn.png')} />  |
-| `u`       | <Image img={require('@site/static/img/png/zi-messages/u.png')} />       |
-| `uname`   | <Image img={require('@site/static/img/png/zi-messages/uname.png')} />   |
-| `uninst`  | <Image img={require('@site/static/img/png/zi-messages/uninst.png')} />  |
-| `url`     | <Image img={require('@site/static/img/png/zi-messages/url.png')} />     |
-| `var`     | <Image img={require('@site/static/img/png/zi-messages/var.png')} />     |
-| `version` | <Image img={require('@site/static/img/png/zi-messages/version.png')} /> |
-| `warn`    | <Image img={require('@site/static/img/png/zi-messages/warn.png')} />    |
+| Modifier | Output                                                            | Modifier | Output                                                            | Modifier | Output                                                            |
+| -------- | ----------------------------------------------------------------- | -------- | ----------------------------------------------------------------- | -------- | ----------------------------------------------------------------- |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
+| `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> | `u`      | <Image img={require('@site/static/img/png/zi-messages/u.png')} /> |
