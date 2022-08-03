@@ -22,7 +22,7 @@ For all the available packages use [GitHub search][22].
 |        [pyenv][6]        | The pyenv Python virtual environment manager.                                                    |
 |       [remark][7]        | The remark Markdown processor.                                                                   |
 |       [doctoc][8]        | The doctoc Markdown processor.                                                                   |
-|      [ls_colors][9]      | The ls_colors and setup a zsh-completion system color-scheme.                                    |
+|      [ls_colors][9]      | The LS_COLORS and setup a zsh-completion system color scheme.                                    |
 | [dircolors-material][10] | The dircolors-material and setup a zsh-completion system color-scheme.                           |
 |    [asciidoctor][11]     | The asciidoctor Markdown processor.                                                              |
 | [system-completions][12] | Moves the stock Zsh completions under the control of Zi.                                         |
@@ -109,6 +109,51 @@ Download the binary from the GitHub releases and install using [bin-gem-node][] 
 
 ```shell
 zi pack"bgn-binary" for fzf
+```
+
+### The LS_COLORS color scheme
+
+<h3 align="center">
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <b>Package source:</b>
+        </td>
+        <td>Tarball</td>
+        <td>Git</td>
+        <td>Node</td>
+        <td>Gem</td>
+      </tr>
+      <tr>
+        <td>
+          <b>Status:</b>
+        </td>
+        <td>➖</td>
+        <td>✔️ (default)</td>
+        <td>❌</td>
+        <td>❌</td>
+      </tr>
+    </tbody>
+  </table>
+</h3>
+
+Download the default profile
+
+```shell
+zi pack for ls_colors
+```
+
+Download the "no-zsh-completion" profile
+
+```shell
+zi pack"no-zsh-completion" for ls_colors
+```
+
+Download the "no-dir-color-swap" profile
+
+```shell
+zi pack"no-dir-color-swap" for ls_colors
 ```
 
 <!-- end-of-file -->
