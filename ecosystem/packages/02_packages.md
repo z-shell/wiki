@@ -38,6 +38,47 @@ For all the available packages use [GitHub search][22].
 
 ## Package profiles
 
+### The Firefox Developer Edition
+
+<h3 align="center">
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <b>Package source:</b>
+        </td>
+        <td>Source Tarball</td>
+        <td>Binary</td>
+        <td>Git</td>
+        <td>Node</td>
+        <td>Gem</td>
+      </tr>
+      <tr>
+        <td>
+          <b>Status:</b>
+        </td>
+        <td>❌</td>
+        <td>✔️ (default)</td>
+        <td>❌</td>
+        <td>❌</td>
+        <td>❌</td>
+      </tr>
+    </tbody>
+  </table>
+</h3>
+
+Download the firefox-dev latest binary
+
+```shell
+zi pack for firefox-dev
+```
+
+Download the firefox-dev latest binary with use of the [bin-gem-node][] annex.
+
+```shell
+zi pack"bgn" for firefox-dev
+```
+
 ### The fzf command-line fuzzy finder
 
 <h3 align="center">
@@ -73,19 +114,19 @@ Download the package with the default ice list.
 zi pack for fzf
 ```
 
-Download the package with the default ice list + setting up the key bindings.
+Download the package with the default ice list + key bindings.
 
 ```shell
 zi pack"default+keys" for fzf
 ```
 
-Download the package with the [bin-gem-node][] annex-utilizing ice list.
+Download the package with the [bin-gem-node][] annex.
 
 ```shell
 zi pack"bgn" for fzf
 ```
 
-Download the package with the [bin-gem-node][] annex-utilizing ice list + setting up the key bindings. 
+Download the package with the [bin-gem-node][] annex + key bindings. 
 
 > The "+keys" variants are available for each profile.
 
@@ -93,13 +134,13 @@ Download the package with the [bin-gem-node][] annex-utilizing ice list + settin
 zi pack"bgn+keys" for fzf
 ```
 
-Download with the [bin-gem-node][] annex-utilizing ice list **from _GitHub_ repository**.
+Download with the [bin-gem-node][] annex from GitHub repository.
 
 ```shell
 zi pack"bgn" git for fzf
 ```
 
-Download the binary from the Github releases (like from'gh-r' ice).
+Download the binary from the Github releases.
 
 ```shell
 zi pack"binary" for fzf
