@@ -29,7 +29,7 @@ export default function HeroBanner(): JSX.Element {
               __html: translate({
                 id: "homepage.hero.title",
                 message:
-                  "A <b>Swiss Army</b> Knife  for <b>Zsh</b> unix <b>Shell</b>",
+                  "A <b>Swiss Army</b> Knife for <b>Zsh</b> unix <b>Shell</b>",
                 description:
                   "Home page hero title, can contain simple html tags",
               }),

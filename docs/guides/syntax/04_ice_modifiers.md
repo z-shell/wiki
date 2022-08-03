@@ -2,7 +2,7 @@
 id: ice-modifiers
 title: "🧊 Ice Modifiers"
 sidebar_position: 4
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: Ice Modifiers Documentation
 keywords:
   - ice-syntax
@@ -13,7 +13,7 @@ keywords:
 
 An ice modifiers are [passed][alternate-syntax] to `zi ice …` to obtain described effects, additionally can be added with [annexes][12]. To see all available ice modifiers run `zi -h`.
 
-The word `ice` means something that's added, like ice to a drink – and in Zi it means adding a modifier to a next `zi` command, and also something temporary because it melts – and this means that the modification will last only for a **single** next `zi` command.
+The word `ice` means something that's added, like ice to a drink – and in Zi, it means adding a modifier to a next `zi` command, and also something temporary because it melts – and this means that the modification will last only for a **single** next `zi` command.
 
 Some ice modifiers are highlighted and clicking on them will take you to the appropriate Wiki page for an extended explanation. You may safely assume that given ice works with both plugins and snippets unless explicitly stated otherwise.
 
@@ -147,7 +147,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 
 [^1]: This pattern will alphabetically match and choose the first file e.g: `zi ice pick"*.plugin.zsh"; zi load …`.
 [^2]: Example: `multisrc'misc.zsh grep.zsh'` and also using brace-expansion syntax: `multisrc'{misc,grep}.zsh'` also supports patterns.
-[^3]: For `wait'[[ … ]]'`, `wait'(( … ))'`, loading is done when given condition is meet. For `wait'!…'`, prompt is reset after load. Zsh can start 80% (i.e.: 5x) faster thanks to postponed loading. **Fact:** when `wait` is used without value, it works as `wait'0'`.
+[^3]: For `wait'[[ … ]]'`, `wait'(( … ))'`, loading is done when given condition is meet. For `wait'!…'`, prompt is reset after load. Zsh can start 80% (i.e.: 5x) faster thanks to postponed loading. **Fact:** when `wait` is used without a value, it works as `wait'0'`.
 [^4]: It will load once, the condition can be still true, but will not trigger second load, unless plugin is unloaded earlier, see `unload`. E.g.: `load'[[ $PWD = */github* ]]'`.
 [^5]: It will unload once, then only if loaded again e.g: `unload'[[ $PWD != */github* ]]'`.
 [^6]: Example: `zi ice if'[[ -n "$commands[otool]" ]]'; zi load …` or `zi ice if'[[ $OSTYPE = darwin* ]]'; zi load …`.
