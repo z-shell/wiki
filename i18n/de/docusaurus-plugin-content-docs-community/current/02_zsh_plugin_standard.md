@@ -2,7 +2,7 @@
 id: zsh_plugin_standard
 title: ℹ️ Zsh Plugin Standard
 sidebar_position: 2
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 toc_max_heading_level: 2
 keywords:
   - zsh
@@ -163,11 +163,11 @@ Note that the unload function should contain `unfunction $0` (or better `unfunct
 
 - [ZI][] implements plugin unloading and calls the function.
 
-- [romkatv/powerlevel10k is using][] the function to execute a specific task: shutdown of the binary, background [gitstatus][] daemon, with a very good results,
+- [romkatv/powerlevel10k is using][] the function to execute a specific task: shutdown of the binary, background [gitstatus][] daemon, with very good results,
 
 - [agkozak/agkozak-zsh-prompt is using][] the function to completely unload the prompt,
 
-- [agkozak/zsh-z is using][] the function to completly unload the plugin,
+- [agkozak/zsh-z is using][] the function to completely unload the plugin,
 
 - [agkozak/zhooks is using][] the function to completely unload the plugin.
 
@@ -217,7 +217,7 @@ This will allow any plugin to:
 
 The first item allows a plugin to e.g. issue a notice about missing dependencies. Instead of issuing a notice, it may be able to satisfy the dependencies on resources it provides. For example, the `pure` prompt provides a `zsh-async` dependency library within its source tree, which is normally a separate project. Consequently, the prompt can decide to source its private copy of `zsh-async`, having also reliable `$0` defined by the previous section (note: `pure` doesn’t normally do this).
 
-The second item allows a plugin to e.g. set up `$fpath`, knowing that plugin manager will not handle this:
+The second item allows a plugin to e.g. set up `$fpath`, knowing that the plugin manager will not handle this:
 
 ```shell showLineNumbers
 if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}]} ]] {
@@ -239,7 +239,7 @@ This will allow the user to reliably source the plugin without using a plugin ma
 
 Plugin managers may export the parameter `$ZPFX` which should contain a path to a directory dedicated to user-land software, i.e. for directories `$ZPFX/bin`, `$ZPFX/lib`, `$ZPFX/share`, etc. The suggested name of the directory is `polaris` (e.g.: ZI uses this name and places this directory at `~/.zi/polaris` by default).
 
-Users can then configure hooks (a feature of e.g. zplug and ZI) to invoke e.g. `make PREFIX=$ZPFX install` at clone & update the plugin to install software like e.g. [tj/git-extras][]. This is the developing role of Zsh plugin managers as package managers, where `.zshrc` has a similar role to Chef or Puppet configuration and allows to **declare** system state, and have the same state on different accounts/machines.
+Users can then configure hooks (a feature of e.g. zplug and Zi) to invoke e.g. `make PREFIX=$ZPFX install` at clone & update the plugin to install software like e.g. [tj/git-extras][]. This is the developing role of Zsh plugin managers as package managers, where `.zshrc` has a similar role to Chef or Puppet configuration and allows to **declare** system state, and have the same state on different accounts/machines.
 
 No-narration facts-list related to `$ZPFX`:
 
@@ -301,7 +301,7 @@ The document is to define a **Zsh-plugin** but also to serve as an information s
 
 ## Use of `add-zsh-hook` to install hooks
 
-Zsh ships with a function `add-zsh-hook`. It has the following invocation syntax:
+Zsh ships with the function `add-zsh-hook`. It has the following invocation syntax:
 
 ```zsh
 add-zsh-hook [ -L | -dD ] [ -Uzk ] hook function
@@ -319,7 +319,7 @@ The syntax of the call is:
 add-zle-hook-widget [ -L | -dD ] [ -Uzk ] hook widgetname
 ```
 
-The call resembles the syntax of the `add-zsh-hook` function. The only the difference is that it takes a `widgetname`, not a function name and that the `hook` is being one of: `isearch-exit`, `isearch-update`, `line-pre-redraw`, `line-init`, `line-finish`, `history-line-set`, or `keymap-select`. Their meaning is explained in the [Zsh documentation: #Special-Widgets][].
+The call resembles the syntax of the `add-zsh-hook` function. The only difference is that it takes a `widgetname`, not a function name and that the `hook` is being one of: `isearch-exit`, `isearch-update`, `line-pre-redraw`, `line-init`, `line-finish`, `history-line-set`, or `keymap-select`. Their meaning is explained in the [Zsh documentation: #Special-Widgets][].
 
 The use of this function is recommended because it allows the installation **multiple** hooks per each `hook` entry. Before introducing the `add-zle-hook-widget` function the "normal" way to install a hook was to define a widget with the name of one of the special widgets. Now, after the function has been introduced in Zsh `5.3` it should be used instead.
 
@@ -362,9 +362,9 @@ It resets all the options to their default state according to the `zsh` emulatio
 
 - `${=${options[xtrace]:#off}:+-o xtrace}` – `xtrace` prints commands and their arguments as they are executed, this specific variable calls `xtrace` when needed, e.g.: when already active at the entry to the function.
 
-- `extended_glob` – enables one of the main Zshell features – the advanced, the built-in regex-like globing mechanism,
+- `extended_glob` – enables one of the main Zshell features – the advanced, built-in regex-like globing mechanism,
 
-- `warn_create_global` – enables warnings to be printed each time a (global) the variable is defined without being explicitly defined by a `typeset`, `local`, `declare`, etc. call; it allows to catch typos and missing localizations of the variables and thus prevent from writing a bad code,
+- `warn_create_global` – enables warnings to be printed each time a (global) variable is defined without being explicitly defined by a `typeset`, `local`, `declare`, etc. call; it allows to catch typos and missing localizations of the variables and thus prevent from writing a bad code,
 
 - `typeset_silent` – it allows to call `typeset`, `local`, etc. multiple times on the same variable; without it, the second call causes the variable contents to be printed first; using this option allows declaring variables inside loops, near the place of their use, which sometimes helps to write a more readable code,
 
@@ -450,7 +450,7 @@ The proposition of the standard prefixes is as follows:
 
 When writing a larger autoload function, it very often is the case that the function contains definitions of other functions.
 
-When the main function finishes executing, the functions are being left defined. This might be undesired, e.g.: because of the command namespace pollution.
+When the main function finishes executing, the functions are left defined. This might be undesired, e.g.: because of the command namespace pollution.
 
 The following snippet of code, when added at the beginning of the main function will automatically unset the sub-functions when leaving the main function to don't leak any functions into the global namespace:
 
@@ -465,9 +465,9 @@ Replace the `prj*` prefix with your project name, e.g.: `rustef` for a `rust`-re
 
 1. The line `prjef=( ${(k)functions} )` remembers all the functions that are currently defined – which means that the list excludes the functions that are to be yet defined by the body of the main function.
 
-2. The code `unset -f — "${(k)functions[@]:|prjef}"` first does a subtraction of array contents – the `:|` substitution operator – of the functions that are defined at the moment of leaving of the function (the `trap`-s invoke the code in this moment) with the list of functions from the start of the main function – the ones stored in the variables `$prjef`.
+2. The code `unset -f — "${(k)functions[@]:|prjef}"` first does a subtraction of array contents – the `:|` substitution operator – of the functions that are defined at the moment of leaving of the function (the `trap`-s invoke the code at this moment) with the list of functions from the start of the main function – the ones stored in the variables `$prjef`.
 
-3. It then unsets the resulting list of the functions – being only the newly defined functions in the main function – by passing it to `unset -f …`. This way the functions defined by the body of the main (most often an autoload) the function will be only set during the execution of the function.
+3. It then unsets the resulting list of the functions – being only the newly defined functions in the main function – by passing it to `unset -f …`. This way the functions defined by the body of the main (most often an autoload) function will be only set during the execution of the function.
 
 ## Preventing parameter pollution
 

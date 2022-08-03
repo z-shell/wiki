@@ -2,7 +2,7 @@
 id: customization
 title: "🏗 Preferences & Configuration"
 sidebar_position: 2
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: User Preferences & Configuration
 keywords:
   - config
@@ -20,7 +20,7 @@ keywords:
 
 :::
 
-Following variables can be set to custom values, before sourcing Zi.
+The following variables can be set to custom values, before sourcing Zi.
 
 ```shell showLineNumbers
 # Initial Zi's hash definition
@@ -57,7 +57,7 @@ Variables has to be set before loading Zi, i.e `source "path/to/zi/bin/zi.zsh"`.
 
 | Hash Field                       | Description                                                                                                                                                                                                                                                                                                                                                                                              |
 | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ZI[OPTIMIZE_OUT_DISK_ACCESSES]` | If set to `1`, then Zi will skip checking if a Turbo-loaded object exists on the disk. By default, Zi skips turbo mode for non-existing objects (plugins or snippets) to install them before the first prompt – without any delays, during the normal processing of `.zshrc`. This option can give a performance gain of about 10 ms out of 150 ms (e.g: Zsh will start-up in 140 ms instead of 150 ms). |
+| `ZI[OPTIMIZE_OUT_DISK_ACCESSES]` | If set to `1`, then Zi will skip checking if a Turbo-loaded object exists on the disk. By default, Zi skips turbo mode for non-existing objects (plugins or snippets) to install them before the first prompt – without any delays, during the normal processing of `.zshrc`. This option can give a performance gain of about 10 ms out of 150 ms (e.g: Zsh will start up in 140 ms instead of 150 ms). |
 | `ZI[COMPINIT_OPTS]`              | Options for `compinit` call (e.g: done by `zicompinit`), use to pass -C to speed up loading                                                                                                                                                                                                                                                                                                              |
 | `ZI[MUTE_WARNINGS]`              | If set to `1`, then mutes some of the Zi warnings, specifically the `plugin already registered` warning                                                                                                                                                                                                                                                                                                  |
 | `ZI[PKG_OWNER]`                  | Change the owner of the [packages][packages] (`zi pack …`).                                                                                                                                                                                                                                                                                                                                              |
@@ -66,7 +66,7 @@ Variables has to be set before loading Zi, i.e `source "path/to/zi/bin/zi.zsh"`.
 
 ## <i class="fa-solid fa-square-up-right"></i> Non-GitHub (Local) Plugins {#non-github-local-plugins}
 
-Use `create` subcommand with user name `_local` (the default) to create the plugin's skeleton in `$ZI[PLUGINS_DIR]`. It will be not connected with the GitHub repository (because of the user name being `_local`). To enter the plugin's directory use the `cd` command with just the plugin's name (without `_local`, it's optional).
+Use the `create` subcommand with user name `_local` (the default) to create the plugin's skeleton in `$ZI[PLUGINS_DIR]`. It will be not connected with the GitHub repository (because of the user name being `_local`). To enter the plugin's directory use the `cd` command with just the plugin's name (without `_local`, it's optional).
 
 If the user name will not be `_local`, then Zi will create a repository also on GitHub and set up the correct repository origin.
 
@@ -74,11 +74,11 @@ If the user name will not be `_local`, then Zi will create a repository also on 
 
 Several projects provide git extensions. Installing them with Zi has many benefits:
 
-- all files are under `$HOME` – no administrator rights needed,
+- all files are under `$HOME` – no administrator rights are needed,
 - declarative setup (like Chef or Puppet) – copying `.zshrc` to a different account brings also git-related setup,
 - easy update by e.g: `zi update --all`.
 
-Below is a configuration that adds multiple git extensions, loaded in Turbo mode, 1 second after prompt, with use of the [bin-gem-node][6] annex:
+Below is a configuration that adds multiple git extensions, loaded in Turbo mode, 1 second after prompt, with the use of the [bin-gem-node][6] annex:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi as"null" wait"1" lucid for \
@@ -130,9 +130,9 @@ Options are primarily referred to by name. These names are case insensitive and 
 
 The sense of an option name may be inverted by preceding it with `no`, so `setopt No_Beep` is equivalent to `unsetopt beep`. This inversion can only be done once, so `nonobeep` is not a synonym for `beep`. Similarly, `tify` is not a synonym for `nonotify` (the inversion of `notify`).
 
-Some options also have one or more single letter names. There are two sets of single letter options: one used by default, and another used to emulate sh/ksh (used when the SH_OPTION_LETTERS option is set). The single letter options can be used on the shell command line, or with the set, setopt and unsetopt builtins, as normal Unix options preceded by `-`.
+Some options also have one or more single-letter names. There are two sets of single letter options: one used by default, and another used to emulate sh/ksh (used when the SH_OPTION_LETTERS option is set). The single letter options can be used on the shell command line, or with the set, `setopt` and `unsetopt` builtins, as normal Unix options preceded by `-`.
 
-The sense of the single letter options may be inverted by using `+` instead of `-`. Some of the single letter option names refer to an option being off, in which case the inversion of that name refers to the option being on. For example, `+n` is the short name of `exec`, and `-n` is the short name of its inversion, `noexec`.
+The sense of the single letter options may be inverted by using `+` instead of `-`. Some of the single letter option names refer to an option being off, in which case the inversion of that name refers to the option is on. For example, `+n` is the short name of `exec`, and `-n` is the short name of its inversion, `noexec`.
 
 In strings of single letter options supplied to the shell at startup, trailing whitespace will be ignored; for example the string `-f` will be treated just as `-f`, but the string `-f i` is an error.
 
@@ -174,7 +174,7 @@ setopt promptsubst           Enables the substitution of parameters inside the p
 
 What does `zstyle` do? - [unix.stackexchange.com/what-does-zstyle-do][14]
 
-The `zstyle` handles the obvious style control for the completion system, but it seems to cover more than just that. e.g., the vcs_info module relies on it for display of git status in your prompt.
+The `zstyle` handles the obvious style control for the completion system, but it seems to cover more than just that. e.g., the vcs_info module relies on it for the display of git status in your prompt.
 
 You can start by looking at the few explanatory paragraphs in `man zshmodules` in the `zstyle` section.
 
@@ -234,16 +234,16 @@ skip_global_compinit=1
 
 <div className="apitable">
 
-| Syntax      | Description                                                   |
-| ----------- | :------------------------------------------------------------ |
-| `load'…'`   | condition that when fulfilled will cause plugin to be loaded. |
-| `unload'…'` | as above, but will unload plugin.                             |
+| Syntax      | Description                                                       |
+| ----------- | :---------------------------------------------------------------- |
+| `load'…'`   | condition that when fulfilled will cause the plugin to be loaded. |
+| `unload'…'` | as above, but will unload the plugin.                             |
 
 </div>
 
 :::note
 
-`zi light …` loads the plugin without tracking it, while `zi load` tracks the plugin. To be able unload the plugin, it has to be loaded with `zi load …` instead of `zi light …`.
+`zi light …` loads the plugin without tracking it, while `zi load` tracks the plugin. To be able to unload the plugin, it has to be loaded with `zi load …` instead of `zi light …`.
 
 :::
 
@@ -252,7 +252,7 @@ skip_global_compinit=1
 | Syntax       | Description                                                                                           |
 | ------------ | :---------------------------------------------------------------------------------------------------- |
 | `atload'!…'` | run the `precmd` hooks to make the prompts fully initialized when loaded in the middle of the prompt. |
-| `precmd`     | hooks are being normally run before each **new** prompt.                                              |
+| `precmd`     | hooks are normally run before each **new** prompt.                                                    |
 
 </div>
 
@@ -266,15 +266,15 @@ To allow better unloading, conditions are checked every second, you can use cond
 
 <div className="apitable">
 
-| Condition                 | Description                                                                                                                                          |
-| ------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `![[ $PWD == *github* ]]` | Change prompt after changing directory to `*github*`.                                                                                                |
-| `![[ $MYPROMPT = 1 ]]`    | Change prompt when variable `MYPROMPT = 1` is true.                                                                                                  |
-| `![[ … ]]`                | The exclamation mark causes prompt to be reset after loading or unloading the plugin `pick'/dev/null'` – disable sourcing of the default-found file. |
-| `multisrc'…'`             | Source multiple files.                                                                                                                               |
-| `lucid`                   | Don't show the under-prompt message that says e.g: `Loaded geometry-zsh/geometry`.                                                                   |
-| `nocd`                    | Don't cd into the plugin's directory when executing the `atload'…'`.                                                                                 |
-| `atload'…'`               | This ice can make the path that's displayed by the theme to point to that directory.                                                                 |
+| Condition                 | Description                                                                                                                                              |
+| ------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `![[ $PWD == *github* ]]` | Change prompt after changing directory to `*github*`.                                                                                                    |
+| `![[ $MYPROMPT = 1 ]]`    | Change prompt when variable `MYPROMPT = 1` is true.                                                                                                      |
+| `![[ … ]]`                | The exclamation mark causes the prompt to be reset after loading or unloading the plugin `pick'/dev/null'` – disable sourcing of the default-found file. |
+| `multisrc'…'`             | Source multiple files.                                                                                                                                   |
+| `lucid`                   | Don't show the under-prompt message that says e.g: `Loaded geometry-zsh/geometry`.                                                                       |
+| `nocd`                    | Don't cd into the plugin's directory when executing the `atload'…'`.                                                                                     |
+| `atload'…'`               | This ice can make the path that's displayed by the theme point to that directory.                                                                        |
 
 </div>
 
@@ -343,6 +343,9 @@ zi lucid load'![[ $MYPROMPT = 8 ]]' unload'![[ $MYPROMPT != 8 ]]' \
   atload'!_zsh_git_prompt_precmd_hook' nocd for \
     woefe/git-prompt.zsh
 ```
+
+<!-- end-of-file -->
+<!-- links -->
 
 [2]: https://github.com/z-shell/z-a-meta-plugins
 [3]: https://github.com/z-shell/z-a-readurl

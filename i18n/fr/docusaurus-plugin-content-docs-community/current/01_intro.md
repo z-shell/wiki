@@ -3,7 +3,7 @@ id: community
 slug: /
 title: "👥 Documentation de la communauté"
 sidebar_position: 1
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 keywords:
   - documentation
   - community

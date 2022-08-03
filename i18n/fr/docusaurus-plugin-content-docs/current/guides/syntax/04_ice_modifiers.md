@@ -2,7 +2,7 @@
 id: ice-modifiers
 title: "🧊 Ice Modifiers"
 sidebar_position: 4
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: Ice Modifiers Documentation
 keywords:
   - ice-syntax
@@ -13,7 +13,7 @@ keywords:
 
 An ice modifiers are [passed][alternate-syntax] to `zi ice …` to obtain described effects, additionally can be added with [annexes][12]. To see all available ice modifiers run `zi -h`.
 
-The word `ice` means something that's added, like ice to a drink – and in Zi it means adding a modifier to a next `zi` command, and also something temporary because it melts – and this means that the modification will last only for a **single** next `zi` command.
+The word `ice` means something that's added, like ice to a drink – and in Zi, it means adding a modifier to a next `zi` command, and also something temporary because it melts – and this means that the modification will last only for a **single** next `zi` command.
 
 Some ice modifiers are highlighted and clicking on them will take you to the appropriate Wiki page for an extended explanation. You may safely assume that given ice works with both plugins and snippets unless explicitly stated otherwise.
 

@@ -2,7 +2,7 @@
 id: commands
 title: "🛠 Commands"
 sidebar_position: 1
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: Zi commands & functions
 keywords:
   - commands
@@ -72,7 +72,7 @@ zstatus                -- Check and provide status information
 
 To update Zi run `zi self-update` in the command line. To update all plugins and snippets, issue `zi update`. To update all in parallel (up to 40 at the time) `zi update -p 40` If you wish to update only a single plugin/snippet instead issue `zi update NAME_OF_PLUGIN`. A list of commits will be shown if any.
 
-Some plugins require performing an action each time they're updated. One way you can do this is by using the `atpull'…'` ice modifier. For example, writing `zi ice atpull'./configure'` before loading a plugin will execute `./configure` after a successful update. Refer to [Ice Modifiers][1] for more information.
+Some plugins require acting each time they're updated. One way you can do this is by using the `atpull'…'` ice modifier. For example, writing `zi ice atpull'./configure'` before loading a plugin will execute `./configure` after a successful update. Refer to [Ice Modifiers][1] for more information.
 
 The ice modifiers for any plugin or snippet are stored in their directory in a `._zi` subdirectory, hence the plugin doesn't have to be loaded to be correctly updated. There's one other file created there, `.zi_lstupd` – it holds the log of the new commits pulled-in in the last update.
 
@@ -84,7 +84,7 @@ It is possible to combine system updates with tools like [topgrade][5] which wil
 
 ## Calling `compinit` without turbo mode
 
-With no turbo mode in use, compinit can be called normally, i.e.: as `autoload compinit; compinit`. This should be done after loading of all plugins and before possibly calling `zi cdreplay`. The `cdreplay` subcommand is provided to re-play all caught `compdef` calls. The `compdef` calls are used to define a completion for a command. For example, `compdef _git git` defines that the `git` command should be completed by a `_git` function. The `compdef` function is provided by `compinit` call.
+With no turbo mode in use, compinit can be called normally, i.e.: as `autoload compinit; compinit`. This should be done after loading all plugins and before possibly calling `zi cdreplay`. The `cdreplay` subcommand is provided to re-play all caught `compdef` calls. The `compdef` calls are used to define a completion for a command. For example, `compdef _git git` defines that the `git` command should be completed by a `_git` function. The `compdef` function is provided by `compinit` call.
 
 As it should be called later, after loading all of the plugins, Zi provides its own `compdef` function that catches (i.e.: records in an array) the arguments of the call, so that the loaded plugins can freely call `compdef`. Then, the `cdreplay` (compdef-replay) can be used, after `compinit` will be called (and the original `compdef` function will become available), to execute all detected `compdef` calls.
 
@@ -130,7 +130,7 @@ Performance gains are huge, for example, shell startup time with double `compini
 
 If you load completions using `wait'…'` [turbo mode][2] then you can add `atinit'zicompinit'` to the syntax-highlighting plugin (which should be the last one loaded, as their (2 projects, [zsh-syntax-highlighting][3] & [F-Sy-H][4]) documentation state), or `atload'zicompinit'` to last completion-related plugin. `zicompinit` is a function that just runs `autoload compinit; compinit`, created for convenience.
 
-Alternatively the `zicompinit` can be replaced with `zicompinit_fast` which checks the cached `.zcompdump` and determines when to regenerate the file. This restricts checking it once a day, as compinit doesn't always need to modify the compdump and compiles mapped to share in background in multiple shells.
+Alternatively, the `zicompinit` can be replaced with `zicompinit_fast` which checks the cached `.zcompdump` and determines when to regenerate the file. This restricts checking it once a day, as compinit doesn't always need to modify the compdump and compiles mapped to share in the background in multiple shells.
 
 There's also `zicdreplay` which will replay any caught compdefs so you can also do: `atinit'zicompinit; zicdreplay'`, etc.
 
@@ -173,7 +173,7 @@ zi cdreplay -q # <- execute compdefs provided by rest of plugins
 zi cdlist # look at gathered compdefs
 ```
 
-The `cdreplay` is important if you use plugins like `OMZP::kubectl` or `asdf-vm/asdf`, because these plugins call `compdef`.
+The `cdreplay` is important if you use plugins like `OMZP::kubectl` or `asdf-vm/asdf` because these plugins call `compdef`.
 
 Following commands are passed to `zi …` to obtain described effects.
 
@@ -186,7 +186,7 @@ Following commands are passed to `zi …` to obtain described effects.
 |     `load` `'…'`     | Load plugin, can also receive absolute local path.                                                |
 |  `light` `-b` `'…'`  | Light plugin load, without reporting/investigating. `-b` – investigate `bindkey`-calls only. [^1] |
 | `unload` `-q` `'…'`  | Unload plugin loaded with `zi load …`. `-q` – quiet.                                              |
-| `snippet` `-f` `URL` | Source local (full path) or remote file (URL). `-f` – don't use cache (force redownload). [^2]    |
+| `snippet` `-f` `URL` | Source local (full path) or remote file (URL). `-f` – don't use cache (force re-download). [^2]   |
 
 </div>
 
@@ -199,8 +199,8 @@ Following commands are passed to `zi …` to obtain described effects.
 | `clist` `columns` or `completions` `columns` | List completions in use, with `columns` completions per line. `zi clist 5` will for example print 5 completions per line. Default is 3. |
 |               `cdisable` `'…'`               | Disable completion.                                                                                                                     |
 |               `cenable` `'…'`                | Enable completion.                                                                                                                      |
-|         `creinstall` `-q` `-Q` `'…'`         | Install completions for plugin, can also receive absolute local path. `-q` – quiet. `-Q` - quiet all.                                   |
-|               `cuninstall '…'`               | Uninstall completions for plugin.                                                                                                       |
+|         `creinstall` `-q` `-Q` `'…'`         | Install completions for the plugin, can also receive absolute local path. `-q` – quiet. `-Q` - quiet all.                               |
+|               `cuninstall '…'`               | Uninstall completions for the plugin.                                                                                                   |
 |                  `csearch`                   | Search for available completions from any plugin.                                                                                       |
 |                  `compinit`                  | Refresh installed completions.                                                                                                          |
 |                   `cclear`                   | Clear stray and improper completions.                                                                                                   |
@@ -214,13 +214,13 @@ Following commands are passed to `zi …` to obtain described effects.
 
 <div className="apitable">
 
-|     Command      | Description                                       |
-| :--------------: | ------------------------------------------------- |
-| `dtrace, dstart` | Start investigating what's going on in session.   |
-|     `dstop`      | Stop investigating what's going on in session.    |
-|    `dunload`     | Revert changes recorded between dstart and dstop. |
-|    `dreport`     | Report what was going on in session.              |
-|     `dclear`     | Clear report of what was going on in session.     |
+|     Command      | Description                                           |
+| :--------------: | ----------------------------------------------------- |
+| `dtrace, dstart` | Start investigating what's going on in the session.   |
+|     `dstop`      | Stop investigating what's going on in the session.    |
+|    `dunload`     | Revert changes recorded between `dstart` and `dstop`. |
+|    `dreport`     | Report what was going on in the session.              |
+|     `dclear`     | Clear report of what was going on in the session.     |
 
 </div>
 
@@ -235,9 +235,9 @@ Following commands are passed to `zi …` to obtain described effects.
 |     `report` `'…'` `--all`      | Show plugin report. `--all` – do it for all plugins.                                                                                                       |
 |            `loaded`             | Show loaded plugins                                                                                                                                        |
 |        `list` `keyword`         | Filter loaded plugins with only 'keyword'                                                                                                                  |
-|              `ls`               | List snippets in formatted and colorized manner. Requires **tree** program.                                                                                |
-| `status` `'…'` or `URL` `--all` | Git status for plugin or svn status for snippet. `--all` – do it for all plugins and snippets.                                                             |
-|     `recently` `time-spec`      | Show plugins that changed recently, argument is e.g. 1 month 2 days.                                                                                       |
+|              `ls`               | List snippets in a formatted and colorized manner. Requires **tree** program.                                                                              |
+| `status` `'…'` or `URL` `--all` | Git status for plugin or svn status for the snippet. `--all` – do it for all plugins and snippets.                                                         |
+|     `recently` `time-spec`      | Show plugins that changed recently, the argument is e.g. 1 month 2 days.                                                                                   |
 |           `bindkeys`            | Lists bindkeys set up by each plugin.                                                                                                                      |
 
 </div>
@@ -246,11 +246,11 @@ Following commands are passed to `zi …` to obtain described effects.
 
 <div className="apitable">
 
-|          Command          | Description                                                         |
-| :-----------------------: | ------------------------------------------------------------------- |
-|  `compile` `'…'` `--all`  | Compile plugin. `--all` – compile all plugins.                      |
-| `uncompile` `'…'` `--all` | Remove compiled version of plugin. `--all` – do it for all plugins. |
-|        `compiled`         | List plugins that are compiled.                                     |
+|          Command          | Description                                                             |
+| :-----------------------: | ----------------------------------------------------------------------- |
+|  `compile` `'…'` `--all`  | Compile plugin. `--all` – compile all plugins.                          |
+| `uncompile` `'…'` `--all` | Remove compiled version of the plugin. `--all` – do it for all plugins. |
+|        `compiled`         | List plugins that are compiled.                                         |
 
 </div>
 
@@ -264,13 +264,13 @@ Following commands are passed to `zi …` to obtain described effects.
 |           `update` `-q` `-r` `'…'` or `--all`            | Update all plugins and snippets with `--all` – for quiet `-q` – execute `git reset --hard` or `svn revert` before pulling changes with `-r`.               |
 |                        `ice '…'`                         | Add ice to next command, argument e.g.: from"gitlab".                                                                                                      |
 |           `delete` `'…'` or `--clean` `--all`            | Remove plugin or snippet from disk (good to forget wrongly passed ice-modifiers) `--all` – delete plugins and snippets that are not loaded with `--clean`. |
-|                         `cd '…'`                         | Jump into plugin's directory. Also support snippets if fed with URL.                                                                                       |
+|                         `cd '…'`                         | Jump into the plugin's directory. Also support snippets if fed with URL.                                                                                   |
 |                        `edit '…'`                        | Edit plugin's file with set \$EDITOR.                                                                                                                      |
 |                       `glance '…'`                       | Look at plugin's source (pygmentize, {,source-}highlight).                                                                                                 |
-|                       `stress '…'`                       | Test plugin for compatibility with set of options.                                                                                                         |
+|                       `stress '…'`                       | Test plugin for compatibility with a set of options.                                                                                                       |
 |                      `changes '…'`                       | View plugin's git log.                                                                                                                                     |
 |                       `create '…'`                       | Create plugin (also together with GitHub repository).                                                                                                      |
-|              `srv` `service-id` `{command}`              | Control a service, command can be: stop,start,restart,next,quit; `next` moves the service to another Zshell.                                               |
+|              `srv` `service-id` `{command}`              | Control a service, command can be: stop,start,restart,next,quit; `next` moves the service to another Z shell.                                              |
 |                    `recall '…'` `URL`                    | Fetch saved ice modifiers and construct `zi ice '…'` command.                                                                                              |
 |           `env-whitelist` `-v` `-h` `{env..}`            | Allows to specify names or patterns of variables left unchanged during an unload – verbose `-v` – help `-h`.                                               |
 |                         `module`                         | Manage binary Zsh module shipped with ZI, see `zi module help`.                                                                                            |

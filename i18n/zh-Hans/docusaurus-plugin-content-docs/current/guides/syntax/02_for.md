@@ -2,7 +2,7 @@
 id: for
 title: '✨ The "For" Syntax'
 sidebar_position: 2
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: The "For" Syntax documentation
 keywords:
   - for
@@ -32,7 +32,7 @@ zi light-mode for \
       sindresorhus/pure
 ```
 
-It is best presented by a real-world examples:
+It is best presented by real-world examples:
 
 ```shell showLineNumbers
 zi wait"3" lucid for as"null" \
@@ -148,7 +148,7 @@ zi wait lucid for \
   atload"unalias grv" \
   OMZP::git
 
-# Provide a simple prompt till the theme loads to visualise the effect.
+# Provide a simple prompt till the theme loads to visualize the effect.
 PS1="READY >"
 
 # D.
@@ -169,7 +169,7 @@ zi wait lucid for \
 
 **A** - Most themes use this option.
 
-**B, C** - OMZ themes use this library and some other use also the plugin. It provides many aliases – `atload'…'` shows how to disable some of them (e.g.: to use program `rgburke/grv`).
+**B, C** - OMZ themes use this library and some others use also the plugin. It provides many aliases – `atload'…'` showing how to disable some of them (e.g.: to use the program `rgburke/grv`).
 
 **D** - Set OMZ theme. Loaded separately because the theme needs the `!` passed to the `wait` ice to reset the prompt after loading the snippet in turbo mode.
 

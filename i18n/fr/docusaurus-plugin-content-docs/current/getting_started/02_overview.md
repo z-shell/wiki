@@ -1,14 +1,15 @@
 ---
-title: "☑️ Aperçu général"
-image: img/logo/320x320.png
-description: Aperçu des cas d'utilisation avec Zi
+id: overview
+title: "☑️ General Overview"
+image: /img/logo/320x320.png
+description: Overview of use cases with Zi
 keywords:
   - overview
 ---
 
 <!-- @format -->
 
-This overview will cover basics for:
+This overview will cover the basics for:
 
 1. [Oh-My-Zsh & Prezto](/search?q=Oh+My+Zsh+%26+Prezto)
 2. [Complétions](/search?q=completions)
@@ -22,7 +23,7 @@ zi load z-shell/H-S-MW
 zi light zsh-users/zsh-syntax-highlighting
 ```
 
-The above commands show two ways of basic plugin loading. If you want to source local or remote files (using direct URL), you can do so with `snippet`.
+The above commands show two ways of basic plugin loading. If you want to source local or remote files (using a direct URL), you can do so with `snippet`.
 
 ```shell
 zi snippet <URL>
@@ -30,7 +31,7 @@ zi snippet <URL>
 
 Such lines should be added to `.zshrc`. Snippets are cached locally, use the `-f` option to download a fresh version of a snippet, or `zi update {URL}`. Use `zi update --all` to update all snippets and plugins.
 
-Using `load` causes reporting to be enabled – you can track what plugin does, view the information with `zi report {plugin-name}` and then also unload the plugin with `zi unload {plugin-name}`.
+Using `load` causes reporting to be enabled – you can track what the plugin does, view the information with `zi report {plugin-name}` and then also unload the plugin with `zi unload {plugin-name}`.
 
 Using `light` is a faster loading without tracking and reporting about the plugin but also withdrawing the ability to unload it.
 
@@ -82,7 +83,7 @@ zi snippet OMZ::plugins/git/git.plugin.zsh
 zi snippet PZT::modules/helper/init.zsh
 ```
 
-Moreover, GitHub support Subversion protocol for snippets. This allows loading snippets that are multi-file (for example, a Prezto module can consist of two or more files, e.g. `init.zsh` and `alias.zsh`).
+Moreover, GitHub supports the Subversion protocol for snippets. This allows loading snippets that are multi-file (for example, a Prezto module can consist of two or more files, e.g. `init.zsh` and `alias.zsh`).
 
 Default files that will be sourced are: `*.plugin.zsh`, `init.zsh`, `*.zsh-theme`:
 
@@ -95,7 +96,7 @@ zi snippet PZT::modules/docker
 
 ## Snippets et performance
 
-Using `curl`, `wget`, etc. along with Subversion allows to almost completely avoid code dedicated to Oh-My-Zsh and Prezto, and also to other frameworks. It delivers better performance as has a low footprint on memory and shorter loading times.
+Using `curl`, `wget`, etc. along with Subversion allows us to almost completely avoid code dedicated to Oh-My-Zsh and Prezto, and also to other frameworks. It delivers better performance as has a low footprint on memory and shorter loading times.
 
 ## Ice modifiers (Modificateurs de glace)
 
@@ -110,7 +111,7 @@ zi ice svn pick"init.zsh"
 zi snippet PZT::modules/git
 ```
 
-Content of ice-modifier is simply put into `"…"`, `'…'`, or `$'…'`. No need for `":"` after the ice-modier name (although it's allowed: as the equal sign `=`, e.g. `pick="init.zsh"` or `pick=init.zsh`).
+Content of ice-modifier is simply put into `"…"`, `'…'`, or `$'…'`. No need for `":"` after the ice-modifier name (although it's allowed: as the equal sign `=`, e.g. `pick="init.zsh"` or `pick=init.zsh`).
 
 This way editors like `vim` and `emacs` and also `zsh-users/zsh-syntax-highlighting` and `z-shell/F-Sy-H` will highlight contents of ice-modifiers.
 
@@ -123,11 +124,11 @@ zi ice as"program" cp"httpstat.sh -> httpstat" pick"httpstat"
 zi light b4b4r07/httpstat
 ```
 
-The above command will add plugin directory to `$PATH`, copy file `httpstat.sh` into `httpstat` and add execution rights (`+x`) to the file selected with `pick`, i.e. to `httpstat`. Another ice-mod exists, `mv`, which works like `cp` but **moves** a file instead of **copying** it. `mv` is ran before `cp`.
+The above command will add plugin directory to `$PATH`, copy file `httpstat.sh` into `httpstat` and add execution rights (`+x`) to the file selected with `pick`, i.e. to `httpstat`. Another ice-mod exists, `mv`, which works like `cp` but **moves** a file instead of **copying** it. `mv` is run before `cp`.
 
 :::tip
 
-The `cp` and `mv` ices (and also as some other ones, like `atclone`) are being run when the plugin or snippet is being _installed_. To test them again first delete the plugin or snippet (example: `zi delete PZT::modules/osx`).
+The `cp` and `mv` ices (and also some other ones, like `atclone`) are being run when the plugin or snippet is being _installed_. To test them again first delete the plugin or snippet (example: `zi delete PZT::modules/osx`).
 
 :::
 
@@ -145,7 +146,7 @@ If `atpull` starts with an exclamation mark, then it will be run before `git pul
 
 So in summary, when the user runs `zi update b4b4r07/httpstat` to update this plugin, and there are new commits, what happens first is that `git reset --hard` is run – and it **restores** original `httpstat.sh`, **then** `git pull` is ran and it downloads new commits (doing fast-forward), **then** `mv` is running again so that the command is `httpstat` not `httpstat.sh`.
 
-This way the `mv` ice can be used to induce permanent changes into the plugin's contents without blocking the ability to update it with `git` or with `subversion` in case of snippets.
+This way the `mv` ice can be used to induce permanent changes into the plugin's contents without blocking the ability to update it with `git` or with `subversion` in the case of snippets.
 
 :::info
 
@@ -171,7 +172,7 @@ Snippets also support `atpull`, e.g. `atpull'!svn revert'`. There’s also an `a
 
 ## Snippets as'…' completion
 
-By using the `as''` ice modifier with value `completion` you can point the `snippet` subcommand directly to a completion file:
+By using the `as''` ice modifier with the value `completion` you can point the `snippet` subcommand directly to a completion file:
 
 ```shell {1} showLineNumbers
 zi ice as"completion"
@@ -248,7 +249,7 @@ Command `zi csearch` will **search** all plugin directories for available comple
 
 ## Subversion pour les sous-répertoires
 
-In general, to use **subdirectories** of Github projects as snippets add `/trunk/{path-to-dir}` to URL:
+In general, to use **subdirectories** of Github projects as snippets add `/trunk/{path-to-dir}` to the URL:
 
 ```shell showLineNumbers
 zi ice svn
@@ -268,7 +269,7 @@ zi snippet PZT::modules/docker
 
 ## Mode turbo (Zsh >= 5.3)
 
-The ice-modifier `wait` allows the user to postpone the loading of a plugin to the moment when the processing of `.zshrc` is finished and the first prompt is being shown.
+The ice-modifier `wait` allows the user to postpone the loading of a plugin to the moment when the processing of `.zshrc` is finished and the first prompt is shown.
 
 It is like Windows – during startup, it shows desktop even though it still loads data in the background. This has drawbacks but is for sure better than a blank screen for 10 minutes. But in Zi, there are no drawbacks of this approach – no lags, freezes, etc. – the command line is fully usable while the plugins are being loaded, for any number of plugins.
 
@@ -339,7 +340,7 @@ zi snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
 
 ### Turbo & lucid
 
-Turbo and lucid are the most used options, because turbo mode is verbose, may require and option for quiet and this can be achieved with the `lucid`.
+Turbo and lucid are the most used options because turbo mode is verbose and may require an option for quiet and this can be achieved with the `lucid`.
 
 ```shell showLineNumbers
 zi ice wait lucid
@@ -359,7 +360,7 @@ root@user > ~ > print $precmd_functions < ✔ < 22:21:33
 _zsh_autosuggest_start prompt_zinc_setup prompt_zinc_precmd
 ```
 
-Then, add them to the ice-list in the `atload'…'` ice:
+Then, add them to the ice list in the `atload'…'` ice:
 
 ```shell {2} showLineNumbers
 zi ice wait'!' lucid nocd \
@@ -430,7 +431,7 @@ Tracking causes a slight slowdown, however, this doesn’t influence Zsh startup
 
 :::tip
 
-See: [multiple prompts](/docs/guides/customization#multiple-prompts) for more information. It contains more real-world examples of a multi-prompt setup, which is being close to what the author uses in his setup.
+See: [multiple prompts](/docs/guides/customization#multiple-prompts) for more information. It contains more real-world examples of a multi-prompt setup, which is close to what the author uses in his setup.
 
 :::
 
@@ -469,7 +470,7 @@ zi light starship/starship
 
 ## Mises à jour
 
-Self update & compile:
+Self-update & compile:
 
 ```shell
 zi self-update
@@ -487,7 +488,7 @@ Update plugins or snippets:
 
 ```shell
 zi update --plugins
-zi update --snipets
+zi update --snippets
 ```
 
 Update specific plugin. Default is GitHub but can specify any with ice [from'…'](/search?q=from):
@@ -508,7 +509,7 @@ Increase the number of jobs in a concurrent set to 40
 zi update --parallel 40
 ```
 
-### Plus d'exemples sur les cas d'utilisation courants
+### More examples of common use cases
 
 Load the pure theme, with the **zsh-async** library that's bundled with it.
 
@@ -533,7 +534,7 @@ zi ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*"
 zi load docker/compose
 ```
 
-Vim repository on GitHub – a typical source code that needs compilation, Zi can manage the run of `./configure` and other `make` stuff. Ice-modifier `pick` adds binary program to `$PATH`. You could also install the package under the path $ZPFX.
+Vim repository on GitHub – a typical source code that needs compilation, Zi can manage the run of `./configure` and other `make` stuff. Ice-modifier `pick` adds the binary program to `$PATH`. You could also install the package under the path $ZPFX.
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
@@ -541,7 +542,7 @@ zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
 zi light vim/vim
 ```
 
-Scripts that are built at install
+Scripts that are built to install
 
 > Il y a une seule cible make par défaut, "install", et elle construit des scripts.
 
@@ -552,7 +553,7 @@ zi ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
 zi light tj/git-extras
 ```
 
-Handle completions without loading any plugin, see `clist` command. This one is to be run just once, in an interactive session.
+Handle completions without loading any plugin, see the `clist` command. This one is to be run just once, in an interactive session.
 
 ```shell title="~/.zshrc"
 zi creinstall %HOME/my_completions
