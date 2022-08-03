@@ -2824,7 +2824,7 @@ packages:
       "@docusaurus/utils": 0.0.0-5239_nwsxt62e326diiun4bwzbkaifq
       "@docusaurus/utils-validation": 0.0.0-5239_nwsxt62e326diiun4bwzbkaifq
       algoliasearch: 4.14.2
-      algoliasearch-helper: 3.10.0_algoliasearch@4.14.2
+      algoliasearch-helper: 3.11.0_algoliasearch@4.14.2
       clsx: 1.2.1
       eta: 1.12.3
       fs-extra: 10.1.0
@@ -4343,10 +4343,10 @@ packages:
       require-from-string: 2.0.2
       uri-js: 4.4.1
 
-  /algoliasearch-helper/3.10.0_algoliasearch@4.14.2:
+  /algoliasearch-helper/3.11.0_algoliasearch@4.14.2:
     resolution:
       {
-        integrity: sha512-4E4od8qWWDMVvQ3jaRX6Oks/k35ywD011wAA4LbYMMjOtaZV6VWaTjRr4iN2bdaXP2o1BP7SLFMBf3wvnHmd8Q==,
+        integrity: sha512-TLl/MSjtQ98mgkd8hngWkzSjE+dAWldZ1NpJtv2mT+ZoFJ2P2zDE85oF9WafJOXWN9FbVRmyxpO5H+qXcNaFng==,
       }
     peerDependencies:
       algoliasearch: ">= 3.1 < 6"
@@ -4922,7 +4922,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001373
-      electron-to-chromium: 1.4.209
+      electron-to-chromium: 1.4.210
       node-releases: 2.0.6
       update-browserslist-db: 1.0.5_browserslist@4.21.3
 
@@ -6350,10 +6350,10 @@ packages:
       jake: 10.8.5
     dev: false
 
-  /electron-to-chromium/1.4.209:
+  /electron-to-chromium/1.4.210:
     resolution:
       {
-        integrity: sha512-SfWI9G/e3rxGIUalHbUCH9yEsTpO+72y+cD1Sw0tYtuTrdOPaFAgZKXM1crWVJwTNmj6KIPbbx0NIoV8a2cFJw==,
+        integrity: sha512-kSiX4tuyZijV7Cz0MWVmGT8K2siqaOA4Z66K5dCttPPRh0HicOcOAEj1KlC8O8J1aOS/1M8rGofOzksLKaHWcQ==,
       }
 
   /emoji-regex/8.0.0:
@@ -9790,10 +9790,10 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /node-abi/3.23.0:
+  /node-abi/3.24.0:
     resolution:
       {
-        integrity: sha512-XWte/uvq7hmgY27WesfxLUAPejKUlkEbikhBFaIhxe+XkHa57rXBwYqGjsIyfVXaU8kC0Wp2p/qQroauDKs1XA==,
+        integrity: sha512-YPG3Co0luSu6GwOBsmIdGW6Wx0NyNDLg/hriIyDllVsNwnI6UeqaWShxC3lbH4LtEQUgoLP3XR1ndXiDAWvmRw==,
       }
     engines: { node: ">=10" }
     dependencies:
@@ -11004,7 +11004,7 @@ packages:
       minimist: 1.2.6
       mkdirp-classic: 0.5.3
       napi-build-utils: 1.0.2
-      node-abi: 3.23.0
+      node-abi: 3.24.0
       pump: 3.0.0
       rc: 1.2.8
       simple-get: 4.0.1
