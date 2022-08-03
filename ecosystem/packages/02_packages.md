@@ -197,6 +197,56 @@ Download the "no-dir-color-swap" profile
 zi pack"no-dir-color-swap" for ls_colors
 ```
 
+### The Zsh mirror of zsh-users
+
+<h3 align="center">
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <b>Package source:</b>
+        </td>
+        <td>Source Tarball</td>
+        <td>Binary</td>
+        <td>Git</td>
+        <td>Node</td>
+        <td>Gem</td>
+      </tr>
+      <tr>
+        <td>
+          <b>Status:</b>
+        </td>
+        <td>❌</td>
+        <td>❌</td>
+        <td>✔️ (default)</td>
+        <td>❌</td>
+        <td>❌</td>
+      </tr>
+    </tbody>
+  </table>
+</h3>
+
+Install the newest zsh
+
+```shell
+zi pack for zsh
+```
+
+Install prefered Zsh version
+
+```shell
+zi pack"5.9" for zsh
+zi pack"5.8.1" for zsh
+zi pack"5.8" for zsh
+zi pack"5.7.1" for zsh
+zi pack"5.6.2" for zsh
+zi pack"5.5.1" for zsh
+zi pack"5.4.2" for zsh
+zi pack"5.3.1" for zsh
+zi pack"5.2.4" for zsh
+zi pack"5.1.1" for zsh
+```
+
 <!-- end-of-file -->
 <!-- links -->
 
