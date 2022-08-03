@@ -294,6 +294,53 @@ zi pack"5.2.4" for zsh
 zi pack"5.1.1" for zsh
 ```
 
+### Statically-linked, hermetic, relocatable Zsh
+
+<h3 align="center">
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <b>Package source:</b>
+        </td>
+        <td>Source Tarball</td>
+        <td>Binary</td>
+        <td>Git</td>
+        <td>Node</td>
+        <td>Gem</td>
+      </tr>
+      <tr>
+        <td>
+          <b>Status:</b>
+        </td>
+        <td>❌</td>
+        <td>❌</td>
+        <td>✔️ (default)</td>
+        <td>❌</td>
+        <td>❌</td>
+      </tr>
+    </tbody>
+  </table>
+</h3>
+
+<b>Requires sudo</b> to install Zsh to /usr/local and will attempt to register it as a login shell.
+
+```shell
+zi pack for zsh-bin
+```
+
+Does not require <b>root</b>, install using [bin-gem-node][] + shims.
+
+```shell
+zi pack"bgn" for zsh-bin
+```
+
+Does not require <b>root</b>, will install to ~/.local.
+
+```shell
+zi pack"rootless" for zsh-bin
+```
+
 <!-- end-of-file -->
 <!-- links -->
 
