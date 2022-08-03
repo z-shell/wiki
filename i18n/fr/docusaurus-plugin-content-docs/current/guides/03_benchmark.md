@@ -2,7 +2,7 @@
 id: benchmark
 title: "⏲ Analyse comparative"
 sidebar_position: 3
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: Analyse comparative, profilage & Statistiques
 keywords:
   - statistics

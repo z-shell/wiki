@@ -1,7 +1,8 @@
 ---
+id: installation
 title: "⚡️ Installation"
 sidebar_position: 1
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: Installation Guide
 keywords:
   - setup
@@ -74,7 +75,7 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zunit
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a loader
 ```
 
-The installer will download loader and add snippet below to the `.zshrc` file.
+The installer will download the loader and add the snippet below to the `.zshrc` file.
 
 ```shell showLineNumbers
 if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]]; then
@@ -119,7 +120,7 @@ command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
 
 ### <i class="fa-solid fa-circle-nodes"></i> Enable Zi
 
-Source `zi.zsh` in your `.zshrc` from previously created directory:
+Source `zi.zsh` in your `.zshrc` from the previously created directory:
 
 ```shell showLineNumbers
 typeset -A ZI
@@ -142,13 +143,13 @@ autoload -Uz _zi
 
 ## <i class="fas fa-spinner fa-spin"></i> Post-install
 
-After a fresh install, recommended to reload the shell with `exec zsh` and compile ZI with `zi self-update`. Run `zi -h` to see all available commands. Increase Zi functionality, performance or get started by exploring the wiki.
+After a fresh install, recommended to reload the shell with `exec zsh` and compile Zi with `zi self-update`. Run `zi -h` to see all available commands. Increase Zi functionality, and performance, or get started by exploring the wiki.
 
 If you have any issue or need help 🤦‍♂️, lets [discuss][7] it or open an [issue][6] in any language.
 
 It helps us to improve and make Zi better. Don't forget to help the project: share, contribute, or [translate][8] 🌐 🥰 🤓.
 
-Let's glue everything together to create a toolchain that works for US 🚀.
+Let's glue everything together to create a toolchain that works for us 🚀.
 
 ## <i class="fas fa-sync-alt fa-spin"></i> Have ideas?
 
@@ -173,7 +174,7 @@ If you create a Docker image that uses Zi, install Turbo-loaded plugins before t
 - installs plugins without waiting for the prompt (i.e. it's script friendly),
 - installs all plugins instantly, without respecting the wait'' argument.
 
-To accomplish this, use burst argument and call `@zi-scheduler` function:
+To accomplish this, use burst argument and call the `@zi-scheduler` function:
 
 ```docker
 RUN zsh -i -c -- '@zi-scheduler burst || true'

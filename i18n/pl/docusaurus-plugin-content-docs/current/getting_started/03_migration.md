@@ -1,6 +1,7 @@
 ---
+id: migration
 title: "♻️ Migration"
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: Migration guide
 keywords:
   - setup
@@ -142,12 +143,12 @@ ZSH_THEME="robbyrussell"
 
 However, ZI doesn't support the `ZSH_THEME` variable natively.
 
-To use **themes** created for OMZ, it requires loading shown below as it would be the same as OMZ does in the background.
+To use **themes** created for OMZ requires loading shown below as it would be the same as OMZ does in the background.
 
 > Some themes may require additional configuration it can be determined from the theme configuration file.
 
 - Load `Git` library
-- Load `Git` plugin
+- Load the `Git` plugin
 - Load library dependencies
 - Enable `setopt promptsubst`
 
@@ -407,6 +408,9 @@ For the `location`: refer [selection of files][17]
 - `defer` => `wait`
 - `lazy` => `autoload`
 - `depth` => `depth`
+
+<!-- end-of-file -->
+<!-- links -->
 
 [1]: https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
 [2]: https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh

@@ -2,7 +2,7 @@
 id: common
 title: "🔀 Common Syntax"
 sidebar_position: 1
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: The Fundamental syntax.
 keywords:
   - common
@@ -14,7 +14,7 @@ keywords:
 
 :::tip
 
-It is recommended to familiarize with [getting_started/oveview][9] before this.
+It is recommended to familiarize yourself with [getting_started/oveview][9] before this.
 
 :::
 
@@ -77,13 +77,13 @@ zi light vim/vim
 | `atclone'…'`       | As above **plus** pass `--prefix=$ZPFX` to `./configure`, to set the installation directory. |
 | `atpull'%atclone'` | As above.                                                                                    |
 | `make`             | As above, but also run the `install` target.                                                 |
-| `pick'src/vim'`    | as above, but for different path `$ZPFX/bin/vim`.                                            |
+| `pick'src/vim'`    | as above, but for a different path `$ZPFX/bin/vim`.                                          |
 
 </div>
 
 ## <i class="fa-solid fa-palette"></i> LS_COLORS {#ls_colors}
 
-A repository [trapd00r/LS_COLORS][1] provides a file with color definitions for GNU `ls` command, and also for [ogham/exa][2]. Typically one does `eval $( dircolors -b $HOME/LS_COLORS)` to process this file and set the environment for `ls`. This means `dircolors` is run every shell startup. It costs much time to create a fork and program, i.e., `dircolors` binary needs to be loaded to obtain and process the colors definitions. Following invocation solves this problem:
+A repository [trapd00r/LS_COLORS][1] provides a file with color definitions for GNU `ls` command, and also for [ogham/exa][2]. Typically one does `eval $( dircolors -b $HOME/LS_COLORS)` to process this file and set the environment for `ls`. This means `dircolors` is run by every shell startup. It costs much time to create a fork and program, i.e., `dircolors` binary needs to be loaded to obtain and process the colors definitions. The following invocation solves this problem:
 
 ```shell showLineNumbers
 zi ice atclone'dircolors -b LS_COLORS > clrs.zsh' \
@@ -98,17 +98,17 @@ zi light trapd00r/LS_COLORS
 | ------------------ | :---------------------------------------------------------------------------------------------------------- |
 | `atclone'…'`       | Generate shell script, passing it to `eval`. More: [^1]                                                     |
 | `atpull'%atclone'` | Do the same at any update of the plugin. More: [^2]                                                         |
-| `pick"clrs.zsh"`   | Source the previously generated file `clrs zsh`.                                                            |
+| `pick"clrs.zsh"`   | Source the previously generated file `clrs.zsh`.                                                            |
 | `nocompile'!'`     | Invokes compilation **after** the `atclone'…'` [ice-modifier][3] and the [exclamation mark][4] causes this. |
 | `atload'…'`        | Additionally sets up the Zsh completion to use the colors provided by the trapd00r package.                 |
 
 </div>
 
-This way, except for the plugin installation and update, `dircolors` isn't ran, just normal sourcing is done. The everyday sourced file, i.e. `clrs.zsh`, is being compiled to speed up the loading.
+This way, except for the plugin installation and update, `dircolors` isn't run, just normal sourcing is done. The everyday sourced file, i.e. `clrs.zsh`, is being compiled to speed up the loading.
 
 ## <i class="fa-solid fa-folder-tree"></i> Direnv {#direnv}
 
-The project [**direnv/direnv**][5] registers itself in Z shell to modify the environment on directory change. This registration is most often done by `eval "$(direnv hook zsh)"` added to `.zshrc`.
+The project [**direnv/direnv**][5] registers itself in the Z shell to modify the environment on directory change. This registration is most often done by `eval "$(direnv hook zsh)"` added to `.zshrc`.
 
 ```shell showLineNumbers
 zi ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
@@ -119,7 +119,7 @@ zi light direnv/direnv
 - `make'!'` – execute `make` before `atclone'…'` and before `atpull'…'` (see `make` above),
 - `src'zhook.zsh'` – source file `zhook.zsh`.
 
-In general, direnv works by hooking up to Zsh. The code that does this is provided by program `direnv` (built by `make'…'`).
+In general, direnv works by hooking up to Zsh. The code that does this is provided by the program `direnv` (built by `make'…'`).
 
 Above `atclone'…'` puts this code into file `zhook.zsh`, `src''` sources it. This way `direnv hook zsh` is executed only on clone and update, and Zsh starts faster.
 
@@ -135,14 +135,14 @@ zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
 
 <div className="apitable">
 
-| Syntax             | Description                                                                                                          |
-| ------------------ | :------------------------------------------------------------------------------------------------------------------- |
-| `make'!'`          | Compile `direnv`, the exclamation mark means: run the `make` first, before `atclone'…'` and `atpull'…'` hooks.       |
-| `atclone'…'`       | As soon as plugin installed generate the registration code and save it to `zhook.zsh`, instead of passing to `eval`. |
-| `atpull'%atclone'` | The `atclone'…'` runs on **installation** while `atpull'…'` runs on **update** of the plugin.                        |
-| `src'zhook.zsh'`   | Load generated registration code                                                                                     |
-| `pick'direnv'`     | Ensure `+x` permission on the binary                                                                                 |
-| `as'program'`      | The plugin is a program, there's no main file to the source.                                                         |
+| Syntax             | Description                                                                                                                    |
+| ------------------ | :----------------------------------------------------------------------------------------------------------------------------- |
+| `make'!'`          | Compile `direnv`, the exclamation mark means: run the `make` first, before `atclone'…'` and `atpull'…'` hooks.                 |
+| `atclone'…'`       | As soon as the plugin is installed generate the registration code and save it to `zhook.zsh`, instead of passing it to `eval`. |
+| `atpull'%atclone'` | The `atclone'…'` runs on **installation** while `atpull'…'` runs on **update** of the plugin.                                  |
+| `src'zhook.zsh'`   | Load generated registration code                                                                                               |
+| `pick'direnv'`     | Ensure `+x` permission on the binary                                                                                           |
+| `as'program'`      | The plugin is a program, there's no main file to the source.                                                                   |
 
 </div>
 
@@ -161,9 +161,9 @@ zi from"gh-r" as"program" mv"direnv* -> direnv" \
 | ------------------------- | :------------------------------------------------------------------------- |
 | `from'gh-r'`              | Install from `direnv` from [GitHub releases][6].                           |
 | `mv'direnv* -> direnv'`   | After installation, rename `direnv.linux-386` or similar file to `direnv`. |
-| `atclone'…'`, `atpull'…'` | As in above example.                                                       |
-| `pick'direnv'`            | As in above example.                                                       |
-| `as'program'`             | As in above example.                                                       |
+| `atclone'…'`, `atpull'…'` | As in the above example.                                                   |
+| `pick'direnv'`            | As in the above example.                                                   |
+| `as'program'`             | As in the above example.                                                   |
 
 </div>
 
@@ -187,13 +187,13 @@ zi load …
 
 :::note
 
-There's no `ice` that can be used as subcommand.
+There's no `ice` that can be used as a subcommand.
 
 :::
 
 ## <i class="fa-solid fa-file-pen"></i> The alternative syntaxes {#the-alternative-syntaxes}
 
-However, Zi also supports syntaxes such as: the equal (`=`) syntax:
+However, Zi also supports syntaxes such as the equal (`=`) syntax:
 
 ```shell
 zi wait=1 from=gh-r atload="print Hello World"

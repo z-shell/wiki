@@ -2,7 +2,7 @@
 id: bindkey
 title: "🗒 Bindkeys Map"
 sidebar_position: 5
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: The Bindmap & Bindkey Zi syntax
 keywords:
   - syntax
@@ -19,7 +19,7 @@ The `bindkey` key mappings can be very confusing to decipher. It can use multipl
 
 You can print all of your current key bindings in the current keymap with `bindkey`. To print the full `bindkey` command to add to your `.zshrc` file use `bindkey -L`.
 
-In general you'll bind a widget so a key sequence or a key with modifier. This can be declared in [caret notation][5] using `^`, using [escape sequences][6] using `\`, in octal (`\NNN`), hex (`\xNN`), or unicode (`\uNNNN`). None of these are particularly great for people to read.
+In general, you'll bind a widget so a key sequence or a key with a modifier. This can be declared in [caret notation][5] using `^`, using [escape sequences][6] using `\`, in octal (`\NNN`), hex (`\xNN`), or Unicode (`\uNNNN`). None of these are particularly great for people to read.
 
 This is also tricky because it depends on your keyboard, operating system, and shell. Here are some basics
 
@@ -32,7 +32,7 @@ The keys that come after the modifier can add more confusion.
 
 ## <i class="fa-solid fa-delete-left"></i> Delete key binding
 
-To delete a key binding you can use `bindkey -d $KEYS`. Make sure you don't delete characters you need for typing.
+To delete a key binding you can use `bindkey -d $KEYS`. Make sure you don't delete the characters you need for typing.
 
 ## <i class="fa-solid fa-sliders"></i> The `bindmap'…'` keybindings {#bindmap}
 
@@ -100,7 +100,7 @@ For the `bindmap='!" " -> magic-space; !"^ " -> globalias'` ice.
 
 When the investigation mode is on i.e.:
 
-- when the full loading mode is being used, default in the `for` syntax and when `zi load …` is used, then the `bindmap'…'` ice works normally.
+- when the full loading mode is being used, default in the `for` syntax, and when `zi load …` is used, then the `bindmap'…'` ice works normally.
 
 In the non-investigation:
 
@@ -129,6 +129,9 @@ zi bindmap='LEFTAR -> ^F; RIGHTAR -> ^G' …
 ```
 
 The benefit of using the <kbd>UPAR</kbd>, … shorthands is that they cover multiple possible cursor-key codes for each of the cursor keys so that they'll work regardless of the terminal is used.
+
+<!-- end-of-file -->
+<!-- links -->
 
 [1]: /search/?q=binkey
 [2]: /search/?q=ice+modifier

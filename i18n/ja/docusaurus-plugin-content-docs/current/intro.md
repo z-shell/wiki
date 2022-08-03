@@ -3,7 +3,7 @@ id: intro
 slug: /
 title: "🎉 Introduction"
 sidebar_position: 1
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: Introduction to a Swiss Army Knife for Zsh, formerly known as zplugin, zinit.
 keywords:
   - はじめに
@@ -18,9 +18,9 @@ import Link from '@docusaurus/Link';
 import Image from '@theme/IdealImage';
 import ZGitImg from '@site/static/img/png/z_git.png';
 
-<div className="ScreenView">
+<span className="ScreenView">
   <Image className="ImageView" img={ZGitImg} />
-</div>
+</span>
 <span className="ScreenView">
   <Link href="https://github.com/orgs/z-shell/">
   <img
@@ -65,7 +65,7 @@ Install and control almost everything from [GitHub](https://github.com): [Annexe
 
 - [Meta plugins][16] allow installing groups of plugins via a single, friendly label.
 - [Packages](/ecosystem/packages) offload the user from providing long and complex commands.
-- [Annexes](/ecosystem/annexes) allow to extend the plugin manager with new commands.
+- [Annexes](/ecosystem/annexes) allow extend the plugin manager with new commands.
 - [Turbo][8] mode yields **50-80%** faster Zsh startup.
 
 ## <i className="fa-beat" class="fa-solid fa-heart fa-beat"></i> Neat and flexible
@@ -99,6 +99,7 @@ Install and control almost everything from [GitHub](https://github.com): [Annexe
 </span>
 
 <!-- end-of-file -->
+<!-- links -->
 
 [8]: /docs/getting_started/overview#turbo-mode-zsh--53
 [9]: /docs/guides/customization#customizing-paths
