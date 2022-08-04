@@ -102,24 +102,25 @@ When you’ll set e.g.: the `zsh` emulation in a function, you in general don’
 Despite that, the current-standard plugins have their main directory added to `$fpath`, a more clean approach is being proposed: that the plugins use a subdirectory called `functions` to store their completions and autoload functions. This will allow a much cleaner design of plugins. The plugin manager should add such a directory to `$fpath`. The lack of support of the current plugin managers can be easily resolved via the [indicator](#indicator):
 
 ```shell showLineNumbers
-if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}/functions]} ]] {
+if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}/functions]} ]]; then
   fpath+=( "${0:h}/functions" )
-}
+fi
 ```
 
 or, via use of the `PMSPEC` [parameter](#pmspec):
 
 ```shell showLineNumbers
-if [[ $PMSPEC != *f* ]] {
+if [[ $PMSPEC != *f* ]]; then
   fpath+=( "${0:h}/functions" )
-}
+fi
 ```
 
 The above snippet added to the `plugin.zsh` file will add the directory to the `$fpath` with the compatibility with any new plugin managers preserved. The existence of the `functions` subdirectory cancels the normal adding of the main plugin directory to `$fpath`.
 
 ### **STATUS:** [ functions-directory ]
 
-1. Plugin managers: [Zpm][], [ZI][], [Zinit][], [Zgenom][].
+- GitHub Search: [zsh_loaded_plugins](https://github.com/search?l=Shell&q=%24%7Bzsh_loaded_plugins&type=Code)
+- GitHub Search: [PMSPEC \*f\*](https://github.com/search?l=Shell&q=[[+%24PMSPEC+!%3D+*f*+]]&type=Code)
 
 ## 3. Binaries directory {#binaries-directory}
 
