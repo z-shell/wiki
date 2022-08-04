@@ -81,3 +81,11 @@ If user submit a wrong input. You can say that's wrong and show the right usage:
 ```
 
 <Image img={require('@site/static/img/png/usage_usage.png')} />
+
+For example your application make download and for a reason, the download fail.
+
+```shell
++zi-message "{annex}patch-dl annex{ehi}:{rst} {error}Couldn't download the URL {info2}https://example.com{rst}"
+```
+
+<Image img={require('@site/static/img/png/usage_url.png')} />
