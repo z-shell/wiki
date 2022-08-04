@@ -1,7 +1,7 @@
 ---
 id: available-packages
 title: "📦 Available packages"
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: The Z-Shell Organization packages
 keywords:
   - zpackage
@@ -22,7 +22,7 @@ For all the available packages use [GitHub search][22].
 |        [pyenv][6]        | The pyenv Python virtual environment manager.                                                    |
 |       [remark][7]        | The remark Markdown processor.                                                                   |
 |       [doctoc][8]        | The doctoc Markdown processor.                                                                   |
-|      [ls_colors][9]      | The ls_colors and setup a zsh-completion system color-scheme.                                    |
+|      [ls_colors][9]      | The LS_COLORS and setup a zsh-completion system color scheme.                                    |
 | [dircolors-material][10] | The dircolors-material and setup a zsh-completion system color-scheme.                           |
 |    [asciidoctor][11]     | The asciidoctor Markdown processor.                                                              |
 | [system-completions][12] | Moves the stock Zsh completions under the control of Zi.                                         |
@@ -35,6 +35,314 @@ For all the available packages use [GitHub search][22].
 |        [zsh][18]         | The Zsh mirror of zsh-users                                                                      |
 |         [nb][19]         | Bookmarking, and archiving with linking, tagging, search, Git syncing, Pandoc conversion, + more |
 |      [zsh-bin][20]       | Package of statically-linked, hermetic, relocatable - romkatv/zsh-bin                            |
+
+## Package profiles
+
+### The Firefox Developer Edition
+
+<h3 align="center">
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <b>Package source:</b>
+        </td>
+        <td>Source Tarball</td>
+        <td>Binary</td>
+        <td>Git</td>
+        <td>Node</td>
+        <td>Gem</td>
+      </tr>
+      <tr>
+        <td>
+          <b>Status:</b>
+        </td>
+        <td>❌</td>
+        <td>✔️ (default)</td>
+        <td>❌</td>
+        <td>❌</td>
+        <td>❌</td>
+      </tr>
+    </tbody>
+  </table>
+</h3>
+
+Download the firefox-dev latest binary.
+
+```shell
+zi pack for firefox-dev
+```
+
+Download the firefox-dev latest binary with use of the [bin-gem-node][] annex.
+
+```shell
+zi pack"bgn" for firefox-dev
+```
+
+### The fzf command-line fuzzy finder
+
+<h3 align="center">
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <b>Package source:</b>
+        </td>
+        <td>Source Tarball</td>
+        <td>Binary</td>
+        <td>Git</td>
+        <td>Node</td>
+        <td>Gem</td>
+      </tr>
+      <tr>
+        <td>
+          <b>Status:</b>
+        </td>
+        <td>✔️ (default)</td>
+        <td>✔️</td>
+        <td>✔️</td>
+        <td>❌</td>
+        <td>❌</td>
+      </tr>
+    </tbody>
+  </table>
+</h3>
+
+Download the package with the default ice list.
+
+```shell
+zi pack for fzf
+```
+
+Download the package with the default ice list + key bindings.
+
+```shell
+zi pack"default+keys" for fzf
+```
+
+Download the package with the [bin-gem-node][] annex.
+
+```shell
+zi pack"bgn" for fzf
+```
+
+Download the package with the [bin-gem-node][] annex-utilizing ice list + setting up the key bindings.
+
+> The "+keys" variants are available for each profile.
+
+```shell
+zi pack"bgn+keys" for fzf
+```
+
+Download with the [bin-gem-node][] annex from GitHub repository.
+
+```shell
+zi pack"bgn" git for fzf
+```
+
+Download the binary from the Github releases.
+
+```shell
+zi pack"binary" for fzf
+```
+
+Download the binary from the GitHub releases and install using [bin-gem-node][] + shims.
+
+```shell
+zi pack"bgn-binary" for fzf
+```
+
+### The LS_COLORS color scheme
+
+<h3 align="center">
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <b>Package source:</b>
+        </td>
+        <td>Tarball</td>
+        <td>Git</td>
+        <td>Node</td>
+        <td>Gem</td>
+      </tr>
+      <tr>
+        <td>
+          <b>Status:</b>
+        </td>
+        <td>➖</td>
+        <td>✔️ (default)</td>
+        <td>❌</td>
+        <td>❌</td>
+      </tr>
+    </tbody>
+  </table>
+</h3>
+
+Download the default profile.
+
+```shell
+zi pack for ls_colors
+```
+
+Download the "no-zsh-completion" profile.
+
+```shell
+zi pack"no-zsh-completion" for ls_colors
+```
+
+Download the "no-dir-color-swap" profile.
+
+```shell
+zi pack"no-dir-color-swap" for ls_colors
+```
+
+### The Python virtual environment manager (pyenv)
+
+<h3 align="center">
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <b>Package source:</b>
+        </td>
+        <td>Source Tarball</td>
+        <td>Binary</td>
+        <td>Git</td>
+        <td>Node</td>
+        <td>Gem</td>
+      </tr>
+      <tr>
+        <td>
+          <b>Status:</b>
+        </td>
+        <td>✔️ (default)</td>
+        <td>❌</td>
+        <td>✔️</td>
+        <td>❌</td>
+        <td>❌</td>
+      </tr>
+    </tbody>
+  </table>
+</h3>
+
+Download the tarball with the default ice list.
+
+```shell
+zi pack for pyenv
+```
+
+Download the binary from the Github releases with the [bin-gem-node][] annex.
+
+```shell
+zi pack"bgn" for pyenv
+```
+
+Download with the [bin-gem-node][] annex from GitHub repository.
+
+```shell
+zi pack"bgn" git for pyenv
+```
+
+### The Zsh mirror of zsh-users
+
+<h3 align="center">
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <b>Package source:</b>
+        </td>
+        <td>Source Tarball</td>
+        <td>Binary</td>
+        <td>Git</td>
+        <td>Node</td>
+        <td>Gem</td>
+      </tr>
+      <tr>
+        <td>
+          <b>Status:</b>
+        </td>
+        <td>❌</td>
+        <td>❌</td>
+        <td>✔️ (default)</td>
+        <td>❌</td>
+        <td>❌</td>
+      </tr>
+    </tbody>
+  </table>
+</h3>
+
+Install the newest zsh.
+
+```shell
+zi pack for zsh
+```
+
+Install prefered Zsh version.
+
+```shell
+zi pack"5.9" for zsh
+zi pack"5.8.1" for zsh
+zi pack"5.8" for zsh
+zi pack"5.7.1" for zsh
+zi pack"5.6.2" for zsh
+zi pack"5.5.1" for zsh
+zi pack"5.4.2" for zsh
+zi pack"5.3.1" for zsh
+zi pack"5.2.4" for zsh
+zi pack"5.1.1" for zsh
+```
+
+### Statically-linked, hermetic, relocatable Zsh
+
+<h3 align="center">
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <b>Package source:</b>
+        </td>
+        <td>Source Tarball</td>
+        <td>Binary</td>
+        <td>Git</td>
+        <td>Node</td>
+        <td>Gem</td>
+      </tr>
+      <tr>
+        <td>
+          <b>Status:</b>
+        </td>
+        <td>❌</td>
+        <td>❌</td>
+        <td>✔️ (default)</td>
+        <td>❌</td>
+        <td>❌</td>
+      </tr>
+    </tbody>
+  </table>
+</h3>
+
+<b>Requires sudo</b> to install Zsh to /usr/local and will attempt to register it as a login shell.
+
+```shell
+zi pack for zsh-bin
+```
+
+Does not require <b>root</b>, install using [bin-gem-node][] + shims.
+
+```shell
+zi pack"bgn" for zsh-bin
+```
+
+Does not require <b>root</b>, will install to ~/.local.
+
+```shell
+zi pack"rootless" for zsh-bin
+```
+
+<!-- end-of-file -->
+<!-- links -->
 
 [1]: https://github.com/z-shell/any-node
 [2]: https://github.com/z-shell/any-gem
@@ -58,3 +366,4 @@ For all the available packages use [GitHub search][22].
 [20]: https://github.com/z-shell/zsh-bin
 [21]: https://github.com/z-shell/brew-completions
 [22]: https://github.com/search?q=topic%3Azpackage+org%3Az-shell&type=Repositories
+[bin-gem-node]: https://wiki.zshell.dev/ecosystem/annexes/bin-gem-node
