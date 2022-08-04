@@ -96,11 +96,11 @@ zi ice lucid wait as'completion' blockf has'cargo'
 zi snippet https://github.com/rust-lang/cargo/blob/master/src/etc/_cargo
 ```
 
-### COMP: [ohmyzsh/rust](https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/rust/_rust)
+### COMP: [ohmyzsh/rust](https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/rust/_rustc)
 
 ```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'rustc'
-zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/rust/_rust
+zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/rust/_rustc
 ```
 
 ### COMP: [BurntSushi/ripgrep/rg](https://github.com/BurntSushi/ripgrep/blob/master/complete/_rg)
