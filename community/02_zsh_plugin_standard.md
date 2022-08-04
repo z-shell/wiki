@@ -91,9 +91,7 @@ When you’ll set e.g.: the `zsh` emulation in a function, you in general don’
 
 ### **STATUS:** [ zero-handling ]
 
-1. Plugin managers: [ZI][], [Zinit][], [Zpm][], [Zgenom][], [Zgen][]
-
-2. Plugins: [GitHub search ZERO][]
+GitHub Search: [ZERO][]
 
 ## 2. Functions directory {#funtions-directory}
 
@@ -343,7 +341,6 @@ The plugin often has to declare global parameters that should live throughout a 
 An example value needed by the plugin:
 
 ```shell showLineNumbers
-…
 typeset -gA Plugins
 Plugins[MY_PLUGIN_REPO_DIR]="${0:h}"
 ```
@@ -514,7 +511,7 @@ Following the [Standard Plugins Hash](#standard-plugins-hash) section, the plugi
 [gitstatus]: https://github.com/romkatv/gitstatus
 [agkozak/agkozak-zsh-prompt is using]: https://github.com/agkozak/agkozak-zsh-prompt/blob/ed228952d68fea6d5cad3beee869167f76c59606/agkozak-zsh-prompt.plugin.zsh#L992-L1039
 [agkozak/zsh-z is using]: https://github.com/agkozak/zsh-z/blob/16fba5e9d5c4b650358d65e07609dda4947f97e8/zsh-z.plugin.zsh#L680-L698
-[github search zero]: https://github.com/search?q=%22${ZERO:-${0:%23$ZSH_ARGZERO}}%22&type=Code
+[zero]: https://github.com/search?q=%22${ZERO:-${0:%23$ZSH_ARGZERO}}%22&type=Code
 [github search loaded]: https://github.com/search?q=if+%22zsh_loaded_plugins%22&type=Code
 [agkozak/zhooks is using]: https://github.com/agkozak/zhooks/blob/628e1e3b8373bf31c26cb154f71c16ebe9d13b51/zhooks.plugin.zsh#L75-L82
 [tj/git-extras]: https://github.com/tj/git-extras
