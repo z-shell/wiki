@@ -71,3 +71,13 @@ You can specify a modifier or use `{auto}` which will automaticly select the bes
 | `obj`     | <Image img={require('@site/static/img/png/zi-messages/obj.png')} />     | `obj2`    | <Image img={require('@site/static/img/png/zi-messages/obj2.png')} />    | `ok`      | <Image img={require('@site/static/img/png/zi-messages/ok.png')} />      |
 | `opt`     | <Image img={require('@site/static/img/png/zi-messages/opt.png')} />     | `p`       | <Image img={require('@site/static/img/png/zi-messages/p.png')} />       | `pname`   | <Image img={require('@site/static/img/png/zi-messages/pname.png')} />   |
 | `pre`     | <Image img={require('@site/static/img/png/zi-messages/pre.png')} />     | `profile` | <Image img={require('@site/static/img/png/zi-messages/profile.png')} /> | `quo`     | <Image img={require('@site/static/img/png/zi-messages/quo.png')} />     |
+
+## Usage example
+
+If user submit a wrong input. You can say that's wrong and show the right usage:
+
+```shell
++zi-message "{annex}default-ice-annex{ehi}:{rst}{msg} Missing any" "ices. Usage{ehi}:{rst}{nl}"
+```
+
+<Image img={require('@site/static/img/png/usage_usage.png')} />
