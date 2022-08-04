@@ -91,9 +91,7 @@ When you’ll set e.g.: the `zsh` emulation in a function, you in general don’
 
 ### **STATUS:** [ zero-handling ]
 
-1. Plugin managers: [ZI][], [Zinit][], [Zpm][], [Zgenom][], [Zgen][]
-
-2. Plugins: [GitHub search ZERO][]
+GitHub Search: [ZERO][]
 
 ## 2. Functions directory {#funtions-directory}
 
@@ -102,24 +100,25 @@ When you’ll set e.g.: the `zsh` emulation in a function, you in general don’
 Despite that, the current-standard plugins have their main directory added to `$fpath`, a more clean approach is being proposed: that the plugins use a subdirectory called `functions` to store their completions and autoload functions. This will allow a much cleaner design of plugins. The plugin manager should add such a directory to `$fpath`. The lack of support of the current plugin managers can be easily resolved via the [indicator](#indicator):
 
 ```shell showLineNumbers
-if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}/functions]} ]] {
+if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}/functions]} ]]; then
   fpath+=( "${0:h}/functions" )
-}
+fi
 ```
 
 or, via use of the `PMSPEC` [parameter](#pmspec):
 
 ```shell showLineNumbers
-if [[ $PMSPEC != *f* ]] {
+if [[ $PMSPEC != *f* ]]; then
   fpath+=( "${0:h}/functions" )
-}
+fi
 ```
 
 The above snippet added to the `plugin.zsh` file will add the directory to the `$fpath` with the compatibility with any new plugin managers preserved. The existence of the `functions` subdirectory cancels the normal adding of the main plugin directory to `$fpath`.
 
 ### **STATUS:** [ functions-directory ]
 
-1. Plugin managers: [Zpm][], [ZI][], [Zinit][], [Zgenom][].
+- GitHub Search: [zsh_loaded_plugins](https://github.com/search?l=Shell&q=%24%7Bzsh_loaded_plugins&type=Code)
+- GitHub Search: [PMSPEC \*f\*](https://github.com/search?l=Shell&q=[[+%24PMSPEC+!%3D+*f*+]]&type=Code)
 
 ## 3. Binaries directory {#binaries-directory}
 
@@ -342,7 +341,6 @@ The plugin often has to declare global parameters that should live throughout a 
 An example value needed by the plugin:
 
 ```shell showLineNumbers
-…
 typeset -gA Plugins
 Plugins[MY_PLUGIN_REPO_DIR]="${0:h}"
 ```
@@ -513,7 +511,7 @@ Following the [Standard Plugins Hash](#standard-plugins-hash) section, the plugi
 [gitstatus]: https://github.com/romkatv/gitstatus
 [agkozak/agkozak-zsh-prompt is using]: https://github.com/agkozak/agkozak-zsh-prompt/blob/ed228952d68fea6d5cad3beee869167f76c59606/agkozak-zsh-prompt.plugin.zsh#L992-L1039
 [agkozak/zsh-z is using]: https://github.com/agkozak/zsh-z/blob/16fba5e9d5c4b650358d65e07609dda4947f97e8/zsh-z.plugin.zsh#L680-L698
-[GitHub search ZERO]: https://github.com/search?q=%22${ZERO:-${0:%23$ZSH_ARGZERO}}%22&type=Code
+[ZERO]: https://github.com/search?q=%22${ZERO:-${0:%23$ZSH_ARGZERO}}%22&type=Code
 [GitHub search loaded]: https://github.com/search?q=if+%22zsh_loaded_plugins%22&type=Code
 [agkozak/zhooks is using]: https://github.com/agkozak/zhooks/blob/628e1e3b8373bf31c26cb154f71c16ebe9d13b51/zhooks.plugin.zsh#L75-L82
 [tj/git-extras]: https://github.com/tj/git-extras
