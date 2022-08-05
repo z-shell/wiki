@@ -10,7 +10,11 @@ keywords:
 
 <!-- @format -->
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
+
 For all the available packages use [GitHub search][22].
+
+<div className="apitable" align="center">
 
 |       Package Name       | Description                                                                                      |
 | :----------------------: | ------------------------------------------------------------------------------------------------ |
@@ -36,11 +40,13 @@ For all the available packages use [GitHub search][22].
 |         [nb][19]         | Bookmarking, and archiving with linking, tagging, search, Git syncing, Pandoc conversion, + more |
 |      [zsh-bin][20]       | Package of statically-linked, hermetic, relocatable - romkatv/zsh-bin                            |
 
+</div>
+
 ## Package profiles
 
 ### The dircolors-material color scheme
 
-<h3 align="center">
+<div className="apitable" align="center">
   <table>
     <tbody>
       <tr>
@@ -65,7 +71,10 @@ For all the available packages use [GitHub search][22].
       </tr>
     </tbody>
   </table>
-</h3>
+</div>
+
+<Tabs>
+  <TabItem value="default" label="Default">
 
 Download the default profile.
 
@@ -73,11 +82,17 @@ Download the default profile.
 zi pack for dircolors-material
 ```
 
+  </TabItem>
+  <TabItem value="no-zsh-completion" label="No completion">
+
 Download the "no-zsh-completion" profile.
 
 ```shell
 zi pack"no-zsh-completion" for dircolors-material
 ```
+
+  </TabItem>
+  <TabItem value="no-color-swap" label="No color swap">
 
 Download the "no-color-swaps" profile.
 
@@ -85,15 +100,21 @@ Download the "no-color-swaps" profile.
 zi pack"no-color-swaps" for dircolors-material
 ```
 
+  </TabItem>
+  <TabItem value="minimal" label="Minimal">
+
 Download the minimal profile without altering the original theme.
 
 ```shell
 zi pack"minimal" for dircolors-material
 ```
 
+  </TabItem>
+</Tabs>
+
 ### The Firefox Developer Edition
 
-<h3 align="center">
+<div className="apitable" align="center">
   <table>
     <tbody>
       <tr>
@@ -118,7 +139,10 @@ zi pack"minimal" for dircolors-material
       </tr>
     </tbody>
   </table>
-</h3>
+</div>
+
+<Tabs>
+  <TabItem value="default" label="Default">
 
 Download the firefox-dev latest binary.
 
@@ -126,15 +150,21 @@ Download the firefox-dev latest binary.
 zi pack for firefox-dev
 ```
 
+  </TabItem>
+  <TabItem value="bin-gem-node" label="Annex">
+
 Download the firefox-dev latest binary with use of the [bin-gem-node][] annex.
 
 ```shell
 zi pack"bgn" for firefox-dev
 ```
 
+  </TabItem>
+</Tabs>
+
 ### The fzf command-line fuzzy finder
 
-<h3 align="center">
+<div className="apitable" align="center">
   <table>
     <tbody>
       <tr>
@@ -159,25 +189,37 @@ zi pack"bgn" for firefox-dev
       </tr>
     </tbody>
   </table>
-</h3>
+</div>
 
-Download the package with the default ice list.
+<Tabs>
+  <TabItem value="default" label="Default">
+
+Download the package with the default profile.
 
 ```shell
 zi pack for fzf
 ```
 
-Download the package with the default ice list + key bindings.
+  </TabItem>
+  <TabItem value="key-bindings" label="Key bindings">
+
+Download the package with the default profile + key bindings.
 
 ```shell
 zi pack"default+keys" for fzf
 ```
+
+  </TabItem>
+  <TabItem value="bin-gem-node" label="Annex">
 
 Download the package with the [bin-gem-node][] annex.
 
 ```shell
 zi pack"bgn" for fzf
 ```
+
+  </TabItem>
+  <TabItem value="bin-gem-node+key-bindings" label="Annex + key bindings">
 
 Download the package with the [bin-gem-node][] annex-utilizing ice list + setting up the key bindings.
 
@@ -187,11 +229,17 @@ Download the package with the [bin-gem-node][] annex-utilizing ice list + settin
 zi pack"bgn+keys" for fzf
 ```
 
+  </TabItem>
+  <TabItem value="bin-gem-node+git" label="Annex + git">
+
 Download with the [bin-gem-node][] annex from GitHub repository.
 
 ```shell
 zi pack"bgn" git for fzf
 ```
+
+  </TabItem>
+  <TabItem value="binary" label="Binary">
 
 Download the binary from the Github releases.
 
@@ -199,15 +247,21 @@ Download the binary from the Github releases.
 zi pack"binary" for fzf
 ```
 
+  </TabItem>
+  <TabItem value="bin-gem-node+binary" label="Annex + binary">
+
 Download the binary from the GitHub releases and install using [bin-gem-node][] + shims.
 
 ```shell
 zi pack"bgn-binary" for fzf
 ```
 
+  </TabItem>
+</Tabs>
+
 ### The LS_COLORS color scheme
 
-<h3 align="center">
+<div className="apitable" align="center">
   <table>
     <tbody>
       <tr>
@@ -230,7 +284,10 @@ zi pack"bgn-binary" for fzf
       </tr>
     </tbody>
   </table>
-</h3>
+</div>
+
+<Tabs>
+  <TabItem value="default" label="Default">
 
 Download the default profile.
 
@@ -238,11 +295,17 @@ Download the default profile.
 zi pack for ls_colors
 ```
 
+  </TabItem>
+  <TabItem value="no-zsh-completion" label="No completion">
+
 Download the "no-zsh-completion" profile.
 
 ```shell
 zi pack"no-zsh-completion" for ls_colors
 ```
+
+  </TabItem>
+  <TabItem value="no-dir-color-swap" label="No color swap">
 
 Download the "no-dir-color-swap" profile.
 
@@ -250,9 +313,12 @@ Download the "no-dir-color-swap" profile.
 zi pack"no-dir-color-swap" for ls_colors
 ```
 
+  </TabItem>
+</Tabs>
+
 ### The Python virtual environment manager (pyenv)
 
-<h3 align="center">
+<div className="apitable" align="center">
   <table>
     <tbody>
       <tr>
@@ -277,7 +343,10 @@ zi pack"no-dir-color-swap" for ls_colors
       </tr>
     </tbody>
   </table>
-</h3>
+</div>
+
+<Tabs>
+  <TabItem value="default" label="Default">
 
 Download the tarball with the default ice list.
 
@@ -285,11 +354,17 @@ Download the tarball with the default ice list.
 zi pack for pyenv
 ```
 
+  </TabItem>
+  <TabItem value="bin-gem-node" label="Annex">
+
 Download the binary from the Github releases with the [bin-gem-node][] annex.
 
 ```shell
 zi pack"bgn" for pyenv
 ```
+
+  </TabItem>
+  <TabItem value="bin-gem-node+git" label="Annex + git">
 
 Download with the [bin-gem-node][] annex from GitHub repository.
 
@@ -297,9 +372,12 @@ Download with the [bin-gem-node][] annex from GitHub repository.
 zi pack"bgn" git for pyenv
 ```
 
+  </TabItem>
+</Tabs>
+
 ### The Zsh mirror of zsh-users
 
-<h3 align="center">
+<div className="apitable" align="center">
   <table>
     <tbody>
       <tr>
@@ -324,13 +402,19 @@ zi pack"bgn" git for pyenv
       </tr>
     </tbody>
   </table>
-</h3>
+</div>
+
+<Tabs>
+  <TabItem value="default" label="Default">
 
 Install the newest Zsh.
 
 ```shell
 zi pack for zsh
 ```
+
+  </TabItem>
+  <TabItem value="specific-version" label="Specific version">
 
 Install prefered Zsh version.
 
@@ -347,9 +431,12 @@ zi pack"5.2.4" for zsh
 zi pack"5.1.1" for zsh
 ```
 
+  </TabItem>
+</Tabs>
+
 ### Statically-linked, hermetic, relocatable Zsh
 
-<h3 align="center">
+<div className="apitable" align="center">
   <table>
     <tbody>
       <tr>
@@ -374,25 +461,37 @@ zi pack"5.1.1" for zsh
       </tr>
     </tbody>
   </table>
-</h3>
+</div>
 
-<b>Requires sudo</b> to install Zsh to /usr/local and will attempt to register it as a login shell.
+<Tabs>
+  <TabItem value="default" label="Default">
+
+Requires **root** access to install Zsh at `/usr/local` and will attempt to register it as a login shell.
 
 ```shell
 zi pack for zsh-bin
 ```
 
-Does not require <b>root</b>, install using [bin-gem-node][] + shims.
+  </TabItem>
+  <TabItem value="bin-gem-node" label="Annex">
+
+Does not require **root** access, when install using [bin-gem-node][] to set shims.
 
 ```shell
 zi pack"bgn" for zsh-bin
 ```
 
-Does not require <b>root</b>, will install to ~/.local.
+  </TabItem>
+  <TabItem value="rootless" label="Rootless">
+
+Does not require **root** access, will install to `~/.local`.
 
 ```shell
 zi pack"rootless" for zsh-bin
 ```
+
+  </TabItem>
+</Tabs>
 
 <!-- end-of-file -->
 <!-- links -->
