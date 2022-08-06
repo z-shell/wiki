@@ -18,16 +18,21 @@ import Image from '@theme/IdealImage';
 You can use `+zi-message` for printing rich text message. `+zi-message` support output like url,
 color, blink, underline, italic, etc...
 
+<Image img={require('@site/static/img/png/+zi-message.png')} />
+
+:::info
+Before distributing a script which use `+zi-message` specify in the `README.md` or in the documentation that your script need to have zi installed
+:::
+
 ## `+zi-message` syntax
 
-`+zi-message` is a more featured `print`. For coloring a part of the output in red because it's an error, you need to add
-`{error}` before the text and if you want to change the color add `{rst}` (reset).
+`+zi-message` is a more featured `print`. It add modifiers which can change the color of the text (also blink, underline, bold...). A modifier is composed of opening `{` and closing `}`. In the middle, you can add the name of the modifier (See the [full list](#full-list) behind).
 
 ## Modifiers list
 
 ### `{auto}`
 
-You can specify a modifier or use `{auto}` which will automaticly select the best one. For example, if it's an url, it will use `{url}`...
+There is a special modifier called `auto` which automaticly format your text. For example, if it's an url, it will use `{url}`...
 
 ```shell
 +zi-message "{auto}zi"
