@@ -144,8 +144,7 @@ x foo <kbd>SPACE</kbd> <kbd>TAB</kbd>
 
 :::tip
 
-If you want to replace `cd` with `zoxide`. You can set the prefix to `cd` by setting `_ZO_CMD_PREFIX=cd` in `~.zshrc`
-before the installation of zoxide
+If you want to replace `cd` with `zoxide`. You can set the prefix to `cd` by setting `_ZO_CMD_PREFIX=cd` in `~.zshrc` before the installation of zoxide
 
 :::
 
