@@ -1,6 +1,6 @@
 ---
-id: modules
-title: ⚙️ Modules
+id: zsh-modules
+title: ⚙️ Zsh Modules
 image: /img/logo/320x320.png
 description: Plugins & Modules Introduction
 toc_max_heading_level: 3
@@ -8,6 +8,7 @@ keywords:
   - plugins
   - modules
   - zmodules
+  - zsh-modules
   - zsh-plugins
 ---
 
