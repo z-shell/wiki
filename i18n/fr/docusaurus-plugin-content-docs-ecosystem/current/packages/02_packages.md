@@ -23,7 +23,7 @@ Pour tous les paquets disponibles, utilisez la [Recherche GitHub][22].
 |       [remark][7]        | Le processeur Markdown remark.                                                                                         |
 |       [doctoc][8]        | Le processeur doctoc Markdown.                                                                                         |
 |      [ls_colors][9]      | The LS_COLORS and setup a zsh-completion system color scheme.                                                          |
-| [dircolors-material][10] | Configurez un schéma de couleurs du système de complétion zsh.                                                         |
+| [dircolors-material][10] | The dircolors-material and setup a zsh-completion system color scheme.                                                 |
 |    [asciidoctor][11]     | Le processeur Markdown d'asciidoctor.                                                                                  |
 | [system-completions][12] | Déplace le stock de compléments Zsh sous le contrôle de Zi.                                                            |
 |  [brew-completions][21]  | La complétion Homebrew Shell sous le contrôle de Zsh & Zi.                                                             |
@@ -37,6 +37,59 @@ Pour tous les paquets disponibles, utilisez la [Recherche GitHub][22].
 |      [zsh-bin][20]       | Paquet d'éléments liés statiquement, hermétiques, relocalisables - romkatv/zsh-bin                                     |
 
 ## Package profiles
+
+### The dircolors-material color scheme
+
+<h3 align="center">
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <b>Package source</b>
+        </td>
+        <td>Tarball</td>
+        <td>Binary</td>
+        <td>Git</td>
+        <td>Node</td>
+        <td>Gem</td>
+      </tr>
+      <tr>
+        <td>
+          <b>Status:</b>
+        </td>
+        <td>❌</td>
+        <td>❌</td>
+        <td>☑️ (default)</td>
+        <td>❌</td>
+        <td>❌</td>
+      </tr>
+    </tbody>
+  </table>
+</h3>
+
+Download the default profile.
+
+```shell
+zi pack for dircolors-material
+```
+
+Download the "no-zsh-completion" profile.
+
+```shell
+zi pack"no-zsh-completion" for dircolors-material
+```
+
+Download the "no-color-swaps" profile.
+
+```shell
+zi pack"no-color-swaps" for dircolors-material
+```
+
+Download the minimal profile without altering the original theme.
+
+```shell
+zi pack"minimal" for dircolors-material
+```
 
 ### L'édition pour développeurs de Firefox
 
@@ -58,7 +111,7 @@ Pour tous les paquets disponibles, utilisez la [Recherche GitHub][22].
           <b>Status:</b>
         </td>
         <td>❌</td>
-        <td>✔️ (default)</td>
+        <td>☑️ (default)</td>
         <td>❌</td>
         <td>❌</td>
         <td>❌</td>
@@ -98,9 +151,9 @@ zi pack"bgn" for firefox-dev
         <td>
           <b>Status:</b>
         </td>
-        <td>✔️ (default)</td>
-        <td>✔️</td>
-        <td>✔️</td>
+        <td>☑️ (default)</td>
+        <td>☑️</td>
+        <td>☑️</td>
         <td>❌</td>
         <td>❌</td>
       </tr>
@@ -171,7 +224,7 @@ zi pack"bgn-binary" for fzf
           <b>Status:</b>
         </td>
         <td>➖</td>
-        <td>✔️ (default)</td>
+        <td>☑️ (default)</td>
         <td>❌</td>
         <td>❌</td>
       </tr>
@@ -216,9 +269,9 @@ zi pack"no-dir-color-swap" for ls_colors
         <td>
           <b>Status:</b>
         </td>
-        <td>✔️ (default)</td>
+        <td>☑️ (default)</td>
         <td>❌</td>
-        <td>✔️</td>
+        <td>☑️</td>
         <td>❌</td>
         <td>❌</td>
       </tr>
@@ -265,7 +318,7 @@ zi pack"bgn" git for pyenv
         </td>
         <td>❌</td>
         <td>❌</td>
-        <td>✔️ (default)</td>
+        <td>☑️ (default)</td>
         <td>❌</td>
         <td>❌</td>
       </tr>
@@ -273,7 +326,7 @@ zi pack"bgn" git for pyenv
   </table>
 </h3>
 
-Install the newest zsh.
+Install the newest Zsh.
 
 ```shell
 zi pack for zsh
@@ -315,7 +368,7 @@ zi pack"5.1.1" for zsh
         </td>
         <td>❌</td>
         <td>❌</td>
-        <td>✔️ (default)</td>
+        <td>☑️ (default)</td>
         <td>❌</td>
         <td>❌</td>
       </tr>
@@ -366,4 +419,4 @@ zi pack"rootless" for zsh-bin
 [20]: https://github.com/z-shell/zsh-bin
 [21]: https://github.com/z-shell/brew-completions
 [22]: https://github.com/search?q=topic%3Azpackage+org%3Az-shell&type=Repositories
-[bin-gem-node]: https://wiki.zshell.dev/ecosystem/annexes/bin-gem-node
+[bin-gem-node]: /ecosystem/annexes/bin-gem-node

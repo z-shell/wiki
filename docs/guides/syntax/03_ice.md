@@ -18,6 +18,7 @@ import ZIceImg from '/img/png/ice_180x170.png';
 :::info FAQ: What is ice?
 
 <Image className="IceLogo" img={ZIceImg} alt="What is ice" />
+
 The <strong>ice</strong> is something that melts in a drink, though in Zi syntax, it means adding an <strong>ice-modifier</strong> that's temporary because it disappears – which means that the <strong>ice-modifier</strong> will last only for the next Zi command.
 
 :::
@@ -242,7 +243,7 @@ zi light z-shell/zi-crasis
     className="ImageView"
     width="1000"
     height="500"
-    src="/asciicast/crasis_01.svg" alt="Crasis example screencast" />
+    src="/asciicast/crasis_01.svg" alt="Crasis example screencast"
   />
 </span>
 
