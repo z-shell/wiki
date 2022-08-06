@@ -96,7 +96,7 @@ The plugin will call `zoxide init` with prefixed commands `x`, `xi`:
 
 - `cd` into highest ranked directory matching `foo`
 
-```sh
+```sh showLineNumbers
 x foo
 ```
 
