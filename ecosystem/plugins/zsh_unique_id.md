@@ -1,7 +1,7 @@
 ---
 id: zsh-unique-id
 title: ⚙️ Unique ID
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: Provides a **unique number** that identifies a **running** Zshell session.
 keywords:
   - zsh-unique-id

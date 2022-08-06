@@ -3,7 +3,7 @@ id: packages
 slug: /packages
 title: "📦 Synopsis of packages"
 sidebar_position: 1
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: Introduction to packages.
 keywords:
   - package
@@ -17,7 +17,7 @@ The motivation for adding packages functionality:
 
 1. Zi is a flexible and feature-rich plugin manager, however, users often feel overwhelmed by its configuration.
 
-2. It has multiple package-manager like features, such as:
+2. It has multiple package-manager-like features, such as:
 
    - get the plugin's Git repository OR release-package URL,
    - get the list of the recommended [ices][] for the plugin,
@@ -66,7 +66,7 @@ This way, instead of the following command used to install `fzf`:
 ```shell
 zi lucid as=program pick="$ZPFX/bin/(fzf|fzf-tmux)" \
   atclone="cp shell/completion.zsh _fzf_completion; \
-      cp bin/(fzf|fzf-tmux) $ZPFX/bin" \
+    cp bin/(fzf|fzf-tmux) $ZPFX/bin" \
   make="PREFIX=$ZPFX install" for \
   junegunn/fzf
 ```

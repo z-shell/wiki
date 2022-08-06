@@ -1,51 +1,82 @@
 ---
 id: console
 title: ⚙️ Console
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: A console based on the `zsh/zcurses` Zshell module.
 keywords:
   - console
-  - zsh-plugin
   - zi-console
+  - zsh-plugin
+  - zplugin
 ---
 
 <!-- @format -->
 
-- [z-shell/zi-console](https://github.com/z-shell/zi-console)
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Loadable from '@loadable/component';
+import Spinner from "@site/src/components/Spinner";
 
-A console for [ZI][1] – based on the `zsh/zcurses` Zshell module allows the user to:
+export const AsciinemaPlayer = Loadable(() => import('@site/src/components/AsciinemaPlayer'));
 
-- View the currently loaded plugins in a colorful list, in one of 3 different display modes,
-- Unload and load plugins,
+## <i class="fa-brands fa-github"></i> [z-shell/zi-console][]
+
+A console for [Zi][1] – based on the `zsh/zcurses` Zshell module allows the user to:
+
+- View the currently loaded plugins in a colorful list, in one of 3 different display modes.
+- Unload and load plugins.
 - Delete the plugins and snippets from the disk.
 
 > Prerequisities: [ZUI][2] library.
 
-## ZI console usage
+## Console keybindings
 
-Start the console by <kbd>Ctrl-O</kbd> <kbd>Ctrl-J</kbd> keyboard shortcut, or by running `ziconsole` function in the shell. Then, in the console:
+Start the console by <kbd>Ctrl-O</kbd> <kbd>Ctrl-J</kbd> keyboard shortcut, or by running `ziconsole` function in the shell.
 
-| Key(s)             | Description                                                      |
-| ------------------ | ---------------------------------------------------------------- |
-| `Ctrl-U`,`Ctrl-D`  | Half page up; half page down                                     |
-| `Ctrl-P`,`Ctrl-N`  | Previous line, centered; next line, centered                     |
-| `Ctrl-L`           | Redraw of whole display                                          |
-| `[`, `]`           | Jump to next and previous section (e.g.: next plugin or snippet) |
-| `g`, `G`           | Jump to beginning and end of whole interface                     |
-| `<`,`>` or `{`,`}` | Horizontal scroll (i.e.: left or right)                          |
-| `/`                | Show incremental search                                          |
-| `F1`               | Jump to result (in incremental search) and back                  |
-| `Esc`              | Exit incremental search, clearing query                          |
-| `Ctrl-W`           | Delete whole word (in incremental search)                        |
-| `Ctrl-K`           | Delete whole line (in incremental search)                        |
+<div className="apitable">
 
-## Screencast
+| Key(s)                                                                   | Description                                                      |
+| ------------------------------------------------------------------------ | ---------------------------------------------------------------- |
+| <kbd>Ctrl-U</kbd> ,<kbd>Ctrl-D</kbd>                                     | Half page up; half page down                                     |
+| <kbd>Ctrl-P</kbd> ,<kbd>Ctrl-N</kbd>                                     | Previous line, centered; next line, centered                     |
+| <kbd>Ctrl-L</kbd>                                                        | Redraw of whole display                                          |
+| <kbd>[</kbd> , <kbd>]</kbd>                                              | Jump to next and previous section (e.g.: next plugin or snippet) |
+| <kbd>g</kbd> , <kbd>G</kbd>                                              | Jump to beginning and end of whole interface                     |
+| <kbd>&lt;</kbd> ,<kbd>&gt;</kbd> or <kbd>&#123;</kbd> ,<kbd>&#125;</kbd> | Horizontal scroll (i.e.: left or right)                          |
+| <kbd>/</kbd>                                                             | Show incremental search                                          |
+| <kbd>F1</kbd>                                                            | Jump to result (in incremental search) and back                  |
+| <kbd>Esc</kbd>                                                           | Exit incremental search, clearing query                          |
+| <kbd>Ctrl-W</kbd>                                                        | Delete whole word (in incremental search)                        |
+| <kbd>Ctrl-K</kbd>                                                        | Delete whole line (in incremental search)                        |
 
-[![asciicast][3]][3-1]
+</div>
+
+## Console preview
+
+<div className="ScreenView">
+  <AsciinemaPlayer
+    fallback={<Spinner />}
+    src='https://asciinema.org/a/512999.cast'
+    rows={24}
+    cols={125}
+    speed={1.5}
+    idleTimeLimit={1}
+  />
+</div>
 
 ## Install console
 
-Load like any other normal plugin, e.g.:
+<Tabs>
+  <TabItem value="standard" label="Standard" default>
+
+Standard syntax:
+
+```shell
+zi load z-shell/zi-console
+```
+
+  </TabItem>
+  <TabItem value="turbo-mode" label="Turbo mode" default>
 
 with use of [turbo mode][4] and the [for][5] syntax:
 
@@ -53,7 +84,10 @@ with use of [turbo mode][4] and the [for][5] syntax:
 zi wait lucid for z-shell/zi-console
 ```
 
-The plugin needs `zsh/curses` Zsh module. You can check if it's available to your Zsh by executing:
+  </TabItem>
+</Tabs>
+
+The plugin needs the `zsh/curses` Zsh module. You can check if it's available to your Zsh by executing:
 
 ```shell
 zmodload zsh/curses
@@ -61,30 +95,30 @@ zmodload zsh/curses
 
 If the call will return an error, then the `zsh/curses` module isn't available.
 
-### Solving The Lack Of `zsh/curses` Module With ZI
+### Build the `zsh/curses` module
 
-You can build the `zsh/curses`-equipped Zshell with ZI by the following command:
+You can build the `zsh/curses`-equipped Z shell with Zi by the following command:
 
 ```shell showLineNumbers
 zi ice id-as"zsh" atclone"./.preconfig
-        CFLAGS='-I/usr/include -I/usr/local/include -g -O2 -Wall' \
-        LDFLAGS='-L/usr/lib -L/usr/local/lib' ./configure --prefix='$ZPFX'" \
-    atpull"%atclone" run-atpull make"install" pick"/dev/null"
+    CFLAGS='-I/usr/include -I/usr/local/include -g -O2 -Wall' \
+    LDFLAGS='-L/usr/lib -L/usr/local/lib' ./configure --prefix='$ZPFX'" \
+  atpull"%atclone" run-atpull make"install" pick"/dev/null"
 zi load zsh-users/zsh
 ```
 
-The command will build a custom `zsh` and install it under `$ZPFX` (`~/.zi/polaris` by default). The path `$ZPFX/bin` is already added to `$PATH` by ZI at first position, so starting `zsh` will run the new Zshell.
+The command will build a custom `zsh` and install it under `$ZPFX` (`~/.zi/polaris` by default). The path `$ZPFX/bin` is already added to `$PATH` by Zi at the first position, so starting `zsh` will run the new Z shell.
 
 When on Gentoo, and possibly other systems, the `zsh` can still not have the ncurses library linked. To address this, utilize the [z-a-patch-dl][6] annex and automatically patch the source first:
 
 ```shell showLineNumbers
 zi light z-shell/z-a-patch-dl
 zi ice id-as"zsh" atclone"./.preconfig
-        CFLAGS='-I/usr/include -I/usr/local/include -g -O2 -Wall' \
-        LDFLAGS='-L/usr/lib -L/usr/local/lib' ./configure --prefix='$ZPFX'" \
-    dl"https://gist.githubusercontent.com/z-shell/2373494c71cb6d1529344a2ed1a64b03/raw -> curses.patch" \
-    patch'curses.patch' atpull"%atclone" reset \
-    run-atpull make"install" pick"/dev/null"
+    CFLAGS='-I/usr/include -I/usr/local/include -g -O2 -Wall' \
+    LDFLAGS='-L/usr/lib -L/usr/local/lib' ./configure --prefix='$ZPFX'" \
+  dl"https://gist.githubusercontent.com/z-shell/2373494c71cb6d1529344a2ed1a64b03/raw -> curses.patch" \
+  patch'curses.patch' atpull"%atclone" reset \
+  run-atpull make"install" pick"/dev/null"
 zi load zsh-users/zsh
 ```
 
@@ -92,8 +126,7 @@ Then, to update, rebuild and reinstall the `zsh`, you can do `zi update zsh`. Th
 
 [1]: https://github.com/z-shell/zi
 [2]: https://github.com/z-shell/zui
-[3]: https://asciinema.org/a/272994.svg#center
-[3-1]: https://asciinema.org/a/272994
 [4]: /docs/getting_started/overview#turbo-mode-zsh--53
 [5]: /docs/guides/syntax/for
 [6]: https://github.com/z-shell/z-a-patch-dl
+[z-shell/zi-console]: https://github.com/z-shell/zi-console

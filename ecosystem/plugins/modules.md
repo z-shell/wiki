@@ -1,11 +1,9 @@
 ---
-id: plugins
-slug: /plugins
+id: modules
 title: ⚙️ Modules
-sidebar_position: 10
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: Plugins & Modules Introduction
-toc_max_heading_level: 4
+toc_max_heading_level: 3
 keywords:
   - plugins
   - modules
@@ -15,23 +13,27 @@ keywords:
 
 <!-- @format -->
 
-## <i class="fa-brands fa-github"></i> [z-shell/zpmod][1]
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-The module is a binary Zsh module, think about `zmodload` Zsh command, it's that topic, which transparently and automatically **compiles sourced scripts**.
+## <i class="fa-brands fa-github"></i> [z-shell/zpmod][]
 
-Many plugin managers do not offer a compilation of plugins, the module is a solution to this. Even if a plugin manager does compile the plugin's main script (like ZI does).
+The module is a binary Zsh module, think about the `zmodload` Zsh command, it's that topic, which transparently and automatically **compiles sourced scripts**.
+
+Many plugin managers do not offer a compilation of plugins, the module is a solution to this. Even if a plugin manager does compile the plugin's main script (like Zi does).
 
 ### Install zpmod
 
-#### Standalone
-
-Install just the **standalone** binary which can be used with any other plugin manager.
-
 :::note
 
-This script can be used with most plugin managers and [ZI][2] is not required.
+This script can be used with most plugin managers and [Zi][] is not required.
 
 :::
+
+<Tabs>
+  <TabItem value="standalone" label="Standalone" default>
+
+Install just the **standalone** binary which can be used with any other plugin manager.
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
@@ -39,11 +41,12 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
 
 This script will display what to add to `~/.zshrc` (2 lines) and show usage instructions.
 
-#### With [ZI][2]
+  </TabItem>
+  <TabItem value="zi" label="Zi">
 
 :::tip
 
-[ZI][2] users can build the module by issuing the following command instead of running the above `build.sh` script.
+[Zi][] users can build the module by issuing the following command instead of running the above `build.sh` script.
 
 :::
 
@@ -52,6 +55,9 @@ zi module build
 ```
 
 This command will compile the module and display instructions on what to add to `~/.zshrc`.
+
+  </TabItem>
+</Tabs>
 
 #### Measuring Time of sources
 
@@ -71,19 +77,15 @@ To enable debug messages from the module set:
 typeset -g ZI_MOD_DEBUG=1
 ```
 
-## <i class="fa-brands fa-github"></i> [z-shell/zgdbm][3]
+## <i class="fa-brands fa-github"></i> [z-shell/zgdbm][]
 
-Provides GDBM module as plugin
-
-### Install zgdbm
-
-#### With ZI
+Provides GDBM module as a plugin.
 
 `zstyles` - The values being set are the defaults.
 
 :::note
 
-Change the values before loading zgdbm plugin.
+Change the values before loading the `zgdbm` plugin.
 
 :::
 
@@ -93,10 +95,12 @@ zstyle ":plugin:zgdbm" cflags "-Wall -O2 -g"            # Additional CFLAGS
 zstyle ":plugin:zgdbm" ldflags "-L/usr/local/lib"       # Additional library directory
 ```
 
+### Install zgdbm
+
 ```shell
 zi light z-shell/zgdbm
 ```
 
-[1]: https://github.com/z-shell/zpmod
-[2]: https://github.com/z-shell/zi
-[3]: https://github.com/z-shell/zgdbm
+[z-shell/zpmod]: https://github.com/z-shell/zpmod
+[zi]: https://github.com/z-shell/zi
+[z-shell/zgdbm]: https://github.com/z-shell/zgdbm

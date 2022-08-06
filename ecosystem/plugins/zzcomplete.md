@@ -1,7 +1,7 @@
 ---
 id: zzcomplete
 title: ⚙️ ZZComplete
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: Complete options from manual pages – press Ctrl-F to start the completer.
 keywords:
   - zzcomplete

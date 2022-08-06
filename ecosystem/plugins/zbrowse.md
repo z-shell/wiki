@@ -1,68 +1,86 @@
 ---
 id: zbrowse
 title: ⚙️ ZBrowse
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: Check variables of a possible loop.
 keywords:
   - zbrowse
+  - zplugin
   - variable
   - zsh-plugin
 ---
 
 <!-- @format -->
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import Image from '@theme/IdealImage';
-import Screen1 from '@site/static/img/png/zbrowse.png';
-import Asciinema1 from '@site/static/img/png/122018.png';
 
-- [z-shell/zbrowse](https://github.com/z-shell/zbrowse)
+## <i class="fa-brands fa-github"></i> [z-shell/zbrowse][]
 
-When doing shell work, it is often the case that `echo $variable` is invoked multiple times, to check result of a loop, etc.
+When doing shell work, it is often the case that `echo $variable` is invoked multiple times, to check the result of a loop, etc.
 
-With ZBrowse, you just need to press <kbd>Ctrl-B</kbd>, which invokes the`ZBrowse` – `Zshell` variable browser:
+With ZBrowse, you just need to press <kbd>Ctrl-B</kbd>, which invokes the`ZBrowse` variable browser for the Z shell.
 
 <div className="ScreenView">
-  <Image img={Screen1} alt="ZBrowse preview" />
+  <Image img="https://cdn.zshell.dev/img/asciicast/gif/zsh/zbrowse.gif" className="ImageView" alt="ZBrowse Preview" />
 </div>
-
----
-
-:::tip
-
-You can resize the video by pressing <kbd>Ctrl-+</kbd> or <kbd>Cmd-+</kbd>.
-
-:::
-
-<a href="https://asciinema.org/a/122018">
-  <Image className="ScreenView" img={Asciinema1} alt="ZBrowse view on Asciinema" />
-</a>
 
 ## Install Zbrowse
 
-First install the [ZUI](https://github.com/z-shell/zui) plugin (it's an UI library).
+First, install the [ZUI](https://github.com/z-shell/zui) plugin - a UI library for Z shell.
 
-**The plugin is "standalone"**, which means that only sourcing it is needed. So to install, unpack `zbrowse` somewhere and add to `zshrc`:
+<Tabs>
+  <TabItem value="standalone" label="Standalone" default>
 
-```zsh
+**The plugin is "standalone"**, which means that only sourcing it is needed. So to install, unpack ZBrowse somewhere and add to `.zshrc`:
+
+```shell
 source {where-zbrowse-is}/zbrowse.plugin.zsh
 ```
 
-If using a plugin manager, then `ZI` is recommended, but you can use any other too, and also install with `Oh My Zsh` (by copying directory to `~/.oh-my-zsh/custom/plugins`).
+  </TabItem>
+  <TabItem value="zi" label="Zi">
 
-### [ZI](https://github.com/z-shell/zi)
+Add the following to your `.zshrc`. Zi will handle cloning the plugin for you automatically the next time you start Zsh. To update run `zi update z-shell/zbrowse`.
 
-Add `zi load z-shell/zbrowse` to your `.zshrc` file. ZI will handle cloning the plugin for you automatically the next time you start zsh. To update run `zi update z-shell/zbrowse` (`update-all` can also be used).
+```shell
+zi load z-shell/zbrowse
+```
 
-### Antigen
+  </TabItem>
+  <TabItem value="zgen" label="Zgen">
 
-Add `antigen bundle z-shell/zbrowse` to your `.zshrc` file. Antigen will handle cloning the plugin for you automatically the next time you start zsh.
+Add the following to your `.zshrc` file in the same place you're doing your other `zgen load` calls.
 
-### Oh-My-Zsh
+```shell
+zgen load z-shell/zbrowse.git
+```
 
-1. `cd ~/.oh-my-zsh/custom/plugins`
-2. `git clone git@github.com:z-shell/zbrowse.git`
-3. Add `zbrowse` to your plugin list
+  </TabItem>
+  <TabItem value="antigen" label="Antigen">
 
-### Zgen
+Add the following to your `.zshrc` file. Antigen will handle cloning the plugin for you automatically the next time you start Zsh.
 
-Add `zgen load z-shell/zbrowse` to your .zshrc file in the same place you're doing your other `zgen load` calls.
+```shell
+antigen bundle z-shell/zbrowse.git
+```
+
+  </TabItem>
+  <TabItem value="oh-my-zsh" label="Oh-My-Zsh">
+
+Clone the Repository:
+
+```shell
+git clone https://github.com/z-shell/zbrowse.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zbrowse
+```
+
+And add `F-Sy-H` to your plugin list.
+
+  </TabItem>
+</Tabs>
+
+<!-- end-of-file -->
+<!-- links -->
+
+[z-shell/zbrowse]: https://github.com/z-shell/zbrowse
