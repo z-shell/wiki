@@ -51,7 +51,7 @@ After, you can install `zsh-zoxide` using the most adapted syntax for your `.zsh
 
 <TabItem value="standard" label="Standard syntax" default>
 
-```zsh
+```shell showLineNumbers
 zi ice has'zoxide'
 zi light z-shell/zsh-zoxide
 ```
