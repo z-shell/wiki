@@ -24,7 +24,7 @@ import TabItem from '@theme/TabItem';
 >
 > — ajeetdsouza/zoxide
 
-![zsh_zoxide.gif](/asciicast/gif/zsh_zoxide.gif)
+[![asciicast](https://asciinema.org/a/512856.svg)](https://asciinema.org/a/512856)
 
 ### Install `zoxide`
 
