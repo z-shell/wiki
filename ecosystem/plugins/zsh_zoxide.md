@@ -1,7 +1,7 @@
 ---
 id: zsh-zoxide
 title: ⚙️ Zoxide
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: The ajeetdsouza/zoxide init for Zsh
 keywords:
   - zsh-plugin
