@@ -84,11 +84,11 @@ See the wiki for [automatic or condition based loading/unloading](https://wiki.z
 
 :::
 
-### Add interactive selection with [`fzf`](https://github.com/z-shell/fzf)
+## Add interactive selection with [`fzf`](https://github.com/z-shell/fzf)
 
-[`fzf`](https://github.com/junegunn/fzf) is a command-line fuzzy finder, used by zoxide for interactive selection. It can be installed from [here](https://github.com/z-shell/fzf) as a zi package.
+[fzf](https://github.com/junegunn/fzf) is a command-line fuzzy finder, used by `zoxide` for interactive selection. It can be installed as a Zi [package](/ecosystem/packages/available-packages#the-fzf-command-line-fuzzy-finder).
 
-### Usage
+## Usage
 
 The plugin will call `zoxide init` with prefixed commands `x`, `xi`:
 
@@ -148,7 +148,7 @@ If you want to replace `cd` with `zoxide`. You can set the prefix to `cd` by set
 
 :::
 
-### Matching
+## Matching
 
 `zoxide` uses a simple, predictable algorithm for resolving queries:
 
@@ -167,13 +167,13 @@ If you want to replace `cd` with `zoxide`. You can set the prefix to `cd` by set
 
 - Matches are returned in descending order of frecency.
 
-### Environment variables
+## Environment variables
 
 The [database](https://github.com/ajeetdsouza/zoxide#environment-variables) is stored in [\$ZPFX/share](https://wiki.zshell.dev/community/zsh_plugin_standard#global-parameter-with-prefix). You can customize the path by following [the wiki](https://wiki.zshell.dev/docs/guides/customization#customizing-paths).
 
-Manpages are auto installed in [\$ZI[MAN_DIR]](https://wiki.zshell.dev/docs/guides/customization#customizing-paths)
+Manpages auto installed: [\$ZI[MAN_DIR]](/docs/guides/customization#customizing-paths)
 
-### Import your data
+## Import your data
 
 If you currently use any of the following utilities, you may want to import your data into zoxide:
 

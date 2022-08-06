@@ -26,13 +26,13 @@ Before distributing a script which use `+zi-message` specify in the `README.md` 
 
 ## `+zi-message` syntax
 
-`+zi-message` is a more featured `print`. It add modifiers which can change the color of the text (also blink, underline, bold...). A modifier is composed of opening `{` and closing `}`. In the middle, you can add the name of the modifier (See the [full list](#full-list) behind).
+`+zi-message` is a more featured `print`. It adds parameter which can change the color of the text (also blink, underline, bold...). A parameter is composed of opening `{` and closing `}`. In the middle, you can add the name of the parameter (See the [full list](#available-parameters) above).
 
-## Modifiers list
+## Available parameters
 
 ### `{auto}`
 
-There is a special modifier called `auto` which automaticly format your text. For example, if it's an url, it will use `{url}`...
+There is a special parameter called `auto` which automaticly format your text. For example, if it's an url, it will use `{url}`...
 
 ```shell
 +zi-message "{auto}zi"
