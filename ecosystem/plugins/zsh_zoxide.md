@@ -24,7 +24,7 @@ import TabItem from '@theme/TabItem';
 
 [![asciicast](https://asciinema.org/a/512856.svg)](https://asciinema.org/a/512856)
 
-### Install `zoxide`
+## Install `zoxide`
 
 First, you need to have `zoxide` installed on your system. You can install using two differents ways:
 <Tabs>
