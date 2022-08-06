@@ -16,9 +16,9 @@ keywords:
 import Image from '@theme/IdealImage';
 
 You can use `+zi-message` for printing rich text message. `+zi-message` support output like url,
-color, blink, underline, italic, etc...
+color, blink, underline, italic, etc... `+zi-message` is used in Zi for each output. Like this:
 
-<Image img={require('@site/static/img/png/+zi-message.png')} />
+<Image img={require('@site/static/img/png/usage_exmaple_in_zi.png')} />
 
 :::info
 Before distributing a script which use `+zi-message` specify in the `README.md` or in the documentation that your script need to have zi installed
