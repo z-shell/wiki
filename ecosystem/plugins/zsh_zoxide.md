@@ -114,7 +114,7 @@ x foo /
 
 - `zoxide` also works like a regular `cd` command
 
-```sh
+```sh showLineNumbers
 x ~/foo
 ```
 
