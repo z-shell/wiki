@@ -2,7 +2,7 @@
 id: zi-messages
 title: "💬 Zi messages"
 image: /img/logo/320x320.png
-description: Use `+zi-message` for rich text output
+description: Zi's messages for rich text output
 keywords:
   - syntax
   - how-to-use
