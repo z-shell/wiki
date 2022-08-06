@@ -34,7 +34,7 @@ Follow [https://github.com/ajeetdsouza/zoxide#step-1-install-zoxide](https://git
 
 </TabItem>
 
-<TabItem value="zi" label="WIth Zi" default>
+<TabItem value="zi" label="With Zi" default>
 
 ```shell showLineNumbers
 zi ice as'null' from"gh-r" sbin
