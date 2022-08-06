@@ -235,6 +235,13 @@ zi wait lucid for \
     zplugin/zsh-exa
 ```
 
+### SC: [z-shell/zsh-zoxide](https://github.com/z-shell/zsh-zoxide)
+
+```shell showLineNumbers
+zi has'zoxide' light-mode for \
+  z-shell/zsh-zoxide
+```
+
 ### GH-R: [pemistahl/grex](https://github.com/pemistahl/grex)
 
 ```shell showLineNumbers
