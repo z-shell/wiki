@@ -14,20 +14,15 @@ keywords:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Loadable from '@loadable/component';
-import Spinner from "@site/src/components/Spinner";
-
-export const AsciinemaPlayer = Loadable(() => import('@site/src/components/AsciinemaPlayer'));
+import Asciicast from "@site/src/components/Asciicast";
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zi-console][]
 
-A console for [Zi][1] – based on the `zsh/zcurses` Zshell module allows the user to:
+A console for [Zi][] – based on the `zsh/zcurses` Zshell module allows the user to:
 
 - View the currently loaded plugins in a colorful list, in one of 3 different display modes.
 - Unload and load plugins.
 - Delete the plugins and snippets from the disk.
-
-> Prerequisities: [ZUI][2] library.
 
 ## Console keybindings
 
@@ -53,18 +48,18 @@ Start the console by <kbd>Ctrl-O</kbd> <kbd>Ctrl-J</kbd> keyboard shortcut, or b
 
 ## Console preview
 
-<div className="ScreenView">
-  <AsciinemaPlayer
-    fallback={<Spinner />}
-    src='https://asciinema.org/a/512999.cast'
-    rows={24}
-    cols={125}
-    speed={1.5}
-    idleTimeLimit={1}
-  />
-</div>
+<Asciicast
+  src='https://asciinema.org/a/512999.cast'
+  rows={21}
+  cols={125}
+  speed={1.5}
+  idleTimeLimit={1}
+  preload
+/>
 
 ## Install console
+
+> Prerequisities: [ZUI][z-shell/zui] library.
 
 <Tabs>
   <TabItem value="standard" label="Standard" default>
@@ -124,8 +119,8 @@ zi load zsh-users/zsh
 
 Then, to update, rebuild and reinstall the `zsh`, you can do `zi update zsh`. The binary can be safely copied over `/bin/zsh` as it has paths to all needed directories built-in.
 
-[1]: https://github.com/z-shell/zi
-[2]: https://github.com/z-shell/zui
+[zi]: https://github.com/z-shell/zi
+[z-shell/zui]: https://github.com/z-shell/zui
 [4]: /docs/getting_started/overview#turbo-mode-zsh--53
 [5]: /docs/guides/syntax/for
 [6]: https://github.com/z-shell/z-a-patch-dl

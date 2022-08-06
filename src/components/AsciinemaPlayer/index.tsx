@@ -33,14 +33,9 @@ export default function AsciinemaPlayer({
 
   useEffect(() => {
     const currentRef = containerElement.current;
-
     AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [src]);
 
-  return (
-    <div className='asciicast'>
-      <div ref={containerElement} />
-    </div>
-  );
+  return <div ref={containerElement} />;
 }

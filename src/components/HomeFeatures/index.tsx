@@ -8,6 +8,10 @@ import Translate, { translate } from "@docusaurus/Translate";
 import Spinner from "@site/src/components/Spinner";
 import styles from "./styles.module.css";
 
+const AsciinemaPlayer = Loadable(
+  () => import("@site/src/components/AsciinemaPlayer")
+);
+
 const turboSvg = () => (
   <span className='fa-6x'>
     <i className='fa-solid fa-forward' />
@@ -106,9 +110,6 @@ function Features() {
 }
 
 export default function HomeFeatures(): JSX.Element {
-  const AsciinemaPlayer = Loadable(
-    () => import("@site/src/components/AsciinemaPlayer")
-  );
   return (
     <section className={styles.features}>
       <div className='container'>

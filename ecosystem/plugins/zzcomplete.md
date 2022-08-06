@@ -4,14 +4,20 @@ title: ⚙️ ZZComplete
 image: /img/logo/320x320.png
 description: Complete options from manual pages – press Ctrl-F to start the completer.
 keywords:
+  - zplugin
   - zzcomplete
   - completion
+  - zsh-plugin
   - zsh-completion
 ---
 
 <!-- @format -->
 
-- [z-shell/zzcomplete](https://github.com/z-shell/zzcomplete)
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Asciicast from "@site/src/components/Asciicast";
+
+## <i class="fa-brands fa-github"></i> [z-shell/zzcomplete][]
 
 Complete options from manual pages – press <kbd>Ctrl-F</kbd> to start the completer.
 
@@ -20,35 +26,29 @@ The completion of options has drawbacks:
 1. The user has to remember a part of the option he wants to complete.
 2. OR he is forced to read through all the options (listed after <kbd>TAB</kbd>).
 
-With ZZ Complete, the user can:
+With ZZComplete, the user can:
 
 1. Search in the manual for arbitrary text related to the option.
 2. Then select the option that's located nearby the found text.
 3. Also, the user can read about the possible values of the options and select them too.
 
-## ZZ Complete preview on Asciinema
+## ZZComplete preview
 
----
+<Asciicast
+    src='https://asciinema.org/a/293365.cast'
+    rows={21}
+    cols={125}
+    speed={1}
+    idleTimeLimit={1}
+    preload
+/>
 
-:::tip
+## Install ZZComplete
 
-You can resize the video by pressing <kbd>Ctrl-+</kbd> or <kbd>Cmd-+</kbd>.
+> Prerequisities: [ZUI][z-shell/zui] library and a Zsh that is built with the `zsh/curses` module.
 
-:::
-
-<a href="https://asciinema.org/a/293365">
-  <img className="ScreenView" src="https://asciinema.org/a/293365.svg#center" alt="ZZ Complete view on Asciinema" />
-</a>
-
----
-
-## Install ZZ Complete
-
-### Dependencies
-
-The plugin needs also [ZUI](https://github.com/z-shell/zui) plugin and a Zsh that is built with the `zsh/curses` module.
-
-### Manual
+<Tabs>
+  <TabItem value="standalone" label="Standalone" default>
 
 Clone the Repository.
 
@@ -62,7 +62,8 @@ And add the following to your `zshrc` file.
 source ~/path/to/zzcomplete/zzcomplete.plugin.zsh
 ```
 
-### ZI
+  </TabItem>
+  <TabItem value="zi" label="Zi">
 
 Add the following to your `zshrc` file.
 
@@ -70,15 +71,8 @@ Add the following to your `zshrc` file.
 zi light z-shell/zzcomplete
 ```
 
-### Antigen
-
-Add the following to your `zshrc` file.
-
-```shell
-antigen bundle z-shell/zzcomplete
-```
-
-### Zgen
+  </TabItem>
+  <TabItem value="zgen" label="Zgen">
 
 Add the following to your `.zshrc` file in the same place you're doing your other `zgen load` calls in.
 
@@ -86,7 +80,17 @@ Add the following to your `.zshrc` file in the same place you're doing your othe
 zgen load z-shell/zzcomplete
 ```
 
-### Oh-My-Zsh
+  </TabItem>
+  <TabItem value="antigen" label="Antigen">
+
+Add the following to your `zshrc` file.
+
+```shell
+antigen bundle z-shell/zzcomplete
+```
+
+  </TabItem>
+  <TabItem value="oh-my-zsh" label="Oh-My-Zsh">
 
 Clone the Repository.
 
@@ -96,3 +100,12 @@ git clone https://github.com/z-shell/zzcomplete.git \
 ```
 
 And add `zzcomplete` to your plugin list.
+
+  </TabItem>
+</Tabs>
+
+<!-- end-of-file -->
+<!-- links -->
+
+[z-shell/zui]: https://github.com/z-shell/zui
+[z-shell/zzcomplete]: https://github.com/z-shell/zzcomplete
