@@ -36,7 +36,7 @@ Follow [https://github.com/ajeetdsouza/zoxide#step-1-install-zoxide](https://git
 
 <TabItem value="zi" label="WIth Zi" default>
 
-```zsh
+```shell showLineNumbers
 zi ice as'null' from"gh-r" sbin
 zi light ajeetdsouza/zoxide
 ```
