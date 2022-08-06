@@ -440,6 +440,13 @@ zi ice rustup cargo'!E:exa' id-as'exa' as'program' nocompile
 zi load z-shell/0
 ```
 
+### GH-R: [ajeetdsouza/zoxide](https://github.com/ajeetdsouza/zoxide)
+
+```shell showLineNumbers
+zi ice as'null' from"gh-r" sbin
+zi light ajeetdsouza/zoxide
+```
+
 ### RA: Rust and [ogham/exa][4], [Peltoche/lsd][14]
 
 ```shell showLineNumbers
