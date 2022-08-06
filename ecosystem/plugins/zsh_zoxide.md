@@ -69,7 +69,7 @@ zi has'zoxide' light-mode for \
 
 <TabItem value="turbo" label='Turbo mode + "for" syntax' default>
 
-```zsh
+```shell showLineNumbers
 zi has'zoxide' wait lucid for \
   z-shell/zsh-zoxide
 ```
