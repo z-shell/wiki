@@ -44,6 +44,34 @@ For all the available packages use [GitHub search][22].
 
 ## Package profiles
 
+### The Apache Portable Runtime (APR) library
+
+<div class="apitable" align="center">
+<table>
+    <tr>
+        <td><b>Package source:</b></td>
+        <td>Source Tarball</td>
+        <td>Binary</td>
+        <td>Git</td>
+        <td>Node</td>
+        <td>Gem</td>
+    </tr>
+    <tr>
+        <td><b>Status:</b></td>
+        <td>☑️ (default)</td>
+        <td>❌</td>
+        <td>☑️</td>
+        <td>❌</td>
+        <td>❌</td>
+    </tr>
+</table></div>
+
+Download, build and install the latest Apache Portable Runtime.
+
+```shell
+zi pack for apr
+```
+
 ### The dircolors-material color scheme
 
 <div className="apitable" align="center">
@@ -259,6 +287,74 @@ zi pack"bgn-binary" for fzf
   </TabItem>
 </Tabs>
 
+### The fzy command-line fuzzy finder.
+
+<div className="apitable" align="center">
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <b>Package source:</b>
+        </td>
+        <td>Tarball</td>
+        <td>Binary</td>
+        <td>Git</td>
+        <td>Node</td>
+        <td>Gem</td>
+      </tr>
+      <tr>
+        <td>
+          <b>Status:</b>
+        </td>
+        <td>☑️ (default)</td>
+        <td>❌</td>
+        <td>☑️</td>
+        <td>❌</td>
+        <td>❌</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<Tabs>
+  <TabItem value="default" label="Default">
+
+Download the package with the default profile.
+
+```shell
+zi pack for fzy
+```
+  </TabItem>
+  <TabItem value="bin-gem-node" label="Annex">
+
+Download the package with the [bin-gem-node][] annex.
+
+```shell
+zi pack"bgn" for fzy
+```
+
+  </TabItem>
+  <TabItem value="bin-gem-node+git" label="Annex + git">
+
+Download with the [bin-gem-node][] annex from GitHub repository.
+
+```shell
+zi pack"bgn" git for fzy
+```
+
+  </TabItem>
+  <TabItem value="default+override" label="Default Override">
+
+Download normal ice list and override atclone'' ice to skip the contrib scripts
+
+```shell
+zi pack"bgn" atclone'' for fzy
+```
+
+  </TabItem>
+</Tabs>
+    
 ### The LS_COLORS color scheme
 
 <div className="apitable" align="center">
