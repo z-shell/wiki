@@ -19,15 +19,14 @@ import TabItem from '@theme/TabItem';
 
 [`ajeetdsouza/zoxide`](https://github.com/ajeetdsouza/zoxide) is a smarter `cd` command, inspired by `z` and `autojump`.
 
-> It remembers which directories you use most frequently, so you can "jump" to them in just a few keystrokes.
-> `zoxide` works on all major shells.
->
-> — ajeetdsouza/zoxide
+`zoxide` is a smarter `cd` command written in Rust which remember most used directory and add the ability to "jump" inside without typing the entire path.
+`zoxide` also provide interactive completion with `fzf`
 
 [![asciicast](https://asciinema.org/a/512856.svg)](https://asciinema.org/a/512856)
 
 ### Install `zoxide`
 
+First, you need to have `zoxide` installed on your system. You can install using two differents ways:
 <Tabs>
 <TabItem value="official" label="Official install" default>
 
@@ -47,6 +46,7 @@ zi light ajeetdsouza/zoxide
 
 ### Install `zsh-zoxide`
 
+After, you can install `zsh-zoxide` using the most adapted syntax for your `.zshrc`:
 <Tabs>
 
 <TabItem value="standard" label="Standard syntax" default>
@@ -80,13 +80,13 @@ zi has'zoxide' wait lucid for \
 
 :::info
 
-Wiki: [automatic, condition based (loading/unloading)](https://wiki.zshell.dev/docs/getting_started/overview#automatic-condition-based---load--unload)
+See the wiki for [automatic or condition based loading/unloading](https://wiki.zshell.dev/docs/getting_started/overview#automatic-condition-based---load--unload)
 
 :::
 
 ### Add interactive selection with [`fzf`](https://github.com/z-shell/fzf)
 
-[fzf](https://github.com/junegunn/fzf) is a command-line fuzzy finder, used by zoxide for interactive selection. It can be installed from [here](https://github.com/z-shell/fzf) as a zi package.
+[`fzf`](https://github.com/junegunn/fzf) is a command-line fuzzy finder, used by zoxide for interactive selection. It can be installed from [here](https://github.com/z-shell/fzf) as a zi package.
 
 ### Usage
 
@@ -94,26 +94,53 @@ The plugin will call `zoxide init` with prefixed commands `x`, `xi`:
 
 `zoxide` will remember the most used directory and add the ability to `cd` in the directory whithout specifing the entire path. Just by typing the directory name.
 
-```sh
-x foo              # cd into highest ranked directory matching foo
-x foo bar          # cd into highest ranked directory matching foo and bar
-x foo /            # cd into a subdirectory starting with foo
-```
+- `cd` into highest ranked directory matching `foo`
 
 ```sh
-x ~/foo            # z also works like a regular cd command
-x foo/             # cd into relative path
-x ..               # cd one level up
-x -                # cd into previous directory
+x foo
 ```
 
-```sh
-xi foo             # cd with interactive selection (using fzf)
-```
+- `cd` into highest ranked directory matching `foo` and `bar`
 
 ```sh
-x foo<SPACE><TAB>  # show interactive completions
+x foo bar
 ```
+
+- `cd` into a subdirectory starting with `foo`
+
+```sh
+x foo /
+```
+
+- `zoxide` also works like a regular `cd` command
+
+```sh
+x ~/foo
+```
+
+- `cd` into relative path
+
+```sh
+x foo/
+```
+
+- `cd` one level up
+
+```sh
+x ..
+```
+
+- `cd` into previous directory
+
+```sh
+x -
+```
+
+- `cd` with interactive selection (using `fzf`)
+
+<pre>
+x foo <kbd>SPACE</kbd> <kbd>TAB</kbd>
+</pre>
 
 :::tip
 
@@ -121,6 +148,25 @@ If you want to replace `cd` with `zoxide`. You can set the prefix to `cd` by set
 before the installation of zoxide
 
 :::
+
+### Matching
+
+`zoxide` uses a simple, predictable algorithm for resolving queries:
+
+- All matching is case-insensitive.
+
+`z foo` matches `/foo` as well as `/FOO`.
+
+- All terms must be present (including slashes) within the path, in order.
+
+  `z fo ba` matches `/foo/bar`, but not `/bar/foo`.
+  `z fo / ba` matches `/foo/bar`, but not `/foobar`.
+
+- The last component of the last keyword must match the last component of the path.
+  `z bar` matches `/foo/bar`, but not `/bar/foo`.
+  `z foo/bar` (last component: `bar`) matches `/foo/bar`, but not `/foo/bar/baz`.
+
+- Matches are returned in descending order of frecency.
 
 ### Environment variables
 
