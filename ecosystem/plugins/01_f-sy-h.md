@@ -4,7 +4,7 @@ title: ⚙️ Feature-rich syntax highlighting
 sidebar_position: 1
 image: /img/logo/320x320.png
 description: Feature-rich Syntax Highlighting for Zsh
-toc_max_heading_level: 4
+toc_max_heading_level: 3
 keywords:
   - feature-ruch
   - fast-syntax-highlighting
