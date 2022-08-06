@@ -60,7 +60,7 @@ zi light z-shell/zsh-zoxide
 
 <TabItem value="for" label='The "for" syntax' default>
 
-```zsh
+```shell showLineNumbers
 zi has'zoxide' light-mode for \
   z-shell/zsh-zoxide
 ```
