@@ -44,7 +44,7 @@ zi light ajeetdsouza/zoxide
 </TabItem>
 </Tabs>
 
-### Install `zsh-zoxide`
+## Install `zsh-zoxide`
 
 After, you can install `zsh-zoxide` using the most adapted syntax for your `.zshrc`:
 <Tabs>
