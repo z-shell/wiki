@@ -82,7 +82,7 @@ There is a special modifier called `auto` which automaticly format your text. Fo
 If user submit a wrong input. You can say that's wrong and show the right usage:
 
 ```shell
-+zi-message "{annex}default-ice-annex{ehi}:{rst}{msg} Missing any" "ices. Usage{ehi}:{rst}{nl}"
++zi-message "{annex}default-ice-annex{ehi}:{rst} {msg}Missing any ices. Usage{ehi}:{rst}{nl}"
 ```
 
 <Image img={require('@site/static/img/png/usage_usage.png')} />
