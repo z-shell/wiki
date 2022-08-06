@@ -1,6 +1,6 @@
 ---
-id: console
-title: ⚙️ Console
+id: zi-console
+title: ⚙️ Zi Console
 image: /img/logo/320x320.png
 description: A console based on the `zsh/zcurses` Zshell module.
 keywords:
@@ -24,7 +24,7 @@ A console for [Zi][] – based on the `zsh/zcurses` Zshell module allows the use
 - Unload and load plugins.
 - Delete the plugins and snippets from the disk.
 
-## Console keybindings
+## Zi Console keybindings
 
 Start the console by <kbd>Ctrl-O</kbd> <kbd>Ctrl-J</kbd> keyboard shortcut, or by running `ziconsole` function in the shell.
 
@@ -46,7 +46,7 @@ Start the console by <kbd>Ctrl-O</kbd> <kbd>Ctrl-J</kbd> keyboard shortcut, or b
 
 </div>
 
-## Console preview
+## Zi Console preview
 
 <Asciicast
   src='https://asciinema.org/a/512999.cast'
@@ -57,7 +57,7 @@ Start the console by <kbd>Ctrl-O</kbd> <kbd>Ctrl-J</kbd> keyboard shortcut, or b
   preload
 />
 
-## Install console
+## Install Zi Console
 
 > Prerequisities: [ZUI][z-shell/zui] library.
 

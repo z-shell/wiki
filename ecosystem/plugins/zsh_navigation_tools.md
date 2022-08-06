@@ -1,6 +1,6 @@
 ---
 id: zsh-navigation-tools
-title: ⚙️ Navigation Tools
+title: ⚙️ Zsh Navigation Tools
 image: /img/logo/320x320.png
 description: Multi-word history searcher, `n-cd` – directory bookmark manager, `n-kill` – `htop` like kill utility, and more.
 keywords:
@@ -17,9 +17,7 @@ import Image from '@theme/IdealImage';
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zsh-navigation-tools][]
 
-## Zsh Navigation Tools
-
-The available tools
+## Available tools
 
 - `n-aliases` - browse aliases, relegates editing to `vared`
 - `n-cd` - browses dir stack and bookmarked directories, allows entering the selected directory
@@ -309,7 +307,7 @@ That's it. When one contributes to Oh-My-Zsh or creates a plugin for any plugin 
 
 :::caution
 
-Be aware of [this][3]
+Be aware of [this][l35-l49]
 
 :::
 
@@ -334,4 +332,4 @@ It will not display underline properly, but will instead highlight by a color, w
 
 [z-shell/zsh-navigation-tools]: https://github.com/z-shell/zsh-navigation-tools
 [2]: https://github.com/z-shell/zsh-navigation-tools/tree/main/.config/znt
-[3]: https://github.com/z-shell/zsh-navigation-tools/blob/f49f910d239ae5bc6e1a5bb34930307b4f4e3ffe/zsh-navigation-tools.plugin.zsh#L35-L49
+[l35-l49]: https://github.com/z-shell/zsh-navigation-tools/blob/f49f910d239ae5bc6e1a5bb34930307b4f4e3ffe/zsh-navigation-tools.plugin.zsh#L35-L49

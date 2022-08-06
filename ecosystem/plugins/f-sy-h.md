@@ -17,12 +17,9 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Image from '@theme/IdealImage';
-import Loadable from '@loadable/component';
-import Spinner from "@site/src/components/Spinner";
+import Asciicast from "@site/src/components/Asciicast";
 
-export const AsciinemaPlayer = Loadable(() => import('@site/src/components/AsciinemaPlayer'));
-
-## <i class="fa-brands fa-github"></i> [z-shell/f-sy-h][1]
+## <i class="fa-brands fa-github"></i> [z-shell/f-sy-h][]
 
 ## Install F-Sy-H
 
@@ -72,21 +69,21 @@ zinit light z-shell/F-Sy-H
 ```
 
   </TabItem>
-  <TabItem value="antigen" label="Antigen">
-
-Add the following to your `.zshrc` file.
-
-```shell
-antigen bundle z-shell/F-Sy-H
-```
-
-  </TabItem>
   <TabItem value="zgen" label="Zgen">
 
 Add the following to your `.zshrc` file in the same place you're doing your other `zgen load` calls in.
 
 ```shell
 zgen load z-shell/F-Sy-H
+```
+
+  </TabItem>
+  <TabItem value="antigen" label="Antigen">
+
+Add the following to your `.zshrc` file.
+
+```shell
+antigen bundle z-shell/F-Sy-H
 ```
 
   </TabItem>
@@ -103,15 +100,39 @@ And add `F-Sy-H` to your plugin list.
   </TabItem>
 </Tabs>
 
+## Performance
+
+Performance differences can be observed in this Asciinema recording, where a `10 kB` function is being edited.
+
+<Asciicast
+  src='https://asciinema.org/a/512971.cast'
+  rows={24}
+  cols={135}
+  speed={1}
+  idleTimeLimit={1}
+  preload
+/>
+
 ## Syntax highlighting features
 
 ### Themes
 
 Switch themes via `fast-theme {theme-name}`.
 
+<Asciicast
+  src='https://asciinema.org/a/513093.cast'
+  rows={20}
+  cols={100}
+  speed={1}
+  idleTimeLimit={1}
+  preload
+/>
+
+<!--
 <div className="ScreenView">
   <Image img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh.gif" className="ImageView" alt="Syntax highlighting themes" />
 </div>
+--->
 
 Run `fast-theme -t {theme-name}` option to obtain the snippet above.
 
@@ -178,7 +199,7 @@ In the above screen-shot the interior of `$( ... )` uses different colors than t
   <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/eval_cmp.png" alt="Syntax highlighting eval" />
 </div>
 
-The first line doesn't use recursive highlighting, highlights `eval` argument as a regular string. The second line switches the theme to `zdharma` and does full recursive highlighting of the eval argument.
+The first line doesn't use recursive highlighting, highlights the `eval` argument as a regular string. The second line switches the theme to `zdharma` and does full recursive highlighting of the eval argument.
 
 ### Variables
 
@@ -333,21 +354,6 @@ The [chromas](https://github.com/z-shell/F-Sy-H/tree/main/→chroma) that are en
   <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/zcalc.png" alt="Syntax highlighting zcalc" />
 </div>
 
-### Performance
-
-Performance differences can be observed in this Asciinema recording, where a `10 kB` function is being edited.
-
-<div className="ScreenView">
-  <AsciinemaPlayer
-    fallback={<Spinner />}
-    src='https://asciinema.org/a/512971.cast'
-    rows={24}
-    cols={135}
-    speed={1.5}
-    idleTimeLimit={1}
-  />
-</div>
-
 ### Custom Working Directory
 
 Set `$FAST_WORK_DIR` before loading the plugin to have e.g. processed theme files (ready to load, in Zsh format, not INI) kept under a specified location. This is handy if e.g. you install Fast-Syntax-Highlighting system-wide (e.g. from AUR on ArchLinux) and want to have a per-user theme setup.
@@ -420,7 +426,7 @@ Big-loop will be doing such calls for the user, after occurring a specific chrom
 #
 # Other tips are:
 # - $CURSOR holds cursor position
-# - $BUFFER holds whole command line buffer
+# - $BUFFER holds the whole command line buffer
 # - $LBUFFER holds command line buffer that is left from the cursor, i.e. it's a
 #   BUFFER substring 1 .. $CURSOR
 # - $RBUFFER is the same as LBUFFER but holds part of BUFFER right to the cursor
@@ -513,6 +519,6 @@ return 0
 <!-- end-of-file -->
 <!-- links -->
 
-[1]: https://github.com/z-shell/F-Sy-H
+[z-shell/f-sy-h]: https://github.com/z-shell/F-Sy-H
 [ini-files]: https://github.com/z-shell/F-Sy-H/tree/main/themes
 [turbo-mode]: /docs/getting_started/overview#turbo-mode-zsh--53

@@ -50,7 +50,6 @@
     "remark-math": "3.0.1"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "3.14.1",
     "@docusaurus/eslint-plugin": "canary",
     "@docusaurus/module-type-aliases": "canary",
     "@docusaurus/types": "canary",

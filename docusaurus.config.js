@@ -19,7 +19,15 @@ const config = {
   projectName: "wiki",
   organizationName: "z-shell",
   staticDirectories: ["static"],
-  stylesheets: ["/assets/fa/css/all.min.css"],
+  stylesheets: [
+    { href: "/assets/fa/css/all.min.css" },
+    {
+      href: "https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css",
+      integrity:
+        "sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC",
+      crossorigin: "anonymous",
+    },
+  ],
   i18n: {
     defaultLocale: "en",
     locales: ["en", "fr", "ja", "zh-Hans"],
@@ -161,7 +169,7 @@ const config = {
           }
           return `https://github.com/z-shell/wiki/tree/main/${versionDocsDirPath}/${docPath}`;
         },
-        showLastUpdateAuthor: true,
+        showLastUpdateAuthor: false,
         showLastUpdateTime: true,
         remarkPlugins: [math],
         rehypePlugins: [katex],

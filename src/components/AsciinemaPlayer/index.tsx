@@ -29,7 +29,7 @@ export default function AsciinemaPlayer({
   src,
   ...asciinemaOptions
 }: AsciinemaPlayerProps): JSX.Element {
-  const containerElement = useRef();
+  const containerElement = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const currentRef = containerElement.current;
