@@ -1,6 +1,6 @@
 ---
 id: zi-messages
-title: "🔀 Zi messages"
+title: "💬 Zi messages"
 image: /img/logo/320x320.png
 description: Use `+zi-message` for rich text output
 keywords:
