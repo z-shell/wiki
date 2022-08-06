@@ -176,7 +176,10 @@ zi light b4b4r07/gotcha
 ### GH-R: [ajeetdsouza/zoxide](https://github.com/ajeetdsouza/zoxide)
 
 ```shell showLineNumbers
-zi ice as'null' from"gh-r" sbin
+zi ice has'fzf' as'program' from'gh-r' \
+  pick'zoxide' atclone'ln -s completions/_zoxide -> _zoxide;
+  cp man/man1/*.1 $ZI[MAN_DIR]/man1; ./zoxide init zsh --cmd x > init.zsh' \
+  atpull'%atclone' src'init.zsh'
 zi light ajeetdsouza/zoxide
 ```
 
