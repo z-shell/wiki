@@ -173,6 +173,13 @@ zi ice as'program' from'gh-r' mv'gotcha_* -> gotcha'
 zi light b4b4r07/gotcha
 ```
 
+### GH-R: [ajeetdsouza/zoxide](https://github.com/ajeetdsouza/zoxide)
+
+```shell showLineNumbers
+zi ice as'null' from"gh-r" sbin
+zi light ajeetdsouza/zoxide
+```
+
 ### SC: [zdharma/revolver][16]
 
 ```shell showLineNumbers
@@ -438,13 +445,6 @@ zi load z-shell/0
 # shim with standard error redirected to /dev/null
 zi ice rustup cargo'!E:exa' id-as'exa' as'program' nocompile
 zi load z-shell/0
-```
-
-### GH-R: [ajeetdsouza/zoxide](https://github.com/ajeetdsouza/zoxide)
-
-```shell showLineNumbers
-zi ice as'null' from"gh-r" sbin
-zi light ajeetdsouza/zoxide
 ```
 
 ### RA: Rust and [ogham/exa][4], [Peltoche/lsd][14]
