@@ -80,7 +80,7 @@ zi has'zoxide' wait lucid for \
 
 :::info
 
-See the wiki for [automatic or condition based loading/unloading](https://wiki.zshell.dev/docs/getting_started/overview#automatic-condition-based---load--unload)
+See the wiki for [automatic or condition based loading/unloading](/docs/getting_started/overview#automatic-condition-based---load--unload)
 
 :::
 
@@ -169,7 +169,7 @@ If you want to replace `cd` with `zoxide`. You can set the prefix to `cd` by set
 
 ## Environment variables
 
-The [database](https://github.com/ajeetdsouza/zoxide#environment-variables) is stored in [\$ZPFX/share](https://wiki.zshell.dev/community/zsh_plugin_standard#global-parameter-with-prefix). You can customize the path by following [the wiki](https://wiki.zshell.dev/docs/guides/customization#customizing-paths).
+The [database](https://github.com/ajeetdsouza/zoxide#environment-variables) is stored in [\$ZPFX/share](/community/zsh_plugin_standard#global-parameter-with-prefix). You can customize the path by following [the wiki](/docs/guides/customization#customizing-paths).
 
 Manpages auto installed: [\$ZI[MAN_DIR]](/docs/guides/customization#customizing-paths)
 
