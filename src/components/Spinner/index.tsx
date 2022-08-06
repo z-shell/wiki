@@ -1,28 +1,20 @@
 /** @format */
 // @ts-check
 
-import React, { useState, CSSProperties } from "react";
+import React, { useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
+import styles from "./styles.module.css";
 
-const override: CSSProperties = {
-  display: "block",
-  margin: "0 auto",
-  color: "var(--ifm-color-primary)",
-};
-
-function Spinner(): JSX.Element {
+export default function Spinner(): JSX.Element {
   const loading = useState(true);
   const color = useState("#ffffff");
   return (
-    <div className='sweet-loading'>
+    <div className={styles.loading}>
       <ClipLoader
         color={color}
         loading={loading}
-        cssOverride={override}
         size={160}
       />
     </div>
   );
 }
-
-export default Spinner;

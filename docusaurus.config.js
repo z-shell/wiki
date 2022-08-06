@@ -309,12 +309,9 @@ const config = {
           {
             title: "Legal",
             items: [
-              { label: "Privacy Policy", to: "legal/PRIVACY?static=true" },
-              {
-                label: "Code of Conduct",
-                to: "legal/CODE_OF_CONDUCT?static=true",
-              },
-              { label: "Contributing", to: "legal/CONTRIBUTING?static=true" },
+              { label: "Privacy Policy", to: "legal/PRIVACY" },
+              { label: "Code of Conduct", to: "legal/CODE_OF_CONDUCT" },
+              { label: "Contributing", to: "legal/CONTRIBUTING" },
             ],
           },
         ],
@@ -324,6 +321,18 @@ const config = {
         theme: require("prism-react-renderer/themes/github"),
         darkTheme: require("prism-react-renderer/themes/dracula"),
         defaultLanguage: "shell",
+        additionalLanguages: ["ini"],
+        magicComments: [
+          {
+            className: "theme-code-block-highlighted-line",
+            line: "highlight-next-line",
+            block: { start: "highlight-start", end: "highlight-end" },
+          },
+          {
+            className: "code-block-error-line",
+            line: "error-line",
+          },
+        ],
       },
       tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 5 },
     }),

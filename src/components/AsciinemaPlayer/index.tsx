@@ -8,8 +8,8 @@ import "asciinema-player/dist/bundle/asciinema-player.css";
 type AsciinemaPlayerProps = {
   src: string;
   // START asciinemaOptions
-  cols: string;
-  rows: string;
+  cols: number;
+  rows: number;
   autoPlay: boolean;
   preload: boolean;
   loop: boolean | number;
@@ -19,7 +19,9 @@ type AsciinemaPlayerProps = {
   theme: string;
   poster: string;
   fit: string;
-  fontSize: string;
+  terminalFontSize: string;
+  terminalFontFamily: string;
+  terminalLineHeight: number;
   // END asciinemaOptions
 };
 
@@ -27,12 +29,18 @@ export default function AsciinemaPlayer({
   src,
   ...asciinemaOptions
 }: AsciinemaPlayerProps): JSX.Element {
-  const ref = useRef<HTMLDivElement>(null);
+  const containerElement = useRef();
 
   useEffect(() => {
-    const currentRef = ref.current;
-    AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
-  }, [src, asciinemaOptions]);
+    const currentRef = containerElement.current;
 
-  return <div ref={ref} />;
+    AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [src]);
+
+  return (
+    <div className='asciicast'>
+      <div ref={containerElement} />
+    </div>
+  );
 }

@@ -2,9 +2,9 @@
 id: f-sy-h
 title: ⚙️ Feature-rich syntax highlighting
 sidebar_position: 1
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: Feature-rich Syntax Highlighting for Zsh
-toc_max_heading_level: 3
+toc_max_heading_level: 4
 keywords:
   - feature-ruch
   - fast-syntax-highlighting
@@ -14,9 +14,94 @@ keywords:
 
 <!-- @format -->
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import Image from '@theme/IdealImage';
+import Loadable from '@loadable/component';
+import Spinner from "@site/src/components/Spinner";
+
+export const AsciinemaPlayer = Loadable(() => import('@site/src/components/AsciinemaPlayer'));
 
 ## <i class="fa-brands fa-github"></i> [z-shell/f-sy-h][1]
+
+## Install F-Sy-H
+
+<Tabs>
+  <TabItem value="standalone" label="Standalone" default>
+
+Clone the Repository.
+
+```shell
+git clone https://github.com/z-shell/F-Sy-H ~/path/to/fsh
+```
+
+And add the following to your `zshrc` file.
+
+```shell
+source ~/path/to/fsh/F-Sy-H.plugin.zsh
+```
+
+  </TabItem>
+  <TabItem value="zi" label="Zi">
+
+Add the following to your `zshrc` file.
+
+```shell
+zi light z-shell/F-Sy-H
+```
+
+Load the plugin in [turbo mode][turbo-mode]:
+
+```shell showLineNumbers
+zi wait lucid for \
+ atinit"ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    z-shell/F-Sy-H \
+ blockf \
+    zsh-users/zsh-completions \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
+```
+
+  </TabItem>
+  <TabItem value="zinit" label="Zinit">
+
+Add the following to your `zshrc` file.
+
+```shell
+zinit light z-shell/F-Sy-H
+```
+
+  </TabItem>
+  <TabItem value="antigen" label="Antigen">
+
+Add the following to your `zshrc` file.
+
+```shell
+antigen bundle z-shell/F-Sy-H
+```
+
+  </TabItem>
+  <TabItem value="zgen" label="Zgen">
+
+Add the following to your `.zshrc` file in the same place you're doing your other `zgen load` calls in.
+
+```shell
+zgen load z-shell/F-Sy-H
+```
+
+  </TabItem>
+  <TabItem value="oh-my-zsh" label="Oh-My-Zsh">
+
+Clone the Repository:
+
+```shell
+git clone https://github.com/z-shell/F-Sy-H.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/F-Sy-H
+```
+
+And add `F-Sy-H` to your plugin list.
+
+  </TabItem>
+</Tabs>
 
 ## Syntax highlighting features
 
@@ -24,8 +109,8 @@ import Image from '@theme/IdealImage';
 
 Switch themes via `fast-theme {theme-name}`.
 
-<div>
-  <Image img={require('@site/static/img/png/f-s-y_theme.png')} />
+<div className="ScreenView">
+  <Image img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh.gif" className="ImageView" alt="Syntax highlighting themes" />
 </div>
 
 Run `fast-theme -t {theme-name}` option to obtain the snippet above.
@@ -34,12 +119,13 @@ Run `fast-theme -l` to list available themes.
 
 #### Theme guide for F-Sy-H
 
-`fast-theme` tool is used to select a theme. There are 6 shipped themes, they can be listed with `fast-theme -l`. Themes are basic [INI files](https://github.com/z-shell/fast-syntax-highlighting/tree/main/themes) where each key is a _style_.
+To select a theme use `fast-theme`. There are 6 shipped themes which are basic [INI files][ini-files] where each key is a _style_, they can be listed with `fast-theme -l`.
 
 Besides shipped themes, user can point this tool to any other theme, by simple `fast-theme ~/mytheme.ini`. To obtain template to work on when creating own theme, issue `fast-theme --copy-shipped-theme {theme-name}`.
 
 To alter just a few styles and not create a whole new theme, use **overlay**. What is overlay? It is in the same
 format as full theme, but can have only a few styles defined, and these styles will overwrite styles in main-theme.
+
 Example overlay file:
 
 ```ini showLineNumbers
@@ -57,7 +143,7 @@ File name `overlay.ini` is treated specially.
 
 When specifing path, following short-hands can be used:
 
-```C++ showLineNumbers
+```ini showLineNumbers
 XDG:    = ~/.config/fsh (respects $XDG_CONFIG_HOME env var)
 LOCAL:  = /usr/local/share/fsh/
 HOME:   = ~/.fsh/
@@ -83,11 +169,15 @@ secondary        = zdharma
 
 Secondary theme (`zdharma` in the example) will be used for highlighting of argument for `eval` and of `$( ... )` interior (i.e. of interior of command substitution). Basically, recursive highlighting uses alternate theme to make the highlighted code distinct:
 
-![sshot](https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/cmdsubst.png#floatleft)
+<div className="ScreenView">
+  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/cmdsubst.png" alt="Syntax highlighting command substitution" />
+</div>
 
 In the above screen-shot the interior of `$( ... )` uses different colors than the rest of the code. Example for `eval`:
 
-![image](https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/eval_cmp.png#floatleft)
+<div className="ScreenView">
+  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/eval_cmp.png" alt="Syntax highlighting eval" />
+</div>
 
 First line doesn't use recursive highlighting, highlights `eval` argument as regular string. Second line switches theme to `zdharma` and does full recursive highlighting of eval argument.
 
@@ -95,112 +185,157 @@ First line doesn't use recursive highlighting, highlights `eval` argument as reg
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
-<img loading="lazy"
-    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/parameter.png#floatleft"
-    alt="image could not be loaded"
-  />
-
-<img loading="lazy"
-    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/in_string.png#floatleft"
-    alt="image could not be loaded"
-  />
+<div className="ScreenView">
+  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/parameter.png" alt="Syntax highlighting parameter" />
+</div>
+<div className="ScreenView">
+  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/in_string.png" alt="Syntax highlighting in string" />
+</div>
 
 ### Brackets
 
-<img loading="lazy"
-    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/brackets.gif#floatleft"
-    alt="image could not be loaded"
-  />
+<div className="ScreenView">
+  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/brackets.gif" alt="Syntax highlighting brackets" />
+</div>
 
 ### Conditions
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
-<img loading="lazy"
-    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/cplx_cond.png#floatleft"
-    alt="image could not be loaded"
-  />
+<div className="ScreenView">
+  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/cplx_cond.png" alt="Syntax highlighting conditions" />
+</div>
 
 ### Strings
 
 Exact highlighting that recognizes quotings.
 
-<img loading="lazy"
-    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/ideal-string.png#floatleft"
-    alt="image could not be loaded"
-  />
+<div className="ScreenView">
+  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/ideal-string.png" alt="Syntax highlighting strings" />
+</div>
 
 #### here-strings
 
-<img loading="lazy"
-    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/herestring.png#floatleft"
-    alt="image could not be loaded"
-  />
+<div className="ScreenView">
+  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/herestring.png" alt="Syntax highlighting here-strings" />
+</div>
 
 ### `exec` descriptor-variables
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
-<img loading="lazy"
-    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/execfd_cmp.png#floatleft"
-    alt="image could not be loaded"
-  />
+<div className="ScreenView">
+  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/execfd_cmp.png" alt="Syntax highlighting exec" />
+</div>
 
 ### The for-loops and alternate syntax (brace `{`/`}` blocks)
 
-<img loading="lazy"
-    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/for-loop-cmp.png#floatleft"
-    alt="image could not be loaded"
-  />
+<div className="ScreenView">
+  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/for-loop-cmp.png" alt="Syntax highlighting loops" />
+</div>
 
 ### Function definitions
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper 2 lines):
 
-<img loading="lazy"
-    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/function.png#floatleft"
-    alt="image could not be loaded"
-  />
+<div className="ScreenView">
+  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/function.png" alt="Syntax highlighting function" />
+</div>
 
 ### Recursive `eval` and `$( )` highlighting
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
-<img loading="lazy"
-    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/eval_cmp.png#floatleft"
-    alt="image could not be loaded"
-  />
+<div className="ScreenView">
+  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/eval_cmp.png" alt="Syntax highlighting eval" />
+</div>
 
-### Chroma functions
+## Chroma functions
 
-Highlighting that is specific for a given command.
+### Command specific highlighting
 
-<img loading="lazy"
-    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/git_chroma.png#floatleft"
-    alt="image could not be loaded"
-  />
+#### Autoload
+
+<div className="ScreenView">
+  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-autoload.gif" alt="Syntax highlighting autoload" />
+</div>
+
+#### Awk
+
+<div className="ScreenView">
+  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-awk.gif" alt="Syntax highlighting awk" />
+</div>
+
+#### Git commit
+
+<div className="ScreenView">
+  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-git-commit.gif" alt="Syntax highlighting git commit" />
+</div>
+
+#### Git checkout
+
+<div className="ScreenView">
+  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-git-checkout.gif" alt="Syntax highlighting git checkout" />
+</div>
+
+#### Grep
+
+<div className="ScreenView">
+  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-grep.gif" alt="Syntax highlighting grep" />
+</div>
+
+#### Perl
+
+<div className="ScreenView">
+  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-perl.gif" alt="Syntax highlighting perl" />
+</div>
+
+#### Sh
+
+<div className="ScreenView">
+  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-sh-c.gif" alt="Syntax highlighting sh -c" />
+</div>
 
 The [chromas](https://github.com/z-shell/F-Sy-H/tree/main/→chroma) that are enabled by default can be found [here](https://github.com/z-shell/F-Sy-H/blob/main/fast-highlight#L166).
 
-<img
-    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/math.gif#floatleft"
-    alt="image could not be loaded"
-  />
+### Fpath highlighting
+
+<div className="ScreenView">
+  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-fpath.gif" alt="Syntax highlighting fpath" />
+</div>
+
+### Case highlighting
+
+<div className="ScreenView">
+  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-case.gif" alt="Syntax highlighting case" />
+</div>
+
+### Math highlighting
+
+<div className="ScreenView">
+  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/math.gif" alt="Syntax highlighting math" />
+</div>
 
 ### Zcalc highlighting
 
-<img loading="lazy"
-    src="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/zcalc.png#floatleft"
-    alt="image could not be loaded"
-  />
+<div className="ScreenView">
+  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/zcalc.png" alt="Syntax highlighting zcalc" />
+</div>
 
 ### Performance
 
 Performance differences can be observed in this Asciinema recording, where a `10 kB` function is being edited.
 
-  <a href="https://asciinema.org/a/112367">
-    <Image img={require('@site/static/img/png/112367.png')} />
-  </a>
+<div className="ScreenView">
+  <AsciinemaPlayer
+    fallback={<Spinner />}
+    src='https://asciinema.org/a/512971.cast'
+    rows={24}
+    cols={135}
+    speed={1.5}
+    idleTimeLimit={1}
+  />
+</div>
 
 ### Custom Working Directory
 
@@ -210,9 +345,7 @@ You can use "~" in the path, e.g. `FAST_WORK_DIR=~/.fsh` and also the `XDG:`, `L
 
 ### Chroma guide for F-Sy-H
 
-#### Motivation
-
-Someone might want to create a detailed highlighting for a **specific program** and this document helps achieving this. It explains how chroma functions – the code behind such detailed highlighting – are constructed and used.
+This document explains to create a detailed highlighting for a **specific program**.
 
 #### Keywords
 
@@ -249,11 +382,11 @@ So example invocation could look like this:
 
 Big-loop will be doing such calls for the user, after occurring a specific chroma-enabled command (like e.g. `awk`), and then until chroma will detect end of this chroma-enabled command (end of whole invocation, with arguments, etc.; in other words, when e.g. new line or `;`-character occurs, etc.).
 
-#### example of chroma function
+#### Example of chroma function
 
-```shell showLineNumbers
-# -_- mode: sh; sh-indentation: 4; indent-tabs-mode: nil; sh-basic-offset: 4; -_-
-# Copyright (c) 2018 Sebastian Gniazdowski
+```shell title="→chroma/-example.ch" showLineNumbers
+# -*- mode: zsh; sh-indentation: 2; indent-tabs-mode: nil; sh-basic-offset: 2; -*-
+# vim: ft=zsh sw=2 ts=2 et
 #
 # Example chroma function. It colorizes first two arguments as `builtin' style,
 # third and following arguments as `globbing' style. First two arguments may
@@ -261,25 +394,35 @@ Big-loop will be doing such calls for the user, after occurring a specific chrom
 #
 # $1 - 0 or 1, denoting if it's first call to the chroma, or following one
 #
-# $2 - like above document says
+# $2 - the current token, also accessible by $__arg from the above scope -
+#      basically a private copy of $__arg; the token can be eg.: "grep"
 #
-# $3 - ...
+# $3 - a private copy of $_start_pos, i.e. the position of the token in the
+#      command line buffer, used to add region_highlight entry (see man),
+#      because Zsh colorizes by *ranges* in command line buffer
 #
-# $4 - ...
+# $4 - a private copy of $_end_pos from the above scope
+#
+#
+# Overall functioning is: when command "example" is occured, this function
+# is called with $1 == 1, it ("example") is the first token ($2), then for any
+# following token, this function is called with $1 == 0, until end of command
+# is occured (i.e. till enter is pressed or ";" is put into source, or the
+# command line simply ends).
 #
 # Other tips are:
 # - $CURSOR holds cursor position
 # - $BUFFER holds whole command line buffer
 # - $LBUFFER holds command line buffer that is left from the cursor, i.e. it's a
-# BUFFER substring 1 .. $CURSOR
+#   BUFFER substring 1 .. $CURSOR
 # - $RBUFFER is the same as LBUFFER but holds part of BUFFER right to the cursor
 #
 # The function receives $BUFFER but via sequence of tokens, which are shell words,
 # e.g. "a b c" is a shell word, while a b c are 3 shell words.
 #
 # FAST_HIGHLIGHT is a friendly hash array which allows to store strings without
-# creating global parameters (variables). If you need hash, go ahead and use it,
-# declaring first, under some distinct name like: typeset -gA CHROMA_EXPLE_DICT.
+# creating global parameters (variables). If you need hash, just use it first
+# declaring, under some distinct name like: typeset -gA CHROMA_EXPLE_DICT.
 # Remember to reset the hash and others at __first_call == 1, so that you have
 # a fresh state for new command.
 
@@ -287,141 +430,81 @@ Big-loop will be doing such calls for the user, after occurring a specific chrom
 # So the below 8192 assignment takes care that next token will be routed to chroma.
 (( next_word = 2 | 8192 ))
 
-local __first_call="$1"__wrd="$2" __start_pos="$3"__end_pos="$4"
+local __first_call="$1" __wrd="$2" __start_pos="$3" __end_pos="$4"
 local __style
-integer__idx1 __idx2
+integer __idx1 __idx2
 
 (( __first_call )) && {
-    # Called for the first time - new command.
-    # FAST_HIGHLIGHT is used because it survives between calls, and
-    # allows to use a single global hash only, instead of multiple
-    # global string variables.
-    FAST_HIGHLIGHT[chroma-example-counter]=0
+  # Called for the first time - new command. FAST_HIGHLIGHT is used because it survives between calls,
+  # and allows to use a single global hash only, instead of multiple global string variables.
+  FAST_HIGHLIGHT[chroma-example-counter]=0
 
-    # Set style for region_highlight entry. It is used below in
-    # '[[ -n "$__style" ]] ...' line, which adds highlight entry,
-    # like "10 12 fg=green", through `reply' array.
-    #
-    # Could check if command `example' exists and set `unknown-token'
-    # style instead of `command'
-    __style=${FAST_THEME_NAME}command
+  # Set style for region_highlight entry. It is used below in
+  # '[[ -n "$__style" ]] ...' line, which adds highlight entry, like "10 12 fg=green", through `reply' array.
+  #
+  # Could check if command `example' exists and set `unknown-token'
+  # style instead of `command'
+  __style=${FAST_THEME_NAME}command
 
 } || {
-    # Following call, i.e. not the first one
+  # Following call, i.e. not the first one
 
-    # Check if chroma should end – test if token is of type
-    # "starts new command", if so pass-through – chroma ends
-    [[ "$__arg_type" = 3 ]] && return 2
+  # Check if chroma should end – test if token is of type "starts new command", if so pass-through – chroma ends
+  [[ "$__arg_type" = 3 ]] && return 2
 
-    if [[ "$__wrd" = -* ]]; then
-        # Detected option, add style for it.
-        [[ "$__wrd" = --* ]] && __style=${FAST_THEME_NAME}double-hyphen-option || \
-                                __style=${FAST_THEME_NAME}single-hyphen-option
+  if (( in_redirection > 0 || this_word & 128 )) || [[ $__wrd == "<<<" ]]; then
+    return 1
+  fi
+
+  if [[ "$__wrd" = -* ]]; then
+    # Detected option, add style for it.
+    [[ "$__wrd" = --* ]] && \
+    __style=${FAST_THEME_NAME}double-hyphen-option || __style=${FAST_THEME_NAME}single-hyphen-option
+  else
+    # Count non-option tokens
+    (( FAST_HIGHLIGHT[chroma-example-counter] += 1, __idx1 = FAST_HIGHLIGHT[chroma-example-counter] ))
+
+    # Colorize 1..2 as builtin, 3.. as glob
+    if (( FAST_HIGHLIGHT[chroma-example-counter] <= 2 )); then
+      if [[ "$__wrd" = \"* ]]; then
+        # Pass through, fsh main code will do the highlight!
+        return 1
+      else
+        __style=${FAST_THEME_NAME}builtin
+      fi
     else
-        # Count non-option tokens
-        (( FAST_HIGHLIGHT[chroma-example-counter] += 1, __idx1 = FAST_HIGHLIGHT[chroma-example-counter] ))
-
-        # Colorize 1..2 as builtin, 3.. as glob
-        if (( FAST_HIGHLIGHT[chroma-example-counter] <= 2 )); then
-            if [[ "$__wrd" = \"* ]]; then
-                # Pass through, fsh main code will do the highlight!
-                return 1
-            else
-                __style=${FAST_THEME_NAME}builtin
-            fi
-        else
-            __style=${FAST_THEME_NAME}globbing
-        fi
+      __style=${FAST_THEME_NAME}globbing
     fi
+  fi
 }
 
 # Add region_highlight entry (via `reply' array).
 # If 1 will be added to __start_pos, this will highlight "oken".
-# If 1 will be subtracted from__end_pos, this will highlight "toke".
+# If 1 will be subtracted from __end_pos, this will highlight "toke".
 # $PREBUFFER is for specific situations when users does command \<ENTER>
 # i.e. when multi-line command using backslash is entered.
 #
 # This is a common place of adding such entry, but any above code can do
-# it itself (and it does in other chromas) and skip setting __style to
-# this way disable this code.
-[[ -n "$__style" ]] && ((__start=__start_pos-${#PREBUFFER},__end=__end_pos-${#PREBUFFER},__start >= 0 )) && reply+=("$__start $__end ${FAST_HIGHLIGHT_STYLES[$__style]}")
+# it itself (and it does in other chromas) and skip setting __style to this way disable this code.
+[[ -n "$__style" ]] && \
+(( __start=__start_pos-${#PREBUFFER}, __end=__end_pos-${#PREBUFFER}, __start >= 0 )) && \
+reply+=("$__start $__end ${FAST_HIGHLIGHT_STYLES[$__style]}")
 
 # We aren't passing-through, do obligatory things ourselves.
 # _start_pos=$_end_pos advainces pointers in command line buffer.
+#
+# To pass through means to `return 1'.
+# The highlighting of this single token is then done by F-Sy-H's
+# main code and chroma doesn't have to do anything.
 (( this_word = next_word ))
 _start_pos=$_end_pos
 
 return 0
 ```
 
-### Install F-Sy-H
-
-#### Standalone
-
-Clone the Repository.
-
-```shell
-git clone https://github.com/z-shell/F-Sy-H ~/path/to/fsh
-```
-
-And add the following to your `zshrc` file.
-
-```shell
-source ~/path/to/fsh/F-Sy-H.plugin.zsh
-```
-
-#### ZI
-
-Add the following to your `zshrc` file.
-
-```shell
-zi light z-shell/F-Sy-H
-```
-
-Here's an example of how to load the plugin together with a few other popular ones with the use of [Turbo](/docs/getting_started/overview#turbo-mode-zsh--53), i.e.: speeding up the Zsh startup by loading the plugin right after the first prompt, in background:
-
-```shell showLineNumbers
-zi wait lucid for \
- atinit"ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-    z-shell/F-Sy-H \
- blockf \
-    zsh-users/zsh-completions \
- atload"!_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions
-```
-
-#### Zinit
-
-Add the following to your `zshrc` file.
-
-```shell
-zinit light z-shell/F-Sy-H
-```
-
-#### Antigen
-
-Add the following to your `zshrc` file.
-
-```shell
-antigen bundle z-shell/F-Sy-H
-```
-
-#### Zgen
-
-Add the following to your `.zshrc` file in the same place you're doing your other `zgen load` calls in.
-
-```shell
-zgen load z-shell/F-Sy-H
-```
-
-#### Oh-My-Zsh
-
-Clone the Repository:
-
-```shell
-git clone https://github.com/z-shell/F-Sy-H.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/F-Sy-H
-```
-
-And add `F-Sy-H` to your plugin list.
+<!-- end-of-file -->
+<!-- links -->
 
 [1]: https://github.com/z-shell/F-Sy-H
+[ini-files]: https://github.com/z-shell/F-Sy-H/tree/main/themes
+[turbo-mode]: /docs/getting_started/overview#turbo-mode-zsh--53

@@ -8,13 +8,6 @@ import Translate, { translate } from "@docusaurus/Translate";
 import Spinner from "@site/src/components/Spinner";
 import styles from "./styles.module.css";
 
-function load(func) {
-  return Loadable(func, { fallback: <Spinner /> });
-}
-const AsciinemaPlayer = load(
-  () => import("@site/src/components/AsciinemaPlayer")
-);
-
 const turboSvg = () => (
   <span className='fa-6x'>
     <i className='fa-solid fa-forward' />
@@ -113,6 +106,9 @@ function Features() {
 }
 
 export default function HomeFeatures(): JSX.Element {
+  const AsciinemaPlayer = Loadable(
+    () => import("@site/src/components/AsciinemaPlayer")
+  );
   return (
     <section className={styles.features}>
       <div className='container'>
@@ -127,8 +123,8 @@ export default function HomeFeatures(): JSX.Element {
               </Translate>
             </h2>
             <AsciinemaPlayer
+              fallback={<Spinner />}
               src='https://asciinema.org/a/509113.cast'
-              /* poster="npt:0:30" */
               rows={34}
               cols={231}
               speed={2}
@@ -149,7 +145,7 @@ export default function HomeFeatures(): JSX.Element {
               </Translate>
             </h2>
             <AsciinemaPlayer
-              /* poster="npt:2:34" */
+              fallback={<Spinner />}
               src='https://asciinema.org/a/497831.cast'
               rows={34}
               cols={231}
