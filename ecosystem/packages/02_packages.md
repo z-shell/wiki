@@ -46,7 +46,7 @@ For all the available packages use [GitHub search][22].
 
 ### The Apache Portable Runtime (APR) library
 
-<div class="apitable" align="center">
+<div className="apitable" align="center" default>
 <table>
     <tr>
         <td><b>Package source:</b></td>
@@ -71,6 +71,91 @@ Download, build and install the latest Apache Portable Runtime.
 ```shell
 zi pack for apr
 ```
+
+### The asciidoctor Markdown processor
+
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <b>Package source:</b>
+      </td>
+      <td>Source Tarball</td>
+      <td>Binary</td>
+      <td>Git</td>
+      <td>Node</td>
+      <td>Gem</td>
+    </tr>
+    <tr>
+      <td>
+        <b>Status:</b>
+      </td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>☑️ (default)</td>
+    </tr>
+  </tbody>
+</table>
+
+Download the Gem of asciidoctor locally with the [bin-gem-node][] annex.
+
+> Using the `@' prefix because of collision with the as'' ice.
+
+```shell
+zi pack for @asciidoctor
+```
+
+### The AWS ECS CLI
+
+<div className="apitable" align="center">
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <b>Package source:</b>
+      </td>
+      <td>Source Tarball</td>
+      <td>Binary</td>
+      <td>Git</td>
+      <td>Node</td>
+      <td>Gem</td>
+    </tr>
+    <tr>
+      <td>
+        <b>Status:</b>
+      </td>
+      <td>❌</td>
+      <td>☑️ (default)</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<Tabs>
+  <TabItem value="default" label="Default"  default>
+
+Download the binary of the Amazon-ECS-CLI command.
+
+```shell
+zi pack for ecs-cli
+```
+
+  </TabItem>
+  <TabItem value="bin-gem-node" label="Annex">
+
+Download the ECS-CLI binary with the use of the bin-gem-node annex.
+
+```shell
+zi pack"bgn" for ecs-cli
+```
+
+  </TabItem>
+</Tabs>
 
 ### The dircolors-material color scheme
 
@@ -102,7 +187,7 @@ zi pack for apr
 </div>
 
 <Tabs>
-  <TabItem value="default" label="Default">
+  <TabItem value="default" label="Default"  default>
 
 Download the default profile.
 
@@ -140,6 +225,41 @@ zi pack"minimal" for dircolors-material
   </TabItem>
 </Tabs>
 
+### The doctoc Markdown processor
+
+<div className="apitable" align="center">
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <b>Package source:</b>
+      </td>
+      <td>Source Tarball</td>
+      <td>Binary</td>
+      <td>Git</td>
+      <td>Node</td>
+      <td>Gem</td>
+    </tr>
+    <tr>
+      <td>
+        <b>Status:</b>
+      </td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>☑️ (default)</td>
+      <td>❌</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+A download default profile with the Node package of doctoc.
+
+```shell
+zi pack for doctoc
+```
+
 ### The Firefox Developer Edition
 
 <div className="apitable" align="center">
@@ -170,7 +290,7 @@ zi pack"minimal" for dircolors-material
 </div>
 
 <Tabs>
-  <TabItem value="default" label="Default">
+  <TabItem value="default" label="Default" default>
 
 Download the firefox-dev latest binary.
 
@@ -220,7 +340,7 @@ zi pack"bgn" for firefox-dev
 </div>
 
 <Tabs>
-  <TabItem value="default" label="Default">
+  <TabItem value="default" label="Default" default>
 
 Download the package with the default profile.
 
@@ -249,7 +369,7 @@ zi pack"bgn" for fzf
   </TabItem>
   <TabItem value="bin-gem-node+key-bindings" label="Annex + key bindings">
 
-Download the package with the [bin-gem-node][] annex-utilizing the ice list and setting up the key bindings.
+Download the package with the [bin-gem-node][] annex and with the key bindings.
 
 > The "+keys" variants are available for each profile.
 
@@ -287,7 +407,7 @@ zi pack"bgn-binary" for fzf
   </TabItem>
 </Tabs>
 
-### The fzy command-line fuzzy finder.
+### The fzy command-line fuzzy finder
 
 <div className="apitable" align="center">
   <table>
@@ -316,15 +436,15 @@ zi pack"bgn-binary" for fzf
   </table>
 </div>
 
-
 <Tabs>
-  <TabItem value="default" label="Default">
+  <TabItem value="default" label="Default" default>
 
 Download the package with the default profile.
 
 ```shell
 zi pack for fzy
 ```
+
   </TabItem>
   <TabItem value="bin-gem-node" label="Annex">
 
@@ -354,7 +474,7 @@ zi pack"bgn" atclone'' for fzy
 
   </TabItem>
 </Tabs>
-    
+
 ### The LS_COLORS color scheme
 
 <div className="apitable" align="center">
@@ -383,7 +503,7 @@ zi pack"bgn" atclone'' for fzy
 </div>
 
 <Tabs>
-  <TabItem value="default" label="Default">
+  <TabItem value="default" label="Default" default>
 
 Download the default profile.
 
@@ -442,7 +562,7 @@ zi pack"no-dir-color-swap" for ls_colors
 </div>
 
 <Tabs>
-  <TabItem value="default" label="Default">
+  <TabItem value="default" label="Default" default>
 
 Download the tarball with the default ice list.
 
@@ -470,6 +590,100 @@ zi pack"bgn" git for pyenv
 
   </TabItem>
 </Tabs>
+
+### The remark Markdown processor
+
+<div className="apitable" align="center">
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <b>Package source:</b>
+      </td>
+      <td>Tarball</td>
+      <td>Git</td>
+      <td>Node</td>
+      <td>Gem</td>
+    </tr>
+    <tr>
+      <td>
+        <b>Status:</b>
+      </td>
+      <td>➖</td>
+      <td>➖</td>
+      <td>☑️ (default)</td>
+      <td>❌</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<Tabs>
+  <TabItem value="default" label="Default" default>
+
+Download the Node package of remark-CLI, remark-man and remark-HTML
+
+```shell
+zi pack for remark
+```
+
+  </TabItem>
+  <TabItem value="man-only" label="Man only">
+
+Download the Node package of remark-CLI and remark-man
+
+```shell
+zi pack"man-only" for remark
+```
+
+  </TabItem>
+  <TabItem value="specific-version" label="HTML only">
+
+Download the Node package of remark-CLI and remark-HTML
+
+```shell
+zi pack"html-only" for remark
+```
+
+  </TabItem>
+</Tabs>
+
+### Subversion
+
+<div className="apitable" align="center">
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <b>Package source:</b>
+      </td>
+      <td>Source Tarball</td>
+      <td>Binary</td>
+      <td>Git</td>
+      <td>Node</td>
+      <td>Gem</td>
+    </tr>
+    <tr>
+      <td>
+        <b>Status:</b>
+      </td>
+      <td>☑️ (default)</td>
+      <td>❌</td>
+      <td>☑️</td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+Download, build and install the latest Subversion.
+
+> Dependency of Subversion: [APR][3]
+
+```shell
+zi pack for subversion
+```
 
 ### The Zsh mirror of zsh-users
 
@@ -501,7 +715,7 @@ zi pack"bgn" git for pyenv
 </div>
 
 <Tabs>
-  <TabItem value="default" label="Default">
+  <TabItem value="default" label="Default" default>
 
 Install the newest Zsh.
 
@@ -560,7 +774,7 @@ zi pack"5.1.1" for zsh
 </div>
 
 <Tabs>
-  <TabItem value="default" label="Default">
+  <TabItem value="default" label="Default" default>
 
 Requires **root** access to install Zsh at `/usr/local` and will attempt to register it as a login shell.
 
