@@ -87,7 +87,7 @@ After installing and reloading the shell give `ZNT` a quick try with `Ctrl-R` â€
 
 Add the following to `.zshrc`. The config files will be in `~/.config/znt`.
 
-```shell
+```shell title="~/.zshrc"
 zi load z-shell/zsh-navigation-tools
 ```
 
@@ -96,29 +96,18 @@ zi load z-shell/zsh-navigation-tools
 
 Add the following to `.zshrc` and issue a `zgen reset` (this assumes that there is a proper `zgen save` construct in `.zshrc`).
 
-```shell
+```shell title="~/.zshrc"
 zgen load z-shell/zsh-navigation-tools
 ```
 
 The config files will be available in `~/.config/znt`.
 
   </TabItem>
-  <TabItem value="antigen" label="Antigen">
-
-Add the following to `.zshrc`. There also should be `antigen apply`.
-
-```shell
-antigen bundle z-shell/zsh-navigation-tools
-```
-
-The config files will be in `~/.config/znt`.
-
-  </TabItem>
   <TabItem value="manual" label="Manual">
 
 After extracting `ZNT` to `{some-directory}` add the following two lines to `~/.zshrc`:
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 fpath+=( {some-directory} )
 source "{some-directory}/zsh-navigation-tools.plugin.zsh"
 ```

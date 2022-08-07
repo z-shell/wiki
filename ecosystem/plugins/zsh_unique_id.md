@@ -84,11 +84,6 @@ zi load z-shell/zsh-unique-id
 Add `zgen load z-shell/zsh-unique-id` to your .zshrc file in the same place you're doing your other `zgen load` calls in.
 
   </TabItem>
-  <TabItem value="antigen" label="Antigen">
-
-Add `antigen bundle z-shell/zsh-unique-id` to your `.zshrc` file. Antigen will handle cloning the plugin for you automatically the next time you start zsh.
-
-  </TabItem>
   <TabItem value="oh-my-zsh" label="Oh-My-Zsh">
 
 Clone the Repository:

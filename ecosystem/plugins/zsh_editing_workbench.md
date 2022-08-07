@@ -29,7 +29,7 @@ Organized shortcuts for various command line editing operations, plus new operat
 
 After extracting `ZEW` to `{some-directory}` add the following two lines to `~/.zshrc`:
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 fpath+=( {some-directory} )
 source "{some-directory}/zsh-editing-workbench.plugin.zsh"
 ```
@@ -39,7 +39,7 @@ source "{some-directory}/zsh-editing-workbench.plugin.zsh"
 
 Add the following to `.zshrc`. The config files will be available in `~/.config/zew`.
 
-```shell
+```shell title="~/.zshrc"
 zi load z-shell/zsh-editing-workbench
 ```
 
@@ -47,11 +47,6 @@ zi load z-shell/zsh-editing-workbench
   <TabItem value="zgen" label="Zgen">
 
 Add `zgen load z-shell/zsh-editing-workbench` to `.zshrc` and issue a `zgen reset` (this assumes that there is a proper `zgen save` construct in `.zshrc`). The config files will be available in `~/.config/zew`.
-
-  </TabItem>
-  <TabItem value="antigen" label="Antigen">
-
-Add `antigen bundle z-shell/zsh-editing-workbench` to `.zshrc`. There also should be `antigen apply`. The config files will be in `~/.config/znt`.
 
   </TabItem>
 </Tabs>

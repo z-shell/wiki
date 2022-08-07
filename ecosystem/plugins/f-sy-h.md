@@ -29,13 +29,14 @@ import AsciinemaPlayer from "@site/src/components/AsciinemaPlayer";
 Clone the Repository.
 
 ```shell
-git clone https://github.com/z-shell/F-Sy-H ~/path/to/fsh
+git clone https://github.com/z-shell/F-Sy-H.git \
+  ~/some/path/to/fsh
 ```
 
 And add the following to your `.zshrc` file.
 
 ```shell
-source ~/path/to/fsh/F-Sy-H.plugin.zsh
+source ~/some/path/to/fsh/F-Sy-H.plugin.zsh
 ```
 
   </TabItem>
@@ -60,30 +61,12 @@ zi wait lucid for \
 ```
 
   </TabItem>
-  <TabItem value="zinit" label="Zinit">
-
-Add the following to your `.zshrc` file.
-
-```shell
-zinit light z-shell/F-Sy-H
-```
-
-  </TabItem>
   <TabItem value="zgen" label="Zgen">
 
 Add the following to your `.zshrc` file in the same place you're doing your other `zgen load` calls in.
 
 ```shell
 zgen load z-shell/F-Sy-H
-```
-
-  </TabItem>
-  <TabItem value="antigen" label="Antigen">
-
-Add the following to your `.zshrc` file.
-
-```shell
-antigen bundle z-shell/F-Sy-H
 ```
 
   </TabItem>

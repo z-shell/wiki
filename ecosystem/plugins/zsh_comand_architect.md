@@ -55,49 +55,51 @@ To update run the command again.
 
 `ZCA` will be installed at `~/.config/zca/zsh-cmd-architect`, config files will be copied to `~/.config/zca`. `.zshrc` will be updated with only `4` lines of code that will be added to the bottom.
 
-After installing and reloading the shell give `ZCA` a quick try with `Ctrl-T`.
+After installing and reloading the shell give `ZCA` a quick try with <kbd>Ctrl-T</kbd>.
 
   </TabItem>
   <TabItem value="zi" label="Zi">
 
-Add `zi load z-shell/zsh-cmd-architect` to `.zshrc`. The config files will be available in `~/.config/zca`.
+Add the following to `.zshrc`. The config files will be available in `~/.config/zca`.
+
+```shell title="~/.zshrc"
+zi load z-shell/zsh-cmd-architect
+```
 
   </TabItem>
   <TabItem value="zgen" label="Zgen">
 
-Add `zgen load z-shell/zsh-cmd-architect` to `.zshrc` and issue a `zgen reset` (this assumes that there is a proper `zgen save` construct in `.zshrc`). The config files will be available in `~/.config/zca`.
+Add the following to `.zshrc` and issue a `zgen reset` (this assumes that there is a proper `zgen save` construct in `.zshrc`). The config files will be available in `~/.config/zca`.
 
-  </TabItem>
-  <TabItem value="antigen" label="Antigen">
-
-Add `antigen bundle z-shell/zsh-cmd-architect` to `.zshrc`. There also should be `antigen apply`. The config files will be in `~/.config/znt`.
+```shell title="~/.zshrc"
+zgen load z-shell/zsh-cmd-architect
+```
 
   </TabItem>
   <TabItem value="manual" label="Manual">
 
 After extracting `ZCA` to `{some-directory}` add the following two lines to `~/.zshrc`:
 
-  </TabItem>
-</Tabs>
-
-```shell
+```shell title="~/.zshrc" showLineNumbers
 fpath+=( {some-directory} )
 source "{some-directory}/zsh-cmd-architect.plugin.zsh"
 ```
 
 As you can see, no plugin manager is needed to use the `*.plugin.zsh` file. The above two lines of code are all that almost **all** plugin managers do:
 
-```shell
+```shell title="~/.zshrc"
 source "{some-directory}/zsh-cmd-architect.plugin.zsh"
 ```
 
-because `ZCA` detects if it is used by **any** plugin manager and can handle `$fpath` update by itself.
+because `ZCA` detects if it is used by **any** plugin manager and can handle the `$fpath` update by itself.
 
-### Single file manual installation
+  </TabItem>
+  <TabItem value="single-file" label="Single File">
 
-Running script `doc/generate_single_file` will create a single-file version of `ZCA`. It can be sourced from `.zshrc`.
+Running script `doc/generate_single_file` will create a single-file version of `ZCA`. It can be sourced from `.zshrc`. Don't forget about configuration files (copy them to `~/.config/zca`).
 
-Don't forget about configuration files (copy them to `~/.config/zca`).
+  </TabItem>
+</Tabs>
 
 ## Performance
 

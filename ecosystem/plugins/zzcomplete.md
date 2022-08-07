@@ -52,22 +52,23 @@ With ZZComplete, the user can:
 
 Clone the Repository.
 
-```shell
-git clone https://github.com/z-shell/zzcomplete ~/path/to/zzcomplete
+```shell showLineNumbers
+git clone https://github.com/z-shell/zzcomplete \
+~/some/path/to/zzcomplete
 ```
 
-And add the following to your `zshrc` file.
+And add the following to your `.zshrc` file.
 
-```shell
+```shell title="~/.zshrc"
 source ~/path/to/zzcomplete/zzcomplete.plugin.zsh
 ```
 
   </TabItem>
   <TabItem value="zi" label="Zi">
 
-Add the following to your `zshrc` file.
+Add the following to your `.zshrc` file.
 
-```shell
+```shell title="~/.zshrc"
 zi light z-shell/zzcomplete
 ```
 
@@ -76,17 +77,8 @@ zi light z-shell/zzcomplete
 
 Add the following to your `.zshrc` file in the same place you're doing your other `zgen load` calls in.
 
-```shell
+```shell title="~/.zshrc"
 zgen load z-shell/zzcomplete
-```
-
-  </TabItem>
-  <TabItem value="antigen" label="Antigen">
-
-Add the following to your `zshrc` file.
-
-```shell
-antigen bundle z-shell/zzcomplete
 ```
 
   </TabItem>
@@ -94,9 +86,9 @@ antigen bundle z-shell/zzcomplete
 
 Clone the Repository.
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 git clone https://github.com/z-shell/zzcomplete.git \
-  ~ZSH_CUSTOM/plugins/zzcomplete
+${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zzcomplete
 ```
 
 And add `zzcomplete` to your plugin list.

@@ -46,17 +46,20 @@ Simply copy file `zsh-select` to any `bin` directory such as `/usr/local/bin`.
   </TabItem>
   <TabItem value="zi" label="Zi">
 
-Add `zi load z-shell/zsh-select` to `.zshrc`. The plugin will be loaded next time you start `Zsh`. To update issue `zi update z-shell/zsh-select` from command line.
+Add the following to `.zshrc`. The plugin will be loaded next time you start `Zsh`. To update issue `zi update z-shell/zsh-select` from command line.
+
+```shell title="~/.zshrc"
+zi load z-shell/zsh-select
+```
 
   </TabItem>
   <TabItem value="zgen" label="Zgen">
 
-Add `zgen load z-shell/zsh-select` to `.zshrc` and issue a `zgen reset` (this assumes that there is a proper `zgen save` construct in `.zshrc`).
+Add the following to `.zshrc` and issue a `zgen reset` (this assumes that there is a proper `zgen save` construct in `.zshrc`).
 
-  </TabItem>
-  <TabItem value="antigen" label="Antigen">
-
-Add `antigen bundle z-shell/zsh-select` to `.zshrc`. There also should be `antigen apply`.
+```shell title="~/.zshrc"
+zgen load z-shell/zsh-select
+```
 
   </TabItem>
   <TabItem value="vim" label="Vim">

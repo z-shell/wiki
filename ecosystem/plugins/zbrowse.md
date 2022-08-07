@@ -28,14 +28,14 @@ With ZBrowse, you just need to press <kbd>Ctrl-B</kbd>, which invokes the`ZBrows
 
 ## Install Zbrowse
 
-First, install the [ZUI](https://github.com/z-shell/zui) plugin - a UI library for Z shell.
+First, install the [z-shell/zui][] plugin - a UI library for Z shell.
 
 <Tabs>
   <TabItem value="standalone" label="Standalone" default>
 
 **The plugin is "standalone"**, which means that only sourcing it is needed. So to install, unpack ZBrowse somewhere and add to `.zshrc`:
 
-```shell
+```shell title="~/.zshrc"
 source {where-zbrowse-is}/zbrowse.plugin.zsh
 ```
 
@@ -44,7 +44,7 @@ source {where-zbrowse-is}/zbrowse.plugin.zsh
 
 Add the following to your `.zshrc`. Zi will handle cloning the plugin for you automatically the next time you start Zsh. To update run `zi update z-shell/zbrowse`.
 
-```shell
+```shell title="~/.zshrc"
 zi load z-shell/zbrowse
 ```
 
@@ -53,17 +53,8 @@ zi load z-shell/zbrowse
 
 Add the following to your `.zshrc` file in the same place you're doing your other `zgen load` calls.
 
-```shell
+```shell title="~/.zshrc"
 zgen load z-shell/zbrowse.git
-```
-
-  </TabItem>
-  <TabItem value="antigen" label="Antigen">
-
-Add the following to your `.zshrc` file. Antigen will handle cloning the plugin for you automatically the next time you start Zsh.
-
-```shell
-antigen bundle z-shell/zbrowse.git
 ```
 
   </TabItem>
@@ -71,11 +62,12 @@ antigen bundle z-shell/zbrowse.git
 
 Clone the Repository:
 
-```shell
-git clone https://github.com/z-shell/zbrowse.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zbrowse
+```shell title="~/.zshrc" showLineNumbers
+git clone https://github.com/z-shell/zbrowse.git \
+${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zbrowse
 ```
 
-And add `F-Sy-H` to your plugin list.
+And add `Zbrowse` to your plugin list.
 
   </TabItem>
 </Tabs>
@@ -84,3 +76,4 @@ And add `F-Sy-H` to your plugin list.
 <!-- links -->
 
 [z-shell/zbrowse]: https://github.com/z-shell/zbrowse
+[z-shell/zui]: https://github.com/z-shell/zui
