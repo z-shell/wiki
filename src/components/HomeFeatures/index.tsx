@@ -3,14 +3,9 @@
 
 import React from "react";
 import clsx from "clsx";
-import Loadable from "@loadable/component";
 import Translate, { translate } from "@docusaurus/Translate";
-import Spinner from "@site/src/components/Spinner";
+import AsciinemaPlayer from "@site/src/components/AsciinemaPlayer";
 import styles from "./styles.module.css";
-
-const AsciinemaPlayer = Loadable(
-  () => import("@site/src/components/AsciinemaPlayer")
-);
 
 const turboSvg = () => (
   <span className='fa-6x'>
@@ -124,7 +119,6 @@ export default function HomeFeatures(): JSX.Element {
               </Translate>
             </h2>
             <AsciinemaPlayer
-              fallback={<Spinner />}
               src='https://asciinema.org/a/509113.cast'
               rows={34}
               cols={231}
@@ -146,7 +140,6 @@ export default function HomeFeatures(): JSX.Element {
               </Translate>
             </h2>
             <AsciinemaPlayer
-              fallback={<Spinner />}
               src='https://asciinema.org/a/497831.cast'
               rows={34}
               cols={231}

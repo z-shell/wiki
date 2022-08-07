@@ -15,7 +15,7 @@ keywords:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Asciicast from "@site/src/components/Asciicast";
+import AsciinemaPlayer from "@site/src/components/AsciinemaPlayer";
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zzcomplete][]
 
@@ -34,7 +34,7 @@ With ZZComplete, the user can:
 
 ## ZZComplete preview
 
-<Asciicast
+<AsciinemaPlayer
     src='https://asciinema.org/a/293365.cast'
     rows={21}
     cols={125}

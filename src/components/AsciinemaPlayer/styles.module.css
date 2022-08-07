@@ -1,0 +1,22 @@
+/** @format */
+
+.asciicast {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .asciicast {
+    padding: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .asciicast {
+    padding: 0;
+  }
+}

@@ -2,7 +2,7 @@
 
 import React from "react";
 
-export default function Highlight({ children }) {
+export default function Highlight({ children }): JSX.Element {
   return (
     <span
       style={{
