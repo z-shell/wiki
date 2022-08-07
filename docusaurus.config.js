@@ -280,7 +280,7 @@ const config = {
               },
               {
                 label: "Matrix.org",
-                href: "https://matrix.to/#/#z-shell_zi:gitter.im",
+                href: "https://matrix.to/#/#zshell:matrix.org",
               },
               {
                 label: "Gitter.im",
