@@ -17,7 +17,7 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Image from '@theme/IdealImage';
-import Asciicast from "@site/src/components/Asciicast";
+import AsciinemaPlayer from "@site/src/components/AsciinemaPlayer";
 
 ## <i class="fa-brands fa-github"></i> [z-shell/f-sy-h][]
 
@@ -104,7 +104,7 @@ And add `F-Sy-H` to your plugin list.
 
 Performance differences can be observed in this Asciinema recording, where a `10 kB` function is being edited.
 
-<Asciicast
+<AsciinemaPlayer
   src='https://asciinema.org/a/512971.cast'
   rows={24}
   cols={135}
@@ -119,7 +119,7 @@ Performance differences can be observed in this Asciinema recording, where a `10
 
 Switch themes via `fast-theme {theme-name}`.
 
-<Asciicast
+<AsciinemaPlayer
   src='https://asciinema.org/a/513093.cast'
   rows={20}
   cols={100}
@@ -127,12 +127,6 @@ Switch themes via `fast-theme {theme-name}`.
   idleTimeLimit={1}
   preload
 />
-
-<!--
-<div className="ScreenView">
-  <Image img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh.gif" className="ImageView" alt="Syntax highlighting themes" />
-</div>
---->
 
 Run `fast-theme -t {theme-name}` option to obtain the snippet above.
 

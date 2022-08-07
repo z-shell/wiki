@@ -1,6 +1,6 @@
 ---
-id: available-packages
-title: "📦 Available packages"
+id: usage
+title: "📦 Usage"
 image: /img/logo/320x320.png
 description: The Z-Shell Organization packages
 keywords:
@@ -11,6 +11,8 @@ keywords:
 <!-- @format -->
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
+
+## Package repositories
 
 For all the available packages use [GitHub search][22].
 
@@ -46,24 +48,30 @@ For all the available packages use [GitHub search][22].
 
 ### The Apache Portable Runtime (APR) library
 
-<div className="apitable" align="center" default>
+<div className="apitable" align="center">
 <table>
+  <tbody>
     <tr>
-        <td><b>Package source:</b></td>
-        <td>Source Tarball</td>
-        <td>Binary</td>
-        <td>Git</td>
-        <td>Node</td>
-        <td>Gem</td>
+      <td>
+        <b>Package source:</b>
+      </td>
+      <td>Source Tarball</td>
+      <td>Binary</td>
+      <td>Git</td>
+      <td>Node</td>
+      <td>Gem</td>
     </tr>
     <tr>
-        <td><b>Status:</b></td>
-        <td>☑️ (default)</td>
-        <td>❌</td>
-        <td>☑️</td>
-        <td>❌</td>
-        <td>❌</td>
+      <td>
+        <b>Status:</b>
+      </td>
+      <td>☑️ (default)</td>
+      <td>❌</td>
+      <td>☑️</td>
+      <td>❌</td>
+      <td>❌</td>
     </tr>
+  </tbody>
 </table></div>
 
 Download, build and install the latest Apache Portable Runtime.
@@ -74,6 +82,7 @@ zi pack for apr
 
 ### The asciidoctor Markdown processor
 
+<div className="apitable" align="center">
 <table>
   <tbody>
     <tr>
@@ -98,6 +107,7 @@ zi pack for apr
     </tr>
   </tbody>
 </table>
+</div>
 
 Download the Gem of asciidoctor locally with the [bin-gem-node][] annex.
 
@@ -137,7 +147,7 @@ zi pack for @asciidoctor
 </div>
 
 <Tabs>
-  <TabItem value="default" label="Default"  default>
+  <TabItem value="default" label="Default" default>
 
 Download the binary of the Amazon-ECS-CLI command.
 
@@ -531,6 +541,39 @@ zi pack"no-dir-color-swap" for ls_colors
 
   </TabItem>
 </Tabs>
+
+### Feature-rich note‑taking (nb)
+
+<div className="apitable" align="center">
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <b>Package source:</b>
+      </td>
+      <td>Source Tarball</td>
+      <td>Git</td>
+      <td>Node</td>
+      <td>Gem</td>
+    </tr>
+    <tr>
+      <td>
+        <b>Status:</b>
+      </td>
+      <td>☑️ (default)</td>
+      <td>➖</td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+Default profile are using [bin-gem-node][] to set shims.
+
+```shell
+zi pack for nb
+```
 
 ### The Python virtual environment manager (pyenv)
 

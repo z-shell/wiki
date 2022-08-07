@@ -1,7 +1,6 @@
 ---
-id: packages
-slug: /packages
-title: "📦 Synopsis of packages"
+id: synopsis
+title: "📦 Synopsis"
 sidebar_position: 1
 image: /img/logo/320x320.png
 description: Introduction to packages.
@@ -9,6 +8,7 @@ keywords:
   - package
   - zpackage
   - zi-package
+  - packages-overview
 ---
 
 <!-- @format -->
@@ -22,7 +22,7 @@ The motivation for adding packages functionality:
    - get the plugin's Git repository OR release-package URL,
    - get the list of the recommended [ices][] for the plugin,
      - there can be multiple lists of [ices][],
-     - the ice lists are stored in profiles; there's at least one profile, default,
+     - the ices list are stored in profiles; there's at least one profile, default,
      - the [ices][] can be selectively overridden.
    - automatically provide so-called shims (i.e.: forwarder scripts) for the binaries,
    - extend `$PATH` to expose the binaries,
@@ -68,7 +68,7 @@ zi lucid as=program pick="$ZPFX/bin/(fzf|fzf-tmux)" \
   atclone="cp shell/completion.zsh _fzf_completion; \
     cp bin/(fzf|fzf-tmux) $ZPFX/bin" \
   make="PREFIX=$ZPFX install" for \
-  junegunn/fzf
+    junegunn/fzf
 ```
 
 you only need:
@@ -79,18 +79,14 @@ zi pack for fzf
 
 to get the complete setup of the fuzzy finder, including:
 
-- the completion,
-- the additional executable script `fzf-tmux`.
+- the completion
+- the additional executable script `fzf-tmux`
 
-The installation is real, package-manager -like, because you don't need to invoke Zi anymore once installed to use `fzf` (that's because `fzf` is just a binary program and not e.g.: a shell function).
-
-You can also update the package with `zi update fzf` – it'll cause the project to refresh and rebuild, like with a "normal" package manager such as `apt-get`.
-
-However, it'll be more like to `emerge` from Gentoo, because the installation will be from the source… unless… the user will pick up a binary installation by profile argument specified in the `pack'…'` ice.
+The installation is like with package-manager, because you don't need to invoke Zi anymore once installed to use `fzf` (that's because `fzf` is just a binary program and not e.g.: a shell function). You can also update the package with `zi update fzf` – it'll cause the project to refresh and rebuild, like with a "normal" package manager such as `apt-get`. However, it'll be more like to `emerge` from Gentoo, because the installation will be from the source… unless… the user will pick up a binary installation by profile argument specified in the `pack'…'` ice.
 
 ## Pros of using the Zi package for regular software installations
 
-Using ZI to install software where one could use a regular package manager has several advantages:
+Using Zi to install software where one could use a regular package manager has several advantages:
 
 1. **Pro:** The Zi packages typically use the URLs to the official and _latest_ distributions of the software (e.g.: the [ecs-cli][] package, which uses the URL: `https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest` when installing on Linux).
 
