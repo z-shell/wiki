@@ -22,33 +22,33 @@ This plugin provides a **unique number** that identifies a **running** Z shell s
 
 Default codenames are:
 
-- <Highlight>atlantis</Highlight> (for `ZUID_ID` == `1`)
-- <Highlight>echelon</Highlight> (for `ZUID_ID` == `2`)
-- <Highlight>quantum</Highlight> (for `ZUID_ID` == `3` and etc.)
-- <Highlight>ion</Highlight>
-- <Highlight>proxima</Highlight>
-- <Highlight>polaris</Highlight>
-- <Highlight>solar</Highlight>
-- <Highlight>momentum</Highlight>
-- <Highlight>hyper</Highlight>
-- <Highlight>gloom</Highlight>
-- <Highlight>velocity</Highlight>
-- <Highlight>future</Highlight>
-- <Highlight>enigma</Highlight>
-- <Highlight>andromeda</Highlight>
-- <Highlight>saturn</Highlight>
-- <Highlight>jupiter</Highlight>
-- <Highlight>aslan</Highlight>
-- <Highlight>commodore</Highlight>
-- <Highlight>falcon</Highlight>
-- <Highlight>persepolis</Highlight>
-- <Highlight>dharma</Highlight>
-- <Highlight>samsara</Highlight>
-- <Highlight>prodigy</Highlight>
-- <Highlight>ethereal</Highlight>
-- <Highlight>epiphany</Highlight>
-- <Highlight>aurora</Highlight>
-- <Highlight>oblivion</Highlight>
+- <Highlight color="var(--ifm-color-info)">atlantis</Highlight> (for `ZUID_ID` == `1`)
+- <Highlight color="var(--ifm-color-info)">echelon</Highlight> (for `ZUID_ID` == `2`)
+- <Highlight color="var(--ifm-color-info)">quantum</Highlight> (for `ZUID_ID` == `3` and etc.)
+- <Highlight color="var(--ifm-color-info)">ion</Highlight>
+- <Highlight color="var(--ifm-color-info)">proxima</Highlight>
+- <Highlight color="var(--ifm-color-info)">polaris</Highlight>
+- <Highlight color="var(--ifm-color-info)">solar</Highlight>
+- <Highlight color="var(--ifm-color-info)">momentum</Highlight>
+- <Highlight color="var(--ifm-color-info)">hyper</Highlight>
+- <Highlight color="var(--ifm-color-info)">gloom</Highlight>
+- <Highlight color="var(--ifm-color-info)">velocity</Highlight>
+- <Highlight color="var(--ifm-color-info)">future</Highlight>
+- <Highlight color="var(--ifm-color-info)">enigma</Highlight>
+- <Highlight color="var(--ifm-color-info)">andromeda</Highlight>
+- <Highlight color="var(--ifm-color-info)">saturn</Highlight>
+- <Highlight color="var(--ifm-color-info)">jupiter</Highlight>
+- <Highlight color="var(--ifm-color-info)">aslan</Highlight>
+- <Highlight color="var(--ifm-color-info)">commodore</Highlight>
+- <Highlight color="var(--ifm-color-info)">falcon</Highlight>
+- <Highlight color="var(--ifm-color-info)">persepolis</Highlight>
+- <Highlight color="var(--ifm-color-info)">dharma</Highlight>
+- <Highlight color="var(--ifm-color-info)">samsara</Highlight>
+- <Highlight color="var(--ifm-color-info)">prodigy</Highlight>
+- <Highlight color="var(--ifm-color-info)">ethereal</Highlight>
+- <Highlight color="var(--ifm-color-info)">epiphany</Highlight>
+- <Highlight color="var(--ifm-color-info)">aurora</Highlight>
+- <Highlight color="var(--ifm-color-info)">oblivion</Highlight>
 
 Zstyle configuration allows to customize the codenames:
 
@@ -63,7 +63,7 @@ zstyle :plugin:zuid codenames paper metal wood plastic # first 4 shells will hav
 
 Unpack `zsh-unique-id` to the chosen location and add to `.zshrc`:
 
-```shell
+```shell title="~/.zshrc"
 source {where-zsh-unique-id-is}/zsh-unique-id.plugin.zsh
 ```
 
@@ -74,7 +74,7 @@ Sourcing is recommended, because it can be done early, at top of zshrc, without 
 
 Add the following to your `.zshrc` file. Zi will clone the plugin the next time you start zsh. To update issue `zi update z-shell/zsh-unique-id`.
 
-```shell
+```shell title="~/.zshrc"
 zi load z-shell/zsh-unique-id
 ```
 
@@ -88,7 +88,7 @@ Add `zgen load z-shell/zsh-unique-id` to your .zshrc file in the same place you'
 
 Clone the Repository:
 
-```shell
+```shell title="~/.zshrc" showLineNumbers
 git clone https://github.com/z-shell/zsh-unique-id.git \
 ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-unique-id
 ```
