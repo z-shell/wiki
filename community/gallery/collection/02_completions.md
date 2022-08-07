@@ -1,6 +1,7 @@
 ---
 id: completions
 title: "🔺 Completions"
+image: /img/logo/320x320.png
 description: The Collection of Completions
 keywords:
   - collection
@@ -13,11 +14,11 @@ keywords:
 
 Related:
 
-1. [Completions managment](/docs/guides/commands#completions-management)
-2. [Calling compinit without turbo mode](/docs/guides/commands#calling-compinit-without-turbo-mode)
-3. [Calling compinit with turbo mode](/docs/guides/commands#calling-compinit-with-turbo-mode)
-4. [Ice modifiers/completions](/docs/guides/syntax/ice-modifiers#completions)
-5. [Ice: `src'…'`, `pick'…'`, `multisrc'…'`](/docs/guides/syntax/ice#src-pick-multisrc)
+1. [Completions managment][completions-management]
+2. [Calling compinit without turbo mode][calling-compinit-without-turbo-mode]
+3. [Calling compinit with turbo mode][calling-compinit-with-turbo-mode]
+4. [Ice modifiers/completions][ice-modifiers-completions]
+5. [Ice: src'…', pick'…', multisrc'…'][ice-src-pick-multisrc]
 
 :::
 
@@ -232,3 +233,12 @@ zi light "$SHELL_COMMON"
 zi ice lucid wait has'broot'
 zi snippet "$XDG_CONFIG_HOME/broot/launcher/bash/br"
 ```
+
+<!-- end-of-file -->
+<!-- links -->
+
+[completions-management]: /docs/guides/commands#completions-management
+[calling-compinit-without-turbo-mode]: /docs/guides/commands#calling-compinit-without-turbo-mode
+[calling-compinit-with-turbo-mode]: /docs/guides/commands#calling-compinit-with-turbo-mode
+[ice-modifiers-completions]: /docs/guides/syntax/ice-modifiers#completions
+[ice-src-pick-multisrc]: /docs/guides/syntax/ice#src-pick-multisrc

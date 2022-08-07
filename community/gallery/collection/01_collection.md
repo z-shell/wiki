@@ -1,7 +1,8 @@
 ---
+id: collection
 slug: /gallery/collection
 title: "🔺 Quick Introduction"
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: The Gallery of Invocations
 keywords:
   - collection
@@ -33,9 +34,9 @@ Any contributions you make will benefit everybody else and are greatly appreciat
 
 :::
 
-## Pefixed header tags
+## Prefixed header tags
 
-For the [search][7], prefixed tags helps as minimal description to the visible results.
+For the [search][7], prefixed tags help as a minimal description of the visible results.
 
 | Tag name | Install type    |
 | -------- | --------------- |
@@ -47,10 +48,10 @@ For the [search][7], prefixed tags helps as minimal description to the visible r
 | RA       | [Rust Annex][2] |
 | THP      | Themes/Prompts  |
 
-[1]: /ecosystem/annexes
+[1]: /ecosystem/annexes/overview
 [2]: /ecosystem/annexes/rust
 [3]: /ecosystem/annexes/meta-plugins
-[4]: /ecosystem/packages
+[4]: /ecosystem/packages/synopsis
 [5]: https://github.com/z-shell/zi/issues/new/choose
 [6]: https://github.com/orgs/z-shell/discussions/new
 [7]: /search/?q=GH-R

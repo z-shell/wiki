@@ -1,6 +1,7 @@
 ---
 id: programs
 title: "🔺 Programs"
+image: /img/logo/320x320.png
 description: The Collection of Programs
 keywords:
   - collection
@@ -13,21 +14,21 @@ keywords:
 
 1. [Overview: as'program'][100]
 2. [Turbo and Lucid][101]
-3. [The `for` syntax][102]
-4. [The `make` syntax][103]
+3. [The "for" syntax][102]
+4. [The "make" syntax][103]
 5. [Ice syntax][104]
 6. [Ice modifiers][105]
 7. [Compiling programs][106]
 8. [Customizing paths][107]
-9. [The ice modifiers by `bin-gem-node` annex][108]
+9. [The ice modifiers by "bin-gem-node" annex][108]
 
 :::
 
-:::tip Secure with specific version
+:::tip Secure with a specific version
 
-The `ver'…'` - allows to select specific version, branch or commit hash, also know as [permalink](https://docs.github.com/en/repositories/working-with-files/using-files/getting-permanent-links-to-files).
+The `ver'…'` - allows to select a specific version, branch, or commit hash, also known as [permalink][].
 
-> It is recommended but not required (HEAD branch auto selected).
+> It is recommended but not required (HEAD branch auto-selected).
 
 Example:
 
@@ -39,9 +40,9 @@ zi wait lucid for \
 
 :::
 
-:::tip Your own style
+:::tip Style your syntax
 
-Command wrap example for cleaner or prefered syntax.
+Command wrap example for cleaner or preferred syntax.
 
 ```shell showLineNumbers
 z_lucid() {
@@ -246,13 +247,6 @@ zi ice lucid wait as'program' atclone"cp hr.1 $ZPFX/man/man1" atpull'%atclone'
 zi light LuRsT/hr
 ```
 
-### SC: [z-shell/imgur-album-downloader](https://github.com/z-shell/imgur-album-downloader)
-
-```shell showLineNumbers
-zi ice lucid wait as'program' has'python3' pick'imguralbum.py'
-zi light z-shell/imgur-album-downloader
-```
-
 ### SC: [Seirdy/stpv](https://github.com/Seirdy/stpv)
 
 ```shell showLineNumbers
@@ -323,15 +317,17 @@ zi snippet 'https://github.com/DanielG/dxld-mullvad/blob/master/am-i-mullvad.sh'
 
 ### B: [abishekvashok/cmatrix](https://github.com/abishekvashok/cmatrix/)
 
+Standard syntax
+
 ```shell showLineNumbers
-# Regular syntax
 zi ice lucid as'program' atclone"autoreconf -i; ./configure --prefix=$ZPFX" \
   atpull'%atclone' make"install" pick"$ZPFX/bin/cmatrix"
 zi light abishekvashok/cmatrix
 ```
 
+The "for" syntax
+
 ```shell showLineNumbers
-# With the for syntax
 zi for as'program' atclone"autoreconf -i; ./configure --prefix=$ZPFX" \
   atpull'%atclone' make"all install" pick"$ZPFX/bin/cmatrix" \
     abishekvashok/cmatrix
@@ -457,16 +453,18 @@ zi ice rustup cargo'exa;lsd' nocompile
 zi load z-shell/0
 ```
 
+Expose binaries by altering $PATH:
+
 ```shell showLineNumbers
-# exposes their binaries by altering $PATH
 zi ice rustup cargo'exa;lsd' as'program' pick"bin/(exa|lsd)" nocompile
 zi load z-shell/0
 ```
 
 ### RA: Rust compiler environment
 
+Install rust and make it available globally in the system:
+
 ```shell showLineNumbers
-# Just install rust and make it available globally in the system
 zi ice id-as"rust" wait"0" lucid rustup as"program" pick"bin/rustc" \
   atload="export nocompile CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup"
 zi load z-shell/0
@@ -533,7 +531,7 @@ zi light-mode for as'program' atinit'export N_PREFIX="$PWD/n"; \
 - Manage [node version](https://pnpm.io/cli/env):
 - Install required [release](https://github.com/pnpm/pnpm/releases):
   - See available releases in the repository.
-  - Use `bpick` to match most relevant part of the release name as shown in example bellow.
+  - Use `bpick` to match the most relevant part of the release name as shown in the example below.
 
 :::
 
@@ -617,3 +615,4 @@ zi for as'program' nocompile'!' depth'1' \
 [107]: /docs/guides/customization#customizing-paths
 [108]: /ecosystem/annexes/bin-gem-node#the-ice-modifiers-provided-by-the-annex
 [ytdl-org/youtube-dl]: https://github.com/ytdl-org/youtube-dl
+[permalink]: https://docs.github.com/en/repositories/working-with-files/using-files/getting-permanent-links-to-files

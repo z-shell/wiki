@@ -1,6 +1,7 @@
 ---
 id: plugins
 title: "🔺 Plugins"
+image: /img/logo/320x320.png
 description: The Collection of Plugins
 keywords:
   - Collection

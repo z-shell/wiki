@@ -2,15 +2,15 @@
 
 import React from "react";
 
-export default function Highlight({ children }): JSX.Element {
+export default function Highlight({ color, children }): JSX.Element {
   return (
     <span
       style={{
-        backgroundColor: "var(--ifm-color-primary)",
+        backgroundColor: color,
         borderRadius: "0.2rem",
-        color: "var(--ifm-color-white)",
-        padding: "0.1rem",
+        padding: "0 0.1rem",
         fontWeight: "bold",
+        color: "var(--ifm-color-black)",
       }}
     >
       {children}
