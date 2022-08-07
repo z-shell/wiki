@@ -17,6 +17,18 @@ An annex runs tests (for example `make test``) – if found will autorun it afte
 
 Simply load it like any other plugin to make it active:
 
+:::info
+
+Before installing the annex, you must have installed the @zunit meta plugin:
+
+```shell
+ zi for z-shell/z-a-meta-plugins @zunit
+```
+
+
+
+:::
+
 ```shell
 zi light z-shell/z-a-test
 ```
