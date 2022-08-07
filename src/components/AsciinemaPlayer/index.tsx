@@ -1,4 +1,5 @@
 /** @format */
+// @ts-check
 
 import React from "react";
 import Loadable from "@loadable/component";
@@ -9,13 +10,12 @@ const Library = Loadable(
   () => import("@site/src/components/AsciinemaPlayer/Library")
 );
 
-export default function Asciicast({ src, ...props }): JSX.Element {
+export default function AsciinemaPlayer({ ...props }): JSX.Element {
   return (
     <div className='container'>
       <div className={styles.asciicast}>
         <Library
           fallback={<Spinner />}
-          src={src}
           {...props}
         />
       </div>

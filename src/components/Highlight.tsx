@@ -1,8 +1,15 @@
 /** @format */
+// @ts-check
 
-import React from "react";
+import React, { type ReactNode } from "react";
 
-export default function Highlight({ color, children }): JSX.Element {
+export default function Highlight({
+  children,
+  color,
+}: {
+  children: ReactNode;
+  color: string;
+}): JSX.Element {
   return (
     <span
       style={{

@@ -86,6 +86,7 @@ function Features() {
         <div className='row'>
           {features.map(({ title, Svg, description }, idx) => (
             <div
+              // eslint-disable-next-line react/no-array-index-key
               key={idx}
               className={clsx("col col--4", styles.features)}
             >

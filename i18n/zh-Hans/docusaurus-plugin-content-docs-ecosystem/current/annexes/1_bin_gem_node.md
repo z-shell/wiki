@@ -1,7 +1,7 @@
 ---
 id: bin-gem-node
 title: "🌀 Bin Gem Node"
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: Annex - Bin Gem Node documentation.
 keywords:
   - zannex,
@@ -11,7 +11,9 @@ keywords:
 
 <!-- @format -->
 
-## <i class="fa-brands fa-github"></i> [z-shell/z-a-bin-gem-node][1]
+import Image from '@theme/IdealImage';
+
+## <i class="fa-brands fa-github"></i> [z-shell/z-a-bin-gem-node][]
 
 An annex provides the following functionality:
 
@@ -22,7 +24,7 @@ An annex provides the following functionality:
    - [$VIRTUALENV][7]
 3. Run programs, scripts, and functions with automatic `cd` into the plugin or snippet directory, plus also with automatic standard output & standard error redirecting.
 4. Source scripts through an automatically created function with the above `$GEM_HOME`, `$NODE_PATH`, `$VIRTUALENV`, and `cd` features available,
-5. Create the so-called `shims` known from [rbenv](https://github.com/rbenv/rbenv) – the same feature as the first item of this enumeration – of running a program without adding anything to `$PATH` with all of the above features, however through an automatic **script** created in `$ZPFX/bin`, not a **function** (the first item uses a function-based mechanism),
+5. Create the so-called `shims` known from [rbenv][rbenv/rbenv] – the same feature as the first item of this enumeration – of running a program without adding anything to `$PATH` with all of the above features, however through an automatic **script** created in `$ZPFX/bin`, not a **function** (the first item uses a function-based mechanism),
 6. Automatic updates of Ruby gems and Node modules during regular plugin and snippet updates with `zi update …`.
 
 ## Install bin-gem-node
@@ -35,23 +37,26 @@ zi light z-shell/z-a-bin-gem-node
 
 After executing this command you can then use the dl'…' and patch'…' ice-modifiers.
 
-### How it works – bird's-eye view
+## Synopsis of bin-gem-node annex
 
-The `sbin'…'` ice that creates forwarder-scripts instead of forwarder-functions (created by the `fbin'…'` ice and elaborated in this `How it works …` section) turned out to be the proper, best method for exposing binary programs and scripts. You can jump to the `sbin'…'` ice [section](#sbin) if you want. This way there is no need to add anything to `$PATH` – `z-a-bin-gem-node` will automatically create a function that will wrap the binary and provide it on the command line as if it was being placed in the `$PATH`. Also, as mentioned in the enumeration, the function can automatically export `$GEM_HOME`, `$NODE_PATH`, `$VIRTUALENV` shell variables and also automatically cd into the plugin or snippet directory right before executing the binary and then cd back to the original directory after the execution is finished. Also, as already mentioned, instead of the function an automatically created script – the so-called `shim` – can be used for the same purpose and with the same functionality, so that the command is being accessible practically fully normally – not only in the live Zsh session (only within which the functions created by `fbin'…'` exist) but also from any Zsh script.
+The `sbin'…'` ice that creates forwarder-scripts instead of forwarder-functions (created by the `fbin'…'` ice and elaborated in this `How it works …` section) turned out to be the proper, best method for exposing binary programs and scripts. You can jump to the `sbin'…'` ice [section](#sbin) if you want. This way there is no need to add anything to `$PATH` – `z-a-bin-gem-node` will automatically create a function that will wrap the binary and provide it on the command line as if it was being placed in the `$PATH`. Also, as mentioned in the enumeration, the function can automatically export `$GEM_HOME`, `$NODE_PATH`, `$VIRTUALENV` shell variables and also automatically cd into the plugin or snippet directory right before executing the binary and then cd back to the original directory after the execution is finished. Also, as already mentioned, instead of the function an automatically created script – the so-called `shim` – can be used for the same purpose and with the same functionality, so that the command is accessible practically fully normally – not only in the live Zsh session (only within which the functions created by `fbin'…'` exist) but also from any Zsh script.
 
 ### How it works
 
-Suppose that you would want to install `junegunn/fzf` plugin from GitHub Releases, which contains only a single file – the `fzf` binary for the selected architecture. It is possible to do it in the standard way – by adding the plugin's directory to the `$PATH`:
+Suppose that you would want to install the `junegunn/fzf` plugin from GitHub Releases, which contains only a single file – the `fzf` binary for the selected architecture. It is possible to do it in the standard way – by adding the plugin's directory to the `$PATH`:
+
+<!-- TODO: #84 Below can be replaced with detailed asciinema video (to the next NOTE comment) -->
+
+````shell
 
 ```shell showLineNumbers
 zi ice as'program' from'gh-r'
 zi load junegunn/fzf
-```
+````
 
 After this command, the `$PATH` variable will contain e.g.:
 
-```shell showLineNumbers
-% print $PATH
+```shell title="% print $PATH" showLineNumbers
 /home/sg/.zi/plugins/junegunn---fzf:/bin:/usr/bin:/usr/sbin:/sbin
 ```
 
@@ -62,10 +67,9 @@ zi ice as'program' from'gh-r' sbin'fzf'
 zi load junegunn/fzf
 ```
 
-The `$PATH` will remain unchanged and a `fzf` forwarder-script, so-called _shim_ will be created in `$ZPFX/bin` (`~/.zi/polaris/bin` by default), which is being already added to the `$PATH` by Zi when it is being sourced:
+The `$PATH` will remain unchanged and a forwarder-script of `fzf` shim will be created in `$ZPFX/bin` (`~/.zi/polaris/bin` by default), which is being already added to the `$PATH` by Zi when it is being sourced:
 
-```shell showLineNumbers
-% cat $ZPFX/bin/fzf
+```shell title="% cat $ZPFX/bin/fzf" showLineNumbers
 #!/usr/bin/env zsh
 
 function fzf {
@@ -75,6 +79,8 @@ function fzf {
 
 fzf "$@"
 ```
+
+<!-- NOTE: The above can be replaced with detailed asciinema video -->
 
 Running the script will forward the call to the program accessed through an embedded path to it. Thus, no `$PATH` changes are needed!
 
@@ -99,18 +105,23 @@ There are 7 ice modifiers provided and handled by the annex:
 
 It creates the so-called `shim` known from `rbenv` – a wrapper script that forwards the call to the actual binary. The script is created always under the same, standard, and single `$PATH` entry: `$ZPFX/bin` (which is `~/.zi/polaris/bin` by default). The flags have the same meaning as with `fbin'…'` ice.
 
+<!-- TODO: #83 Below can be replaced with asciinema video (commands to replicate the next NOTE comment) -->
+
 Example:
 
-```shell showLineNumbers
-% zi delete junegunn/fzf
+```shell title="% zi delete junegunn/fzf" showLineNumbers
 Delete /home/sg/.zi/plugins/junegunn---fzf?
 [yY/n…]
 y
 Done (action executed, exit code: 0)
-% zi ice from"gh-r" sbin"fzf"
-% zi load junegunn/fzf
-…installation messages…
-% cat $ZPFX/bin/fzf
+```
+
+```shell showLineNumbers
+zi ice from'gh-r' sbin'fzf'
+zi load junegunn/fzf
+```
+
+```shell title="% cat $ZPFX/bin/fzf" showLineNumbers
 #!/usr/bin/env zsh
 
 function fzf {
@@ -120,6 +131,8 @@ function fzf {
 
 fzf "$@"
 ```
+
+<!-- NOTE: Asciinema should video should replicate the above -->
 
 **The ice can be empty**. It will then try to create the shim for the trailing component of the `id_as` ice, e.g.:
 
@@ -144,6 +157,8 @@ Creates a wrapper function of the name the same as the last segment of the path 
 | `N`  | Append `&>/dev/null` to the call of the binary, i.e. redirect both standard output and standard error to `/dev/null`. |
 | `E`  | Append `2>/dev/null` to the call of the binary, i.e. redirect standard error to `/dev/null`.                          |
 | `O`  | Append `>/dev/null` to the call of the binary, i.e. redirect standard output to `/dev/null`.                          |
+
+<!-- TODO: #85 [docs]: Below exmaple can be replaced with asciinema image (GIF) -->
 
 Example:
 
@@ -174,6 +189,8 @@ The same trailing component would be set for the snippet URL, for any alphabetic
 
 Installs the gem of name `{gem-name}` with `$GEM_HOME` set to the plugin's or snippet's directory. In other words, the gem and its dependencies will be installed locally in that directory. In the second form, it also creates a wrapper function identical to the one created with `fbin'…'` ice.
 
+<!-- TODO: #86 [docs]: Below exmaple can be replaced with asciinema image (GIF) -->
+
 Example:
 
 ```shell showLineNumbers
@@ -194,6 +211,8 @@ asciidoctor () {
 **`node'[{path-to-binary} <-] !{node-module} [-> {name-of-the-function}]; …'`**
 
 Installs the node module of name `{node-module}` inside the plugin's or snippet's directory. In the second form, it also creates a wrapper function identical to the one created with `fbin'…'` ice.
+
+<!-- TODO: #90 [docs]: Below exmaple can be replaced with asciinema image (GIF) -->
 
 Example:
 
@@ -218,6 +237,8 @@ In this case, the name of the binary program provided by the node module is diff
 **`pip'[{path-to-binary} <-] !{pip-package} [-> {name-of-the-function}]; …'`**
 
 Installs the node module of name `{pip-package}` inside the plugin's or snippet's directory. In the second form, it also creates a wrapper function identical to the one created with `fbin'…'` ice.
+
+<!-- TODO: #89 [docs]: Below exmaple can be replaced with asciinema image (GIF) -->
 
 Example:
 
@@ -244,6 +265,8 @@ In this case, the name of the binary program provided by the node module is diff
 
 It wraps the given function with the ability to set `$GEM_HOME`, etc. – the meaning of the `g`,`n` and `c` flags is the same as in the `fbin'…'` ice.
 
+<!-- TODO: #88 [docs]: Below exmaple can be replaced with asciinema image (GIF) -->
+
 Example:
 
 ```shell showLineNumbers
@@ -256,12 +279,12 @@ myfun () {
         local -x NODE_PATH="/home/sg/.zi/plugins/z-shell---null"/node_modules
         local oldpwd="/home/sg/.zi/plugins/zi---z-a-bin-gem-node"
         () {
-                setopt localoptions noautopushd
+                setopt local_options no_auto_pushd
                 builtin cd -q "/home/sg/.zi/plugins/z-shell---null"
         }
         "myfun--za-bgn-orig" "$@"
         () {
-                setopt localoptions noautopushd
+                setopt local_options no_auto_pushd
                 builtin cd -q "$oldpwd"
         }
 }
@@ -280,6 +303,8 @@ README.md
 `ferc'[{g|n|c|N|E|O}:]{path-to-script}[ -> {name-of-the-function}]; …'`
 
 Creates a wrapper function that at each invocation sources the given file. The second ice, `ferc'…'` works the same with the single difference that it uses `eval "$(<{path-to-script})"` instead of `source "{path-to-script}"` to load the script.
+
+<!-- TODO: #87 [docs]: Below exmaple can be replaced with asciinema image (GIF) -->
 
 Example:
 
@@ -308,40 +333,33 @@ myscript () {
 
 :::info
 
-To view subcommands registred by annexes run: `zi subcmds`.
+To view subcommands registered by annexes run: `zi subcmds`.
 
 :::
 
 There's an additional Zi subcommand that is provided by annex –`shim-list`. It searches for and displays any shims that are currently stored under `$ZPFX/bin`:
 
 <div className="ScreenView">
-<span className="ScreenView">
-  <img
+  <Image
     className="ImageView"
-    width="1000"
-    height="500"
-    src="https://github.com/z-shell/z-a-bin-gem-node/raw/7f9ed8918d15bc0b2fad4329bc867b022856f4e5/docs/images/shim-list.png"
+    img="https://github.com/z-shell/z-a-bin-gem-node/raw/7f9ed8918d15bc0b2fad4329bc867b022856f4e5/docs/images/shim-list.png"
     alt= "shim-list invocation"
-   />
-</span>
+  />
 </div>
 
 Available flags are:
 
 ```shell
-zi shim-list [-h/--help] [-t|--this-dir] [-i|--from-ices] [-o|--one-line] [-s|--short] [-c|--cat]
+zi shim-list [ -t | -i | -o | -s | -h ]
 ```
 
-| Flag               | Description                                                                                       |
-| :----------------- | :------------------------------------------------------------------------------------------------ |
-| `-h` `--help`      | Shows usage information.                                                                          |
-| `-t` `--this-dir`  | Instructs Zi to look for shims in the current directory instead of `$ZPFX/bin`.                   |
-| `-i` `--from-ices` | Normally the code looks for the shim files by examining their contents (**more info below [!]**). |
-| `-o` `--one-line`  | Display the list of shim files without line breaks, in a single line, after spaces.               |
-| `-s` `--short`     | Don't show the plugin/snippet that the shim belongs to.                                           |
-| `-c` `--cat`       | Displays contents of each of the found shim (unimplemented yet).                                  |
-
-> - [!] shims created by BGN annex have a fixed structure, this option instructs Zi to show the list of shims that results from the `sbin'…'` ice of the loaded plugins. If a plugin for example has `sbin'git-open'`, means that such shim has already been created.
+| Flag               | Description                                                                              |
+| :----------------- | :--------------------------------------------------------------------------------------- |
+| `-t` `--this-dir`  | Instructs Zi to look for shims in the current directory instead of `$ZPFX/bin`.          |
+| `-i` `--from-ices` | Normally the code looks for the shim files by examining their contents (more info [^1]). |
+| `-o` `--one-line`  | Display the list of shim files without line breaks, in a single line, after spaces.      |
+| `-s` `--short`     | Don't show the plugin/snippet that the shim belongs to.                                  |
+| `-h` `--help`      | Shows usage information.                                                                 |
 
 ## Cygwin Support
 
@@ -352,12 +370,17 @@ zi pack=bgn for firefox
 ```
 
 <!-- end-of-file -->
+<!--footnotes-->
+
 <!-- links -->
 
-[1]: https://github.com/z-shell/z-a-bin-gem-node
+[^1]: shims created by bin-gem-node annex have a fixed structure, this option instructs Zi to show the list of shims that results from the `sbin'…'` ice of the loaded plugins. If a plugin for example has `sbin'git-open'`, means that such shim has already been created.
+
+[z-shell/z-a-bin-gem-node]: https://github.com/z-shell/z-a-bin-gem-node
 [2]: https://github.com/rubygems/rubygems
 [3]: https://github.com/npm/cli
 [4]: https://python.org
 [5]: https://guides.rubygems.org/command-reference/#gem-environment
 [6]: https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders
 [7]: https://docs.python.org/3/tutorial/venv.html
+[rbenv/rbenv]: https://github.com/rbenv/rbenv

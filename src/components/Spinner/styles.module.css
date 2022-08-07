@@ -1,7 +1,0 @@
-/** @format */
-
-.loading {
-  display: block;
-  margin: 0 auto;
-  color: var(--ifm-color-primary);
-}

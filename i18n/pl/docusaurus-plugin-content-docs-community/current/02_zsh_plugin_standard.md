@@ -91,7 +91,7 @@ When you’ll set e.g.: the `zsh` emulation in a function, you in general don’
 
 ### **STATUS:** [ zero-handling ]
 
-GitHub Search: [ZERO][]
+- GitHub Search: [ZERO](https://github.com/search?q=%22${ZERO:-${0:%23$ZSH_ARGZERO}}%22&type=Code)
 
 ## 2. Functions directory {#funtions-directory}
 
@@ -137,14 +137,14 @@ The runnable should be put into the directory with a `+x` access right assigned.
 4. The plugin manager is permitted to do optional things like ensuring `+x` access rights on the directory contents. The `$PMSPEC` code letter for the feature is `b`, and it allows for the plugin to handle the `$PATH` extending itself, via, e.g.:
 
 ```shell showLineNumbers
-if [[ $PMSPEC != *b* ]] {
+if [[ $PMSPEC != *b* ]]; then
   path+=( "${0:h}/bin" )
-}
+fi
 ```
 
 ### **STATUS:** [ binaries-directory ]
 
-1. Plugin managers: [Zpm][], [Zgenom][] (when you set `ZGENOM_AUTO_ADD_BIN=1`).
+- GitHub Search: [PMSPEC \*b\*](https://github.com/search?l=Shell&q=[[+%24PMSPEC+!%3D+*b*+]]&type=Code)
 
 ## 4. Unload function {#unload-function}
 
@@ -160,7 +160,7 @@ Note that the unload function should contain `unfunction $0` (or better `unfunct
 
 ### **STATUS:** [ unload-function ] {#unload-function}
 
-- [ZI][] implements plugin unloading and calls the function.
+- [Zi][] implements plugin unloading and calls the function.
 
 - [romkatv/powerlevel10k is using][] the function to execute a specific task: shutdown of the binary, background [gitstatus][] daemon, with very good results,
 
@@ -184,7 +184,7 @@ The function registers pieces of code to be run by the plugin manager **on unloa
 
 ### **STATUS:** [ run-on-unload-call ]
 
-1. Plugin managers: [ZI][], [Zinit][].
+- GitHub Search: [zsh-plugin-run-on-unload](https://github.com/search?l=Shell&&q=zsh-plugin-run-on-unload&type=Code)
 
 ## 6. `@zsh-plugin-run-on-update` call {#run-on-update-call}
 
@@ -200,7 +200,7 @@ The function registers pieces of code to be run by the plugin manager on an upda
 
 ### **STATUS:** [ run-on-update-call ]
 
-1. Plugin managers: [ZI][], [Zinit][].
+- GitHub Search: [zsh-plugin-run-on-update](https://github.com/search?l=Shell&&q=zsh-plugin-run-on-update&type=Code)
 
 ## 7. Plugin manager activity indicator {#activity-indicator}
 
@@ -219,26 +219,24 @@ The first item allows a plugin to e.g. issue a notice about missing dependencies
 The second item allows a plugin to e.g. set up `$fpath`, knowing that the plugin manager will not handle this:
 
 ```shell showLineNumbers
-if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}]} ]] {
+if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}]} ]]; then
   fpath+=( "${0:h}" )
-}
+fi
 ```
 
 This will allow the user to reliably source the plugin without using a plugin manager. The code uses the wrapping braces around variables (i.e.: e.g.: `${fpath…}`) to make it compatible with the `KSH_ARRAYS` option and the quoting around `${0:h}` to make it compatible with the `SH_WORD_SPLIT` option.
 
 ### **STATUS:** [ activity-indicator ]
 
-1. Plugin managers: [ZI][], [Zinit][], [Zpm][], [Zgenom][], [Zgen][]
-
-2. Plugins: [GitHub search loaded][]
+- GitHub Search: [zsh_loaded_plugins](https://github.com/search?l=Shell&&q=zsh_loaded_plugins+fpath&type=Code)
 
 ## 8. Global parameter with PREFIX for make, configure, etc {#global-parameter-with-prefix}
 
 > [ global-parameter-with-prefix ]
 
-Plugin managers may export the parameter `$ZPFX` which should contain a path to a directory dedicated to user-land software, i.e. for directories `$ZPFX/bin`, `$ZPFX/lib`, `$ZPFX/share`, etc. The suggested name of the directory is `polaris` (e.g.: ZI uses this name and places this directory at `~/.zi/polaris` by default).
+Plugin managers may export the parameter `$ZPFX` which should contain a path to a directory dedicated to user-land software, i.e. for directories `$ZPFX/bin`, `$ZPFX/lib`, `$ZPFX/share`, etc. The suggested name of the directory is `polaris` (e.g.: Zi uses this name and places this directory at `~/.zi/polaris` by default).
 
-Users can then configure hooks (a feature of e.g. zplug and Zi) to invoke e.g. `make PREFIX=$ZPFX install` at clone & update the plugin to install software like e.g. [tj/git-extras][]. This is the developing role of Zsh plugin managers as package managers, where `.zshrc` has a similar role to Chef or Puppet configuration and allows to **declare** system state, and have the same state on different accounts/machines.
+Users can then configure hooks to invoke e.g. `make PREFIX=$ZPFX install` at clone & update the plugin to install software like e.g. [tj/git-extras][]. This is the developing role of Zsh plugin managers as package managers, where `.zshrc` has a similar role to Chef or Puppet configuration and allows to **declare** system state, and have the same state on different accounts/machines.
 
 No-narration facts-list related to `$ZPFX`:
 
@@ -256,7 +254,7 @@ No-narration facts-list related to `$ZPFX`:
 
 ### **STATUS:** [ global-parameter-with-prefix ]
 
-1. Plugin managers: [ZI][], [Zinit][], [Zpm][], [Zgenom][].
+- GitHub Search: [ZPFX](https://github.com/search?l=Shell&p=14&q=%24ZPFX&type=Code)
 
 ## 9. Global parameter holding the plugin manager’s capabilities {#global-parameter-with-capabilities}
 
@@ -285,14 +283,14 @@ The above paragraphs of the standard spec each constitute a capability, a featur
 The contents of the parameter describing a fully-compliant plugin manager should be: `0fuUpiPs`. The plugin can then verify the support by:
 
 ```shell showLineNumbers
-if [[ $PMSPEC != *f* ]] {
+if [[ $PMSPEC != *f* ]]; then
   fpath+=( "${0:h}/functions" )
-}
+fi
 ```
 
 ### **STATUS:** [ global-parameter-with-capabilities ]
 
-1. Plugin managers: [ZI][], [Zinit][], [Zpm][], [Zgenom][].
+- GitHub Search: [PMSPEC](https://github.com/search?l=Shell&p=2&q=export+PMSPEC&type=Code)
 
 ## Zsh plugin-programming best practices
 
@@ -478,8 +476,6 @@ typeset -A PlgMap
 typeset -A SomeMap
 typeset -a some_array
 
-# Use
-
 PlgMap[state]=1
 SomeMap[state]=1
 some_array[1]=state
@@ -489,8 +485,6 @@ can be converted into:
 
 ```shell showLineNumbers
 typeset -A PlgMap
-
-# Use
 
 PlgMap[state]=1
 PlgMap[SomeMap__state]=1
@@ -502,17 +496,11 @@ The use of this method is very unproblematic. The author reduced the number of g
 Following the [Standard Plugins Hash](#standard-plugins-hash) section, the plugin could even use a common hash name – `Plugins` – to lower the pollution even more.
 
 [zi]: https://github.com/z-shell/zi
-[zinit]: https://github.com/zdharma-continuum/zinit
-[zpm]: https://github.com/zpm-zsh/zpm
-[zgenom]: https://github.com/jandamm/zgenom
-[zgen]: https://github.com/tarjoilija/zgen
 [comparison]: http://www.zsh.org/mla/workers/2017/msg01827.html
 [romkatv/powerlevel10k is using]: https://github.com/romkatv/powerlevel10k/blob/f17081ca/internal/p10k.zsh#L5390
 [gitstatus]: https://github.com/romkatv/gitstatus
 [agkozak/agkozak-zsh-prompt is using]: https://github.com/agkozak/agkozak-zsh-prompt/blob/ed228952d68fea6d5cad3beee869167f76c59606/agkozak-zsh-prompt.plugin.zsh#L992-L1039
 [agkozak/zsh-z is using]: https://github.com/agkozak/zsh-z/blob/16fba5e9d5c4b650358d65e07609dda4947f97e8/zsh-z.plugin.zsh#L680-L698
-[zero]: https://github.com/search?q=%22${ZERO:-${0:%23$ZSH_ARGZERO}}%22&type=Code
-[github search loaded]: https://github.com/search?q=if+%22zsh_loaded_plugins%22&type=Code
 [agkozak/zhooks is using]: https://github.com/agkozak/zhooks/blob/628e1e3b8373bf31c26cb154f71c16ebe9d13b51/zhooks.plugin.zsh#L75-L82
 [tj/git-extras]: https://github.com/tj/git-extras
 [fill-them]: https://github.com/z-shell/zw/issues/new
