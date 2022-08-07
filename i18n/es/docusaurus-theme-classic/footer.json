@@ -21,6 +21,6 @@
   },
   "link.item.label.Privacy Policy": {
     "message": "Política de Privacidad",
-    "description": "The label of footer link with label=Privacy Policy linking to legal/PRIVACY?static=true"
+    "description": "The label of footer link with label=Privacy Policy linking to legal/PRIVACY"
   }
 }

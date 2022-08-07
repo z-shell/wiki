@@ -49,7 +49,7 @@
   },
   "link.item.label.Privacy Policy": {
     "message": "隐私政策",
-    "description": "The label of footer link with label=Privacy Policy linking to legal/PRIVACY?static=true"
+    "description": "The label of footer link with label=Privacy Policy linking to legal/PRIVACY"
   },
   "copyright": {
     "message": "Copyright © 2022 Z-Shell Community.",

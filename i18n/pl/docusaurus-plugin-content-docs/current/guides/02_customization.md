@@ -158,7 +158,7 @@ setopt share_history           Share history between different instances of the 
 ### Other tweaks {#other-tweaks}
 
 ```shell title="~/.zshrc" showLineNumbers
-setopt bang_hist             Treat The '!' Character Specially During Expansion.
+setopt bang_hist             Treat the '!' character, especially during Expansion.
 setopt multios               Perform implicit tees or cats when multiple redirections are attempted.
 setopt interactive_comments  Allow comments even in interactive shells (especially for Muness).
 setopt pushd_ignore_dups     Don't push multiple copies of the same directory onto the directory stack.

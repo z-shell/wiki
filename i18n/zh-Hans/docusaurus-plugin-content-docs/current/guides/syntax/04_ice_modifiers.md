@@ -7,15 +7,12 @@ description: Ice Modifiers Documentation
 keywords:
   - ice-syntax
   - ice-modifiers
+  - ice-modifiers-reference
 ---
 
 <!-- @format -->
 
-An ice modifiers are [passed][alternate-syntax] to `zi ice …` to obtain described effects, additionally can be added with [annexes][12]. To see all available ice modifiers run `zi -h`.
-
-The word `ice` means something that's added, like ice to a drink – and in Zi, it means adding a modifier to a next `zi` command, and also something temporary because it melts – and this means that the modification will last only for a **single** next `zi` command.
-
-Some ice modifiers are highlighted and clicking on them will take you to the appropriate Wiki page for an extended explanation. You may safely assume that given ice works with both plugins and snippets unless explicitly stated otherwise.
+An ice modifiers are [passed][alternate-syntax] to `zi ice …` to obtain described effects, additionally can be added with [annexes][12]. To see all available ice modifiers run `zi -h`. The word `ice` means something that's added, like ice to a drink – and in Zi, it means adding a modifier to a next `zi` command, and also something temporary because it melts – and this means that the modification will last only for a **single** next `zi` command. Some ice modifiers are highlighted and clicking on them will take you to the appropriate Wiki page for an extended explanation. You may safely assume that given ice works with both plugins and snippets unless explicitly stated otherwise.
 
 ## <i class="fa-solid fa-list"></i> Ice effects {#ice-effects}
 
@@ -25,7 +22,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 | :-------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |      `as`       | Can be `as"program"` (alias: `as"command"`), and will cause to add script/program to `$PATH` instead of sourcing (see `pick`). Can also be `as"completion"` – use with plugins or snippets in whose only underscore-starting `_*` files you are interested in. [^8]                                                                                             |
 |   [id-as][6]    | Nickname a plugin or snippet, e.g. create a short handler for the long-URL snippet.                                                                                                                                                                                                                                                                             |
-|    `compile`    | Pattern (+ possible `{…}` expansion, like `{a/*,b*}`) to select additional files to compile, e.g. `compile"(pure\|async).zsh"` for `sindresorhus/pure`.                                                                                                                                                                                                         |
+|    `compile`    | Pattern (possible `{…}` expansion, like `{a/*,b*}`) to select additional files to compile, e.g. `compile"(pure \| async).zsh"`for`sindresorhus/pure`.                                                                                                                                                                                                           |
 |   `nocompile`   | Don't try to compile `pick`-pointed files. If passed the exclamation mark (i.e. `nocompile'!'`), then do compile, but after `make'…'` and `atclone'…'` (useful if Makefile installs some scripts, to point `pick'…'` at the location of their installation).                                                                                                    |
 |    `service`    | Make the following plugin or snippet a _service_, which will run in the background, and only in a single Zshell instance. See [#zservice][7] topic.                                                                                                                                                                                                             |
 | `reset-prompt`  | Reset the prompt after loading the plugin/snippet (by issuing `zle .reset-prompt`). Note: normally it's sufficient to precede the value of `wait'…'` ice with `!`.                                                                                                                                                                                              |
@@ -75,7 +72,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 
 |  Ice-modifier  | Description                                                                                                              |
 | :------------: | ------------------------------------------------------------------------------------------------------------------------ |
-|   [wait][2]    | Postpone loading a plugin or snippet. For `wait'1'`, loading is done `1` second after prompt. [^3].                      |
+|   [wait][2]    | Postpone loading a plugin or snippet. For `wait'1'`, loading is done `1` second after the prompt. [^3].                  |
 |   [load][3]    | A condition to check which should cause the plugin to load. [^4].                                                        |
 |  [unload][3]   | A condition to check to cause the plugin to unload. More below [^5].                                                     |
 |  `cloneonly`   | Don't load the plugin/snippet, only download it.                                                                         |
@@ -120,10 +117,10 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 | [atclone][4] | Run command after cloning, within plugin's directory, e.g. `zi ice atclone"echo cloned"`. Ran also after downloading the snippet.                                                                                                                                                                      |
 | [atpull][4]  | Run command after updating (only for new commits), within the plugin's directory. If starts with "!" then the command will be run before `mv` & `cp` ices and before `git pull` or `svn update`. Otherwise is run after `mv` & `cp` ices. Use the `atpull'%atclone'` to repeat `atclone` ice-modifier. |
 | [atinit][4]  | Run command after directory setup (cloning, checking, etc.) of the plugin/snippet before loading it.                                                                                                                                                                                                   |
-| [atload][4]  | Run the given command within the plugin's directory after loading. Can be used with snippets. Passed code can be preceded with `!`, to be investigated (when use `load`, not `light`).                                                                                                                 |
+| [atload][4]  | Run the given command within the plugin's directory after loading. Can be used with snippets. Passed code can be preceded with `!`, to be investigated (when using `load`, not `light`).                                                                                                               |
 | `run-atpull` | Always run the atpull hook (when updating), not exclusively for new commits.                                                                                                                                                                                                                           |
 |    `nocd`    | Don't switch the current directory to the plugin's directory when evaluating the above ice-modifiers `atinit'…'`, `atload'…'`, etc.                                                                                                                                                                    |
-|  [make][5]   | Run the `make` command after cloning or updating and executing the `mv`, `cp`, `atpull`, `atclone` ice-modifiers. Can obtain argument, e.g. `make"install PREFIX=/opt"`. If value starts with `!` then `make` is run before `atclone` and `atpull` ice-modiers, e.g. `make'!'`.                        |
+|  [make][5]   | Run the `make` command after cloning or updating and executing the `mv`, `cp`, `atpull`, `atclone` ice-modifiers. Can obtain argument, e.g. `make"install PREFIX=/opt"`. If the value starts with `!` then `make` is run before `atclone` and `atpull` ice-modifiers, e.g. `make'!'`.                  |
 | `countdown`  | Causes an interruptable (by <kbd>Ctrl-C</kbd>) countdown 5…4…3…2…1…0 to be displayed before executing `atclone'…'`, `atpull'…'` and `make` ices-modifiers.                                                                                                                                             |
 |   `reset`    | Invokes `git reset --hard HEAD` for plugins or `svn revert` for SVN snippets before pulling any new changes. This way `git` or `svn` will not report conflicts if some changes were done by e.g.: `atclone'…'` ice-modifier. For file snippets and `gh-r` plugins, it invokes `rm -rf *`.              |
 
@@ -137,8 +134,8 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 | :-------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |   `sh`, `!sh`   | Source the plugin's (or snippet's) script with `sh` emulation so that also all functions declared within the file will get a **sticky** emulation assigned and invoked with the `sh` emulation set-up. The `!sh` version switches additional options that are rather not important from the portability perspective. |
 | `bash`, `!bash` | The same as `sh`, but with the `SH_GLOB` option disabled, for "Bash" regular expressions to work.                                                                                                                                                                                                                    |
-|  `ksh`, `!ksh`  | The same as `sh`, but emulating `ksh` shell.                                                                                                                                                                                                                                                                         |
-|  `csh`, `!csh`  | The same as `sh`, but emulating `csh` shell.                                                                                                                                                                                                                                                                         |
+|  `ksh`, `!ksh`  | The same as `sh`, but emulating the `ksh` shell.                                                                                                                                                                                                                                                                     |
+|  `csh`, `!csh`  | The same as `sh`, but emulating the `csh` shell.                                                                                                                                                                                                                                                                     |
 
 </div>
 
@@ -149,5 +146,5 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 
 <!-- links -->
 
-[12]: /ecosystem/annexes
+[12]: /ecosystem/annexes/overview
 [alternate-syntax]: /docs/guides/syntax/common#the-alternative-syntaxes
