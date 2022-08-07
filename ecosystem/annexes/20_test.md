@@ -15,8 +15,6 @@ keywords:
 
 An annex runs tests (for example `make test``) – if found will autorun it after installing and updating a plugin or snippet.
 
-Simply load it like any other plugin to make it active:
-
 :::info
 
 Before installing the annex, you must have installed the @zunit meta plugin:
@@ -26,6 +24,8 @@ Before installing the annex, you must have installed the @zunit meta plugin:
 ```
 
 :::
+
+Simply load it like any other plugin to make it active:
 
 ```shell
 zi light z-shell/z-a-test
