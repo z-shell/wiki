@@ -25,8 +25,6 @@ Before installing the annex, you must have installed the @zunit meta plugin:
  zi for z-shell/z-a-meta-plugins @zunit
 ```
 
-
-
 :::
 
 ```shell
