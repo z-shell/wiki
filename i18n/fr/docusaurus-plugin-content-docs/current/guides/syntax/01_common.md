@@ -223,8 +223,6 @@ The motivation behind the syntaxes is to utilize the syntax highlighting of edit
 <!-- end-of-file -->
 <!-- footnotes -->
 
-
-
 <!-- links -->
 
 [1]: https://github.com/trapd00r/LS_COLORS

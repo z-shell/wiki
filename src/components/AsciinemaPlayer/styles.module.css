@@ -1,0 +1,9 @@
+/** @format */
+
+.asciicast {
+  display: block;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  padding-bottom: 1em;
+}

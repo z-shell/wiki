@@ -116,6 +116,6 @@ zi id-as'pulumi' as'readurl|null' extract'!' for \
 ```
 
 [z-shell/z-a-readurl]: https://github.com/z-shell/z-a-readurl
-[Open Shift]: https://www.openshift.com/
-[Pulumi]: https://www.pulumi.com/
+[open shift]: https://www.openshift.com/
+[pulumi]: https://www.pulumi.com/
 [terraform]: http://releases.hashicorp.com/terraform

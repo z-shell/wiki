@@ -2,6 +2,21 @@
 
 # Notes
 
+## AsciinemaPlayer Controls
+
+- <kbd>space</kbd> - play / pause
+- <kbd>f</kbd> - toggle fullscreen mode
+- <kbd>←</kbd> / <kbd>→</kbd> - rewind by 5 seconds / fast-forward by 5 seconds
+- <kbd>Shift</kbd> + <kbd>←</kbd> / <kbd>Shift</kbd> + <kbd>→</kbd> - rewind by 10% / fast-forward by 10%
+- <kbd>0</kbd>, <kbd>1</kbd>, <kbd>2</kbd> ... <kbd>9</kbd> - jump to 0%, 10%, 20% ... 90%
+
+## Highlighting example
+
+```jsx
+import Highlight from "@site/src/components/Highlight";
+<Highlight color='var(--ifm-color-info)'>ice modifiers</Highlight>;
+```
+
 ## <i class="fa-brands fa-superpowers"></i> [Annexes](/ecosystem/annexes/)
 
 - Github topic: [zannex][gh-zannex]

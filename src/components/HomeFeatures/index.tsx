@@ -3,17 +3,9 @@
 
 import React from "react";
 import clsx from "clsx";
-import Loadable from "@loadable/component";
 import Translate, { translate } from "@docusaurus/Translate";
-import Spinner from "@site/src/components/Spinner";
+import AsciinemaPlayer from "@site/src/components/AsciinemaPlayer";
 import styles from "./styles.module.css";
-
-function load(func) {
-  return Loadable(func, { fallback: <Spinner /> });
-}
-const AsciinemaPlayer = load(
-  () => import("@site/src/components/AsciinemaPlayer")
-);
 
 const turboSvg = () => (
   <span className='fa-6x'>
@@ -94,6 +86,7 @@ function Features() {
         <div className='row'>
           {features.map(({ title, Svg, description }, idx) => (
             <div
+              // eslint-disable-next-line react/no-array-index-key
               key={idx}
               className={clsx("col col--4", styles.features)}
             >
@@ -128,7 +121,6 @@ export default function HomeFeatures(): JSX.Element {
             </h2>
             <AsciinemaPlayer
               src='https://asciinema.org/a/509113.cast'
-              /* poster="npt:0:30" */
               rows={34}
               cols={231}
               speed={2}
@@ -149,7 +141,6 @@ export default function HomeFeatures(): JSX.Element {
               </Translate>
             </h2>
             <AsciinemaPlayer
-              /* poster="npt:2:34" */
               src='https://asciinema.org/a/497831.cast'
               rows={34}
               cols={231}

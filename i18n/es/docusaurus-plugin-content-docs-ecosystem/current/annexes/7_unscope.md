@@ -32,7 +32,7 @@ It works as follows:
 Besides the GitHub-API querying, there's also a fixed, curated list of mappings of short names to the full GitHub IDs. The list currently consists of:
 
 |    Short (Nick-) Name     | GitHub ID / scoped ID             |
-|:-------------------------:| --------------------------------- |
+| :-----------------------: | --------------------------------- |
 |           null            | z-shell/null                      |
 |        z-a-readurl        | z-shell/z-a-readurl               |
 |          readurl          | z-shell/z-a-readurl               |

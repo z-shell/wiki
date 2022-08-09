@@ -3,7 +3,7 @@
 env:
   browser: true
   commonjs: true
-  es2021: true
+  es2022: true
   node: true
 extends:
   - eslint:recommended
@@ -49,20 +49,17 @@ rules:
     "prefer-template": 1,
     "jsx-a11y/click-events-have-key-events": 1,
     "jsx-a11y/no-noninteractive-element-interactions": 1,
-    "jsx-a11y/html-has-lang": 0,
     "react-hooks/rules-of-hooks": 2,
     "react-hooks/exhaustive-deps": 2,
-    "react/destructuring-assignment": 0,
+    "react/jsx-filename-extension":
+      [1, { extensions: [".js", ".jsx", ".ts", ".tsx"] }],
     "react/function-component-definition":
       [2, { namedComponents: "function-declaration" }],
-    "react/jsx-filename-extension": 0,
+    "react/jsx-props-no-spreading": 0,
     "react/jsx-key": [2, { checkFragmentShorthand: true }],
     "react/jsx-no-useless-fragment": [1, { allowExpressions: true }],
-    "react/jsx-props-no-spreading": 0,
-    "react/no-array-index-key": 0,
     "react/no-unstable-nested-components": [1, { allowAsProps: true }],
     "react/prefer-stateless-function": 1,
-    "react/prop-types": 0,
     "react/require-default-props": [2, { ignoreFunctionalComponents: true }],
     "@docusaurus/string-literal-i18n-messages": 2,
     "@docusaurus/no-untranslated-text":

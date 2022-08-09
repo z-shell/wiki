@@ -1,12 +1,14 @@
 ---
-id: annexes
-slug: /annexes
+id: overview
 title: "🌀 What can Annexes do?"
 sidebar_position: 1
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: Annex Introduction
 keywords:
+  - annex
   - zannex
+  - synopsys
+  - overview
 ---
 
 <!-- @format -->
@@ -44,7 +46,7 @@ keywords:
 
 :::tip
 
-Use [meta plugins][10] install common annexes as group:
+Use [meta plugins][10] to install common annexes as a group:
 
 ```shell
 zi light-mode for z-shell/z-a-meta-plugins @annexes
@@ -70,7 +72,7 @@ It shows how to:
 4. Utilize the last hook argument – the plugin’s/snippet’s containing directory.
 
 ```shell
-emulate -L zsh -o extendedglob -o warncreateglobal -o typesetsilent
+emulate -L zsh -o extended_glob -o warn_create_global -o typeset_silent
 
 [[ -z "${ZI_ICE[submods]}" ]] && return 0
 
@@ -89,14 +91,14 @@ local mod
 # (3) – process the submods'' ice
 mods=( ${(@s.;.)ZI_ICE[submods]} )
 for mod in "${mods[@]}"; do
-    parts=( "${(@s:->:)mod}" )
-    # (4) Remove only leading and trailing whitespace
-    parts=( "${parts[@]//((#s)[[:space:]]##|[[:space:]]##(#e))/}" )
+  parts=( "${(@s:->:)mod}" )
+  # (4) Remove only leading and trailing whitespace
+  parts=( "${parts[@]//((#s)[[:space:]]##|[[:space:]]##(#e))/}" )
 
-    print "\nCloning submodule: ${parts[1]} to dir: ${parts[2]}"
-    parts[1]="https://github.com/${parts[1]}"
-    # (5) – the use of the input argument: `$dir'
-    command git -C "$dir" clone --progress "${parts[1]}" "${parts[2]}"
+  print "\nCloning submodule: ${parts[1]} to dir: ${parts[2]}"
+  parts[1]="https://github.com/${parts[1]}"
+  # (5) – the use of the input argument: `$dir'
+  command git -C "$dir" clone --progress "${parts[1]}" "${parts[2]}"
 done
 ```
 
@@ -121,10 +123,10 @@ The general syntax of the API call is:
   "{ice-mod1}|{ice-mod2}|…" < hook-type >| subcommand: < new-subcommand-name > }
 ```
 
-The last argument, i.e. the `|`-separated ice-list, is optional. That’s all\! After this loading the plugin `myproject` will set up the new [ice-modifier][2] `submods` that will have syntax `submods'{user}/{plugin} –> {output-dir}; …'` and will clone submodules when installing the original plugin or snippet\! Example real-world use of the ice-modifier:
+The last argument, i.e. the `|`-separated ice list, is optional. That’s all\! After this loading the plugin `myproject` will set up the new [ice-modifier][2] `submods` that will have syntax `submods'{user}/{plugin} –> {output-dir}; …'` and will clone submodules when installing the original plugin or snippet\! Example real-world use of the ice-modifier:
 
 ```shell
-# Load the `zsh-autosuggestions' plugin via Prezto module: `autosuggestions'
+# Load the `zsh-autosuggestions' plugin via the Prezto module: `autosuggestions'
 zi ice svn submods'zsh-users/zsh-autosuggestions -> external'
 zi snippet PZT::modules/autosuggestions
 ```

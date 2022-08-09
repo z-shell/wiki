@@ -13,6 +13,7 @@
     "silvenon.mdx",
     "dbaeumer.vscode-eslint",
     "crowdin.vscode-crowdin",
-    "CodeSandbox-io.codesandbox-projects"
+    "codesandbox-io.codesandbox-projects",
+    "wayou.vscode-todo-highlight"
   ]
 }

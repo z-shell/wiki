@@ -2,7 +2,7 @@
 
 # Contributing
 
-This Project welcomes contributions, suggestions, and feedback. All contributions, suggestions, and feedback you submitted are accepted under the [Project's license](https://github.com/z-shell/zw/blob/main/LICENSE).
+This Project welcomes contributions, suggestions, and feedback. All contributions, suggestions, and feedback you submitted are accepted under the [GNU General Public License v3.0](https://github.com/z-shell/wiki/blob/main/LICENSE).
 
 You represent that if you do not own copyright in the code that you have the authority to submit it under the [Project's license](https://github.com/z-shell/zw/blob/main/LICENSE). All feedback, suggestions, or contributions are not confidential.
 

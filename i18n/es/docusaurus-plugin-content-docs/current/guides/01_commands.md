@@ -293,8 +293,6 @@ Following commands are passed to `zi …` to obtain described effects.
 <!-- end-of-file -->
 <!--footnotes-->
 
-
-
 <!-- links -->
 
 [1]: /search/?q=ice-modifiers

@@ -57,13 +57,13 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" --
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip
 ```
 
-### <i class="fa-solid fa-code-branch"></i> Configuration minimale + <a href="/ecosystem/annexes">annexes</a>
+### <i class="fa-solid fa-code-branch"></i> Minimal configuration + <a href="/ecosystem/annexes/overview">annexes</a>
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a annex
 ```
 
-### <i class="fa-solid fa-code-fork"></i> Configuration minimale + <a href="/ecosystem/annexes">annexes</a> + <a href="https://github.com/zdharma/zunit">zdharma/zunit</a>
+### <i class="fa-solid fa-code-fork"></i> Minimal configuration + <a href="/ecosystem/annexes/overview">annexes</a> + <a href="https://github.com/zdharma/zunit">zdharma/zunit</a>
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zunit
@@ -216,7 +216,7 @@ typeset -g ZI_MOD_DEBUG=1
 ### Installateur
 
 | Service                       | URL                                                                       |
-|:----------------------------- | ------------------------------------------------------------------------- |
+| :---------------------------- | ------------------------------------------------------------------------- |
 | [Redirection][get.zshell.dev] | <https://get.zshell.dev>                                                  |
 | [IPFS][ipfs.io]               | <https://ipfs.zshell.dev/sh/install.sh>                                   |
 | [Direct][direct-install]      | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
@@ -224,7 +224,7 @@ typeset -g ZI_MOD_DEBUG=1
 ### Chargeur
 
 | Service                        | URL                                                                      |
-|:------------------------------ | ------------------------------------------------------------------------ |
+| :----------------------------- | ------------------------------------------------------------------------ |
 | [Redirection][init.zshell.dev] | <https://init.zshell.dev>                                                |
 | [IPFS][ipfs.io]                | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
 | [Direct][direct-init]          | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |

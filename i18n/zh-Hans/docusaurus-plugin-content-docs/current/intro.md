@@ -56,7 +56,7 @@ The [Rust](https://crates.io) packages are managed by the [rust](/ecosystem/anne
   </TabItem>
   <TabItem value="github" label="GitHub" default>
 
-Install and control almost everything from [GitHub](https://github.com): [Annexes](/ecosystem/annexes), [Packages](/ecosystem/packages), [Gallery of Invocations](/community/gallery/collection).
+Install and control almost everything from [GitHub](https://github.com): [Annexes](/ecosystem/annexes/overview), [Packages](/ecosystem/packages/synopsis), [Gallery of Invocations](/community/gallery/collection).
 
 </TabItem>
 </Tabs>
@@ -64,8 +64,8 @@ Install and control almost everything from [GitHub](https://github.com): [Annexe
 ## <i class="fa-solid fa-spinner fa-spin-pulse"></i> Fast and feature-rich
 
 - [Meta plugins][16] allow installing groups of plugins via a single, friendly label.
-- [Packages](/ecosystem/packages) offload the user from providing long and complex commands.
-- [Annexes](/ecosystem/annexes) allow extend the plugin manager with new commands.
+- [Packages](/ecosystem/packages/synopsis) offload the user from providing long and complex commands.
+- [Annexes](/ecosystem/annexes/overview) allow extend the plugin manager with new commands.
 - [Turbo][8] mode yields **50-80%** faster Zsh startup.
 
 ## <i className="fa-beat" class="fa-solid fa-heart fa-beat"></i> Neat and flexible
@@ -106,7 +106,7 @@ Install and control almost everything from [GitHub](https://github.com): [Annexe
 [10]: /docs/guides/customization#multiple-prompts
 [11]: /docs/guides/customization#non-github-local-plugins
 [oh-my-zsh]: /docs/getting_started/overview#oh-my-zsh-prezto
-[Prezto]: /docs/getting_started/overview#oh-my-zsh-prezto
+[prezto]: /docs/getting_started/overview#oh-my-zsh-prezto
 [migration]: /docs/getting_started/migration
 [14]: /docs/guides/commands#loading-and-unloading
 [15]: /docs/guides/commands#completions-management

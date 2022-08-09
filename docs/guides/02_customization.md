@@ -158,7 +158,7 @@ setopt share_history           Share history between different instances of the 
 ### Other tweaks {#other-tweaks}
 
 ```shell title="~/.zshrc" showLineNumbers
-setopt bang_hist             Treat The '!' Character Specially During Expansion.
+setopt bang_hist             Treat the '!' character, especially during Expansion.
 setopt multios               Perform implicit tees or cats when multiple redirections are attempted.
 setopt interactive_comments  Allow comments even in interactive shells (especially for Muness).
 setopt pushd_ignore_dups     Don't push multiple copies of the same directory onto the directory stack.
@@ -361,6 +361,6 @@ zi lucid load'![[ $MYPROMPT = 8 ]]' unload'![[ $MYPROMPT != 8 ]]' \
 [13]: https://github.com/wfxr/forgit
 [14]: https://unix.stackexchange.com/questions/214657/what-does-zstyle-do/239980
 [15]: https://linuxshellaccount.blogspot.com/2008/12/color-completion-using-zsh-modules-on.html
-[packages]: /ecosystem/packages
+[packages]: /ecosystem/packages/synopsis
 [standard parameter naming]: /community/zsh_plugin_standard#standard-parameter-naming
 [global-parameter-with-prefix]: /community/zsh_plugin_standard#global-parameter-with-prefix
