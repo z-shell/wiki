@@ -797,7 +797,6 @@ And add `zui` to your plugin list.
 </Tabs>
 
 [z-shell/zui]: https://github.com/z-shell/zui
-[2]: https://github.com/z-shell/zui/issues
 [3]: https://youtu.be/TfZ8b_RS_Bg
 [4]: https://drive.google.com/file/d/1mg6OPScurIT_AIJPotEzpw1TrnU0OeUZ/view?usp=sharing
 [5]: https://github.com/z-shell/zui/blob/main/demos/zui-demo-hello-world
