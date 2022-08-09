@@ -64,7 +64,7 @@ Install and control almost everything from [GitHub](https://github.com): [Annexe
 ## <i class="fa-solid fa-spinner fa-spin-pulse"></i> Rapide et riche en fonctionnalités
 
 - [Les meta plugins][16] permettent d'installer des groupes de plugins via une étiquette unique et conviviale.
-- [Les paquets](/ecosystem/packages) dispensent l'utilisateur de fournir des commandes longues et complexes.
+- [Packages](/ecosystem/packages) offload the user from providing long and complex commands.
 - [Annexes](/ecosystem/annexes) allow extend the plugin manager with new commands.
 - [Turbo][8] mode yields **50-80%** faster Zsh startup.
 

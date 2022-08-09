@@ -57,13 +57,13 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" --
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip
 ```
 
-### <i class="fa-solid fa-code-branch"></i> Configuration minimale + <a href="/ecosystem/annexes">annexes</a>
+### <i class="fa-solid fa-code-branch"></i> Minimal configuration + <a href="/ecosystem/annexes">annexes</a>
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a annex
 ```
 
-### <i class="fa-solid fa-code-fork"></i> Configuration minimale + <a href="/ecosystem/annexes">annexes</a> + <a href="https://github.com/zdharma/zunit">zdharma/zunit</a>
+### <i class="fa-solid fa-code-fork"></i> Minimal configuration + <a href="/ecosystem/annexes">annexes</a> + <a href="https://github.com/zdharma/zunit">zdharma/zunit</a>
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zunit
