@@ -14,7 +14,7 @@ keywords:
 
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-rust][]
 
-An annex installs rust and cargo packages locally inside the plugin or snippet directories. The crate can then have a so-called _shim_ created (a name borrowed from `rbenv`) – a script that's located in the standard `$PATH` entry "`$ZPFX/bin" of the following contents (example):
+An annex installs rust and cargo packages locally inside the plugin or snippet directories. The crate can then have a so-called _shim_ created (a name borrowed from `rbenv`) – a script that's located in the standard `$PATH` entry "$ZPFX/bin" of the following contents (example):
 
 ```shell showLineNumbers
 #!/usr/bin/env zsh
@@ -36,7 +36,7 @@ As it can be seen shim ultimately provides the binary to the command line.
 
 The Zi Annex provides two new ices: `rustup` and `cargo''`. The first one installs rust inside the plugin's folder using the official `rustup` installer. The second one has the following syntax:
 
-`cargo"[name-of-the-binary-or-path <-] [[!][c|n|e|o]:]{crate-name} [-> {shim-script-name}]'`
+`cargo'[{name-of-the-binary-or-path} <-] [[!][c|n|e|o]:]{crate-name} [-> {shim-script-name}]'
 
 Example uses are:
 
