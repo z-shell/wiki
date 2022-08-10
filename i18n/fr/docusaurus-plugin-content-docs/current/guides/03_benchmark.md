@@ -27,7 +27,7 @@ zi light z-shell/F-Sy-H
 ```
 
 | Syntaxe     | Description                                                                                                                                   |
-| ----------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------- |:--------------------------------------------------------------------------------------------------------------------------------------------- |
 | `atinit'…'` | loads the`zsh/zprof` module, shipped with Zsh, before loading the plugin – this starts the profiling.                                         |
 | `atload'…'` | fonctionne après le chargement du plugin - montre les résultats du profilage `zprof / head`, décharge `zsh/zprof` - ceci arrête le profilage. |
 
@@ -143,4 +143,4 @@ Then use the `$ZLOGS` variable to retrieve:
 [Done]: 0.1 ms
 ```
 
-[prompt expansion]: https://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+[Prompt Expansion]: https://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html

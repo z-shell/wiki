@@ -495,7 +495,7 @@ The use of this method is very unproblematic. The author reduced the number of g
 
 Following the [Standard Plugins Hash](#standard-plugins-hash) section, the plugin could even use a common hash name – `Plugins` – to lower the pollution even more.
 
-[zi]: https://github.com/z-shell/zi
+[Zi]: https://github.com/z-shell/zi
 [comparison]: http://www.zsh.org/mla/workers/2017/msg01827.html
 [romkatv/powerlevel10k is using]: https://github.com/romkatv/powerlevel10k/blob/f17081ca/internal/p10k.zsh#L5390
 [gitstatus]: https://github.com/romkatv/gitstatus
@@ -506,5 +506,5 @@ Following the [Standard Plugins Hash](#standard-plugins-hash) section, the plugi
 [fill-them]: https://github.com/z-shell/zw/issues/new
 [zsh-workers post]: https://www.zsh.org/mla/workers/2011/msg01050.html
 [autoloading-functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions
-[zsh documentation: #special-widgets]: http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Special-Widgets
-[zsh documentation: #hook-functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions
+[Zsh documentation: #Special-Widgets]: http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Special-Widgets
+[Zsh documentation: #Hook-Functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions

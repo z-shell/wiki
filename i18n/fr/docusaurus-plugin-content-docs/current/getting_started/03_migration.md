@@ -424,7 +424,6 @@ Pour l' `emplacement`: voir [sélection des fichiers][17]
 [11]: https://github.com/sorin-ionescu/prezto/tree/master/modules/docker
 [12]: https://github.com/sorin-ionescu/prezto/tree/master/modules/git
 [13]: https://github.com/sorin-ionescu/prezto/tree/master/modules/archive
-
 [14]: https://github. com/sorin-ionescu/prezto/tree/master/modules/completion
 [15]: http://zsh.sourceforge.net/Doc/Release/Zsh-Modules.html#The-zsh_002fzutil-Module
 [16]: https://unix.stackexchange.com/questions/214657/what-does-zstyle-do

@@ -7,7 +7,7 @@ description: Annex Introduction
 keywords:
   - annex
   - zannex
-  - synopsys
+  - synopsis
   - overview
 ---
 

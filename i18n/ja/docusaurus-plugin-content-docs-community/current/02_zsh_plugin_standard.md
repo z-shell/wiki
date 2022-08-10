@@ -16,7 +16,7 @@ keywords:
 
 ## What is a Zsh plugin?
 
-歴史的に、Zsh プラグインは Oh My Zsh によって最初に定義されました。 They provide a way to package together files that extend or configure the shell’s functionality in a particular way.
+歴史的に、ZshプラグインはOh My Zshによって最初に定義されました。 They provide a way to package together files that extend or configure the shell’s functionality in a particular way.
 
 簡単なレベルでは、プラグインは:
 
@@ -38,7 +38,7 @@ keywords:
 
 Below follow the proposed enhancements and codifications of the definition of a "Zsh the plugin" and the actions of plugin managers – the proposed standardization.
 
-Zsh プラグインの書き方に関する情報を網羅しています。
+Zshプラグインの書き方に関する情報を網羅しています。
 
 ## 1. Standardized `$0` handling {#zero-handling}
 
@@ -495,7 +495,7 @@ The use of this method is very unproblematic. The author reduced the number of g
 
 Following the [Standard Plugins Hash](#standard-plugins-hash) section, the plugin could even use a common hash name – `Plugins` – to lower the pollution even more.
 
-[zi]: https://github.com/z-shell/zi
+[Zi]: https://github.com/z-shell/zi
 [comparison]: http://www.zsh.org/mla/workers/2017/msg01827.html
 [romkatv/powerlevel10k is using]: https://github.com/romkatv/powerlevel10k/blob/f17081ca/internal/p10k.zsh#L5390
 [gitstatus]: https://github.com/romkatv/gitstatus
@@ -506,5 +506,5 @@ Following the [Standard Plugins Hash](#standard-plugins-hash) section, the plugi
 [fill-them]: https://github.com/z-shell/zw/issues/new
 [zsh-workers post]: https://www.zsh.org/mla/workers/2011/msg01050.html
 [autoloading-functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions
-[zsh documentation: #special-widgets]: http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Special-Widgets
-[zsh documentation: #hook-functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions
+[Zsh documentation: #Special-Widgets]: http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Special-Widgets
+[Zsh documentation: #Hook-Functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions

@@ -584,6 +584,7 @@ Additional examples: [collection][10].
 <!-- links -->
 
 [1]: /search?q=ice+modifiers
+
 [1]: /search?q=ice+modifiers
 [10]: /community/gallery/collection
 [12]: /community/zsh_plugin_standard#use-of-add-zsh-hook-to-install-hooks

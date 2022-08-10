@@ -38,7 +38,7 @@ keywords:
 
 Below follow the proposed enhancements and codifications of the definition of a "Zsh the plugin" and the actions of plugin managers – the proposed standardization.
 
-它们涵盖了如何编写 Zsh 插件的信息。
+它们涵盖了如何编写Zsh插件的信息。
 
 ## 1. Standardized `$0` handling {#zero-handling}
 
@@ -57,7 +57,7 @@ Then `${0:h}` to get the plugin’s directory.
 
 1. 向后兼容正常的 `$0` 设置和使用。
 
-2. 如果插件目录不为空，可以使用 `$0` 。
+2. 如果插件目录不为空，可以使用 ` $0 ` 。
 
    2.1. the plugin manager will be easily able to alter effective `$0` before loading a plugin,
 
@@ -495,7 +495,7 @@ The use of this method is very unproblematic. The author reduced the number of g
 
 Following the [Standard Plugins Hash](#standard-plugins-hash) section, the plugin could even use a common hash name – `Plugins` – to lower the pollution even more.
 
-[zi]: https://github.com/z-shell/zi
+[Zi]: https://github.com/z-shell/zi
 [comparison]: http://www.zsh.org/mla/workers/2017/msg01827.html
 [romkatv/powerlevel10k is using]: https://github.com/romkatv/powerlevel10k/blob/f17081ca/internal/p10k.zsh#L5390
 [gitstatus]: https://github.com/romkatv/gitstatus
@@ -506,5 +506,5 @@ Following the [Standard Plugins Hash](#standard-plugins-hash) section, the plugi
 [fill-them]: https://github.com/z-shell/zw/issues/new
 [zsh-workers post]: https://www.zsh.org/mla/workers/2011/msg01050.html
 [autoloading-functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions
-[zsh documentation: #special-widgets]: http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Special-Widgets
-[zsh documentation: #hook-functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions
+[Zsh documentation: #Special-Widgets]: http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Special-Widgets
+[Zsh documentation: #Hook-Functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions
