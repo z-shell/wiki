@@ -12,13 +12,11 @@ const Library = Loadable(
 
 export default function AsciinemaPlayer({ ...props }): JSX.Element {
   return (
-    <div className='container'>
-      <div className={styles.asciicast}>
-        <Library
-          fallback={<Spinner />}
-          {...props}
-        />
-      </div>
+    <div className={styles.asciicast}>
+      <Library
+        fallback={<Spinner />}
+        {...props}
+      />
     </div>
   );
 }
