@@ -12,6 +12,7 @@ keywords:
 <!-- @format -->
 
 import Image from '@theme/IdealImage';
+import AsciinemaPlayer from "@site/src/components/AsciinemaPlayer";
 
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-bin-gem-node][]
 
@@ -37,27 +38,23 @@ zi light z-shell/z-a-bin-gem-node
 
 After executing this command you can then use the dl'…' and patch'…' ice-modifiers.
 
-## Synopsis of bin-gem-node annex
+## Synopsis of the bin-gem-node annex
 
-The `sbin'…'` ice that creates forwarder-scripts instead of forwarder-functions (created by the `fbin'…'` ice and elaborated in this `How it works …` section) turned out to be the proper, best method for exposing binary programs and scripts. You can jump to the `sbin'…'` ice [section](#sbin) if you want. This way there is no need to add anything to `$PATH` – `z-a-bin-gem-node` will automatically create a function that will wrap the binary and provide it on the command line as if it was being placed in the `$PATH`. Also, as mentioned in the enumeration, the function can automatically export `$GEM_HOME`, `$NODE_PATH`, `$VIRTUALENV` shell variables and also automatically cd into the plugin or snippet directory right before executing the binary and then cd back to the original directory after the execution is finished. Also, as already mentioned, instead of the function an automatically created script – the so-called `shim` – can be used for the same purpose and with the same functionality, so that the command is accessible practically fully normally – not only in the live Zsh session (only within which the functions created by `fbin'…'` exist) but also from any Zsh script.
+The `sbin'…'` ice that creates forwarder-scripts instead of forwarder-functions created by the `fbin'…'` ice) turned out to be the proper, best method for exposing binary programs and scripts. This way there is no need to add anything to `$PATH` – `z-a-bin-gem-node` will automatically create a function that will wrap the binary and provide it on the command line as if it was being placed in the `$PATH`.
 
-### How it works
+As previously mentioned, the function can automatically export `$GEM_HOME`, `$NODE_PATH`, `$VIRTUALENV` shell variables and also automatically cd into the plugin or snippet directory right before executing the binary and then cd back to the original directory after the execution is finished. As previously mentioned, instead of the function an automatically created script – the so-called `shim` – can be used for the same purpose and with the same functionality, so that the command is accessible practically fully normally – not only in the live Zsh session, only within which the functions created by `fbin'…'` exist, but also from any Zsh script.
 
-Suppose that you would want to install the `junegunn/fzf` plugin from GitHub Releases, which contains only a single file – the `fzf` binary for the selected architecture. It is possible to do it in the standard way – by adding the plugin's directory to the `$PATH`:
+Suppose that we want to install the `junegunn/fzf` plugin from GitHub Releases, which contains only a single file – the `fzf` binary for the selected architecture. It is possible to do it in the standard way – by adding the plugin's directory to the `$PATH`.
 
-<!-- TODO: #84 Below can be replaced with detailed asciinema video (to the next NOTE comment) -->
-
-````shell
-
-```shell showLineNumbers
+```shell
 zi ice as'program' from'gh-r'
 zi load junegunn/fzf
-````
+```
 
 After this command, the `$PATH` variable will contain e.g.:
 
-```shell title="% print $PATH" showLineNumbers
-/home/sg/.zi/plugins/junegunn---fzf:/bin:/usr/bin:/usr/sbin:/sbin
+```shell title="print $PATH" showLineNumbers
+/home/sall/.zi/plugins/junegunn---fzf:/bin:/usr/bin:/usr/sbin:/sbin
 ```
 
 For many such programs loaded as plugins, the PATH can become quite cluttered. I've had 26 entries before switching to `z-a-bin-gem-node`. To solve this, load with the use of `sbin'…'` ice provided and handled by `z-a-bin-gem-node`:
@@ -69,18 +66,16 @@ zi load junegunn/fzf
 
 The `$PATH` will remain unchanged and a forwarder-script of `fzf` shim will be created in `$ZPFX/bin` (`~/.zi/polaris/bin` by default), which is being already added to the `$PATH` by Zi when it is being sourced:
 
-```shell title="% cat $ZPFX/bin/fzf" showLineNumbers
+```shell title="cat $ZPFX/bin/fzf" showLineNumbers
 #!/usr/bin/env zsh
 
 function fzf {
-    local bindir="/home/sg/.zi/plugins/junegunn---fzf"
+    local bindir="/home/sall/.zi/plugins/junegunn---fzf"
     "$bindir"/"fzf" "$@"
 }
 
 fzf "$@"
 ```
-
-<!-- NOTE: The above can be replaced with detailed asciinema video -->
 
 Running the script will forward the call to the program accessed through an embedded path to it. Thus, no `$PATH` changes are needed!
 
@@ -88,65 +83,24 @@ Running the script will forward the call to the program accessed through an embe
 
 There are 7 ice modifiers provided and handled by the annex:
 
-| Ice modifier      | Description                                                                                              |
-| :---------------- | :------------------------------------------------------------------------------------------------------- |
-| [`sbin''`](#sbin) | Creates `shims` for binaries and scripts.                                                                |
-| [`fbin''`](#fbin) | Creates functions for binaries and scripts.                                                              |
-| [`gem''`](#gem)   | Installs and updates gems + creates functions for gems binaries.                                         |
-| [`node''`](#node) | Installs and updates node_modules + creates functions for binaries of the modules.                       |
-| [`pip''`](#pip)   | Installs and updates python packages into a virtualenv + creates functions for binaries of the packages. |
-| [`fmod''`](#fmod) | Creates wrapping functions for other functions.                                                          |
-| [`fsrc''`](#fsrc) | Creates functions that source given scripts.                                                             |
-| [`ferc''`](#ferc) | The same as [`fsrc''`](#fscr), but using an alternate script-loading method.                             |
+<div className="apitable">
 
-#### `SBIN''` {#sbin}
+| Ice modifier  | Description                                                                                              |
+| :------------ | :------------------------------------------------------------------------------------------------------- |
+| [sbin](#sbin) | Creates `shims` for binaries and scripts.                                                                |
+| [fbin](#fbin) | Creates functions for binaries and scripts.                                                              |
+| [gem](#gem)   | Installs and updates gems + creates functions for gems binaries.                                         |
+| [node](#node) | Installs and updates node_modules + creates functions for binaries of the modules.                       |
+| [pip](#pip)   | Installs and updates python packages into a virtualenv + creates functions for binaries of the packages. |
+| [fmod](#fmod) | Creates wrapping functions for other functions.                                                          |
+| [fsrc](#fsrc) | Creates functions that source given scripts.                                                             |
+| [ferc](#ferc) | The same as [fsrc](#fscr), but using an alternate script-loading method.                                 |
 
-`sbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-script}]; …'`
+</div>
 
-It creates the so-called `shim` known from `rbenv` – a wrapper script that forwards the call to the actual binary. The script is created always under the same, standard, and single `$PATH` entry: `$ZPFX/bin` (which is `~/.zi/polaris/bin` by default). The flags have the same meaning as with `fbin'…'` ice.
+Function wrappers for binaries, scripts, gems, node_modules, python packages, etc:
 
-<!-- TODO: #83 Below can be replaced with asciinema video (commands to replicate the next NOTE comment) -->
-
-Example:
-
-```shell title="% zi delete junegunn/fzf" showLineNumbers
-Delete /home/sg/.zi/plugins/junegunn---fzf?
-[yY/n…]
-y
-Done (action executed, exit code: 0)
-```
-
-```shell showLineNumbers
-zi ice from'gh-r' sbin'fzf'
-zi load junegunn/fzf
-```
-
-```shell title="% cat $ZPFX/bin/fzf" showLineNumbers
-#!/usr/bin/env zsh
-
-function fzf {
-    local bindir="/home/sg/.zi/plugins/junegunn---fzf"
-    "$bindir"/"fzf" "$@"
-}
-
-fzf "$@"
-```
-
-<!-- NOTE: Asciinema should video should replicate the above -->
-
-**The ice can be empty**. It will then try to create the shim for the trailing component of the `id_as` ice, e.g.:
-
-- `id_as'exts/git-my'` → it'll check if a file `git-my` exists and if yes, will create the function `git-my`.
-
-- `paulirish/git-open` it'll check if a file `git-open` exists and if yes, will create the function `git-open`.
-
-The same trailing component would be set for the snippet URL, for any alphabetically first and executable file.
-
-#### `FBIN''` {#fbin}
-
-`fbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-function}]; …'`
-
-Creates a wrapper function of the name the same as the last segment of the path or as `{name-of-the-function}`.
+<div className="apitable">
 
 | Flag | Description                                                                                                           |
 | :--- | :-------------------------------------------------------------------------------------------------------------------- |
@@ -158,20 +112,67 @@ Creates a wrapper function of the name the same as the last segment of the path 
 | `E`  | Append `2>/dev/null` to the call of the binary, i.e. redirect standard error to `/dev/null`.                          |
 | `O`  | Append `>/dev/null` to the call of the binary, i.e. redirect standard output to `/dev/null`.                          |
 
-<!-- TODO: #85 [docs]: Below exmaple can be replaced with asciinema image (GIF) -->
+</div>
+
+#### `SBIN''` {#sbin}
+
+`sbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-script}]; …'`
+
+It creates the so-called `shim` known from `rbenv` – a wrapper script that forwards the call to the actual binary. The script is created always under the same, standard, and single `$PATH` entry: `$ZPFX/bin` (which is `~/.zi/polaris/bin` by default). The flags have the same meaning as with `fbin'…'` ice.
 
 Example:
 
+<AsciinemaPlayer src='https://asciinema.org/a/513810.cast' rows={26} cols={184} speed={1} idleTimeLimit={1} />
+
 ```shell showLineNumbers
-% zi ice from"gh-r" fbin"g:fzf -> myfzf"
-% zi load junegunn/fzf
-% which myfzf
+zi ice as'program' from'gh-r' sbin'fzf'
+zi load junegunn/fzf
+cat $ZPFX/bin/fzf
+#!/usr/bin/env zsh
+
+function fzf {
+  local bindir="/home/sall/.zi/plugins/junegunn---fzf"
+  local -xU PATH="$bindir":"$PATH"
+
+      "$bindir"/"fzf" "$@"
+
+  }
+
+fzf "$@"
+```
+
+> 1. as'program' (an alias: as'command') - used for the plugin to be added to $PATH when a plugin is not a file for sourcing.
+
+**The `sbin` ice can be empty**. It will then try to create the shim for the trailing component of the `id_as` ice, e.g.:
+
+- `id_as'exts/git-my'` → it'll check if a file `git-my` exists and if yes, will create the function `git-my`.
+- `paulirish/git-open` it'll check if a file `git-open` exists and if yes, will create the function `git-open`.
+
+The same trailing component would be set for the snippet URL, for any alphabetically first and executable file.
+
+#### `FBIN''` {#fbin}
+
+`fbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-function}]; …'`
+
+Creates a wrapper function of the name the same as the last segment of the path or as `{name-of-the-function}`.
+
+Example:
+
+<AsciinemaPlayer src='https://asciinema.org/a/513297.cast' rows={18} cols={166} speed={1} idleTimeLimit={1} />
+
+```shell showLineNumbers
+zi ice from"gh-r" fbin"g:fzf -> myfzf" nocompile
+zi load junegunn/fzf
+which myfzf
 myfzf () {
-        local bindir="/home/sg/.zi/plugins/junegunn---fzf"
-        local -x GEM_HOME="/home/sg/.zi/plugins/junegunn---fzf"
+        local bindir="/home/sall/.zi/plugins/junegunn---fzf"
+        local -x GEM_HOME="/home/sall/.zi/plugins/junegunn---fzf"
+        local -xU PATH="/home/sall/.zi/plugins/junegunn---fzf"/bin:"$bindir":"$PATH"
         "$bindir"/"fzf" "$@"
 }
 ```
+
+> 1. `nocompile` - used to skip file compilation when it is not required.
 
 The ice can be empty. It will then try to create the function for the trailing component of the `id_as` ice, e.g.:
 
@@ -189,20 +190,25 @@ The same trailing component would be set for the snippet URL, for any alphabetic
 
 Installs the gem of name `{gem-name}` with `$GEM_HOME` set to the plugin's or snippet's directory. In other words, the gem and its dependencies will be installed locally in that directory. In the second form, it also creates a wrapper function identical to the one created with `fbin'…'` ice.
 
-<!-- TODO: #86 [docs]: Below exmaple can be replaced with asciinema image (GIF) -->
-
 Example:
 
+<AsciinemaPlayer src='https://asciinema.org/a/513303.cast' rows={23} cols={140} speed={1} idleTimeLimit={1} />
+
 ```shell showLineNumbers
-% zi ice gem'!asciidoctor'
-% zi load z-shell/null
-% which asciidoctor
+zi ice gem'!asciidoctor' id-as'asciidoctor' nocompile
+zi load z-shell/0
+which asciidoctor
 asciidoctor () {
-        local bindir="/home/sg/.zi/plugins/z-shell---null/bin"
-        local -x GEM_HOME="/home/sg/.zi/plugins/z-shell---null"
+        local bindir="/home/sall/.zi/plugins/asciidoctor/bin"
+        local -x GEM_HOME="/home/sall/.zi/plugins/asciidoctor"
+        local -xU PATH="/home/sall/.zi/plugins/asciidoctor"/bin:"$bindir":"$PATH"
         "$bindir"/"asciidoctor" "$@"
 }
 ```
+
+> 1. `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `asciidoctor` gem.
+> 2. `id-as'asciidoctor'` - used to assign a name instead of the `z-shell/0`.
+> 3. `nocompile` - used to skip file compilation when it is not required.
 
 #### `NODE''` {#node}
 
@@ -212,21 +218,25 @@ asciidoctor () {
 
 Installs the node module of name `{node-module}` inside the plugin's or snippet's directory. In the second form, it also creates a wrapper function identical to the one created with `fbin'…'` ice.
 
-<!-- TODO: #90 [docs]: Below exmaple can be replaced with asciinema image (GIF) -->
-
 Example:
 
+<AsciinemaPlayer src='https://asciinema.org/a/513774.cast' rows={18} cols={140} speed={1.5} idleTimeLimit={1} />
+
 ```shell showLineNumbers
-% zi ice node'remark <- !remark-cli -> remark; remark-man'
-% zi load z-shell/null
-…installation messages…
-% which remark
+zi ice node'remark <- !remark-cli -> remark; remark-man' id-as'remark' nocompile
+zi load z-shell/0
+which remark
 remark () {
-        local bindir="/home/sg/.zi/plugins/z-shell---null/node_modules/.bin"
-        local -x NODE_PATH="/home/sg/.zi/plugins/z-shell---null"/node_modules
+        local bindir="/home/sall/.zi/plugins/remark/node_modules/.bin"
+        local -x NODE_PATH="/home/sall/.zi/plugins/remark"/node_modules
+        local -xU PATH="/home/sall/.zi/plugins/remark"/node_modules/.bin:"$bindir":"$PATH"
         "$bindir"/"remark" "$@"
 }
 ```
+
+> 1. `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `remark` Node module.
+> 2. `id-as'remark'` - used to assign a name instead of the `z-shell/0`.
+> 3. `nocompile` - used to skip file compilation when it is not required.
 
 In this case, the name of the binary program provided by the node module is different from its name, hence the second form with the `b <- a -> c` syntax has been used.
 
@@ -238,22 +248,25 @@ In this case, the name of the binary program provided by the node module is diff
 
 Installs the node module of name `{pip-package}` inside the plugin's or snippet's directory. In the second form, it also creates a wrapper function identical to the one created with `fbin'…'` ice.
 
-<!-- TODO: #89 [docs]: Below exmaple can be replaced with asciinema image (GIF) -->
-
 Example:
 
+<AsciinemaPlayer src='https://asciinema.org/a/513793.cast' rows={26} cols={156} speed={1} idleTimeLimit={1} />
+
 ```shell showLineNumbers
-% zi ice pip'youtube-dl <- !youtube-dl -> youtube-dl'
-% zi load z-shell/null
-…installation messages…
-% which youtube-dl
+zi ice pip'youtube-dl <- !youtube-dl -> youtube-dl' id-as'youtube-dl' nocompile
+zi load z-shell/0
+which youtube-dl
 youtube-dl () {
-        local bindir="/home/user/.zi/plugins/z-shell---null/venv/bin"
-        local -x VIRTUALENV="/home/user/.zi/plugins/z-shell---null"/venv
-        local -xU PATH="/home/user/.zi/plugins/z-shell---null"/venv/bin:"$bindir":"$PATH"
+        local bindir="/home/sall/.zi/plugins/youtube-dl/venv/bin"
+        local -x VIRTUALENV="/home/sall/.zi/plugins/youtube-dl"/venv
+        local -xU PATH="/home/sall/.zi/plugins/youtube-dl"/venv/bin:"$bindir":"$PATH"
         "$bindir"/"youtube-dl" "$@"
 }
 ```
+
+> 1. `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `youtube-dl` pip package.
+> 2. `id-as'youtube-dl'` - used to assign a name instead of the `z-shell/0`.
+> 3. `nocompile` - used to skip file compilation when it is not required.
 
 In this case, the name of the binary program provided by the node module is different from its name, hence the second form with the `b <- a -> c` syntax has been used.
 
@@ -265,34 +278,38 @@ In this case, the name of the binary program provided by the node module is diff
 
 It wraps the given function with the ability to set `$GEM_HOME`, etc. – the meaning of the `g`,`n` and `c` flags is the same as in the `fbin'…'` ice.
 
-<!-- TODO: #88 [docs]: Below exmaple can be replaced with asciinema image (GIF) -->
-
 Example:
 
+<AsciinemaPlayer src='https://asciinema.org/a/513805.cast' rows={26} cols={140} speed={1} idleTimeLimit={1} />
+
 ```shell showLineNumbers
-% myfun() { pwd; ls -1 }
-% zi ice fmod'cgn:myfun'
-% zi load z-shell/null
-% which myfun
-myfun () {
-        local -x GEM_HOME="/home/sg/.zi/plugins/z-shell---null"
-        local -x NODE_PATH="/home/sg/.zi/plugins/z-shell---null"/node_modules
-        local oldpwd="/home/sg/.zi/plugins/zi---z-a-bin-gem-node"
+myfunc() { pwd; ls -1 }; zi ice fmod'cgn:myfunc' id-as'myfunc' nocompile
+zi load z-shell/0
+which myfunc
+myfunc () {
+        local -x GEM_HOME="/home/sall/.zi/plugins/myfunc"
+        local -x NODE_PATH="/home/sall/.zi/plugins/myfunc"/node_modules
+        local oldpwd="/home/sall"
         () {
-                setopt local_options no_auto_pushd
-                builtin cd -q "/home/sg/.zi/plugins/z-shell---null"
+                setopt localoptions noautopushd
+                builtin cd -q "/home/sall/.zi/plugins/myfunc"
         }
-        "myfun--za-bgn-orig" "$@"
+        "myfunc--za-bgn-orig" "$@"
         () {
-                setopt local_options no_auto_pushd
+                builtin setopt localoptions noautopushd
                 builtin cd -q "$oldpwd"
         }
 }
-% myfun
-/home/sg/.zi/plugins/z-shell---null
+myfun
+/home/sall/.zi/plugins/z-shell---0
+docs/
 LICENSE
 README.md
 ```
+
+> 1. `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `myfunc` function files.
+> 2. `id-as'myfunc'` - used to assign a name instead of the `z-shell/0`.
+> 3. `nocompile` - used to skip file compilation when it is not required.
 
 #### `FSCR''` {#fscr}
 
@@ -304,28 +321,32 @@ README.md
 
 Creates a wrapper function that at each invocation sources the given file. The second ice, `ferc'…'` works the same with the single difference that it uses `eval "$(<{path-to-script})"` instead of `source "{path-to-script}"` to load the script.
 
-<!-- TODO: #87 [docs]: Below exmaple can be replaced with asciinema image (GIF) -->
-
 Example:
 
+<AsciinemaPlayer src='https://asciinema.org/a/513308.cast' rows={26} cols={140} speed={1} idleTimeLimit={1} />
+
 ```shell showLineNumbers
-% zi ice fsrc"myscript -> myfunc" ferc"myscript"
-% zi load z-shell/null
-% which myfunc
+zi ice fsrc"myscript -> myfunc" ferc"myscript" nocompile
+zi load z-shell/0
+which myfunc
 myfunc () {
-        local bindir="/home/sg/.zi/plugins/z-shell---null"
+        local bindir="/home/sall/.zi/plugins/z-shell---0"
+        local -xU PATH="$bindir":"$PATH"
         () {
                 source "$bindir"/"myscript"
         } "$@"
 }
-% which myscript
+➜  ~ which myscript
 myscript () {
-        local bindir="/home/sg/.zi/snippets/OMZ::plugins--git/git.plugin.zsh"
+        local bindir="/home/sall/.zi/plugins/z-shell---0"
+        local -xU PATH="$bindir":"$PATH"
         () {
                 eval "$(<"$bindir"/"myscript")"
         } "$@"
 }
 ```
+
+> 1. `nocompile` - used to skip file compilation when it is not required.
 
 **The ices can be empty**. They will then try to create the function for the trailing component of the `id-as'…'` ice and the other cases, in the same way as with the `fbin'…'` ice.
 
@@ -353,6 +374,8 @@ Available flags are:
 zi shim-list [ -t | -i | -o | -s | -h ]
 ```
 
+<div className="apitable">
+
 | Flag               | Description                                                                              |
 | :----------------- | :--------------------------------------------------------------------------------------- |
 | `-t` `--this-dir`  | Instructs Zi to look for shims in the current directory instead of `$ZPFX/bin`.          |
@@ -360,6 +383,8 @@ zi shim-list [ -t | -i | -o | -s | -h ]
 | `-o` `--one-line`  | Display the list of shim files without line breaks, in a single line, after spaces.      |
 | `-s` `--short`     | Don't show the plugin/snippet that the shim belongs to.                                  |
 | `-h` `--help`      | Shows usage information.                                                                 |
+
+</div>
 
 ## Cygwin Support
 
@@ -372,9 +397,9 @@ zi pack=bgn for firefox
 <!-- end-of-file -->
 <!--footnotes-->
 
-<!-- links -->
 
-[^1]: shims created by bin-gem-node annex have a fixed structure, this option instructs Zi to show the list of shims that results from the `sbin'…'` ice of the loaded plugins. If a plugin for example has `sbin'git-open'`, means that such shim has already been created.
+
+<!-- links -->
 
 [z-shell/z-a-bin-gem-node]: https://github.com/z-shell/z-a-bin-gem-node
 [2]: https://github.com/rubygems/rubygems

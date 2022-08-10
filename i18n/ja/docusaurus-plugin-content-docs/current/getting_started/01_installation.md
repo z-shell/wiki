@@ -215,16 +215,16 @@ typeset -g ZI_MOD_DEBUG=1
 
 ### Installer
 
-| サービス                   | URL                                                                       |
-| :------------------------- | ------------------------------------------------------------------------- |
+| サービス                       | URL                                                                       |
+|:-------------------------- | ------------------------------------------------------------------------- |
 | [Redirect][get.zshell.dev] | <https://get.zshell.dev>                                                  |
 | [IPFS][ipfs.io]            | <https://ipfs.zshell.dev/sh/install.sh>                                   |
 | [Direct][direct-install]   | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
 ### Loader
 
-| サービス                    | URL                                                                      |
-| :-------------------------- | ------------------------------------------------------------------------ |
+| サービス                        | URL                                                                      |
+|:--------------------------- | ------------------------------------------------------------------------ |
 | [Redirect][init.zshell.dev] | <https://init.zshell.dev>                                                |
 | [IPFS][ipfs.io]             | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
 | [Direct][direct-init]       | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |

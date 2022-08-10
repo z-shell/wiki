@@ -111,21 +111,21 @@ zi load user/fsh-auto-themes
 
 Current preset:
 
-| Ice name   | Domain name / URL                    |
-| :--------- | :----------------------------------- |
-| ge         | gitee.com                            |
-| gitee      | gitee.com                            |
-| github     | github.com                           |
-| gh         | github.com                           |
-| gitlab     | gitlab.com                           |
-| gl         | gitlab.com                           |
-| notabug    | notabug.org                          |
-| nb         | notabug.org                          |
-| bitbucket  | bitbucket.org                        |
-| bb         | bitbucket.org                        |
+| Ice name   | Domain name / URL                      |
+|:---------- |:-------------------------------------- |
+| ge         | gitee.com                              |
+| gitee      | gitee.com                              |
+| github     | github.com                             |
+| gh         | github.com                             |
+| gitlab     | gitlab.com                             |
+| gl         | gitlab.com                             |
+| notabug    | notabug.org                            |
+| nb         | notabug.org                            |
+| bitbucket  | bitbucket.org                          |
+| bb         | bitbucket.org                          |
 | github-rel | github.com/$remote_url_path/releases |
 | gh-r       | github.com/$remote_url_path/releases |
-| cygwin     | cygwin                               |
+| cygwin     | cygwin                                 |
 
 :::note
 
@@ -560,6 +560,8 @@ zi load romkatv/powerlevel10k
 
 <!-- end-of-file -->
 <!-- footnotes -->
+
+
 
 <!-- links -->
 
