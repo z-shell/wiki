@@ -1,3 +1,7 @@
 {
-  "label": "📦 Paquets"
+  "label": "📦 Paquets",
+  "position": "",
+  "link": {
+    "type": ""
+  }
 }
