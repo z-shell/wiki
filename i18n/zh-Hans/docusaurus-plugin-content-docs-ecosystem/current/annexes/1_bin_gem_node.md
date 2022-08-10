@@ -12,7 +12,7 @@ keywords:
 <!-- @format -->
 
 import Image from '@theme/IdealImage';
-import AsciinemaPlayer from "@site/src/components/AsciinemaPlayer";
+import AsciinemaPlayer from '@site/src/components/AsciinemaPlayer';
 
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-bin-gem-node][]
 
