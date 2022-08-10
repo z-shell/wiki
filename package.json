@@ -24,7 +24,7 @@
     "preinstall": "npx only-allow pnpm",
     "postinstall": "pnpm audit",
     "prepare": "husky install",
-    "check": "pnpm exec ./.trunk/bin/trunk check",
+    "check": "pnpm trunk check",
     "test": "pnpm run check --all",
     "typecheck": "tsc"
   },

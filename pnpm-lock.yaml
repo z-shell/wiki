@@ -20,6 +20,7 @@ specifiers:
   "@loadable/babel-plugin": 5.13.2
   "@loadable/component": 5.15.2
   "@mdx-js/react": 1.6.22
+  "@trunkio/launcher": ^1.1.1
   "@types/node": 18.0.6
   "@typescript-eslint/eslint-plugin": 5.33.0
   "@typescript-eslint/parser": 5.33.0
@@ -57,6 +58,7 @@ dependencies:
   "@loadable/babel-plugin": 5.13.2_@babel+core@7.18.10
   "@loadable/component": 5.15.2_react@17.0.2
   "@mdx-js/react": 1.6.22_react@17.0.2
+  "@trunkio/launcher": 1.1.1
   asciinema-player: 3.0.1
   clsx: 1.2.1
   husky: 8.0.1
@@ -3519,6 +3521,14 @@ packages:
     engines: { node: ">=14.16" }
     dependencies:
       defer-to-connect: 2.0.1
+    dev: false
+
+  /@trunkio/launcher/1.1.1:
+    resolution:
+      {
+        integrity: sha512-ALUQllx+H2jpdusWCVUZt5lvHYudaYwCZizxhrzQHyKKpDyIlzkUxu4pOB4Rf38Xki2Tavgwd58a3909jPtOCw==,
+      }
+    hasBin: true
     dev: false
 
   /@trysound/sax/0.2.0:
