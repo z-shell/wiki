@@ -14,7 +14,7 @@ keywords:
 
 ## <i class="fa-brands fa-github"></i> [z-shell/z-a-rust][]
 
-An annex installs rust and cargo packages locally inside the plugin or snippet directories. The crate can then have a so-called _shim_ created (a name borrowed from `rbenv`) – a script that's located in the standard `$PATH` entry "`$ZPFX/bin" of the following contents (example):
+An annex installs rust and cargo packages locally inside the plugin or snippet directories. The crate can then have a so-called _shim_ created (a name borrowed from `rbenv`) – a script that's located in the standard `$PATH` entry "$ZPFX/bin" of the following contents (example):
 
 ```shell showLineNumbers
 #!/usr/bin/env zsh
@@ -34,41 +34,41 @@ As it can be seen shim ultimately provides the binary to the command line.
 
 ## Usage of the annex
 
-The ZI Annex provides two new ices: `rustup` and `cargo''`. The first one installs rust inside the plugin's folder using the official `rustup` installer. The second one has the following syntax:
+The Zi Annex provides two new ices: `rustup` and `cargo''`. The first one installs rust inside the plugin's folder using the official `rustup` installer. The second one has the following syntax:
 
-`cargo"[name-of-the-binary-or-path <-] [[!][c|N|E|O]:]{crate-name} [-> {shim-script-name}]'`
+`cargo'[{name-of-the-binary-or-path} <-] [[!][c|n|e|o]:]{crate-name} [-> {shim-script-name}]'
 
 Example uses are:
 
-Installs rust and then the `lsd' crate and creates the`lsd' shim exposing the binary:
+Installs rust and then the `lsd` crate and creates the`lsd` shim exposing the binary:
 
 ```shell showLineNumbers
 zi ice rustup cargo'!lsd'
 zi load z-shell/null
 ```
 
-Installs rust and then the `exa' crate and creates the`ls' shim exposing the`exa' binary:
+Installs rust and then the `exa` crate and creates the`ls` shim exposing the`exa' binary:
 
 ```shell showLineNumbers
 zi ice rustup cargo'!exa -> ls'
 zi load z-shell/null
 ```
 
-Installs rust and then the `exa' and`lsd' crates:
+Installs rust and then the `exa` and`lsd` crates:
 
 ```shell showLineNumbers
 zi ice rustup cargo'exa;lsd'
 zi load z-shell/null
 ```
 
-Installs rust and then the `exa' and`lsd' crates and exposes their binaries by altering `$PATH`
+Installs rust and then the `exa` and `lsd` crates and exposes their binaries by altering `$PATH`
 
 ```shell showLineNumbers
 zi ice rustup cargo'exa;lsd' as"command" pick"bin/(exa|lsd)"
 zi load z-shell/null
 ```
 
-Installs rust and then the `exa' crate and creates its shim with standard error redirected to /dev/null
+Installs rust and then the `exa` crate and creates its shim with standard error redirected to /dev/null
 
 ```shell showLineNumbers
 zi ice rustup cargo'!E:exa'

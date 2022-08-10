@@ -1,7 +1,7 @@
 ---
 id: zui
 title: ⚙️ ZUI
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 toc_max_heading_level: 3
 description: The Rapid Application Development textual user interface library for Zsh.
 keywords:
@@ -12,6 +12,8 @@ keywords:
 
 <!-- @format -->
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import Image from '@theme/IdealImage';
 import Screen1 from '@site/static/img/png/hello-world-fs8.png';
 import Screen2 from '@site/static/img/png/zui-text-fields-fs8.png';
@@ -21,7 +23,7 @@ import Screen5 from '@site/static/img/png/zui-edit-fs8.png';
 
 ## CGI+DHTML-like User Interface Library for Zsh / ZCurses
 
-### <i class="fa-brands fa-github"></i> [z-shell/ZUI][1]
+### <i class="fa-brands fa-github"></i> [z-shell/ZUI][]
 
 This is a RAD (Rapid Application Development) textual user interface library for Zsh. It in many aspects resembles typical CGI+(D)HTML setup. There are:
 
@@ -748,43 +750,53 @@ zui-event-loop 1:demo_generator_A
 -zui_std_cleanup serialize
 ```
 
-Other example which uses list-box: [zui-demo-list-box][12].
+Other example which uses list-box: [zui-demo-list-box][].
 
 ### Install ZUI
 
-#### Standalone
+<Tabs>
+  <TabItem value="standalone" label="Standalone" default>
 
-Unpack `zui` somewhere and add to `zshrc`:
+Unpack `zui` somewhere and add to `.zshrc`:
 
-```shell
+```shell title="~/.zshrc"
 source {where-zui-is}/zui.plugin.zsh
 ```
 
-If using a plugin manager, then `ZI` is recommended, but you can use any other too, and also install with `Oh My Zsh`
-(by copying directory to `~/.oh-my-zsh/custom/plugins`).
+  </TabItem>
+  <TabItem value="zi" label="Zi">
 
-#### [ZI][13]
+Add the following to your `.zshrc` file.
 
-Add `zi load z-shell/zui` to your `.zshrc` file. ZI will handle the rest automatically the next time you start zsh. To
-update (i.e. to pull from origin) issue `zi update z-shell/zui`.
+```shell title="~/.zshrc"
+zi load z-shell/zui
+```
 
-#### Antigen
+  </TabItem>
+  <TabItem value="zgen" label="Zgen">
 
-Add `antigen bundle z-shell/zui` to your `.zshrc` file. Antigen will handle cloning the plugin for you automatically the
-next time you start zsh.
+Add the following to your `.zshrc` file in the same place you're doing your other `zgen load` calls.
 
-#### Oh-My-Zsh
+```shell title="~/.zshrc"
+zgen load z-shell/zui.git
+```
 
-1. `cd ~/.oh-my-zsh/custom/plugins`
-2. `git clone git@github.com:z-shell/zui.git`
-3. Add `zui` to your plugin list
+  </TabItem>
+  <TabItem value="oh-my-zsh" label="Oh-My-Zsh">
 
-#### Zgen
+Clone the Repository:
 
-Add `zgen load z-shell/zui` to your .zshrc file in the same place you're doing your other `zgen load` calls in.
+```shell title="~/.zshrc" showLineNumbers
+git clone https://github.com/z-shell/zui.git \
+${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zui
+```
 
-[1]: https://github.com/z-shell/zui
-[2]: https://github.com/z-shell/zui/issues
+And add `zui` to your plugin list.
+
+  </TabItem>
+</Tabs>
+
+[z-shell/zui]: https://github.com/z-shell/zui
 [3]: https://youtu.be/TfZ8b_RS_Bg
 [4]: https://drive.google.com/file/d/1mg6OPScurIT_AIJPotEzpw1TrnU0OeUZ/view?usp=sharing
 [5]: https://github.com/z-shell/zui/blob/main/demos/zui-demo-hello-world
@@ -797,5 +809,4 @@ Add `zgen load z-shell/zui` to your .zshrc file in the same place you're doing y
 [10]: https://asciinema.org/a/107688.png#center
 [10-1]: https://asciinema.org/a/107688
 [11]: https://github.com/z-shell/zui/blob/main/docs/ZSTYLES.md
-[12]: https://github.com/z-shell/zui/blob/main/demos/zui-demo-list-boxes
-[13]: https://github.com/z-shell/zi
+[zui-demo-list-box]: https://github.com/z-shell/zui/blob/main/demos/zui-demo-list-boxes
