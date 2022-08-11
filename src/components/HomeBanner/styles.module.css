@@ -1,11 +1,11 @@
 /** @format */
 
 .herobanner {
-  padding: 2rem 0;
-  text-align: right;
   position: relative;
-  font-weight: bold;
+  padding: 2rem 0;
   overflow: hidden;
+  font-weight: bold;
+  text-align: right;
 }
 
 @media only screen and (max-width: 996px) {
@@ -27,20 +27,20 @@
 }
 
 .hero {
-  background-color: #2b3137;
   padding: 4rem;
+  background-color: hsl(210deg 12% 19%);
 }
 
 .heroInner {
-  margin: 0 auto;
   max-width: 1100px;
   padding: 0 4rem;
+  margin: 0 auto;
 }
 
 .heroProjectTagline {
-  color: #fff;
-  font-size: 3.6rem;
   margin: 0;
+  font-size: 3.6rem;
+  color: hsl(0deg 0% 100%);
 }
 
 .heroTitleTextHtml b {
@@ -48,7 +48,7 @@
 }
 
 @keyframes jack-in-the-box {
-  from {
+  0% {
     opacity: 0;
     transform: scale(0.1) rotate(180deg);
     transform-origin: center bottom;
@@ -62,26 +62,26 @@
     transform: rotate(5deg);
   }
 
-  to {
+  100% {
     opacity: 1;
     transform: scale(1);
   }
 }
 
 .heroLogo {
-  animation-duration: 4s;
-  animation-name: jack-in-the-box;
   float: right;
-  margin-top: 20px;
-  padding: 0 20px 20px;
-  height: auto;
   max-width: 100%;
+  height: auto;
+  padding: 0 20px 20px;
+  margin-top: 20px;
+  animation-name: jack-in-the-box;
+  animation-duration: 4s;
 }
 
 .indexCtasGitHubButtonWrapper {
   display: flex;
-  padding: 2rem 0;
   max-width: 70%;
+  padding: 2rem 0;
 }
 
 .indexCtasGitHubButton {
@@ -108,7 +108,7 @@
 
 .indexCtas a:hover {
   color: var(--ifm-color-primary) !important;
-  background: #24292e;
+  background: hsl(210deg 12% 16%);
 }
 
 .indexCtas a:last-of-type {
@@ -117,8 +117,8 @@
 
 @media only screen and (max-width: 768px) {
   .hero {
-    padding-left: 2rem;
     padding-right: 2rem;
+    padding-left: 2rem;
   }
 
   .heroInner {
@@ -133,9 +133,9 @@
   .heroLogo {
     display: block;
     float: none;
-    margin: 0 auto;
-    height: auto;
     max-width: 30%;
+    height: auto;
+    margin: 0 auto;
   }
 
   .indexCtas {

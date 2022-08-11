@@ -2,8 +2,8 @@
 
 .videocontainer {
   display: block;
-  height: auto;
   width: 100%;
+  height: auto;
 }
 
 .videocontainer h2 {
@@ -13,22 +13,22 @@
 .featurecontainer {
   display: block;
   align-items: center;
-  height: auto;
   width: 100%;
+  height: auto;
 }
 
 .features {
-  text-align: center;
-  align-items: center;
   position: relative;
-  overflow: hidden;
+  align-items: center;
   padding: 4rem 0;
+  overflow: hidden;
+  text-align: center;
 }
 
 .featureimage {
   display: inline;
-  height: 200px;
   width: 200px;
+  height: 200px;
 }
 
 @media only screen and (max-width: 996px) {
