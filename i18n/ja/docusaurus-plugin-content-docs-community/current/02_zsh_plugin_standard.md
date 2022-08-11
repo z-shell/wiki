@@ -73,7 +73,7 @@ Then `${0:h}` to get the plugin’s directory.
 
 4. Use the `%N` prompt expansion flag, which always gives the absolute path to the script,
 
-   4.1. plugin manager cannot alter this (no advanced loading of the plugin is possible), but simple plugin-file sourcing (without a plugin manager) will be saved from breaking caused by the mentioned `*_argzero` options, so this is a very good last-resort fallback.
+   4.1. plugin manager cannot alter this (no advanced loading of the plugin is possible), but simple plugin-file sourcing (without a plugin manager) will be saved from breaking caused by the mentioned `*_argzero` [options][], so this is a very good last-resort fallback.
 
 5. Finally, in the second line, it will ensure that `$0` contains an absolute path by prepending it with `$PWD` if necessary.
 
@@ -304,7 +304,7 @@ Zsh ships with the function `add-zsh-hook`. It has the following invocation synt
 add-zsh-hook [ -L | -dD ] [ -Uzk ] hook function
 ```
 
-The command installs a `function` as one of the supported zsh `hook` entries. which are one of: `chpwd`, `periodic`, `precmd`, `preexec`, `zshaddhistory`, `zshexit`, `zsh_directory_name`. For their meaning refer to the [Zsh documentation: #Hook-Functions][].
+The command installs a `function` as one of the supported zsh `hook` entries. which are one of: `chpwd`, `periodic`, `precmd`, `preexec`, `zshaddhistory`, `zshexit`, `zsh_directory_name`. For their meaning refer to the [Zsh documentation: #Hook-Functions][hook-functions].
 
 ## Use of `add-zle-hook-widget` to install Zle Hooks
 
@@ -316,7 +316,7 @@ The syntax of the call is:
 add-zle-hook-widget [ -L | -dD ] [ -Uzk ] hook widgetname
 ```
 
-The call resembles the syntax of the `add-zsh-hook` function. The only difference is that it takes a `widgetname`, not a function name and that the `hook` is being one of: `isearch-exit`, `isearch-update`, `line-pre-redraw`, `line-init`, `line-finish`, `history-line-set`, or `keymap-select`. Their meaning is explained in the [Zsh documentation: #Special-Widgets][].
+The call resembles the syntax of the `add-zsh-hook` function. The only difference is that it takes a `widgetname`, not a function name and that the `hook` is being one of: `isearch-exit`, `isearch-update`, `line-pre-redraw`, `line-init`, `line-finish`, `history-line-set`, or `keymap-select`. Their meaning is explained in the [Zsh documentation: #Special-Widgets][special-widgets].
 
 The use of this function is recommended because it allows the installation **multiple** hooks per each `hook` entry. Before introducing the `add-zle-hook-widget` function the "normal" way to install a hook was to define a widget with the name of one of the special widgets. Now, after the function has been introduced in Zsh `5.3` it should be used instead.
 
@@ -345,7 +345,7 @@ Plugins[MY_PLUGIN_REPO_DIR]="${0:h}"
 
 This way all the data of all plugins will be kept in a single parameter, available for easy examination and overview (via e.g.: `varied Plugins`) and also not polluting the namespace.
 
-## Standard recommended options
+## Standard recommended [options][]
 
 The following code snippet is recommended to be included at the beginning of each of the main functions provided by the plugin:
 
@@ -506,5 +506,6 @@ Following the [Standard Plugins Hash](#standard-plugins-hash) section, the plugi
 [fill-them]: https://github.com/z-shell/zw/issues/new
 [zsh-workers post]: https://www.zsh.org/mla/workers/2011/msg01050.html
 [autoloading-functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions
-[Zsh documentation: #Special-Widgets]: http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Special-Widgets
-[Zsh documentation: #Hook-Functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions
+[special-widgets]: http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Special-Widgets
+[hook-functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions
+[options]: https://zsh.sourceforge.io/Doc/Release/Options.html
