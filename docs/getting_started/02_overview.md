@@ -115,7 +115,7 @@ Content of ice-modifier is simply put into `"…"`, `'…'`, or `$'…'`. No nee
 
 This way editors like `vim` and `emacs` and also `zsh-users/zsh-syntax-highlighting` and `z-shell/F-Sy-H` will highlight contents of ice-modifiers.
 
-## About subscribe'…' 
+## About subscribe'…'
 
 Ice modifier defers the loading of a plugin, while checking the modification time of the given file(s), and when it changes, it then triggers loading of the plugin or a snippet.
 
