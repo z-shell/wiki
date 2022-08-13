@@ -115,27 +115,6 @@ Content of ice-modifier is simply put into `"…"`, `'…'`, or `$'…'`. No nee
 
 This way editors like `vim` and `emacs` and also `zsh-users/zsh-syntax-highlighting` and `z-shell/F-Sy-H` will highlight contents of ice-modifiers.
 
-## About subscribe'…'
-
-Ice modifier defers the loading of a plugin, while checking the modification time of the given file(s), and when it changes, it then triggers loading of the plugin or a snippet.
-
-Copy and paste the example below to the terminal or add it to the `.zshrc` file and reload the shell with `exec zsh`.
-
-```shell {1} showLineNumbers
-zi ice subscribe'{~/files-*,/tmp/files-*}' id-as'z-sub' lucid \
-  atload'+zi-message "{profile}I have been loaded{nl}\
-  {auto}\`Zi Rocks ♥\`"' notify"Yes that is cool ♥ "
-zi load z-shell/0
-```
-
-Update file as subscribed above to test the ice modifier:
-
-```shell
-touch ~/files-1
-```
-
-The plugin or snippet will be sourced as many times as the file gets updated.
-
 ## About as"program"
 
 A plugin might not be a file for sourcing, but a command to be added to `$PATH`. To obtain this effect, use ice-modifier `as` with value `program` (or an alias value `command`).
@@ -153,7 +132,7 @@ The `cp` and `mv` ices (and also some other ones, like `atclone`) are being run 
 
 :::
 
-## About - atpull"…"
+## Ice modifier: atpull'…'
 
 Copying file is safe for doing later updates – original files of the repository are unmodified and `Git` will report no conflicts. However, `mv` also can be used, if a proper `atpull`, an ice-modifier ran at **update** of the plugin:
 
@@ -174,6 +153,27 @@ This way the `mv` ice can be used to induce permanent changes into the plugin's 
 For exclamation marks to not be expanded by Zsh an interactive session, use `'…'` not `"…"` to enclose contents of `atpull` [ice-modifier](/search?q=ice-modifier).
 
 :::
+
+## Ice modifier: subscribe'…'
+
+Ice modifier defers the loading of a plugin, while checking the modification time of the given file(s), and when it changes, it then triggers loading of the plugin or a snippet.
+
+Copy and paste the example below to the terminal or add it to the `.zshrc` file and reload the shell with `exec zsh`.
+
+```shell {1} showLineNumbers
+zi ice subscribe'{~/files-*,/tmp/files-*}' id-as'z-sub' lucid \
+  atload'+zi-message "{profile}I have been loaded{nl}\
+  {auto}\`Zi Rocks ♥\`"' notify"Yes that is cool ♥ "
+zi load z-shell/0
+```
+
+Update file as subscribed above to test the ice modifier:
+
+```shell
+touch ~/files-1
+```
+
+The plugin or snippet will be sourced as many times as the file gets updated.
 
 ## Snippets as'…' program
 
