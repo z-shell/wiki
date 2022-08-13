@@ -288,7 +288,7 @@ zi ice svn
 zi snippet PZT::modules/docker
 ```
 
-## Turbo Mode (Zsh >= 5.3) {#turbo-mode-zsh--53}
+## Turbo 模式（Zsh >= 5.3） {#turbo-mode-zsh--53}
 
 The ice-modifier `wait` allows the user to postpone the loading of a plugin to the moment when the processing of `.zshrc` is finished and the first prompt is shown.
 
