@@ -86,7 +86,6 @@ zi light …
 ### SC: [trapd00r/LS_COLORS](https://github.com/trapd00r/LS_COLORS)
 
 ```shell showLineNumbers
-# ogham/exa also uses the definitions
 zi ice wait lucid reset \
  atclone"[[ -z \${commands[dircolors]} ]] && local P=g
     \${P}sed -i '/DIR/c\DIR 38;5;63;1' LS_COLORS
@@ -162,7 +161,7 @@ zi light leophys/zsh-plugin-fzf-finder
 ### SC: [autosuggestions][1], [fast-syntax-highlighting][2]
 
 ```shell showLineNumbers
-zi ice wait lucid atinit"ZI[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
+zi ice wait lucid atinit"ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay"
 zi light z-shell/F-Sy-H
 
 zi ice wait lucid atload"!_zsh_autosuggest_start"
@@ -172,7 +171,8 @@ zi load zsh-users/zsh-autosuggestions
 ### SC: [z-shell/zsh-github-issues](https://github.com/z-shell/zsh-github-issues)
 
 ```shell showLineNumbers
-zi ice lucid id-as"GitHub-notify" on-update-of"~/.cache/zsh-github-issues/new_titles.log" \
+zi ice lucid id-as"GitHub-notify" \
+  on-update-of"~/.cache/zsh-github-issues/new_titles.log" \
   notify"New issue: $NOTIFY_MESSAGE"
 zi light z-shell/zsh-github-issues
 ```
@@ -246,9 +246,8 @@ zi has'zoxide' light-mode for \
 ### GH-R: [pemistahl/grex](https://github.com/pemistahl/grex)
 
 ```shell showLineNumbers
-zi wait lucid for as"command" from"gh-r" \
-  sbin"grex" \
-    pemistahl/grex
+zi wait lucid for as"command" from"gh-r" sbin"grex" \
+  pemistahl/grex
 ```
 
 ### GH-R: [ahmetb/kubectx](https://github.com/ahmetb/kubectx)
@@ -262,9 +261,9 @@ zi wait lucid for as"command" from"gh-r" \
 ### B: [stedolan/jq](https://github.com/stedolan/jq)
 
 ```shell showLineNumbers
-zi wait lucid for \
+zi wait lucid for if"(( ! ${+commands[jq]} ))" as"null" \
   atclone"autoreconf -fi && ./configure --with-oniguruma=builtin && make \
-  && ln -sfv $PWD/jq.1 $ZPFX/man/man1" as"null" if"(( ! ${+commands[jq]} ))" sbin"jq" \
+  && ln -sfv $PWD/jq.1 $ZI[MAN_DIR]/man1" sbin"jq" \
     stedolan/jq
 ```
 

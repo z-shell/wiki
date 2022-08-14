@@ -2,7 +2,7 @@
 
 version: 0.1
 cli:
-  version: 0.16.0-beta
+  version: 0.16.1-beta
 repo:
   repo:
     host: github.com
@@ -13,15 +13,16 @@ lint:
     - shellcheck
     - hadolint
     - taplo
+    - svgo
   enabled:
+    - stylelint@14.10.0
     - git-diff-check@SYSTEM
     - actionlint@1.6.15
     - eslint@8.21.0
-    - gitleaks@8.10.2
+    - gitleaks@8.10.3
     - markdownlint@0.32.1
     - prettier@2.7.1
     - shfmt@3.5.0
-    - stylelint@14.9.1
   ignore:
     - linters: [ALL]
       paths:

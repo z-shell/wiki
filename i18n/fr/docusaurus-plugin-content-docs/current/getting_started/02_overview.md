@@ -115,7 +115,7 @@ Content of ice-modifier is simply put into `"…"`, `'…'`, or `$'…'`. No nee
 
 This way editors like `vim` and `emacs` and also `zsh-users/zsh-syntax-highlighting` and `z-shell/F-Sy-H` will highlight contents of ice-modifiers.
 
-## A propos d'`as"program"`
+## About as"program"
 
 A plugin might not be a file for sourcing, but a command to be added to `$PATH`. To obtain this effect, use ice-modifier `as` with value `program` (or an alias value `command`).
 
@@ -132,7 +132,7 @@ The `cp` and `mv` ices (and also some other ones, like `atclone`) are being run 
 
 :::
 
-## À propos d'atpull"…"
+## Ice modifier: atpull'…'
 
 Copying file is safe for doing later updates – original files of the repository are unmodified and `Git` will report no conflicts. However, `mv` also can be used, if a proper `atpull`, an ice-modifier ran at **update** of the plugin:
 
@@ -153,6 +153,27 @@ This way the `mv` ice can be used to induce permanent changes into the plugin's 
 For exclamation marks to not be expanded by Zsh an interactive session, use `'…'` not `"…"` to enclose contents of `atpull` [ice-modifier](/search?q=ice-modifier).
 
 :::
+
+## Ice modifier: subscribe'…'
+
+Ice modifier defers the loading of a plugin, while checking the modification time of the given file(s), and when it changes, it then triggers loading of the plugin or a snippet.
+
+Copy and paste the example below to the terminal or add it to the `.zshrc` file and reload the shell with `exec zsh`.
+
+```shell {1} showLineNumbers
+zi ice subscribe'{~/files-*,/tmp/files-*}' id-as'z-sub' lucid \
+  atload'+zi-message "{profile}I have been loaded{nl}\
+  {auto}\`Zi Rocks ♥\`"' notify"Yes that is cool ♥ "
+zi load z-shell/0
+```
+
+Update file as subscribed above to test the ice modifier:
+
+```shell
+touch ~/files-1
+```
+
+The plugin or snippet will be sourced as many times as the file gets updated.
 
 ## Snippets as'…' program
 
@@ -179,7 +200,7 @@ zi ice as"completion"
 zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 ```
 
-## La gestion des complétions
+## The completion management
 
 Zi allows to disable and enable each completion in every plugin. Try installing a popular plugin that provides completions:
 
@@ -205,25 +226,25 @@ zi clist
 
 This command is adapted for plugins like `zsh-users/zsh-completions`, which provide many completions – listing will have `3` completions per line, and a smaller number of terminal pages can be occupied like this:
 
-<span className="ScreenView">
+<div className="ScreenView">
   <img
     className="ImageView"
     width="1000"
     height="500"
     src="/asciicast/zi_clist.svg" alt="Zi completion list"
   />
-</span>
+</div>
 
 To show more completions per line by providing an **argument** to `clist`, e.g.: `zi clist 6`, will show:
 
-<span className="ScreenView">
+<div className="ScreenView">
   <img
     className="ImageView"
     width="1000"
     height="500"
     src="/asciicast/zi_clist_6.svg" alt="Zi completion list 6"
   />
-</span>
+</div>
 
 ### Activation / désactivation des complétions
 
@@ -238,16 +259,16 @@ Enabled cmake completion belonging to zsh-users/zsh-completions
 
 Command `zi csearch` will **search** all plugin directories for available completions:
 
-<span className="ScreenView">
+<div className="ScreenView">
   <img
     className="ImageView"
     width="1000"
     height="500"
     src="/asciicast/zi_csearch.svg" alt="Zi completion search"
   />
-</span>
+</div>
 
-## Subversion pour les sous-répertoires
+## The subversion for subdirectories
 
 In general, to use **subdirectories** of Github projects as snippets add `/trunk/{path-to-dir}` to the URL:
 
@@ -267,7 +288,7 @@ zi ice svn
 zi snippet PZT::modules/docker
 ```
 
-## Mode turbo (Zsh >= 5.3)
+## Turbo Mode (Zsh >= 5.3) {#turbo-mode-zsh--53}
 
 The ice-modifier `wait` allows the user to postpone the loading of a plugin to the moment when the processing of `.zshrc` is finished and the first prompt is shown.
 
@@ -347,7 +368,7 @@ zi ice wait lucid
 zi load z-shell/history-search-multi-word
 ```
 
-## Turbo avec des invites sophistiquées
+## Turbo mode with sophisticated prompts
 
 For some, mostly advanced themes the initialization of the prompt is being done in a `precmd`-hook, i.e.; in a function that gets called before each prompt. The hook is installed by the [add-zsh-hook][12] Zsh function by adding its name to the `$precmd_functions` array.
 
@@ -380,7 +401,7 @@ Turbo mode with the empty `wait` ice will postpone the loading `1` ms after that
 
 The ice called `lucid` causes the under-prompt message saying `Loaded zsh-users/zsh-autosuggestions` that normally appears for every Turbo-loaded plugin to not show.
 
-## Chargement basé sur la condition automatique & déchargement
+## Automatic condition based - load & unload
 
 Ices `load` and `unload` allow defining when you want plugins active or inactive:
 
@@ -468,7 +489,7 @@ zi ice as"command" from"gh-r" \
 zi light starship/starship
 ```
 
-## Mises à jour
+## Updates & upgrades
 
 Self-update & compile:
 

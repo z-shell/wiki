@@ -1,4 +1,4 @@
 *out
 *logs
-*plugins
-external
+plugins
+user_trunk.yaml

@@ -6,52 +6,6 @@
 
 @font-face {
   font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 300;
-  src: local("JetBrains Mono Light"), local("JetBrainsMono-Light"),
-    url("/assets/fonts/webfonts/JetBrainsMono-Light.woff2") format("woff2"),
-    url("/assets/fonts/ttf/JetBrainsMono-Light.ttf") format("truetype");
-  font-display: swap;
-}
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 400;
-  src: local("JetBrains Mono Regular"), local("JetBrainsMono-Regular"),
-    url("/assets/fonts/webfonts/JetBrainsMono-Regular.woff2") format("woff2"),
-    url("/assets/fonts/ttf/JetBrainsMono-Regular.ttf") format("truetype");
-  font-display: swap;
-}
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 500;
-  src: local("JetBrains Mono Medium"), local("JetBrainsMono-Medium"),
-    url("/assets/fonts/webfonts/JetBrainsMono-Medium.woff2") format("woff2"),
-    url("/assets/fonts/ttf/JetBrainsMono-Medium.ttf") format("truetype");
-  font-display: swap;
-}
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 700;
-  src: local("JetBrains Mono Bold"), local("JetBrainsMono-Bold"),
-    url("/assets/fonts/webfonts/JetBrainsMono-Bold.woff2") format("woff2"),
-    url("/assets/fonts/ttf/JetBrainsMono-Bold.ttf") format("truetype");
-  font-display: swap;
-}
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 800;
-  src: local("JetBrains Mono ExtraBold"), local("JetBrainsMono-ExtraBold"),
-    url("/assets/fonts/webfonts/JetBrainsMono-ExtraBold.woff2") format("woff2"),
-    url("/assets/fonts/ttf/JetBrainsMono-ExtraBold.ttf") format("truetype");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
   font-weight: 300 800;
   src: local("JetBrains Mono"), local("JetBrainsMono"),
     url("/assets/fonts/variable/JetBrainsMono[wght].ttf") format("truetype");
@@ -60,9 +14,9 @@
 
 :root {
   font-family: "JetBrains Mono", monospace;
-
+  transition-duration: 1s !important;
+  --ifm-font-family-base: "JetBrains Mono", monospace;
   --ifm-font-family-monospace: "JetBrains Mono", monospace;
-  --ifm-font-family-base: "JetBrains Mono";
   --site-primary-hue-saturation: 168 70%;
   --site-primary-hue-saturation-light: 167 60%;
   --ifm-color-primary: hsl(var(--site-primary-hue-saturation) 30%);
@@ -76,25 +30,24 @@
   --ifm-color-primary-lightest: hsl(
     var(--site-primary-hue-saturation-light) 58%
   );
-  --site-color-favorite-background: #f6f8fa;
-  --site-color-tooltip-background: #353738;
-  --site-color-feedback-background: #fff;
-  --site-color-tooltip: #fff;
+  --site-color-favorite-background: hsl(210deg 29% 97%);
+  --site-color-tooltip-background: hsl(200deg 3% 21%);
+  --site-color-feedback-background: hsl(0deg 0% 100%);
+  --site-color-tooltip: hsl(0deg 0% 100%);
   --ifm-breadcrumb-color-active: var(--ifm-color-primary-darker) !important;
   --ifm-menu-color-active: var(--ifm-color-primary-darker) !important;
   --ifm-code-font-size: 90%;
-  --ifm-background-surface-color: #f6f8fa;
-  --ifm-background-color: #fff;
+  --ifm-background-surface-color: hsl(210deg 29% 97%);
+  --ifm-background-color: hsl(0deg 0% 100%);
   --ifm-navbar-background-color: var(--ifm-background-surface-color);
 
   --docusaurus-highlighted-code-line-bg: hsl(0deg 0% 0% / 15%);
   --docusaurus-announcement-bar-height: auto !important;
-  transition-duration: 1s !important;
 }
 
 html[data-theme="dark"] {
-  --ifm-background-color: #0d1117;
-  --ifm-background-surface-color: #24292e;
+  --ifm-background-color: hsl(216deg 28% 7%);
+  --ifm-background-surface-color: hsl(210deg 12% 16%);
   --site-color-checkbox-checked-bg: hsl(167deg 56% 73% / 10%);
   --docusaurus-highlighted-code-line-bg: hsl(0deg 0% 100% / 15%);
   transition-duration: 1s !important;
@@ -116,15 +69,15 @@ html[data-theme="dark"] {
 }
 
 .code-block-error-line {
-  background-color: #ff000020;
   display: block;
-  margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
-  border-left: 3px solid #ff000080;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  background-color: hsl(0deg 100% 50% / 12.5%);
+  border-left: 3px solid hsl(0deg 100% 50% / 50.2%);
 }
 
 .navbar--dark {
-  --ifm-navbar-background-color: #161b22;
+  --ifm-navbar-background-color: hsl(215deg 21% 11%);
   --ifm-navbar-link-hover-color: var(--ifm-color-primary);
   --ifm-menu-color-background-active: rgb(255 255 255 / 5%);
   --ifm-navbar-search-input-color: var(--ifm-color-white);
@@ -132,16 +85,16 @@ html[data-theme="dark"] {
 
 /* Footer style */
 .footer--dark {
-  --ifm-footer-background-color: #161b22;
+  --ifm-footer-background-color: hsl(215deg 21% 11%);
   --ifm-footer-color: var(--ifm-footer-link-color);
   --ifm-footer-link-color: var(--ifm-color-secondary);
   --ifm-footer-title-color: var(--ifm-color-white);
 }
 
 .footer__title {
+  padding: 0.3rem;
   font: bold var(--ifm-h3-font-size) / var(--ifm-heading-line-height)
     var(--ifm-font-family-base);
-  padding: 0.3rem;
   color: var(--ifm-color-primary);
 }
 
@@ -174,7 +127,7 @@ html[data-theme="dark"] {
   --docsearch-searchbox-focus-background: var(--ifm-color-black);
   --docsearch-hit-color: var(--ifm-font-color-base);
   --docsearch-hit-active-color: var(--ifm-color-white);
-  --docsearch-hit-background: #24292e;
+  --docsearch-hit-background: hsl(210deg 12% 16%);
   --docsearch-footer-background: var(--ifm-background-surface-color);
   --docsearch-key-gradient: linear-gradient(
     -26.5deg,
@@ -184,16 +137,16 @@ html[data-theme="dark"] {
 }
 
 .screen-reader-only {
-  border: 0;
-  clip: rect(0 0 0 0);
-  clip-path: polygon(0 0, 0 0, 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
   position: absolute;
   width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: polygon(0 0, 0 0, 0 0);
   white-space: nowrap;
+  border: 0;
 }
 
 html[data-theme="light"] img[src$="#gh-dark-mode-only"],
@@ -209,55 +162,55 @@ html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
 /* Image styles */
 .IceLogo {
   display: block;
-  margin: 0 calc(-1 * var(--ifm-pre-padding));
-  padding: 0 var(--ifm-pre-padding);
   float: right;
-  height: auto;
   width: 150px;
+  height: auto;
+  padding: 0 var(--ifm-pre-padding);
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
 }
 
 .ImageView {
-  border-radius: 0.5rem;
   max-width: 100%;
   height: auto;
+  border-radius: 0.5rem;
 }
 
 .ScreenView {
   display: block;
-  text-align: center;
   max-width: 100%;
   height: auto;
+  text-align: center;
 }
 
 .RightView {
   display: block;
-  text-align: right;
   float: right;
-  height: auto;
   max-width: 100%;
+  height: auto;
+  text-align: right;
 }
 
 /* Image position in markdown */
 img[src$="#center"] {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: auto;
   width: 100%;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 img[src$="#floatleft"] {
   display: block;
   float: left;
-  height: auto;
   width: 100%;
+  height: auto;
 }
 
 img[src$="#floatright"] {
   display: block;
   float: right;
-  height: auto;
   width: 100%;
+  height: auto;
 }
 
 /* Github Link */
@@ -266,10 +219,10 @@ img[src$="#floatright"] {
 }
 
 .header-github-link::before {
-  content: "";
+  display: flex;
   width: 1.5em;
   height: 1.5em;
-  display: flex;
+  content: "";
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
     no-repeat;
 }
@@ -291,9 +244,9 @@ html[data-theme="dark"] .header-github-link::before {
 
 .apitable tbody tr:focus,
 .apitable tbody tr:hover {
+  cursor: pointer;
   outline: none;
   box-shadow: 0 0 7px 0 inset var(--ifm-color-primary);
-  cursor: pointer;
   transition: box-shadow 0.2s;
 }
 
@@ -319,26 +272,26 @@ html[data-theme="dark"] .header-github-link::before {
 /* RSS Link */
 .rss-link::before {
   display: inline-block;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
+  padding: 0.5em;
   font: var(--fa-font-solid);
-  content: "\f09e";
   font-size: 1em;
   text-align: center;
-  padding: 0.5em;
+  content: "\f09e";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: auto;
 }
 
 /* Announcement banner */
 div[class^="announcementBarContent"] {
-  line-height: 16px;
   font-size: 14px;
   font-weight: bold;
+  line-height: 16px;
 }
 
 div[class^="announcementBarContent"] a {
-  text-decoration: underline;
   display: inline-block;
   color: var(--ifm-color-primary) !important;
+  text-decoration: underline;
 }
 
 div[class^="announcementBarContent"] a:hover {
@@ -346,22 +299,22 @@ div[class^="announcementBarContent"] a:hover {
 }
 
 html[data-theme="light"] div[class^="announcementBar_"] {
-  color: #000;
-  background: #f6f8fa;
+  color: hsl(0deg 0% 0%);
+  background: hsl(210deg 29% 97%);
   transition-duration: 1s !important;
 }
 
 html[data-theme="dark"] div[class^="announcementBar_"] {
-  color: #fff;
-  background: #24292e;
+  color: hsl(0deg 0% 100%);
+  background: hsl(210deg 12% 16%);
   transition-duration: 1s !important;
 }
 
 @media only screen and (max-width: 768px) {
   div[class^="announcementBarContent"] {
+    padding: 4px 32px;
     font-size: 12px;
     line-height: 18px;
-    padding: 4px 32px;
   }
 
   .IceLogo {
@@ -371,8 +324,8 @@ html[data-theme="dark"] div[class^="announcementBar_"] {
 
 @media only screen and (max-width: 500px) {
   div[class^="announcementBarContent"] {
-    line-height: 24px;
     padding: 4px 32px;
+    line-height: 24px;
   }
 
   .IceLogo {

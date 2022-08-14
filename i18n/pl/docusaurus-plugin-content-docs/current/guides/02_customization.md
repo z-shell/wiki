@@ -37,17 +37,17 @@ Variables has to be set before loading Zi, i.e `source "path/to/zi/bin/zi.zsh"`.
 
 <div className="apitable">
 
-| Hash Field                           | Description                                                                                                                                                                             |
-| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ZI[BIN_DIR]`                        | Where Zi code resides, e.g: "~/.zi/bin"                                                                                                                                                 |
-| `ZI[HOME_DIR]`                       | Where Zi should create all working directories, e.g: "~/.zi"                                                                                                                            |
-| `ZI[PLUGINS_DIR]`                    | Override single working directory – for plugins, e.g: "/opt/zsh/zi/plugins"                                                                                                             |
-| `ZI[COMPLETIONS_DIR]`                | As above, but for completion files, e.g: "/opt/zsh/zi/root_completions"                                                                                                                 |
-| `ZI[SNIPPETS_DIR]`                   | As above, but for snippets                                                                                                                                                              |
-| `ZI[ZMODULES_DIR]`                   | Override single working directory – for Zsh modules e.g: "/opt/zsh/zi/zmodules"                                                                                                         |
-| `ZI[ZCOMPDUMP_PATH]`                 | Path to `.zcompdump` file, with the file included (e.g: its name can be different)                                                                                                      |
-| [ZPFX][global-parameter-with-prefix] | Directory where binary and their related files are stored (software with `Makefile` can use `atclone'./configure --prefix=$ZPFX'`). Set by default to `$ZI[HOME_DIR]}/polaris`.         |
-| `ZI[MAN_DIR]`                        | Directory where plugins can store their manpages (`atclone"cp -vf man.1 $ZI[MAN_DIR]/man1"`). If overridden, this directory will not necessarily be used by man. Default: `${ZPFX}/man` |
+| Hash Field                           | Default                                      | Description                                                                                                                                |
+| ------------------------------------ | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ZI[BIN_DIR]`                        | `$HOME/.zi/bin`                              | directory where Zi code resides                                                                                                            |
+| `ZI[HOME_DIR]`                       | `$HOME/.zi`                                  | where Zi should create all working directories                                                                                             |
+| `ZI[PLUGINS_DIR]`                    | `$ZI[HOME_DIR]/plugins`                      | plugins working directory                                                                                                                  |
+| `ZI[COMPLETIONS_DIR]`                | `$ZI[HOME_DIR]/completions`                  | completion working directory                                                                                                               |
+| `ZI[SNIPPETS_DIR]`                   | `$ZI[HOME_DIR]/snippets`                     | snippets working directory                                                                                                                 |
+| `ZI[ZMODULES_DIR]`                   | `$ZI[HOME_DIR]/zmodules`                     | Zsh modules working directory                                                                                                              |
+| `ZI[ZCOMPDUMP_PATH]`                 | `$XDG_DATA_HOME:-$ZDOTDIR:-$HOME/.zcompdump` | path to `.zcompdump` file (including file)                                                                                                 |
+| [ZPFX][global-parameter-with-prefix] | `$ZI[HOME_DIR]/polaris`                      | directory to store binary and related files                                                                                                |
+| `ZI[MAN_DIR]`                        | `$ZPFX/man`                                  | directory to store manpages (`atclone"cp -vf man.1 $ZI[MAN_DIR]/man1"`). If overridden, this directory will not necessarily be used by man |
 
 </div>
 
@@ -55,12 +55,12 @@ Variables has to be set before loading Zi, i.e `source "path/to/zi/bin/zi.zsh"`.
 
 <div className="apitable">
 
-| Hash Field                       | Description                                                                                                                                                                                                                                                                                                                                                                                              |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ZI[OPTIMIZE_OUT_DISK_ACCESSES]` | If set to `1`, then Zi will skip checking if a Turbo-loaded object exists on the disk. By default, Zi skips turbo mode for non-existing objects (plugins or snippets) to install them before the first prompt – without any delays, during the normal processing of `.zshrc`. This option can give a performance gain of about 10 ms out of 150 ms (e.g: Zsh will start up in 140 ms instead of 150 ms). |
-| `ZI[COMPINIT_OPTS]`              | Options for `compinit` call (e.g: done by `zicompinit`), use to pass -C to speed up loading                                                                                                                                                                                                                                                                                                              |
-| `ZI[MUTE_WARNINGS]`              | If set to `1`, then mutes some of the Zi warnings, specifically the `plugin already registered` warning                                                                                                                                                                                                                                                                                                  |
-| `ZI[PKG_OWNER]`                  | Change the owner of the [packages][packages] (`zi pack …`).                                                                                                                                                                                                                                                                                                                                              |
+| Hash Field                       | Default     | Description                                                                                                                                                                                               |
+| -------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ZI[OPTIMIZE_OUT_DISK_ACCESSES]` | `undefined` | if set to `1`, will skip checking if a turbo-loaded object exists on the disk. This option can give a performance gain of about 10 ms out of 150 ms (e.g: Zsh will start up in 140 ms instead of 150 ms). |
+| `ZI[COMPINIT_OPTS]`              | `undefined` | options for `compinit` call (e.g: done by `zicompinit`), commonly used with `-C` to speed up loading                                                                                                      |
+| `ZI[MUTE_WARNINGS]`              | `undefined` | if set to `1`, mutes some warnings, specifically the `plugin already registered` warning                                                                                                                  |
+| `ZI[PKG_OWNER]`                  | `z-shell`   | owner of the [packages][packages] (`zi pack …`)                                                                                                                                                           |
 
 </div>
 
@@ -132,7 +132,7 @@ The sense of an option name may be inverted by preceding it with `no`, so `setop
 
 Some options also have one or more single-letter names. There are two sets of single letter options: one used by default, and another used to emulate sh/ksh (used when the SH_OPTION_LETTERS option is set). The single letter options can be used on the shell command line, or with the set, `setopt` and `unsetopt` builtins, as normal Unix options preceded by `-`.
 
-The sense of the single letter options may be inverted by using `+` instead of `-`. Some of the single letter option names refer to an option being off, in which case the inversion of that name refers to the option is on. For example, `+n` is the short name of `exec`, and `-n` is the short name of its inversion, `noexec`.
+The sense of the single letter options may be inverted by using `+` instead of `-`. Some of the single letter option names refer to an option being off, in which case the inversion of that name refers to the option it is on. For example, `+n` is the short name of `exec`, and `-n` is the short name of its inversion, `noexec`.
 
 In strings of single letter options supplied to the shell at startup, trailing whitespace will be ignored; for example the string `-f` will be treated just as `-f`, but the string `-f i` is an error.
 

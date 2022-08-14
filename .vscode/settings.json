@@ -4,10 +4,20 @@
   },
   "conventionalCommits.scopes": [
     "maintenance",
-    "workspace",
-    "community",
-    "general",
-    "misc"
+    "library",
+    "feature",
+    "refactor",
+    "style",
+    "chore",
+    "revert",
+    "docs",
+    "deps",
+    "misc",
+    "build",
+    "perf",
+    "test",
+    "fix",
+    "ci"
   ],
   "shellformat.useEditorConfig": true,
   "todo-tree.general.tags": [

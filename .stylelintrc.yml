@@ -1,21 +1,24 @@
 # @format
 
 extends:
+  - stylelint-config-recommended
   - stylelint-config-standard
+  - stylelint-config-recess-order
   - stylelint-config-prettier
 plugins:
-  - stylelint-csstree-validator
+  - stylelint-color-format
 ignoreFiles:
-  - static/**
+  - node_modules
 rules:
   {
-    "csstree/validator": [true],
+    "order/properties-alphabetical-order": null,
+    "color-format/format": { "format": "hsl" },
     "selector-pseudo-class-no-unknown":
       [true, { ignorePseudoClasses: ["global"] }],
+    "value-keyword-case": ["lower", { camelCaseSvgKeywords: true }],
     "selector-class-pattern": null,
     "custom-property-empty-line-before": null,
     "selector-id-pattern": null,
     "declaration-empty-line-before": null,
     "comment-empty-line-before": null,
-    "value-keyword-case": ["lower", { camelCaseSvgKeywords: true }],
   }
