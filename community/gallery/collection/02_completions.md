@@ -10,6 +10,14 @@ keywords:
 
 <!-- @format -->
 
+:::caution
+
+It is highly recommended to check the repository contents before installing. This may help to install it correctly and prevent potential security risks.
+
+Do not hesitate to [report any issues][issues] you encounter.
+
+:::
+
 :::info
 
 Related:
@@ -26,12 +34,12 @@ Related:
 
 Create your own syntax e.g:
 
-> - The ver'master' - allows to select specific version or branch.
+> - The ver'main' - allows selecting a specific version or branch.
 > - It's optional and can be removed if not required.
 
 ```shell showlinenumbers
 z_lucid() {
-  zi ice lucid ver'master' "$@"
+  zi ice lucid ver'main' "$@"
 }
 
 zi0a() {
@@ -62,105 +70,28 @@ zi snippet …
 
 :::
 
-### COMP: [docker/cli](https://github.com/docker/cli) {#comp-dockercli}
-
-```shell showLineNumbers
-zi ice as"completion"
-zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
-```
-
-### COMP: [Aloxaf/fzf-tab](https://github.com/Aloxaf/fzf-tab) {#comp-aloxaffzf-tab}
-
-```shell showLineNumbers
-zi ice lucid wait has'fzf'
-zi light Aloxaf/fzf-tab
-```
-
-### COMP: [x-motemen/ghq](https://github.com/x-motemen/ghq/blob/master/misc/zsh/_ghq)
-
-```shell showLineNumbers
-zi ice lucid wait as'completion' blockf has'ghq'
-zi snippet https://github.com/x-motemen/ghq/blob/master/misc/zsh/_ghq
-```
-
-### COMP: [greymd/tmux-xpanes](https://github.com/greymd/tmux-xpanes)
-
-```shell showLineNumbers
-zi ice lucid wait as'completion' blockf has'tmux' pick'completion/zsh'
-zi light greymd/tmux-xpanes
-```
-
-### COMP: [rust-lang/cargo](https://github.com/rust-lang/cargo/blob/master/src/etc/_cargo)
-
-```shell showLineNumbers
-zi ice lucid wait as'completion' blockf has'cargo'
-zi snippet https://github.com/rust-lang/cargo/blob/master/src/etc/_cargo
-```
-
-### COMP: [ohmyzsh/rust](https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/rust/_rustc)
-
-```shell showLineNumbers
-zi ice lucid wait as'completion' blockf has'rustc'
-zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/rust/_rustc
-```
-
-### COMP: [BurntSushi/ripgrep/rg](https://github.com/BurntSushi/ripgrep/blob/master/complete/_rg)
-
-```shell showLineNumbers
-zi ice lucid wait as'completion' blockf has'rg'
-zi snippet https://github.com/BurntSushi/ripgrep/blob/master/complete/_rg
-```
-
-### COMP: [TheLocehiliosan/yadm](https://github.com/TheLocehiliosan/yadm/blob/master/completion/zsh/_yadm)
-
-```shell showLineNumbers
-zi ice lucid wait as'completion' blockf has'yadm'
-zi snippet https://github.com/TheLocehiliosan/yadm/blob/master/completion/zsh/_yadm
-```
-
-### COMP: [dbrgn/tealdeer](https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer)
-
-```shell showLineNumbers
-zi ice lucid wait as'completion' blockf has'tldr' mv'zsh_tealdeer -> _tldr'
-zi snippet https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer
-```
-
-### COMP: [srijanshetty/zsh-pandoc-completion](https://github.com/srijanshetty/zsh-pandoc-completion)
-
-```shell showLineNumbers
-zi ice lucid wait as'completion' blockf has'pandoc'
-zi light srijanshetty/zsh-pandoc-completion
-```
-
-### COMP: [ohmyzsh/fd](https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/fd/_fd)
-
-```shell showLineNumbers
-zi ice lucid wait as'completion' blockf has'fd'
-zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/fd/_fd
-```
-
-### COMP: [jarun/Buku](https://github.com/jarun/Buku/blob/master/auto-completion/zsh/_buku)
-
-```shell showLineNumbers
-zi ice lucid wait as'completion' blockf has'buku'
-zi snippet https://github.com/jarun/Buku/blob/master/auto-completion/zsh/_buku
-```
-
-### COMP: [mpv-player/mpv](https://github.com/mpv-player/mpv/blob/master/etc/_mpv.zsh)
-
-```shell showLineNumbers
-zi ice lucid wait as'completion' blockf has'mpv'
-zi snippet https://github.com/mpv-player/mpv/blob/master/etc/_mpv.zsh
-```
-
-### COMP: [alacritty/alacritty](https://github.com/alacritty/alacritty/blob/master/extra/completions/_alacritty)
+### COMP: [alacritty/alacritty][] {#comp-alacritty-alacritty}
 
 ```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'alacritty'
 zi snippet https://github.com/alacritty/alacritty/blob/master/extra/completions/_alacritty
 ```
 
-### COMP: [bugaevc/wl-clipboard](https://github.com/bugaevc/wl-clipboard/blob/master/completions/zsh/)
+### COMP: [Aloxaf/fzf-tab][] {#comp-aloxaf-fzf-tab}
+
+```shell showLineNumbers
+zi ice lucid wait has'fzf'
+zi light Aloxaf/fzf-tab
+```
+
+### COMP: [beetbox/beets][] {#comp-beetbox-beets}
+
+```shell showLineNumbers
+zi ice lucid wait as'completion' blockf has'beet'
+zi snippet https://github.com/beetbox/beets/blob/master/extra/_beet
+```
+
+### COMP: [bugaevc/wl-clipboard][] {#comp-bugaevc-wl-clipboard}
 
 ```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'wl-copy'
@@ -170,46 +101,123 @@ zi ice lucid wait as'completion' blockf has'wl-paste'
 zi snippet https://github.com/bugaevc/wl-clipboard/blob/master/completions/zsh/_wl-paste
 ```
 
-### COMP: [flatpak/flatpak](https://github.com/flatpak/flatpak/blob/master/completion/_flatpak)
+### COMP: [BurntSushi/ripgrep/rg][] {#comp-burntsushi-ripgrep-rg}
+
+```shell showLineNumbers
+zi ice lucid wait as'completion' blockf has'rg'
+zi snippet https://github.com/BurntSushi/ripgrep/blob/master/complete/_rg
+```
+
+### COMP: [dbrgn/tealdeer][] {#comp-dbrgn-tealdeer}
+
+```shell showLineNumbers
+zi ice lucid wait as'completion' blockf has'tldr' mv'zsh_tealdeer -> _tldr'
+zi snippet https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer
+```
+
+### COMP: [docker/cli][] {#comp-docker-cli}
+
+```shell showLineNumbers
+zi ice as"completion"
+zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+```
+
+### COMP: [flatpak/flatpak][] {#comp-flatpak-flatpak}
 
 ```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'flatpak'
 zi light https://github.com/flatpak/flatpak/blob/master/completion/_flatpak
 ```
 
-### COMP: [beetbox/beets](https://github.com/beetbox/beets/blob/master/extra/_beet)
-
-```shell showLineNumbers
-zi ice lucid wait as'completion' blockf has'beet'
-zi snippet https://github.com/beetbox/beets/blob/master/extra/_beet
-```
-
-### COMP: [zsh-users/zsh-completions](https://github.com/zsh-users/zsh-completions)
-
-```shell showLineNumbers
-zi ice lucid wait as'completion'
-zi light zsh-users/zsh-completions
-```
-
-### COMP: [zchee/zsh-completions](https://github.com/zchee/zsh-completions)
-
-```shell showLineNumbers
-zi ice lucid wait as'completion' blockf
-zi light zchee/zsh-completions
-```
-
-### COMP: [git/git](https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh)
+### COMP: [git/git][] {#comp-git-git}
 
 ```shell showLineNumbers
 zi ice lucid wait as'completion' blockf mv'git-completion.zsh -> _git'
 zi snippet https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh
 ```
 
-### COMP: [bun-sh](https://github.com/oven-sh/bun/blob/main/completions/bun.zsh)
+### COMP: [greymd/tmux-xpanes][] {#comp-greymd-tmux-xpanes}
+
+```shell showLineNumbers
+zi ice lucid wait as'completion' blockf has'tmux' pick'completion/zsh'
+zi light greymd/tmux-xpanes
+```
+
+### COMP: [jarun/Buku][] {#comp-jarun-Buku}
+
+```shell showLineNumbers
+zi ice lucid wait as'completion' blockf has'buku'
+zi snippet https://github.com/jarun/Buku/blob/master/auto-completion/zsh/_buku
+```
+
+### COMP: [mpv-player/mpv][] {#comp-mpv-player-mpv}
+
+```shell showLineNumbers
+zi ice lucid wait as'completion' blockf has'mpv'
+zi snippet https://github.com/mpv-player/mpv/blob/master/etc/_mpv.zsh
+```
+
+### COMP: [ohmyzsh/fd][] {#comp-ohmyzsh-fd}
+
+```shell showLineNumbers
+zi ice lucid wait as'completion' blockf has'fd'
+zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/fd/_fd
+```
+
+### COMP: [ohmyzsh/rust][] {#comp-ohmyzsh-rust}
+
+```shell showLineNumbers
+zi ice lucid wait as'completion' blockf has'rustc'
+zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/rust/_rustc
+```
+
+### COMP: [oven-sh/bun][] {#comp-oven-sh-bun}
 
 ```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'bun'
 zi snippet https://github.com/oven-sh/bun/blob/main/completions/bun.zsh
+```
+
+### COMP: [rust-lang/cargo][] {#comp-rust-lang-cargo}
+
+```shell showLineNumbers
+zi ice lucid wait as'completion' blockf has'cargo'
+zi snippet https://github.com/rust-lang/cargo/blob/master/src/etc/_cargo
+```
+
+### COMP: [srijanshetty/zsh-pandoc-completion][] {#comp-srijanshetty-zsh-pandoc-completion}
+
+```shell showLineNumbers
+zi ice lucid wait as'completion' blockf has'pandoc'
+zi light srijanshetty/zsh-pandoc-completion
+```
+
+### COMP: [TheLocehiliosan/yadm][] {#comp-TheLocehiliosan-yadm}
+
+```shell showLineNumbers
+zi ice lucid wait as'completion' blockf has'yadm'
+zi snippet https://github.com/TheLocehiliosan/yadm/blob/master/completion/zsh/_yadm
+```
+
+### COMP: [x-motemen/ghq][] {#comp-x-motemen-ghq}
+
+```shell showLineNumbers
+zi ice lucid wait as'completion' blockf has'ghq'
+zi snippet https://github.com/x-motemen/ghq/blob/master/misc/zsh/_ghq
+```
+
+### COMP: [zchee/zsh-completions][] {#comp-zchee-zsh-completions}
+
+```shell showLineNumbers
+zi ice lucid wait as'completion' blockf
+zi light zchee/zsh-completions
+```
+
+### COMP: [zsh-users/zsh-completions][] {#comp-zsh-users-zsh-completions}
+
+```shell showLineNumbers
+zi ice lucid wait as'completion'
+zi light zsh-users/zsh-completions
 ```
 
 ### COMP: Local
@@ -227,7 +235,8 @@ zi snippet "$SHELL_COMMON/zsh/thefuck/thefuck.sh"
 zi ice lucid wait
 zi snippet "$XDG_CONFIG_HOME/less/less_termcap.sh"
 
-zi ice lucid wait pick'aliases.sh' multisrc'functions_ghq.sh pash.sh functions.sh aliases_private.sh'
+zi ice lucid wait pick'aliases.sh' \
+  multisrc'functions_ghq.sh pash.sh functions.sh aliases_private.sh'
 zi light "$SHELL_COMMON"
 
 zi ice lucid wait has'broot'
@@ -237,8 +246,33 @@ zi snippet "$XDG_CONFIG_HOME/broot/launcher/bash/br"
 <!-- end-of-file -->
 <!-- links -->
 
-[completions-management]: /docs/guides/commands#completions-management
-[calling-compinit-without-turbo-mode]: /docs/guides/commands#calling-compinit-without-turbo-mode
 [calling-compinit-with-turbo-mode]: /docs/guides/commands#calling-compinit-with-turbo-mode
+[calling-compinit-without-turbo-mode]: /docs/guides/commands#calling-compinit-without-turbo-mode
+[completions-management]: /docs/guides/commands#completions-management
 [ice-modifiers-completions]: /docs/guides/syntax/ice-modifiers#completions
 [ice-src-pick-multisrc]: /docs/guides/syntax/ice#src-pick-multisrc
+
+<!-- external-links -->
+
+[alacritty/alacritty]: https://github.com/alacritty/alacritty/blob/master/extra/completions/_alacritty
+[aloxaf/fzf-tab]: https://github.com/Aloxaf/fzf-tab
+[beetbox/beets]: https://github.com/beetbox/beets/blob/master/extra/_beet
+[bugaevc/wl-clipboard]: https://github.com/bugaevc/wl-clipboard/blob/master/completions/zsh/
+[burntsushi/ripgrep/rg]: https://github.com/BurntSushi/ripgrep/blob/master/complete/_rg
+[dbrgn/tealdeer]: https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer
+[docker/cli]: https://github.com/docker/cli
+[flatpak/flatpak]: https://github.com/flatpak/flatpak/blob/master/completion/_flatpak
+[git/git]: https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh
+[greymd/tmux-xpanes]: https://github.com/greymd/tmux-xpanes
+[issues]: https://github.com/z-shell/zi/issues/new/choose
+[jarun/buku]: https://github.com/jarun/Buku/blob/master/auto-completion/zsh/_buku
+[mpv-player/mpv]: https://github.com/mpv-player/mpv/blob/master/etc/_mpv.zsh
+[ohmyzsh/fd]: https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/fd/_fd
+[ohmyzsh/rust]: https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/rust/_rustc
+[oven-sh/bun]: https://github.com/oven-sh/bun/blob/main/completions/bun.zsh
+[rust-lang/cargo]: https://github.com/rust-lang/cargo/blob/master/src/etc/_cargo
+[srijanshetty/zsh-pandoc-completion]: https://github.com/srijanshetty/zsh-pandoc-completion
+[thelocehiliosan/yadm]: https://github.com/TheLocehiliosan/yadm/blob/master/completion/zsh/_yadm
+[x-motemen/ghq]: https://github.com/x-motemen/ghq/blob/master/misc/zsh/_ghq
+[zchee/zsh-completions]: https://github.com/zchee/zsh-completions
+[zsh-users/zsh-completions]: https://github.com/zsh-users/zsh-completions

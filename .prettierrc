@@ -1,9 +1,7 @@
-# @format
-
 {
-  "insertPragma": true,
+  "insertPragma": false,
   "requirePragma": false,
   "jsxSingleQuote": true,
   "singleAttributePerLine": true,
-  "vueIndentScriptAndStyle": true,
+  "vueIndentScriptAndStyle": true
 }

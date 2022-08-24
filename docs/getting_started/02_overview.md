@@ -2,7 +2,7 @@
 id: overview
 title: "☑️ General Overview"
 image: /img/logo/320x320.png
-description: Overview of use cases with Zi
+description: General overview of Zi usage
 keywords:
   - overview
 ---
@@ -193,7 +193,7 @@ Snippets also support `atpull`, e.g. `atpull'!svn revert'`. There’s also an `a
 
 ## Snippets as'…' completion
 
-By using the `as''` ice modifier with the value `completion` you can point the `snippet` subcommand directly to a completion file:
+By using the `as'…'` ice modifier with the value `completion` you can point the `snippet` subcommand directly to a completion file:
 
 ```shell {1} showLineNumbers
 zi ice as"completion"
@@ -226,14 +226,9 @@ zi clist
 
 This command is adapted for plugins like `zsh-users/zsh-completions`, which provide many completions – listing will have `3` completions per line, and a smaller number of terminal pages can be occupied like this:
 
-<div className="ScreenView">
-  <img
-    className="ImageView"
-    width="1000"
-    height="500"
-    src="/asciicast/zi_clist.svg" alt="Zi completion list"
-  />
-</div>
+import ImgShow from '@site/src/components/ImgShow';
+
+<ImgShow img="/asciicast/zi_clist.svg" alt="Zi completion list" />
 
 To show more completions per line by providing an **argument** to `clist`, e.g.: `zi clist 6`, will show:
 
@@ -567,7 +562,7 @@ Scripts that are built to install
 
 > There's single default make target, "install", and it constructs scripts.
 
-The `make''` ice could also be: `make"install PREFIX=$ZPFX"`, if "install" wouldn't be the only, default target.
+The `make'…'` ice could also be: `make"install PREFIX=$ZPFX"`, if "install" wouldn't be the only, default target.
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"

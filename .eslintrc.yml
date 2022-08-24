@@ -16,7 +16,7 @@ parserOptions:
   ecmaFeatures:
     jsx: true
   ecmaVersion: latest
-  type: molule
+  type: module
 plugins:
   - react-hooks
   - "@typescript-eslint"

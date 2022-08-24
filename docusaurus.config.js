@@ -1,25 +1,30 @@
 /** @format */
 // @ts-check
 
-const setURL = process.env.URL ?? "https://wiki.zshell.dev";
+const url = process.env.URL ?? "https://wiki.zshell.dev";
+const baseUrl = process.env.BASE_URL ?? "/";
+
+/* const isDev = process.env.NODE_ENV === 'development'; */
+/* const isProd = process.env.NODE_ENV === 'production'; */
+/* const inCloudflarePages = process.env.CF_PAGES === '1'; */
+
 const math = require("remark-math");
-const katex = require("rehype-katex");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "❮ Zi ❯",
   tagline: "A Swiss Army Knife for Zsh Unix shell",
-  url: setURL,
-  baseUrl: "/",
+  url,
+  baseUrl,
   trailingSlash: false,
   titleDelimiter: "|",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "/img/favicon.ico?static=true",
+  favicon: "img/favicon.ico",
   projectName: "wiki",
   organizationName: "z-shell",
   staticDirectories: ["static"],
-  stylesheets: ["/assets/fa/css/all.min.css"],
+  stylesheets: [{ href: "/assets/fa/css/all.min.css", type: "text/css" }],
   i18n: {
     defaultLocale: "en",
     locales: ["en", "fr", "ja", "zh-Hans"],
@@ -42,10 +47,11 @@ const config = {
             }
             return `https://github.com/z-shell/wiki/tree/main/${versionDocsDirPath}/${docPath}`;
           },
+          editCurrentVersion: false,
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           remarkPlugins: [math],
-          rehypePlugins: [katex],
+          rehypePlugins: [],
         },
         blog: {
           editUrl: ({ locale, blogDirPath, blogPath }) => {
@@ -82,31 +88,13 @@ const config = {
           "queryString",
         ],
         pwaHead: [
-          { tagName: "link", rel: "icon", href: "/img/logo.svg" },
-          { tagName: "link", rel: "manifest", href: "/manifest.json" },
-          { tagName: "link", rel: "browserconfig", href: "/browserconfig.xml" },
-          {
-            tagName: "link",
-            rel: "alternate",
-            type: "application/json",
-            href: "/blog/feed.json",
-          },
-          {
-            tagName: "link",
-            rel: "alternate",
-            type: "application/rss+xml",
-            href: "/blog/rss.xml",
-          },
-          {
-            tagName: "link",
-            rel: "alternate",
-            type: "application/atom+xml",
-            href: "/blog/atom.xml",
-          },
+          { tagName: "link", rel: "icon", href: "img/logo.svg" },
+          { tagName: "link", rel: "manifest", href: "manifest.json" },
+          { tagName: "link", rel: "browserconfig", href: "browserconfig.xml" },
           {
             tagName: "meta",
             name: "theme-color",
-            content: "rgb(35, 184, 152)",
+            content: "hsl(167°, 68%, 43%)",
           },
           {
             tagName: "meta",
@@ -121,7 +109,7 @@ const config = {
           {
             tagName: "meta",
             name: "msapplication-TileImage",
-            content: "/img/logo.png",
+            content: "img/logo.png",
           },
           { tagName: "meta", name: "msapplication-TileColor", content: "#000" },
         ],
@@ -144,7 +132,6 @@ const config = {
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
         remarkPlugins: [math],
-        rehypePlugins: [katex],
       }),
     ],
     [
@@ -164,7 +151,6 @@ const config = {
         showLastUpdateAuthor: false,
         showLastUpdateTime: true,
         remarkPlugins: [math],
-        rehypePlugins: [katex],
       }),
     ],
   ],
@@ -177,7 +163,7 @@ const config = {
         disableSwitch: false,
         respectPrefersColorScheme: true,
       },
-      image: "img/logo/320x320.png?static=true",
+      image: "img/logo/320x320.png",
       metadata: [
         { name: "twitter:card", content: "summary" },
         {
@@ -187,8 +173,9 @@ const config = {
         },
       ],
       announcementBar: {
-        id: "announcemnt",
-        content: `If you like ❮ Zi ❯ - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi"><i class="fa-solid fa-star"></i></a>, share it on <a target="_blank" rel="noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=https://wiki.zshell.dev/&t=A Swiss Army Knife for Zsh Unix shell | ❮ Zi ❯"><i class="fa-brands fa-square-hacker-news"></i></a>, and consider following us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell"><i class="fa-brands fa-github-alt"></i></a> or <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/zshell_zi"><i class="fa-brands fa-twitter"></i></a>`,
+        id: "announcement-bar",
+        content: `If you like Zi - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi"><i class="fa-solid fa-star"></i></a>, share it on <a target="_blank" rel="noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=https://wiki.zshell.dev/&t=A%20Swiss%20Army%20Knife%20for%20Zsh%20Unix%20shell%20|%20%E2%9D%AE%20Zi%20%E2%9D%AF"><i class="fa-brands fa-square-hacker-news"></i></a>, and consider following us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell"><i class="fa-brands fa-github-alt"></i></a> or <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/zshell_zi"><i class="fa-brands fa-twitter"></i></a>`,
+        isCloseable: true,
       },
       algolia: {
         appId: "FMPN8VE51Y",
@@ -201,7 +188,7 @@ const config = {
         title: "❮ Zi ❯",
         logo: {
           alt: "A Swiss Army Knife for Zsh Unix shell - ❮ Zi ❯",
-          src: "img/logo.svg?static=true",
+          src: "img/logo.svg",
           target: "_self",
           width: 32,
           height: 32,
@@ -321,7 +308,7 @@ const config = {
         theme: require("prism-react-renderer/themes/github"),
         darkTheme: require("prism-react-renderer/themes/dracula"),
         defaultLanguage: "shell",
-        additionalLanguages: ["ini", "vim"],
+        additionalLanguages: ["ini", "vim", "verilog"],
         magicComments: [
           {
             className: "theme-code-block-highlighted-line",

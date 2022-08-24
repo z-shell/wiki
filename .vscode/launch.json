@@ -1,11 +1,13 @@
 {
   "configurations": [
     {
-      "name": "Miniflare (pnpm)",
+      "name": "Docusaurus (pnpm)",
       "type": "node",
       "request": "launch",
+      "enableContentValidation": true,
       "runtimeExecutable": "pnpm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": ["start"],
+      "attachSimplePort": 3000,
       "skipFiles": ["<node_internals>/**"]
     },
     {

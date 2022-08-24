@@ -2,10 +2,9 @@
 // @ts-check
 
 import React, { useRef, useEffect } from "react";
-import * as AsciinemaPlayerLibrary from "asciinema-player";
-import "asciinema-player/dist/bundle/asciinema-player.css";
+import * as AsciinemaPlayer from "asciinema-player";
 
-type AsciinemaPlayerProps = {
+interface PlayerProps {
   src: string;
   // START asciinemaOptions
   cols: number;
@@ -23,16 +22,16 @@ type AsciinemaPlayerProps = {
   terminalFontFamily: string;
   terminalLineHeight: number;
   // END asciinemaOptions
-};
+}
 
 export default function Library({
   src,
   ...asciinemaOptions
-}: AsciinemaPlayerProps): JSX.Element {
+}: PlayerProps): JSX.Element {
   const containerElement = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const currentRef = containerElement.current;
-    AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
+    AsciinemaPlayer.create(src, currentRef, asciinemaOptions);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [src]);
 

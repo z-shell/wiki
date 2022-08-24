@@ -1,7 +1,11 @@
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll.markdownlint": true
+    "source.fixAll.markdownlint": true,
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
   },
+  "trunk.inlineDecoratorsForAllExtensions": true,
+  "trunk.trunkGrayOutNonBlockingIssues": true,
   "conventionalCommits.scopes": [
     "maintenance",
     "library",
@@ -64,6 +68,32 @@
       "iconColour": "#0077ff",
       "background": "#0077ff",
       "opacity": 0.1
+    }
+  },
+  "eslint.options": {
+    "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"],
+    "eslint.validate": [
+      "markdown",
+      "mdx",
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact"
+    ]
+  },
+  "cSpell.enableFiletypes": ["mdx"],
+  "cSpell.customDictionaries": {
+    "custom-dictionary": {
+      "name": "custom-dictionary",
+      "path": "${workspaceFolder:wiki}/.cspell/custom-dictionary.txt",
+      "addWords": true,
+      "scope": "workspace"
+    },
+    "usernames": {
+      "name": "usernames",
+      "path": "${workspaceFolder:wiki}/.cspell/usernames.txt",
+      "addWords": true,
+      "scope": "workspace"
     }
   }
 }
