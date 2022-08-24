@@ -2,7 +2,7 @@
 id: overview
 title: "☑️ General Overview"
 image: /img/logo/320x320.png
-description: Overview of use cases with Zi
+description: General overview of Zi usage
 keywords:
   - overview
 ---
@@ -63,20 +63,20 @@ zi snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
 
 :::note
 
-In turbo mode loading, the slowdown by plugin tracking is done in the background and does not affect the user experience, i.e., loading with `zi light` and `zi load` has the same effect.
+En mode de chargement turbo, le ralentissement par le suivi des plugins se fait en arrière-plan et n'affecte pas l'expérience de l'utilisateur, c'est-à-dire que le chargement avec `zi light` et `zi load` a le même effet.
 
 :::
 
 ## Oh-My-Zsh, Prezto
 
-To load Oh-My-Zsh and Prezto plugins, use the `snippet` feature. Snippets are **single files** downloaded by `curl`, `wget`, etc., automatic detection of the download tool is being performed, directly from the URL:
+To load Oh-My-Zsh and Prezto plugins, use the `snippet` feature. Les extraits sont des **fichiers uniques** téléchargés par `curl`, `wget`, etc., la détection automatique de l'outil de téléchargement est effectuée, directement à partir de l'URL:
 
 ```shell showLineNumbers
 zi snippet 'https://github.com/robbyrussell/oh-my-zsh/raw/master/plugins/git/git.plugin.zsh'
 zi snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/helper/init.zsh'
 ```
 
-Also, for Oh-My-Zsh and Prezto, you can use `OMZ::` and `PZT::` shorthands:
+Aussi, pour Oh-My-Zsh et Prezto, vous pouvez utiliser `OMZ::` et `PZT::` comme raccourcis:
 
 ```shell showLineNumbers
 zi snippet OMZ::plugins/git/git.plugin.zsh
@@ -87,7 +87,7 @@ Moreover, GitHub supports the Subversion protocol for snippets. This allows load
 
 Default files that will be sourced are: `*.plugin.zsh`, `init.zsh`, `*.zsh-theme`:
 
-URL points to a directory:
+L'URL pointe vers un répertoire:
 
 ```shell {2} showLineNumbers
 zi ice svn
@@ -102,7 +102,7 @@ Using `curl`, `wget`, etc. along with Subversion allows us to almost completely 
 
 The command `zi ice` provides [ice modifiers][1] for the single Zi command, i.e., `zi ice <some-ice-modifier>; zi load some/plugin`, after loading some/plugin the ice-modifier has to be set again.
 
-The logic is that "ice" is something that’s added, e.g. to a drink or a coffee, and in the Zi sense this means that ice is a modifier added to the next Zi command, and also something that melts, so it doesn’t last long, – and in the Zi use it means that the modifier lasts for only single next Zi command.
+La logique est que "la glace" est quelque chose qui est ajouté, par exemple à une boisson ou à un café, et dans le sens Zi, cela signifie que la glace est un modificateur ajouté à la prochaine commande Zi, et aussi quelque chose qui fond, donc qui ne dure pas longtemps, - et dans l'utilisation Zi, cela signifie que le modificateur ne dure que pour la prochaine commande Zi unique.
 
 Using one other ice modifier "**pick**" users can explicitly **select the file to source**:
 
@@ -187,13 +187,13 @@ zi snippet https://github.com/b4b4r07/httpstat/blob/master/httpstat.sh
 
 :::tip
 
-Snippets also support `atpull`, e.g. `atpull'!svn revert'`. There’s also an `atinit` ice-modifier, executed before each loading of plugin or snippet.
+Snippets also support `atpull`, e.g. `atpull'!svn revert'`. Il y a aussi un modificateur de glace `atinit`, exécuté avant chaque chargement de plugin ou de snippet.
 
 :::
 
 ## Snippets as'…' completion
 
-By using the `as''` ice modifier with the value `completion` you can point the `snippet` subcommand directly to a completion file:
+By using the `as'…'` ice modifier with the value `completion` you can point the `snippet` subcommand directly to a completion file:
 
 ```shell {1} showLineNumbers
 zi ice as"completion"
@@ -202,38 +202,33 @@ zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_doc
 
 ## The completion management
 
-Zi allows to disable and enable each completion in every plugin. Try installing a popular plugin that provides completions:
+Zi permet de désactiver et d'activer chaque complétion dans chaque plugin. Try installing a popular plugin that provides completions:
 
 ```shell {1} showLineNumbers
 zi ice blockf
 zi light zsh-users/zsh-completions
 ```
 
-The first command, the `blockf` ice, will block the traditional method of adding completions. Zi uses this method, based on symlinks instead of adding several directories to `$fpath`. Zi will automatically **install** completions of a newly downloaded plugin.
+The first command, the `blockf` ice, will block the traditional method of adding completions. Zi utilise sa méthode, basée sur les liens symboliques au lieu d'ajouter plusieurs répertoires à `$fpath`. Zi **installera** automatiquement les complétions d'un plugin nouvellement téléchargé.
 
-To uninstall and install the completions:
+Pour désinstaller et installer les complétions:
 
 - uninstall: `zi cuninstall zsh-users/zsh-completions`
 - installer: `zi creinstall zsh-users/zsh-completions`
 
 ### Liste des complétions disponibles
 
-To see what completions **all** plugins provide, in tabular formatting and with the name of each plugin:
+Pour voir quels complétions **tous les plugins** fournissent, sous forme de tableau et avec le nom de chaque plugin:
 
 ```shell
 zi clist
 ```
 
-This command is adapted for plugins like `zsh-users/zsh-completions`, which provide many completions – listing will have `3` completions per line, and a smaller number of terminal pages can be occupied like this:
+Cette commande est adaptée aux plugins comme `zsh-users/zsh-completions`, qui fournissent de nombreux complétions - le listing aura `3` complétions par ligne, et un plus petit nombre de pages de terminal peut être occupé de cette manière:
 
-<div className="ScreenView">
-  <img
-    className="ImageView"
-    width="1000"
-    height="500"
-    src="/asciicast/zi_clist.svg" alt="Zi completion list"
-  />
-</div>
+import ImgShow from '@site/src/components/ImgShow';
+
+<ImgShow img="/asciicast/zi_clist.svg" alt="Zi completion list" />
 
 To show more completions per line by providing an **argument** to `clist`, e.g.: `zi clist 6`, will show:
 
@@ -567,7 +562,7 @@ Scripts that are built to install
 
 > Il y a une seule cible make par défaut, "install", et elle construit des scripts.
 
-The `make''` ice could also be: `make"install PREFIX=$ZPFX"`, if "install" wouldn't be the only, default target.
+The `make'…'` ice could also be: `make"install PREFIX=$ZPFX"`, if "install" wouldn't be the only, default target.
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"

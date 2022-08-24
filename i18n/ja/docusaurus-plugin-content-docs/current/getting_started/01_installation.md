@@ -12,31 +12,44 @@ keywords:
 
 <!-- @format -->
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Link from '@docusaurus/Link';
+
 ## <i class="fas fa-spinner fa-spin"></i> Quick setup {#quick-setup}
+
+Place following snippet to the `.zshrc` file:
+
+<Tabs>
+  <TabItem value="instant-source" label="Instant" default>
 
 ```shell title="~/.zshrc"
 source <(curl -sL https://git.io/zi-loader); zzinit
 ```
 
-Alternatively - update and verify `sha256` [checksum][checksum] for a file: `lib/zsh/init.zsh`:
+  </TabItem>
+  <TabItem value="verified-source" label="Verified">
+
+Verify the sha256 [checksum][] for a file: `lib/zsh/init.zsh`:
 
 ```shell showLineNumbers title="~/.zshrc"
-local chsm_ok='7fab1ecb8d2ffbdb4aa98dd1e51cebaeaa4d8137e1de11938f3e0df24af262bb'
-local chsm="$(command curl -fsL 'https://git.io/zi-loader' | sha256sum | awk '{print $1}')"
-if [[ ${chsm_ok} == ${chsm} ]]; then
-  source <(curl -sL https://git.io/zi-loader); zzinit
-else
-  print "Houston, we have a problem"; exit 1
-fi
+local cs_ok='7fab1ecb8d2ffbdb4aa98dd1e51cebaeaa4d8137e1de11938f3e0df24af262bb'
+local cs=$(sha256sum <(curl -sL 'https://git.io/zi-loader') | awk '{print $1}')
+[[ $cs_ok == $cs ]] && { source <(curl -sL 'https://git.io/zi-loader'); zzinit; } || {
+  print -P "%F{160}▓▒░ Houston, we have a problem, the %F{226}$cs%F{160} do not match\!%f%b"; exit 1
+}
 ```
+
+  </TabItem>
+</Tabs>
 
 Reload shell with `exec zsh` and run `zi -h` for usage information.
 
-## <i class="fas fa-spinner fa-spin"></i> Automated setup
+## <i class="fas fa-spinner fa-spin"></i> Automated setup {#automated-setup}
 
 :::tip
 
-- Verify `sha256` [checksum][checksum] for file: `lib/sh/install.sh`
+- Verify the sha256 [checksum][] for file: `lib/sh/install.sh`
 - If required append `-b <tag>` or `-b <branch>` e.g:
 
 ```shell
@@ -45,31 +58,50 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip -b main
 
 :::
 
-### <i class="fa-solid fa-code"></i> Minimal configuration
+<Tabs>
+  <TabItem value="minimal" label="Minimal" default>
+
+Install and include minimal configuration to the `.zshrc`:
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" --
 ```
 
-### <i class="fa-solid fa-code-compare"></i> Only update / install repository
+  </TabItem>
+  <TabItem value="repository" label="Repository">
+
+Install repository or update if already exists, if [custom path][customizing-paths] is not set, then will try to install it in the following order:
+
+1. `$HOME/.zi`
+2. `$ZDOTDIR/.zi`
+3. `$XDG_DATA_HOME/.zi`
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip
 ```
 
-### <i class="fa-solid fa-code-branch"></i> Minimal configuration + <a href="/ecosystem/annexes/overview">annexes</a>
+  </TabItem>
+  <TabItem value="minimal-annexes" label="Annex">
+
+Install and include minimal configuration with recommended [annexes][]:
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a annex
 ```
 
-### <i class="fa-solid fa-code-fork"></i> Minimal configuration + <a href="/ecosystem/annexes/overview">annexes</a> + <a href="https://github.com/zdharma/zunit">zdharma/zunit</a>
+  </TabItem>
+  <TabItem value="minimal-zunit" label="ZUnit">
+
+Install and include minimal configuration with recommended [annexes][] and setup [zdharma/zunit][]:
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zunit
 ```
 
-### <i class="fa-solid fa-gears"></i> Minimal configuration with loader
+  </TabItem>
+  <TabItem value="minimal-loader" label="Loader">
+
+Install and include minimal configuration with [loader](#loader):
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a loader
@@ -91,15 +123,18 @@ The loader can be manually fetched from available [links](#loader) to any locati
 
 Then reload shell with: `exec zsh`. All done!
 
-## <i class="fas fa-spinner fa-spin"></i> Manual Setup
+  </TabItem>
+</Tabs>
 
-### <i class="fa-solid fa-code-branch"></i> Setup directory
+## <i class="fas fa-spinner fa-spin"></i> Manual Setup {#manual-setup}
 
 :::tip Related
 
-- [🏗 Preferences & Configuration][13]
+- [🏗 Preferences & Configuration][customization]
 
 :::
+
+Set up install location and create a directory:
 
 ```shell showLineNumbers
 typeset -Ag ZI
@@ -108,60 +143,58 @@ export ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
 command mkdir -p "$ZI[BIN_DIR]"
 ```
 
-### <i class="fa-brands fa-git-alt"></i> Clone repository
+For security reasons run function `compaudit` to check if the [completion system][completion-system] would use files not owned by `root` or by the current `user`, or files in directories that are `world` or `group-writable`.
 
-Setting the current user as the owner of directories, then removing group/others write permissions:
+If failed, then set the current user as the owner of directories, then remove group/others write permissions, and clone the repository:
 
-```shell
+```shell showLineNumbers
 compaudit | xargs chown -R "$(whoami)" "$ZI[HOME_DIR]"
 compaudit | xargs chmod -R go-w "$ZI[HOME_DIR]"
 command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
 ```
 
-### <i class="fa-solid fa-circle-nodes"></i> Enable Zi
+To enable Zi, source the `zi.zsh` from the previously set up directory placing the following snippet in the `.zshrc` file:
 
-Source `zi.zsh` in your `.zshrc` from the previously created directory:
-
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 typeset -A ZI
 ZI[BIN_DIR]="${HOME}/.zi/bin"
 source "${ZI[BIN_DIR]}/zi.zsh"
 ```
 
-### <i class="fa-solid fa-circle-nodes"></i> Enable completions {#enable-completions}
+:::caution
 
-:::info
-
-The next two lines must be below the above two:
+The two lines below must be placed after the lines above, i.e. after enabling Zi.
 
 :::
 
-```shell showLineNumbers
+Enable Zi completions:
+
+```shell title="~/.zshrc" showLineNumbers
 autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 ```
 
-## <i class="fas fa-spinner fa-spin"></i> Post-install
+## <i class="fas fa-spinner fa-spin"></i> Post-install {#post-install}
 
 After a fresh install, recommended to reload the shell with `exec zsh` and compile Zi with `zi self-update`. Run `zi -h` to see all available commands. Increase Zi functionality, and performance, or get started by exploring the wiki.
 
-If you have any issue or need help 🤦‍♂️, lets [discuss][7] it or open an [issue][6] in any language.
+If you have any issue or need help 🤦‍♂️, lets [discuss][] it or open an [issue][] in any language.
 
-It helps us to improve and make Zi better. Don't forget to help the project: share, contribute, or [translate][8] 🌐 🥰 🤓.
+It helps us to improve and make Zi better. Don't forget to help the project: share, contribute, or [translate][] 🌐 🥰 🤓.
 
 Let's glue everything together to create a toolchain that works for us 🚀.
 
 ## <i class="fas fa-sync-alt fa-spin"></i> Have ideas?
 
-### <i class="fa-solid fa-list-check"></i> Suggest your configuration: <a href="https://github.com/z-shell/playground">z-shell/playground</a>
+### <i class="fa-solid fa-list-check"></i>&nbsp;Suggest or request at&nbsp;<Link href="https://github.com/z-shell/playground">playground</Link>
 
 ```shell
 sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a ???
 ```
 
-## <i class="fas fa-sync-alt fa-spin"></i> Need warm-up?
+## <i class="fas fa-sync-alt fa-spin"></i>&nbsp;Need warm-up?
 
-### <i class="fa-brands fa-docker"></i> <a href="https://github.com/z-shell/zd/pkgs/container/zd">Docker Alpine</a>
+### <i class="fa-brands fa-docker"></i>&nbsp;<Link href="https://github.com/z-shell/zd/pkgs/container/zd">Docker Alpine</Link>
 
 ```shell
 docker run --rm -it ghcr.io/z-shell/zd:latest
@@ -171,8 +204,8 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 
 If you create a Docker image that uses Zi, install Turbo-loaded plugins before the shell starts interactively, with the `@zi-scheduler` function in such a way, that it:
 
-- installs plugins without waiting for the prompt (i.e. it's script friendly),
-- installs all plugins instantly, without respecting the wait'' argument.
+- Install plugins without waiting for the prompt (i.e. it's script friendly).
+- Install all plugins instantly, without respecting the `wait` argument.
 
 To accomplish this, use burst argument and call the `@zi-scheduler` function:
 
@@ -180,28 +213,31 @@ To accomplish this, use burst argument and call the `@zi-scheduler` function:
 RUN zsh -i -c -- '@zi-scheduler burst || true'
 ```
 
-> - An example: [Dockerfile][11]
-> - In action: [Dockerfile][12]
+> - An example: [Dockerfile][]
+> - In action: [Playground][]
 
-## <i class="fas fa-cog fa-pulse"></i> Build Zi Module
-
-### <i class="fa-solid fa-compass-drafting"></i> Without Zi
-
-```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
-```
-
-### <i class="fa-solid fa-screwdriver-wrench"></i> With Zi
+## <i class="fas fa-cog fa-pulse"></i> Zi Module: [zpmod][z-shell/zpmod] {#zi-module}
 
 :::info
 
-Zi has to be installed to build the module. Module repository: [z-shell/zpmod][9]
+- Required Zsh version: >= v5.8.0
+- <i className="fa-brands fa-github"></i>&nbsp;<Link href="https://github.com/z-shell/zpmod">z-shell/zpmod</Link>
 
 :::
 
-```shell
-zi module build
+<Tabs>
+  <TabItem value="with-zi" label="With Zi" default>
+
+Usage:
+
+```shell showLineNumbers
+zi module {build|info|help} [options]
+zi module build [--clean]
+zi module info [--link]
 ```
+
+- To start using the Zi Zsh module run: `zi module build`. Append `--clean` to run `make distclean`.
+- To display the instructions on loading the module, run: `zi module info`.
 
 To enable debug messages from the module set:
 
@@ -209,40 +245,59 @@ To enable debug messages from the module set:
 typeset -g ZI_MOD_DEBUG=1
 ```
 
-## <i class="fas fa-sync-alt fa-spin"></i> Available links
+</TabItem>
+  <TabItem value="standalone" label="Standalone">
 
-[Status page: :heavy_check_mark:][10]
+```shell
+sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
+```
 
-### Installer
+  </TabItem>
+</Tabs>
 
-| サービス                       | URL                                                                       |
-|:-------------------------- | ------------------------------------------------------------------------- |
-| [Redirect][get.zshell.dev] | <https://get.zshell.dev>                                                  |
-| [IPFS][ipfs.io]            | <https://ipfs.zshell.dev/sh/install.sh>                                   |
-| [Direct][direct-install]   | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
+## <i class="fas fa-sync-alt fa-spin"></i> Available links {#available-links}
 
-### Loader
+[Status page: ☑️][status]
 
-| サービス                        | URL                                                                      |
-|:--------------------------- | ------------------------------------------------------------------------ |
-| [Redirect][init.zshell.dev] | <https://init.zshell.dev>                                                |
-| [IPFS][ipfs.io]             | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
-| [Direct][direct-init]       | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
+### <i class="fa-solid fa-gear"></i> Installer {#installer}
+
+<div className="apitable">
+
+| Service                    | URL                                                                       |
+| :------------------------- | ------------------------------------------------------------------------- |
+| [Redirect][get.zshell.dev] | <https:>                                                  |
+| [IPFS][ipfs.io]            | <https:>                                   |
+| [Direct][direct-install]   | <https:> |
+
+</div>
+
+### <i class="fa-brands fa-superpowers"></i> Loader {#loader}
+
+<div className="apitable">
+
+| Service                     | URL                                                                      |
+| :-------------------------- | ------------------------------------------------------------------------ |
+| [Redirect][init.zshell.dev] | <https:>                                                |
+| [IPFS][ipfs.io]             | <https:>                                   |
+| [Direct][direct-init]       | <https:> |
+
+</div>
 
 <!-- end-of-file -->
 <!-- links -->
 
-[get.zshell.dev]: https://get.zshell.dev
-[ipfs.io]: https://ipfs.io
-[init.zshell.dev]: https://init.zshell.dev
-[direct-init]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh
-[direct-install]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
+
+
+<!-- external -->
+
+[customization]: /docs/guides/customization
+
 [checksum]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt
-[6]: https://github.com/z-shell/zi/issues/new/choose
-[7]: https://github.com/orgs/z-shell/discussions/new
-[8]: https://digitalclouds.crowdin.com/z-shell
-[9]: https://github.com/z-shell/zpmod
-[10]: https://status.zshell.dev
-[11]: https://github.com/robobenklein/configs/blob/master/Dockerfile
-[12]: https://github.com/z-shell/playground
-[13]: /docs/guides/customization
+[completion-system]: https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Use-of-compinit
+[discuss]: https://github.com/orgs/z-shell/discussions/new
+[Dockerfile]: https://github.com/robobenklein/configs/blob/master/Dockerfile
+[issue]: https://github.com/z-shell/zi/issues/new/choose
+[Playground]: https://github.com/z-shell/playground
+[status]: https://status.zshell.dev
+[translate]: https://digitalclouds.crowdin.com/z-shell
+[z-shell/zpmod]: https://github.com/z-shell/zpmod
