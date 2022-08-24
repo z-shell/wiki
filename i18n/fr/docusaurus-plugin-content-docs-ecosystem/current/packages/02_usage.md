@@ -320,7 +320,7 @@ zi pack"bgn" for firefox-dev
   </TabItem>
 </Tabs>
 
-### The fzf command-line fuzzy finder
+### L'outil de recherche de ligne de commande fzf
 
 <div className="apitable" align="center">
   <table>

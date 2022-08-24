@@ -2,7 +2,7 @@
 id: migration
 title: "♻️ Migration"
 image: /img/logo/320x320.png
-description: Migration guide
+description: Guide de migration
 keywords:
   - configuration
   - prezto
@@ -143,12 +143,12 @@ ZSH_THEME="robbyrussell"
 
 Cependant, ZI ne prend pas en charge la variable `ZSH_THEME` de manière native.
 
-To use **themes** created for OMZ requires loading shown below as it would be the same as OMZ does in the background.
+Pour utiliser les **thèmes** créés pour OMZ, le chargement indiqué ci-dessous serait identique à celui d'OMZ en arrière-plan.
 
 > Some themes may require additional configuration it can be determined from the theme configuration file.
 
 - Charger la bibliothèque `Git`
-- Load the `Git` plugin
+- Charger le plugin `Git`
 - Charger les dépendances de la bibliothèque
 - Activer `setopt promptsubst`
 
