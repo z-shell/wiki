@@ -29,10 +29,10 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "0.0.0-5258",
-    "@docusaurus/plugin-ideal-image": "0.0.0-5258",
-    "@docusaurus/plugin-pwa": "0.0.0-5258",
-    "@docusaurus/preset-classic": "0.0.0-5258",
+    "@docusaurus/core": "0.0.0-5272",
+    "@docusaurus/plugin-ideal-image": "0.0.0-5272",
+    "@docusaurus/plugin-pwa": "0.0.0-5272",
+    "@docusaurus/preset-classic": "0.0.0-5272",
     "@loadable/babel-plugin": "5.13.2",
     "@loadable/component": "5.15.2",
     "@mdx-js/react": "1.6.22",
@@ -47,9 +47,9 @@
   },
   "devDependencies": {
     "@crowdin/cli": "3.7.10",
-    "@docusaurus/eslint-plugin": "0.0.0-5258",
-    "@docusaurus/module-type-aliases": "0.0.0-5258",
-    "@docusaurus/types": "0.0.0-5258",
+    "@docusaurus/eslint-plugin": "0.0.0-5272",
+    "@docusaurus/module-type-aliases": "0.0.0-5272",
+    "@docusaurus/types": "0.0.0-5272",
     "@types/node": "18.0.6",
     "@typescript-eslint/eslint-plugin": "5.33.0",
     "@typescript-eslint/parser": "5.33.0",

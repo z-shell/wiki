@@ -15,12 +15,12 @@ lint:
     - taplo
     - svgo
   enabled:
-    - stylelint@14.10.0
+    - stylelint@14.11.0
     - git-diff-check@SYSTEM
-    - actionlint@1.6.15
+    - actionlint@1.6.16
     - eslint@8.22.0
-    - gitleaks@8.10.3
-    - markdownlint@0.32.1
+    - gitleaks@8.11.0
+    - markdownlint@0.32.2
     - prettier@2.7.1
     - shfmt@3.5.0
   ignore:
