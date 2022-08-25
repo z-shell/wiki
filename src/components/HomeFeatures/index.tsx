@@ -114,7 +114,7 @@ export default function HomeFeatures(): JSX.Element {
             <h2 className={styles.videotitle}>
               <Translate
                 id='homepage.video.heading.1'
-                description='The homepage video conatainer heading 1'
+                description='The homepage video container heading 1'
               >
                 ⚡ Fast and feature-rich
               </Translate>

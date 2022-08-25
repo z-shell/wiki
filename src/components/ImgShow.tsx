@@ -1,22 +1,35 @@
 /** @format */
 // @ts-check
 
-import React from "react";
+import React, { type ReactNode } from "react";
 import Loadable from "@loadable/component";
 import Spinner from "@site/src/components/Spinner";
 
-const LoadImage = Loadable(() => import("@theme/IdealImage"));
+function Load(spinner) {
+  return Loadable(spinner, { fallback: <Spinner /> });
+}
 
-export default function ImgShow({ ...props }): JSX.Element {
+const LoadImage = Load(() => import("@theme/IdealImage"));
+
+export default function ImgShow({
+  img,
+  alt,
+  children,
+}: {
+  img: string;
+  alt: string;
+  children: ReactNode;
+}): JSX.Element {
   return (
-    <span>
-      <div className='ScreenView'>
+    <div className='ScreenView'>
+      <div className='ImageView'>
         <LoadImage
-          className='ImageView'
           fallback={<Spinner />}
-          {...props}
+          img={img}
+          alt={alt}
         />
+        {children}
       </div>
-    </span>
+    </div>
   );
 }

@@ -1,9 +1,18 @@
 /** @format */
 
-.asciicast {
+.asciinema {
+  position: relative;
   display: block;
+  align-items: center;
   width: 100%;
   height: auto;
   padding-bottom: 1rem;
   text-align: center;
+}
+
+.asciinemaBorder {
+  display: block;
+  padding: 0;
+  border: 0.01rem ridge var(--ifm-color-primary);
+  border-radius: 0.5rem;
 }

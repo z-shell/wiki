@@ -18,7 +18,7 @@ import Link from '@docusaurus/Link';
 
 ## <i class="fas fa-spinner fa-spin"></i> Quick setup {#quick-setup}
 
-Place following snippet to the `.zshrc` file:
+Add the following snippet in the `.zshrc` file:
 
 <Tabs>
   <TabItem value="instant-source" label="Instant" default>
