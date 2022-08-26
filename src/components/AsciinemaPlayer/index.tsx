@@ -37,14 +37,16 @@ export default function AsciinemaPlayer({
   ...props
 }: PlayerProps): JSX.Element {
   return (
-    <div className={styles.asciinema}>
-      <div className={styles.asciinemaBorder}>
-        <Library
-          src={src}
-          {...props}
-        />
-        {children}
+    <span>
+      <div className={styles.asciinema}>
+        <div className={styles.asciinemaBorder}>
+          <Library
+            src={src}
+            {...props}
+          />
+          {children}
+        </div>
       </div>
-    </div>
+    </span>
   );
 }

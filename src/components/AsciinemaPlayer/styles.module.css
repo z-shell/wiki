@@ -6,13 +6,18 @@
   align-items: center;
   width: 100%;
   height: auto;
-  padding-bottom: 1rem;
+  padding: 0;
+  padding-bottom: 1%;
   text-align: center;
 }
 
 .asciinemaBorder {
-  display: block;
-  padding: 0;
-  border: 0.01rem ridge var(--ifm-color-primary);
-  border-radius: 0.5rem;
+  cursor: pointer;
+  border: 0.01rem solid var(--ifm-color-primary);
+  border-radius: var(--ifm-global-radius);
+  transition: border-color 2s ease-in-out;
+}
+
+.asciinemaBorder:hover {
+  border-color: var(--ifm-color-emphasis);
 }

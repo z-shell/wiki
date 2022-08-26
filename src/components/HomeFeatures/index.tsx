@@ -125,7 +125,6 @@ export default function HomeFeatures(): JSX.Element {
               cols={231}
               speed={1.5}
               idleTimeLimit={1}
-              autoPlay
               preload
             />
           </div>

@@ -1,23 +1,32 @@
 /** @format */
 // @ts-check
 
-import React, { useRef, useEffect } from "react";
+import React, { type ReactNode, useRef, useState, useEffect } from "react";
 import * as AsciinemaLibrary from "asciinema-player";
 import "asciinema-player/dist/bundle/asciinema-player.css";
 
 export default function Library({
   src,
+  children,
   ...options
 }: {
   src: string;
-  options: AsciinemaLibrary.PlayerOptions;
+  children?: ReactNode;
+  options?: AsciinemaLibrary.PlayerOptions;
 }): JSX.Element {
   const asciinemaContainer = useRef<HTMLDivElement>(null);
+  const [playing, isPlaying] = useState(null);
   useEffect(() => {
     const currentPlayer = asciinemaContainer.current;
-    AsciinemaLibrary.create(src, currentPlayer, options);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [src]);
-
-  return <div ref={asciinemaContainer} />;
+    const player = AsciinemaLibrary.create(src, currentPlayer, options);
+    return () => {
+      isPlaying(() => {
+        player.dispose();
+      }, false);
+      isPlaying(() => {
+        player.play();
+      }, true);
+    };
+  }, [src, playing, options]);
+  return <div ref={asciinemaContainer}>{children}</div>;
 }

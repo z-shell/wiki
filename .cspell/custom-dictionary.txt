@@ -88,6 +88,7 @@ has'gpg
 has'jq
 has'mogrify
 has'ueberzug
+herobanner
 hideable
 icemods
 inxi

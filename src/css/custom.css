@@ -202,6 +202,19 @@ html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
   display: none;
 }
 
+.player-tabs .tabs__item {
+  padding: 0.7rem;
+  margin-right: 0.2rem;
+  line-height: 0.2rem;
+}
+
+.player-tabs .tabs__item--active {
+  color: var(--ifm-color-primary);
+  border-bottom: 0.01rem solid var(--ifm-color-primary);
+  border-radius: var(--ifm-global-radius);
+  transition: border-bottom 1s ease-in-out;
+}
+
 /* Image styles */
 .IceLogo {
   display: block;
@@ -222,6 +235,7 @@ html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
   display: block;
   max-width: 100%;
   height: auto;
+  padding: 0;
   text-align: center;
 }
 
