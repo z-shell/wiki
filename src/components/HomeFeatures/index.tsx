@@ -123,8 +123,9 @@ export default function HomeFeatures(): JSX.Element {
               src='https://asciinema.org/a/509113.cast'
               rows={34}
               cols={231}
-              speed={2}
+              speed={1.5}
               idleTimeLimit={1}
+              autoPlay
               preload
             />
           </div>
@@ -144,7 +145,7 @@ export default function HomeFeatures(): JSX.Element {
               src='https://asciinema.org/a/497831.cast'
               rows={34}
               cols={231}
-              speed={2}
+              speed={1.5}
               idleTimeLimit={1}
               preload
             />
