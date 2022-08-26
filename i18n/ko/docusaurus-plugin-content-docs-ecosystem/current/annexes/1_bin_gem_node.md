@@ -98,10 +98,8 @@ zi light z-shell/z-a-unscope bgn
 
 This will register subcommand [shim-list](#shim-list) and following ice-modifiers:
 
-<div className="apitable">
-
 | Ice modifier  | Description                                                                                              |
-| :------------ | :------------------------------------------------------------------------------------------------------- |
+|:------------- |:-------------------------------------------------------------------------------------------------------- |
 | [sbin](#sbin) | Creates `shims` for binaries and scripts.                                                                |
 | [fbin](#fbin) | Creates functions for binaries and scripts.                                                              |
 | [gem](#gem)   | Installs and updates gems + creates functions for gems binaries.                                         |
@@ -111,23 +109,17 @@ This will register subcommand [shim-list](#shim-list) and following ice-modifier
 | [fsrc](#fsrc) | Creates functions that source given scripts.                                                             |
 | [ferc](#ferc) | The same as [fsrc](#fscr), but using an alternate script-loading method.                                 |
 
-</div>
-
 Function wrappers for binaries, scripts, gems, node_modules, python packages, etc:
 
-<div className="apitable">
-
-| Flag | Description                                                                                                           |
-| :--- | :-------------------------------------------------------------------------------------------------------------------- |
-| `g`  | Set `$GEM_HOME` variable to `{plugin-dir}`.                                                                           |
-| `n`  | Set `$NODE_PATH` variable to `{plugin-dir}/node_modules`.                                                             |
-| `p`  | Set `$VIRTUALENV` variable to `{plugin-dir}/venv`.                                                                    |
-| `c`  | `cd` to the plugin's directory before running the program and then cd back after it has been run.                     |
+| Flag | Description                                                                                                                  |
+|:---- |:---------------------------------------------------------------------------------------------------------------------------- |
+| `g`  | Set `$GEM_HOME` variable to `{plugin-dir}`.                                                                                  |
+| `n`  | Set `$NODE_PATH` variable to `{plugin-dir}/node_modules`.                                                                    |
+| `p`  | Set `$VIRTUALENV` variable to `{plugin-dir}/venv`.                                                                           |
+| `c`  | `cd` to the plugin's directory before running the program and then cd back after it has been run.                            |
 | `N`  | Append `&>/dev/null` to the call of the binary, i.e. redirect both standard output and standard error to `/dev/null`. |
-| `E`  | Append `2>/dev/null` to the call of the binary, i.e. redirect standard error to `/dev/null`.                          |
-| `O`  | Append `>/dev/null` to the call of the binary, i.e. redirect standard output to `/dev/null`.                          |
-
-</div>
+| `E`  | Append `2>/dev/null` to the call of the binary, i.e. redirect standard error to `/dev/null`.                              |
+| `O`  | Append `>/dev/null` to the call of the binary, i.e. redirect standard output to `/dev/null`.                              |
 
 View all currently registered:
 
@@ -136,13 +128,30 @@ View all currently registered:
 
 ## `SBIN'…'` {#sbin}
 
+<Tabs className="player-tabs">
+  <TabItem value="sbin-player" label="Player" default>
+    <AsciinemaPlayer
+      src='https://asciinema.org/a/513810.cast'
+      rows={26}
+      cols={184}
+    />
+  </TabItem>
+  <TabItem value="shortcuts" label="Shortcuts">
+
+| Key                                                                                                                                        | Description                                             |
+| :----------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------ |
+| <kbd>f</kbd>                                                                                                                               | Toggle fullscreen mode                                  |
+| <kbd>space</kbd>                                                                                                                           | Play / Pause                                            |
+| <kbd>←</kbd> <kbd>→</kbd>                                                                                                                  | Rewind by 5sec. / Fast-forward by 5sec.                 |
+| <kbd>Shift</kbd> + <kbd>←</kbd> / <kbd>Shift</kbd> + <kbd>→</kbd>                                                                          | Rewind by 10% / fast-forward by 10%                     |
+| <kbd>0</kbd>, <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd>, <kbd>4</kbd>, <kbd>5</kbd>, <kbd>6</kbd>, <kbd>7</kbd>, <kbd>8</kbd>, <kbd>9</kbd> | Jump to 0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90% |
+
+  </TabItem>
+</Tabs>
+
 `sbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-script}]; …'`
 
 It creates the so-called `shim` known from `rbenv` – a wrapper script that forwards the call to the actual binary. The script is created always under the same, standard, and single `$PATH` entry: `$ZPFX/bin` (which is `~/.zi/polaris/bin` by default). The flags have the same meaning as with `fbin'…'` ice.
-
-Example:
-
-<AsciinemaPlayer src='https://asciinema.org/a/513810.cast' rows={26} cols={184} speed={1} idleTimeLimit={1} preload={true} />
 
 ```shell showLineNumbers
 zi ice as'program' from'gh-r' sbin'fzf'
@@ -161,7 +170,11 @@ function fzf {
 fzf "$@"
 ```
 
-> 1. as'program' (an alias: as'command') - used for the plugin to be added to $PATH when a plugin is not a file for sourcing.
+:::note
+
+- as'program' (an alias: as'command') - used for the plugin to be added to $PATH when a plugin is not a file for sourcing.
+
+:::
 
 **The `sbin` ice can be empty**. It will then try to create the shim for the trailing component of the `id_as` ice, e.g.:
 
@@ -276,7 +289,7 @@ Installs the node module of name `{pip-package}` inside the plugin's or snippet'
 
 Example:
 
-<AsciinemaPlayer src='https://asciinema.org/a/513793.cast' rows={26} cols={156} speed={1} idleTimeLimit={1} preload={true} />
+<AsciinemaPlayer src='https://asciinema.org/a/513793.cast' rows={26} cols={156} speed={1} idleTimeLimit={1} preload />
 
 ```shell showLineNumbers
 zi ice pip'youtube-dl <- !youtube-dl -> youtube-dl' id-as'youtube-dl' nocompile
@@ -304,7 +317,7 @@ In this case, the name of the binary program provided by the node module is diff
 
 **`fmod'[{g|n|c|N|E|O}:]{function-name} -> {wrapping-function-name}; …'`**
 
-It wraps the given function with the ability to set `$GEM_HOME`, etc. – the meaning of the `g`, `n` and `c` flags is the same as in the `fbin'…'` ice.
+It wraps the given function with the ability to set `$GEM_HOME`, etc. – the meaning of the `g`, `n`, and `c` flags is the same as in the `fbin'…'` ice.
 
 Example:
 
@@ -396,17 +409,13 @@ Available flags are:
 zi shim-list [ -t | -i | -o | -s | -h ]
 ```
 
-<div className="apitable">
-
 | Flag               | Description                                                                              |
-| :----------------- | :--------------------------------------------------------------------------------------- |
+|:------------------ |:---------------------------------------------------------------------------------------- |
 | `-t` `--this-dir`  | Instructs Zi to look for shims in the current directory instead of `$ZPFX/bin`.          |
 | `-i` `--from-ices` | Normally the code looks for the shim files by examining their contents (more info [^1]). |
 | `-o` `--one-line`  | Display the list of shim files without line breaks, in a single line, after spaces.      |
 | `-s` `--short`     | Don't show the plugin/snippet that the shim belongs to.                                  |
 | `-h` `--help`      | Shows usage information.                                                                 |
-
-</div>
 
 ## Cygwin support {#cygwin-support}
 
@@ -426,6 +435,8 @@ zi pack=bgn for firefox
 
 
 <!-- external -->
+
+[^1]: shims created by bin-gem-node annex have a fixed structure, this option instructs Zi to show the list of shims that results from the `sbin'…'` ice of the loaded plugins. If a plugin for example has `sbin'git-open'`, means that such shim has already been created.
 
 [rubygems]: https://github.com/rubygems/rubygems
 [node]: https://github.com/npm/cli
