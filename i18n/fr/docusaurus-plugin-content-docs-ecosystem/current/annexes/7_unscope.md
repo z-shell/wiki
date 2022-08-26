@@ -131,12 +131,12 @@ You can let me know if you would like a name to be added to the list.
 
 ![scope-subcommand](https://github.com/z-shell/z-a-unscope/raw/main/docs/images/unscope-scope-cmd.png#center)
 
-## Install unscope
+## Install unscope {#install-unscope}
 
 Simply load as a regular plugin, i.e.:
 
 ```shell
-zi light-mode for z-shell/z-a-unscope
+zi light z-shell/z-a-unscope
 ```
 
 It should be done possibly early in the `zshrc`, as otherwise the preceding `zi` calls will not have the unscoped IDs resolved.
