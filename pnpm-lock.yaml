@@ -18,10 +18,10 @@ specifiers:
   '@loadable/component': 5.15.2
   '@mdx-js/react': 1.6.22
   '@primer/react': 35.8.0
-  '@primer/stylelint-config': ^12.7.0
-  '@types/jest': ^28.1.8
+  '@primer/stylelint-config': 12.7.0
+  '@types/jest': 28.1.8
   '@types/node': 18.0.6
-  '@types/react': ^18.0.17
+  '@types/react': 18.0.17
   '@typescript-eslint/eslint-plugin': 5.35.1
   '@typescript-eslint/parser': 5.35.1
   asciinema-player: 3.0.1
@@ -29,10 +29,10 @@ specifiers:
   eslint: 8.23.0
   eslint-config-airbnb: 19.0.4
   eslint-config-prettier: 8.5.0
-  eslint-import-resolver-typescript: ^3.5.0
+  eslint-import-resolver-typescript: 3.5.0
   eslint-plugin-import: 2.26.0
   eslint-plugin-jsx-a11y: 6.6.1
-  eslint-plugin-primer-react: ^1.0.1
+  eslint-plugin-primer-react: 1.0.1
   eslint-plugin-react: 7.31.1
   eslint-plugin-react-hooks: 4.6.0
   husky: 8.0.1
