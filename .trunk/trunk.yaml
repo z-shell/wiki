@@ -3,23 +3,41 @@
 version: 0.1
 cli:
   version: 0.16.1-beta
+  options:
+    - commands: [check, fmt]
+    - args: -y
 repo:
   repo:
     host: github.com
     owner: z-shell
     name: wiki
+actions:
+  enabled:
+    - trunk-check-pre-push
+    - trunk-fmt-pre-commit
+    - trunk-cache-prune
+    - trunk-check-upgrade
+    - trunk-upgrade
+    - pnpm-install
+  definitions:
+    - id: pnpm-install
+      triggers:
+        - files:
+            - package.json
+            - pnpm-lock.yaml
+      run: pnpm install
 lint:
   disabled:
     - shellcheck
     - hadolint
     - taplo
-    - svgo
   enabled:
+    - svgo@2.8.0
     - stylelint@14.11.0
     - git-diff-check@SYSTEM
     - actionlint@1.6.16
-    - eslint@8.22.0
-    - gitleaks@8.11.1
+    - eslint@8.23.0
+    - gitleaks@8.11.2
     - markdownlint@0.32.2
     - prettier@2.7.1
     - shfmt@3.5.0
@@ -37,3 +55,19 @@ lint:
     - linters: [markdownlint]
       paths:
         - "src/components/Markdown/_player_shortcuts.mdx"
+runtimes:
+  definitions:
+    - type: node
+      download: node
+      runtime_environment:
+        - name: HOME
+          value: ${home}
+        - name: PATH
+          list: ["${runtime}/bin"]
+      linter_environment:
+        - name: PATH
+          list: ["${linter}/node_modules/.bin"]
+      version: 16.17.0
+      version_commands:
+        - run: "node --version"
+          parse_regex: ${semver}
