@@ -34,3 +34,6 @@ lint:
       paths:
         - "pnpm-lock.yaml"
         - "docusaurus.config.js"
+    - linters: [markdownlint]
+      paths:
+        - "src/components/Markdown/_player_shortcuts.mdx"

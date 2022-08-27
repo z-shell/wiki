@@ -14,7 +14,8 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import AsciinemaPlayer from '@site/src/components/AsciinemaPlayer';
+import Player from '@site/src/components/Player';
+import Shortcuts from '@site/src/components/Markdown/\_player_shortcuts.mdx';
 
 An annex provides the following functionality:
 
@@ -28,9 +29,9 @@ An annex provides the following functionality:
 5. Create the so-called `shims` known from [rbenv][rbenv/rbenv] – the same feature as the first item of this enumeration – of running a program without adding anything to `$PATH` with all of the above features, however through an automatic **script** created in `$ZPFX/bin`, not a **function** (the first item uses a function-based mechanism),
 6. Automatic updates of Ruby gems and Node modules during regular plugin and snippet updates with `zi update …`.
 
-The `sbin'…'` ice that creates forwarder-scripts instead of forwarder-functions created by the `fbin'…'` ice turned out to be the proper, best method for exposing binary programs and scripts. This way there is no need to add anything to `$PATH` – `z-a-bin-gem-node` will automatically create a function that will wrap the binary and provide it on the command line as if it was being placed in the `$PATH`.
+The [sbin](#sbin) ice-modifier that creates forwarder-scripts instead of forwarder-functions created by the [fbin](#fbin) ice-modifier turned out to be the proper, best method for exposing binary programs and scripts. This way there is no need to add anything to `$PATH` – `z-a-bin-gem-node` will automatically create a function that will wrap the binary and provide it on the command line as if it was being placed in the `$PATH`.
 
-As previously mentioned, the function can automatically export `$GEM_HOME`, `$NODE_PATH`, `$VIRTUALENV` shell variables and also automatically cd into the plugin or snippet directory right before executing the binary and then cd back to the original directory after the execution is finished. As previously mentioned, instead of the function an automatically created script – the so-called `shim` – can be used for the same purpose and with the same functionality, so that the command is accessible practically fully normally – not only in the live Zsh session, only within which the functions created by `fbin'…'` exist, but also from any Zsh script.
+As previously mentioned, the function can automatically export `$GEM_HOME`, `$NODE_PATH`, `$VIRTUALENV` shell variables and also automatically cd into the plugin or snippet directory right before executing the binary and then cd back to the original directory after the execution is finished. As previously mentioned, instead of the function an automatically created script – the so-called `shim` – can be used for the same purpose and with the same functionality, so that the command is accessible practically fully normally – not only in the live Zsh session, only within which the functions created by [fbin](#fbin) exist, but also from any Zsh script.
 
 Suppose that we want to install the `junegunn/fzf` plugin from GitHub Releases, which contains only a single file – the `fzf` binary for the selected architecture. It is possible to do it in the standard way – by adding the plugin's directory to the `$PATH`.
 
@@ -45,7 +46,7 @@ After this command, the `$PATH` variable will contain e.g.:
 /home/sall/.zi/plugins/junegunn---fzf:/bin:/usr/bin:/usr/sbin:/sbin
 ```
 
-For many such programs loaded as plugins, the PATH can become quite cluttered. I've had 26 entries before switching to `z-a-bin-gem-node`. To solve this, load with the use of `sbin'…'` ice provided and handled by `z-a-bin-gem-node`:
+For many such programs loaded as plugins, the PATH can become quite cluttered. I've had 26 entries before switching to `z-a-bin-gem-node`. To solve this, load with the use of [sbin](#sbin) ice-modifier provided and handled by `z-a-bin-gem-node`:
 
 ```shell showLineNumbers
 zi ice as'program' from'gh-r' sbin'fzf'
@@ -98,16 +99,16 @@ zi light z-shell/z-a-unscope bgn
 
 This will register subcommand [shim-list](#shim-list) and following ice-modifiers:
 
-| Ice modifier  | Description                                                                                              |
-| :------------ | :------------------------------------------------------------------------------------------------------- |
-| [sbin](#sbin) | Creates `shims` for binaries and scripts.                                                                |
-| [fbin](#fbin) | Creates functions for binaries and scripts.                                                              |
-| [gem](#gem)   | Installs and updates gems + creates functions for gems binaries.                                         |
-| [node](#node) | Installs and updates node_modules + creates functions for binaries of the modules.                       |
-| [pip](#pip)   | Installs and updates python packages into a virtualenv + creates functions for binaries of the packages. |
-| [fmod](#fmod) | Creates wrapping functions for other functions.                                                          |
-| [fsrc](#fsrc) | Creates functions that source given scripts.                                                             |
-| [ferc](#ferc) | The same as [fsrc](#fscr), but using an alternate script-loading method.                                 |
+| Ice modifier  | Description                                                                                                |
+| :------------ | :--------------------------------------------------------------------------------------------------------- |
+| [sbin](#sbin) | Creates `shims` for binaries and scripts.                                                                  |
+| [fbin](#fbin) | Creates functions for binaries and scripts.                                                                |
+| [gem](#gem)   | Installs and updates gems + creates functions for gems binaries.                                           |
+| [node](#node) | Installs and updates node_modules + creates functions for binaries of the modules.                         |
+| [pip](#pip)   | Installs and updates python packages into a `virtualenv` + creates functions for binaries of the packages. |
+| [fmod](#fmod) | Creates wrapping functions for other functions.                                                            |
+| [fsrc](#fsrc) | Creates functions that source given scripts.                                                               |
+| [ferc](#ferc) | The same as [fsrc](#fscr), but using an alternate script-loading method.                                   |
 
 Function wrappers for binaries, scripts, gems, node_modules, python packages, etc:
 
@@ -128,30 +129,22 @@ View all currently registered:
 
 ## `SBIN'…'` {#sbin}
 
+`sbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-script}]; …'`
+
+Creates the so-called `shim` known from `rbenv` – a wrapper script that forwards the call to the actual binary. The script is created always under the same, standard, and single `$PATH` entry: `$ZPFX/bin` (which is `~/.zi/polaris/bin` by default). The flags have the same meaning as with `fbin'…'` ice.
+
 <Tabs className="player-tabs">
   <TabItem value="sbin-player" label="Player" default>
-    <AsciinemaPlayer
+    <Player
       src='https://asciinema.org/a/513810.cast'
       rows={26}
       cols={184}
     />
   </TabItem>
   <TabItem value="shortcuts" label="Shortcuts">
-
-| Key                                                                                                                                        | Description                                             |
-| :----------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------ |
-| <kbd>f</kbd>                                                                                                                               | Toggle fullscreen mode                                  |
-| <kbd>space</kbd>                                                                                                                           | Play / Pause                                            |
-| <kbd>←</kbd> <kbd>→</kbd>                                                                                                                  | Rewind by 5sec. / Fast-forward by 5sec.                 |
-| <kbd>Shift</kbd> + <kbd>←</kbd> / <kbd>Shift</kbd> + <kbd>→</kbd>                                                                          | Rewind by 10% / fast-forward by 10%                     |
-| <kbd>0</kbd>, <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd>, <kbd>4</kbd>, <kbd>5</kbd>, <kbd>6</kbd>, <kbd>7</kbd>, <kbd>8</kbd>, <kbd>9</kbd> | Jump to 0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90% |
-
+    <Shortcuts />
   </TabItem>
 </Tabs>
-
-`sbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-script}]; …'`
-
-It creates the so-called `shim` known from `rbenv` – a wrapper script that forwards the call to the actual binary. The script is created always under the same, standard, and single `$PATH` entry: `$ZPFX/bin` (which is `~/.zi/polaris/bin` by default). The flags have the same meaning as with `fbin'…'` ice.
 
 ```shell showLineNumbers
 zi ice as'program' from'gh-r' sbin'fzf'
@@ -174,14 +167,14 @@ fzf "$@"
 
 - as'program' (an alias: as'command') - used for the plugin to be added to $PATH when a plugin is not a file for sourcing.
 
-:::
-
-**The `sbin` ice can be empty**. It will then try to create the shim for the trailing component of the `id_as` ice, e.g.:
+The [sbin](#sbin) ice-modifier can be empty, it will then try to create the shim for the trailing component of the [id-as][] ice, e.g.:
 
 - `id_as'exts/git-my'` → it'll check if a file `git-my` exists and if yes, will create the function `git-my`.
-- `paulirish/git-open` it'll check if a file `git-open` exists and if yes, will create the function `git-open`.
+- `paulirish/git-open` → it'll check if a file `git-open` exists and if yes, will create the function `git-open`.
 
 The same trailing component would be set for the snippet URL, for any alphabetically first and executable file.
+
+:::
 
 ## `FBIN'…'` {#fbin}
 
@@ -189,16 +182,18 @@ The same trailing component would be set for the snippet URL, for any alphabetic
 
 Creates a wrapper function of the name the same as the last segment of the path or as `{name-of-the-function}`.
 
-Example:
-
-<AsciinemaPlayer
-  src='https://asciinema.org/a/513297.cast'
-  rows={18}
-  cols={166}
-  speed={1}
-  idleTimeLimit={1}
-  preload={true}
-/>
+<Tabs className="player-tabs">
+  <TabItem value="fbin-player" label="Player" default>
+    <Player
+      src='https://asciinema.org/a/513297.cast'
+      rows={18}
+      cols={166}
+    />
+  </TabItem>
+  <TabItem value="shortcuts" label="Shortcuts">
+    <Shortcuts />
+  </TabItem>
+</Tabs>
 
 ```shell showLineNumbers
 zi ice from"gh-r" fbin"g:fzf -> myfzf" nocompile
@@ -214,34 +209,32 @@ myfzf () {
 }
 ```
 
-> 1. `nocompile` - used to skip file compilation when it is not required.
+:::note
 
-The ice can be empty. It will then try to create the function for the trailing component of the `id_as` ice, e.g.:
+- `nocompile` ice-modifier is used to skip file compilation when it is not required.
 
-- `id_as'exts/git-my'` → it'll check if a file `git-my` exists and if yes, will create the function `git-my`.
-
-- `paulirish/git-open` it'll check if a file `git-open` exists and if yes, will create the function `git-open`.
-
-The same trailing component would be set for the snippet URL, for any alphabetically first and executable file.
+:::
 
 ## `GEM'…'` {#gem}
 
 `gem'{gem-name}; …'`
 
-**`gem'[{path-to-binary} <-] !{gem-name} [-> {name-of-the-function}]; …'`**
+`gem'[{path-to-binary} <-] !{gem-name} [-> {name-of-the-function}]; …'`
 
 Installs the gem of name `{gem-name}` with `$GEM_HOME` set to the plugin's or snippet's directory. In other words, the gem and its dependencies will be installed locally in that directory. In the second form, it also creates a wrapper function identical to the one created with `fbin'…'` ice.
 
-Example:
-
-<AsciinemaPlayer
-  src='https://asciinema.org/a/513303.cast'
-  rows={23}
-  cols={140}
-  speed={1}
-  idleTimeLimit={1}
-  preload={true}
-/>
+<Tabs className="player-tabs">
+  <TabItem value="gem-player" label="Player" default>
+    <Player
+      src='https://asciinema.org/a/513303.cast'
+      rows={23}
+      cols={140}
+    />
+  </TabItem>
+  <TabItem value="shortcuts" label="Shortcuts">
+    <Shortcuts />
+  </TabItem>
+</Tabs>
 
 ```shell showLineNumbers
 zi ice gem'!asciidoctor' id-as'asciidoctor' nocompile
@@ -257,28 +250,34 @@ asciidoctor () {
 }
 ```
 
-> 1. `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `asciidoctor` gem.
-> 2. `id-as'asciidoctor'` - used to assign a name instead of the `z-shell/0`.
-> 3. `nocompile` - used to skip file compilation when it is not required.
+:::note
+
+- `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `asciidoctor` gem.
+- `id-as'asciidoctor'` - used to assign a name instead of the `z-shell/0`.
+- `nocompile` - used to skip file compilation when it is not required.
+
+:::
 
 ## `NODE'…'` {#node}
 
 `node'{node-module}; …'`
 
-**`node'[{path-to-binary} <-] !{node-module} [-> {name-of-the-function}]; …'`**
+`node'[{path-to-binary} <-] !{node-module} [-> {name-of-the-function}]; …'`
 
 Installs the node module of name `{node-module}` inside the plugin's or snippet's directory. In the second form, it also creates a wrapper function identical to the one created with `fbin'…'` ice.
 
-Example:
-
-<AsciinemaPlayer
-  src='https://asciinema.org/a/513774.cast'
-  rows={18}
-  cols={140}
-  speed={1.5}
-  idleTimeLimit={1}
-  preload={true}
-/>
+<Tabs className="player-tabs">
+  <TabItem value="node-player" label="Player" default>
+    <Player
+      src='https://asciinema.org/a/513774.cast'
+      rows={18}
+      cols={140}
+    />
+  </TabItem>
+  <TabItem value="shortcuts" label="Shortcuts">
+    <Shortcuts />
+  </TabItem>
+</Tabs>
 
 ```shell showLineNumbers
 zi ice node'remark <- !remark-cli -> remark; remark-man' id-as'remark' nocompile
@@ -294,30 +293,36 @@ remark () {
 }
 ```
 
-> 1. `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `remark` Node module.
-> 2. `id-as'remark'` - used to assign a name instead of the `z-shell/0`.
-> 3. `nocompile` - used to skip file compilation when it is not required.
-
 In this case, the name of the binary program provided by the node module is different from its name, hence the second form with the `b <- a -> c` syntax has been used.
+
+:::note
+
+- `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `remark` Node module.
+- `id-as'remark'` - used to assign a name instead of the `z-shell/0`.
+- `nocompile` - used to skip file compilation when it is not required.
+
+:::
 
 ## `PIP'…'` {#pip}
 
 `pip'{pip-package}; …'`
 
-**`pip'[{path-to-binary} <-] !{pip-package} [-> {name-of-the-function}]; …'`**
+`pip'[{path-to-binary} <-] !{pip-package} [-> {name-of-the-function}]; …'`
 
 Installs the node module of name `{pip-package}` inside the plugin's or snippet's directory. In the second form, it also creates a wrapper function identical to the one created with `fbin'…'` ice.
 
-Example:
-
-<AsciinemaPlayer
-  src='https://asciinema.org/a/513793.cast'
-  rows={26}
-  cols={156}
-  speed={1}
-  idleTimeLimit={1}
-  preload
-/>
+<Tabs className="player-tabs">
+  <TabItem value="pip-player" label="Player" default>
+    <Player
+      src='https://asciinema.org/a/513793.cast'
+      rows={26}
+      cols={156}
+    />
+  </TabItem>
+  <TabItem value="shortcuts" label="Shortcuts">
+    <Shortcuts />
+  </TabItem>
+</Tabs>
 
 ```shell showLineNumbers
 zi ice pip'youtube-dl <- !youtube-dl -> youtube-dl' id-as'youtube-dl' nocompile
@@ -333,30 +338,36 @@ youtube-dl () {
 }
 ```
 
-> 1. `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `youtube-dl` pip package.
-> 2. `id-as'youtube-dl'` - used to assign a name instead of the `z-shell/0`.
-> 3. `nocompile` - used to skip file compilation when it is not required.
+:::note
 
-In this case, the name of the binary program provided by the node module is different from its name, hence the second form with the `b <- a -> c` syntax has been used.
+- `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `youtube-dl` pip package.
+- `id-as'youtube-dl'` - used to assign a name instead of the `z-shell/0`.
+- `nocompile` - used to skip file compilation when it is not required.
+
+:::
 
 ## `FMOD'…'` {#fmod}
 
 `fmod'[{g|n|c|N|E|O}:]{function-name}; …'`
 
-**`fmod'[{g|n|c|N|E|O}:]{function-name} -> {wrapping-function-name}; …'`**
+`fmod'[{g|n|c|N|E|O}:]{function-name} -> {wrapping-function-name}; …'`
 
 It wraps the given function with the ability to set `$GEM_HOME`, etc. – the meaning of the `g`, `n`, and `c` flags is the same as in the `fbin'…'` ice.
 
 Example:
 
-<AsciinemaPlayer
-  src='https://asciinema.org/a/513805.cast'
-  rows={26}
-  cols={140}
-  speed={1}
-  idleTimeLimit={1}
-  preload={true}
-/>
+<Tabs className="player-tabs">
+  <TabItem value="fmod-player" label="Player" default>
+    <Player
+      src='https://asciinema.org/a/513805.cast'
+      rows={26}
+      cols={140}
+    />
+  </TabItem>
+  <TabItem value="shortcuts" label="Shortcuts">
+    <Shortcuts />
+  </TabItem>
+</Tabs>
 
 ```shell showLineNumbers
 myfunc() { pwd; ls -1 }; zi ice fmod'cgn:myfunc' id-as'myfunc' nocompile
@@ -387,9 +398,13 @@ LICENSE
 README.md
 ```
 
-> 1. `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `myfunc` function files.
-> 2. `id-as'myfunc'` - used to assign a name instead of the `z-shell/0`.
-> 3. `nocompile` - used to skip file compilation when it is not required.
+:::note
+
+- `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `myfunc` function files.
+- `id-as'myfunc'` - used to assign a name instead of the `z-shell/0`.
+- `nocompile` - used to skip file compilation when it is not required.
+
+:::
 
 ## `FSCR'…'` {#fscr}
 
@@ -401,16 +416,18 @@ README.md
 
 Creates a wrapper function that at each invocation sources the given file. The second ice, `ferc'…'` works the same with the single difference that it uses `eval "$(<{path-to-script})"` instead of `source "{path-to-script}"` to load the script.
 
-Example:
-
-<AsciinemaPlayer
-  src='https://asciinema.org/a/513308.cast'
-  rows={26}
-  cols={140}
-  speed={1}
-  idleTimeLimit={1}
-  preload={true}
-/>
+<Tabs className="player-tabs">
+  <TabItem value="fscr-ferc-player" label="Player" default>
+    <Player
+      src='https://asciinema.org/a/513308.cast'
+      rows={26}
+      cols={140}
+    />
+  </TabItem>
+  <TabItem value="shortcuts" label="Shortcuts">
+    <Shortcuts />
+  </TabItem>
+</Tabs>
 
 ```shell showLineNumbers
 zi ice fsrc"myscript -> myfunc" ferc"myscript" nocompile
@@ -437,13 +454,17 @@ myscript () {
 }
 ```
 
-> 1. `nocompile` - used to skip file compilation when it is not required.
+:::note
 
-**The ices can be empty**. They will then try to create the function for the trailing component of the `id-as'…'` ice and the other cases, in the same way as with the `fbin'…'` ice.
+- `nocompile` ice-modifier is used to skip file compilation when it is not required.
+
+The ices can be empty as the trailing component will be assigned with [id-as][] ice-modifier the same way as described in the [sbin](#sbin).
+
+:::
 
 ## `shim-list ` {#shim-list}
 
-An annex provides a subcommand –`shim-list` for shims management which is currently stored under `$ZPFX/bin`:
+An annex provides a subcommand – `shim-list` for shims currently stored in `$ZPFX/bin` management:
 
 Available flags are:
 
@@ -461,7 +482,7 @@ zi shim-list [ -t | -i | -o | -s | -h ]
 
 ## Cygwin support {#cygwin-support}
 
-The `sbin'…'` ice has an explicit Cygwin support – it creates additional, **extra shim files** – Windows batch scripts that allow running the shielded applications from e.g.: Windows run dialog – if the `~/.zi/polaris/bin` directory is being added to the Windows `PATH` environment variable, for example (it is a good idea to do so, IMHO). The Windows shims have the same name as the standard ones (which are also being created, normally) plus the `.cmd` extension. You can test the feature by e.g.: installing Firefox from the Zi package via:
+The [sbin](#sbin) ice-modifier has an explicit Cygwin support – it creates additional, **extra shim files** – Windows batch scripts that allow running the shielded applications from e.g.: Windows run dialog – if the `~/.zi/polaris/bin` directory is being added to the Windows `PATH` environment variable, for example (it is a good idea to do so, IMHO). The Windows shims have the same name as the standard ones (which are also being created, normally) plus the `.cmd` extension. You can test the feature by e.g.: installing Firefox from the Zi package via:
 
 ```shell
 zi pack=bgn for firefox
@@ -470,11 +491,12 @@ zi pack=bgn for firefox
 <!-- end-of-file -->
 <!--footnotes-->
 
-[^1]: shims created by bin-gem-node annex have a fixed structure, this option instructs Zi to show the list of shims that results from the `sbin'…'` ice of the loaded plugins. If a plugin for example has `sbin'git-open'`, means that such shim has already been created.
+[^1]: shims created by the `bin-gem-node` annex have a fixed structure, this option instructs Zi to show the list of shims that results from the [sbin](#sbin) ice-modifier of the loaded plugins. If a plugin for example has `sbin'git-open'`, means that such shim has already been created.
 
 <!-- links -->
 
 [unscope]: /ecosystem/annexes/unscope
+[id-as]: /docs/guides/syntax/ice#id-as
 
 <!-- external -->
 

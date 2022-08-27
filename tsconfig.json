@@ -11,6 +11,9 @@
     "noEmit": true,
     "types": [
       "node",
+      "react",
+      "jest",
+      "@docusaurus/types",
       "@docusaurus/module-type-aliases",
       "@docusaurus/preset-classic"
     ],

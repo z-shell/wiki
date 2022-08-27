@@ -4,57 +4,15 @@
  * @format
  */
 
-@import "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;800&display=swap";
-
 @font-face {
   font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 300;
-  src: url("/assets/fonts/variable/JetBrainsMono[wght].ttf") format("truetype");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 400;
-  src: url("/assets/fonts/variable/JetBrainsMono[wght].ttf") format("truetype");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 500;
-  src: url("/assets/fonts/variable/JetBrainsMono[wght].ttf") format("truetype");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 600;
-  src: url("/assets/fonts/variable/JetBrainsMono[wght].ttf") format("truetype");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 700;
-  src: url("/assets/fonts/variable/JetBrainsMono[wght].ttf") format("truetype");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 800;
+  font-weight: 300 800;
   src: url("/assets/fonts/variable/JetBrainsMono[wght].ttf") format("truetype");
   font-display: swap;
 }
 
 :root {
+  font-family: "JetBrains Mono", monospace;
   transition-duration: 1s !important;
 
   --ifm-font-family: "JetBrains Mono";

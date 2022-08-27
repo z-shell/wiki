@@ -17,7 +17,7 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Image from '@theme/IdealImage';
-import AsciinemaPlayer from "@site/src/components/AsciinemaPlayer";
+import Player from "@site/src/components/Player";
 
 ## <i class="fa-brands fa-github"></i> [z-shell/f-sy-h][]
 
@@ -87,7 +87,7 @@ And add `F-Sy-H` to your plugin list.
 
 Performance differences can be observed in this Asciinema recording, where a `10 kB` function is being edited.
 
-<AsciinemaPlayer
+<Player
   src='https://asciinema.org/a/512971.cast'
   rows={24}
   cols={135}
@@ -102,7 +102,7 @@ Performance differences can be observed in this Asciinema recording, where a `10
 
 Switch themes via `fast-theme {theme-name}`.
 
-<AsciinemaPlayer
+<Player
   src='https://asciinema.org/a/513093.cast'
   rows={20}
   cols={100}

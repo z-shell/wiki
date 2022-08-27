@@ -185,6 +185,7 @@ zannex
 ZCOMPDUMP
 zcompile
 ZDOTDIR
+zgen
 zhook
 Zi's
 zicdreplay
@@ -208,4 +209,5 @@ zstatus
 zstyle
 zstyles
 zunit
+zzcomplete
 zzinit

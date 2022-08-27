@@ -4,7 +4,7 @@
 import React from "react";
 import clsx from "clsx";
 import Translate, { translate } from "@docusaurus/Translate";
-import AsciinemaPlayer from "@site/src/components/AsciinemaPlayer";
+import Player from "@site/src/components/Player";
 import styles from "./styles.module.css";
 
 const turboSvg = () => (
@@ -119,7 +119,7 @@ export default function HomeFeatures(): JSX.Element {
                 ⚡ Fast and feature-rich
               </Translate>
             </h2>
-            <AsciinemaPlayer
+            <Player
               src='https://asciinema.org/a/509113.cast'
               rows={34}
               cols={231}
@@ -140,7 +140,7 @@ export default function HomeFeatures(): JSX.Element {
                 ✨ Neat and flexible
               </Translate>
             </h2>
-            <AsciinemaPlayer
+            <Player
               src='https://asciinema.org/a/497831.cast'
               rows={34}
               cols={231}

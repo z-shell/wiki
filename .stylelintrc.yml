@@ -7,8 +7,6 @@ extends:
   - stylelint-config-prettier
 plugins:
   - stylelint-color-format
-ignoreFiles:
-  - node_modules
 rules:
   {
     "order/properties-alphabetical-order": null,
