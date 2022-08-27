@@ -50,7 +50,7 @@ zi light z-shell/F-Sy-H
 
 Load the plugin in [turbo mode][turbo-mode]:
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 zi wait lucid for \
   atinit"ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
     z-shell/F-Sy-H \
@@ -75,7 +75,8 @@ zgen load z-shell/F-Sy-H
 Clone the Repository:
 
 ```shell
-git clone https://github.com/z-shell/F-Sy-H.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/F-Sy-H
+git clone https://github.com/z-shell/F-Sy-H.git \
+    ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/F-Sy-H
 ```
 
 And add `F-Sy-H` to your plugin list.
@@ -91,9 +92,6 @@ Performance differences can be observed in this Asciinema recording, where a `10
   src='https://asciinema.org/a/512971.cast'
   rows={24}
   cols={135}
-  speed={1}
-  idleTimeLimit={1}
-  preload
 />
 
 ## Syntax highlighting features
@@ -106,9 +104,6 @@ Switch themes via `fast-theme {theme-name}`.
   src='https://asciinema.org/a/513093.cast'
   rows={20}
   cols={100}
-  speed={1}
-  idleTimeLimit={1}
-  preload
 />
 
 Run `fast-theme -t {theme-name}` option to obtain the snippet above.
@@ -180,12 +175,10 @@ The first line doesn't use recursive highlighting, highlights the `eval` argumen
 
 ### Variables
 
-Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
+Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper image):
 
 <div className="ScreenView">
   <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/parameter.png" alt="Syntax highlighting parameter" />
-</div>
-<div className="ScreenView">
   <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/in_string.png" alt="Syntax highlighting in string" />
 </div>
 
