@@ -147,6 +147,7 @@ readurl
 reddio
 redirections
 rehype
+Roadmap
 rthik
 rubygems
 rustc
@@ -161,6 +162,7 @@ shellcheck
 shellenv
 shfmt
 showlinenumbers
+Sourcegraph
 stackexchange
 startlog
 styl
