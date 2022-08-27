@@ -41,6 +41,8 @@ const config = {
         },
         docs: {
           sidebarPath: "sidebars.js",
+          sidebarCollapsible: true,
+          sidebarCollapsed: true,
           editUrl: ({ locale, versionDocsDirPath, docPath }) => {
             if (locale !== "en") {
               return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
