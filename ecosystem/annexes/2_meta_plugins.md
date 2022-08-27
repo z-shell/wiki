@@ -18,10 +18,9 @@ import Image from '@theme/IdealImage';
 
 An annex has the curated, optimal [ice][46] lists automatically applied. For more details refer to [z-a-meta-plugins.plugin.zsh][] file.
 
-- To create your group of plugins as meta-plugins propose them in a new [issue][47].
-
 :::info
 
+- To create your group of plugins as meta-plugins propose them in a new [issue][47].
 - Before using meta plugins, a meta plugins annex have to be installed. (`zi light z-a-meta-plugins`)
 - Prefix `@` used to avoid syntax conflicts, e.g: `zi light @<meta-plugin-name>`
 - Before installing any plugin visit the original repository where available to verify that system is supported and meets other requirements.
@@ -32,20 +31,20 @@ An annex has the curated, optimal [ice][46] lists automatically applied. For mor
 
 The following snippets are examples on how to install meta-plugins:
 
-```shell title="~/.zshrc"
+```shell
 zi light @annexes
 ```
 
-```shell title="~/.zshrc"
+```shell
 zi light-mode for @annexes @zsh-users @console-tools
 ```
 
-```shell title="~/.zshrc" showLineNumbers
+```shell showLineNumbers
 zi light-mode for z-a-meta-plugins \
   @annexes @ext-git @zsh-users
 ```
 
-```shell title="~/.zshrc" showLineNumbers
+```shell showLineNumbers
 zi light-mode for @annexes \
   skip'zsh-completions' @zsh-users \
   skip'vivid exa tig' @console-tools
@@ -86,7 +85,6 @@ It consumes time to:
 | (1) _finding new plugins_                             | The annex contains a curated, broad list of plugins, e.g.: all the console tools like `fd`, `fzf`, `exa`, `ripgrep`, etc.,                                                                                                                                                             |
 | (2) _reconstructing the findings in new environments_ | It's easy to say and memorize e.g.: `zi for console-tools` – one label pulls a group of plugins and also the curated, optimal, default ice lists for each of them,                                                                                                                     |
 | (3) _constant increase of complexity of the commands_ | The provided, hopefully, best/optimal ices for each plugin are handled transparently and automatically; care is given to each ice list so that the plugin loads without any glitches (e.g.: without the "No files for compilation found." message and other, even such slight issues). |
-
 
 Other unique benefits of the meta-plugins annex:
 
