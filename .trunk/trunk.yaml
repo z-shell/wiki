@@ -26,6 +26,9 @@ actions:
             - package.json
             - pnpm-lock.yaml
       run: pnpm install
+runtimes:
+  enabled:
+    - node@>=16.17.0
 lint:
   disabled:
     - shellcheck
@@ -55,19 +58,3 @@ lint:
     - linters: [markdownlint]
       paths:
         - "src/components/Markdown/_player_shortcuts.mdx"
-runtimes:
-  definitions:
-    - type: node
-      download: node
-      runtime_environment:
-        - name: HOME
-          value: ${home}
-        - name: PATH
-          list: ["${runtime}/bin"]
-      linter_environment:
-        - name: PATH
-          list: ["${linter}/node_modules/.bin"]
-      version: 16.17.0
-      version_commands:
-        - run: "node --version"
-          parse_regex: ${semver}
