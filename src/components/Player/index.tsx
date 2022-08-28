@@ -1,7 +1,8 @@
-import React, { type ReactNode, useState } from "react";
+import React from "react";
 import Loadable from "@loadable/component";
 import { BaseStyles, Box } from "@primer/react";
 import Spinner from "@site/src/components/Spinner";
+import { PlayerProps } from "./Core";
 import "asciinema-player/dist/bundle/asciinema-player.css";
 import styles from "./styles.module.css";
 
@@ -15,19 +16,7 @@ export default function Player({
   src,
   children,
   ...options
-}: {
-  src: string;
-  cols: number;
-  rows: number;
-  speed?: number;
-  loop?: boolean;
-  preload?: boolean;
-  autoplay?: boolean;
-  theme?: string;
-  idleTimeLimit?: number;
-  children?: ReactNode;
-}): JSX.Element {
-  const [loading] = useState(true);
+}: PlayerProps): JSX.Element {
   return (
     <BaseStyles>
       <Box>
@@ -35,11 +24,10 @@ export default function Player({
           <div className={styles.asciinemaBorder}>
             <Library
               src={src}
-              loading={loading}
               {...options}
             />
-            {children}
           </div>
+          {children}
         </div>
       </Box>
     </BaseStyles>

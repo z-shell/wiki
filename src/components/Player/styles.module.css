@@ -1,6 +1,7 @@
 /** @format */
 
 .asciinema {
+  position: relative;
   align-items: center;
   width: 100%;
   height: auto;
@@ -11,11 +12,12 @@
 
 .asciinemaBorder {
   cursor: pointer;
-  border: 0.01rem solid var(--ifm-color-black);
-  border-radius: var(--ifm-global-radius);
-  transition: border-color 2s ease-in-out;
+  border: 0 solid transparent;
+  border-radius: 1em;
+  transition: border 1s;
 }
 
 .asciinemaBorder:hover {
-  border-color: var(--ifm-color-emphasis);
+  border: 0.1em solid var(--ifm-color-white);
+  transition: border 2s;
 }

@@ -24,7 +24,6 @@ export default function ImgShow({
     <div className='ScreenView'>
       <div className='ImageView'>
         <LoadImage
-          fallback={<Spinner />}
           img={img}
           alt={alt}
         />

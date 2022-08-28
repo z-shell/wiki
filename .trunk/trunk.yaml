@@ -57,4 +57,4 @@ lint:
         - "docusaurus.config.js"
     - linters: [markdownlint]
       paths:
-        - "src/components/Markdown/_player_shortcuts.mdx"
+        - "src/components/Markdown/**"

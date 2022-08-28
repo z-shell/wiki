@@ -20,8 +20,6 @@ The Zsh Command Architect allows to copy segments of commands in history, rearra
 
 ## Command architect keybindings
 
-<div className="apitable">
-
 | Key(s)                                                               | Description                                                                                               |
 | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | <kbd>Ctrl-T</kbd>                                                    | Start Zsh Command Architect (Z shell binding)                                                             |
@@ -40,25 +38,10 @@ The Zsh Command Architect allows to copy segments of commands in history, rearra
 | <kbd>Ctrl-D</kbd>, <kbd>Ctrl-U</kbd>                                 | Half page up or down                                                                                      |
 | <kbd>Ctrl-P</kbd>, <kbd>Ctrl-N</kbd>                                 | Previous and next (also done with vim's j,k)                                                              |
 
-</div>
-
 ## Install Zsh Command Architect
 
 <Tabs>
-  <TabItem value="standalone" label="Standalone" default>
-
-```sh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/z-shell/zsh-cmd-architect/main/doc/install.sh)"
-```
-
-To update run the command again.
-
-`ZCA` will be installed at `~/.config/zca/zsh-cmd-architect`, config files will be copied to `~/.config/zca`. `.zshrc` will be updated with only `4` lines of code that will be added to the bottom.
-
-After installing and reloading the shell give `ZCA` a quick try with <kbd>Ctrl-T</kbd>.
-
-  </TabItem>
-  <TabItem value="zi" label="Zi">
+  <TabItem value="zi" label="Zi" default>
 
 Add the following to `.zshrc`. The config files will be available in `~/.config/zca`.
 
@@ -99,6 +82,19 @@ because `ZCA` detects if it is used by **any** plugin manager and can handle the
 Running script `doc/generate_single_file` will create a single-file version of `ZCA`. It can be sourced from `.zshrc`. Don't forget about configuration files (copy them to `~/.config/zca`).
 
   </TabItem>
+  <TabItem value="standalone" label="Standalone">
+
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/z-shell/zsh-cmd-architect/main/doc/install.sh)"
+```
+
+To update run the command again.
+
+`ZCA` will be installed at `~/.config/zca/zsh-cmd-architect`, config files will be copied to `~/.config/zca`. `.zshrc` will be updated with only `4` lines of code that will be added to the bottom.
+
+After installing and reloading the shell give `ZCA` a quick try with <kbd>Ctrl-T</kbd>.
+
+  </TabItem>
 </Tabs>
 
 ## Performance
@@ -127,5 +123,6 @@ It will not display underline properly, but will instead highlight by a color, w
 
 <!-- end-of-file -->
 <!-- links -->
+<!-- external -->
 
 [z-shell/zsh-cmd-architect]: https://github.com/z-shell/zsh-cmd-architect

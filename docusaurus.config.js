@@ -91,6 +91,7 @@ const config = {
         ],
         pwaHead: [
           { tagName: "link", rel: "icon", href: "img/logo.svg" },
+          { tagName: "link", rel: "icon", href: "img/logo.png" },
           { tagName: "link", rel: "manifest", href: "manifest.json" },
           { tagName: "link", rel: "browserconfig", href: "browserconfig.xml" },
           {

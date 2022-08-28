@@ -16,31 +16,16 @@ keywords:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Image from '@theme/IdealImage';
+import ImgShow from '@site/src/components/ImgShow';
 import Player from "@site/src/components/Player";
+import ChromaFunctionExample from "@site/src/components/Markdown/\_chroma_function_example.mdx";
 
 ## <i class="fa-brands fa-github"></i> [z-shell/f-sy-h][]
 
 ## Install F-Sy-H
 
 <Tabs>
-  <TabItem value="standalone" label="Standalone" default>
-
-Clone the Repository.
-
-```shell
-git clone https://github.com/z-shell/F-Sy-H.git \
-  ~/some/path/to/fsh
-```
-
-And add the following to your `.zshrc` file.
-
-```shell
-source ~/some/path/to/fsh/F-Sy-H.plugin.zsh
-```
-
-  </TabItem>
-  <TabItem value="zi" label="Zi">
+  <TabItem value="zi" label="Zi" default>
 
 Add the following to your `.zshrc` file.
 
@@ -80,6 +65,22 @@ git clone https://github.com/z-shell/F-Sy-H.git \
 ```
 
 And add `F-Sy-H` to your plugin list.
+
+  </TabItem>
+  <TabItem value="standalone" label="Standalone">
+
+Clone the Repository.
+
+```shell
+git clone https://github.com/z-shell/F-Sy-H.git \
+  ~/some/path/to/fsh
+```
+
+And add the following to your `.zshrc` file.
+
+```shell
+source ~/some/path/to/fsh/F-Sy-H.plugin.zsh
+```
 
   </TabItem>
 </Tabs>
@@ -161,15 +162,17 @@ secondary        = zdharma
 
 A secondary theme (`zdharma` in the example) will be used for highlighting of argument for `eval` and of `$( ... )` interior (i.e. of the interior of command substitution). Recursive highlighting uses the alternate theme to make the highlighted code distinct:
 
-<div className="ScreenView">
-  <Image img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/cmdsubst.png" className="ImageView" alt="Syntax highlighting command substitution" />
-</div>
+<ImgShow
+  img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/cmdsubst.png"
+  alt="Syntax highlighting command substitution"
+/>
 
 In the above screen-shot the interior of `$( ... )` uses different colors than the rest of the code. Example for `eval`:
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/eval_cmp.png" alt="Syntax highlighting eval" />
-</div>
+<ImgShow
+ img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/eval_cmp.png"
+ alt="Syntax highlighting eval"
+/>
 
 The first line doesn't use recursive highlighting, highlights the `eval` argument as a regular string. The second line switches the theme to `zdharma` and does full recursive highlighting of the eval argument.
 
@@ -177,68 +180,81 @@ The first line doesn't use recursive highlighting, highlights the `eval` argumen
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper image):
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/parameter.png" alt="Syntax highlighting parameter" />
-  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/in_string.png" alt="Syntax highlighting in string" />
-</div>
+<ImgShow
+  img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/parameter.png"
+  alt="Syntax highlighting parameter"
+/>
+
+<ImgShow
+  img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/in_string.png"
+  alt="Syntax highlighting in string"
+/>
 
 ### Brackets
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/brackets.gif" alt="Syntax highlighting brackets" />
-</div>
+<ImgShow
+  img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/brackets.gif"
+  alt="Syntax highlighting brackets"
+/>
 
 ### Conditions
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/cplx_cond.png" alt="Syntax highlighting conditions" />
-</div>
+<ImgShow
+  img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/cplx_cond.png"
+  alt="Syntax highlighting conditions"
+/>
 
 ### Strings
 
 Exact highlighting that recognizes quoting.
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/ideal-string.png" alt="Syntax highlighting strings" />
-</div>
+<ImgShow
+  img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/ideal-string.png"
+  alt="Syntax highlighting strings"
+/>
 
 #### here-strings
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/herestring.png" alt="Syntax highlighting here-strings" />
-</div>
+<ImgShow
+  img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/herestring.png"
+  alt="Syntax highlighting here-strings"
+/>
 
 ### `exec` descriptor-variables
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/execfd_cmp.png" alt="Syntax highlighting exec" />
-</div>
+<ImgShow
+  img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/execfd_cmp.png"
+  alt="Syntax highlighting exec"
+/>
 
 ### The for-loops and alternate syntax (brace `{`/`}` blocks)
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/for-loop-cmp.png" alt="Syntax highlighting loops" />
-</div>
+<ImgShow
+  img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/for-loop-cmp.png"
+  alt="Syntax highlighting loops"
+/>
 
 ### Function definitions
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper 2 lines):
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/function.png" alt="Syntax highlighting function" />
-</div>
+<ImgShow
+  img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/function.png"
+  alt="Syntax highlighting function"
+/>
 
 ### Recursive `eval` and `$( )` highlighting
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/eval_cmp.png" alt="Syntax highlighting eval" />
-</div>
+<ImgShow
+  img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/eval_cmp.png"
+  alt="Syntax highlighting eval"
+/>
 
 ## Chroma functions
 
@@ -246,83 +262,96 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
 #### Autoload
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-autoload.gif" alt="Syntax highlighting autoload" />
-</div>
+<ImgShow
+  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-autoload.gif"
+  alt="Syntax highlighting autoload"
+/>
 
 #### Awk
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-awk.gif" alt="Syntax highlighting awk" />
-</div>
+<ImgShow
+  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-awk.gif"
+  alt="Syntax highlighting awk"
+/>
 
 #### Docker
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-docker.gif" alt="Syntax highlighting docker" />
-</div>
+<ImgShow
+  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-docker.gif"
+  alt="Syntax highlighting docker"
+/>
 
 #### Git commit
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-git-commit.gif" alt="Syntax highlighting git commit" />
-</div>
+<ImgShow
+  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-git-commit.gif"
+  alt="Syntax highlighting git commit"
+/>
 
 #### Git checkout
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-git-checkout.gif" alt="Syntax highlighting git checkout" />
-</div>
+<ImgShow
+  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-git-checkout.gif"
+  alt="Syntax highlighting git checkout"
+/>
 
 #### Grep
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-grep.gif" alt="Syntax highlighting grep" />
-</div>
+<ImgShow
+  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-grep.gif"
+  alt="Syntax highlighting grep"
+/>
 
 #### Make
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-make.gif" alt="Syntax highlighting make" />
-</div>
+<ImgShow
+  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-make.gif"
+  alt="Syntax highlighting make"
+/>
 
 #### Perl
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-perl.gif" alt="Syntax highlighting perl" />
-</div>
+<ImgShow
+  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-perl.gif"
+  alt="Syntax highlighting perl"
+/>
 
 #### Sh
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-sh-c.gif" alt="Syntax highlighting sh -c" />
-</div>
+<ImgShow
+  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-sh-c.gif"
+  alt="Syntax highlighting sh -c"
+/>
 
 The [chromas](https://github.com/z-shell/F-Sy-H/tree/main/→chroma) that are enabled by default can be found [here](https://github.com/z-shell/F-Sy-H/blob/main/fast-highlight#L166).
 
 ### Fpath highlighting
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-fpath.gif" alt="Syntax highlighting fpath" />
-</div>
+<ImgShow
+  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-fpath.gif"
+  alt="Syntax highlighting fpath"
+/>
 
 ### Case highlighting
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-case.gif" alt="Syntax highlighting case" />
-</div>
+<ImgShow
+  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-case.gif"
+  alt="Syntax highlighting case"
+/>
 
 ### Math highlighting
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/math.gif" alt="Syntax highlighting math" />
-</div>
+<ImgShow
+  img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/math.gif"
+  alt="Syntax highlighting math"
+/>
 
 ### Zcalc highlighting
 
-<div className="ScreenView">
-  <Image className="ImageView" img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/zcalc.png" alt="Syntax highlighting zcalc" />
-</div>
+<ImgShow
+  img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/zcalc.png"
+  alt="Syntax highlighting zcalc"
+/>
 
 ### Custom Working Directory
 
@@ -360,7 +389,7 @@ This document explains to create a detailed highlighting for a **specific progra
 
 So example invocation could look like this:
 
-```sh
+```shell
 →chroma/-example.ch 1 "grep" "$_start_pos" "$_end_pos"
 ```
 
@@ -368,127 +397,14 @@ Big-loop will be doing such calls for the user, after occurring a specific chrom
 
 #### Example of chroma function
 
-```shell title="→chroma/-example.ch" showLineNumbers
-# -*- mode: zsh; sh-indentation: 2; indent-tabs-mode: nil; sh-basic-offset: 2; -*-
-# vim: ft=zsh sw=2 ts=2 et
-#
-# Example chroma function. It colorizes the first two arguments as `builtin' style,
-# third and following arguments as `globbing' style. The first two arguments may
-# be "strings", they will be passed through to normal highlighter (by returning 1).
-#
-# $1 - 0 or 1, denoting if it's the first call to the chroma or the following one
-#
-# $2 - the current token, also accessible by $__arg from the above scope -
-# a private copy of $__arg; the token can be eg.: "grep"
-#
-# $3 - a private copy of $_start_pos, i.e. the position of the token in the
-# command line buffer, used to add region_highlight entry (see man),
-# because Zsh colorizes by *ranges* in the command line buffer
-#
-# $4 - a private copy of $_end_pos from the above scope
-#
-#
-# Overall functioning is: when command "example" occurs, this function
-# is called with $1 == 1, it ("example") is the first token ($2), then for any
-# following token, this function is called with $1 == 0, until end of command
-# is occurred (i.e. till enter is pressed or ";" is put into the source or the
-# command line simply ends).
-#
-# Other tips are:
-# - $CURSOR holds cursor position
-# - $BUFFER holds the whole command line buffer
-# - $LBUFFER holds command line buffer that is left from the cursor, i.e. it's a
-#   BUFFER substring 1 .. $CURSOR
-# - $RBUFFER is the same as LBUFFER but holds part of BUFFER right to the cursor
-#
-# The function receives $BUFFER but via a sequence of tokens, which are shell words,
-# e.g. "a b c" is a shell word, while a b c are 3 shell words.
-#
-# FAST_HIGHLIGHT is a friendly hash array that allows storing strings without
-# creating global parameters (variables). If you need hash, just use it first
-# declaring, under some distinct name like: typeset -gA CHROMA_EXPLE_DICT.
-# Remember to reset the hash and others at __first_call == 1, so that you have
-# a fresh state for a new command.
-
-# Keep chroma-takeover state meaning: until; handle highlighting via chroma.
-# So the below 8192 assignment takes care that the next token will be routed to chroma.
-(( next_word = 2 | 8192 ))
-
-local __first_call="$1" __wrd="$2" __start_pos="$3" __end_pos="$4"
-local __style
-integer __idx1 __idx2
-
-(( __first_call )) && {
-  # Called for the first time - new command. FAST_HIGHLIGHT is used because it survives between calls,
-  # and allows to use of a single global hash only, instead of multiple global string variables.
-  FAST_HIGHLIGHT[chroma-example-counter]=0
-
-  # Set style for region_highlight entry. It is used below in
-  # '[[ -n "$__style" ]] ...' line, which adds highlight entry, like "10 12 fg=green", through `reply' array.
-  #
-  # Could check if command `example' exists and set `unknown-token'
-  # style instead of `command'
-  __style=${FAST_THEME_NAME}command
-
-} || {
-  # Following the call, i.e. not the first one
-
-  # Check if chroma should end – test if the token is of type "starts new command", if so pass-through – chroma ends
-  [[ "$__arg_type" = 3 ]] && return 2
-
-  if (( in_redirection > 0 || this_word & 128 )) || [[ $__wrd == "<<<" ]]; then
-    return 1
-  fi
-
-  if [[ "$__wrd" = -* ]]; then
-    # Detected option, add style for it.
-    [[ "$__wrd" = --* ]] && \
-    __style=${FAST_THEME_NAME}double-hyphen-option || __style=${FAST_THEME_NAME}single-hyphen-option
-  else
-    # Count non-option tokens
-    (( FAST_HIGHLIGHT[chroma-example-counter] += 1, __idx1 = FAST_HIGHLIGHT[chroma-example-counter] ))
-
-    # Colorize 1..2 as builtin, 3.. as glob
-    if (( FAST_HIGHLIGHT[chroma-example-counter] <= 2 )); then
-      if [[ "$__wrd" = \"* ]]; then
-        # Pass through, fsh main code will do the highlight!
-        return 1
-      else
-        __style=${FAST_THEME_NAME}builtin
-      fi
-    else
-      __style=${FAST_THEME_NAME}globbing
-    fi
-  fi
-}
-
-# Add region_highlight entry (via `reply' array).
-# If 1 will be added to __start_pos, this will highlight "token".
-# If 1 will be subtracted from __end_pos, this will highlight "toke".
-# $PREBUFFER is for specific situations when users do command \<ENTER>
-# i.e. when multi-line command using backslash is entered.
-#
-# This is a commonplace of adding of such entry, but any above code can do
-# it (and it does in other chromas) and skip setting __style to this way to disable this code.
-[[ -n "$__style" ]] && \
-(( __start=__start_pos-${#PREBUFFER}, __end=__end_pos-${#PREBUFFER}, __start >= 0 )) && \
-reply+=("$__start $__end ${FAST_HIGHLIGHT_STYLES[$__style]}")
-
-# We aren't passing through, do obligatory things ourselves.
-# _start_pos=$_end_pos advances pointers in command line buffer.
-#
-# To pass through means to `return 1'.
-# The highlighting of this single token is then done by F-Sy-H's
-# main code and chroma doesn't have to do anything.
-(( this_word = next_word ))
-_start_pos=$_end_pos
-
-return 0
-```
+<ChromaFunctionExample />
 
 <!-- end-of-file -->
 <!-- links -->
 
+[turbo-mode]: /docs/getting_started/overview#turbo-mode-zsh--53
+
+<!-- external -->
+
 [z-shell/f-sy-h]: https://github.com/z-shell/F-Sy-H
 [ini-files]: https://github.com/z-shell/F-Sy-H/tree/main/themes
-[turbo-mode]: /docs/getting_started/overview#turbo-mode-zsh--53

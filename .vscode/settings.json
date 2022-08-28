@@ -71,14 +71,7 @@
     }
   },
   "eslint.options": {
-    "extensions": [
-      ".js",
-      ".jsx",
-      ".md",
-      ".mdx",
-      ".ts",
-      ".tsx"
-    ],
+    "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"],
     "eslint.validate": [
       "markdown",
       "mdx",
@@ -88,9 +81,7 @@
       "typescriptreact"
     ]
   },
-  "cSpell.enableFiletypes": [
-    "mdx"
-  ],
+  "cSpell.enableFiletypes": ["mdx"],
   "cSpell.customDictionaries": {
     "custom-dictionary": {
       "name": "custom-dictionary",

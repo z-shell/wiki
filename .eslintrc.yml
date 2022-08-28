@@ -1,11 +1,9 @@
 # @format
 
-settings:
-  import/resolver:
-    typescript: {}
 env:
   browser: true
   commonjs: true
+  es2022: true
   node: true
 extends:
   - eslint:recommended
@@ -18,7 +16,10 @@ extends:
   - plugin:primer-react/recommended
   - prettier
   - plugin:@docusaurus/recommended
-parser: "@typescript-eslint/parser"
+settings:
+  import/resolver:
+    typescript: {}
+  parser: "@typescript-eslint/parser"
 parserOptions:
   ecmaFeatures:
     jsx: true
@@ -30,6 +31,8 @@ plugins:
   - "@docusaurus"
 rules:
   {
+    "semi": [2, "always"],
+    "prefer-const": "error",
     "no-undef": 0,
     "global-require": 0,
     "no-await-in-loop": 0,
