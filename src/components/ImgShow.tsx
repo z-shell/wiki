@@ -22,13 +22,12 @@ export default function ImgShow({
 }): JSX.Element {
   return (
     <div className='ScreenView'>
-      <div className='ImageView'>
-        <LoadImage
-          img={img}
-          alt={alt}
-        />
-        {children}
-      </div>
+      <LoadImage
+        className='ImageView'
+        img={img}
+        alt={alt}
+      />
+      {children}
     </div>
   );
 }
