@@ -19,7 +19,7 @@ specifiers:
   '@mdx-js/react': 1.6.22
   '@primer/react': 35.8.0
   '@primer/stylelint-config': 12.7.0
-  '@trunkio/launcher': 1.1.1
+  '@trunkio/launcher': 1.2.0
   '@types/node': 18.0.6
   '@types/react': 18.0.17
   '@typescript-eslint/eslint-plugin': 5.35.1
@@ -73,7 +73,7 @@ devDependencies:
   '@docusaurus/eslint-plugin': 0.0.0-5275_yqf6kl63nyoq5megxukfnom5rm
   '@docusaurus/module-type-aliases': 0.0.0-5275_sfoxds7t5ydpegc3knd667wn6m
   '@primer/stylelint-config': 12.7.0_postcss@8.4.16
-  '@trunkio/launcher': 1.1.1
+  '@trunkio/launcher': 1.2.0
   '@types/node': 18.0.6
   '@types/react': 18.0.17
   '@typescript-eslint/eslint-plugin': 5.35.1_pfwtupu3r4wxmgbx6hj7gwmyuu
@@ -3089,8 +3089,8 @@ packages:
       defer-to-connect: 2.0.1
     dev: false
 
-  /@trunkio/launcher/1.1.1:
-    resolution: {integrity: sha512-ALUQllx+H2jpdusWCVUZt5lvHYudaYwCZizxhrzQHyKKpDyIlzkUxu4pOB4Rf38Xki2Tavgwd58a3909jPtOCw==}
+  /@trunkio/launcher/1.2.0:
+    resolution: {integrity: sha512-YSCXffEZjJqZ0PvfawtsYhYKevcHtOvw+8rLwSltheA2L60AuUDeXcr5AFpI93cgqYudF/uIdwbLIAaBslCA9Q==}
     hasBin: true
     dev: true
 
