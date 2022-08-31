@@ -24,7 +24,7 @@ Add the following snippet in the `.zshrc` file:
   <TabItem value="instant-source" label="Instant" default>
 
 ```shell title="~/.zshrc"
-source <(curl -sL https://git.io/zi-loader); zzinit
+source <(curl -sL git.io/zi-loader); zzinit
 ```
 
   </TabItem>
@@ -34,8 +34,8 @@ Verify the sha256 [checksum][] for a file: `lib/zsh/init.zsh`:
 
 ```shell showLineNumbers title="~/.zshrc"
 local cs_ok='7fab1ecb8d2ffbdb4aa98dd1e51cebaeaa4d8137e1de11938f3e0df24af262bb'
-local cs=$(sha256sum <(curl -sL 'https://git.io/zi-loader') | awk '{print $1}')
-[[ $cs_ok == $cs ]] && { source <(curl -sL 'https://git.io/zi-loader'); zzinit; } || {
+local cs=$(sha256sum <(curl -sL git.io/zi-loader) | awk '{print $1}')
+[[ $cs_ok == $cs ]] && { source <(curl -sL git.io/zi-loader); zzinit; } || {
   print -P "%F{160}▓▒░ Houston, we have a problem, the %F{226}$cs%F{160} do not match\!%f%b"; exit 1
 }
 ```
@@ -53,7 +53,7 @@ Reload shell with `exec zsh` and run `zi -h` for usage information.
 - If required append `-b <tag>` or `-b <branch>` e.g:
 
 ```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip -b main
+sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
 ```
 
 :::
@@ -64,7 +64,7 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip -b main
 Install and include minimal configuration to the `.zshrc`:
 
 ```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" --
+sh -c "$(curl -fsSL git.io/get-zi)" --
 ```
 
   </TabItem>
@@ -77,7 +77,7 @@ Install repository or update if already exists, if [custom path][customizing-pat
 3. `$XDG_DATA_HOME/.zi`
 
 ```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip
+sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
 ```
 
   </TabItem>
@@ -86,7 +86,7 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -i skip
 Install and include minimal configuration with recommended [annexes][]:
 
 ```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a annex
+sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
 ```
 
   </TabItem>
@@ -95,7 +95,7 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a annex
 Install and include minimal configuration with recommended [annexes][] and setup [zdharma/zunit][]:
 
 ```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zunit
+sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
 ```
 
   </TabItem>
@@ -104,7 +104,7 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zunit
 Install and include minimal configuration with [loader](#loader):
 
 ```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a loader
+sh -c "$(curl -fsSL git.io/get-zi)" -- -a loader
 ```
 
 The installer will download the loader and add the snippet below to the `.zshrc` file.
@@ -189,7 +189,7 @@ Let's glue everything together to create a toolchain that works for us 🚀.
 ### <i class="fa-solid fa-list-check"></i>&nbsp;Suggest or request at&nbsp;<Link href="https://github.com/z-shell/playground">playground</Link>
 
 ```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a ???
+sh -c "$(curl -fsSL git.io/get-zi)" -- -a ???
 ```
 
 ## <i class="fas fa-sync-alt fa-spin"></i>&nbsp;Need warm-up?
@@ -199,7 +199,6 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a ???
 ```shell
 docker run --rm -it ghcr.io/z-shell/zd:latest
 ```
-
 ### <i class="fa-brands fa-docker"></i> Turbo Zi in Docker
 
 If you create a Docker image that uses Zi, install Turbo-loaded plugins before the shell starts interactively, with the `@zi-scheduler` function in such a way, that it:
@@ -249,7 +248,7 @@ typeset -g ZI_MOD_DEBUG=1
   <TabItem value="standalone" label="Standalone">
 
 ```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
+sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
 ```
 
   </TabItem>
@@ -261,27 +260,19 @@ sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
 
 ### <i class="fa-solid fa-gear"></i> Installer {#installer}
 
-<div className="apitable">
-
 | Service                    | URL                                                                       |
 | :------------------------- | ------------------------------------------------------------------------- |
 | [Redirect][get.zshell.dev] | <https://get.zshell.dev>                                                  |
 | [IPFS][ipfs.io]            | <https://ipfs.zshell.dev/sh/install.sh>                                   |
 | [Direct][direct-install]   | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
-</div>
-
 ### <i class="fa-brands fa-superpowers"></i> Loader {#loader}
-
-<div className="apitable">
 
 | Service                     | URL                                                                      |
 | :-------------------------- | ------------------------------------------------------------------------ |
 | [Redirect][init.zshell.dev] | <https://init.zshell.dev>                                                |
 | [IPFS][ipfs.io]             | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
 | [Direct][direct-init]       | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
-
-</div>
 
 <!-- end-of-file -->
 <!-- links -->
