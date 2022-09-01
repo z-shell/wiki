@@ -199,6 +199,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a ???
 ```shell
 docker run --rm -it ghcr.io/z-shell/zd:latest
 ```
+
 ### <i class="fa-brands fa-docker"></i> Turbo Zi in Docker
 
 If you create a Docker image that uses Zi, install Turbo-loaded plugins before the shell starts interactively, with the `@zi-scheduler` function in such a way, that it:
