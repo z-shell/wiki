@@ -2,7 +2,7 @@
 
 version: 0.1
 cli:
-  version: 0.16.1-beta
+  version: 0.17.0-beta
   options:
     - commands: [check, fmt]
     - args: -y
@@ -38,7 +38,7 @@ lint:
     - svgo@2.8.0
     - stylelint@14.11.0
     - git-diff-check@SYSTEM
-    - actionlint@1.6.16
+    - actionlint@1.6.17
     - eslint@8.23.0
     - gitleaks@8.11.2
     - markdownlint@0.32.2
