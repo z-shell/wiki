@@ -1,9 +1,9 @@
 ---
 id: installation
-title: "⚡️ Installation"
+title: "⚡️ 安装"
 sidebar_position: 1
 image: /img/logo/320x320.png
-description: Installation Guide
+description: 安装指南
 keywords:
   - setup
   - quick-start

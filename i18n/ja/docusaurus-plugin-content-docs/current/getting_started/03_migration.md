@@ -4,7 +4,7 @@ title: "♻️ Migration"
 image: /img/logo/320x320.png
 description: Migration guide
 keywords:
-  - setup
+  - セットアップ
   - prezto
   - oh-my-zsh
   - migration
@@ -24,7 +24,7 @@ zi snippet OMZT::<PATH> # Shorthand OMZ/themes/   (http://github.com/ohmyzsh/ohm
 zi snippet OMZP::<PATH> # Shorthand OMZ/plugins/  (http://github.com/ohmyzsh/ohmyzsh/raw/master/plugins)
 ```
 
-### OMZ Library
+### OMZライブラリ
 
 Importing the [clipboard][1] and [termsupport][2] from the OMZ library sample:
 
@@ -318,7 +318,7 @@ What is `zstyle`?
 
 ## Zgen
 
-### Load OMZ library
+### OMZライブラリの読み込み
 
 ```diff title="~/.zshrc" showLineNumbers
 - zgen oh-my-zsh

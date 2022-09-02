@@ -48,7 +48,7 @@ Besides the GitHub-API querying, there's also a fixed, curated list of mappings 
 |            bgn            | z-shell/z-a-bin-gem-node          |
 |           meta            | z-shell/z-a-meta-plugins          |
 |          metaplg          | z-shell/z-a-meta-plugins          |
-|       meta-plugins        | z-shell/z-a-meta-plugins          |
+|          メタプラグイン          | z-shell/z-a-meta-plugins          |
 |          archive          | PZTM::archive                     |
 |           arch            | PZTM::archive                     |
 |         directory         | PZTM::directory                   |

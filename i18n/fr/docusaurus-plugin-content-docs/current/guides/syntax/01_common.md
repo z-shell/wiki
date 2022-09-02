@@ -14,7 +14,7 @@ keywords:
 
 :::tip
 
-It is recommended to familiarize yourself with [getting_started/oveview][9] before this.
+Il est recommandé de vous familiariser avec [getting_started/oveview][9] avant cela.
 
 :::
 
@@ -37,7 +37,7 @@ The `Makefile` with 2 tasks, can use:
 
 :::info
 
-[$ZPFX][zpfx] is provided by Zi, it is set to `~/.zi/polaris` by default. However, it can be changed by specifying: `$ZPFX=` target.
+[$ZPFX][zpfx] is provided by Zi, it is set to `~/.zi/polaris` by default. Cependant, cela peut être modifié en spécifiant la cible: `$ZPFX=`.
 
 :::
 
@@ -61,7 +61,7 @@ zi light vim/vim
 
 </div>
 
-The same but with **installation** (`make install`) under [$ZPFX][zpfx] by default:
+La même chose mais avec **installation** (`make install`) sous [$ZPFX][zpfx] par défaut:
 
 ```shell showLineNumbers
 zi ice as'program' atclone'rm -f src/auto/config.cache; \
@@ -83,7 +83,7 @@ zi light vim/vim
 
 ## <i class="fa-solid fa-palette"></i> LS_COLORS {#ls_colors}
 
-A repository [trapd00r/LS_COLORS][1] provides a file with color definitions for GNU `ls` command, and also for [ogham/exa][2]. Typically one does `eval $( dircolors -b $HOME/LS_COLORS)` to process this file and set the environment for `ls`. This means `dircolors` is run by every shell startup. It costs much time to create a fork and program, i.e., `dircolors` binary needs to be loaded to obtain and process the colors definitions. The following invocation solves this problem:
+Le dépôt [trapd00r/LS_COLORS][1] fournit un fichier avec les définitions de couleurs pour la commande GNU `ls` , et aussi pour [ogham/exa][2]. Typiquement, on fait `eval $( dircolors -b $HOME/LS_COLORS)` pour traiter ce fichier et définir l'environnement pour `ls`. Cela signifie que `dircolors` est exécuté par chaque démarrage du shell. Il faut beaucoup de temps pour créer un fork et un programme, c'est-à-dire que le binaire `dircolors` doit être chargé pour obtenir et traiter les définitions de couleurs. L'invocation suivante résout ce problème:
 
 ```shell showLineNumbers
 zi ice atclone'dircolors -b LS_COLORS > clrs.zsh' \
@@ -104,11 +104,11 @@ zi light trapd00r/LS_COLORS
 
 </div>
 
-This way, except for the plugin installation and update, `dircolors` isn't run, just normal sourcing is done. The everyday sourced file, i.e. `clrs.zsh`, is being compiled to speed up the loading.
+De cette façon, à l'exception de l'installation et de la mise à jour du plugin, `dircolors` n'est pas exécuté, juste un approvisionnement normal est fait. Le fichier sourcé de tous les jours, c'est-à-dire `clrs.zsh`, est compilé pour accélérer le chargement.
 
 ## <i class="fa-solid fa-folder-tree"></i> Direnv {#direnv}
 
-The project [**direnv/direnv**][5] registers itself in the Z shell to modify the environment on directory change. This registration is most often done by `eval "$(direnv hook zsh)"` added to `.zshrc`.
+Le projet [**direnv/direnv**][5] s'enregistre dans Z shell pour modifier l'environnement lors d'un changement de répertoire. Cet enregistrement se fait le plus souvent par `eval "$(direnv hook zsh)"` ajouté à `.zshrc`.
 
 ```shell showLineNumbers
 zi ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
@@ -117,15 +117,15 @@ zi light direnv/direnv
 ```
 
 - `make'!'` – execute `make` before `atclone'…'` and before `atpull'…'` (see `make` above),
-- `src'zhook.zsh'` – source file `zhook.zsh`.
+- `src'zhook.zsh'` – fichier source `zhook.zsh`.
 
-In general, direnv works by hooking up to Zsh. The code that does this is provided by the program `direnv` (built by `make'…'`).
+En général, direnv fonctionne en se connectant à Zsh. Le code qui fait cela est fourni par le programme `direnv` (construit par `make'…'`).
 
-Above `atclone'…'` puts this code into file `zhook.zsh`, `src''` sources it. This way `direnv hook zsh` is executed only on clone and update, and Zsh starts faster.
+Ci-dessus `atclone'…'` met ce code dans le fichier `zhook.zsh`, et `src''` le source. De cette façon, `direnv hook zsh` est exécuté uniquement lors du clonage et de la mise à jour, et Zsh démarre plus rapidement.
 
 ## <i class="fa-solid fa-wand-magic-sparkles"></i> Coup d'œil sur la syntaxe 'for' {#glance-at-the-for-syntax}
 
-L'inconvénient de cette procédure standard est que le binaire `direnv` est exécuté à chaque démarrage du shell et le ralentit considérablement. Zi allows to solve this in the following way:
+L'inconvénient de cette procédure standard est que le binaire `direnv` est exécuté à chaque démarrage du shell et le ralentit considérablement. Zi permet de résoudre cela de la manière suivante:
 
 ```shell showLineNumbers
 zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
@@ -146,7 +146,7 @@ zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
 
 </div>
 
-In this method, the registered code is generated once on every installation or update, then sourced without running `direnv` itself. The project is also available as a binary [GitHub releases][6]. This distribution can be installed by:
+Dans cette méthode, le code enregistré est généré une fois à chaque installation ou mise à jour, puis sourcé sans exécuter `direnv` lui-même. The project is also available as a binary [GitHub releases][6]. This distribution can be installed by:
 
 ```shell showLineNumbers
 zi from"gh-r" as"program" mv"direnv* -> direnv" \

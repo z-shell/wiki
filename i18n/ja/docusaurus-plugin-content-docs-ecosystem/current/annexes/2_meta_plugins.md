@@ -1,12 +1,12 @@
 ---
-id: meta-plugins
+id: メタプラグイン
 title: "🌀 Meta Plugins"
 image: /img/logo/320x320.png
 description: Annex meta-plugins documentation
 keywords:
   - annex
   - zsh-plugins
-  - meta-plugins
+  - メタプラグイン
   - optimised-zsh-plugins
 ---
 

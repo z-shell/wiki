@@ -1,6 +1,6 @@
 ---
 id: migration
-title: "♻️ Migration"
+title: "♻️ 迁移"
 image: /img/logo/320x320.png
 description: Migration guide
 keywords:

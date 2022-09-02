@@ -230,7 +230,7 @@ import ImgShow from '@site/src/components/ImgShow';
 
 <ImgShow img="/asciicast/zi_clist.svg" alt="Zi completion list" />
 
-To show more completions per line by providing an **argument** to `clist`, e.g.: `zi clist 6`, will show:
+Pour afficher plus d'une complétions par ligne en fournissant un argument **** à `clist`, par exemple: `zi clist 6`, affichera:
 
 <div className="ScreenView">
   <img
@@ -311,14 +311,14 @@ zi load halfo/lambda-mod-zsh-theme
 
 This sets plugin `halfo/lambda-mod-zsh-theme` to be loaded `0` seconds after `zshrc`. It will fire up after c.a. 1 ms of showing the basic prompt `READY >`.
 
-You probably won't load the prompt in such a way, however, it is a good example in which turbo mode can be observed. The exclamation mark causes Zi to reset the prompt after loading the plugin – commonly needed for themes. The same with Prezto prompts, with a longer delay:
+You probably won't load the prompt in such a way, however, it is a good example in which turbo mode can be observed. Le point d'exclamation fait en sorte que Zi réinitialise l'invite après le chargement du plugin - il est nécessaire pour les thèmes. Idem avec les invites Prezto, avec un délai plus long:
 
 ```shell showLineNumbers
 zi ice svn silent wait'!1' atload'prompt smiley'
 zi snippet PZT::modules/prompt
 ```
 
-Using `zsh-users/zsh-autosuggestions` without any drawbacks:
+Utilisation de `zsh-users/zsh-autosuggestions` sans aucun inconvénient:
 
 ```shell showLineNumbers
 zi ice wait lucid atload'_zsh_autosuggest_start'
@@ -340,7 +340,7 @@ zi ice wait
 zi load z-shell/history-search-multi-word
 ```
 
-Load after 2 seconds:
+Charger après 2 secondes:
 
 ```shell showLineNumbers
 zi ice wait"2"
@@ -365,11 +365,11 @@ zi load z-shell/history-search-multi-word
 
 ## Turbo mode with sophisticated prompts
 
-For some, mostly advanced themes the initialization of the prompt is being done in a `precmd`-hook, i.e.; in a function that gets called before each prompt. The hook is installed by the [add-zsh-hook][12] Zsh function by adding its name to the `$precmd_functions` array.
+For some, mostly advanced themes the initialization of the prompt is being done in a `precmd`-hook, i.e.; in a function that gets called before each prompt. Le hook est installé par la fonction Zsh [add-zsh-hook][12] en ajoutant son nom au tableau `$precmd_functions`.
 
-To make the prompt fully initialized after turbo mode loading in the middle of the prompt the same situation as with the `zsh-autosuggestions` plugin, the hook should be called from `atload'…'` ice`.
+Pour que l'invite soit pleinement initialisée après le chargement du mode turbo au milieu de l'invite, la même situation qu'avec le plug-in `zsh-autosuggestions` , le crochet doit être appelé à partir la de `atload'…'`\`.
 
-First, find the name of the hook function by examining the `$precmd_functions` array. For example, for the `robobenklein/zinc` theme, they'll be two functions: `prompt_zinc_setup` and `prompt_zinc_precmd`:
+Tout d'abord, trouvez le nom de la fonction hook en examinant le tableau `$precmd_functions`. For example, for the `robobenklein/zinc` theme, they'll be two functions: `prompt_zinc_setup` and `prompt_zinc_precmd`:
 
 ```shell showLineNumbers
 root@user > ~ > print $precmd_functions < ✔ < 22:21:33
@@ -417,7 +417,7 @@ zi load z-shell/zprompts
   />
 </span>
 
-Load when NOT in ~/tmp
+Charger lorsqu'IL N'est PAS dans ~/tmp
 
 ```shell {1} showLineNumbers
 zi ice load'![[ $PWD != */tmp* ]]' unload'![[ $PWD = */tmp* ]]'
@@ -451,7 +451,7 @@ See: [multiple prompts](/docs/guides/customization#multiple-prompts) for more in
 
 :::
 
-This is [powerlevel10k](https://github.com/romkatv/powerlevel10k), [pure](https://github.com/sindresorhus/pure), [starship](https://github.com/starship/starship) sample:
+Il s'agit des échantillons de [powerlevel10k](https://github.com/romkatv/powerlevel10k), [pure](https://github.com/sindresorhus/pure), [starship](https://github.com/starship/starship):
 
 Load powerlevel10k theme.
 
@@ -513,7 +513,7 @@ Update specific plugin. Default is GitHub but can specify any with ice [from'…
 zi update <user>/<repo>
 ```
 
-Plugin parallel update plugins:
+Plugins de mise à jour parallèle des plugins:
 
 ```shell
 zi update --parallel
@@ -543,14 +543,14 @@ zi light junegunn/fzf
 
 One other binary release needs renaming from `docker-compose-Linux-x86_64`. This can be done by [ice modifier][1]: `mv'{from} -> {to}'`.
 
-There are multiple packages per single version for OS X, Linux, and Windows – the ice-modifier `bpick` is utilized to select the Linux package – in this case - not required, Zi will grep operating system name and architecture automatically when there's no `bpick`.
+Il y a plusieurs paquets par version unique, pour OS X, Linux et Windows - ainsi le modificateur de glace `bpick` est utilisé pour sélectionner le paquet Linux - dans ce cas, ce n'est pas nécessaire, Zi va grep le nom du système d'exploitation et l'architecture automatiquement quand il n'y a pas `bpick`.
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*"
 zi load docker/compose
 ```
 
-Vim repository on GitHub – a typical source code that needs compilation, Zi can manage the run of `./configure` and other `make` stuff. Ice-modifier `pick` adds the binary program to `$PATH`. You could also install the package under the path $ZPFX.
+Dépôt Vim sur GitHub - un code source typique qui nécessite une compilation, Zi peut la gérer pour vous si vous le souhaitez, exécutez `./configure` et `make`. Ice-modifier `pick` adds the binary program to `$PATH`. You could also install the package under the path $ZPFX.
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
@@ -583,7 +583,7 @@ zi ice atclone"dircolors -b LS_COLORS > c.zsh" \
 zi light trapd00r/LS_COLORS
 ```
 
-`make'!'` -> run make before `atclone` & `atpull`.
+`make'!'` -> exécuter make avant `atclone` & `atpull`.
 
 ```shell showLineNumbers
 zi ice as"program" make'!' \
@@ -592,7 +592,7 @@ zi ice as"program" make'!' \
 zi light direnv/direnv
 ```
 
-If you are interested to try out more then check out the [playground repository](https://github.com/z-shell/playground) where users have uploaded the `~/.zshrc` and other Zi configurations. Feel free to [submit](https://github.com/z-shell/playground/issues/new?template=request-to-add-zshrc-to-the-zi-configs-repo.md) your `~/.zshrc` configuration.
+Si vous souhaitez en essayer davantage, consultez le dépôt [playground](https://github.com/z-shell/playground) où les utilisateurs ont téléchargé le fichier `~/.zshrc` et d'autres configurations Zi. Feel free to [submit](https://github.com/z-shell/playground/issues/new?template=request-to-add-zshrc-to-the-zi-configs-repo.md) your `~/.zshrc` configuration.
 
 Additional examples: [collection][10].
 

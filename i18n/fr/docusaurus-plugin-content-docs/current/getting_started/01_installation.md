@@ -43,7 +43,7 @@ local cs=$(sha256sum <(curl -sL git.io/zi-loader) | awk '{print $1}')
   </TabItem>
 </Tabs>
 
-Reload shell with `exec zsh` and run `zi -h` for usage information.
+Rechargez le shell avec `exec zsh` et exécutez `zi -h` pour obtenir des informations sur l'utilisation.
 
 ## <i class="fas fa-spinner fa-spin"></i> Automated setup {#automated-setup}
 
@@ -176,13 +176,13 @@ autoload -Uz _zi
 
 ## <i class="fas fa-spinner fa-spin"></i> Post-install {#post-install}
 
-After a fresh install, recommended to reload the shell with `exec zsh` and compile Zi with `zi self-update`. Run `zi -h` to see all available commands. Increase Zi functionality, and performance, or get started by exploring the wiki.
+Après une nouvelle installation, il est recommandé de recharger le shell avec `exec zsh` et de compiler Zi avec `zi self-update`. Run `zi -h` to see all available commands. Augmentez les fonctionnalités et les performances de Zi ou commencez par explorer le wiki.
 
-If you have any issue or need help 🤦‍♂️, lets [discuss][] it or open an [issue][] in any language.
+Si vous avez un problème ou avez besoin d'aide️️, laissez [discutons-en][] ou ouvrez un problème [][] dans n'importe quelle langue.
 
-It helps us to improve and make Zi better. Don't forget to help the project: share, contribute, or [translate][] 🌐 🥰 🤓.
+Cela nous aide à améliorer et à améliorer Zi. N'oubliez pas d'aider le projet : partagez, contribuez, ou [traduisez][] 🌐 🥰 🤓.
 
-Let's glue everything together to create a toolchain that works for us 🚀.
+Collons tout ensemble pour créer une chaîne d'outils qui fonctionne pour nous 🚀.
 
 ## <i class="fas fa-sync-alt fa-spin"></i> Have ideas?
 
@@ -200,20 +200,20 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a ???
 docker run --rm -it ghcr.io/z-shell/zd:latest
 ```
 
-### <i class="fa-brands fa-docker"></i> Turbo Zi in Docker
+### <i class="fa-brands fa-docker"></i> Turbo Zi dans Docker
 
-If you create a Docker image that uses Zi, install Turbo-loaded plugins before the shell starts interactively, with the `@zi-scheduler` function in such a way, that it:
+Si vous créez une image Docker qui utilise Zi, installez les plug-ins chargés par Turbo avant que le shell ne démarre de manière interactive, avec la fonction `@zi-scheduler` de telle manière qu'elle:
 
 - Install plugins without waiting for the prompt (i.e. it's script friendly).
 - Install all plugins instantly, without respecting the `wait` argument.
 
-To accomplish this, use burst argument and call the `@zi-scheduler` function:
+Pour ce faire, utilisez l'argument burst et appelez la fonction `@zi-scheduler`:
 
 ```docker
 RUN zsh -i -c -- '@zi-scheduler burst || true'
 ```
 
-> - An example: [Dockerfile][]
+> - Un exemple: [Dockerfile][]
 > - In action: [Playground][]
 
 ## <i class="fas fa-cog fa-pulse"></i> Zi Module: [zpmod][z-shell/zpmod] {#zi-module}
@@ -288,13 +288,14 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
 [completion-system]: https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Use-of-compinit
 [direct-init]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh
 [direct-install]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
-[discuss]: https://github.com/orgs/z-shell/discussions/new
+[discutons-en]: https://github.com/orgs/z-shell/discussions/new
 [Dockerfile]: https://github.com/robobenklein/configs/blob/master/Dockerfile
 [get.zshell.dev]: https://get.zshell.dev
 [init.zshell.dev]: https://init.zshell.dev
 [ipfs.io]: https://ipfs.io
-[issue]: https://github.com/z-shell/zi/issues/new/choose
+[5]: https://github.com/z-shell/zi/issues/new/choose
+[6]: https://github.com/z-shell/zi/issues/new/choose
 [Playground]: https://github.com/z-shell/playground
 [status]: https://status.zshell.dev
-[translate]: https://digitalclouds.crowdin.com/z-shell
+[traduisez]: https://digitalclouds.crowdin.com/z-shell
 [z-shell/zpmod]: https://github.com/z-shell/zpmod

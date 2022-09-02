@@ -120,7 +120,7 @@ The above snippet added to the `plugin.zsh` file will add the directory to the `
 - GitHub Search: [zsh_loaded_plugins](https://github.com/search?l=Shell&q=%24%7Bzsh_loaded_plugins&type=Code)
 - GitHub Search: [PMSPEC \*f\*](https://github.com/search?l=Shell&q=[[+%24PMSPEC+!%3D+*f*+]]&type=Code)
 
-## 3. Binaries directory {#binaries-directory}
+## 3. バイナリのディレクトリ {#binaries-directory}
 
 > [ binaries-directory ]
 
@@ -332,7 +332,7 @@ See [the next section](#standard-plugins-hash) for an example of such hash. In t
 
 This convention will increase code readability and bring order to it.
 
-## Standard `Plugins` hash
+## 一般的な`Plugins`のハッシュ
 
 The plugin often has to declare global parameters that should live throughout a Zsh session. Following the [namespace pollution prevention](#preventing-function-pollution) the plugin could use a hash to store the different values. Additionally, the plugins could use a single hash parameter – called `Plugins` – to prevent pollution.
 

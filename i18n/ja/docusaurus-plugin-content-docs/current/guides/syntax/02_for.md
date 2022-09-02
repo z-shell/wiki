@@ -97,7 +97,7 @@ zi wait lucid light-mode for \
 | ------------ | :------------------------------------------------------------------------------------------- |
 | `wait`       | Load 0 seconds (about 5 ms exactly) after prompt ([turbo mode][6]).                          |
 | `lucid`      | Silence the under-prompt messages ("`Loaded {name of the plugin}`").                         |
-| `light-mode` | Load the plugin in `light` mode. [^1].                                                       |
+| `light-mode` | プラグインを「ライトモード」で読み込む [^1].                                                       |
 | `atpull'…'`  | Execute after updating the plugin – the command in the ice will install any new completions. |
 | `atinit'…'`  | Execute code before loading plugin.                                                          |
 | `atload'…'`  | Execute code after loading the plugin.                                                       |

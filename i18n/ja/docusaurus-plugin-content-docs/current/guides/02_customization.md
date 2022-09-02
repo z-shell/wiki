@@ -30,7 +30,7 @@ ZI[BIN_DIR]="some/custom/path/to/bin"
 source "${ZI[BIN_DIR]}/zi.zsh"
 ```
 
-### <i class="fa-solid fa-sliders"></i> Customize paths {#customizing-paths}
+### <i class="fa-solid fa-sliders"></i> カスタマイズされたパス {#customizing-paths}
 
 | Hash Field                           | Default                                      | Description                                                                                                                                |
 | ------------------------------------ | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |

@@ -1,6 +1,6 @@
 ---
 id: benchmark
-title: "⏲ Benchmarking"
+title: "⏲ ベンチマーク"
 sidebar_position: 3
 image: /img/logo/320x320.png
 description: Benchmarking, Profiling & Statistics
@@ -77,7 +77,7 @@ num  calls    time            self                 name
 
 > `PROFILE_STARTUP=true` to enable profiling.
 
-Place snippet below at the top of `.zshrc`.
+スニペットを`.zshrc`の一番上に置いてください
 
 ```shell title="~/.zshrc" showLineNumbers
 PROFILE_STARTUP=false

@@ -1,11 +1,11 @@
 ---
 id: installation
-title: "⚡️ Installation"
+title: "⚡️ 導入"
 sidebar_position: 1
 image: /img/logo/320x320.png
 description: Installation Guide
 keywords:
-  - setup
+  - セットアップ
   - quick-start
   - installation
 ---

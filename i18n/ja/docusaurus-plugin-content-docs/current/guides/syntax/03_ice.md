@@ -408,7 +408,7 @@ zi ice multisrc'(functions|misc|completion).zsh'
 zi snippet OMZ::lib
 ```
 
-it's possible to write:
+書き込みが可能：
 
 ```shell showLineNumbers
 zi for \

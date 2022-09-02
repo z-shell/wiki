@@ -50,7 +50,6 @@ const config = {
             }
             return `https://github.com/z-shell/wiki/tree/main/${versionDocsDirPath}/${docPath}`;
           },
-          editCurrentVersion: false,
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           remarkPlugins: [math],
@@ -268,8 +267,8 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Slack.com",
-                href: "https://join.slack.com/t/z-shell/shared_invite/zt-16twpopd2-p08ROUeT2aGZ5njJwysawA",
+                label: "Discussions",
+                href: "https://discussions.zshell.dev",
               },
               {
                 label: "Matrix.org",
@@ -285,16 +284,16 @@ const config = {
             title: "More",
             items: [
               {
-                label: "GitHub Discussions",
-                href: "https://discussions.zshell.dev/",
-              },
-              {
-                label: "GitHub Organization",
-                href: "https://github.com/z-shell/",
+                label: "GitHub Repositories",
+                href: "https://github.com/orgs/z-shell/repositories/",
               },
               {
                 label: "Crowdin Translations",
                 href: "https://translate.zshell.dev/",
+              },
+              {
+                label: "Z-Shell Uptime Status",
+                href: "https://status.zshell.dev/",
               },
               /* {html: ``}, */
             ],
@@ -302,9 +301,9 @@ const config = {
           {
             title: "Legal",
             items: [
+              { label: "Contributing", to: "legal/CONTRIBUTING" },
               { label: "Privacy Policy", to: "legal/PRIVACY" },
               { label: "Code of Conduct", to: "legal/CODE_OF_CONDUCT" },
-              { label: "Contributing", to: "legal/CONTRIBUTING" },
             ],
           },
         ],

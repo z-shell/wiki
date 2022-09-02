@@ -428,5 +428,9 @@
   "homepage.banner.button.2": {
     "message": "社区",
     "description": "The homepage community button"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "标签",
+    "description": "The title of the tag list page"
   }
 }

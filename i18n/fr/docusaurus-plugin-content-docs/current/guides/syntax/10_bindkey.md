@@ -19,7 +19,7 @@ Les mappages de clés `bindkey` peuvent être très confus à déchiffrer. Il pe
 
 Vous pouvez imprimer toutes vos liaisons de touches actuelles dans la carte des touches en cours avec `bindkey`. To print the full `bindkey` command to add to your `.zshrc` file use `bindkey -L`.
 
-In general, you'll bind a widget so a key sequence or a key with a modifier. This can be declared in [caret notation][5] using `^`, using [escape sequences][6] using `\`, in octal (`\NNN`), hex (`\xNN`), or Unicode (`\uNNNN`). Aucune d'entre elles n'est particulièrement intéressante à lire pour les gens.
+En général, vous allez lier un widget donc une séquence de touches ou une touche avec un modificateur. This can be declared in [caret notation][5] using `^`, using [escape sequences][6] using `\`, in octal (`\NNN`), hex (`\xNN`), or Unicode (`\uNNNN`). Aucune d'entre elles n'est particulièrement intéressante à lire pour les gens.
 
 C'est également délicat car cela dépend de votre clavier, de votre système d'exploitation et de votre shell. Voici quelques principes de base
 
@@ -32,7 +32,7 @@ Les touches qui viennent après le modificateur peuvent ajouter encore plus de c
 
 ## <i class="fa-solid fa-delete-left"></i> Supprimer la liaison
 
-Pour supprimer une liaison de touches, vous pouvez utiliser `bindkey -d $KEYS`. Make sure you don't delete the characters you need for typing.
+Pour supprimer une liaison de touches, vous pouvez utiliser `bindkey -d $KEYS`. Assurez-vous de ne pas supprimer les caractères dont vous avez besoin pour la saisie.
 
 ## <i class="fa-solid fa-sliders"></i> Les raccourcis clavier `bindmap'…'` {#bindmap}
 
@@ -100,7 +100,7 @@ Pour le `bindmap=' !" " -> magic-space ; !"^ " -> globalias'` ice.
 
 When the investigation mode is on i.e.:
 
-- when the full loading mode is being used, default in the `for` syntax, and when `zi load …` is used, then the `bindmap'…'` ice works normally.
+- lorsque le mode de chargement complet est utilisé, par défaut dans la syntaxe `for`, et lorsque `zi load …` est utilisé, alors la glace `bindmap'…'` fonctionne normalement.
 
 Dans le cadre de la non-enquête:
 

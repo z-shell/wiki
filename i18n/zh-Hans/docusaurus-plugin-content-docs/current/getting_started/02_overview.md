@@ -115,7 +115,7 @@ Content of ice-modifier is simply put into `"…"`, `'…'`, or `$'…'`. No nee
 
 This way editors like `vim` and `emacs` and also `zsh-users/zsh-syntax-highlighting` and `z-shell/F-Sy-H` will highlight contents of ice-modifiers.
 
-## About as"program"
+## 关于 as"program"
 
 A plugin might not be a file for sourcing, but a command to be added to `$PATH`. To obtain this effect, use ice-modifier `as` with value `program` (or an alias value `command`).
 
@@ -200,7 +200,7 @@ zi ice as"completion"
 zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 ```
 
-## The completion management
+## 补全管理
 
 Zi allows to disable and enable each completion in every plugin. Try installing a popular plugin that provides completions:
 
@@ -263,7 +263,7 @@ Command `zi csearch` will **search** all plugin directories for available comple
   />
 </div>
 
-## The subversion for subdirectories
+## 对子目录的 subversion
 
 In general, to use **subdirectories** of Github projects as snippets add `/trunk/{path-to-dir}` to the URL:
 
