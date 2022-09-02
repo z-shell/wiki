@@ -200,7 +200,6 @@ Following commands are passed to `zi …` to obtain described effects.
 
 ## Tracking of the active session
 
-
 |     Command      | Description                                           |
 | :--------------: | ----------------------------------------------------- |
 | `dtrace, dstart` | Start investigating what's going on in the session.   |
