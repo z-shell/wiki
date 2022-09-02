@@ -21,9 +21,12 @@ export type PlayerProps = {
   children?: ReactNode;
 };
 
-function AsciinemaPlayer({ src, ...opts }: PlayerProps): JSX.Element {
+export default function AsciinemaPlayer({
+  src,
+  ...opts
+}: PlayerProps): JSX.Element {
   const playerElement = useRef<HTMLDivElement>(null);
-  const [playing, setPlaying] = useState(null);
+  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     const currentRef = playerElement.current;
@@ -41,5 +44,3 @@ function AsciinemaPlayer({ src, ...opts }: PlayerProps): JSX.Element {
 
   return <div ref={playerElement} />;
 }
-
-export default AsciinemaPlayer;

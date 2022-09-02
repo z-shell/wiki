@@ -8,6 +8,7 @@ const baseUrl = process.env.BASE_URL ?? "/";
 /* const isProd = process.env.NODE_ENV === 'production'; */
 /* const inCloudflarePages = process.env.CF_PAGES === '1'; */
 
+const katex = require("rehype-katex");
 const math = require("remark-math");
 
 /** @type {import('@docusaurus/types').Config} */
@@ -53,7 +54,7 @@ const config = {
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           remarkPlugins: [math],
-          rehypePlugins: [],
+          rehypePlugins: [katex],
         },
         blog: {
           editUrl: ({ locale, blogDirPath, blogPath }) => {
@@ -135,6 +136,7 @@ const config = {
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
         remarkPlugins: [math],
+        rehypePlugins: [katex],
       }),
     ],
     [
@@ -154,6 +156,7 @@ const config = {
         showLastUpdateAuthor: false,
         showLastUpdateTime: true,
         remarkPlugins: [math],
+        rehypePlugins: [katex],
       }),
     ],
   ],

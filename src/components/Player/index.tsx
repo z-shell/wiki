@@ -10,7 +10,7 @@ function Load(spinner: () => Promise<typeof import("./Core")>) {
   return Loadable(spinner, { fallback: <Spinner /> });
 }
 
-const Library = Load(() => import("./Core"));
+const Library = Load(() => import(/* webpackPrefetch: true */ "./Core"));
 
 export default function Player({
   src,

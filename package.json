@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@docusaurus/core": "0.0.0-5283",
+    "@docusaurus/plugin-client-redirects": "0.0.0-5283",
     "@docusaurus/plugin-ideal-image": "0.0.0-5283",
     "@docusaurus/plugin-pwa": "0.0.0-5283",
     "@docusaurus/preset-classic": "0.0.0-5283",
@@ -44,7 +45,8 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-spinners": "0.13.4",
-    "remark-math": "3.0.1"
+    "rehype-katex": "^5.0.0",
+    "remark-math": "^3.0.1"
   },
   "devDependencies": {
     "@crowdin/cli": "3.7.10",
