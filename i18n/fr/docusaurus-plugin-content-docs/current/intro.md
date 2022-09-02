@@ -35,17 +35,17 @@ import ZGitImg from '@site/static/img/png/z_git.png';
 <Tabs>
   <TabItem value="gems" label="RubyGems">
 
-The [RubyGems](https://rubygems.org) and [\$GEM_HOME](https://guides.rubygems.org/command-reference/#gem-environment) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex or installed by the [any-gem](https://github.com/z-shell/any-gem) package.
+Les modules [RubyGems](https://rubygems.org) et [\$GEM_HOME](https://guides.rubygems.org/command-reference/#gem-environment) sont automatiquement gérés par l’annexe [bin-gem-node](/ecosystem/annexes/bin-gem-node) ou installée par le paquet [any-gem](https://github.com/z-shell/any-gem).
 
   </TabItem>
   <TabItem value="node" label="Node">
 
-The [Node](https://www.npmjs.com) modules and [\$NODE_PATH](https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex or installed by the [any-node](https://github.com/z-shell/any-node) package.
+Les modules [Node](https://www.npmjs.com) et [\$NODE_PATH](https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders) sont automatiquement gérés par l'annexe [bin-gem-node](/ecosystem/annexes/bin-gem-node) ou installés par le paquet [any-node](https://github.com/z-shell/any-node).
 
   </TabItem>
   <TabItem value="pip" label="Python">
 
-The [Python](https://python.org) modules, [\$VIRTUALENV](https://docs.python.org/3/tutorial/venv.html) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex.
+Les modules [Python](https://python.org), [\$VIRTUALENV](https://docs.python.org/3/tutorial/venv.html) sont automatiquement gérés par l'annexe [bin-gem-node](/ecosystem/annexes/bin-gem-node).
 
   </TabItem>
   <TabItem value="rust" label="Rust">
@@ -55,14 +55,14 @@ Les paquets [Rust](https://crates.io) sont gérés par l'annexe [rust](/ecosyste
   </TabItem>
   <TabItem value="github" label="GitHub" default>
 
-Install and control almost everything from GitHub: [Annexes](/ecosystem/annexes/overview), [Packages](/ecosystem/packages/synopsis), [Gallery of Invocations](/community/gallery/collection).
+Installez et contrôlez presque tout depuis GitHub: [Annexes](/ecosystem/annexes), [Packages](/ecosystem/packages), [Galerie des invocations](/community/gallery/collection).
 
 </TabItem>
 </Tabs>
 
 ## <i class="fa-solid fa-spinner fa-spin-pulse"></i> Rapide et riche en fonctionnalités
 
-- [Meta plugins][meta-plugins] allow installing groups of plugins via a single, friendly label.
+- [Les meta plugins][meta-plugins] permettent d'installer des groupes de plugins via une étiquette unique et conviviale.
 - [Les paquets](/ecosystem/packages/synopsis) dispensent l'utilisateur de fournir des commandes longues et complexes.
 - [Les annexes](/ecosystem/annexes/overview) permettent d'étendre le gestionnaire de plugins avec de nouvelles commandes.
 - [Turbo][turbo-mode-zsh--53] mode yields **50-80%** faster Zsh startup.
