@@ -18,7 +18,7 @@
     "write-translations": "docusaurus write-translations",
     "write-community-version": "docusaurus docs:version:community",
     "write-ecosystem-version": "docusaurus docs:version:ecosystem",
-    "crowdin:sync": "docusaurus write-translations && crowdin upload sources && crowdin download",
+    "crowdin:sync": "docusaurus write-translations && crowdin upload && crowdin download",
     "crowdin:check": "crowdin lint && crowdin status",
     "prebuild": "test \"$CF_PAGES\" = 1 && npx pnpm install --prod --store=node_modules/.pnpm-store || echo Install not required...",
     "clean": "pnpm exec rm -rf node_modules build pnpm-lock.yaml",

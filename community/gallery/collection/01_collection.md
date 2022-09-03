@@ -38,8 +38,6 @@ Any contributions you make will benefit everybody else and are greatly appreciat
 
 For the [search][search], prefixed tags help as a minimal description of the visible results.
 
-<div className="apitable">
-
 | Tag  | Type               |
 | ---- | ------------------ |
 | GH-R | GitHub release     |
@@ -49,8 +47,6 @@ For the [search][search], prefixed tags help as a minimal description of the vis
 | B    | Build              |
 | RA   | [Rust Annex][rust] |
 | THP  | Themes/Prompts     |
-
-</div>
 
 <!-- end-of-file -->
 <!-- links -->
