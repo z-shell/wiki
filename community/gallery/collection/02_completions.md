@@ -112,7 +112,7 @@ zi snippet https://github.com/BurntSushi/ripgrep/blob/master/complete/_rg
 
 ```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'tldr' mv'zsh_tealdeer -> _tldr'
-zi snippet https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer
+zi snippet https://github.com/dbrgn/tealdeer/blob/main/completion/zsh_tealdeer
 ```
 
 ### COMP: [docker/cli][] {#comp-docker-cli}
