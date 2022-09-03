@@ -55,7 +55,7 @@ The [Rust](https://crates.io) packages are managed by the [rust](/ecosystem/anne
   </TabItem>
   <TabItem value="github" label="GitHub" default>
 
-Install and control almost everything from GitHub: [Annexes](/ecosystem/annexes/overview), [Packages](/ecosystem/packages/synopsis), [Gallery of Invocations](/community/gallery/collection).
+Install and control almost everything from GitHub: [Annexes](/ecosystem/category/-annexes), [Packages](/ecosystem/category/-packages), [Gallery of Invocations](/community/gallery/collection).
 
 </TabItem>
 </Tabs>
@@ -63,8 +63,8 @@ Install and control almost everything from GitHub: [Annexes](/ecosystem/annexes/
 ## <i class="fa-solid fa-spinner fa-spin-pulse"></i> Fast and feature-rich
 
 - [Meta plugins][meta-plugins] allow installing groups of plugins via a single, friendly label.
-- [Packages](/ecosystem/packages/synopsis) offload the user from providing long and complex commands.
-- [Annexes](/ecosystem/annexes/overview) allow extend the plugin manager with new commands.
+- [Packages](/ecosystem/category/-packages) offload the user from providing long and complex commands.
+- [Annexes](ecosystem/category/-annexes) allow extend the plugin manager with new commands.
 - [Turbo][turbo-mode-zsh--53] mode yields **50-80%** faster Zsh startup.
 
 ## <i className="fa-beat" class="fa-solid fa-heart fa-beat"></i> Neat and flexible
