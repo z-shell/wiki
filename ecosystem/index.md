@@ -3,7 +3,7 @@ id: ecosystem
 slug: /
 title: "🌐 Ecosystem"
 sidebar_position: 1
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: Introduction to the ecosystem.
 keywords:
   - annexes

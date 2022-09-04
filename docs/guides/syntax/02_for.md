@@ -44,7 +44,7 @@ zi wait"3" lucid for as"null" \
   make"PREFIX=$ZPFX" tj/git-extras
 ```
 
-Above single command installs 6 plugins ([git extension][2] packages), with the base ices `as"null" wait"3" lucid` that are common to all of the plugins and 6 plugin-specific add-on ices.
+The above single command installs 6 plugins ([git extension][2] packages), with the base ices `as"null" wait"3" lucid` that are common to all of the plugins and 6 plugin-specific add-on ice-modifiers.
 
 Load a few useful binary packages from the [GitHub releases][1], utils:
 
@@ -91,8 +91,6 @@ zi wait lucid light-mode for \
     zsh-users/zsh-completions
 ```
 
-<div className="apitable">
-
 | Syntax       | Description                                                                                  |
 | ------------ | :------------------------------------------------------------------------------------------- |
 | `wait`       | Load 0 seconds (about 5 ms exactly) after prompt ([turbo mode][6]).                          |
@@ -104,15 +102,13 @@ zi wait lucid light-mode for \
 | `zicompinit` | Equals to `autoload compinit; compinit`.                                                     |
 | `zicdreplay` | Execute `compdef …` calls by plugins. More below [^2].                                       |
 
-</div>
-
 ## <i class="fa-solid fa-list"></i> Oh-My-Zsh, [turbo][6] Oh-My-Zsh and the [for][10] syntax
 
 ### <i class="fa-solid fa-forward-step"></i> Without [turbo mode][6] and [for][10]
 
 ```shell showLineNumbers
 # A.
-setopt promptsubst
+setopt prompt_subst
 
 # B.
 zi snippet OMZL::git.zsh
@@ -140,7 +136,7 @@ zi light z-shell/F-Sy-H
 
 ```shell showLineNumbers
 # A.
-setopt promptsubst
+setopt prompt_subst
 
 # B, C.
 zi wait lucid for \
@@ -181,7 +177,7 @@ zi wait lucid for \
 
 :::
 
-Above setup loads everything after prompt, because of preceding `wait` ice. That is called **turbo mode**, it shortens Zsh startup time by <u>50%-80%</u>, e.g. instead of 200 ms, it'll be getting your shell started up after **40 ms**.
+The above setup loads everything after the prompt, because of the preceding `wait` ice. That is called **turbo mode**, which shortens Zsh startup time by <u>50%-80%</u>, e.g. instead of 200 ms, it'll be getting your shell started up after **40 ms**.
 
 Try both setups on the daily basis to notice the difference. The features of Zi can do much more than this simple example.
 
@@ -191,7 +187,7 @@ In general, [turbo mode][6] can be optionally enabled only for a subset of plugi
 
 Syntax-highlighting plugins, like [F-Sy-H][11] or [zsh-syntax-highlighting][12], theoretically expect to be loaded last, even after the completion initialization as `compinit` function.
 
-However, in practice, you just have to ensure that such plugin is loaded after plugins that are issuing `compdef` – which basically means completions that aren't using the underscore-starting function file; the completion initialization still has to be performed before syntax-highlighting plugin, hence the `atinit'…'` ice, which will load `compinit` right before loading the plugin, the syntax-highlighting and suggestions plugins are loaded early for a better user experience.
+However, in practice, you just have to ensure that such plugin is loaded after plugins that are issuing `compdef` – which means completions that aren't using the underscore-starting function file; the completion initialization still has to be performed before the syntax-highlighting plugin, hence the `atinit'…'` ice, which will load `compinit` right before loading the plugin, the syntax-highlighting and suggestions plugins are loaded early for a better user experience.
 
 <!-- end-of-file -->
 <!-- footnotes -->

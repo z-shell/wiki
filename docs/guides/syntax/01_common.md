@@ -8,13 +8,14 @@ keywords:
   - common
   - syntax
   - how-to-use
+  - fundamental
 ---
 
 <!-- @format -->
 
 :::tip
 
-It is recommended to familiarize yourself with [getting_started/oveview][9] before this.
+It is recommended to familiarize yourself with [getting_started/overview][] before this.
 
 :::
 
@@ -49,8 +50,6 @@ zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
 zi light vim/vim
 ```
 
-<div className="apitable">
-
 | Syntax             | Description                                                                               |
 | ------------------ | :---------------------------------------------------------------------------------------- |
 | `as'program'`      | Add file selected by `pick'…'` to `$PATH`, and do not source it.                          |
@@ -58,8 +57,6 @@ zi light vim/vim
 | `atpull'%atclone'` | Execute the same code `atclone'…'` is given, but after successful update.                 |
 | `make`             | Run `make` after `atclone'…'` and `atpull'…'` (note: `make'!'` will execute before them). |
 | `pick'src/vim'`    | Set executable flag on `src/vim`, hint that `src/` should be added to `$PATH`.            |
-
-</div>
 
 The same but with **installation** (`make install`) under [$ZPFX][zpfx] by default:
 
@@ -69,8 +66,6 @@ zi ice as'program' atclone'rm -f src/auto/config.cache; \
 zi light vim/vim
 ```
 
-<div className="apitable">
-
 | Syntax             | Description                                                                                  |
 | ------------------ | :------------------------------------------------------------------------------------------- |
 | `as'program'`      | As above.                                                                                    |
@@ -78,8 +73,6 @@ zi light vim/vim
 | `atpull'%atclone'` | As above.                                                                                    |
 | `make`             | As above, but also run the `install` target.                                                 |
 | `pick'src/vim'`    | as above, but for a different path `$ZPFX/bin/vim`.                                          |
-
-</div>
 
 ## <i class="fa-solid fa-palette"></i> LS_COLORS {#ls_colors}
 
@@ -92,17 +85,13 @@ zi ice atclone'dircolors -b LS_COLORS > clrs.zsh' \
 zi light trapd00r/LS_COLORS
 ```
 
-<div className="apitable">
-
-| Syntax             | Description                                                                                                 |
-| ------------------ | :---------------------------------------------------------------------------------------------------------- |
-| `atclone'…'`       | Generate shell script, passing it to `eval`. More: [^1]                                                     |
-| `atpull'%atclone'` | Do the same at any update of the plugin. More: [^2]                                                         |
-| `pick"clrs.zsh"`   | Source the previously generated file `clrs.zsh`.                                                            |
-| `nocompile'!'`     | Invokes compilation **after** the `atclone'…'` [ice-modifier][3] and the [exclamation mark][4] causes this. |
-| `atload'…'`        | Additionally sets up the Zsh completion to use the colors provided by the trapd00r package.                 |
-
-</div>
+| Syntax             | Description                                                                                               |
+| ------------------ | :-------------------------------------------------------------------------------------------------------- |
+| `atclone'…'`       | Generate shell script, passing it to `eval`. More: [^1]                                                   |
+| `atpull'%atclone'` | Do the same at any update of the plugin. More: [^2]                                                       |
+| `pick"clrs.zsh"`   | Source the previously generated file `clrs.zsh`.                                                          |
+| `nocompile'!'`     | Invokes compilation **after** the `atclone'…'` [ice-modifier][] and the [exclamation][] mark causes this. |
+| `atload'…'`        | Additionally sets up the Zsh completion to use the colors provided by the trapd00r package.               |
 
 This way, except for the plugin installation and update, `dircolors` isn't run, just normal sourcing is done. The everyday sourced file, i.e. `clrs.zsh`, is being compiled to speed up the loading.
 
@@ -133,8 +122,6 @@ zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
     direnv/direnv
 ```
 
-<div className="apitable">
-
 | Syntax             | Description                                                                                                                    |
 | ------------------ | :----------------------------------------------------------------------------------------------------------------------------- |
 | `make'!'`          | Compile `direnv`, the exclamation mark means: run the `make` first, before `atclone'…'` and `atpull'…'` hooks.                 |
@@ -143,8 +130,6 @@ zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
 | `src'zhook.zsh'`   | Load generated registration code                                                                                               |
 | `pick'direnv'`     | Ensure `+x` permission on the binary                                                                                           |
 | `as'program'`      | The plugin is a program, there's no main file to the source.                                                                   |
-
-</div>
 
 In this method, the registered code is generated once on every installation or update, then sourced without running `direnv` itself. The project is also available as a binary [GitHub releases][6]. This distribution can be installed by:
 
@@ -155,19 +140,15 @@ zi from"gh-r" as"program" mv"direnv* -> direnv" \
     direnv/direnv
 ```
 
-<div className="apitable">
-
 | Syntax                    | Description                                                                |
 | ------------------------- | :------------------------------------------------------------------------- |
 | `from'gh-r'`              | Install from `direnv` from [GitHub releases][6].                           |
 | `mv'direnv* -> direnv'`   | After installation, rename `direnv.linux-386` or similar file to `direnv`. |
-| `atclone'…'`, `atpull'…'` | As in the above example.                                                   |
-| `pick'direnv'`            | As in the above example.                                                   |
-| `as'program'`             | As in the above example.                                                   |
+| `atclone'…'`, `atpull'…'` | Same above example.                                                        |
+| `pick'direnv'`            | Same above example.                                                        |
+| `as'program'`             | Same above example.                                                        |
 
-</div>
-
-## <i class="fa-solid fa-pen-to-square"></i> Standart syntax {#standart-syntax}
+## <i class="fa-solid fa-pen-to-square"></i> Standard syntax {#standard-syntax}
 
 ```shell showLineNumbers
 zi …
@@ -195,7 +176,7 @@ There's no `ice` that can be used as a subcommand.
 
 However, Zi also supports syntaxes such as the equal (`=`) syntax:
 
-```shell
+```shell showLineNumbers
 zi wait=1 from=gh-r atload="print Hello World"
 zi load …
 ```
@@ -218,7 +199,7 @@ zi load …
 
 It's up to the user which syntax to use.
 
-The motivation behind the syntaxes is to utilize the syntax highlighting of editors like Vim – and have the strings and ice expressions colorized with a distinct color. However, with the [zi/zi-vim-syntax][11] syntax definition this motivation can be superseded with the highlighting specificaly for Zi.
+The motivation behind the syntaxes is to utilize the syntax highlighting of editors like Vim – and have the strings and ice expressions colorized with a distinct color. However, with the [zi-vim-syntax][] syntax definition this motivation can be superseded with the highlighting specifically for Zi.
 
 <!-- end-of-file -->
 <!-- footnotes -->
@@ -228,12 +209,15 @@ The motivation behind the syntaxes is to utilize the syntax highlighting of edit
 
 <!-- links -->
 
+[ice-modifier]: /docs/guides/syntax/ice-modifiers
+[exclamation]: /search?q=exclamation+mark
+[zpfx]: /docs/guides/customization#$ZPFX
+[getting_started/overview]: /docs/getting_started/overview
+
+<!-- external -->
+
 [1]: https://github.com/trapd00r/LS_COLORS
 [2]: https://github.com/ogham/exa
-[3]: /docs/guides/syntax/ice-modifiers
-[4]: /search?q=exclamation+mark
 [5]: https://github.com/direnv/direnv
 [6]: https://github.com/direnv/direnv/releases/
-[zpfx]: /docs/guides/customization#$ZPFX
-[9]: /docs/getting_started/overview
-[11]: https://github.com/z-shell/zi-vim-syntax
+[zi-vim-syntax]: https://github.com/z-shell/zi-vim-syntax

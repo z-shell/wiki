@@ -68,37 +68,6 @@ fzf "$@"
 
 Running the script will forward the call to the program accessed through an embedded path to it. Thus, no `$PATH` changes are needed.
 
-## Install bin-gem-node
-
-:::info Source
-
-- <Link className="github-link" href="https://github.com/z-shell/z-a-bin-gem-node">z-shell/z-a-bin-gem-node</Link>
-
-:::
-
-<Tabs>
-  <TabItem value="default" label="Default" default>
-
-Add the following snippet in the `.zshrc` file:
-
-```shell
-zi light z-shell/z-a-bin-gem-node
-```
-
-  </TabItem>
-  <TabItem value="unscope-annex" label="Unscoped">
-
-Add the following snippet in the `.zshrc` file to install using the [unscope][] annex:
-
-```shell
-zi light z-shell/z-a-unscope bgn
-```
-
-</TabItem>
-</Tabs>
-
-This will register subcommand [shim-list](#shim-list) and following ice-modifiers:
-
 | Ice modifier  | Description                                                                                                |
 | :------------ | :--------------------------------------------------------------------------------------------------------- |
 | [sbin](#sbin) | Creates `shims` for binaries and scripts.                                                                  |
@@ -414,7 +383,7 @@ README.md
 
 `ferc'[{g|n|c|N|E|O}:]{path-to-script}[ -> {name-of-the-function}]; …'`
 
-Creates a wrapper function that at each invocation sources the given file. The second ice, `ferc'…'` works the same with the single difference that it uses `eval "$(<{path-to-script})"` instead of `source "{path-to-script}"` to load the script.
+Creates a wrapper function that at each invocation sources the given file. The second ice, `FERC'…'` works the same with the single difference that it uses `eval "$(<{path-to-script})"` instead of `source "{path-to-script}"` to load the script.
 
 <Tabs className="player-tabs">
   <TabItem value="fscr-ferc-player" label="Player" default>
@@ -462,7 +431,7 @@ The ices can be empty as the trailing component will be assigned with [id-as][] 
 
 :::
 
-## `shim-list ` {#shim-list}
+## `shim-list` {#shim-list}
 
 An annex provides a subcommand – `shim-list` for shims currently stored in `$ZPFX/bin` management:
 
@@ -488,6 +457,37 @@ The [sbin](#sbin) ice-modifier has an explicit Cygwin support – it creates add
 zi pack=bgn for firefox
 ```
 
+## Install bin-gem-node
+
+:::info Source
+
+- <Link className="github-link" href="https://github.com/z-shell/z-a-bin-gem-node">z-shell/z-a-bin-gem-node</Link>
+
+:::
+
+<Tabs>
+  <TabItem value="default" label="Default" default>
+
+Add the following snippet in the `.zshrc` file:
+
+```shell
+zi light z-shell/z-a-bin-gem-node
+```
+
+  </TabItem>
+  <TabItem value="unscope-annex" label="Unscoped">
+
+Add the following snippet in the `.zshrc` file to install using the [unscope][] annex:
+
+```shell
+zi light z-shell/z-a-unscope bgn
+```
+
+</TabItem>
+</Tabs>
+
+This will register the [shim-list](#shim-list) subcommand and following ice-modifiers:
+
 <!-- end-of-file -->
 <!--footnotes-->
 
@@ -495,15 +495,15 @@ zi pack=bgn for firefox
 
 <!-- links -->
 
-[unscope]: /ecosystem/annexes/unscope
 [id-as]: /docs/guides/syntax/ice#id-as
+[unscope]: /ecosystem/annexes/unscope
 
 <!-- external -->
 
-[rubygems]: https://github.com/rubygems/rubygems
-[node]: https://github.com/npm/cli
-[python]: https://python.org
 [gem-home]: https://guides.rubygems.org/command-reference/#gem-environment
 [node-path]: https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders
-[virtualenv]: https://docs.python.org/3/tutorial/venv.html
+[node]: https://github.com/npm/cli
+[python]: https://python.org
 [rbenv/rbenv]: https://github.com/rbenv/rbenv
+[rubygems]: https://github.com/rubygems/rubygems
+[virtualenv]: https://docs.python.org/3/tutorial/venv.html

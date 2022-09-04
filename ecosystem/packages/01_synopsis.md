@@ -7,7 +7,7 @@ description: Introduction to packages.
 keywords:
   - package
   - zpackage
-  - zi-package
+  - zsh-package
   - packages-overview
 ---
 
@@ -22,11 +22,11 @@ The motivation for adding packages functionality:
    - get the plugin's Git repository OR release-package URL,
    - get the list of the recommended [ices][] for the plugin,
      - there can be multiple lists of [ices][],
-     - the ices list are stored in profiles; there's at least one profile, default,
+     - the ices list is stored in profiles; there's at least one profile, default,
      - the [ices][] can be selectively overridden.
    - automatically provide so-called shims (i.e.: forwarder scripts) for the binaries,
    - extend `$PATH` to expose the binaries,
-   - it can run `Makefiles` and more.
+   - it can run `Makefile` and more.
 
 3. In general, Zi has many hooks which allow surprising things, however, their content often evolves to a gradually better one and it's hard to keep track of all the current versions.
 
@@ -82,7 +82,7 @@ to get the complete setup of the fuzzy finder, including:
 - the completion
 - the additional executable script `fzf-tmux`
 
-The installation is like with package-manager, because you don't need to invoke Zi anymore once installed to use `fzf` (that's because `fzf` is just a binary program and not e.g.: a shell function). You can also update the package with `zi update fzf` – it'll cause the project to refresh and rebuild, like with a "normal" package manager such as `apt-get`. However, it'll be more like to `emerge` from Gentoo, because the installation will be from the source… unless… the user will pick up a binary installation by profile argument specified in the `pack'…'` ice.
+The installation is like with package-manager because you don't need to invoke Zi anymore once installed to use `fzf` (that's because `fzf` is just a binary program and not e.g.: a shell function). You can also update the package with `zi update fzf` – it'll cause the project to refresh and rebuild, like with a "normal" package manager such as `apt-get`. However, it'll be more like to `emerge` from Gentoo, because the installation will be from the source… unless… the user will pick up a binary installation by profile argument specified in the `pack'…'` ice.
 
 ## Pros of using the Zi package for regular software installations
 
@@ -93,7 +93,7 @@ Using Zi to install software where one could use a regular package manager has s
 2. **Pro:** You can influence the installation easily by specifying Zi ice-modifiers, e.g.:
 
    ```shell
-   zi pack=bgn atclone="cp fzy.1 $ZPFX/man/man1" for fzy
+   zi pack=bgn atclone="cp fzy.1 $ZI[MAN_DIR]/man1" for fzy
    ```
 
    to install also the man page for the `fzy` fuzzy finder (this omission in the package will be fixed soon).
@@ -120,12 +120,18 @@ Thus, summing up 1. with 4., it might be nice/convenient too, for example, have 
 
 4. Commit and push.
 
-[any-gem]: https://github.com/z-shell/any-gem
-[any-node]: https://github.com/z-shell/any-node
+<!-- end-of-file -->
+<!-- links -->
+
 [bin-gem-node]: /ecosystem/annexes/bin-gem-node
 [ice-modifiers]: /docs/guides/syntax/ice-modifiers
+[ices]: /docs/guides/syntax/ice
+[modify-settings]: /docs/guides/customization#modify-settings
+
+<!-- external -->
+
+[any-gem]: https://github.com/z-shell/any-gem
+[any-node]: https://github.com/z-shell/any-node
 [ecs-cli]: https://github.com/z-shell/ecs-cli
 [z-shell]: https://github.com/z-shell
-[ices]: /docs/guides/syntax/ice
 [doctoc]: https://github.com/z-shell/doctoc
-[modify-settings]: /docs/guides/customization#modify-settings

@@ -6,7 +6,6 @@ description: Complete options from manual pages – press Ctrl-F to start the co
 keywords:
   - zplugin
   - zzcomplete
-  - completion
   - zsh-plugin
   - zsh-completion
 ---
@@ -37,7 +36,7 @@ With ZZComplete, the user can:
 <Player
     src='https://asciinema.org/a/293365.cast'
     rows={21}
-    cols={125}
+    cols={104}
     speed={1}
     idleTimeLimit={1}
     preload
@@ -45,26 +44,10 @@ With ZZComplete, the user can:
 
 ## Install ZZComplete
 
-> Prerequisities: [ZUI][z-shell/zui] library and a Zsh that is built with the `zsh/curses` module.
+> Prerequisites: [ZUI][z-shell/zui] library and a Zsh that is built with the `zsh/curses` module.
 
 <Tabs>
-  <TabItem value="standalone" label="Standalone" default>
-
-Clone the Repository.
-
-```shell showLineNumbers
-git clone https://github.com/z-shell/zzcomplete \
-~/some/path/to/zzcomplete
-```
-
-And add the following to your `.zshrc` file.
-
-```shell title="~/.zshrc"
-source ~/path/to/zzcomplete/zzcomplete.plugin.zsh
-```
-
-  </TabItem>
-  <TabItem value="zi" label="Zi">
+  <TabItem value="zi" label="Zi" default>
 
 Add the following to your `.zshrc` file.
 
@@ -88,10 +71,26 @@ Clone the Repository.
 
 ```shell title="~/.zshrc" showLineNumbers
 git clone https://github.com/z-shell/zzcomplete.git \
-${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zzcomplete
+  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zzcomplete
 ```
 
 And add `zzcomplete` to your plugin list.
+
+  </TabItem>
+  <TabItem value="standalone" label="Standalone" default>
+
+Clone the Repository.
+
+```shell showLineNumbers
+git clone https://github.com/z-shell/zzcomplete \
+  ~/some/path/to/zzcomplete
+```
+
+And add the following to your `.zshrc` file.
+
+```shell title="~/.zshrc"
+source ~/path/to/zzcomplete/zzcomplete.plugin.zsh
+```
 
   </TabItem>
 </Tabs>

@@ -1,7 +1,8 @@
-import React, { type ReactNode, useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import * as AsciinemaLibrary from "asciinema-player";
+import "asciinema-player/dist/bundle/asciinema-player.css";
 
-export type PlayerProps = {
+export interface PlayerProps extends React.HTMLAttributes<HTMLDivElement> {
   src: string;
   cols: number;
   rows: number;
@@ -18,29 +19,25 @@ export type PlayerProps = {
   terminalLineHeight?: number;
   terminalFontFamily?: string;
   terminalFontSize?: string;
-  children?: ReactNode;
-};
+}
 
-export default function AsciinemaPlayer({
-  src,
-  ...opts
-}: PlayerProps): JSX.Element {
+export default function AsciinemaPlayer(props: PlayerProps): JSX.Element {
+  const { src, ...rest } = props;
   const playerElement = useRef<HTMLDivElement>(null);
-  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     const currentRef = playerElement.current;
-    const player = AsciinemaLibrary.create(src, currentRef, opts);
+    const player = AsciinemaLibrary.create(src, currentRef, rest);
 
     return () => {
-      if (!playing) {
-        player.play();
-        setPlaying(true);
-      }
       player.dispose();
-      setPlaying(false);
     };
-  }, [src, opts, playing]);
+  }, [src, rest]);
 
-  return <div ref={playerElement} />;
+  return (
+    <div
+      ref={playerElement}
+      {...rest}
+    />
+  );
 }
