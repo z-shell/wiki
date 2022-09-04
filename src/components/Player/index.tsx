@@ -1,3 +1,5 @@
+/** @format */
+
 import React from "react";
 import Loadable from "@loadable/component";
 import Spinner from "@site/src/components/Spinner";

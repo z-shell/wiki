@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useEffect, useRef } from "react";
 import * as AsciinemaLibrary from "asciinema-player";
 import "asciinema-player/dist/bundle/asciinema-player.css";

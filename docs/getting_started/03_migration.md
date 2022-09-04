@@ -12,6 +12,8 @@ keywords:
 
 <!-- @format -->
 
+import Link from '@docusaurus/Link';
+
 ## Oh-My-Zsh
 
 ### OMZ shorthand syntax

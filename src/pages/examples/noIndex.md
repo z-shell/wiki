@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # No Index Page example
 
 <head>

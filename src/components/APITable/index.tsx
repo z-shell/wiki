@@ -1,3 +1,5 @@
+/** @format */
+
 import React, {
   type ComponentProps,
   type ReactElement,

@@ -12,24 +12,12 @@ repo:
     owner: z-shell
     name: wiki
 actions:
-  disabled:
   enabled:
     - trunk-check-pre-push
     - trunk-fmt-pre-commit
     - trunk-cache-prune
     - trunk-check-upgrade
     - trunk-upgrade
-    - pnpm-install
-  definitions:
-    - id: pnpm-install
-      triggers:
-        - files:
-            - package.json
-            - pnpm-lock.yaml
-      run: pnpm install
-runtimes:
-  enabled:
-    - node@>=16.17.0
 lint:
   disabled:
     - shellcheck
