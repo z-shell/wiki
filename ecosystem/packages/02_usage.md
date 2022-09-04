@@ -2,53 +2,59 @@
 id: usage
 title: "📦 Usage"
 image: /img/logo/320x320.png
-description: The Z-Shell Organization packages
+description: Zi packages packages usage information.
 keywords:
   - zpackage
-  - zi-package
+  - packages
+  - zsh-packages
 ---
 
 <!-- @format -->
 
+import Emoji from '@site/src/components/Emoji';
+import APITable from '@site/src/components/APITable';
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 ## Package repositories
 
-For all the available packages use [GitHub search][22].
+For all the available packages use [GitHub search][github-search].
 
-<div className="apitable" align="center">
+```mdx-code-block
+<APITable>
+```
 
-|       Package Name       | Description                                                                                         |
-| :----------------------: | :-------------------------------------------------------------------------------------------------- |
-|      [any-node][1]       | The any Node module(s) locally in a newly created plugin directory.                                 |
-|       [any-gem][2]       | The any Gem(s) locally in a newly created plugin directory.                                         |
-|         [apr][3]         | The Apache Portable Runtime (APR) library.                                                          |
-|         [fzf][4]         | The fzf command-line fuzzy finder.                                                                  |
-|         [fzy][5]         | The fzy command-line fuzzy finder.                                                                  |
-|        [pyenv][6]        | The pyenv Python virtual environment manager.                                                       |
-|       [remark][7]        | The remark Markdown processor.                                                                      |
-|       [doctoc][8]        | The doctoc Markdown processor.                                                                      |
-|      [ls_colors][9]      | The LS_COLORS and setup a zsh-completion system color scheme.                                       |
-| [dircolors-material][10] | The dircolors-material and set up a zsh-completion system color scheme.                             |
-|    [asciidoctor][11]     | The asciidoctor Markdown processor.                                                                 |
-| [system-completions][12] | Moves the stock Zsh completions under the control of Zi.                                            |
-|  [brew-completions][21]  | The Homebrew Shell Completion under the control of Zsh & Zi.                                        |
-|      [ecs-cli][13]       | The AWS ECS CLI.                                                                                    |
-|     [subversion][14]     | The Subversion client.                                                                              |
-|   [github-issues][15]    | The GitHub Issues client.                                                                           |
-| [github-issues-srv][16]  | The GitHub Issues server.                                                                           |
-|    [firefox-dev][17]     | The Firefox Developer Edition.                                                                      |
-|        [zsh][18]         | The Zsh mirror of zsh-users.                                                                        |
-|         [nb][19]         | Bookmarking, and archiving with linking, tagging, search, Git syncing, Pandoc conversion, and more. |
-|      [zsh-bin][20]       | Package of statically-linked, hermetic, relocatable - romkatv/zsh-bin.                              |
+|      Package Name      | Description                                                                                         |
+| :--------------------: | :-------------------------------------------------------------------------------------------------- |
+|      [any-node][]      | The any Node module(s) locally in a newly created plugin directory.                                 |
+|      [any-gem][]       | The any Gem(s) locally in a newly created plugin directory.                                         |
+|        [apr][]         | The Apache Portable Runtime (APR) library.                                                          |
+|        [fzf][]         | The fzf command-line fuzzy finder.                                                                  |
+|        [fzy][]         | The fzy command-line fuzzy finder.                                                                  |
+|       [pyenv][]        | The pyenv Python virtual environment manager.                                                       |
+|       [remark][]       | The remark Markdown processor.                                                                      |
+|       [doctoc][]       | The doctoc Markdown processor.                                                                      |
+|     [ls_colors][]      | The LS_COLORS and setup a zsh-completion system color scheme.                                       |
+| [dircolors-material][] | The dircolors-material and set up a zsh-completion system color scheme.                             |
+|    [asciidoctor][]     | The asciidoctor Markdown processor.                                                                 |
+| [system-completions][] | Moves the stock Zsh completions under the control of Zi.                                            |
+|  [brew-completions][]  | The Homebrew Shell Completion under the control of Zsh & Zi.                                        |
+|      [ecs-cli][]       | The AWS ECS CLI.                                                                                    |
+|     [subversion][]     | The Subversion client.                                                                              |
+|   [github-issues][]    | The GitHub Issues client.                                                                           |
+| [github-issues-srv][]  | The GitHub Issues server.                                                                           |
+|    [firefox-dev][]     | The Firefox Developer Edition.                                                                      |
+|        [zsh][]         | The Zsh mirror of zsh-users.                                                                        |
+|         [nb][]         | Bookmarking, and archiving with linking, tagging, search, Git syncing, Pandoc conversion, and more. |
+|      [zsh-bin][]       | Package of statically-linked, hermetic, relocatable - romkatv/zsh-bin.                              |
 
-</div>
+```mdx-code-block
+</APITable>
+```
 
 ## Package profiles
 
-### The Apache Portable Runtime (APR) library
+### Apache Portable Runtime (APR) library
 
-<div className="apitable" align="center">
 <table>
   <tbody>
     <tr>
@@ -65,14 +71,14 @@ For all the available packages use [GitHub search][22].
       <td>
         <b>Status:</b>
       </td>
-      <td>☑️ (default)</td>
-      <td>❌</td>
-      <td>☑️</td>
-      <td>❌</td>
-      <td>❌</td>
+      <td><Emoji symbol="✅" label="check-mark-button"/> (default)</td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="✅" label="check-mark-button"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
     </tr>
   </tbody>
-</table></div>
+</table>
 
 Download, build and install the latest Apache Portable Runtime.
 
@@ -80,9 +86,8 @@ Download, build and install the latest Apache Portable Runtime.
 zi pack for apr
 ```
 
-### The asciidoctor Markdown processor
+### `asciidoctor` Markdown processor
 
-<div className="apitable" align="center">
 <table>
   <tbody>
     <tr>
@@ -99,27 +104,25 @@ zi pack for apr
       <td>
         <b>Status:</b>
       </td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>☑️ (default)</td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="✅" label="check-mark-button"/> (default)</td>
     </tr>
   </tbody>
 </table>
-</div>
 
 Download the Gem of asciidoctor locally with the [bin-gem-node][] annex.
 
-> Using the `@' prefix because of collision with the as'' ice.
+> Using the `@` prefix because of collision with the as'' ice.
 
 ```shell
 zi pack for @asciidoctor
 ```
 
-### The AWS ECS CLI
+### AWS ECS CLI
 
-<div className="apitable" align="center">
 <table>
   <tbody>
     <tr>
@@ -136,18 +139,19 @@ zi pack for @asciidoctor
       <td>
         <b>Status:</b>
       </td>
-      <td>❌</td>
-      <td>☑️ (default)</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="✅" label="check-mark-button"/> (default)</td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
     </tr>
   </tbody>
 </table>
-</div>
 
+```mdx-code-block
 <Tabs>
   <TabItem value="default" label="Default" default>
+```
 
 Download the binary of the Amazon-ECS-CLI command.
 
@@ -155,8 +159,10 @@ Download the binary of the Amazon-ECS-CLI command.
 zi pack for ecs-cli
 ```
 
+```mdx-code-block
   </TabItem>
   <TabItem value="bin-gem-node" label="Annex">
+```
 
 Download the ECS-CLI binary with the use of the bin-gem-node annex.
 
@@ -164,40 +170,42 @@ Download the ECS-CLI binary with the use of the bin-gem-node annex.
 zi pack"bgn" for ecs-cli
 ```
 
+```mdx-code-block
   </TabItem>
 </Tabs>
+```
 
-### The dircolors-material color scheme
+### `dircolors-material` color scheme
 
-<div className="apitable" align="center">
-  <table>
-    <tbody>
-      <tr>
-        <td>
-          <b>Package source</b>
-        </td>
-        <td>Tarball</td>
-        <td>Binary</td>
-        <td>Git</td>
-        <td>Node</td>
-        <td>Gem</td>
-      </tr>
-      <tr>
-        <td>
-          <b>Status:</b>
-        </td>
-        <td>❌</td>
-        <td>❌</td>
-        <td>☑️ (default)</td>
-        <td>❌</td>
-        <td>❌</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <b>Package source</b>
+      </td>
+      <td>Tarball</td>
+      <td>Binary</td>
+      <td>Git</td>
+      <td>Node</td>
+      <td>Gem</td>
+    </tr>
+    <tr>
+      <td>
+        <b>Status:</b>
+      </td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="✅" label="check-mark-button"/> (default)</td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+    </tr>
+  </tbody>
+</table>
 
+```mdx-code-block
 <Tabs>
   <TabItem value="default" label="Default"  default>
+```
 
 Download the default profile.
 
@@ -205,8 +213,10 @@ Download the default profile.
 zi pack for dircolors-material
 ```
 
+```mdx-code-block
   </TabItem>
   <TabItem value="no-zsh-completion" label="No completion">
+```
 
 Download the "no-zsh-completion" profile.
 
@@ -214,8 +224,10 @@ Download the "no-zsh-completion" profile.
 zi pack"no-zsh-completion" for dircolors-material
 ```
 
+```mdx-code-block
   </TabItem>
   <TabItem value="no-color-swap" label="No color swap">
+```
 
 Download the "no-color-swaps" profile.
 
@@ -223,8 +235,10 @@ Download the "no-color-swaps" profile.
 zi pack"no-color-swaps" for dircolors-material
 ```
 
+```mdx-code-block
   </TabItem>
   <TabItem value="minimal" label="Minimal">
+```
 
 Download the minimal profile without altering the original theme.
 
@@ -232,12 +246,13 @@ Download the minimal profile without altering the original theme.
 zi pack"minimal" for dircolors-material
 ```
 
+```mdx-code-block
   </TabItem>
 </Tabs>
+```
 
-### The doctoc Markdown processor
+### `doctoc` Markdown processor
 
-<div className="apitable" align="center">
 <table>
   <tbody>
     <tr>
@@ -254,15 +269,14 @@ zi pack"minimal" for dircolors-material
       <td>
         <b>Status:</b>
       </td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>☑️ (default)</td>
-      <td>❌</td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="✅" label="check-mark-button"/> (default)</td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
     </tr>
   </tbody>
 </table>
-</div>
 
 A download default profile with the Node package of doctoc.
 
@@ -270,37 +284,37 @@ A download default profile with the Node package of doctoc.
 zi pack for doctoc
 ```
 
-### The Firefox Developer Edition
+### Firefox Developer Edition
 
-<div className="apitable" align="center">
-  <table>
-    <tbody>
-      <tr>
-        <td>
-          <b>Package source:</b>
-        </td>
-        <td>Source Tarball</td>
-        <td>Binary</td>
-        <td>Git</td>
-        <td>Node</td>
-        <td>Gem</td>
-      </tr>
-      <tr>
-        <td>
-          <b>Status:</b>
-        </td>
-        <td>❌</td>
-        <td>☑️ (default)</td>
-        <td>❌</td>
-        <td>❌</td>
-        <td>❌</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <b>Package source:</b>
+      </td>
+      <td>Source Tarball</td>
+      <td>Binary</td>
+      <td>Git</td>
+      <td>Node</td>
+      <td>Gem</td>
+    </tr>
+    <tr>
+      <td>
+        <b>Status:</b>
+      </td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="✅" label="check-mark-button"/> (default)</td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+    </tr>
+  </tbody>
+</table>
 
+```mdx-code-block
 <Tabs>
   <TabItem value="default" label="Default" default>
+```
 
 Download the firefox-dev latest binary.
 
@@ -308,8 +322,10 @@ Download the firefox-dev latest binary.
 zi pack for firefox-dev
 ```
 
+```mdx-code-block
   </TabItem>
   <TabItem value="bin-gem-node" label="Annex">
+```
 
 Download the firefox-dev latest binary with use of the [bin-gem-node][] annex.
 
@@ -317,40 +333,42 @@ Download the firefox-dev latest binary with use of the [bin-gem-node][] annex.
 zi pack"bgn" for firefox-dev
 ```
 
+```mdx-code-block
   </TabItem>
 </Tabs>
+```
 
-### The fzf command-line fuzzy finder
+### `fzf` command-line fuzzy finder
 
-<div className="apitable" align="center">
-  <table>
-    <tbody>
-      <tr>
-        <td>
-          <b>Package source:</b>
-        </td>
-        <td>Source Tarball</td>
-        <td>Binary</td>
-        <td>Git</td>
-        <td>Node</td>
-        <td>Gem</td>
-      </tr>
-      <tr>
-        <td>
-          <b>Status:</b>
-        </td>
-        <td>☑️ (default)</td>
-        <td>☑️</td>
-        <td>☑️</td>
-        <td>❌</td>
-        <td>❌</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <b>Package source:</b>
+      </td>
+      <td>Source Tarball</td>
+      <td>Binary</td>
+      <td>Git</td>
+      <td>Node</td>
+      <td>Gem</td>
+    </tr>
+    <tr>
+      <td>
+        <b>Status:</b>
+      </td>
+      <td><Emoji symbol="✅" label="check-mark-button"/> (default)</td>
+      <td><Emoji symbol="✅" label="check-mark-button"/></td>
+      <td><Emoji symbol="✅" label="check-mark-button"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+    </tr>
+  </tbody>
+</table>
 
+```mdx-code-block
 <Tabs>
   <TabItem value="default" label="Default" default>
+```
 
 Download the package with the default profile.
 
@@ -358,8 +376,10 @@ Download the package with the default profile.
 zi pack for fzf
 ```
 
+```mdx-code-block
   </TabItem>
   <TabItem value="key-bindings" label="Key bindings">
+```
 
 Download the package with the default profile + key bindings.
 
@@ -367,8 +387,10 @@ Download the package with the default profile + key bindings.
 zi pack"default+keys" for fzf
 ```
 
+```mdx-code-block
   </TabItem>
   <TabItem value="bin-gem-node" label="Annex">
+```
 
 Download the package with the [bin-gem-node][] annex.
 
@@ -376,8 +398,10 @@ Download the package with the [bin-gem-node][] annex.
 zi pack"bgn" for fzf
 ```
 
+```mdx-code-block
   </TabItem>
   <TabItem value="bin-gem-node+key-bindings" label="Annex + key bindings">
+```
 
 Download the package with the [bin-gem-node][] annex and with the key bindings.
 
@@ -387,8 +411,10 @@ Download the package with the [bin-gem-node][] annex and with the key bindings.
 zi pack"bgn+keys" for fzf
 ```
 
+```mdx-code-block
   </TabItem>
   <TabItem value="bin-gem-node+git" label="Annex + git">
+```
 
 Download with the [bin-gem-node][] annex from GitHub repository.
 
@@ -396,17 +422,21 @@ Download with the [bin-gem-node][] annex from GitHub repository.
 zi pack"bgn" git for fzf
 ```
 
+```mdx-code-block
   </TabItem>
   <TabItem value="binary" label="Binary">
+```
 
-Download the binary from the Github releases.
+Download the binary from the GitHub releases.
 
 ```shell
 zi pack"binary" for fzf
 ```
 
+```mdx-code-block
   </TabItem>
   <TabItem value="bin-gem-node+binary" label="Annex + binary">
+```
 
 Download the binary from the GitHub releases and install using [bin-gem-node][] + shims.
 
@@ -414,144 +444,21 @@ Download the binary from the GitHub releases and install using [bin-gem-node][] 
 zi pack"bgn-binary" for fzf
 ```
 
+```mdx-code-block
   </TabItem>
 </Tabs>
-
-### The fzy command-line fuzzy finder
-
-<div className="apitable" align="center">
-  <table>
-    <tbody>
-      <tr>
-        <td>
-          <b>Package source:</b>
-        </td>
-        <td>Tarball</td>
-        <td>Binary</td>
-        <td>Git</td>
-        <td>Node</td>
-        <td>Gem</td>
-      </tr>
-      <tr>
-        <td>
-          <b>Status:</b>
-        </td>
-        <td>☑️ (default)</td>
-        <td>❌</td>
-        <td>☑️</td>
-        <td>❌</td>
-        <td>❌</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<Tabs>
-  <TabItem value="default" label="Default" default>
-
-Download the package with the default profile.
-
-```shell
-zi pack for fzy
 ```
 
-  </TabItem>
-  <TabItem value="bin-gem-node" label="Annex">
+### `fzy` command-line fuzzy finder
 
-Download the package with the [bin-gem-node][] annex.
-
-```shell
-zi pack"bgn" for fzy
-```
-
-  </TabItem>
-  <TabItem value="bin-gem-node+git" label="Annex + git">
-
-Download with the [bin-gem-node][] annex from GitHub repository.
-
-```shell
-zi pack"bgn" git for fzy
-```
-
-  </TabItem>
-  <TabItem value="default+override" label="Default Override">
-
-Download normal ice list and override atclone'' ice to skip the contrib scripts
-
-```shell
-zi pack"bgn" atclone'' for fzy
-```
-
-  </TabItem>
-</Tabs>
-
-### The LS_COLORS color scheme
-
-<div className="apitable" align="center">
-  <table>
-    <tbody>
-      <tr>
-        <td>
-          <b>Package source:</b>
-        </td>
-        <td>Tarball</td>
-        <td>Git</td>
-        <td>Node</td>
-        <td>Gem</td>
-      </tr>
-      <tr>
-        <td>
-          <b>Status:</b>
-        </td>
-        <td>➖</td>
-        <td>☑️ (default)</td>
-        <td>❌</td>
-        <td>❌</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<Tabs>
-  <TabItem value="default" label="Default" default>
-
-Download the default profile.
-
-```shell
-zi pack for ls_colors
-```
-
-  </TabItem>
-  <TabItem value="no-zsh-completion" label="No completion">
-
-Download the "no-zsh-completion" profile.
-
-```shell
-zi pack"no-zsh-completion" for ls_colors
-```
-
-  </TabItem>
-  <TabItem value="no-dir-color-swap" label="No color swap">
-
-Download the "no-dir-color-swap" profile.
-
-```shell
-zi pack"no-dir-color-swap" for ls_colors
-```
-
-  </TabItem>
-</Tabs>
-
-### Feature-rich note‑taking (nb)
-
-<div className="apitable" align="center">
 <table>
   <tbody>
     <tr>
       <td>
         <b>Package source:</b>
       </td>
-      <td>Source Tarball</td>
+      <td>Tarball</td>
+      <td>Binary</td>
       <td>Git</td>
       <td>Node</td>
       <td>Gem</td>
@@ -560,83 +467,66 @@ zi pack"no-dir-color-swap" for ls_colors
       <td>
         <b>Status:</b>
       </td>
-      <td>☑️ (default)</td>
-      <td>➖</td>
-      <td>❌</td>
-      <td>❌</td>
+      <td><Emoji symbol="✅" label="check-mark-button"/> (default)</td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="✅" label="check-mark-button"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
     </tr>
   </tbody>
 </table>
-</div>
 
-Default profile are using [bin-gem-node][] to set shims.
-
-```shell
-zi pack for nb
-```
-
-### The Python virtual environment manager (pyenv)
-
-<div className="apitable" align="center">
-  <table>
-    <tbody>
-      <tr>
-        <td>
-          <b>Package source:</b>
-        </td>
-        <td>Source Tarball</td>
-        <td>Binary</td>
-        <td>Git</td>
-        <td>Node</td>
-        <td>Gem</td>
-      </tr>
-      <tr>
-        <td>
-          <b>Status:</b>
-        </td>
-        <td>☑️ (default)</td>
-        <td>❌</td>
-        <td>☑️</td>
-        <td>❌</td>
-        <td>❌</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
+```mdx-code-block
 <Tabs>
   <TabItem value="default" label="Default" default>
-
-Download the tarball with the default ice list.
-
-```shell
-zi pack for pyenv
 ```
 
+Download the package with the default profile.
+
+```shell
+zi pack for fzy
+```
+
+```mdx-code-block
   </TabItem>
   <TabItem value="bin-gem-node" label="Annex">
-
-Download the binary from the Github releases with the [bin-gem-node][] annex.
-
-```shell
-zi pack"bgn" for pyenv
 ```
 
+Download the package with the [bin-gem-node][] annex.
+
+```shell
+zi pack"bgn" for fzy
+```
+
+```mdx-code-block
   </TabItem>
   <TabItem value="bin-gem-node+git" label="Annex + git">
+```
 
 Download with the [bin-gem-node][] annex from GitHub repository.
 
 ```shell
-zi pack"bgn" git for pyenv
+zi pack"bgn" git for fzy
 ```
 
+```mdx-code-block
+  </TabItem>
+  <TabItem value="default+override" label="Default Override">
+```
+
+Download normal ice list and override atclone'' ice to skip the contrib scripts
+
+```shell
+zi pack"bgn" atclone'' for fzy
+```
+
+```mdx-code-block
   </TabItem>
 </Tabs>
+```
 
-### The remark Markdown processor
+### `LS_COLORS` color scheme
 
-<div className="apitable" align="center">
 <table>
   <tbody>
     <tr>
@@ -652,48 +542,85 @@ zi pack"bgn" git for pyenv
       <td>
         <b>Status:</b>
       </td>
-      <td>➖</td>
-      <td>➖</td>
-      <td>☑️ (default)</td>
-      <td>❌</td>
+      <td><Emoji symbol="🚫" label="prohibited"/></td>
+      <td><Emoji symbol="✅" label="check-mark-button"/> (default)</td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
     </tr>
   </tbody>
 </table>
-</div>
 
+```mdx-code-block
 <Tabs>
   <TabItem value="default" label="Default" default>
-
-Download the Node package of remark-CLI, remark-man and remark-HTML
-
-```shell
-zi pack for remark
 ```
 
+Download the default profile.
+
+```shell
+zi pack for ls_colors
+```
+
+```mdx-code-block
   </TabItem>
-  <TabItem value="man-only" label="Man only">
-
-Download the Node package of remark-CLI and remark-man
-
-```shell
-zi pack"man-only" for remark
+  <TabItem value="no-zsh-completion" label="No completion">
 ```
 
+Download the "no-zsh-completion" profile.
+
+```shell
+zi pack"no-zsh-completion" for ls_colors
+```
+
+```mdx-code-block
   </TabItem>
-  <TabItem value="specific-version" label="HTML only">
-
-Download the Node package of remark-CLI and remark-HTML
-
-```shell
-zi pack"html-only" for remark
+  <TabItem value="no-dir-color-swap" label="No color swap">
 ```
 
+Download the "no-dir-color-swap" profile.
+
+```shell
+zi pack"no-dir-color-swap" for ls_colors
+```
+
+```mdx-code-block
   </TabItem>
 </Tabs>
+```
 
-### Subversion
+### Feature-rich note‑taking (`nb`) {#nb-pkg-profile}
 
-<div className="apitable" align="center">
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <b>Package source:</b>
+      </td>
+      <td>Source Tarball</td>
+      <td>Git</td>
+      <td>Node</td>
+      <td>Gem</td>
+    </tr>
+    <tr>
+      <td>
+        <b>Status:</b>
+      </td>
+      <td><Emoji symbol="✅" label="check-mark-button"/> (default)</td>
+      <td><Emoji symbol="🚫" label="prohibited"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+    </tr>
+  </tbody>
+</table>
+
+Default profile are using [bin-gem-node][] to set shims.
+
+```shell
+zi pack for nb
+```
+
+### Python virtual environment manager - `pyenv` {#pyenv-pkg-profile}
+
 <table>
   <tbody>
     <tr>
@@ -710,55 +637,182 @@ zi pack"html-only" for remark
       <td>
         <b>Status:</b>
       </td>
-      <td>☑️ (default)</td>
-      <td>❌</td>
-      <td>☑️</td>
-      <td>❌</td>
-      <td>❌</td>
+      <td><Emoji symbol="✅" label="check-mark-button"/> (default)</td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="✅" label="check-mark-button"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
     </tr>
   </tbody>
 </table>
-</div>
+
+```mdx-code-block
+<Tabs>
+  <TabItem value="default" label="Default" default>
+```
+
+Download the tarball with the default ice list.
+
+```shell
+zi pack for pyenv
+```
+
+```mdx-code-block
+  </TabItem>
+  <TabItem value="bin-gem-node" label="Annex">
+```
+
+Download the binary from the GitHub releases with the [bin-gem-node][] annex.
+
+```shell
+zi pack"bgn" for pyenv
+```
+
+```mdx-code-block
+  </TabItem>
+  <TabItem value="bin-gem-node+git" label="Annex + git">
+```
+
+Download with the [bin-gem-node][] annex from GitHub repository.
+
+```shell
+zi pack"bgn" git for pyenv
+```
+
+```mdx-code-block
+  </TabItem>
+</Tabs>
+```
+
+### `remark` Markdown processor
+
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <b>Package source:</b>
+      </td>
+      <td>Tarball</td>
+      <td>Git</td>
+      <td>Node</td>
+      <td>Gem</td>
+    </tr>
+    <tr>
+      <td>
+        <b>Status:</b>
+      </td>prohibited
+      <td><Emoji symbol="🚫" label="prohibited"/></td>
+      <td><Emoji symbol="🚫" label="prohibited"/></td>
+      <td><Emoji symbol="✅" label="check-mark-button"/> (default)</td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+    </tr>
+  </tbody>
+</table>
+
+```mdx-code-block
+<Tabs>
+  <TabItem value="default" label="Default" default>
+```
+
+Download the Node package of remark-CLI, remark-man and remark-HTML
+
+```shell
+zi pack for remark
+```
+
+```mdx-code-block
+  </TabItem>
+  <TabItem value="man-only" label="Man only">
+```
+
+Download the Node package of remark-CLI and remark-man
+
+```shell
+zi pack"man-only" for remark
+```
+
+```mdx-code-block
+  </TabItem>
+  <TabItem value="specific-version" label="HTML only">
+```
+
+Download the Node package of remark-CLI and remark-HTML
+
+```shell
+zi pack"html-only" for remark
+```
+
+```mdx-code-block
+  </TabItem>
+</Tabs>
+```
+
+### Subversion
+
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <b>Package source:</b>
+      </td>
+      <td>Source Tarball</td>
+      <td>Binary</td>
+      <td>Git</td>
+      <td>Node</td>
+      <td>Gem</td>
+    </tr>
+    <tr>
+      <td>
+        <b>Status:</b>
+      </td>
+      <td><Emoji symbol="✅" label="check-mark-button"/> (default)</td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="✅" label="check-mark-button"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+    </tr>
+  </tbody>
+</table>
 
 Download, build and install the latest Subversion.
 
-> Dependency of Subversion: [APR][3]
+> Dependency of Subversion: [APR][]
 
 ```shell
 zi pack for subversion
 ```
 
-### The Zsh mirror of zsh-users
+### Zsh mirror of zsh-users
 
-<div className="apitable" align="center">
-  <table>
-    <tbody>
-      <tr>
-        <td>
-          <b>Package source:</b>
-        </td>
-        <td>Source Tarball</td>
-        <td>Binary</td>
-        <td>Git</td>
-        <td>Node</td>
-        <td>Gem</td>
-      </tr>
-      <tr>
-        <td>
-          <b>Status:</b>
-        </td>
-        <td>❌</td>
-        <td>❌</td>
-        <td>☑️ (default)</td>
-        <td>❌</td>
-        <td>❌</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <b>Package source:</b>
+      </td>
+      <td>Source Tarball</td>
+      <td>Binary</td>
+      <td>Git</td>
+      <td>Node</td>
+      <td>Gem</td>
+    </tr>
+    <tr>
+      <td>
+        <b>Status:</b>
+      </td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="✅" label="check-mark-button"/> (default)</td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+    </tr>
+  </tbody>
+</table>
 
+```mdx-code-block
 <Tabs>
   <TabItem value="default" label="Default" default>
+```
 
 Install the newest Zsh.
 
@@ -766,8 +820,10 @@ Install the newest Zsh.
 zi pack for zsh
 ```
 
+```mdx-code-block
   </TabItem>
   <TabItem value="specific-version" label="Specific version">
+```
 
 Install preferred Zsh version.
 
@@ -784,40 +840,42 @@ zi pack"5.2.4" for zsh
 zi pack"5.1.1" for zsh
 ```
 
+```mdx-code-block
   </TabItem>
 </Tabs>
+```
 
 ### Statically-linked, hermetic, relocatable Zsh
 
-<div className="apitable" align="center">
-  <table>
-    <tbody>
-      <tr>
-        <td>
-          <b>Package source:</b>
-        </td>
-        <td>Source Tarball</td>
-        <td>Binary</td>
-        <td>Git</td>
-        <td>Node</td>
-        <td>Gem</td>
-      </tr>
-      <tr>
-        <td>
-          <b>Status:</b>
-        </td>
-        <td>❌</td>
-        <td>❌</td>
-        <td>☑️ (default)</td>
-        <td>❌</td>
-        <td>❌</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <b>Package source:</b>
+      </td>
+      <td>Source Tarball</td>
+      <td>Binary</td>
+      <td>Git</td>
+      <td>Node</td>
+      <td>Gem</td>
+    </tr>
+    <tr>
+      <td>
+        <b>Status:</b>
+      </td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="✅" label="check-mark-button"/> (default)</td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+      <td><Emoji symbol="❌" label="cross-mark"/></td>
+    </tr>
+  </tbody>
+</table>
 
+```mdx-code-block
 <Tabs>
   <TabItem value="default" label="Default" default>
+```
 
 Requires **root** access to install Zsh at `/usr/local` and will attempt to register it as a login shell.
 
@@ -825,8 +883,10 @@ Requires **root** access to install Zsh at `/usr/local` and will attempt to regi
 zi pack for zsh-bin
 ```
 
+```mdx-code-block
   </TabItem>
   <TabItem value="bin-gem-node" label="Annex">
+```
 
 Does not require **root** access, when install using [bin-gem-node][] to set shims.
 
@@ -834,8 +894,10 @@ Does not require **root** access, when install using [bin-gem-node][] to set shi
 zi pack"bgn" for zsh-bin
 ```
 
+```mdx-code-block
   </TabItem>
   <TabItem value="rootless" label="Rootless">
+```
 
 Does not require **root** access, will install to `~/.local`.
 
@@ -843,32 +905,37 @@ Does not require **root** access, will install to `~/.local`.
 zi pack"rootless" for zsh-bin
 ```
 
+```mdx-code-block
   </TabItem>
 </Tabs>
+```
 
 <!-- end-of-file -->
 <!-- links -->
 
-[1]: https://github.com/z-shell/any-node
-[2]: https://github.com/z-shell/any-gem
-[3]: https://github.com/z-shell/apr
-[4]: https://github.com/z-shell/fzf
-[5]: https://github.com/z-shell/fzy
-[6]: https://github.com/z-shell/pyenv
-[7]: https://github.com/z-shell/remark
-[8]: https://github.com/z-shell/doctoc
-[9]: https://github.com/z-shell/ls_colors
-[10]: https://github.com/z-shell/dircolors-material
-[11]: https://github.com/z-shell/asciidoctor
-[12]: https://github.com/z-shell/system-completions
-[13]: https://github.com/z-shell/ecs-cli
-[14]: https://github.com/z-shell/subversion
-[15]: https://github.com/z-shell/github-issues
-[16]: https://github.com/z-shell/github-issues-srv
-[17]: https://github.com/z-shell/firefox-dev
-[18]: https://github.com/z-shell/zsh
-[19]: https://github.com/z-shell/nb
-[20]: https://github.com/z-shell/zsh-bin
-[21]: https://github.com/z-shell/brew-completions
-[22]: https://github.com/search?q=topic%3Azpackage+org%3Az-shell&type=Repositories
 [bin-gem-node]: /ecosystem/annexes/bin-gem-node
+
+<!-- external -->
+
+[any-node]: https://github.com/z-shell/any-node
+[any-gem]: https://github.com/z-shell/any-gem
+[apr]: https://github.com/z-shell/apr
+[fzf]: https://github.com/z-shell/fzf
+[fzy]: https://github.com/z-shell/fzy
+[pyenv]: https://github.com/z-shell/pyenv
+[remark]: https://github.com/z-shell/remark
+[doctoc]: https://github.com/z-shell/doctoc
+[ls_colors]: https://github.com/z-shell/ls_colors
+[dircolors-material]: https://github.com/z-shell/dircolors-material
+[asciidoctor]: https://github.com/z-shell/asciidoctor
+[system-completions]: https://github.com/z-shell/system-completions
+[ecs-cli]: https://github.com/z-shell/ecs-cli
+[subversion]: https://github.com/z-shell/subversion
+[github-issues]: https://github.com/z-shell/github-issues
+[github-issues-srv]: https://github.com/z-shell/github-issues-srv
+[firefox-dev]: https://github.com/z-shell/firefox-dev
+[zsh]: https://github.com/z-shell/zsh
+[nb]: https://github.com/z-shell/nb
+[zsh-bin]: https://github.com/z-shell/zsh-bin
+[brew-completions]: https://github.com/z-shell/brew-completions
+[github-search]: https://github.com/search?q=topic%3Azpackage+org%3Az-shell&type=Repositories

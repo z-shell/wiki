@@ -222,6 +222,8 @@ thead {
   background-color: var(--ifm-table-header-bg-color);
 }
 
+/* TODO: migrate tables css to APITable component. */
+
 thead th:first-child {
   white-space: nowrap;
 }

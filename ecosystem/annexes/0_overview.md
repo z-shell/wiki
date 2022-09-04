@@ -13,9 +13,9 @@ keywords:
 
 <!-- @format -->
 
-1. Add a new Zi subcommand (i.e. the [command][1] that’s placed after the function `zi …` when calling Zi).
+1. Add a new Zi subcommand (i.e. the [command][] that’s placed after the function `zi …` when calling Zi).
 
-2. Add new [ice-modifiers][2].
+2. Add new [ice-modifiers][].
 
 3. Register four types of hooks:
 
@@ -33,20 +33,20 @@ keywords:
 
 ### Common
 
-1. [z-a-bin-gem-node][3]
-2. [z-a-readurl][4]
-3. [z-a-patch-dl][5]
-4. [z-a-rust][6]
+1. [z-a-bin-gem-node][bin-gem-node]
+2. [z-a-readurl][readurl]
+3. [z-a-patch-dl][patch-dl]
+4. [z-a-rust][rust]
 
 ### Additional
 
-1. [z-a-submods][7]
-2. [z-a-unscope][8]
-3. [z-a-test][9]
+1. [z-a-submods][submods]
+2. [z-a-unscope][unscope]
+3. [z-a-test][test]
 
 :::tip
 
-Use [meta plugins][10] to install common annexes as a group:
+Use [meta plugins][meta-plugins] to install common annexes as a group:
 
 ```shell
 zi light-mode for z-shell/z-a-meta-plugins @annexes
@@ -62,12 +62,12 @@ zi light-mode for z-shell/z-a-meta-plugins @annexes+rec
 
 ## How To Code Them?
 
-Below is an example body of an `atclone` hook taken from [submods][7] annex.
+Below is an example body of an `atclone` hook taken from [submods][submods] annex.
 
 It shows how to:
 
 1. Obtain the arguments passed to the hook.
-2. Use an [ice-modifier][2].
+2. Use an [ice-modifier][ice-modifiers].
 3. It also shows a useful snippet that will trim the whitespace in array elements (see `# (4) …` in the code).
 4. Utilize the last hook argument – the plugin’s/snippet’s containing directory.
 
@@ -102,7 +102,7 @@ for mod in "${mods[@]}"; do
 done
 ```
 
-The recommended method of creating a hook is to place its body into a file that starts with a right arrow `→` ([more information][11], and also a `za-` prefix, e.g. `→za-myproject-atclone-hook` and then to mark it for autoloading via `autoload -Uz →za-myproject-atclone-hook`. Then register the hook, presumably in the `myproject.plugin.zsh` file, with the API call:
+The recommended method of creating a hook is to place its body into a file that starts with a right arrow `→` ([more information][the-proposed-function-name-prefixes], and also a `za-` prefix, e.g. `→za-myproject-atclone-hook` and then to mark it for autoloading via `autoload -Uz →za-myproject-atclone-hook`. Then register the hook, presumably in the `myproject.plugin.zsh` file, with the API call:
 
 `@zi-register-annex`:
 
@@ -110,7 +110,7 @@ The recommended method of creating a hook is to place its body into a file that 
 @zi-register-annex myproject hook:atclone \
   →za-myproject-atclone-handler \
   →za-myproject-atclone-help-handler \
-  "submods''" # register a new ice-mod: submods''
+  "submods''" # register a new ice-modifier: submods''
 ```
 
 The general syntax of the API call is:
@@ -123,35 +123,40 @@ The general syntax of the API call is:
   "{ice-mod1}|{ice-mod2}|…" < hook-type >| subcommand: < new-subcommand-name > }
 ```
 
-The last argument, i.e. the `|`-separated ice list, is optional. That’s all\! After this loading the plugin `myproject` will set up the new [ice-modifier][2] `submods` that will have syntax `submods'{user}/{plugin} –> {output-dir}; …'` and will clone submodules when installing the original plugin or snippet\! Example real-world use of the ice-modifier:
+The last argument, i.e. the `|`-separated ice list, is optional. That’s all\! After this loading the plugin `myproject` will set up the new [ice-modifier][ice-modifiers] `submods` that will have syntax `submods'{user}/{plugin} –> {output-dir}; …'` and will clone submodules when installing the original plugin or snippet\!
 
-```shell
-# Load the `zsh-autosuggestions' plugin via the Prezto module: `autosuggestions'
+Example of the [submods][] ice-modifier to load the `zsh-autosuggestions` plugin via the Prezto module: `autosuggestions`:
+
+```shell showLineNumbers
 zi ice svn submods'zsh-users/zsh-autosuggestions -> external'
 zi snippet PZT::modules/autosuggestions
 ```
 
-Check out the project which fully implements this idea, [z-a-submods][7]. It e.g. also implements the `atpull` hook, i.e. supports the automatic update of the submodules. The `z-a-*` prefix is recommended for projects which indicate annexes.
+Check out the project which fully implements this idea, [z-a-submods][submods]. It e.g. also implements the `atpull` hook, i.e. supports the automatic update of the submodules. The `z-a-*` prefix is recommended for projects which indicate annexes.
 
 ## Summary
 
 There are 2 or 3 subtypes for each of the hooks:
 
-1. `atinit` or `!atinit` – the `!` version is run before the `atinit` **ice-mod** (i.e. before `zi ice atinit'echo this!'; …`), while the normal version runs after it.
-2. `atload` or `!atload` – analogous to the `atinit` case: the `!` version runs before the `atload` **ice-mod** (while the normal version runs after it).
+1. `atinit` or `!atinit` – the `!` version is run before the `atinit` ice-modifier (i.e. before `zi ice atinit'echo this!'; …`), while the normal version runs after it.
+2. `atload` or `!atload` – analogous to the `atinit` case: the `!` version runs before the `atload` ice-modifier (while the normal version runs after it).
 3. `atclone` or `!atclone` – analogous to the `atinit` and `atload` cases.
-4. `atpull`, `!atpull` or `%atpull` – the first two are being run **only when there are new commits to be downloaded** during the update. The `%` version is being **always** run, regardless of whether the update will pull any actual commits or not, and it is being run **after** the `atpull` **ice-mod**.
+4. `atpull`, `!atpull`, or `%atpull` – the first two are being run **only when there are new commits to be downloaded** during the update. The `%` version is being **always** run, regardless of whether the update will pull any actual commits or not, and it is being run **after** the `atpull` ice-modifier.
 
 <!-- end-of-file  -->
+<!-- links -->
 
-[1]: /docs/guides/commands
-[2]: /docs/guides/syntax/ice-modifiers
-[3]: https://github.com/z-shell/z-a-bin-gem-node
-[4]: https://github.com/z-shell/z-a-readurl
-[5]: https://github.com/z-shell/z-a-patch-dl
-[6]: https://github.com/z-shell/z-a-rust
-[7]: https://github.com/z-shell/z-a-submods
-[8]: https://github.com/z-shell/z-a-unscope
-[9]: https://github.com/z-shell/z-a-test
-[10]: /ecosystem/annexes/meta-plugins
-[11]: /community/zsh_plugin_standard#the-proposed-function-name-prefixes
+[command]: /docs/guides/commands
+[ice-modifiers]: /docs/guides/syntax/ice-modifiers
+[meta-plugins]: /ecosystem/annexes/meta-plugins
+[the-proposed-function-name-prefixes]: /community/zsh_plugin_standard#the-proposed-function-name-prefixes
+
+<!-- external -->
+
+[bin-gem-node]: https://github.com/z-shell/z-a-bin-gem-node
+[patch-dl]: https://github.com/z-shell/z-a-patch-dl
+[readurl]: https://github.com/z-shell/z-a-readurl
+[rust]: https://github.com/z-shell/z-a-rust
+[submods]: https://github.com/z-shell/z-a-submods
+[test]: https://github.com/z-shell/z-a-test
+[unscope]: https://github.com/z-shell/z-a-unscope

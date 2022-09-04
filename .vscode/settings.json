@@ -81,7 +81,17 @@
       "typescriptreact"
     ]
   },
-  "cSpell.enableFiletypes": ["mdx"],
+  "cSpell.enableFiletypes": [
+    "editorconfig",
+    "gitignore",
+    "ini",
+    "jsx",
+    "jsx-tags",
+    "mdx",
+    "shellscript",
+    "styled-css",
+    "toml"
+  ],
   "cSpell.customDictionaries": {
     "custom-dictionary": {
       "name": "custom-dictionary",
@@ -107,5 +117,7 @@
   "grammarly.config.suggestions.PassiveVoice": true,
   "grammarly.config.suggestions.StylisticFragments": true,
   "grammarly.config.suggestions.UnnecessaryEllipses": true,
-  "grammarly.startTextCheckInPausedState": true
+  "grammarly.startTextCheckInPausedState": true,
+  "cSpell.language": "en-US,en-GB",
+  "cSpell.autoFormatConfigFile": true
 }

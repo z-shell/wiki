@@ -46,5 +46,25 @@
   "copyright": {
     "message": "Copyright © 2022 Communauté Z-Shell.",
     "description": "The footer copyright"
+  },
+  "link.item.label.Discussions": {
+    "message": "Discussions",
+    "description": "The label of footer link with label=Discussions linking to https://discussions.zshell.dev"
+  },
+  "link.item.label.Matrix.org": {
+    "message": "Matrix.org",
+    "description": "The label of footer link with label=Matrix.org linking to https://matrix.to/#/#z-shell_zi:gitter.im"
+  },
+  "link.item.label.Gitter.im": {
+    "message": "Gitter.im",
+    "description": "The label of footer link with label=Gitter.im linking to https://gitter.im/z-shell/zi"
+  },
+  "link.item.label.GitHub Repositories": {
+    "message": "GitHub Repositories",
+    "description": "The label of footer link with label=GitHub Repositories linking to https://github.com/orgs/z-shell/repositories/"
+  },
+  "link.item.label.Z-Shell Uptime Status": {
+    "message": "Z-Shell Uptime Status",
+    "description": "The label of footer link with label=Z-Shell Uptime Status linking to https://status.zshell.dev/"
   }
 }
