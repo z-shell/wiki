@@ -34,11 +34,11 @@ Example:
 
 ```shell showLineNumbers
 zi id-as=fzf as='readurl|command' extract for \
-  dlink='/junegunn/fzf-bin/releases/download/%VERSION%/fzf-%VERSION%-linux_amd64.tgz' \
-    https://github.com/junegunn/fzf-bin/releases/
+  dlink='/junegunn/fzf/releases/download/%VERSION%/fzf-%VERSION%-linux_amd64.tgz' \
+    https://github.com/junegunn/fzf/releases/
 ```
 
-The snippet is just an example. The same effect is obtained by loading as the `junegunn/fzf-bin` plugin with `from'gh-r'` ice.
+The snippet is just an example. The same effect is obtained by loading as the `junegunn/fzf` plugin with `from'gh-r'` ice.
 
 As it can be seen, the `dlink'…'` can be a relative or an absolute path and also a full URL (i.e.: beginning with the `http://…` prefix).
 
