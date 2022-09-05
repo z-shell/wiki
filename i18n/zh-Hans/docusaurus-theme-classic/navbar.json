@@ -18,17 +18,5 @@
   "item.label.Feed": {
     "message": "新闻源",
     "description": "Navbar item with label Feed"
-  },
-  "item.label.JSON": {
-    "message": "JSON",
-    "description": "Navbar item with label JSON"
-  },
-  "item.label.RSS": {
-    "message": "RSS",
-    "description": "Navbar item with label RSS"
-  },
-  "item.label.Atom": {
-    "message": "Atom",
-    "description": "Navbar item with label Atom"
   }
 }
