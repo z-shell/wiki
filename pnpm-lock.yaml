@@ -3157,7 +3157,7 @@ packages:
       '@types/http-cache-semantics': 4.0.1
       '@types/keyv': 3.1.4
       '@types/node': 18.0.6
-      '@types/responselike': 1.0.0
+      '@types/responselike': 3.0.0
     dev: false
 
   /@types/connect-history-api-fallback/1.3.5:
@@ -3336,10 +3336,11 @@ packages:
       '@types/node': 18.0.6
     dev: false
 
-  /@types/responselike/1.0.0:
-    resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==}
+  /@types/responselike/3.0.0:
+    resolution: {integrity: sha512-zfgGLWx5IQOTJgQPD4UfGEhapTKUPC1ra/QCG02y3GUJWrhX05bBf/EfTh3aFj2DKi7cLo+cipXLNclD27tQXQ==}
+    deprecated: This is a stub types definition. responselike provides its own type definitions, so you do not need this installed.
     dependencies:
-      '@types/node': 18.0.6
+      responselike: 3.0.0
     dev: false
 
   /@types/retry/0.12.0:

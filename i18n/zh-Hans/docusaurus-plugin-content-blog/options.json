@@ -6,5 +6,9 @@
   "sidebar.title": {
     "message": "最新发布",
     "description": "The label for the left sidebar"
+  },
+  "description": {
+    "message": "Blog",
+    "description": "The description for the blog used in SEO"
   }
 }

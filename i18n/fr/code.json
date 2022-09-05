@@ -456,5 +456,12 @@
   "homepage.banner.button.1": {
     "message": "Premiers Pas",
     "description": "The homepage get started button"
+  },
+  "zi.logo": {
+    "message": "ZI logo"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "Tags",
+    "description": "The title of the tag list page"
   }
 }

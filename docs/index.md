@@ -7,8 +7,10 @@ image: /img/logo/320x320.png
 description: Introduction to a Swiss Army Knife for Zsh, formerly known as zplugin, zinit.
 keywords:
   - introduction
-  - zi features
-  - about zi
+  - features
+  - synopsis
+  - overview
+  - welcome
 ---
 
 <!-- @format -->
@@ -16,21 +18,16 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import Image from '@theme/IdealImage';
+import ImgShow from '@site/src/components/ImgShow';
 import ZGitImg from '@site/static/img/png/z_git.png';
 
-<div className="ScreenView">
-  <Image className="ImageView" img={ZGitImg} />
-  <Link href="https://github.com/orgs/z-shell/">
-  <Image
-    className="ImageView"
-    width="1000"
-    height="500"
-    alt="Z-Shell Organization Stats"
+<ImgShow img={ZGitImg} />
+<Link href="https://github.com/orgs/z-shell/">
+  <ImgShow
+    alt="Z-Shell Organization Stats" width="100%" height="auto"
     img="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
   />
-  </Link>
-</div>
+</Link>
 
 <Tabs>
   <TabItem value="gems" label="RubyGems">
@@ -84,17 +81,12 @@ Install and control almost everything from GitHub: [Annexes](/ecosystem/category
 
 ## <i class="fa-solid fa-list-check"></i> Summary
 
-<div className="ScreenView">
-  <Link href="https://github.com/orgs/z-shell/projects/">
-  <Image
-    className="ImageView"
-    width="1000"
-    height="500"
-    alt="Z-Shell Organization FollowUp"
+<Link href="https://github.com/orgs/z-shell/projects/">
+  <ImgShow
+    alt="Z-Shell Organization FollowUp" width="100%" height="auto"
     img="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg"
   />
-  </Link>
-</div>
+</Link>
 
 <!-- end-of-file -->
 <!-- links -->

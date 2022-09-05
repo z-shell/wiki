@@ -18,17 +18,6 @@ actions:
     - trunk-cache-prune
     - trunk-check-upgrade
     - trunk-upgrade
-    - pnpm-install
-  definitions:
-    - id: pnpm-install
-      triggers:
-        - files:
-            - package.json
-            - pnpm-lock.yaml
-      run: pnpm install
-runtimes:
-  enabled:
-    - node@>=16.17.0
 lint:
   disabled:
     - shellcheck
@@ -40,7 +29,7 @@ lint:
     - git-diff-check@SYSTEM
     - actionlint@1.6.17
     - eslint@8.23.0
-    - gitleaks@8.11.2
+    - gitleaks@8.12.0
     - markdownlint@0.32.2
     - prettier@2.7.1
     - shfmt@3.5.0

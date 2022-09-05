@@ -25,7 +25,7 @@ The <strong>ice</strong> is something that melts in a drink, though in Zi syntax
 
 ## <i class="fas fa-arrow-down-short-wide"></i> Order of execution {#order-of-execution}
 
-Order of execution of related ice modifiers is as follows:
+The order of execution of related ice modifiers is as follows:
 
 ```shell showLineNumbers
   atinit'' →
@@ -69,7 +69,7 @@ It is active when a filename is being passed as the `extract`'s argument, e.g.: 
 
 ### Filenames with spaces
 
-The filenames with spaces are supported when correctly passed such filename to an `extract` with the non-breaking spaces for the original in-filename.
+The filenames with spaces are supported when correctly passing such filenames to an `extract` with the non-breaking spaces for the original in-filename.
 
 The non-breaking space is easy to type by pressing right <kbd>ALT</kbd> and the <kbd>SPACE</kbd>.
 
@@ -94,7 +94,7 @@ It recognizes the following options:
 2. `--move` – performs the one-directory-level-up move of the files after unpacking.
 3. `--move2` – performs the two-directory-level-up move of the files after unpacking.
 4. `--norm` - prevents the archive file removal.
-5. And also one option specific only to the function: `--nobkp`, which prevents clearing the plugin's directory before the extraction. – All files besides the archive are being moved into `._backup` directory after extraction is done. - `extract` ice also skips creating the backup **if** more than one archive is found or given as the argument.
+5. And also one option specific only to the function: `--nobkp`, which prevents clearing the plugin's directory before the extraction. – All files besides the archive are being moved into the `._backup` directory after extraction is done. - `extract` ice also skips creating the backup **if** more than one archive is found or given as the argument.
 
 ### <i class="fas fa-circle-info"></i> Supported file formats {#supported-file-formats}
 
@@ -187,7 +187,7 @@ zi ice as"program" id-as"git-unique"
 zi snippet https://github.com/Osse/git-scripts/blob/master/git-unique
 ```
 
-The commands `zi update git-unique`, `zi delete git-unique` will work as expected and e.g. `zi times` will show the _nickname_-ID `git-unique` instead of the long URL.
+The commands `zi update git-unique`, and `zi delete git-unique` will work as expected and e.g. `zi times` will show the _nickname_-ID `git-unique` instead of the long URL.
 
 ### `id-as'auto'` {#id-asauto}
 
@@ -250,14 +250,14 @@ zi light z-shell/zi-crasis
 - `$ZLAST_COMMANDS` is an array built by [F-Sy-H][2], it contains commands currently entered at prompt,
 - `(r)` searches for an element that matches a given pattern (`cras*`) and returns it,
 - `-n` means: not-empty, so it will be true when users enter "cras",
-- after 1 second or less, Zi will detect that `wait'…'` condition is true, and load the plugin, which provides command _crasis_,
+- after 1 second or less, Zi will detect that the `wait'…'` condition is true, and load the plugin, which provides command _crasis_,
 
 ```shell showLineNumbers
 zi ice wait'[[ $PWD = */github || $PWD = */github/* ]]'
 zi load unixorn/git-extra-commands
 ```
 
-it waits until the user enters a `github` directory. Turbo mode also supports a suffix – the letter `a`, `b`, or `c`. The meaning is illustrated by the following example:
+it waits until the user enters a `github` directory. Turbo mode also supports a suffix – the letter a, `b`, or `c`. The meaning is illustrated by the following example:
 
 ```shell showLineNumbers
 zi ice wait"0b" as"command" pick"wd.sh" atinit"echo Firing 1" lucid
@@ -270,7 +270,7 @@ Firing 2
 Firing 1
 ```
 
-As it can be seen, the second plugin has been loaded first. That's because there are now three sub-slots (the `a`, `b`, and `c`) into which the plugin/snippet loadings can be put. Plugins from the same time slot with suffix `a` will be loaded before plugins with suffix `b`, etc.
+As can be seen, the second plugin has been loaded first. That's because there are now three sub-slots (the `a`, `b`, and `c`) into which the plugin/snippet loadings can be put. Plugins from the same time slot with suffix `a` will be loaded before plugins with suffix `b`, etc.
 
 In other words, instead of `wait'1'` you can enter `wait'1a'`, `wait'1b'`, and `wait'1c'` – this **imposes the loading order** of the **commands** regardless of actual execution time.
 
@@ -284,7 +284,7 @@ zi-turbo() {
 }
 ```
 
-Then use with the `for` syntax in the imposed loading order:
+Then use the `for` syntax in the imposed loading order:
 
 ```shell {1,6,10,15} showLineNumbers
 zi-turbo '0a' for \
@@ -314,14 +314,10 @@ zi ice pick'powerless.zsh' src'utilities.zsh'
 zi light martinrotter/powerless
 ```
 
-<div className="apitable">
-
 |  Syntax   | Description                                                                                                |
 | :-------: | :--------------------------------------------------------------------------------------------------------- |
 | `pick'…'` | Provide the main file to the source - like `*.sh`, otherwise alphabetically first matched file is sourced. |
 | `src'…'`  | Provide a second file to the source - not a pattern - plain file name.                                     |
-
-</div>
 
 ### The `svn` ice {#the-svn-ice}
 
@@ -452,7 +448,7 @@ zi load romkatv/powerlevel10k
 This way the actions were done during the first call to `_p9k_precmd()` will be normally recorded, which can be viewed in the report of the [**romkatv/powerlevel10k**][6] theme:
 
 ```shell showLineNumbers
-➜ zi report romkatv/powerlevel10k:
+zi report romkatv/powerlevel10k:
 Report for romkatv/powerlevel10k plugin
 ---------------------------------------
 Source powerlevel10k.zsh-theme (reporting enabled)
