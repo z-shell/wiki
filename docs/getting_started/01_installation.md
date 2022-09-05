@@ -15,6 +15,7 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
+import Emoji from '@site/src/components/Emoji';
 
 ## <i class="fas fa-spinner fa-spin"></i> Quick setup {#quick-setup}
 
@@ -60,6 +61,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
 
 <Tabs>
   <TabItem value="minimal" label="Minimal" default>
+<div>
 
 Install and include minimal configuration to the `.zshrc`:
 
@@ -67,21 +69,21 @@ Install and include minimal configuration to the `.zshrc`:
 sh -c "$(curl -fsSL git.io/get-zi)" --
 ```
 
+</div>
   </TabItem>
   <TabItem value="repository" label="Repository">
+<div>
 
-Install repository or update if already exists, if [custom path][customizing-paths] is not set, then will try to install it in the following order:
-
-1. `$HOME/.zi`
-2. `$ZDOTDIR/.zi`
-3. `$XDG_DATA_HOME/.zi`
+Clone repository using default or if set [custom][customizing-paths] values.
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
 ```
 
+</div>
   </TabItem>
   <TabItem value="minimal-annexes" label="Annex">
+<div>
 
 Install and include minimal configuration with recommended [annexes][]:
 
@@ -89,8 +91,10 @@ Install and include minimal configuration with recommended [annexes][]:
 sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
 ```
 
+</div>
   </TabItem>
   <TabItem value="minimal-zunit" label="ZUnit">
+<div>
 
 Install and include minimal configuration with recommended [annexes][] and setup [zdharma/zunit][]:
 
@@ -98,8 +102,10 @@ Install and include minimal configuration with recommended [annexes][] and setup
 sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
 ```
 
+</div>
   </TabItem>
   <TabItem value="minimal-loader" label="Loader">
+<div>
 
 Install and include minimal configuration with [loader](#loader):
 
@@ -123,6 +129,7 @@ The loader can be manually fetched from available [links](#loader) to any locati
 
 Then reload shell with: `exec zsh`. All done!
 
+</div>
   </TabItem>
 </Tabs>
 
@@ -178,11 +185,11 @@ autoload -Uz _zi
 
 After a fresh install, recommended to reload the shell with `exec zsh` and compile Zi with `zi self-update`. Run `zi -h` to see all available commands. Increase Zi functionality, and performance, or get started by exploring the wiki.
 
-If you have any issue or need help 🤦‍♂️, lets [discuss][] it or open an [issue][] in any language.
+If you have any issue or need help <Emoji symbol="🤦‍♂️" label="man-facepalming"/>, lets [discuss][] it or open an [issue][] in any language.
 
-It helps us to improve and make Zi better. Don't forget to help the project: share, contribute, or [translate][] 🌐 🥰 🤓.
+It helps us to improve and make Zi better. Don't forget to help the project: share, contribute, or [translate][] <Emoji symbol="🌐" label="globe-with-meridians"/> <Emoji symbol="🥰" label="smiling-face-with-hearts"/> <Emoji symbol="🤓" label="nerd-face"/>.
 
-Let's glue everything together to create a toolchain that works for us 🚀.
+Let's glue everything together to create a toolchain that works for us <Emoji symbol="🚀" label="rocket"/>.
 
 ## <i class="fas fa-sync-alt fa-spin"></i> Have ideas?
 
@@ -257,7 +264,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
 
 ## <i class="fas fa-sync-alt fa-spin"></i> Available links {#available-links}
 
-[Status page: ☑️][status]
+[Status page][status] <Emoji symbol="✅" label="check-mark-button"/>
 
 ### <i class="fa-solid fa-gear"></i> Installer {#installer}
 
