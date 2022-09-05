@@ -13,9 +13,11 @@ keywords:
 
 <!-- @format -->
 
+import APITable from '@site/src/components/APITable';
+
 The `for` syntax is the most popular, more concise, and more optimized. The single command will work the same as the classic-syntax invocation.
 
-It allows providing common/default ices for a <b> set of plugins </b> or to source <b> multiple files </b> with the ices: [src, pick, multisrc][ice#src-pick-multisrc].
+It allows providing common/default ices for a <b>set of plugins</b> or to source <b>multiple files</b> with the ices: [src, pick, multisrc][ice#src-pick-multisrc].
 
 :::tip
 
@@ -91,6 +93,10 @@ zi wait lucid light-mode for \
     zsh-users/zsh-completions
 ```
 
+```mdx-code-block
+<APITable>
+```
+
 | Syntax       | Description                                                                                  |
 | ------------ | :------------------------------------------------------------------------------------------- |
 | `wait`       | Load 0 seconds (about 5 ms exactly) after prompt ([turbo mode][6]).                          |
@@ -101,6 +107,10 @@ zi wait lucid light-mode for \
 | `atload'…'`  | Execute code after loading the plugin.                                                       |
 | `zicompinit` | Equals to `autoload compinit; compinit`.                                                     |
 | `zicdreplay` | Execute `compdef …` calls by plugins. More below [^2].                                       |
+
+```mdx-code-block
+</APITable>
+```
 
 ## <i class="fa-solid fa-list"></i> Oh-My-Zsh, [turbo][6] Oh-My-Zsh and the [for][10] syntax
 

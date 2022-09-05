@@ -7,6 +7,7 @@ keywords:
   - annex
   - zannex
   - eval
+draft: true
 ---
 
 <!-- @format -->
@@ -35,7 +36,7 @@ The optional preceding `!` flag means to store command output regardless of exit
 ## Example invocations
 
 <Tabs>
-  <TabItem value="no-eval+zi" label="No Eval + Zi" default>
+<TabItem value="no-eval+zi" label="No Eval + Zi" default>
 
 ```shell showLineNumbers
 zi ice as"command" from"gh-r" \
@@ -51,8 +52,8 @@ zi ice atclone"dircolors -b LS_COLORS > init.zsh" \
 zi light trapd00r/LS_COLORS
 ```
 
-  </TabItem>
-  <TabItem value="eval+zi" label="Eval + Zi">
+</TabItem>
+<TabItem value="eval+zi" label="Eval + Zi">
 
 ```shell {2} showLineNumbers
 zi ice as"command" from"gh-r" \
@@ -66,10 +67,10 @@ zi ice eval"dircolors -b LS_COLORS" \
 zi light trapd00r/LS_COLORS
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 <Tabs>
-  <TabItem value="no-zi-eval" label="No Zi + Eval">
+<TabItem value="no-zi-eval" label="No Zi + Eval">
 
 ```shell showLineNumbers
 if [[ "${+commands[kubectl]}" == 1 ]]; then
@@ -77,8 +78,8 @@ if [[ "${+commands[kubectl]}" == 1 ]]; then
 fi
 ```
 
-  </TabItem>
-  <TabItem value="zi+eval" label="Zi + Eval">
+</TabItem>
+<TabItem value="zi+eval" label="Zi + Eval">
 
 ```shell {2} showLineNumbers
 zi ice id-as"kubectl_completion" has"kubectl" \
@@ -86,7 +87,7 @@ zi ice id-as"kubectl_completion" has"kubectl" \
 zi light z-shell/null
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Install eval {#install-eval}
@@ -98,7 +99,7 @@ zi light z-shell/null
 :::
 
 <Tabs>
-  <TabItem value="default" label="Default" default>
+<TabItem value="default" label="Default" default>
 
 Add the following snippet in the `.zshrc` file:
 
@@ -106,8 +107,8 @@ Add the following snippet in the `.zshrc` file:
 zi light z-shell/z-a-eval
 ```
 
-  </TabItem>
-  <TabItem value="tab-completion" label="Enable Completion">
+</TabItem>
+<TabItem value="tab-completion" label="Enable Completion">
 
 Add the following snippet in the `.zshrc` file:
 
@@ -118,7 +119,7 @@ zi ice atinit'Z_A_USECOMP=1'
 zi light z-shell/z-a-eval
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 This will register subcommand `recache` and `eval'…'` ice-modifier.

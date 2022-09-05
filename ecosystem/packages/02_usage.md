@@ -2,7 +2,7 @@
 id: usage
 title: "📦 Usage"
 image: /img/logo/320x320.png
-description: Zi packages packages usage information.
+description: Zi packages usage information.
 keywords:
   - zpackage
   - packages
@@ -148,10 +148,8 @@ zi pack for @asciidoctor
   </tbody>
 </table>
 
-```mdx-code-block
 <Tabs>
-  <TabItem value="default" label="Default" default>
-```
+<TabItem value="default" label="Default" default>
 
 Download the binary of the Amazon-ECS-CLI command.
 
@@ -159,10 +157,8 @@ Download the binary of the Amazon-ECS-CLI command.
 zi pack for ecs-cli
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="bin-gem-node" label="Annex">
-```
+</TabItem>
+<TabItem value="bin-gem-node" label="Annex">
 
 Download the ECS-CLI binary with the use of the bin-gem-node annex.
 
@@ -170,10 +166,8 @@ Download the ECS-CLI binary with the use of the bin-gem-node annex.
 zi pack"bgn" for ecs-cli
 ```
 
-```mdx-code-block
-  </TabItem>
+</TabItem>
 </Tabs>
-```
 
 ### `dircolors-material` color scheme
 
@@ -202,10 +196,8 @@ zi pack"bgn" for ecs-cli
   </tbody>
 </table>
 
-```mdx-code-block
 <Tabs>
-  <TabItem value="default" label="Default"  default>
-```
+<TabItem value="default" label="Default"  default>
 
 Download the default profile.
 
@@ -213,10 +205,8 @@ Download the default profile.
 zi pack for dircolors-material
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="no-zsh-completion" label="No completion">
-```
+</TabItem>
+<TabItem value="no-zsh-completion" label="No completion">
 
 Download the "no-zsh-completion" profile.
 
@@ -224,10 +214,8 @@ Download the "no-zsh-completion" profile.
 zi pack"no-zsh-completion" for dircolors-material
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="no-color-swap" label="No color swap">
-```
+</TabItem>
+<TabItem value="no-color-swap" label="No color swap">
 
 Download the "no-color-swaps" profile.
 
@@ -235,10 +223,8 @@ Download the "no-color-swaps" profile.
 zi pack"no-color-swaps" for dircolors-material
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="minimal" label="Minimal">
-```
+</TabItem>
+<TabItem value="minimal" label="Minimal">
 
 Download the minimal profile without altering the original theme.
 
@@ -246,10 +232,8 @@ Download the minimal profile without altering the original theme.
 zi pack"minimal" for dircolors-material
 ```
 
-```mdx-code-block
-  </TabItem>
+</TabItem>
 </Tabs>
-```
 
 ### `doctoc` Markdown processor
 
@@ -311,10 +295,8 @@ zi pack for doctoc
   </tbody>
 </table>
 
-```mdx-code-block
 <Tabs>
-  <TabItem value="default" label="Default" default>
-```
+<TabItem value="default" label="Default" default>
 
 Download the firefox-dev latest binary.
 
@@ -322,10 +304,8 @@ Download the firefox-dev latest binary.
 zi pack for firefox-dev
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="bin-gem-node" label="Annex">
-```
+</TabItem>
+<TabItem value="bin-gem-node" label="Annex">
 
 Download the firefox-dev latest binary with use of the [bin-gem-node][] annex.
 
@@ -333,10 +313,8 @@ Download the firefox-dev latest binary with use of the [bin-gem-node][] annex.
 zi pack"bgn" for firefox-dev
 ```
 
-```mdx-code-block
-  </TabItem>
+</TabItem>
 </Tabs>
-```
 
 ### `fzf` command-line fuzzy finder
 
@@ -365,10 +343,8 @@ zi pack"bgn" for firefox-dev
   </tbody>
 </table>
 
-```mdx-code-block
 <Tabs>
-  <TabItem value="default" label="Default" default>
-```
+<TabItem value="default" label="Default" default>
 
 Download the package with the default profile.
 
@@ -376,10 +352,8 @@ Download the package with the default profile.
 zi pack for fzf
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="key-bindings" label="Key bindings">
-```
+</TabItem>
+<TabItem value="key-bindings" label="Key bindings">
 
 Download the package with the default profile + key bindings.
 
@@ -387,10 +361,8 @@ Download the package with the default profile + key bindings.
 zi pack"default+keys" for fzf
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="bin-gem-node" label="Annex">
-```
+</TabItem>
+<TabItem value="bin-gem-node" label="Annex">
 
 Download the package with the [bin-gem-node][] annex.
 
@@ -398,10 +370,8 @@ Download the package with the [bin-gem-node][] annex.
 zi pack"bgn" for fzf
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="bin-gem-node+key-bindings" label="Annex + key bindings">
-```
+</TabItem>
+<TabItem value="bin-gem-node+key-bindings" label="Annex + key bindings">
 
 Download the package with the [bin-gem-node][] annex and with the key bindings.
 
@@ -411,10 +381,8 @@ Download the package with the [bin-gem-node][] annex and with the key bindings.
 zi pack"bgn+keys" for fzf
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="bin-gem-node+git" label="Annex + git">
-```
+</TabItem>
+<TabItem value="bin-gem-node+git" label="Annex + git">
 
 Download with the [bin-gem-node][] annex from GitHub repository.
 
@@ -422,10 +390,8 @@ Download with the [bin-gem-node][] annex from GitHub repository.
 zi pack"bgn" git for fzf
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="binary" label="Binary">
-```
+</TabItem>
+<TabItem value="binary" label="Binary">
 
 Download the binary from the GitHub releases.
 
@@ -433,10 +399,8 @@ Download the binary from the GitHub releases.
 zi pack"binary" for fzf
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="bin-gem-node+binary" label="Annex + binary">
-```
+</TabItem>
+<TabItem value="bin-gem-node+binary" label="Annex + binary">
 
 Download the binary from the GitHub releases and install using [bin-gem-node][] + shims.
 
@@ -444,10 +408,8 @@ Download the binary from the GitHub releases and install using [bin-gem-node][] 
 zi pack"bgn-binary" for fzf
 ```
 
-```mdx-code-block
-  </TabItem>
+</TabItem>
 </Tabs>
-```
 
 ### `fzy` command-line fuzzy finder
 
@@ -476,10 +438,8 @@ zi pack"bgn-binary" for fzf
   </tbody>
 </table>
 
-```mdx-code-block
 <Tabs>
-  <TabItem value="default" label="Default" default>
-```
+<TabItem value="default" label="Default" default>
 
 Download the package with the default profile.
 
@@ -487,10 +447,8 @@ Download the package with the default profile.
 zi pack for fzy
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="bin-gem-node" label="Annex">
-```
+</TabItem>
+<TabItem value="bin-gem-node" label="Annex">
 
 Download the package with the [bin-gem-node][] annex.
 
@@ -498,10 +456,8 @@ Download the package with the [bin-gem-node][] annex.
 zi pack"bgn" for fzy
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="bin-gem-node+git" label="Annex + git">
-```
+</TabItem>
+<TabItem value="bin-gem-node+git" label="Annex + git">
 
 Download with the [bin-gem-node][] annex from GitHub repository.
 
@@ -509,10 +465,8 @@ Download with the [bin-gem-node][] annex from GitHub repository.
 zi pack"bgn" git for fzy
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="default+override" label="Default Override">
-```
+</TabItem>
+<TabItem value="default+override" label="Default Override">
 
 Download normal ice list and override atclone'' ice to skip the contrib scripts
 
@@ -520,10 +474,8 @@ Download normal ice list and override atclone'' ice to skip the contrib scripts
 zi pack"bgn" atclone'' for fzy
 ```
 
-```mdx-code-block
-  </TabItem>
+</TabItem>
 </Tabs>
-```
 
 ### `LS_COLORS` color scheme
 
@@ -550,10 +502,8 @@ zi pack"bgn" atclone'' for fzy
   </tbody>
 </table>
 
-```mdx-code-block
 <Tabs>
-  <TabItem value="default" label="Default" default>
-```
+<TabItem value="default" label="Default" default>
 
 Download the default profile.
 
@@ -561,10 +511,8 @@ Download the default profile.
 zi pack for ls_colors
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="no-zsh-completion" label="No completion">
-```
+</TabItem>
+<TabItem value="no-zsh-completion" label="No completion">
 
 Download the "no-zsh-completion" profile.
 
@@ -572,10 +520,8 @@ Download the "no-zsh-completion" profile.
 zi pack"no-zsh-completion" for ls_colors
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="no-dir-color-swap" label="No color swap">
-```
+</TabItem>
+<TabItem value="no-dir-color-swap" label="No color swap">
 
 Download the "no-dir-color-swap" profile.
 
@@ -583,10 +529,8 @@ Download the "no-dir-color-swap" profile.
 zi pack"no-dir-color-swap" for ls_colors
 ```
 
-```mdx-code-block
-  </TabItem>
+</TabItem>
 </Tabs>
-```
 
 ### Feature-rich note‑taking (`nb`) {#nb-pkg-profile}
 
@@ -646,10 +590,8 @@ zi pack for nb
   </tbody>
 </table>
 
-```mdx-code-block
 <Tabs>
-  <TabItem value="default" label="Default" default>
-```
+<TabItem value="default" label="Default" default>
 
 Download the tarball with the default ice list.
 
@@ -657,10 +599,8 @@ Download the tarball with the default ice list.
 zi pack for pyenv
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="bin-gem-node" label="Annex">
-```
+</TabItem>
+<TabItem value="bin-gem-node" label="Annex">
 
 Download the binary from the GitHub releases with the [bin-gem-node][] annex.
 
@@ -668,10 +608,8 @@ Download the binary from the GitHub releases with the [bin-gem-node][] annex.
 zi pack"bgn" for pyenv
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="bin-gem-node+git" label="Annex + git">
-```
+</TabItem>
+<TabItem value="bin-gem-node+git" label="Annex + git">
 
 Download with the [bin-gem-node][] annex from GitHub repository.
 
@@ -679,10 +617,8 @@ Download with the [bin-gem-node][] annex from GitHub repository.
 zi pack"bgn" git for pyenv
 ```
 
-```mdx-code-block
-  </TabItem>
+</TabItem>
 </Tabs>
-```
 
 ### `remark` Markdown processor
 
@@ -700,7 +636,7 @@ zi pack"bgn" git for pyenv
     <tr>
       <td>
         <b>Status:</b>
-      </td>prohibited
+      </td>
       <td><Emoji symbol="🚫" label="prohibited"/></td>
       <td><Emoji symbol="🚫" label="prohibited"/></td>
       <td><Emoji symbol="✅" label="check-mark-button"/> (default)</td>
@@ -709,10 +645,8 @@ zi pack"bgn" git for pyenv
   </tbody>
 </table>
 
-```mdx-code-block
 <Tabs>
-  <TabItem value="default" label="Default" default>
-```
+<TabItem value="default" label="Default" default>
 
 Download the Node package of remark-CLI, remark-man and remark-HTML
 
@@ -720,10 +654,8 @@ Download the Node package of remark-CLI, remark-man and remark-HTML
 zi pack for remark
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="man-only" label="Man only">
-```
+</TabItem>
+<TabItem value="man-only" label="Man only">
 
 Download the Node package of remark-CLI and remark-man
 
@@ -731,10 +663,8 @@ Download the Node package of remark-CLI and remark-man
 zi pack"man-only" for remark
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="specific-version" label="HTML only">
-```
+</TabItem>
+<TabItem value="specific-version" label="HTML only">
 
 Download the Node package of remark-CLI and remark-HTML
 
@@ -742,10 +672,8 @@ Download the Node package of remark-CLI and remark-HTML
 zi pack"html-only" for remark
 ```
 
-```mdx-code-block
-  </TabItem>
+</TabItem>
 </Tabs>
-```
 
 ### Subversion
 
@@ -809,10 +737,8 @@ zi pack for subversion
   </tbody>
 </table>
 
-```mdx-code-block
 <Tabs>
-  <TabItem value="default" label="Default" default>
-```
+<TabItem value="default" label="Default" default>
 
 Install the newest Zsh.
 
@@ -820,10 +746,8 @@ Install the newest Zsh.
 zi pack for zsh
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="specific-version" label="Specific version">
-```
+</TabItem>
+<TabItem value="specific-version" label="Specific version">
 
 Install preferred Zsh version.
 
@@ -840,10 +764,8 @@ zi pack"5.2.4" for zsh
 zi pack"5.1.1" for zsh
 ```
 
-```mdx-code-block
-  </TabItem>
+</TabItem>
 </Tabs>
-```
 
 ### Statically-linked, hermetic, relocatable Zsh
 
@@ -872,10 +794,8 @@ zi pack"5.1.1" for zsh
   </tbody>
 </table>
 
-```mdx-code-block
 <Tabs>
-  <TabItem value="default" label="Default" default>
-```
+<TabItem value="default" label="Default" default>
 
 Requires **root** access to install Zsh at `/usr/local` and will attempt to register it as a login shell.
 
@@ -883,10 +803,8 @@ Requires **root** access to install Zsh at `/usr/local` and will attempt to regi
 zi pack for zsh-bin
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="bin-gem-node" label="Annex">
-```
+</TabItem>
+<TabItem value="bin-gem-node" label="Annex">
 
 Does not require **root** access, when install using [bin-gem-node][] to set shims.
 
@@ -894,10 +812,8 @@ Does not require **root** access, when install using [bin-gem-node][] to set shi
 zi pack"bgn" for zsh-bin
 ```
 
-```mdx-code-block
-  </TabItem>
-  <TabItem value="rootless" label="Rootless">
-```
+</TabItem>
+<TabItem value="rootless" label="Rootless">
 
 Does not require **root** access, will install to `~/.local`.
 
@@ -905,10 +821,8 @@ Does not require **root** access, will install to `~/.local`.
 zi pack"rootless" for zsh-bin
 ```
 
-```mdx-code-block
-  </TabItem>
+</TabItem>
 </Tabs>
-```
 
 <!-- end-of-file -->
 <!-- links -->

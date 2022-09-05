@@ -20,7 +20,7 @@
     "description": "The label of footer link with label=Introduction linking to /docs"
   },
   "link.item.label.Ecosystem": {
-    "message": "生态系统",
+    "message": "Ecosystem",
     "description": "The label of footer link with label=Ecosystem linking to /ecosystem"
   },
   "link.item.label.Community": {
@@ -28,7 +28,7 @@
     "description": "The label of footer link with label=Community linking to /community"
   },
   "link.item.label.Discussions": {
-    "message": "GitHub 讨论",
+    "message": "Discussions",
     "description": "The label of footer link with label=Discussions linking to https://discussions.zshell.dev"
   },
   "link.item.label.Matrix.org": {
@@ -40,7 +40,7 @@
     "description": "The label of footer link with label=Gitter.im linking to https://gitter.im/z-shell/zi"
   },
   "link.item.label.GitHub Repositories": {
-    "message": "GitHub 存储库",
+    "message": "GitHub Repositories",
     "description": "The label of footer link with label=GitHub Repositories linking to https://github.com/orgs/z-shell/repositories/"
   },
   "link.item.label.Crowdin Translations": {
@@ -48,11 +48,11 @@
     "description": "The label of footer link with label=Crowdin Translations linking to https://translate.zshell.dev/"
   },
   "link.item.label.Z-Shell Uptime Status": {
-    "message": "Z-Shell 运行时间状态",
+    "message": "Z-Shell Uptime Status",
     "description": "The label of footer link with label=Z-Shell Uptime Status linking to https://status.zshell.dev/"
   },
   "link.item.label.Contributing": {
-    "message": "参与贡献",
+    "message": "Contributing",
     "description": "The label of footer link with label=Contributing linking to legal/CONTRIBUTING"
   },
   "link.item.label.Privacy Policy": {
@@ -60,7 +60,7 @@
     "description": "The label of footer link with label=Privacy Policy linking to legal/PRIVACY"
   },
   "link.item.label.Code of Conduct": {
-    "message": "行为准则",
+    "message": "Code of Conduct",
     "description": "The label of footer link with label=Code of Conduct linking to legal/CODE_OF_CONDUCT"
   },
   "copyright": {

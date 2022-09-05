@@ -8,6 +8,7 @@ keywords:
   - prezto
   - oh-my-zsh
   - migration
+  - migration-guide
 ---
 
 <!-- @format -->

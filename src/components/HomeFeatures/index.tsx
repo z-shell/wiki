@@ -5,6 +5,7 @@ import React from "react";
 import clsx from "clsx";
 import Translate, { translate } from "@docusaurus/Translate";
 import Player from "@site/src/components/Player";
+import Emoji from "@site/src/components/Emoji";
 import styles from "./styles.module.css";
 
 const turboSvg = () => (
@@ -109,44 +110,56 @@ export default function HomeFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className='container'>
-        <div className='col'>
-          <div className={styles.videocontainer}>
-            <h2 className={styles.videotitle}>
-              <Translate
-                id='homepage.video.heading.1'
-                description='The homepage video container heading 1'
-              >
-                ⚡ Fast and feature-rich
-              </Translate>
-            </h2>
-            <Player
-              src='https://asciinema.org/a/509113.cast'
-              rows={34}
-              cols={231}
-              idleTimeLimit={1}
-              preload
+        <div className={styles.videocontainer}>
+          <h2>
+            <Emoji
+              style={{
+                paddingRight: "0.5rem",
+              }}
+              symbol='⚡'
+              label='high-voltage'
             />
-          </div>
-          <div className={styles.featurecontainer}>
-            <Features />
-          </div>
-          <div className={styles.videocontainer}>
-            <h2 className={styles.videotitle}>
-              <Translate
-                id='homepage.video.heading.2'
-                description='The homepage video container heading 2'
-              >
-                ✨ Neat and flexible
-              </Translate>
-            </h2>
-            <Player
-              src='https://asciinema.org/a/497831.cast'
-              rows={34}
-              cols={231}
-              idleTimeLimit={1}
-              preload
+            <Translate
+              id='homepage.video.heading.1'
+              description='The homepage video container heading 1'
+            >
+              Fast and feature-rich
+            </Translate>
+          </h2>
+          <Player
+            src='https://asciinema.org/a/509113.cast'
+            rows={34}
+            cols={231}
+            idleTimeLimit={1}
+            preload
+          />
+        </div>
+        <div className={styles.featurecontainer}>
+          <Features />
+        </div>
+        <div className={styles.videocontainer}>
+          <h2>
+            <Emoji
+              style={{
+                paddingRight: "0.5rem",
+              }}
+              symbol='✨'
+              label='sparkles'
             />
-          </div>
+            <Translate
+              id='homepage.video.heading.2'
+              description='The homepage video container heading 2'
+            >
+              Neat and flexible
+            </Translate>
+          </h2>
+          <Player
+            src='https://asciinema.org/a/497831.cast'
+            rows={34}
+            cols={231}
+            idleTimeLimit={1}
+            preload
+          />
         </div>
       </div>
     </section>

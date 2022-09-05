@@ -25,12 +25,8 @@ const config = {
   projectName: "wiki",
   organizationName: "z-shell",
   staticDirectories: ["static"],
-  stylesheets: [{ href: "/assets/fa/css/all.min.css", type: "text/css" }],
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "fr", "ja", "zh-Hans"],
-    localeConfigs: { en: { htmlLang: "en-US" } },
-  },
+  stylesheets: [{ href: "/assets/fa/css/all.min.css" }],
+  i18n: { defaultLocale: "en", locales: ["en", "fr", "ja", "zh-Hans"] },
   presets: [
     [
       "classic",
@@ -53,7 +49,9 @@ const config = {
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           remarkPlugins: [math],
-          rehypePlugins: [katex],
+          rehypePlugins: [],
+          beforeDefaultRemarkPlugins: [],
+          beforeDefaultRehypePlugins: [],
         },
         blog: {
           editUrl: ({ locale, blogDirPath, blogPath }) => {
@@ -62,6 +60,10 @@ const config = {
             }
             return `https://github.com/z-shell/wiki/tree/main/${blogDirPath}/${blogPath}`;
           },
+          remarkPlugins: [math],
+          rehypePlugins: [],
+          beforeDefaultRemarkPlugins: [],
+          beforeDefaultRehypePlugins: [],
           showReadingTime: true,
           postsPerPage: "ALL",
           feedOptions: {
@@ -69,6 +71,7 @@ const config = {
             copyright: `Copyright © ${new Date().getFullYear()} Z-Shell Community.`,
           },
         },
+        pages: { remarkPlugins: [math] },
         sitemap: { changefreq: "daily" },
       }),
     ],

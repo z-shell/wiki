@@ -22,14 +22,14 @@ import Emoji from '@site/src/components/Emoji';
 Add the following snippet in the `.zshrc` file:
 
 <Tabs>
-  <TabItem value="instant-source" label="Instant" default>
+<TabItem value="instant-source" label="Instant" default>
 
 ```shell title="~/.zshrc"
 source <(curl -sL git.io/zi-loader); zzinit
 ```
 
-  </TabItem>
-  <TabItem value="verified-source" label="Verified">
+</TabItem>
+<TabItem value="verified-source" label="Verified">
 
 Verify the sha256 [checksum][] for a file: `lib/zsh/init.zsh`:
 
@@ -41,7 +41,7 @@ local cs=$(sha256sum <(curl -sL git.io/zi-loader) | awk '{print $1}')
 }
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 Reload shell with `exec zsh` and run `zi -h` for usage information.
@@ -60,8 +60,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
 :::
 
 <Tabs>
-  <TabItem value="minimal" label="Minimal" default>
-<div>
+<TabItem value="minimal" label="Minimal" default>
 
 Install and include minimal configuration to the `.zshrc`:
 
@@ -69,10 +68,8 @@ Install and include minimal configuration to the `.zshrc`:
 sh -c "$(curl -fsSL git.io/get-zi)" --
 ```
 
-</div>
-  </TabItem>
-  <TabItem value="repository" label="Repository">
-<div>
+</TabItem>
+<TabItem value="repository" label="Repository">
 
 Clone repository using default or if set [custom][customizing-paths] values.
 
@@ -80,10 +77,8 @@ Clone repository using default or if set [custom][customizing-paths] values.
 sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
 ```
 
-</div>
-  </TabItem>
-  <TabItem value="minimal-annexes" label="Annex">
-<div>
+</TabItem>
+<TabItem value="minimal-annexes" label="Annex">
 
 Install and include minimal configuration with recommended [annexes][]:
 
@@ -91,10 +86,8 @@ Install and include minimal configuration with recommended [annexes][]:
 sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
 ```
 
-</div>
-  </TabItem>
-  <TabItem value="minimal-zunit" label="ZUnit">
-<div>
+</TabItem>
+<TabItem value="minimal-zunit" label="ZUnit">
 
 Install and include minimal configuration with recommended [annexes][] and setup [zdharma/zunit][]:
 
@@ -102,10 +95,8 @@ Install and include minimal configuration with recommended [annexes][] and setup
 sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
 ```
 
-</div>
-  </TabItem>
-  <TabItem value="minimal-loader" label="Loader">
-<div>
+</TabItem>
+<TabItem value="minimal-loader" label="Loader">
 
 Install and include minimal configuration with [loader](#loader):
 
@@ -129,15 +120,14 @@ The loader can be manually fetched from available [links](#loader) to any locati
 
 Then reload shell with: `exec zsh`. All done!
 
-</div>
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## <i class="fas fa-spinner fa-spin"></i> Manual Setup {#manual-setup}
 
 :::tip Related
 
-- [🏗 Preferences & Configuration][customization]
+- [🏗 Configuration management][customization]
 
 :::
 

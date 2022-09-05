@@ -6,14 +6,23 @@ sidebar_position: 1
 image: /img/logo/320x320.png
 keywords:
   - documentation
-  - community
   - zsh-lovers
+  - community
   - gallery
 ---
 
 <!-- @format -->
 
-<div className="RightView">
-  <img className="ImageView" height="1024" width="768" src="/img/zsh/zsh1.png#gh-dark-mode-only" alt="Zsh Dark" />
-  <img className="ImageView" height="1024" width="768" src="/img/zsh/zsh2.png#gh-light-mode-only" alt="Zsh Light" />
-</div>
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
+
+<span className="RightView">
+  <ThemedImage
+  className="ImageView"
+  alt="Zsh Image"
+  sources={{
+      light: useBaseUrl('/img/zsh/zsh2.png'),
+      dark: useBaseUrl('/img/zsh/zsh1.png'),
+    }}
+  />
+</span>

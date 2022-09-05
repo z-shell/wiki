@@ -18,39 +18,40 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
+import Image from '@theme/IdealImage';
 import ImgShow from '@site/src/components/ImgShow';
 import ZGitImg from '@site/static/img/png/z_git.png';
 
-<ImgShow img={ZGitImg} />
+<Image img={ZGitImg} />
 <Link href="https://github.com/orgs/z-shell/">
-  <ImgShow
-    alt="Z-Shell Organization Stats" width="100%" height="auto"
-    img="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
-  />
+<ImgShow
+  alt="Z-Shell Organization Stats" width="100%" height="auto"
+  img="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
+/>
 </Link>
 
 <Tabs>
-  <TabItem value="gems" label="RubyGems">
+<TabItem value="gems" label="RubyGems">
 
 The [RubyGems](https://rubygems.org) and [\$GEM_HOME](https://guides.rubygems.org/command-reference/#gem-environment) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex or installed by the [any-gem](https://github.com/z-shell/any-gem) package.
 
-  </TabItem>
-  <TabItem value="node" label="Node">
+</TabItem>
+<TabItem value="node" label="Node">
 
 The [Node](https://www.npmjs.com) modules and [\$NODE_PATH](https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex or installed by the [any-node](https://github.com/z-shell/any-node) package.
 
-  </TabItem>
-  <TabItem value="pip" label="Python">
+</TabItem>
+<TabItem value="pip" label="Python">
 
 The [Python](https://python.org) modules, [\$VIRTUALENV](https://docs.python.org/3/tutorial/venv.html) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex.
 
-  </TabItem>
-  <TabItem value="rust" label="Rust">
+</TabItem>
+<TabItem value="rust" label="Rust">
 
 The [Rust](https://crates.io) packages are managed by the [rust](/ecosystem/annexes/rust) annex.
 
-  </TabItem>
-  <TabItem value="github" label="GitHub" default>
+</TabItem>
+<TabItem value="github" label="GitHub" default>
 
 Install and control almost everything from GitHub: [Annexes](/ecosystem/category/-annexes), [Packages](/ecosystem/category/-packages), [Gallery of Invocations](/community/gallery/collection).
 
@@ -82,10 +83,10 @@ Install and control almost everything from GitHub: [Annexes](/ecosystem/category
 ## <i class="fa-solid fa-list-check"></i> Summary
 
 <Link href="https://github.com/orgs/z-shell/projects/">
-  <ImgShow
-    alt="Z-Shell Organization FollowUp" width="100%" height="auto"
-    img="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg"
-  />
+<ImgShow
+  alt="Z-Shell Organization FollowUp" width="100%" height="auto"
+  img="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg"
+/>
 </Link>
 
 <!-- end-of-file -->

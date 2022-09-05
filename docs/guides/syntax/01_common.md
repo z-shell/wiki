@@ -13,6 +13,8 @@ keywords:
 
 <!-- @format -->
 
+import APITable from '@site/src/components/APITable';
+
 :::tip
 
 It is recommended to familiarize yourself with [getting_started/overview][] before this.
@@ -38,7 +40,7 @@ The `Makefile` with 2 tasks, can use:
 
 :::info
 
-[$ZPFX][zpfx] is provided by Zi, it is set to `~/.zi/polaris` by default. However, it can be changed by specifying: `$ZPFX=` target.
+[$ZPFX][zpfx] is provided by Zi, it is set to `~/.zi/polaris` by default. However, it can be changed by specifying the `$ZPFX=` target.
 
 :::
 
@@ -50,6 +52,10 @@ zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
 zi light vim/vim
 ```
 
+```mdx-code-block
+<APITable>
+```
+
 | Syntax             | Description                                                                               |
 | ------------------ | :---------------------------------------------------------------------------------------- |
 | `as'program'`      | Add file selected by `pick'…'` to `$PATH`, and do not source it.                          |
@@ -58,12 +64,20 @@ zi light vim/vim
 | `make`             | Run `make` after `atclone'…'` and `atpull'…'` (note: `make'!'` will execute before them). |
 | `pick'src/vim'`    | Set executable flag on `src/vim`, hint that `src/` should be added to `$PATH`.            |
 
+```mdx-code-block
+</APITable>
+```
+
 The same but with **installation** (`make install`) under [$ZPFX][zpfx] by default:
 
 ```shell showLineNumbers
 zi ice as'program' atclone'rm -f src/auto/config.cache; \
   ./configure --prefix=$ZPFX' atpull'%atclone' make'all install' pick'$ZPFX/bin/vim'
 zi light vim/vim
+```
+
+```mdx-code-block
+<APITable>
 ```
 
 | Syntax             | Description                                                                                  |
@@ -74,15 +88,23 @@ zi light vim/vim
 | `make`             | As above, but also run the `install` target.                                                 |
 | `pick'src/vim'`    | as above, but for a different path `$ZPFX/bin/vim`.                                          |
 
+```mdx-code-block
+</APITable>
+```
+
 ## <i class="fa-solid fa-palette"></i> LS_COLORS {#ls_colors}
 
-A repository [trapd00r/LS_COLORS][1] provides a file with color definitions for GNU `ls` command, and also for [ogham/exa][2]. Typically one does `eval $( dircolors -b $HOME/LS_COLORS)` to process this file and set the environment for `ls`. This means `dircolors` is run by every shell startup. It costs much time to create a fork and program, i.e., `dircolors` binary needs to be loaded to obtain and process the colors definitions. The following invocation solves this problem:
+A repository [trapd00r/LS_COLORS][1] provides a file with color definitions for GNU `ls` command, and also for [ogham/exa][2]. Typically one does `eval $( dircolors -b $HOME/LS_COLORS)` to process this file and set the environment for `ls`. This means `dircolors` is run by every shell startup. It costs much time to create a fork and program, i.e., the `dircolors` binary needs to be loaded to obtain and process the color definitions. The following invocation solves this problem:
 
 ```shell showLineNumbers
 zi ice atclone'dircolors -b LS_COLORS > clrs.zsh' \
   atpull'%atclone' pick"clrs.zsh" nocompile'!' \
   atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
 zi light trapd00r/LS_COLORS
+```
+
+```mdx-code-block
+<APITable>
 ```
 
 | Syntax             | Description                                                                                               |
@@ -93,11 +115,15 @@ zi light trapd00r/LS_COLORS
 | `nocompile'!'`     | Invokes compilation **after** the `atclone'…'` [ice-modifier][] and the [exclamation][] mark causes this. |
 | `atload'…'`        | Additionally sets up the Zsh completion to use the colors provided by the trapd00r package.               |
 
+```mdx-code-block
+</APITable>
+```
+
 This way, except for the plugin installation and update, `dircolors` isn't run, just normal sourcing is done. The everyday sourced file, i.e. `clrs.zsh`, is being compiled to speed up the loading.
 
 ## <i class="fa-solid fa-folder-tree"></i> Direnv {#direnv}
 
-The project [**direnv/direnv**][5] registers itself in the Z shell to modify the environment on directory change. This registration is most often done by `eval "$(direnv hook zsh)"` added to `.zshrc`.
+The project [direnv/direnv][5] registers itself in the Z shell to modify the environment on directory change. This registration is most often done by `eval "$(direnv hook zsh)"` added to `.zshrc`.
 
 ```shell showLineNumbers
 zi ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
@@ -122,6 +148,10 @@ zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
     direnv/direnv
 ```
 
+```mdx-code-block
+<APITable>
+```
+
 | Syntax             | Description                                                                                                                    |
 | ------------------ | :----------------------------------------------------------------------------------------------------------------------------- |
 | `make'!'`          | Compile `direnv`, the exclamation mark means: run the `make` first, before `atclone'…'` and `atpull'…'` hooks.                 |
@@ -130,6 +160,10 @@ zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
 | `src'zhook.zsh'`   | Load generated registration code                                                                                               |
 | `pick'direnv'`     | Ensure `+x` permission on the binary                                                                                           |
 | `as'program'`      | The plugin is a program, there's no main file to the source.                                                                   |
+
+```mdx-code-block
+</APITable>
+```
 
 In this method, the registered code is generated once on every installation or update, then sourced without running `direnv` itself. The project is also available as a binary [GitHub releases][6]. This distribution can be installed by:
 
@@ -140,6 +174,10 @@ zi from"gh-r" as"program" mv"direnv* -> direnv" \
     direnv/direnv
 ```
 
+```mdx-code-block
+<APITable>
+```
+
 | Syntax                    | Description                                                                |
 | ------------------------- | :------------------------------------------------------------------------- |
 | `from'gh-r'`              | Install from `direnv` from [GitHub releases][6].                           |
@@ -147,6 +185,10 @@ zi from"gh-r" as"program" mv"direnv* -> direnv" \
 | `atclone'…'`, `atpull'…'` | Same above example.                                                        |
 | `pick'direnv'`            | Same above example.                                                        |
 | `as'program'`             | Same above example.                                                        |
+
+```mdx-code-block
+</APITable>
+```
 
 ## <i class="fa-solid fa-pen-to-square"></i> Standard syntax {#standard-syntax}
 

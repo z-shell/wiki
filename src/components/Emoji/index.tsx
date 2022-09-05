@@ -1,9 +1,9 @@
 /**
- * // The symbol, which will be a string containing the emoji, is passed into the returned span.
- *   // The role is the same in the previous example, and class for styling.
- *   // Emoji component:
- *   // <Emoji symbol="🐑" label="sheep"/>
- *   // <Emoji symbol="🐑"/>
+ * The symbol, which will be a string containing the emoji, is passed into the returned span.
+ * The role is the same in the previous example, and class for styling.
+ * Emoji component:
+ * Emoji symbol="🐑" label="sheep"/>
+ * Emoji symbol="🐑"/>
  *
  * @format
  */

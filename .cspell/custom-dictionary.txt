@@ -1,6 +1,7 @@
 # Custom Dictionary Words
 aabbb
 acom
+adoc
 aheadbehind
 allexport
 alpharized
@@ -10,6 +11,7 @@ Aquilina
 archey
 archlinux
 argocd
+ARGZERO
 arkdp
 asauto
 asciicast
@@ -41,6 +43,8 @@ bindir
 bindkey
 bindkeys
 bindmap
+bindmap'fromkey
+bindmaps
 blockf
 bpick
 broot
@@ -54,6 +58,7 @@ cdreplay
 cenable
 CGITURL
 changefreq
+chpwd
 clist
 cloneonly
 cloneopts
@@ -80,15 +85,20 @@ Csvg
 cuninstall
 Cygwin
 dclear
+DCMAKE
 dcompose
 dircolors
+dircycle
 direnv
 dirma
 distclean
 dlink
+dmsg
 dockercli
 docsearch
 doctoc
+doesn
+DOWNAR
 dreport
 dstart
 dstop
@@ -132,6 +142,7 @@ gitstatus
 gitster
 Gitter
 GITURL
+globalias
 gnzh
 grammarly
 greymd
@@ -143,6 +154,7 @@ has'gpg
 has'jq
 has'mogrify
 has'ueberzug
+hashbang
 herobanner
 hideable
 hsmw
@@ -151,6 +163,8 @@ icemods
 infocmp
 inxi
 ipfs
+isearch
+kalc
 katex
 keychain
 keymap
@@ -161,6 +175,7 @@ LASTREPORT
 lbin
 LBUFFER
 LDFLAGS
+LEFTAR
 libexec
 linkbin
 lsix
@@ -232,14 +247,17 @@ pick'fzfp
 pick'prettyping
 pick'stpvimg
 pmodule
+PMSPEC
 pnpm
 powerlevel
 PREBUFFER
 precmd
 preconfig
+preexec
 preinstall
 prettyping
 prezto
+prjef
 promptinit
 PSSHORT
 pullopts
@@ -261,13 +279,16 @@ rehype
 remotebranch
 repoducible
 reponame
+RIGHTAR
 Roadmap
 rthik
 rubygems
 runtimes
 rustc
+rustef
 rustup
 rvest
+Rxvt
 safebrowsing
 sall
 Santangelo
@@ -279,6 +300,7 @@ searchbox
 Secnd
 selfupdate
 setopt
+setopts
 shellcheck
 shellcheckrc
 shellenv
@@ -306,12 +328,16 @@ truecolor
 truetype
 trunkio
 typecheck
+uated
 unalias
 uncompile
+unfunction
 Unregistering
 unscopings
 unsetopt
+unsets
 unstaged
+UPAR
 USECOMP
 vared
 venv
@@ -329,7 +355,9 @@ vsintellicode
 wakeonlan
 webfonts
 wght
+widgetname
 Xresources
+Xterms
 xtrace
 ytdl
 zannex
@@ -345,6 +373,7 @@ zflai
 zgdbm
 zgen
 zhook
+zhooks
 Zi's
 zicdclear
 zicdreplay
@@ -367,7 +396,9 @@ zprof
 zprompts
 zpyenv
 zservice
+zshaddhistory
 zshell
+zshexit
 zshexpn
 zshmodules
 zshprofile

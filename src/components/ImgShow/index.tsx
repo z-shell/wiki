@@ -12,24 +12,22 @@ function Load(spinner) {
 }
 
 export interface ImgShowProps extends React.HTMLAttributes<HTMLSpanElement> {
-  alt?: string;
+  img: string;
+  alt: string;
   children: ReactNode;
   className?: string;
-  height: number;
-  width: number;
+  height?: number;
+  width?: number;
 }
 
 export default function ImgShow(props: ImgShowProps): JSX.Element {
-  const { alt, width, height, children, ...rest } = props;
-  const Image = Load(
-    () => import(/* webpackPrefetch: true */ "@theme/IdealImage")
-  );
+  const { img, alt, children, ...rest } = props;
+  const Image = Load(() => import("@theme/IdealImage"));
   return (
     <span className={clsx(styles.ImgClass)}>
       <Image
-        width={width}
-        height={height}
         alt={alt}
+        img={img}
         {...rest}
       >
         {children}

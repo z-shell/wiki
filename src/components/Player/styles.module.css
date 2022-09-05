@@ -2,22 +2,22 @@
 
 .asciinema {
   position: relative;
-  align-items: center;
+  display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   padding: 0;
   padding-bottom: 1%;
-  text-align: center;
+  overflow: hidden;
 }
 
 .asciinemaBorder {
   cursor: pointer;
   border: 0 solid transparent;
   border-radius: 1em;
-  transition: border 1s;
+  transition: border 4s !important;
 }
 
 .asciinemaBorder:hover {
   border: 0.1em solid var(--ifm-color-white);
-  transition: border 2s;
+  transition: border 4s !important;
 }

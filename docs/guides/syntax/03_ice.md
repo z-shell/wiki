@@ -8,12 +8,15 @@ description: Ice syntax documentation
 keywords:
   - ice
   - syntax
+  - ice-modifiers
 ---
 
 <!-- @format -->
 
 import Image from '@theme/IdealImage';
 import ZIceImg from '/img/png/ice_180x170.png';
+import ImgShow from '@site/src/components/ImgShow';
+import APITable from '@site/src/components/APITable';
 
 :::info FAQ: What is ice?
 
@@ -111,8 +114,12 @@ zi load user/fsh-auto-themes
 
 Current preset:
 
+```mdx-code-block
+<APITable>
+```
+
 | Ice name   | Domain name / URL                    |
-| :--------- | :----------------------------------- |
+| ---------- | :----------------------------------- |
 | ge         | gitee.com                            |
 | gitee      | gitee.com                            |
 | github     | github.com                           |
@@ -126,6 +133,10 @@ Current preset:
 | github-rel | github.com/$remote_url_path/releases |
 | gh-r       | github.com/$remote_url_path/releases |
 | cygwin     | cygwin                               |
+
+```mdx-code-block
+</APITable>
+```
 
 :::note
 
@@ -207,10 +218,9 @@ zi load hlissner/zsh-autopair
 
 ### Empty `id-as'…'` {#empty-id-as}
 
-An empty `id-as'…'` will work the same as `id-as'auto'`, i.e.:
+An empty `id-as'…'` will work the same as `id-as'auto'` as if id-as'zsh-autopair' was passed, e.g:
 
 ```shell showLineNumbers
-# Will work as if id-as'zsh-autopair' was passed
 zi ice wait lucid id-as
 zi load hlissner/zsh-autopair
 ```
@@ -238,14 +248,9 @@ zi light z-shell/zi-crasis
 
 - screencast that presents the feature:
 
-<span className="ScreenView">
-  <img
-    className="ImageView"
-    width="1000"
-    height="500"
-    src="/asciicast/crasis_01.svg" alt="Crasis example screencast"
-  />
-</span>
+<ImgShow height="390.78" width="970"
+  img="/asciicast/crasis_01.svg" alt="Crasis example screencast"
+/>
 
 - `$ZLAST_COMMANDS` is an array built by [F-Sy-H][2], it contains commands currently entered at prompt,
 - `(r)` searches for an element that matches a given pattern (`cras*`) and returns it,
@@ -264,15 +269,18 @@ zi ice wait"0b" as"command" pick"wd.sh" atinit"echo Firing 1" lucid
 zi light mfaerevaag/wd
 zi ice wait"0a" as"command" pick"wd.sh" atinit"echo Firing 2" lucid
 zi light mfaerevaag/wd
+```
 
-# The output
+Till output:
+
+```shell showLineNumbers
 Firing 2
 Firing 1
 ```
 
 As can be seen, the second plugin has been loaded first. That's because there are now three sub-slots (the `a`, `b`, and `c`) into which the plugin/snippet loadings can be put. Plugins from the same time slot with suffix `a` will be loaded before plugins with suffix `b`, etc.
 
-In other words, instead of `wait'1'` you can enter `wait'1a'`, `wait'1b'`, and `wait'1c'` – this **imposes the loading order** of the **commands** regardless of actual execution time.
+In other words, instead of `wait'1'`, you can enter `wait'1a'`, `wait'1b'`, and `wait'1c'` – this **imposes the loading order** of the **commands** regardless of actual execution time.
 
 ### `zi-turbo '…' for …` {#zi-turbo--for-}
 
@@ -329,14 +337,10 @@ zi ice svn pick'completion.zsh' \
 zi snippet OMZ::lib
 ```
 
-<div className="apitable">
-
 |   Syntax    | Description                                                                                                                        |
 | :---------: | :--------------------------------------------------------------------------------------------------------------------------------- |
 |    `svn`    | Use Subversion to clone `OMZ::lib` (the whole Oh-My-Zsh `lib/` directory). More [^1].                                              |
 | `atload'…'` | Code isn't tracked and cannot be unloaded. The `atload'…'` is executed after loading main files `pick'…'` and `src'…'`. More [^2]. |
-
-</div>
 
 ### The `multisrc'…'` ice {#the-multisrc-ice}
 
@@ -369,7 +373,7 @@ zi snippet OMZ::lib
 
 Will use the array's value at the moment of plugin load:
 
-> This can matter in case of using turbo mode.
+> This can matter when using turbo mode.
 
 ```shell showLineNumbers
 array=({functions,misc}.zsh)
@@ -445,10 +449,9 @@ zi ice load'![[ $MYPROMPT = 4 ]]' unload'![[ $MYPROMPT != 4 ]]' \
 zi load romkatv/powerlevel10k
 ```
 
-This way the actions were done during the first call to `_p9k_precmd()` will be normally recorded, which can be viewed in the report of the [**romkatv/powerlevel10k**][6] theme:
+This way the actions done during the first call to `_p9k_precmd()` will be normally recorded, which can be viewed in the report of the [romkatv/powerlevel10k][6] theme:
 
-```shell showLineNumbers
-zi report romkatv/powerlevel10k:
+```shell title="zi report romkatv/powerlevel10k" showLineNumbers
 Report for romkatv/powerlevel10k plugin
 ---------------------------------------
 Source powerlevel10k.zsh-theme (reporting enabled)
@@ -486,11 +489,9 @@ As it can be seen, the creation of four additional Zle-widgets has been recorded
 
 ## <i class="fas fa-microchip"></i> `atclone'…'` `atpull'…'` `atinit'…'` `atload'…'` {#atclone-atpull-atinit-atload}
 
-There are four code-receiving ices: `atclone'…'`, `atpull'…'`, `atinit'…'`, `atload'…'`.
+There are four code-receiving ice-modifiers: `atclone'…'`, `atpull'…'`, `atinit'…'`, `atload'…'`.
 
 Their role is to **receive a portion of Zsh code and execute it in specific moments of the plugin life-cycle**.
-
-<div className="apitable">
 
 |    Syntax    | Execution moment                                                |
 | :----------: | :-------------------------------------------------------------- |
@@ -498,8 +499,6 @@ Their role is to **receive a portion of Zsh code and execute it in specific mome
 | `atpull'…'`  | **after updating** the associated plugin or snippet.            |
 | `atinit'…'`  | **before loading** of the associated plugin or snippet.         |
 | `atload'…'`  | **after loading** of the associated plugin or snippet.          |
-
-</div>
 
 For convenience, you can use each of the ices multiple times in a single `zi ice …` invocation – all commands will run in the given order.
 
@@ -524,8 +523,7 @@ zi load z-shell/null
 
 the `$PATH` is being changed within `atload'…'` ice. Zi's tracking registers `$PATH` changes and withdraws them on the plugin unload and shows loading information:
 
-```shell showLineNumbers
-➜ zi report test
+```shell title="zi report test" showLineNumbers
 Report for test plugin
 ----------------------
 Source  (reporting enabled)
@@ -536,8 +534,7 @@ PATH elements added:
 
 As it can be seen, the `atload'…'` code is being correctly tracked and can be unloaded & viewed. Below is the result of using the `unload'…'` subcommand to unload the `test` plugin:
 
-```shell showLineNumbers
-zi unload test
+```shell title="zi unload test" showLineNumbers
 --- Unloading plugin: test ---
 Removing PATH element /home/user/share
 Unregistering plugin test

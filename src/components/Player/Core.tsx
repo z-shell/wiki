@@ -36,10 +36,5 @@ export default function AsciinemaPlayer(props: PlayerProps): JSX.Element {
     };
   }, [src, rest]);
 
-  return (
-    <div
-      ref={playerElement}
-      {...rest}
-    />
-  );
+  return <div ref={playerElement} />;
 }

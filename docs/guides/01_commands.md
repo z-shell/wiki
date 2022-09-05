@@ -82,7 +82,7 @@ If you load completions using `wait'…'` [turbo mode][2] then you can add `atin
 
 Alternatively, the `zicompinit` can be replaced with `zicompinit_fast` which checks the cached `.zcompdump` and determines when to regenerate the file. This restricts checking it once a day, as compinit doesn't always need to modify the compdump and compiles mapped to share in the background in multiple shells.
 
-{/_ There's also `zicdreplay` which will replay any caught compdefs so you can also do: `atinit'zicompinit; zicdreplay'`, etc. _/}
+There's also `zicdreplay` which will replay any caught compdefs so you can also do: `atinit'zicompinit; zicdreplay'`, etc.
 
 It is recommended to run the `compinit` call in the `atinit` or `atload` hook of the last related plugin with the use of the helper functions `zicompinit`,`zicdreplay` & `zicdclear` as shown below:
 

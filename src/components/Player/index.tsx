@@ -11,17 +11,16 @@ function Load(spinner: () => Promise<typeof import("./Core")>) {
 }
 
 export default function Player(props: PlayerProps): JSX.Element {
-  const { src, children, ...rest } = props;
+  const { src, ...rest } = props;
   const Library = Load(() => import(/* webpackPrefetch: true */ "./Core"));
   return (
-    <div className={styles.asciinema}>
-      <div className={styles.asciinemaBorder}>
+    <React.StrictMode>
+      <span className={styles.asciinema}>
         <Library
           src={src}
           {...rest}
         />
-      </div>
-      {children}
-    </div>
+      </span>
+    </React.StrictMode>
   );
 }

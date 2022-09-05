@@ -1,18 +1,18 @@
 {
-  "homepage.video.heading.1": {
-    "message": "⚡ Fast and feature-rich",
-    "description": "The homepage video container heading 1"
-  },
-  "homepage.video.heading.2": {
-    "message": "✨ Neat and flexible",
-    "description": "The homepage video container heading 2"
-  },
   "zi.logo": {
     "message": "ZI logo"
   },
   "homepage.hero.title": {
-    "message": "A <b>Swiss Army</b> Knife  for <b>Zsh</b> unix <b>Shell</b>",
+    "message": "A <b>Swiss Army</b> Knife for <b>Zsh</b> unix <b>Shell</b>",
     "description": "Home page hero title, can contain simple html tags"
+  },
+  "homepage.banner.button.1": {
+    "message": "Get Started",
+    "description": "The homepage get started button"
+  },
+  "homepage.banner.button.2": {
+    "message": "Community",
+    "description": "The homepage community button"
   },
   "homepage.feature1.title": {
     "message": "Zsh Startup 50-80% Faster",
@@ -38,6 +38,14 @@
     "message": "Supports Oh-My-Zsh and Prezto - not framework-specific. Produce your plugins, libraries, and themes effortlessly.",
     "description": "Description of third featured banner in homepage"
   },
+  "homepage.video.heading.1": {
+    "message": "Fast and feature-rich",
+    "description": "The homepage video container heading 1"
+  },
+  "homepage.video.heading.2": {
+    "message": "Neat and flexible",
+    "description": "The homepage video container heading 2"
+  },
   "theme.ErrorPageContent.title": {
     "message": "This page crashed.",
     "description": "The title of the fallback page when the page crashed"
@@ -45,18 +53,6 @@
   "theme.ErrorPageContent.tryAgain": {
     "message": "Try again",
     "description": "The label of the button to try again when the page crashed"
-  },
-  "theme.NotFound.title": {
-    "message": "Page Not Found",
-    "description": "The title of the 404 page"
-  },
-  "theme.NotFound.p1": {
-    "message": "We could not find what you were looking for.",
-    "description": "The first paragraph of the 404 page"
-  },
-  "theme.NotFound.p2": {
-    "message": "Please contact the owner of the site that linked you to the original URL and let them know their link is broken.",
-    "description": "The 2nd paragraph of the 404 page"
   },
   "theme.admonition.note": {
     "message": "note",
@@ -78,14 +74,6 @@
     "message": "caution",
     "description": "The default label used for the Caution admonition (:::caution)"
   },
-  "theme.AnnouncementBar.closeButtonAriaLabel": {
-    "message": "Close",
-    "description": "The ARIA label for close button of announcement bar"
-  },
-  "theme.BackToTopButton.buttonAriaLabel": {
-    "message": "Scroll back to top",
-    "description": "The ARIA label for the back to top button"
-  },
   "theme.blog.archive.title": {
     "message": "Archive",
     "description": "The page & hero title of the blog archive page"
@@ -93,6 +81,10 @@
   "theme.blog.archive.description": {
     "message": "Archive",
     "description": "The page & hero description of the blog archive page"
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "Scroll back to top",
+    "description": "The ARIA label for the back to top button"
   },
   "theme.blog.paginator.navAriaLabel": {
     "message": "Blog list page navigation",
@@ -217,6 +209,10 @@
     "message": "Versions",
     "description": "The label for the navbar versions dropdown on mobile view"
   },
+  "theme.NotFound.title": {
+    "message": "Page Not Found",
+    "description": "The title of the 404 page"
+  },
   "theme.common.skipToMainContent": {
     "message": "Skip to main content",
     "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
@@ -224,6 +220,10 @@
   "theme.tags.tagsListLabel": {
     "message": "Tags:",
     "description": "The label alongside a tag list"
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "Close",
+    "description": "The ARIA label for close button of announcement bar"
   },
   "theme.blog.sidebar.navAriaLabel": {
     "message": "Blog recent posts navigation",
@@ -252,6 +252,14 @@
   "theme.navbar.mobileLanguageDropdown.label": {
     "message": "Languages",
     "description": "The label for the mobile language switcher dropdown"
+  },
+  "theme.NotFound.p1": {
+    "message": "We could not find what you were looking for.",
+    "description": "The first paragraph of the 404 page"
+  },
+  "theme.NotFound.p2": {
+    "message": "Please contact the owner of the site that linked you to the original URL and let them know their link is broken.",
+    "description": "The 2nd paragraph of the 404 page"
   },
   "theme.TOCCollapsible.toggleButtonLabel": {
     "message": "On this page",
@@ -291,38 +299,6 @@
   },
   "theme.SearchBar.seeAll": {
     "message": "See all {count} results"
-  },
-  "theme.SearchPage.documentsFound.plurals": {
-    "message": "One document found|{count} documents found",
-    "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-  },
-  "theme.SearchPage.existingResultsTitle": {
-    "message": "Search results for \"{query}\"",
-    "description": "The search page title for non-empty query"
-  },
-  "theme.SearchPage.emptyResultsTitle": {
-    "message": "Search the documentation",
-    "description": "The search page title for empty query"
-  },
-  "theme.SearchPage.inputPlaceholder": {
-    "message": "Type your search here",
-    "description": "The placeholder for search page input"
-  },
-  "theme.SearchPage.inputLabel": {
-    "message": "Search",
-    "description": "The ARIA label for search page input"
-  },
-  "theme.SearchPage.algoliaLabel": {
-    "message": "Search by Algolia",
-    "description": "The ARIA label for Algolia mention"
-  },
-  "theme.SearchPage.noResultsText": {
-    "message": "No results were found",
-    "description": "The paragraph for empty search result"
-  },
-  "theme.SearchPage.fetchingNewResults": {
-    "message": "Fetching new results...",
-    "description": "The paragraph for fetching new search results"
   },
   "theme.SearchBar.label": {
     "message": "Search",
@@ -420,6 +396,38 @@
     "message": "Search docs",
     "description": "The placeholder of the input of the DocSearch pop-up modal"
   },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "One document found|{count} documents found",
+    "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "Search results for \"{query}\"",
+    "description": "The search page title for non-empty query"
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "Search the documentation",
+    "description": "The search page title for empty query"
+  },
+  "theme.SearchPage.inputPlaceholder": {
+    "message": "Type your search here",
+    "description": "The placeholder for search page input"
+  },
+  "theme.SearchPage.inputLabel": {
+    "message": "Search",
+    "description": "The ARIA label for search page input"
+  },
+  "theme.SearchPage.algoliaLabel": {
+    "message": "Search by Algolia",
+    "description": "The ARIA label for Algolia mention"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "No results were found",
+    "description": "The paragraph for empty search result"
+  },
+  "theme.SearchPage.fetchingNewResults": {
+    "message": "Fetching new results...",
+    "description": "The paragraph for fetching new search results"
+  },
   "theme.IdealImageMessage.loading": {
     "message": "Loading...",
     "description": "When the full-scale image is loading"
@@ -451,14 +459,6 @@
   "theme.PwaReloadPopup.closeButtonAriaLabel": {
     "message": "Close",
     "description": "The ARIA label for close button of PWA reload popup"
-  },
-  "homepage.banner.button.2": {
-    "message": "Community",
-    "description": "The homepage community button"
-  },
-  "homepage.banner.button.1": {
-    "message": "Get Started",
-    "description": "The homepage get started button"
   },
   "theme.tags.tagsPageTitle": {
     "message": "Tags",

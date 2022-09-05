@@ -1,9 +1,9 @@
 ---
 id: customization
-title: "🏗 Preferences & Configuration"
+title: "🏗 Configuration management"
 sidebar_position: 2
 image: /img/logo/320x320.png
-description: User Preferences & Configuration
+description: User preferences, environment, and configuration.
 keywords:
   - config
   - preferences
@@ -11,6 +11,9 @@ keywords:
 ---
 
 <!-- @format -->
+
+import APITable from '@site/src/components/APITable';
+import MultiplePromptsExample from '@site/src/components/Markdown/\_multiple_prompts_example.mdx';
 
 ## <i class="fa-solid fa-hashtag"></i> Hash parameter
 
@@ -32,32 +35,48 @@ source "${ZI[BIN_DIR]}/zi.zsh"
 
 ### <i class="fa-solid fa-sliders"></i> Customize paths {#customizing-paths}
 
+```mdx-code-block
+<APITable>
+```
+
 | Hash Field                           | Default                                      | Description                                                                                                                                |
 | ------------------------------------ | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `ZI[HOME_DIR]`                       | `$HOME/.zi`                                  | where Zi should create all working directories                                                                                             |
-| `ZI[BIN_DIR]`                        | `$HOME/.zi/bin`                              | directory where Zi code resides                                                                                                            |
-| `ZI[COMPLETIONS_DIR]`                | `$ZI[HOME_DIR]/completions`                  | completion working directory                                                                                                               |
-| `ZI[MAN_DIR]`                        | `$ZPFX/man`                                  | directory to store manpages (`atclone"cp -vf man.1 $ZI[MAN_DIR]/man1"`). If overridden, this directory will not necessarily be used by man |
-| `ZI[PLUGINS_DIR]`                    | `$ZI[HOME_DIR]/plugins`                      | plugins working directory                                                                                                                  |
-| `ZI[SNIPPETS_DIR]`                   | `$ZI[HOME_DIR]/snippets`                     | snippets working directory                                                                                                                 |
-| `ZI[ZCOMPDUMP_PATH]`                 | `$XDG_DATA_HOME:-$ZDOTDIR:-$HOME/.zcompdump` | path to `.zcompdump` file (including file)                                                                                                 |
+| `ZI[HOME_DIR]`                       | `$HOME/.zi`                                  | Where Zi should create all working directories                                                                                             |
+| `ZI[BIN_DIR]`                        | `$HOME/.zi/bin`                              | Directory where Zi code resides                                                                                                            |
+| `ZI[COMPLETIONS_DIR]`                | `$ZI[HOME_DIR]/completions`                  | Completion working directory                                                                                                               |
+| `ZI[MAN_DIR]`                        | `$ZPFX/man`                                  | Directory to store manpages (`atclone"cp -vf man.1 $ZI[MAN_DIR]/man1"`). If overridden, this directory will not necessarily be used by man |
+| `ZI[PLUGINS_DIR]`                    | `$ZI[HOME_DIR]/plugins`                      | Plugins working directory                                                                                                                  |
+| `ZI[SNIPPETS_DIR]`                   | `$ZI[HOME_DIR]/snippets`                     | Snippets working directory                                                                                                                 |
+| `ZI[ZCOMPDUMP_PATH]`                 | `$XDG_DATA_HOME:-$ZDOTDIR:-$HOME/.zcompdump` | Path to `.zcompdump` file (including file)                                                                                                 |
 | `ZI[ZMODULES_DIR]`                   | `$ZI[HOME_DIR]/zmodules`                     | Zsh modules working directory                                                                                                              |
-| [ZPFX][global-parameter-with-prefix] | `$ZI[HOME_DIR]/polaris`                      | directory to store binary and related files                                                                                                |
+| [ZPFX][global-parameter-with-prefix] | `$ZI[HOME_DIR]/polaris`                      | Directory to store binary and related files                                                                                                |
+
+```mdx-code-block
+</APITable>
+```
 
 ### <i class="fa-solid fa-sliders"></i> Modify settings {#modify-settings}
 
+```mdx-code-block
+<APITable>
+```
+
 | Hash Field                       | Default     | Description                                                                                                                                                                                               |
 | -------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ZI[OPTIMIZE_OUT_DISK_ACCESSES]` | `undefined` | if set to `1`, will skip checking if a turbo-loaded object exists on the disk. This option can give a performance gain of about 10 ms out of 150 ms (e.g: Zsh will start up in 140 ms instead of 150 ms). |
-| `ZI[COMPINIT_OPTS]`              | `undefined` | options for `compinit` call (e.g: done by `zicompinit`), commonly used with `-C` to speed up loading                                                                                                      |
-| `ZI[MUTE_WARNINGS]`              | `undefined` | if set to `1`, mutes some warnings, specifically the `plugin already registered` warning                                                                                                                  |
-| `ZI[PKG_OWNER]`                  | `z-shell`   | owner of the [packages][] (`zi pack …`)                                                                                                                                                                   |
+| `ZI[OPTIMIZE_OUT_DISK_ACCESSES]` | `undefined` | If set to `1`, will skip checking if a turbo-loaded object exists on the disk. This option can give a performance gain of about 10 ms out of 150 ms (e.g: Zsh will start up in 140 ms instead of 150 ms). |
+| `ZI[COMPINIT_OPTS]`              | `undefined` | Options for `compinit` call (e.g: done by `zicompinit`), commonly used with `-C` to speed up loading                                                                                                      |
+| `ZI[MUTE_WARNINGS]`              | `undefined` | If set to `1`, mutes some warnings, specifically the `plugin already registered` warning                                                                                                                  |
+| `ZI[PKG_OWNER]`                  | `z-shell`   | Owner of the [packages][] (`zi pack …`)                                                                                                                                                                   |
+
+```mdx-code-block
+</APITable>
+```
 
 ## <i class="fa-solid fa-square-up-right"></i> Non-GitHub (Local) Plugins {#non-github-local-plugins}
 
 Use the `create` subcommand with user name `_local` (the default) to create the plugin's skeleton in `$ZI[PLUGINS_DIR]`. It will be not connected with the GitHub repository (because of the user name being `_local`). To enter the plugin's directory use the `cd` command with just the plugin's name (without `_local`, it's optional).
 
-If the user name will not be `_local`, then Zi will create a repository also on GitHub and set up the correct repository origin.
+If the username is not `_local`, then Zi will create a repository also on GitHub and set up the correct repository origin.
 
 ## <i class="fa-brands fa-git-alt"></i> Extending Git {#extending-git}
 
@@ -71,17 +90,17 @@ Below is a configuration that adds multiple git extensions, loaded in Turbo mode
 
 ```shell title="~/.zshrc" showLineNumbers
 zi as'null' wait'1' lucid for \
-    sbin  Fakerr/git-recall \
-    sbin  cloneopts paulirish/git-open \
-    sbin  paulirish/git-recent \
-    sbin  davidosomething/git-my \
-    sbin  iwata/git-now \
-    sbin atload'export _MENU_THEME=legacy' \
-      arzzen/git-quick-stats \
-    sbin'bin/git-dsf;bin/diff-so-fancy' \
-      z-shell/zsh-diff-so-fancy \
-    make'PREFIX=$ZPFX install' \
-      tj/git-extras
+  sbin  Fakerr/git-recall \
+  sbin  cloneopts paulirish/git-open \
+  sbin  paulirish/git-recent \
+  sbin  davidosomething/git-my \
+  sbin  iwata/git-now \
+  sbin atload'export _MENU_THEME=legacy' \
+    arzzen/git-quick-stats \
+  sbin'bin/git-dsf;bin/diff-so-fancy' \
+    z-shell/zsh-diff-so-fancy \
+  make'PREFIX=$ZPFX install' \
+    tj/git-extras
 ```
 
 The target directory for installed files is `$ZPFX` - `~/.zi/polaris` by default.
@@ -118,6 +137,8 @@ zi light-mode for z-shell/z-a-meta-plugins @annexes @ext-git
 The sense of an option name may be inverted by preceding it with `no`, so `setopt No_Beep` is equivalent to `unsetopt beep`. This inversion can only be done once, so `nonobeep` is not a synonym for `beep`. Similarly, `tify` is not a synonym for `nonotify` (the inversion of `notify`).
 
 ### <i class="fa-solid fa-clock-rotate-left"></i> History optimization {#history-optimization}
+
+<!-- TODO: Include more setopt examples and import as component -->
 
 ```shell title="~/.zshrc" showLineNumbers
 setopt append_history         # Allow multiple sessions to append to one Zsh command history.
@@ -156,6 +177,8 @@ What does `zstyle` do? - [unix.stackexchange.com/what-does-zstyle-do][what-does-
 The `zstyle` handles the obvious style control for the [completion system][completion-system-configuration], but it seems to cover more than just that. e.g., the vcs_info module relies on it for the display of git status in your prompt. You can start by looking at the few explanatory paragraphs in `man zshmodules` in the `zstyle` section.
 
 ### <i class="fa-solid fa-wand-sparkles"></i> Fuzzy matching of completions {#fuzzy-matching-of-completions}
+
+<!-- TODO: Include more zstyle examples and import as component -->
 
 ```shell title="~/.zshrc" showLineNumbers
 zstyle ':completion:*' completer _complete _match _approximate
@@ -207,10 +230,18 @@ skip_global_compinit=1
 
 ## <i class="fa-solid fa-list-check"></i> Multiple prompts {#multiple-prompts}
 
+```mdx-code-block
+<APITable>
+```
+
 | Syntax      | Description                                                       |
 | ----------- | :---------------------------------------------------------------- |
-| `load'…'`   | condition that when fulfilled will cause the plugin to be loaded. |
-| `unload'…'` | as above, but will unload the plugin.                             |
+| `load'…'`   | Condition that when fulfilled will cause the plugin to be loaded. |
+| `unload'…'` | Same as above, but will unload the plugin.                        |
+
+```mdx-code-block
+</APITable>
+```
 
 :::note
 
@@ -220,8 +251,8 @@ skip_global_compinit=1
 
 | Syntax       | Description                                                                                           |
 | ------------ | :---------------------------------------------------------------------------------------------------- |
-| `atload'!…'` | run the `precmd` hooks to make the prompts fully initialized when loaded in the middle of the prompt. |
-| `precmd`     | hooks are normally run before each **new** prompt.                                                    |
+| `atload'!…'` | Run the `precmd` hooks to make the prompts fully initialized when loaded in the middle of the prompt. |
+| `precmd`     | Hooks are normally run before each **new** prompt.                                                    |
 
 :::info
 
@@ -230,6 +261,10 @@ Exclamation mark causes the effects of the functions to be tracked.
 :::
 
 To allow better unloading, conditions are checked every second, you can use conditions like:
+
+```mdx-code-block
+<APITable>
+```
 
 | Condition                 | Description                                                                                                                                              |
 | ------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -241,71 +276,13 @@ To allow better unloading, conditions are checked every second, you can use cond
 | `nocd`                    | Don't cd into the plugin's directory when executing the `atload'…'`.                                                                                     |
 | `atload'…'`               | This ice can make the path that's displayed by the theme point to that directory.                                                                        |
 
+```mdx-code-block
+</APITable>
+```
+
 ### <i class="fa-solid fa-layer-group"></i> Loading and unloading themes (8 examples) {#loading-and-unloading-themes-8-examples}
 
-1 - zprompts
-
-```shell showLineNumbers
-zi lucid load'![[ $MYPROMPT = 1 ]]' unload'![[ $MYPROMPT != 1 ]]' \
-  atload'!promptinit; typeset -g PSSHORT=0; prompt sprint3 yellow red green blue' nocd for \
-    z-shell/zprompts
-```
-
-2 - lambda-mod-zsh-theme
-
-```shell showLineNumbers
-zi lucid load'![[ $MYPROMPT = 2 ]]' unload'![[ $MYPROMPT != 2 ]]' nocd for \
-  halfo/lambda-mod-zsh-theme
-```
-
-3 - lambda-gitster
-
-```shell showLineNumbers
-zi lucid load'![[ $MYPROMPT = 3 ]]' unload'![[ $MYPROMPT != 3 ]]' nocd for \
-  ergenekonyigit/lambda-gitster
-```
-
-4 - geometry
-
-```shell showLineNumbers
-zi lucid load'![[ $MYPROMPT = 4 ]]' unload'![[ $MYPROMPT != 4 ]]' \
-  atload'!geometry::prompt' nocd \
-  atinit'GEOMETRY_COLOR_DIR=63 GEOMETRY_PATH_COLOR=63' for \
-    geometry-zsh/geometry
-```
-
-5 - pure
-
-```shell showLineNumbers
-zi lucid load'![[ $MYPROMPT = 5 ]]' unload'![[ $MYPROMPT != 5 ]]' \
-  pick"/dev/null" multisrc"{async,pure}.zsh" atload'!prompt_pure_precmd' nocd for \
-    sindresorhus/pure
-```
-
-6 - agkozak-zsh-theme
-
-```shell showLineNumbers
-zi lucid load'![[ $MYPROMPT = 6 ]]' unload'![[ $MYPROMPT != 6 ]]' \
-  atload'!_agkozak_precmd' nocd atinit'AGKOZAK_FORCE_ASYNC_METHOD=subst-async' for \
-    agkozak/agkozak-zsh-theme
-```
-
-7 - zinc
-
-```shell showLineNumbers
-zi load'![[ $MYPROMPT = 7 ]]' unload'![[ $MYPROMPT != 7 ]]' \
-  compile"{zinc_functions/*,segments/*,zinc.zsh}" nocompletions \
-  atload'!prompt_zinc_setup; prompt_zinc_precmd' nocd for \
-    robobenklein/zinc
-```
-
-8 - git-prompt
-
-```shell showLineNumbers
-zi lucid load'![[ $MYPROMPT = 8 ]]' unload'![[ $MYPROMPT != 8 ]]' \
-  atload'!_zsh_git_prompt_precmd_hook' nocd for \
-    woefe/git-prompt.zsh
-```
+<MultiplePromptsExample/>
 
 <!-- end-of-file -->
 <!-- links -->

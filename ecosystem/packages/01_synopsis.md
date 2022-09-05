@@ -40,7 +40,7 @@ The [bin-gem-node][] annex is recommended, otherwise, some packages will fail to
 
 They allow the installation of any Gem(s) or Node module(s) locally in a newly created plugin directory. For example:
 
-```shell
+```shell showLineNumbers
 zi pack param='GEM -> rails' for any-gem
 zi pack param='MOD -> doctoc' for any-node
 ```
@@ -63,7 +63,7 @@ The binaries will be exposed without altering the PATH via shims. Shims are corr
 
 This way, instead of the following command used to install `fzf`:
 
-```shell
+```shell showLineNumbers
 zi lucid as=program pick="$ZPFX/bin/(fzf|fzf-tmux)" \
   atclone="cp shell/completion.zsh _fzf_completion; \
     cp bin/(fzf|fzf-tmux) $ZPFX/bin" \
