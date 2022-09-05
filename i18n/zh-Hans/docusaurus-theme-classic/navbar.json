@@ -7,28 +7,16 @@
     "message": "文档",
     "description": "Navbar item with label Docs"
   },
+  "item.label.Ecosystem": {
+    "message": "生态系统",
+    "description": "Navbar item with label Ecosystem"
+  },
   "item.label.Community": {
     "message": "社区",
     "description": "Navbar item with label Community"
   },
-  "item.label.Ecosystem": {
-    "message": "Ecosystem",
-    "description": "Navbar item with label Ecosystem"
-  },
   "item.label.Feed": {
-    "message": "Feed",
+    "message": "新闻源",
     "description": "Navbar item with label Feed"
-  },
-  "item.label.JSON": {
-    "message": "JSON",
-    "description": "Navbar item with label JSON"
-  },
-  "item.label.RSS": {
-    "message": "RSS",
-    "description": "Navbar item with label RSS"
-  },
-  "item.label.Atom": {
-    "message": "Atom",
-    "description": "Navbar item with label Atom"
   }
 }
