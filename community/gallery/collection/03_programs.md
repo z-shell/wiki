@@ -4,11 +4,16 @@ title: "🔺 Programs"
 image: /img/logo/320x320.png
 description: The Collection of Programs
 keywords:
-  - collection
   - programs
+  - collection
+  - zsh-plugins
+  - zsh-favorites
 ---
 
 <!-- @format -->
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 :::caution
 
