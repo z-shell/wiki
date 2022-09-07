@@ -1,6 +1,7 @@
 # @format
 ---
 name: "🔁 Rebase"
+
 on:
   issue_comment:
     types: [created]
@@ -9,6 +10,7 @@ jobs:
   rebase:
     runs-on: ubuntu-latest
     name: 🔁 Rebase
+    environment: project-automation
     # Automate with comments: /autosquash, /rebase
     if: >-
       github.event.issue.pull_request != '' &&
