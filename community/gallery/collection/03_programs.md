@@ -83,7 +83,33 @@ zi light …
 
 ## Without [for][for-syntax] syntax
 
-### GH-R: [dandavison/delta][] {#comp-dandavison-delta}
+### GH-R: [asciinema/agg][asciinema/agg] {#gh-r-asciinema-agg}
+
+`agg` is a command-line tool for generating animated `GIF` files from [asciicast v2 files][asciicast-v2] produced by [asciinema terminal recorder][asciinema/asciinema].
+
+<Tabs>
+<TabItem value="default" label="Default" default>
+
+```shell showLineNumbers
+zi ice has'asciinema' as'program' from'gh-r' \
+  mv'agg* -> agg' pick'agg'
+zi light asciinema/agg
+```
+
+</TabItem>
+<TabItem value="bin-gem-node" label="Annex">
+
+Install using the [bin-gem-node][bin-gem-node] annex.
+
+```shell showLineNumbers
+zi ice has'asciinema' as'program' from'gh-r' sbin'agg* -> agg'
+zi light asciinema/agg
+```
+
+</TabItem>
+</Tabs>
+
+### GH-R: [dandavison/delta][] {#dandavison-delta}
 
 ```shell showLineNumbers
 zi ice wait lucid as'program' from'gh-r' sbin'**/delta -> delta'
@@ -573,7 +599,7 @@ zi light-mode for pick'misc/quitcd/quitcd.zsh' as'program' nocompile \
     jarun/nnn
 ```
 
-### SC: [homebrew/brew][]
+### SC: [homebrew/brew][homebrew/brew]
 
 ```shell showLineNumbers
 zi for as'null' depth'3' nocompletions sbin'bin/brew' \
@@ -594,7 +620,7 @@ zi id-as"rust" wait=1 as=null sbin="bin/*" lucid rustup nocompile \
     z-shell/0
 ```
 
-### B: [ytdl-org/youtube-dl][]
+### B: [ytdl-org/youtube-dl][ytdl-org/youtube-dl]
 
 ```shell
 zi for as'program' nocompile'!' depth'1' \
@@ -615,9 +641,13 @@ zi for as'program' nocompile'!' depth'1' \
 [ice-syntax]: /docs/guides/syntax/ice
 [make-syntax]: /docs/guides/syntax/common#the-make-syntax
 [turbo-and-lucid]: /docs/getting_started/overview/#turbo--lucid
+[bin-gem-node]: /ecosystem/annexes/bin-gem-node
 
 <!-- external-links -->
 
+[asciinema/agg]: https://github.com/asciinema/agg
+[asciinema/asciinema]: https://github.com/asciinema/asciinema
+[asciicast-v2]: https://github.com/asciinema/asciinema/blob/master/doc/asciicast-v2.md
 [aaronng/reddio]: https://gitlab.com/aaronNG/reddio
 [abishekvashok/cmatrix]: https://github.com/abishekvashok/cmatrix
 [ajeetdsouza/zoxide]: https://github.com/ajeetdsouza/zoxide
