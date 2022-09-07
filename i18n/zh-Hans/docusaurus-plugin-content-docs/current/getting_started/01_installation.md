@@ -31,7 +31,7 @@ source <(curl -sL git.io/zi-loader); zzinit
 </TabItem>
 <TabItem value="verified-source" label="Verified">
 
-验证文件的 sha256 [checksum][]：`lib/zsh/init.zsh`:
+验证文件的 sha256 [checksum][checksum]：`lib/zsh/init.zsh`:
 
 ```shell showLineNumbers title="~/.zshrc"
 local cs_ok='7fab1ecb8d2ffbdb4aa98dd1e51cebaeaa4d8137e1de11938f3e0df24af262bb'
@@ -50,7 +50,7 @@ local cs=$(sha256sum <(curl -sL git.io/zi-loader) | awk '{print $1}')
 
 :::tip
 
-- 验证文件： `lib/sh/install.sh` 的 sha256 [校验和][]
+- 验证文件： `lib/sh/install.sh` 的 sha256 [校验和][checksum]
 - 如果需要，请添加 `-b <tag>` 或 `-b <branch>` ，例如：
 
 ```shell
@@ -66,33 +66,6 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" --
-```
-
-</TabItem>
-<TabItem value="repository" label="Repository">
-
-使用默认值或设置 [自定义][customizing-paths] 值克隆存储库。
-
-```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
-```
-
-</TabItem>
-<TabItem value="minimal-annexes" label="Annex">
-
-安装并包含推荐 [附件][annexes] 的最小配置：
-
-```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
-```
-
-</TabItem>
-<TabItem value="minimal-zunit" label="ZUnit">
-
-安装并包含推荐 附件[annexes] 的最小配置,同时设定 [zdharma/zunit][]：
-
-```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
 ```
 
 </TabItem>
@@ -119,6 +92,33 @@ fi
 :::
 
 然后用 `exec zsh` 重新加载 shell。 全部完成了！
+
+</TabItem>
+<TabItem value="repository" label="Repository">
+
+使用默认值或设置 [自定义][customizing-paths] 值克隆存储库。
+
+```shell
+sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
+```
+
+</TabItem>
+<TabItem value="minimal-annexes" label="Annex">
+
+安装并包含推荐 [附件][annexes] 的最小配置：
+
+```shell
+sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
+```
+
+</TabItem>
+<TabItem value="minimal-zunit" label="ZUnit">
+
+安装并包含最小的配置，推荐使用 [annexes][annexes] 和设置 [zdharma/zunit][zdharma/zunit]:
+
+```shell
+sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
+```
 
 </TabItem>
 </Tabs>
@@ -175,9 +175,9 @@ autoload -Uz _zi
 
 全新安装后，建议使用 `exec zsh` 重新加载 shell 并使用 `zi self-update` 编译 Zi。 运行 `zi -h` 以查看所有可用命令。 了解 Zi 功能和性能，或通过浏览 wiki 开始。
 
-如果您有任何问题或需要帮助 <Emoji symbol="🤦‍♂️" label="man-facepalming"/>，让我们在 [此处讨论][] 或以任何语言打开一个 [问题][]。
+如果您有任何问题或需要帮助 <Emoji symbol="🤦‍♂️" label="man-facepalming"/>，让我们在 [此处讨论][discuss] 或以任何语言打开一个 [问题][issue]。
 
-它帮助我们改进并让 Zi 变得更好。 不要忘记帮助项目：分享、贡献或 [翻译][] <Emoji symbol="🌐" label="globe-with-meridians"/> <Emoji symbol="🥰" label="smiling-face-with-hearts"/> <Emoji symbol="🤓" label="nerd-face"/>。
+它帮助我们改进并让 Zi 变得更好。 不要忘记帮助项目：分享、贡献或 [翻译][translate] <Emoji symbol="🌐" label="globe-with-meridians"/> <Emoji symbol="🥰" label="smiling-face-with-hearts"/> <Emoji symbol="🤓" label="nerd-face"/>。
 
 让我们一起抓住一切，创建一个为我们服务的工具链 <Emoji symbol="🚀" label="rocket"/>。
 
@@ -210,8 +210,8 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 RUN zsh -i -c -- '@zi-scheduler burst || true'
 ```
 
-> - 一个例子： [Dockerfile][]
-> - 实际例子： [Playground][]
+> - 一个例子： [Dockerfile][dockerfile]
+> - 实际例子： [Playground][playground]
 
 ## <i class="fas fa-cog fa-pulse"></i> Zi 模块： [zpmod][z-shell/zpmod] {#zi-module}
 
@@ -281,17 +281,17 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
 
 [customization]: /docs/guides/customization
 
-[校验和]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt
+[checksum]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt
 [completion-system]: https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Use-of-compinit
 [direct-init]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh
 [direct-install]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
-[此处讨论]: https://github.com/orgs/z-shell/discussions/new
-[Dockerfile]: https://github.com/robobenklein/configs/blob/master/Dockerfile
+[discuss]: https://github.com/orgs/z-shell/discussions/new
+[dockerfile]: https://github.com/robobenklein/configs/blob/master/Dockerfile
 [get.zshell.dev]: https://get.zshell.dev
 [init.zshell.dev]: https://init.zshell.dev
 [ipfs.io]: https://ipfs.io
-[问题]: https://github.com/z-shell/zi/issues/new/choose
-[Playground]: https://github.com/z-shell/playground
+[issue]: https://github.com/z-shell/zi/issues/new/choose
+[playground]: https://github.com/z-shell/playground
 [status]: https://status.zshell.dev
-[翻译]: https://digitalclouds.crowdin.com/z-shell
+[translate]: https://digitalclouds.crowdin.com/z-shell
 [z-shell/zpmod]: https://github.com/z-shell/zpmod
