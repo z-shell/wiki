@@ -11,8 +11,8 @@
     "message": "💡 Guides",
     "description": "The label for category 💡 Guides in sidebar SideBar"
   },
-  "sidebar.SideBar.category.✍️ Syntax": {
-    "message": "✍️ Syntax",
-    "description": "The label for category ✍️ Syntax in sidebar SideBar"
+  "sidebar.SideBar.category.✍️  Syntax": {
+    "message": "✍️  Syntax",
+    "description": "The label for category ✍️  Syntax in sidebar SideBar"
   }
 }

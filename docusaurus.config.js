@@ -270,15 +270,15 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Discussions",
+                label: "GitHub",
                 href: "https://discussions.zshell.dev",
               },
               {
-                label: "Matrix.org",
+                label: "Matrix",
                 href: "https://matrix.to/#/#z-shell_zi:gitter.im",
               },
               {
-                label: "Gitter.im",
+                label: "Gitter",
                 href: "https://gitter.im/z-shell/zi",
               },
             ],
@@ -292,11 +292,11 @@ const config = {
               },
               {
                 label: "Crowdin Translations",
-                href: "https://translate.zshell.dev/",
+                href: "https://translate.zshell.dev",
               },
               {
                 label: "Z-Shell Uptime Status",
-                href: "https://status.zshell.dev/",
+                href: "https://status.zshell.dev",
               },
               /* {html: ``}, */
             ],

@@ -31,7 +31,7 @@ source <(curl -sL git.io/zi-loader); zzinit
 </TabItem>
 <TabItem value="verified-source" label="Verified">
 
-Verify the sha256 [checksum][] for a file: `lib/zsh/init.zsh`:
+Verify the sha256 [checksum][checksum] for a file: `lib/zsh/init.zsh`:
 
 ```shell showLineNumbers title="~/.zshrc"
 local cs_ok='7fab1ecb8d2ffbdb4aa98dd1e51cebaeaa4d8137e1de11938f3e0df24af262bb'
@@ -50,7 +50,7 @@ Reload shell with `exec zsh` and run `zi -h` for usage information.
 
 :::tip
 
-- Verify the sha256 [checksum][] for file: `lib/sh/install.sh`
+- Verify the sha256 [checksum][checksum] for file: `lib/sh/install.sh`
 - If required append `-b <tag>` or `-b <branch>` e.g:
 
 ```shell
@@ -66,33 +66,6 @@ Install and include minimal configuration to the `.zshrc`:
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" --
-```
-
-</TabItem>
-<TabItem value="repository" label="Repository">
-
-Clone repository using default or if set [custom][customizing-paths] values.
-
-```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
-```
-
-</TabItem>
-<TabItem value="minimal-annexes" label="Annex">
-
-Install and include minimal configuration with recommended [annexes][]:
-
-```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
-```
-
-</TabItem>
-<TabItem value="minimal-zunit" label="ZUnit">
-
-Install and include minimal configuration with recommended [annexes][] and setup [zdharma/zunit][]:
-
-```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
 ```
 
 </TabItem>
@@ -119,6 +92,33 @@ The loader can be manually fetched from available [links](#loader) to any locati
 :::
 
 Then reload shell with: `exec zsh`. All done!
+
+</TabItem>
+<TabItem value="repository" label="Repository">
+
+Clone repository using default or if set [custom][customizing-paths] values.
+
+```shell
+sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
+```
+
+</TabItem>
+<TabItem value="minimal-annexes" label="Annex">
+
+Install and include minimal configuration with recommended [annexes][annexes]:
+
+```shell
+sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
+```
+
+</TabItem>
+<TabItem value="minimal-zunit" label="ZUnit">
+
+Install and include minimal configuration with recommended [annexes][annexes] and setup [zdharma/zunit][zdharma/zunit]:
+
+```shell
+sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
+```
 
 </TabItem>
 </Tabs>
@@ -175,9 +175,9 @@ autoload -Uz _zi
 
 After a fresh install, recommended to reload the shell with `exec zsh` and compile Zi with `zi self-update`. Run `zi -h` to see all available commands. Increase Zi functionality, and performance, or get started by exploring the wiki.
 
-If you have any issue or need help <Emoji symbol="🤦‍♂️" label="man-facepalming"/>, lets [discuss][] it or open an [issue][] in any language.
+If you have any issue or need help <Emoji symbol="🤦‍♂️" label="man-facepalming"/>, lets [discuss][discuss] it or open an [issue][issue] in any language.
 
-It helps us to improve and make Zi better. Don't forget to help the project: share, contribute, or [translate][] <Emoji symbol="🌐" label="globe-with-meridians"/> <Emoji symbol="🥰" label="smiling-face-with-hearts"/> <Emoji symbol="🤓" label="nerd-face"/>.
+It helps us to improve and make Zi better. Don't forget to help the project: share, contribute, or [translate][translate] <Emoji symbol="🌐" label="globe-with-meridians"/> <Emoji symbol="🥰" label="smiling-face-with-hearts"/> <Emoji symbol="🤓" label="nerd-face"/>.
 
 Let's glue everything together to create a toolchain that works for us <Emoji symbol="🚀" label="rocket"/>.
 
@@ -210,8 +210,8 @@ To accomplish this, use burst argument and call the `@zi-scheduler` function:
 RUN zsh -i -c -- '@zi-scheduler burst || true'
 ```
 
-> - An example: [Dockerfile][]
-> - In action: [Playground][]
+> - An example: [Dockerfile][dockerfile]
+> - In action: [Playground][playground]
 
 ## <i class="fas fa-cog fa-pulse"></i> Zi Module: [zpmod][z-shell/zpmod] {#zi-module}
 
