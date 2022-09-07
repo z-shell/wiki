@@ -49,35 +49,35 @@ Set up rust and the `lsd` crate with a shim `lsd` exposing the binary:
 
 ```shell showLineNumbers
 zi ice rustup cargo'!lsd'
-zi load z-shell/null
+zi load z-shell/0
 ```
 
 Set up rust and the `exa` crate with a shim `ls` exposing the `exa` binary:
 
 ```shell showLineNumbers
 zi ice rustup cargo'!exa -> ls'
-zi load z-shell/null
+zi load z-shell/0
 ```
 
 Set up rust and the `exa` and `lsd` crates:
 
 ```shell showLineNumbers
 zi ice rustup cargo'exa;lsd'
-zi load z-shell/null
+zi load z-shell/0
 ```
 
 Set up rust, then the `exa` and `lsd` crates, with their binaries exposed by altering `$PATH`:
 
 ```shell showLineNumbers
 zi ice rustup cargo'exa;lsd' as"command" pick"bin/(exa|lsd)"
-zi load z-shell/null
+zi load z-shell/0
 ```
 
 Set up rust and then the `exa` crate with shim standard error redirected to `/dev/null`:
 
 ```shell showLineNumbers
 zi ice rustup cargo'!E:exa'
-zi load z-shell/null
+zi load z-shell/0
 ```
 
 Just install rust and make it available globally in the system:
@@ -85,16 +85,16 @@ Just install rust and make it available globally in the system:
 ```shell showLineNumbers
 zi ice id-as"rust" wait"0" lucid rustup as"command" pick"bin/rustc" atload="export \
   CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup"
-zi load z-shell/null
+zi load z-shell/0
 ```
 
-A little more complex rustup configuration that uses Bin-Gem-Node annex and installs the cargo completion provided with rustup, using the [for](/docs/guides/syntax/for) syntax:
+A little more complex rustup configuration that uses [bin-gem-node][bin-gem-node] annex and installs the cargo completion provided with rustup, using the [for][for] syntax:
 
 ```shell showLineNumbers
 zi id-as=rust wait=1 as=null sbin="bin/*" lucid rustup \
   atload="[[ ! -f ${ZI[COMPLETIONS_DIR]}/_cargo ]] && zi creinstall rust; \
   export CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup" for \
-z-shell/null
+z-shell/0
 ```
 
 Flags:
@@ -127,3 +127,9 @@ zi light z-shell/z-a-rust
 </Tabs>
 
 This will register the `rustup` and `cargo'…'` ice-modifiers.
+
+<!-- end-of-file -->
+<!-- links -->
+
+[bin-gem-node]: /ecosystem/annexes/bin-gem-node
+[for]: /docs/guides/syntax/for
