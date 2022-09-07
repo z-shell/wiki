@@ -8,6 +8,7 @@ jobs:
   deploy:
     name: "🚀"
     uses: z-shell/.github/.github/workflows/trunk.yml@main
+  environment: code-check
     with:
       node_version: "16"
       pnpm_arguments: "pnpm i && pnpm run build"
