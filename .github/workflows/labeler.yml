@@ -11,6 +11,7 @@ permissions:
 jobs:
   triage:
     runs-on: ubuntu-latest
+    environment: project-automation    
     steps:
       - uses: actions/labeler@v4
         with:
