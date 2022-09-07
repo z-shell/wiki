@@ -96,7 +96,7 @@ Then reload shell with: `exec zsh`. All done!
 </TabItem>
 <TabItem value="repository" label="Repository">
 
-Clone repository using default or if set [custom][customizing-paths] values.
+Clone repository using default or if set [custom](/docs/guides/customization#customizing-paths) values.
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
@@ -105,7 +105,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
 </TabItem>
 <TabItem value="minimal-annexes" label="Annex">
 
-Install and include minimal configuration with recommended [annexes][annexes]:
+Install and include minimal configuration with recommended [annexes](/ecosystem/annexes/overview):
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
@@ -114,7 +114,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
 </TabItem>
 <TabItem value="minimal-zunit" label="ZUnit">
 
-Install and include minimal configuration with recommended [annexes][annexes] and setup [zdharma/zunit][zdharma/zunit]:
+Install and include minimal configuration with recommended [annexes](/ecosystem/annexes/overview) and setup [zdharma/zunit][zdharma/zunit]:
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
@@ -127,7 +127,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
 
 :::tip Related
 
-- [🏗 Configuration management][customization]
+- [🏗 Configuration management](/docs/guides/customization#customizing-paths)
 
 :::
 
@@ -274,11 +274,6 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
 
 <!-- end-of-file -->
 <!-- links -->
-
-[annexes]: /ecosystem/annexes/overview
-[customization]: /docs/guides/customization
-[customizing-paths]: /docs/guides/customization#customizing-paths
-
 <!-- external -->
 
 [checksum]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt
