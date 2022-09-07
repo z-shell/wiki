@@ -10,7 +10,7 @@ jobs:
   dependency-review:
     name: "🏭 Scanning"
     runs-on: ubuntu-latest
-    environment: code-check    
+    environment: code-check
     steps:
       - name: "⤵️ Check out code from GitHub"
         uses: actions/checkout@v3

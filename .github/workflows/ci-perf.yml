@@ -60,7 +60,7 @@ jobs:
     strategy:
       matrix:
         node-version: ["16"]
-    environment: code-check        
+    environment: code-check
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2.2.2
