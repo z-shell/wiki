@@ -85,7 +85,7 @@ zi light …
 
 ### GH-R: [asciinema/agg][asciinema/agg] {#gh-r-asciinema-agg}
 
-`agg` is a command-line tool for generating animated `GIF` files from [asciicast v2 files][asciicast-v2] produced by [asciinema terminal recorder][asciinema/asciinema].
+`agg` is a command-line tool for generating animated `GIF` files from [asciicast v2 files][asciicast-v2] produced by [asciinema terminal recorder](https://github.com/asciinema/asciinema).
 
 <Tabs>
 <TabItem value="default" label="Default" default>
@@ -646,7 +646,6 @@ zi for as'program' nocompile'!' depth'1' \
 <!-- external-links -->
 
 [asciinema/agg]: https://github.com/asciinema/agg
-[asciinema/asciinema]: https://github.com/asciinema/asciinema
 [asciicast-v2]: https://github.com/asciinema/asciinema/blob/master/doc/asciicast-v2.md
 [aaronng/reddio]: https://gitlab.com/aaronNG/reddio
 [abishekvashok/cmatrix]: https://github.com/abishekvashok/cmatrix
