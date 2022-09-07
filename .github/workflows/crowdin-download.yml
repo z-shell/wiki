@@ -18,7 +18,8 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
-    timeout-minutes: 10
+    environment: translations
+    timeout-minutes: 30
     steps:
       - name: "⤵️ Check out code from GitHub"
         uses: actions/checkout@v3
@@ -30,5 +31,5 @@ jobs:
           upload_sources: false
           upload_translations: false
           download_translations: true
-          github_user_name: digital-teams[bot]
-          github_user_email: actions@zshell.dev
+          github_user_name: ${{ secrets.ACTIONS_USER }}
+          github_user_email: ${{ secrets.ACTIONS_MAIL }}
