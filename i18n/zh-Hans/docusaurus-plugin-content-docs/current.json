@@ -11,8 +11,8 @@
     "message": "💡指南",
     "description": "The label for category 💡 Guides in sidebar SideBar"
   },
-  "sidebar.SideBar.category.✍️ Syntax": {
-    "message": "✍️ 语法",
-    "description": "The label for category ✍️ Syntax in sidebar SideBar"
+  "sidebar.SideBar.category.✍️  Syntax": {
+    "message": "✍️  语法",
+    "description": "The label for category ✍️  Syntax in sidebar SideBar"
   }
 }
