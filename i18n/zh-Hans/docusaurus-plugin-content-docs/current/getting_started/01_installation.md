@@ -21,35 +21,33 @@ import Emoji from '@site/src/components/Emoji';
 
 将以下内容添加到 `.zshrc` 文件中：
 
+````mdx-code-block
 <Tabs>
-<TabItem value="instant-source" label="Instant" default>
+  <TabItem value="instant-source" label="Instant" default>
 
-```shell title="~/.zshrc"
-source <(curl -sL git.io/zi-loader); zzinit
-```
+  ```shell title="~/.zshrc"
+  source <(curl -sL git.io/zi-loader); zzinit
+  ```
 
-</TabItem>
-<TabItem value="verified-source" label="Verified">
+  </TabItem>
+  <TabItem value="verified-source" label="Verified">
 
-验证文件的 sha256 [checksum][checksum]：`lib/zsh/init.zsh`:
+  Verify the sha256 [checksum][checksum] for a file: `lib/zsh/init.zsh`:
 
-```shell showLineNumbers title="~/.zshrc"
-local cs_ok='7fab1ecb8d2ffbdb4aa98dd1e51cebaeaa4d8137e1de11938f3e0df24af262bb'
-local cs=$(sha256sum <(curl -sL git.io/zi-loader) | awk '{print $1}')
-[[ $cs_ok == $cs ]] && { source <(curl -sL git.io/zi-loader); zzinit; } || {
-  print -P "%F{160}▓▒░ Houston, we have a problem, the %F{226}$cs%F{160} do not match\!%f%b"; exit 1
-}
-```
+  ```shell showLineNumbers title="~/.zshrc"
+  local cs_ok='7fab1ecb8d2ffbdb4aa98dd1e51cebaeaa4d8137e1de11938f3e0df24af262bb'
+  local cs=$(sha256sum <(curl -sL git.io/zi-loader) | awk '{print $1}')
+  [[ $cs_ok == $cs ]] && { source <(curl -sL git.io/zi-loader); zzinit; } || {
+    print -P "%F{160}▓▒░ Houston, we have a problem, the %F{226}$cs%F{160} do not match\!%f%b"; exit 1
+  }
+  ```
 
-</TabItem>
+  </TabItem>
 </Tabs>
-
+````
 使用 `exec zsh` 重新加载 shell 并运行 `zi -h` 以获取使用信息。
-
 ## <i class="fas fa-spinner fa-spin"></i> 自动设置 {#automated-setup}
-
 :::tip
-
 - 验证文件： `lib/sh/install.sh` 的 sha256 [校验和][checksum]
 - 如果需要，请添加 `-b <tag>` 或 `-b <branch>` ，例如：
 
@@ -59,78 +57,75 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
 
 :::
 
+````mdx-code-block
 <Tabs>
-<TabItem value="minimal" label="Minimal" default>
+  <TabItem value="minimal" label="Minimal" default>
 
-安装并向 `.zshrc` 添加最小配置：
+  Install and include minimal configuration to the `.zshrc`:
 
-```shell
-sh -c "$(curl -fsSL git.io/get-zi)" --
-```
+  ```shell
+  sh -c "$(curl -fsSL git.io/get-zi)" --
+  ```
 
-</TabItem>
-<TabItem value="minimal-loader" label="Loader">
+  </TabItem>
+  <TabItem value="minimal-loader" label="Loader">
 
-使用 [loader](#loader) 安装并包含最小配置：
+  Install and include minimal configuration with [loader](#loader):
 
-```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a loader
-```
+  ```shell
+  sh -c "$(curl -fsSL git.io/get-zi)" -- -a loader
+  ```
 
-安装程序将下载加载器并将下面的代码段添加到 `.zshrc` 文件中。
+  The installer will download the loader and add the snippet below to the `.zshrc` file.
 
-```shell showLineNumbers
-if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]];然后
-  source "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" && zzinit
-fi
-```
+  ```shell showLineNumbers
+  if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]]; then
+    source "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" && zzinit
+  fi
+  ```
 
-:::tip
+  :::tip
 
-加载器可以从可用的 [链接](#loader) 手动获取到任何系统上的位置，并在 `.zshrc` 加载或如 [快速开始]所示]（#quick-setup）。
+  The loader can be manually fetched from available [links](#loader) to any location on the system, and sourced from `.zshrc` or as shown in the [quick-setup](#quick-setup).
 
-:::
+  :::
 
-然后用 `exec zsh` 重新加载 shell。 全部完成了！
+  Then reload shell with: `exec zsh`. All done!
 
-</TabItem>
-<TabItem value="repository" label="Repository">
+  </TabItem>
+  <TabItem value="repository" label="Repository">
 
-使用默认值或设置 [自定义][customizing-paths] 值克隆存储库。
+  Clone repository using default or if set <Link to="/docs/guides/customization#customizing-paths">custom</Link> values:
 
-```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
-```
+  ```shell
+  sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
+  ```
 
-</TabItem>
-<TabItem value="minimal-annexes" label="Annex">
+  </TabItem>
+  <TabItem value="minimal-annexes" label="Annex">
 
-安装并包含推荐 [附件][annexes] 的最小配置：
+  Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link>:
 
-```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
-```
+  ```shell
+  sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
+  ```
 
-</TabItem>
-<TabItem value="minimal-zunit" label="ZUnit">
+  </TabItem>
+  <TabItem value="minimal-zunit" label="ZUnit">
 
-安装并包含最小的配置，推荐使用 [annexes][annexes] 和设置 [zdharma/zunit][zdharma/zunit]:
+  Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link> and setup <Link href="https://github.com/zdharma/zunit">zdharma/zunit</Link>:
 
-```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
-```
+  ```shell
+  sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
+  ```
 
-</TabItem>
-</Tabs>
-
+  </TabItem>
+  </Tabs>
+````
 ## <i class="fas fa-spinner fa-spin"></i> 手动设置 {#manual-setup}
-
 :::tip 相关内容
-
-- [🏗 Configuration management][customization]
-
+- [🏗 Configuration management](/docs/guides/customization#customizing-paths)
 :::
-
 设置安装位置并创建目录：
 
 ```shell showLineNumbers
@@ -222,39 +217,40 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 
 :::
 
+````mdx-code-block
 <Tabs>
   <TabItem value="with-zi" label="With Zi" default>
 
-用法：
+  Usage:
 
-```shell showLineNumbers
-zi module {build|info|help} [options]
-zi module build [--clean]
-zi module info [--link]
-```
+  ```shell showLineNumbers
+  zi module {build|info|help} [options]
+  zi module build [--clean]
+  zi module info [--link]
+  ```
 
-- 要开始使用 Zi Zsh 模块，请运行：`zi module build`。 附加 `--clean` 以运行 `make distclean`。
-- 要加载模块的时候显示模块说明，请运行：`zi module info`。
+  - To start using the Zi Zsh module run: `zi module build`. Append `--clean` to run `make distclean`.
+  - To display the instructions on loading the module, run: `zi module info`.
+  - To enable debug messages from the module set:
 
-要启用来自模块集的调试消息：
-
-```shell
-typeset -g ZI_MOD_DEBUG=1
-```
+  ```shell
+  typeset -g ZI_MOD_DEBUG=1
+  ```
 
 </TabItem>
   <TabItem value="standalone" label="Standalone">
 
-```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
-```
+  ```shell
+  sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
+  ```
 
   </TabItem>
 </Tabs>
+````
 
 ## <i class="fas fa-sync-alt fa-spin"></i> 可用的链接 {#available-links}
 
-[状态页][status] <Emoji symbol="✅" label="check-mark-button"/>
+[Status page][status] <Emoji symbol="✅" label="check-mark-button"/>
 
 ### <i class="fa-solid fa-gear"></i> 安装器 {#installer}
 
@@ -274,12 +270,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
 
 <!-- end-of-file -->
 <!-- links -->
-
-
-
 <!-- external -->
-
-[customization]: /docs/guides/customization
 
 [checksum]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt
 [completion-system]: https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Use-of-compinit
