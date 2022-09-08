@@ -18,7 +18,7 @@ export default function HeroBanner(): JSX.Element {
           <img
             alt={translate({ id: "zi.logo", message: "ZI logo" })}
             className={styles.heroLogo}
-            src='/img/logo.svg?static=true'
+            src='/img/logo.svg'
             height='200'
             width='200'
           />
@@ -29,7 +29,7 @@ export default function HeroBanner(): JSX.Element {
               __html: translate({
                 id: "homepage.hero.title",
                 message:
-                  "A <b>Swiss Army</b> Knife for <b>Zsh</b> unix <b>Shell</b>",
+                  "A <b>Swiss Army</b> Knife for <b>Zsh</b> Unix <b>Shell</b>",
                 description:
                   "Home page hero title, can contain simple html tags",
               }),

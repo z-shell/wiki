@@ -6,7 +6,7 @@
   "display": "standalone",
   "scope": "./",
   "start_url": "./index.html",
-  "description": "Z Wiki PWA App",
+  "description": "Zi Wiki PWA App",
   "orientation": "any",
   "prefer_related_applications": false,
   "related_applications": [

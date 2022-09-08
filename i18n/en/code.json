@@ -3,7 +3,7 @@
     "message": "ZI logo"
   },
   "homepage.hero.title": {
-    "message": "A <b>Swiss Army</b> Knife for <b>Zsh</b> unix <b>Shell</b>",
+    "message": "A <b>Swiss Army</b> Knife for <b>Zsh</b> Unix <b>Shell</b>",
     "description": "Home page hero title, can contain simple html tags"
   },
   "homepage.banner.button.1": {

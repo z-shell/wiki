@@ -374,8 +374,7 @@ To make the prompt fully initialized after turbo mode loading in the middle of t
 
 First, find the name of the hook function by examining the `$precmd_functions` array. For example, for the `robobenklein/zinc` theme, they'll be two functions: `prompt_zinc_setup` and `prompt_zinc_precmd`:
 
-```shell showLineNumbers
-print $precmd_functions
+```shell title="print $precmd_functions"
 _zsh_autosuggest_start prompt_zinc_setup prompt_zinc_precmd
 ```
 
@@ -486,7 +485,7 @@ zi self-update
 
 Update plugins and snippets:
 
-```shell
+```shell showLineNumbers
 zi update --all
 zi update --reset
 zi update --quiet
@@ -494,7 +493,7 @@ zi update --quiet
 
 Update plugins or snippets:
 
-```shell
+```shell showLineNumbers
 zi update --plugins
 zi update --snippets
 ```
