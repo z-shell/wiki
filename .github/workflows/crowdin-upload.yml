@@ -25,7 +25,7 @@ env:
 jobs:
   upload:
     runs-on: ubuntu-latest
-    environment: project-automation
+    environment: crowdin
     timeout-minutes: 10
     steps:
       - name: "⤵️ Check out code from GitHub"
