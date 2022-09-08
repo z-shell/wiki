@@ -21,6 +21,7 @@ import Emoji from '@site/src/components/Emoji';
 
 Add the following snippet in the `.zshrc` file:
 
+````mdx-code-block
 <Tabs>
 <TabItem value="instant-source" label="Instant" default>
 
@@ -43,6 +44,7 @@ local cs=$(sha256sum <(curl -sL git.io/zi-loader) | awk '{print $1}')
 
 </TabItem>
 </Tabs>
+````
 
 Reload shell with `exec zsh` and run `zi -h` for usage information.
 
@@ -59,6 +61,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
 
 :::
 
+````mdx-code-block
 <Tabs>
 <TabItem value="minimal" label="Minimal" default>
 
@@ -96,7 +99,7 @@ Then reload shell with: `exec zsh`. All done!
 </TabItem>
 <TabItem value="repository" label="Repository">
 
-Clone repository using default or if set [custom](/docs/guides/customization#customizing-paths) values.
+Clone repository using default or if set <Link to="/docs/guides/customization#customizing-paths">custom</Link> values.
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
@@ -105,7 +108,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
 </TabItem>
 <TabItem value="minimal-annexes" label="Annex">
 
-Install and include minimal configuration with recommended [annexes](/ecosystem/annexes/overview):
+Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link>:
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
@@ -114,7 +117,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
 </TabItem>
 <TabItem value="minimal-zunit" label="ZUnit">
 
-Install and include minimal configuration with recommended [annexes](/ecosystem/annexes/overview) and setup [zdharma/zunit][zdharma/zunit]:
+Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link> and setup <Link href="https://github.com/zdharma/zunit">zdharma/zunit</Link>:
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
@@ -122,6 +125,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
 
 </TabItem>
 </Tabs>
+````
 
 ## <i class="fas fa-spinner fa-spin"></i> Manual Setup {#manual-setup}
 
@@ -222,6 +226,7 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 
 :::
 
+````mdx-code-block
 <Tabs>
   <TabItem value="with-zi" label="With Zi" default>
 
@@ -251,6 +256,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
 
   </TabItem>
 </Tabs>
+````
 
 ## <i class="fas fa-sync-alt fa-spin"></i> Available links {#available-links}
 
@@ -290,4 +296,3 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
 [status]: https://status.zshell.dev
 [translate]: https://digitalclouds.crowdin.com/z-shell
 [z-shell/zpmod]: https://github.com/z-shell/zpmod
-[zdharma/zunit]: https://github.com/zdharma/zunit
