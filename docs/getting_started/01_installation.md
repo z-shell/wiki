@@ -23,26 +23,26 @@ Add the following snippet in the `.zshrc` file:
 
 ````mdx-code-block
 <Tabs>
-<TabItem value="instant-source" label="Instant" default>
+  <TabItem value="instant-source" label="Instant" default>
 
-```shell title="~/.zshrc"
-source <(curl -sL git.io/zi-loader); zzinit
-```
+  ```shell title="~/.zshrc"
+  source <(curl -sL git.io/zi-loader); zzinit
+  ```
 
-</TabItem>
-<TabItem value="verified-source" label="Verified">
+  </TabItem>
+  <TabItem value="verified-source" label="Verified">
 
-Verify the sha256 [checksum][checksum] for a file: `lib/zsh/init.zsh`:
+  Verify the sha256 [checksum][checksum] for a file: `lib/zsh/init.zsh`:
 
-```shell showLineNumbers title="~/.zshrc"
-local cs_ok='7fab1ecb8d2ffbdb4aa98dd1e51cebaeaa4d8137e1de11938f3e0df24af262bb'
-local cs=$(sha256sum <(curl -sL git.io/zi-loader) | awk '{print $1}')
-[[ $cs_ok == $cs ]] && { source <(curl -sL git.io/zi-loader); zzinit; } || {
-  print -P "%F{160}▓▒░ Houston, we have a problem, the %F{226}$cs%F{160} do not match\!%f%b"; exit 1
-}
-```
+  ```shell showLineNumbers title="~/.zshrc"
+  local cs_ok='7fab1ecb8d2ffbdb4aa98dd1e51cebaeaa4d8137e1de11938f3e0df24af262bb'
+  local cs=$(sha256sum <(curl -sL git.io/zi-loader) | awk '{print $1}')
+  [[ $cs_ok == $cs ]] && { source <(curl -sL git.io/zi-loader); zzinit; } || {
+    print -P "%F{160}▓▒░ Houston, we have a problem, the %F{226}$cs%F{160} do not match\!%f%b"; exit 1
+  }
+  ```
 
-</TabItem>
+  </TabItem>
 </Tabs>
 ````
 
@@ -63,68 +63,68 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
 
 ````mdx-code-block
 <Tabs>
-<TabItem value="minimal" label="Minimal" default>
+  <TabItem value="minimal" label="Minimal" default>
 
-Install and include minimal configuration to the `.zshrc`:
+  Install and include minimal configuration to the `.zshrc`:
 
-```shell
-sh -c "$(curl -fsSL git.io/get-zi)" --
-```
+  ```shell
+  sh -c "$(curl -fsSL git.io/get-zi)" --
+  ```
 
-</TabItem>
-<TabItem value="minimal-loader" label="Loader">
+  </TabItem>
+  <TabItem value="minimal-loader" label="Loader">
 
-Install and include minimal configuration with [loader](#loader):
+  Install and include minimal configuration with [loader](#loader):
 
-```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a loader
-```
+  ```shell
+  sh -c "$(curl -fsSL git.io/get-zi)" -- -a loader
+  ```
 
-The installer will download the loader and add the snippet below to the `.zshrc` file.
+  The installer will download the loader and add the snippet below to the `.zshrc` file.
 
-```shell showLineNumbers
-if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]]; then
-  source "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" && zzinit
-fi
-```
+  ```shell showLineNumbers
+  if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]]; then
+    source "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" && zzinit
+  fi
+  ```
 
-:::tip
+  :::tip
 
-The loader can be manually fetched from available [links](#loader) to any location on the system, and sourced from `.zshrc` or as shown in the [quick-setup](#quick-setup).
+  The loader can be manually fetched from available [links](#loader) to any location on the system, and sourced from `.zshrc` or as shown in the [quick-setup](#quick-setup).
 
-:::
+  :::
 
-Then reload shell with: `exec zsh`. All done!
+  Then reload shell with: `exec zsh`. All done!
 
-</TabItem>
-<TabItem value="repository" label="Repository">
+  </TabItem>
+  <TabItem value="repository" label="Repository">
 
-Clone repository using default or if set <Link to="/docs/guides/customization#customizing-paths">custom</Link> values.
+  Clone repository using default or if set <Link to="/docs/guides/customization#customizing-paths">custom</Link> values:
 
-```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
-```
+  ```shell
+  sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
+  ```
 
-</TabItem>
-<TabItem value="minimal-annexes" label="Annex">
+  </TabItem>
+  <TabItem value="minimal-annexes" label="Annex">
 
-Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link>:
+  Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link>:
 
-```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
-```
+  ```shell
+  sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
+  ```
 
-</TabItem>
-<TabItem value="minimal-zunit" label="ZUnit">
+  </TabItem>
+  <TabItem value="minimal-zunit" label="ZUnit">
 
-Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link> and setup <Link href="https://github.com/zdharma/zunit">zdharma/zunit</Link>:
+  Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link> and setup <Link href="https://github.com/zdharma/zunit">zdharma/zunit</Link>:
 
-```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
-```
+  ```shell
+  sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
+  ```
 
-</TabItem>
-</Tabs>
+  </TabItem>
+  </Tabs>
 ````
 
 ## <i class="fas fa-spinner fa-spin"></i> Manual Setup {#manual-setup}
@@ -230,29 +230,28 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 <Tabs>
   <TabItem value="with-zi" label="With Zi" default>
 
-Usage:
+  Usage:
 
-```shell showLineNumbers
-zi module {build|info|help} [options]
-zi module build [--clean]
-zi module info [--link]
-```
+  ```shell showLineNumbers
+  zi module {build|info|help} [options]
+  zi module build [--clean]
+  zi module info [--link]
+  ```
 
-- To start using the Zi Zsh module run: `zi module build`. Append `--clean` to run `make distclean`.
-- To display the instructions on loading the module, run: `zi module info`.
+  - To start using the Zi Zsh module run: `zi module build`. Append `--clean` to run `make distclean`.
+  - To display the instructions on loading the module, run: `zi module info`.
+  - To enable debug messages from the module set:
 
-To enable debug messages from the module set:
-
-```shell
-typeset -g ZI_MOD_DEBUG=1
-```
+  ```shell
+  typeset -g ZI_MOD_DEBUG=1
+  ```
 
 </TabItem>
   <TabItem value="standalone" label="Standalone">
 
-```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
-```
+  ```shell
+  sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
+  ```
 
   </TabItem>
 </Tabs>
