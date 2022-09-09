@@ -90,7 +90,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
 
   :::
 
-  Then reload shell with: `exec zsh`. All done!
+  Then reload shell with: `exec zsh`. 全部完成了！
 
   </TabItem>
   <TabItem value="repository" label="Repository">
@@ -229,8 +229,8 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
   zi module info [--link]
   ```
 
-  - To start using the Zi Zsh module run: `zi module build`. Append `--clean` to run `make distclean`.
-  - To display the instructions on loading the module, run: `zi module info`.
+  - To start using the Zi Zsh module run: `zi module build`. 附加 `--clean` 以运行 `make distclean`。
+  - 要加载模块的时候显示模块说明，请运行：`zi module info`。
   - To enable debug messages from the module set:
 
   ```shell
@@ -250,7 +250,7 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 
 ## <i class="fas fa-sync-alt fa-spin"></i> 可用的链接 {#available-links}
 
-[Status page][status] <Emoji symbol="✅" label="check-mark-button"/>
+[状态页][status] <Emoji symbol="✅" label="check-mark-button"/>
 
 ### <i class="fa-solid fa-gear"></i> 安装器 {#installer}
 

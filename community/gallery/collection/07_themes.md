@@ -14,7 +14,7 @@ keywords:
 :::info Related
 
 1. [Multiple prompts](/docs/guides/customization#multiple-prompts)
-2. [Automatic load/unload based on condition](/docs/getting_started/overview#automatic-loadunload-based-on-condition)
+2. [Automatic load/unload based on condition](/docs/getting_started/overview#automatic-condition-based---load--unload)
 3. [Ice `atclone`, `atpull`, `atinit`, `atload`](/docs/guides/syntax/ice#atclone-atpull-atinit-atload)
 
 :::
@@ -29,7 +29,7 @@ Zsh tweak - map colors to the nearest color in the available palette.
 
 :::
 
-### THP: [romkatv/powerlevel10k](https://github.com/romkatv/powerlevel10k) {#thp-romkatvpowerlevel10k}
+### THP: [romkatv/powerlevel10k](https://github.com/romkatv/powerlevel10k) {#thp-romkatv-powerlevel10k}
 
 :::tip
 
@@ -76,7 +76,7 @@ Oneliner:
 zi ice depth=1; zi light romkatv/powerlevel10k
 ```
 
-[Meta plugin][meta-plugins] with configuration wizard disbled by default:
+[meta-plugins](/ecosystem/annexes/meta-plugins) with configuration wizard disabled by default:
 
 - Run manually: `p10k configure` (The file `~/.p10k.zsh` auto sourced if exists).
 
@@ -132,13 +132,15 @@ atload"!prompt_pure_precmd" nocd \
   sindresorhus/pure
 ```
 
-```shell showLineNumbers
-# Install as meta plugin
+Install as meta-plugin:
+
+```shell
 zi light-mode for @sindresorhus/pure
 ```
 
+Personalised:
+
 ```shell showLineNumbers
-# Personalised
 zi light-mode for compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh' atload" \
   PURE_GIT_UP_ARROW='↑'; PURE_GIT_DOWN_ARROW='↓'; PURE_PROMPT_SYMBOL='ᐳ'; PURE_PROMPT_VICMD_SYMBOL='ᐸ'; \
   zstyle ':prompt:pure:prompt:success' color 'green' \
@@ -157,8 +159,9 @@ zi lucid nocd atinit"AGKOZAK_COLORS_PROMPT_CHAR='magenta' AGKOZAK_MULTILINE=0 \
     agkozak/agkozak-zsh-prompt
 ```
 
-```shell showLineNumbers
-# Install as meta plugin
+Install as meta-plugin:
+
+```shell
 zi for @agkozak/agkozak-zsh-prompt
 ```
 
@@ -188,12 +191,14 @@ zi ice wait'!' lucid nocompletions \
   compile"{zinc_functions/*,segments/*,zinc.zsh}" \
   atload'!prompt_zinc_setup; prompt_zinc_precmd'
 zi load robobenklein/zinc
+```
 
-# ZINC git info is already async, but if you want it
-# even faster with `gitstatus` in turbo mode: https://github.com/romkatv/gitstatus
-zi ice wait'1' atload'zinc_optional_depenency_loaded'
+ZINC git info is already async, but if you want it even faster with [gitstatus][gitstatus] in turbo mode:
+
+```shell showLineNumbers
+zi ice wait'1' atload'zinc_optional_dependency_loaded'
 zi load romkatv/gitstatus
 ```
 
 [robobenklein/zinc]: https://github.com/robobenklein/zinc
-[meta-plugins]: /ecosystem/annexes/meta-plugins
+[gitstatus]: https://github.com/romkatv/gitstatus

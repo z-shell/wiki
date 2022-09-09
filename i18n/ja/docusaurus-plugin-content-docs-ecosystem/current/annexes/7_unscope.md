@@ -203,7 +203,7 @@ Besides the GitHub-API querying, there's also a fixed, curated list of mappings 
   
   <tr>
     <td align="center">
-      <Highlight color="var(--ifm-color-info)"> メタプラグイン </Highlight>
+      <Highlight color="var(--ifm-color-info)"> meta-plugins </Highlight>
     </td>
     
     <td align="left">

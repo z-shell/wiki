@@ -14,7 +14,7 @@ keywords:
 :::info
 
 - Recommended to familiarize with [common syntax][common-syntax].
-- Additional installation methods: [meta plugins][meta-plugins], [packages][].
+- Additional installation methods: [meta-plugins](/ecosystem/annexes/meta-plugins), [packages][].
 - Some installations may require additional functionally, it can be done by installing required [annexes][]:
 
 ```shell
@@ -53,7 +53,6 @@ For the [search][search], prefixed tags help as a minimal description of the vis
 
 [annexes]: /ecosystem/annexes/overview
 [rust]: /ecosystem/annexes/rust
-[meta-plugins]: /ecosystem/annexes/meta-plugins
 [packages]: /ecosystem/packages/synopsis
 [issues]: https://github.com/z-shell/zi/issues/new/choose
 [suggestions]: https://github.com/orgs/z-shell/discussions/new

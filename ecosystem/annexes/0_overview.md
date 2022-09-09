@@ -13,9 +13,9 @@ keywords:
 
 <!-- @format -->
 
-1. Add a new Zi subcommand (i.e. the [command][] that’s placed after the function `zi …` when calling Zi).
+1. Add a new Zi subcommand (i.e. the [command][command] that’s placed after the function `zi …` when calling Zi).
 
-2. Add new [ice-modifiers][].
+2. Add new [ice-modifiers][ice-modifiers].
 
 3. Register four types of hooks:
 
@@ -46,7 +46,7 @@ keywords:
 
 :::tip
 
-Use [meta plugins][meta-plugins] to install common annexes as a group:
+Use [meta-plugins](/ecosystem/annexes/meta-plugins) to install common annexes as a group:
 
 ```shell
 zi light-mode for z-shell/z-a-meta-plugins @annexes
@@ -60,7 +60,7 @@ zi light-mode for z-shell/z-a-meta-plugins @annexes+rec
 
 :::
 
-## How To Code Them?
+## How to code them?
 
 Below is an example body of an `atclone` hook taken from [submods][submods] annex.
 
@@ -71,15 +71,15 @@ It shows how to:
 3. It also shows a useful snippet that will trim the whitespace in array elements (see `# (4) …` in the code).
 4. Utilize the last hook argument – the plugin’s/snippet’s containing directory.
 
-```shell
+```shell showLineNumbers
 emulate -L zsh -o extended_glob -o warn_create_global -o typeset_silent
 
 [[ -z "${ZI_ICE[submods]}" ]] && return 0
 
 # (1) – get arguments
 [[ "$1" = plugin ]] && \
-  local type="$1" user="$2" plugin="$3" id_as="$4" dir="$5" hook="$6" || \
-  local type="$1" url="$2" id_as="$3" dir="$4" hook="$6" # type: snippet
+local type="$1" user="$2" plugin="$3" id_as="$4" dir="$5" hook="$6" || \
+local type="$1" url="$2" id_as="$3" dir="$4" hook="$6" # type: snippet
 
 # (2) – we're interested only in plugins/snippets
 # which have the submods'' ice in their load command
@@ -125,7 +125,7 @@ The general syntax of the API call is:
 
 The last argument, i.e. the `|`-separated ice list, is optional. That’s all\! After this loading the plugin `myproject` will set up the new [ice-modifier][ice-modifiers] `submods` that will have syntax `submods'{user}/{plugin} –> {output-dir}; …'` and will clone submodules when installing the original plugin or snippet\!
 
-Example of the [submods][] ice-modifier to load the `zsh-autosuggestions` plugin via the Prezto module: `autosuggestions`:
+Example of the [submods][submods] ice-modifier to load the `zsh-autosuggestions` plugin via the Prezto module: `autosuggestions`:
 
 ```shell showLineNumbers
 zi ice svn submods'zsh-users/zsh-autosuggestions -> external'
@@ -148,7 +148,6 @@ There are 2 or 3 subtypes for each of the hooks:
 
 [command]: /docs/guides/commands
 [ice-modifiers]: /docs/guides/syntax/ice-modifiers
-[meta-plugins]: /ecosystem/annexes/meta-plugins
 [the-proposed-function-name-prefixes]: /community/zsh_plugin_standard#the-proposed-function-name-prefixes
 
 <!-- external -->

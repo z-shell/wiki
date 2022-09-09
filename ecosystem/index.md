@@ -17,10 +17,11 @@ keywords:
 
 <!-- @format -->
 
+```mdx-code-block
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 
-<span className="RightView">
+<div className="RightView">
   <ThemedImage
   className="ImageView"
   alt="Zsh Image"
@@ -29,4 +30,5 @@ import ThemedImage from '@theme/ThemedImage';
       dark: useBaseUrl('/img/zsh/zsh1.png'),
     }}
   />
-</span>
+</div>
+```

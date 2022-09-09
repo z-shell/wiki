@@ -13,13 +13,18 @@ keywords:
 
 <!-- @format -->
 
+```mdx-code-block
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 
-<span className="RightView">
+<div className="RightView">
   <ThemedImage
   className="ImageView"
   alt="Zsh Image"
   sources={{
-      light: useBaseUrl('>
-</span>
+      light: useBaseUrl('/img/zsh/zsh2.png'),
+      dark: useBaseUrl('/img/zsh/zsh1.png'),
+    }}
+  />
+</div>
+```

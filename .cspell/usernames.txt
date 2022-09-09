@@ -46,6 +46,7 @@ robbyrussell
 robobenklein
 romkatv
 russjohnson
+ryanoasis
 sdushantha
 Seirdy
 sharkdp
