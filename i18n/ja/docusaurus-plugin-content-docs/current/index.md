@@ -26,7 +26,7 @@ import ZGitImg from '@site/static/img/png/z_git.png';
 <Link href="https://github.com/orgs/z-shell/">
 <ImgShow
   alt="Z-Shell Organization Stats" width="100%" height="auto"
-  img="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
+  img="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/metrics.svg"
 />
 </Link>
 
