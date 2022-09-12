@@ -680,7 +680,7 @@ zi for as'program' nocompile'!' depth'1' \
 [mvdan/sh]: https://github.com/mvdan/sh
 [neovim/neovim]: https://github.com/neovim/neovim
 [obihann/archey-osx]: https://github.com/obihann/archey-osx
-[ogham/exa]: https://github.com/sharkdp/exa
+[ogham/exa]: https://github.com/ogham/exa
 [osse/git-scripts/git-unique]: https://github.com/Osse/git-scripts/blob/master/git-unique
 [paulirish/git-open]: https://github.com/paulirish/git-open
 [peltoche/lsd]: https://github.com/Peltoche/lsd
