@@ -33,7 +33,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: "🚀 Crowdin Upload"
-        uses: crowdin/github-action@1.4.12
+        uses: crowdin/github-action@1.4.13
         with:
           upload_sources: true
           upload_translations: false
