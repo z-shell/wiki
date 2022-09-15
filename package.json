@@ -48,7 +48,7 @@
     "remark-math": "3.0.1"
   },
   "devDependencies": {
-    "@crowdin/cli": "3.7.10",
+    "@crowdin/cli": "3.8.0",
     "@docusaurus/eslint-plugin": "canary",
     "@docusaurus/module-type-aliases": "canary",
     "@trunkio/launcher": "1.2.1",
