@@ -120,24 +120,24 @@ zi snippet PZT::modules/git
 
 ## 关于 as"program"
 
-A plugin might not be a file for sourcing, but a command to be added to `$PATH`. To obtain this effect, use ice-modifier `as` with value `program` (or an alias value `command`).
+一个插件可能不是一个用于 source 的文件，而是要添加到 `$PATH` 的命令 为了达到这种效果，使用 ice 修饰符 `as` 配合值 `program` (或者使用其别名 `command`).
 
 ```shell {1} showLineNumbers
 zi ice as"program" cp"httpstat.sh -> httpstat" pick"httpstat"
 zi light b4b4r07/httpstat
 ```
 
-The above command will add plugin directory to `$PATH`, copy file `httpstat.sh` into `httpstat` and add execution rights (`+x`) to the file selected with `pick`, i.e. to `httpstat`. Another ice-mod exists, `mv`, which works like `cp` but **moves** a file instead of **copying** it. `mv` is run before `cp`.
+上述命令会把插件目录添加到 `$PATH`，拷贝文件 `httpstat.sh` 到 `httpstat` 并将可执行权限 (`+x`) 添加到通过 `pick` 所选的文件上.。即 `httpstat`。 另一个 ice 修饰符。`mv`。其工作原理类似于 `cp` 但 **移动**，而不是 **复制** 文件。 `mv` 在 `cp` 之前运行。
 
 :::tip
 
-The `cp` and `mv` ices (and also some other ones, like `atclone`) are being run when the plugin or snippet is being _installed_. To test them again first delete the plugin or snippet (example: `zi delete PZT::modules/osx`).
+`cp` 和 `mv` 这些 ice ( 还有一些其他的，如 `atclone`) 在插件或片段被 _安装_ 时运行. 要再次测试它们，请首先删除该插件或片段 ( 例如: `zi delete PZT::modules/osx`)。
 
 :::
 
-## Ice modifier: atpull'…'
+## Ice 修饰符: atpull'…'
 
-Copying file is safe for doing later updates – original files of the repository are unmodified and `Git` will report no conflicts. However, `mv` also can be used, if a proper `atpull`, an ice-modifier ran at **update** of the plugin:
+复制文件对日后的更新是安全的 - 仓库的原始文件没有被修改， `Git` 会报告没有冲突。 However, `mv` also can be used, if a proper `atpull`, an ice-modifier ran at **update** of the plugin:
 
 ```shell showLineNumbers
 zi ice as"program" mv"httpstat.sh -> httpstat" \
@@ -145,7 +145,7 @@ zi ice as"program" mv"httpstat.sh -> httpstat" \
 zi light b4b4r07/httpstat
 ```
 
-If `atpull` starts with an exclamation mark, then it will be run before `git pull`, and before `mv`. Nevertheless, `atpull`, `mv`, and `cp` are run **only if new commits are to be fetched**.
+如果 `atpull` 以感叹号 (!) 开头，那么它将在 `git pull`，以及 `mv`之前运行。 Nevertheless, `atpull`, `mv`, and `cp` are run **only if new commits are to be fetched**.
 
 So in summary, when the user runs `zi update b4b4r07/httpstat` to update this plugin, and there are new commits, what happens first is that `git reset --hard` is run – and it **restores** original `httpstat.sh`, **then** `git pull` is ran and it downloads new commits (doing fast-forward), **then** `mv` is running again so that the command is `httpstat` not `httpstat.sh`.
 

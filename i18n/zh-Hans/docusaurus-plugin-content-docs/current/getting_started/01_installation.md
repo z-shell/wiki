@@ -90,12 +90,12 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
 
   :::
 
-  Then reload shell with: `exec zsh`. 全部完成了！
+然后用 `exec zsh` 重新加载 shell。 全部完成了！
 
   </TabItem>
   <TabItem value="repository" label="Repository">
 
-  Clone repository using default or if set <Link to="/docs/guides/customization#customizing-paths">custom</Link> values:
+ 使用默认值或设置 <Link to="/docs/guides/customization#customizing-paths">自定义</Link> 值来克隆仓库:
 
   ```shell
   sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
@@ -104,7 +104,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
   </TabItem>
   <TabItem value="minimal-annexes" label="Annex">
 
-  Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link>:
+附带推荐 <Link to="/ecosystem/annexes/overview">附件</Link> 的最小化安装:
 
   ```shell
   sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
@@ -113,7 +113,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
   </TabItem>
   <TabItem value="minimal-zunit" label="ZUnit">
 
-  Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link> and setup <Link href="https://github.com/zdharma/zunit">zdharma/zunit</Link>:
+附带推荐 <Link to="/ecosystem/annexes/overview">附件</Link> 的最小化安装,并设置 <Link href="https://github.com/zdharma/zunit">zdharma/zunit</Link>:
 
   ```shell
   sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
@@ -221,7 +221,7 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 <Tabs>
   <TabItem value="with-zi" label="With Zi" default>
 
-  Usage:
+用法:
 
   ```shell showLineNumbers
   zi module {build|info|help} [options]
@@ -229,9 +229,9 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
   zi module info [--link]
   ```
 
-  - To start using the Zi Zsh module run: `zi module build`. 附加 `--clean` 以运行 `make distclean`。
+  - 要开始使用 Zi Zsh 模块，请运行: `zi module build`. 附加 `--clean` 以运行 `make distclean`。
   - 要加载模块的时候显示模块说明，请运行：`zi module info`。
-  - To enable debug messages from the module set:
+  - 要启用模块集的调试信息:
 
   ```shell
   typeset -g ZI_MOD_DEBUG=1
