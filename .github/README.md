@@ -6,7 +6,7 @@
   <h2>
    <a title="❮ Zi ❯" target="_self" href="https://github.com/z-shell/wiki">
   <img style="width:60;height:60px"
-    src="https://raw.githubusercontent.com/z-shell/zi/main/docs/images/favicon.svg"
+    src="https://raw.githubusercontent.com/z-shell/zi/main/docs/images/logo.svg"
     alt="Logo" /></a>❮ Zi ❯
   </h2>
 <h3>
