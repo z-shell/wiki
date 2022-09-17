@@ -340,7 +340,7 @@ Use `zi ice svn` if multiple files require an entire subdirectory.
 ```shell title="~/.zshrc" showLineNumbers
 zi ice svn
 zi snippet PZTM::docker
-n
+
 zi ice svn
 zi snippet PZTM::git
 ```
