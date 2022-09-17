@@ -204,7 +204,7 @@ Load with OMZ:
 ZSH_THEME="alpharized"
 ```
 
-Load with Zi:
+Load `git` library from OMZ:
 
 ```shell title="~/.zshrc"
 zi snippet OMZL::git.zsh
@@ -215,9 +215,12 @@ Load `git` plugin from OMZ:
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZP::git
 zi cdclear -q
+```
 
+Then load the prompt:
+
+```shell title="~/.zshrc" showLineNumbers
 setopt prompt_subst
-
 zi light NicoSantangelo/Alpharized
 ```
 
