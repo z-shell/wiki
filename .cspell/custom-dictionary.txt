@@ -158,6 +158,8 @@ has'ueberzug
 hashbang
 herobanner
 hideable
+HISTFILE
+HISTSIZE
 hsmw
 httpstat
 icemods
@@ -296,6 +298,7 @@ Rxvt
 safebrowsing
 sall
 Santangelo
+SAVEHIST
 sbin'argocd
 Schaefer
 screencast

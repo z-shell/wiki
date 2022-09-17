@@ -54,14 +54,14 @@ zi snippet OMZL::termsupport.zsh
 
 Example of more advanced, library loading using subversion:
 
-```diff title="~/.zshrc" showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 if (( $+commands[svn] )) {
 	sni=({git,theme-and-appearance,prompt_info_functions,history,completion,vcs_info}.zsh)
 	zi is-snippet has'svn' for svn \
 		multisrc'${sni[*]}' pick'/dev/null' \
 		atinit'typeset -gx COMPLETION_WAITING_DOTS=true \
-  	HISTSIZE=290000 SAVEHIST=290000 HISTFILE=${ZSH_CACHE_DIR}/.history;' \
-    	OMZ::lib
+    HISTSIZE=290000 SAVEHIST=290000 HISTFILE=${ZSH_CACHE_DIR}/.history;' \
+      OMZ::lib
 	unset sni
 } else {
 	+zi-message "{auto}Subversion not installed!"
@@ -364,7 +364,7 @@ zi ice svn blockf \
 zi snippet PZTM::completion
 ```
 
-Use `blockf` to prevent any unnecessary additions to fpath, as Zi manages fpath.
+Use `blockf` to prevent any unnecessary additions to `fpath`, as Zi manages `fpath`.
 
 :::tip
 
