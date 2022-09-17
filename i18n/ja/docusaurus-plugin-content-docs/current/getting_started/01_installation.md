@@ -140,7 +140,7 @@ export ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
 command mkdir -p "$ZI[BIN_DIR]"
 ```
 
-For security reasons run function `compaudit` to check if the [completion system][completion-system] would use files not owned by `root` or by the current `user`, or files in directories that are `world` or `group-writable`.
+For security reasons run function `compaudit` to check if the [completion system][completion-system] would use files owned by `root` or by the current `user`, or files in directories that are `world` or `group-writable`.
 
 If failed, then set the current user as the owner of directories, then remove group/others write permissions, and clone the repository:
 
