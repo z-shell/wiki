@@ -85,7 +85,7 @@ fi
 
 :::info Extension d'invite PS4
 
-Zsh Sourceforge docs: [Prompt Expansion][]
+Zsh Sourceforge docs: [Prompt Expansion][prompt-expansion]
 
 :::
 
@@ -128,12 +128,10 @@ zmsg "Done"
 
 Then use the `$ZLOGS` variable to retrieve:
 
-```shell showLineNumbers
-❯ echo $ZLOGS
-
+```shell title="print $ZLOGS" showLineNumbers
 [Loaded functions]: 0.0 ms
 [Loaded something else]: 0.0 ms
 [Done]: 0.1 ms
 ```
 
-[Prompt Expansion]: https://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+[prompt-expansion]: https://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
