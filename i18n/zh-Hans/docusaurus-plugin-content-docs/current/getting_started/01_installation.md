@@ -31,7 +31,7 @@ source <(curl -sL git.io/zi-loader); zzinit
   </TabItem>
   <TabItem value="verified-source" label="Verified">
 
-Verify the sha256 [checksum][checksum] for a file: `lib/zsh/init.zsh`:
+验证文件的 sha256 [checksum][checksum]：`lib/zsh/init.zsh`:
 
 ```shell showLineNumbers title="~/.zshrc"
 local cs_ok='7fab1ecb8d2ffbdb4aa98dd1e51cebaeaa4d8137e1de11938f3e0df24af262bb'
@@ -62,7 +62,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
 <Tabs>
   <TabItem value="minimal" label="Minimal" default>
 
-Install and include minimal configuration to the `.zshrc`:
+安装并向 `.zshrc` 添加最小配置：
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" --
@@ -71,13 +71,13 @@ sh -c "$(curl -fsSL git.io/get-zi)" --
   </TabItem>
   <TabItem value="minimal-loader" label="Loader">
 
-Install and include minimal configuration with [loader](#loader):
+使用 [loader](#loader) 安装并包含最小配置：
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" -- -a loader
 ```
 
-The installer will download the loader and add the snippet below to the `.zshrc` file.
+安装程序将下载加载器并将下面的代码段添加到 `.zshrc` 文件中。
 
 ```shell showLineNumbers
 if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]]; then
@@ -91,7 +91,7 @@ The loader can be manually fetched from available [links](#loader) to any locati
 
 :::
 
-Then reload shell with: `exec zsh`. All done!
+然后用 `exec zsh` 重新加载 shell。 全部完成了！
 
   </TabItem>
   <TabItem value="repository" label="Repository">
@@ -225,7 +225,7 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 <Tabs>
   <TabItem value="with-zi" label="With Zi" default>
 
-Usage:
+用法：
 
 ```shell showLineNumbers
 zi module {build|info|help} [options]
@@ -233,9 +233,9 @@ zi module build [--clean]
 zi module info [--link]
 ```
 
-- To start using the Zi Zsh module run: `zi module build`. Append `--clean` to run `make distclean`.
-- To display the instructions on loading the module, run: `zi module info`.
-- To enable debug messages from the module set:
+- 要开始使用 Zi Zsh 模块，请运行：`zi module build`。 附加 `--clean` 以运行 `make distclean`。
+- 要加载模块的时候显示模块说明，请运行：`zi module info`。
+- 要启用来自模块集的调试消息：
 
 ```shell
 typeset -g ZI_MOD_DEBUG=1
@@ -253,7 +253,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
 
 ## <i class="fas fa-sync-alt fa-spin"></i> 可用的链接 {#available-links}
 
-[Status page][status] <Emoji symbol="✅" label="check-mark-button"/>
+[状态页][status] <Emoji symbol="✅" label="check-mark-button"/>
 
 ### <i class="fa-solid fa-gear"></i> 安装器 {#installer}
 
