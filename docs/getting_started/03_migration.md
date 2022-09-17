@@ -187,8 +187,6 @@ zi snippet OMZL::git.zsh
 zi snippet OMZP::git
 zi snippet OMZL::theme-and-appearance.zsh
 zi snippet OMZL::prompt_info_functions.zsh
-# Other libraries that might be needed
-zi cdclear -q
 ```
 
 Then load the prompt:
