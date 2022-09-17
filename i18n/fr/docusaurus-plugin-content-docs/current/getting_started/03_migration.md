@@ -52,6 +52,22 @@ zi snippet OMZL::clipboard.zsh
 zi snippet OMZL::termsupport.zsh
 ```
 
+Example of more advanced, library loading using subversion:
+
+```shell title="~/.zshrc" showLineNumbers
+if (( $+commands[svn] )) {
+    sni=({git,theme-and-appearance,prompt_info_functions,history,completion,vcs_info}.zsh)
+    zi is-snippet has'svn' for svn \
+        multisrc'${sni[*]}' pick'/dev/null' \
+        atinit'typeset -gx COMPLETION_WAITING_DOTS=true \
+    HISTSIZE=290000 SAVEHIST=290000 HISTFILE=${ZSH_CACHE_DIR}/.history;' \
+      OMZ::lib
+    unset sni
+} else {
+    +zi-message "{auto}Subversion not installed!"
+}
+```
+
 ### OMZ plugins
 
 ```diff title="~/.zshrc" showLineNumbers
@@ -138,7 +154,7 @@ zi snippet OMZP::ag/_ag
 
 ### OMZ themes
 
-Themes are stored in the `themes` directory. All and loaded in the background. with the simple syntax:
+Themes are stored in the `themes` directory and loaded in the background with the simple syntax:
 
 ```shell title="~/.zshrc"
 ZSH_THEME="robbyrussell"
@@ -164,8 +180,8 @@ If any of the above are not in order or missing, the theme will break similar as
 If the `Git` library is not loaded or loaded in the wrong order, then it may appear similar to the following:
 
 ```shell showLineNumbers
-........:1: Commande introuvable: git_prompt_status
-........:1: Commande introuvable: git_prompt_short_sha
+........:1: command not found: git_prompt_status
+........:1: command not found: git_prompt_short_sha
 ```
 
 If you encounter any issue with the theme, OMZ support libraries are to be loaded
@@ -187,8 +203,6 @@ zi snippet OMZL::git.zsh
 zi snippet OMZP::git
 zi snippet OMZL::theme-and-appearance.zsh
 zi snippet OMZL::prompt_info_functions.zsh
-# Other libraries that might be needed
-zi cdclear -q
 ```
 
 Then load the prompt:
@@ -206,7 +220,7 @@ Load with OMZ:
 ZSH_THEME="alpharized"
 ```
 
-Load with Zi:
+Load `git` library from OMZ:
 
 ```shell title="~/.zshrc"
 zi snippet OMZL::git.zsh
@@ -217,9 +231,12 @@ Load `git` plugin from OMZ:
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZP::git
 zi cdclear -q
+```
 
+Then load the prompt:
+
+```shell title="~/.zshrc" showLineNumbers
 setopt prompt_subst
-
 zi light NicoSantangelo/Alpharized
 ```
 
@@ -323,7 +340,7 @@ Use `zi ice svn` if multiple files require an entire subdirectory.
 ```shell title="~/.zshrc" showLineNumbers
 zi ice svn
 zi snippet PZTM::docker
-n
+
 zi ice svn
 zi snippet PZTM::git
 ```
@@ -347,7 +364,7 @@ zi ice svn blockf \
 zi snippet PZTM::completion
 ```
 
-Use `blockf` to prevent any unnecessary additions to fpath, as Zi manages fpath.
+Use `blockf` to prevent any unnecessary additions to `fpath`, as Zi manages `fpath`.
 
 :::tip
 
