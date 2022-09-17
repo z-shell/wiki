@@ -138,7 +138,7 @@ zi snippet OMZP::ag/_ag
 
 ### OMZ themes
 
-Themes are stored in the `themes` directory. All and loaded in the background. with the simple syntax:
+Themes are stored in the `themes` directory and loaded in the background with the simple syntax:
 
 ```shell title="~/.zshrc"
 ZSH_THEME="robbyrussell"
