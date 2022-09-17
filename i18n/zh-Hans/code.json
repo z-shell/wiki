@@ -39,6 +39,10 @@
     "message": "快速且功能丰富",
     "description": "The homepage video container heading 1"
   },
+  "homepage.video.heading.2": {
+    "message": "整齐而灵活",
+    "description": "The homepage video container heading 2"
+  },
   "theme.ErrorPageContent.title": {
     "message": "页面已崩溃。",
     "description": "The title of the fallback page when the page crashed"

@@ -1,6 +1,6 @@
 ---
 id: submods
-title: "🌀 Submods"
+title: "🌀 子模块"
 image: /img/logo/320x320.png
 description: Annex - Submods documentation.
 keywords:
