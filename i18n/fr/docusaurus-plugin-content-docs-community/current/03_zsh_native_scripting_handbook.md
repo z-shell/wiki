@@ -9,11 +9,13 @@ keywords:
 
 <!-- @format -->
 
+import ReadINIExample from '@site/src/components/Markdown/\_read_ini_example.mdx';
+
 ## Information
 
 ### @ is about keeping array form
 
-How do access all array elements in a shell? The standard answer: `use @ subscript`, i.e. `${array[@]}`. However, this is the Bash & Ksh way (and with the option `KSH_ARRAYS`, Zsh also works this way, i.e. needs `@` to access the whole array). Z shell **is different**: it is `$array` that refers to all elements anyway. There is no need for the `@` subscript.
+How do access all array elements in a shell? The standard answer: `use @ subscript`, i.e. `${array[@]}`. However, this is the Bash & Ksh way (and with the option `KSH_ARRAYS`, Zsh also works this way, i.e. needs `@` to access the whole array). Z shell **is different**: it is a `$array` that refers to all elements anyway. There is no need for the `@` subscript.
 
 So what use has `@` in the Zsh-world? It is: "`keep array form`" or "`do not join`". When is it activated? When the user quotes the array, i.e. invokes `"$array"`, he induces _joining_ of all array elements (into a single string). `@` is to have elements still quoted (so empty elements are preserved), but not joined.
 
@@ -30,14 +32,14 @@ Glob-flags `#b` and `#m` require `setopt extended_glob`. Patterns utilizing `~` 
 ### Reading a file
 
 ```shell showLineNumbers
-declare -a lines
+typeset -a lines
 lines=( "${(@f)"$(<path/file)"}" )
 ```
 
 This preserves empty lines because of double-quoting (the outside one). `@`-flag is used to obtain an array instead of a scalar. If you don't want empty lines preserved, you can also skip `@`-splitting, as is explained in the [Information](#information) section:
 
 ```shell showLineNumbers
-declare -a lines
+typeset -a lines
 lines=( ${(f)"$(<path/file)"} )
 ```
 
@@ -48,14 +50,14 @@ Note: `$(<...)` construct strips trailing empty lines.
 This topic is governed by the same principles as the previous paragraph (`Reading a file`), with the single difference that instead of the substitution `"$(<file-path)"` the substitution that should be used is `"$(command arg1 ...)"`, i.e.:
 
 ```shell showLineNumbers
-declare -a lines
+typeset -a lines
 lines=( ${(f)"$(command arg1 ...)"} )
 ```
 
 This will read the `command's` output into the array `lines`. The version that does `@` splitting and retains any empty lines are:
 
 ```shell showLineNumbers
-declare -a lines
+typeset -a lines
 lines=( "${(f@)$(command arg1 ...)}" )
 ```
 
@@ -83,8 +85,8 @@ local absolute_path="${PWD:A}"
 ### Skipping grep
 
 ```shell showLineNumbers
-declare -a lines; lines=( "${(@f)"$(<path/file)"}" )
-declare -a grepped; grepped=( ${(M)lines:#*query*} )
+typeset -a lines; lines=( "${(@f)"$(<path/file)"}" )
+typeset -a grepped; grepped=( ${(M)lines:#*query*} )
 ```
 
 To have the `grep -v` effect, skip the `M`-flag. To grep case-insensitively, use the `\#i` glob flag (`...:#(#i)\*query*}`).
@@ -104,7 +106,7 @@ if [[ -n "$(echo "$svn_status" | \grep \^\?)" ]]; then
 fi
 ```
 
-Those are 3 forks: for `svn status`, for `echo`, and for `grep`. This can be solved by the `:#` substitution and `(M)` flag described above in this section (just check if the number of matched lines is greater than 0). However, there's a more direct approach:
+Those are 3 forks: for `svn status`, for `echo`, and for `grep`. This can be solved by the `:#` substitution and the `(M)` flag described above in this section (just check if the number of matched lines is greater than 0). However, there's a more direct approach:
 
 ```shell showLineNumbers
 local svn_status="$(svn status)" nl=$'\n'
@@ -132,7 +134,7 @@ local needle="?" required_preceding='[[:space:]]#'
 [[ "$(svn status)" = *((#s)|$nl)${~required_preceding}${needle}* ]] && echo found
 ```
 
-It does a single fork (calls `svn` status). The `${~variable}` means (the`~` init): "the variable is holding a pattern, interpret it". All in all, instead of regular expressions we were using patterns (globs) (see [this section](#built-in-regular-expressions-engine)).
+It does a single fork (called`svn` status). The `${~variable}` means (the`~` init): "the variable is holding a pattern, interpret it". All in all, instead of regular expressions we were using patterns (globs) (see [this section](#built-in-regular-expressions-engine)).
 
 ### Pattern matching in AND-fashion
 
@@ -145,10 +147,10 @@ The `~` is a negation -- `match \*abc* but not ...`. Then, `^` is also a negatio
 ### Skipping tr
 
 ```shell showLineNumbers
-declare -A map; map=( a 1 b 2 );
+typeset -A map; map=( a 1 b 2 );
 text=( "ab" "ba" )
 text=( ${text[@]//(#m)?/${map[$MATCH]}} )
-print $text ▶ 12 21
+print $text → 12 21
 ```
 
 `#m` flag enables the `$MATCH` parameter. At each `//` substitution, `$map` is queried for character-replacement. You can substitute a text variable too, just skip `[@]` and parentheses in the assignment.
@@ -156,8 +158,8 @@ print $text ▶ 12 21
 ### Ternary expressions with `+,-,:+,:-` substitutions
 
 ```shell
-HELP="yes"; print ${${HELP:+help enabled}:-help disabled} ▶ help enabled
-HELP=""; print ${${HELP:+help enabled}:-help disabled} ▶ help disabled
+HELP="yes"; print ${${HELP:+help enabled}:-help disabled} → help enabled
+HELP=""; print ${${HELP:+help enabled}:-help disabled} → help disabled
 ```
 
 Ternary expression is known from the `C` language but exists also in Zsh, but directly only in a math context, i.e. `\(( a = a > 0 ? b : c ))`. The flexibility of Zsh allows such expressions also in a normal context. Above is an example. `:+` is "if not empty, substitute …" `:-` is "if empty, substitute …". You can save a great number of lines of code with those substitutions, it's normally at least 4-lines `if` condition or lengthy `&&`/`||` use.
@@ -165,8 +167,8 @@ Ternary expression is known from the `C` language but exists also in Zsh, but di
 ### Ternary expressions with `:#` substitution
 
 ```shell showLineNumbers
-var=abc; print ${${${(M)var:#abc}:+is abc}:-not abc} ▶ is abc
-var=abcd; print ${${${(M)var:#abc}:+is abc}:-not abc} ▶ not abc
+var=abc; print ${${${(M)var:#abc}:+is abc}:-not abc} → is abc
+var=abcd; print ${${${(M)var:#abc}:+is abc}:-not abc} → not abc
 ```
 
 A one-line "if var = x, then …, else …". Again, can spare a great amount of boring code that makes a 10-line function a 20-line one.
@@ -174,18 +176,18 @@ A one-line "if var = x, then …, else …". Again, can spare a great amount of 
 ### Using built-in regular expressions engine
 
 ```shell
-[[ "aabbb" = (#b)(a##)*(b(#c2,2)) ]] && print ${match[1]}-${match[2]} ▶ aa-bb
+[[ "aabbb" = (#b)(a##)*(b(#c2,2)) ]] && print ${match[1]}-${match[2]} → aa-bb
 ```
 
 `\##` is: "1 or more". `(#c2,2)` is: "exactly 2". A few other constructs: `#` is "0 or more", `?` is "any character", `(a|b|)` is "a or b or empty match". `#b` enables the `$match` parameters. There's also `#m` but it has one parameter `$MATCH` for whole matched text, not for any parenthesis.
 
-Zsh patterns are a custom regular expressions engine. They are slightly faster than the `zsh/regex` module (used for the `=~` operator) and don't have that dependency (regex module can be not present, e.g. in the default static build of Zsh). Also, they can be used in substitutions, for example in `//` substitution.
+Zsh patterns are a custom regular expressions engine. They are slightly faster than the `zsh/regex` module (used for the `=~` operator) and don't have that dependency (regex module can be not present, e.g. in the default static build of Zsh). Also, they can be used in substitutions, for example in the `//` substitution.
 
 ### Skipping uniq
 
 ```shell showLineNumbers
-declare -aU array; array=( a a b ); print $array ▶ a b
-declare -a array; array=( a a b ); print ${(u)array} ▶ a b
+typeset -aU array; array=( a a b ); print $array → a b
+typeset -a array; array=( a a b ); print ${(u)array} → a b
 ```
 
 Enable the `-U` flag for the array so that it guards elements to be unique, or use the `u`-flag to make unique elements of an array.
@@ -193,37 +195,37 @@ Enable the `-U` flag for the array so that it guards elements to be unique, or u
 ### Skipping awk
 
 ```shell showLineNumbers
-declare -a list; list=( "a,b,c,1,e" "p,q,r,2,t" );
-print "${list[@]/(#b)([^,]##,)(#c3,3)([^,]##)*/${match[2]}}" ▶ 1 2
+typeset -a list; list=( "a,b,c,1,e" "p,q,r,2,t" );
+print "${list[@]/(#b)([^,]##,)(#c3,3)([^,]##)*/${match[2]}}" → 1 2
 ```
 
 The pattern specifies 3 blocks of `[^,]##,` so 3 "not-comma multiple times, then comma", then the single block of "not-comma multiple times" in second parentheses -- and then replaces this with second parentheses. The result is the 4th column extracted from multiple lines of text, something `awk` is often used for. Another method is the use of the `s`-flag. For a single line of text:
 
 ```shell
-text="a,b,c,1,e"; print ${${(s:,:)text}[4]} ▶ 1
+text="a,b,c,1,e"; print ${${(s:,:)text}[4]} → 1
 ```
 
 Thanks to in-substitution code-execution capabilities it's possible to use the `s`-flag to apply it to multiple lines:
 
 ```shell showLineNumbers
-declare -a list; list=( "a,b,c,1,e" "p,q,r,2,t" );
-print "${list[@]/(#m)*/${${(s:,:)MATCH}[4]}}" ▶ 1 2
+typeset -a list; list=( "a,b,c,1,e" "p,q,r,2,t" );
+print "${list[@]/(#m)*/${${(s:,:)MATCH}[4]}}" → 1 2
 ```
 
 There is a problem with the `(s::)` flag that can be solved if Zsh is version `5.4` or higher: if there will be single input column, e.g. `list=( "column1" "a,b")` instead of two or more columns (i.e. `list=( "column1,column2" "a,b" )`), then `(s::)` will return **string** instead of 1-element **array**. So the index `[4]` in the above snippet will index a string, and show its 4th letter. Starting with Zsh 5.4, thanks to a patch by Bart Schaefer (`40640: the (A) parameter flag forces array result even if...`), it is possible to force **array**-kind of result even for a single column, by adding `(A)` flag, i.e.:
 
 ```shell showLineNumbers
-declare -a list; list=( "a,b,c,1,e" "p,q,r,2,t" "column1" );
-print "${list[@]/(#m)*/${${(As:,:)MATCH}[4]}}" ▶ 1 2
-print "${list[@]/(#m)*/${${(s:,:)MATCH}[4]}}" ▶ 1 2 u
+typeset -a list; list=( "a,b,c,1,e" "p,q,r,2,t" "column1" );
+print "${list[@]/(#m)*/${${(As:,:)MATCH}[4]}}" → 1 2
+print "${list[@]/(#m)*/${${(s:,:)MATCH}[4]}}" → 1 2 u
 ```
 
-Side-note: `(A)` flag is often used together with `::=` assignment-substitution and `(P)` flag, to assign arrays and hashes by name.
+Side-note: `(A)` flag is often used together with the `::=` assignment-substitution and `(P)` flag, to assign arrays and hashes by name.
 
 ### Searching arrays
 
 ```shell showLineNumbers
-declare -a array; array=( a b " c1" d ); print ${array[(r)[[:space:]][[:alpha:]]*]} ▶ c1
+typeset -a array; array=( a b " c1" d ); print ${array[(r)[[:space:]][[:alpha:]]*]} → c1
 ```
 
 `\[[:space:]]` contains unicode spaces. This is often used in conditional expression like `[[ -z ${array[(r)...]} ]]`.
@@ -235,10 +237,10 @@ Note that [Skipping grep](#skipping-grep) that uses `:#` substitution can also b
 ```shell showLineNumbers
 append() { gathered+=( $array[$1] ); }
 functions -M append 1 1 append
-declare -a array; array=( "Value 1" "Other data" "Value 2" )
-declare -a gathered; integer idx=0
+typeset -a array; array=( "Value 1" "Other data" "Value 2" )
+typeset -a gathered; integer idx=0
 : ${array[@]/(#b)(Value ([[:digit:]]##)|*)/$(( ${#match[2]} > 0 ? append(++idx) : ++idx ))}
-print $gathered ▶ Value 1 Value 2
+print $gathered → Value 1 Value 2
 ```
 
 Use of the `#b` glob flag enables math-code execution (and not only) in `/` and `//` substitutions. Implementation is very fast.
@@ -246,15 +248,15 @@ Use of the `#b` glob flag enables math-code execution (and not only) in `/` and 
 ### Serializing data
 
 ```shell showLineNumbers
-declare -A hsh deserialized; hsh=( key value )
+typeset -A hsh deserialized; hsh=( key value )
 serialized="${(j: :)${(qkv@)hsh}}"
 deserialized=( "${(Q@)${(z@)serialized}}" )
-print ${(kv)deserialized} ▶ key value
+print ${(kv)deserialized} → key value
 ```
 
 `j`-flag means join -- by spaces, in this case. Flags `kv` mean keys and values, interleaving. Important `q`-flag means: quote. So what is obtained is each key and value quoted, and put into a string separated by spaces.
 
-`z`-flag means: split as if Zsh parser would split. So quoting (with backslashes, double quoting, and others) is recognized. Obtained is array `( "key" "value")` which is then de-quoted with `Q`-flag. This yields original data, assigned to hash `deserialized`. Use this to e.g. implement an array of hashes.
+`z`-flag means: split as if Zsh parser would split. So quoting (with backslashes, double quoting, and others) is recognized. Obtained is array `( "key" "value")` which is then de-quoted with `Q`-flag. This yields original data, assigned to the hash `deserialized`. Use this to e.g. implement an array of hashes.
 
 Note: to be compatible with `setopt ksharrays`, use `[@]` instead of `(@)`, e.g.: `...( "${(Q)${(z)serialized[@]}[@]}" )`
 
@@ -285,7 +287,7 @@ local -a lines_list
 lines_list=( ${(f)"$(git help -a)"} )
 lines_list=( ${(M)${(s: :)${(M)lines_list:#   [a-z]*}}:#$mysub} )
 if (( ${#lines_list} > 0 )); then
-    …
+  …
 fi
 ```
 
@@ -301,7 +303,7 @@ The required functionality is: in the given string, count the number of apostrop
 buf="word'continue\'after\\\'afterSecnd\\''afterPair"
 integer count=0
 : ${buf//(#b)((#s)|[^\\])([\\][\\])#(\'\'#)/$(( count += ${#match[3]} ))}
-echo $count ▶ 3
+echo $count → 3
 ```
 
 The answer (i.e. the output) to the above presentation and example is: `3` (there are `3` unquoted apostrophes in total in the string kept in the variable `$buf`).
@@ -312,7 +314,7 @@ Below follows a variation of the above snippet that doesn't use math-code execut
 buf="word'continue\'after\\\'afterSecnd\\''afterPair"
 buf="${(S)buf//(#b)*((#s)|[^\\])([\\][\\])#(\'\'#)*/${match[3]}}"; buf=${buf%%[^\']##}
 integer count=${#buf}
-echo $count ▶ 3
+echo $count → 3
 ```
 
 This is possible thanks to `(S)` flag – non-greedy matching, `([\\][\\])#` trick – it matches only unquoted following `(\'\'##)` characters (which are the apostrophes) and a general strategy to replace `anything-apostrope(s)` (unquoted ones) with `the-apostrope(s)` (and then count them with `${#buf}`).
@@ -325,39 +327,4 @@ With Zshell `extended_glob` parsing an `ini` file is an easy task. It will not r
 
 The code should be placed in a file named `read-ini-file`, in `$fpath`, and `autoload read-ini-file` should be invoked.
 
-```shell showLineNumbers
-# $1 - path to the ini file to parse
-# $2 - the name of the output hash
-# $3 - prefix for keys in the hash
-#
-# Writes to given hash under keys built-in following way: ${3}<section>_field.
-# Values are values from the ini file. Example invocation:
-#
-# read-ini-file ./database1-setup.ini DB_CONF db1_
-# read-ini-file ./database2-setup.ini DB_CONF db2_
-#
-
-setopt localoptions extended_glob
-
-local __ini_file="$1" __out_hash="$2" __key_prefix="$3"
-local IFS='' __line __cur_section="void" __access_string
-local -a match mbegin mend
-
-[[ ! -r "$__ini_file" ]] && { builtin print -r "read-ini-file: an ini file is unreadable ($__ini_file)"; return 1; }
-
-while read -r -t 1 __line; do
-    if [[ "$__line" = [[:blank:]]#\;* ]]; then
-        continue
-    # Match "[Section]" line
-    elif [[ "$__line" = (#b)[[:blank:]]#\[([^\]]##)\][[:blank:]]# ]]; then
-        __cur_section="${match[1]}"
-    # Match "string = string" line
-    elif [[ "$__line" = (#b)[[:blank:]]#([^[:blank:]=]##)[[:blank:]]#[=][[:blank:]]#(*) ]]; then
-        match[2]="${match[2]%"${match[2]##*[! $'\t']}"}" # severe trick - remove trailing whitespace
-        __access_string="${__out_hash}[${__key_prefix}<$__cur_section>_${match[1]}]"
-        : "${(P)__access_string::=${match[2]}}"
-    fi
-done < "$__ini_file"
-
-return 0
-```
+<ReadINIExample />

@@ -1,15 +1,11 @@
 {
-  "homepage.video.heading.1": {
-    "message": "⚡ Rapide et riche en fonctionnalités",
-    "description": "The homepage video conatainer heading 1"
+  "homepage.banner.button.1": {
+    "message": "Premiers Pas",
+    "description": "The homepage get started button"
   },
-  "homepage.video.heading.2": {
-    "message": "✨ Soigné et flexible",
-    "description": "The homepage video container heading 2"
-  },
-  "homepage.hero.title": {
-    "message": "Un couteau <b>de l'armée suisse</b> pour le <b>Shell</b> unix <b>Zsh</b>",
-    "description": "Home page hero title, can contain simple html tags"
+  "homepage.banner.button.2": {
+    "message": "Communauté",
+    "description": "The homepage community button"
   },
   "homepage.feature1.title": {
     "message": "Démarrage Zsh 50 à 80% plus rapide",
@@ -42,42 +38,6 @@
   "theme.ErrorPageContent.tryAgain": {
     "message": "Réessayer",
     "description": "The label of the button to try again when the page crashed"
-  },
-  "theme.NotFound.title": {
-    "message": "Page introuvable",
-    "description": "The title of the 404 page"
-  },
-  "theme.NotFound.p1": {
-    "message": "Nous n'avons pas trouvé ce que vous recherchez.",
-    "description": "The first paragraph of the 404 page"
-  },
-  "theme.NotFound.p2": {
-    "message": "Veuillez contacter le propriétaire du site qui vous a lié à l'URL d'origine et leur faire savoir que leur lien est cassé.",
-    "description": "The 2nd paragraph of the 404 page"
-  },
-  "theme.admonition.note": {
-    "message": "remarque",
-    "description": "The default label used for the Note admonition (:::note)"
-  },
-  "theme.admonition.tip": {
-    "message": "astuce",
-    "description": "The default label used for the Tip admonition (:::tip)"
-  },
-  "theme.admonition.danger": {
-    "message": "danger",
-    "description": "The default label used for the Danger admonition (:::danger)"
-  },
-  "theme.admonition.info": {
-    "message": "info",
-    "description": "The default label used for the Info admonition (:::info)"
-  },
-  "theme.admonition.caution": {
-    "message": "attention",
-    "description": "The default label used for the Caution admonition (:::caution)"
-  },
-  "theme.AnnouncementBar.closeButtonAriaLabel": {
-    "message": "Fermer",
-    "description": "The ARIA label for close button of announcement bar"
   },
   "theme.BackToTopButton.buttonAriaLabel": {
     "message": "Retour au début de la page",
@@ -214,6 +174,10 @@
     "message": "Versions",
     "description": "The label for the navbar versions dropdown on mobile view"
   },
+  "theme.NotFound.title": {
+    "message": "Page introuvable",
+    "description": "The title of the 404 page"
+  },
   "theme.common.skipToMainContent": {
     "message": "Aller au contenu principal",
     "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
@@ -221,6 +185,30 @@
   "theme.tags.tagsListLabel": {
     "message": "Mots-clés:",
     "description": "The label alongside a tag list"
+  },
+  "theme.admonition.caution": {
+    "message": "attention",
+    "description": "The default label used for the Caution admonition (:::caution)"
+  },
+  "theme.admonition.danger": {
+    "message": "danger",
+    "description": "The default label used for the Danger admonition (:::danger)"
+  },
+  "theme.admonition.info": {
+    "message": "info",
+    "description": "The default label used for the Info admonition (:::info)"
+  },
+  "theme.admonition.note": {
+    "message": "remarque",
+    "description": "The default label used for the Note admonition (:::note)"
+  },
+  "theme.admonition.tip": {
+    "message": "astuce",
+    "description": "The default label used for the Tip admonition (:::tip)"
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "Fermer",
+    "description": "The ARIA label for close button of announcement bar"
   },
   "theme.blog.sidebar.navAriaLabel": {
     "message": "Navigation article de blog récent",
@@ -249,6 +237,14 @@
   "theme.navbar.mobileLanguageDropdown.label": {
     "message": "Langues",
     "description": "The label for the mobile language switcher dropdown"
+  },
+  "theme.NotFound.p1": {
+    "message": "Nous n'avons pas trouvé ce que vous recherchez.",
+    "description": "The first paragraph of the 404 page"
+  },
+  "theme.NotFound.p2": {
+    "message": "Veuillez contacter le propriétaire du site qui vous a lié à l'URL d'origine et leur faire savoir que leur lien est cassé.",
+    "description": "The 2nd paragraph of the 404 page"
   },
   "theme.TOCCollapsible.toggleButtonLabel": {
     "message": "Sur cette page",
@@ -288,38 +284,6 @@
   },
   "theme.SearchBar.seeAll": {
     "message": "Voir les {count} résultats"
-  },
-  "theme.SearchPage.documentsFound.plurals": {
-    "message": "Un document trouvé|{count} documents trouvés",
-    "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-  },
-  "theme.SearchPage.existingResultsTitle": {
-    "message": "Résultats de recherche pour « {query} »",
-    "description": "The search page title for non-empty query"
-  },
-  "theme.SearchPage.emptyResultsTitle": {
-    "message": "Rechercher dans la documentation",
-    "description": "The search page title for empty query"
-  },
-  "theme.SearchPage.inputPlaceholder": {
-    "message": "Tapez votre recherche ici",
-    "description": "The placeholder for search page input"
-  },
-  "theme.SearchPage.inputLabel": {
-    "message": "Chercher",
-    "description": "The ARIA label for search page input"
-  },
-  "theme.SearchPage.algoliaLabel": {
-    "message": "Recherche par Algolia",
-    "description": "The ARIA label for Algolia mention"
-  },
-  "theme.SearchPage.noResultsText": {
-    "message": "Aucun résultat trouvé",
-    "description": "The paragraph for empty search result"
-  },
-  "theme.SearchPage.fetchingNewResults": {
-    "message": "Chargement de nouveaux résultats...",
-    "description": "The paragraph for fetching new search results"
   },
   "theme.SearchBar.label": {
     "message": "Chercher",
@@ -405,6 +369,10 @@
     "message": "Essayez de chercher",
     "description": "The text for the suggested query when no results are found for the following search"
   },
+  "theme.SearchModal.noResultsScreen.reportMissingResultsText": {
+    "message": "Vous pensez que cette requête doit donner des résultats ?",
+    "description": "The text for the question where the user thinks there are missing results"
+  },
   "theme.SearchModal.noResultsScreen.reportMissingResultsLinkText": {
     "message": "Faites-le nous savoir.",
     "description": "The text for the link to report missing results"
@@ -412,6 +380,42 @@
   "theme.SearchModal.placeholder": {
     "message": "Rechercher des docs",
     "description": "The placeholder of the input of the DocSearch pop-up modal"
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "Un document trouvé|{count} documents trouvés",
+    "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "Résultats de recherche pour « {query} »",
+    "description": "The search page title for non-empty query"
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "Rechercher dans la documentation",
+    "description": "The search page title for empty query"
+  },
+  "theme.SearchPage.inputPlaceholder": {
+    "message": "Tapez votre recherche ici",
+    "description": "The placeholder for search page input"
+  },
+  "theme.SearchPage.inputLabel": {
+    "message": "Chercher",
+    "description": "The ARIA label for search page input"
+  },
+  "theme.SearchPage.algoliaLabel": {
+    "message": "Recherche par Algolia",
+    "description": "The ARIA label for Algolia mention"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "Aucun résultat trouvé",
+    "description": "The paragraph for empty search result"
+  },
+  "theme.SearchPage.fetchingNewResults": {
+    "message": "Chargement de nouveaux résultats...",
+    "description": "The paragraph for fetching new search results"
+  },
+  "theme.IdealImageMessage.loading": {
+    "message": "Chargement ...",
+    "description": "When the full-scale image is loading"
   },
   "theme.IdealImageMessage.load": {
     "message": "Cliquez pour charger{sizeMessage}",
@@ -440,13 +444,5 @@
   "theme.PwaReloadPopup.closeButtonAriaLabel": {
     "message": "Fermer",
     "description": "The ARIA label for close button of PWA reload popup"
-  },
-  "homepage.banner.button.2": {
-    "message": "Communauté",
-    "description": "The homepage community button"
-  },
-  "homepage.banner.button.1": {
-    "message": "Premiers Pas",
-    "description": "The homepage get started button"
   }
 }

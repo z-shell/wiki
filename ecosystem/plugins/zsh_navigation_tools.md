@@ -13,7 +13,6 @@ keywords:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Image from '@theme/IdealImage';
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zsh-navigation-tools][]
 
@@ -28,11 +27,7 @@ import Image from '@theme/IdealImage';
 - `n-options` - browse options, allows toggling their state
 - `n-panelize` - loads the output of a given command into the list for browsing
 
----
-
 All tools support horizontal scroll with <kbd>&lt;</kbd>, <kbd>&gt;</kbd>, <kbd>&#123;</kbd>, <kbd>&#125;</kbd> , <kbd>h</kbd>, <kbd>l</kbd> or left and right cursors. Other keys are:
-
-<div className="apitable">
 
 | Key(s)                                              | Description                                                                    |
 | --------------------------------------------------- | ------------------------------------------------------------------------------ |
@@ -59,8 +54,6 @@ All tools support horizontal scroll with <kbd>&lt;</kbd>, <kbd>&gt;</kbd>, <kbd>
 | <kbd>F1</kbd> (in n-history)                        | Switch view                                                                    |
 | <kbd>F2</kbd>, <kbd>Ctrl-X</kbd>, <kbd>Ctrl-/</kbd> | Search predefined keywords (defined in config files)                           |
 
-</div>
-
 Set of tools like `n-history` – multi-word history searcher, `n-cd` – directory bookmark manager, `n-kill` – `htop` like kill utility, and more.
 
 Based on `n-list`, a tool generates a selectable curses-based list of elements that has access to the current `Zsh` session, i.e. has broad capabilities to work together with it.
@@ -70,20 +63,7 @@ Feature highlights include incremental multi-word searching, approximate matchin
 ## Install Zsh Navigation Tools
 
 <Tabs>
-  <TabItem value="standalone" label="Standalone" default>
-
-```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/z-shell/zsh-navigation-tools/main/doc/install.sh)"
-```
-
-To update run the command again.
-
-`ZNT` will be installed at `~/.config/znt/zsh-navigation-tools`, config files will be copied to `~/.config/znt`. `.zshrc` will be updated with only `8` lines of code, which will be added at the bottom.
-
-After installing and reloading the shell give `ZNT` a quick try with `Ctrl-R` – this keyboard shortcut will open `n-history`.
-
-  </TabItem>
-  <TabItem value="zi" label="Zi">
+  <TabItem value="zi" label="Zi" default>
 
 Add the following to `.zshrc`. The config files will be in `~/.config/znt`.
 
@@ -150,6 +130,19 @@ setopt AUTO_PUSHD
 ```
 
 in `.zshrc` (also recommend `PUSHD_IGNORE_DUPS`). Without the option, `n-cd` will just work as an incremental searcher of directory bookmarks.
+
+  </TabItem>
+  <TabItem value="standalone" label="Standalone">
+
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/z-shell/zsh-navigation-tools/main/doc/install.sh)"
+```
+
+To update run the command again.
+
+`ZNT` will be installed at `~/.config/znt/zsh-navigation-tools`, config files will be copied to `~/.config/znt`. `.zshrc` will be updated with only `8` lines of code, which will be added at the bottom.
+
+After installing and reloading the shell give `ZNT` a quick try with `Ctrl-R` – this keyboard shortcut will open `n-history`.
 
   </TabItem>
 </Tabs>
@@ -318,6 +311,7 @@ It will not display underline properly, but will instead highlight by a color, w
 
 <!-- end-of-file -->
 <!-- links -->
+<!-- external -->
 
 [z-shell/zsh-navigation-tools]: https://github.com/z-shell/zsh-navigation-tools
 [2]: https://github.com/z-shell/zsh-navigation-tools/tree/main/.config/znt

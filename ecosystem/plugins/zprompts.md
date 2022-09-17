@@ -14,7 +14,7 @@ keywords:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Image from '@theme/IdealImage';
+import ImgShow from '@site/src/components/ImgShow';
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zprompts][]
 
@@ -26,18 +26,31 @@ The previews demonstrate:
 - information on the age of unstaged changes
 - list of oldest unstaged modified files in the repo (3 files, starting from the oldest)
 
-<div className="ScreenView">
-  <Image img="https://cdn.zshell.dev/img/asciicast/gif/zsh/zprompts.gif" className="ImageView" alt="Zprompts Preview" />
-</div>
+<ImgShow
+  img="https://cdn.zshell.dev/img/asciicast/gif/zsh/zprompts.gif"
+  alt="Zprompts Preview"
+/>
 
-<div className="ScreenView">
-  <Image img="https://cdn.zshell.dev/img/asciicast/gif/zsh/zprompts_theming.gif" className="ImageView" alt="Zprompts Theming Preview" />
-</div>
+<ImgShow
+  img="https://cdn.zshell.dev/img/asciicast/gif/zsh/zprompts_theming.gif"
+  alt="Zprompts Theming Preview"
+/>
 
 ## Install Zprompts
 
 <Tabs>
-  <TabItem value="standalone" label="Standalone" default>
+  <TabItem value="zi" label="Zi" default>
+
+Add the following to your `.zshrc` file with prefered theme e.g:
+
+```shell {2} showLineNumbers
+zi nocd for \
+  atload'!promptinit; typeset -g PSSHORT=0; prompt sprint3 yellow red green blue' \
+    z-shell/zprompts
+```
+
+  </TabItem>
+  <TabItem value="standalone" label="Standalone">
 
 To use load the plugin:
 
@@ -50,17 +63,6 @@ and then invoke (to use theme `scala3`) e.g.:
 ```shell showLineNumbers
   promptinit
   prompt scala3
-```
-
-  </TabItem>
-  <TabItem value="zi" label="Zi">
-
-Add the following to your `.zshrc` file with prefered theme e.g:
-
-```shell {2} showLineNumbers
-zi nocd for \
-  atload'!promptinit; typeset -g PSSHORT=0; prompt sprint3 yellow red green blue' \
-    z-shell/zprompts
 ```
 
   </TabItem>
@@ -78,5 +80,9 @@ prompt scala <prompt, default is ":: "> <prompt color> <path color> <vcs info co
 You can provide only N first arguments, N=1..4.
 The default invocation is: ":: " cyan cyan magenta
 ```
+
+<!-- end-of-file -->
+<!-- links -->
+<!-- external -->
 
 [z-shell/zprompts]: https://github.com/z-shell/zprompts

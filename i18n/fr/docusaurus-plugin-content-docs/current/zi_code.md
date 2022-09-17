@@ -6,15 +6,22 @@ keywords:
   - code
   - zi-code
   - documentation
+  - code-explained
 ---
 
 <!-- @format -->
 
+import APITable from '@site/src/components/APITable';
+
 :::info
 
-Documentation mise à jour automatiquement tous les `jeudi 4:30 UTC` à [z-shell/docs][1].
+Documentation is automatically updated every `Thursday` at `4:30 UTC` at [z-shell/docs][].
 
 :::
+
+```mdx-code-block
+<APITable>
+```
 
 | Fichier              | Format du document                | Description                                                                       |
 | -------------------- | --------------------------------- | --------------------------------------------------------------------------------- |
@@ -22,9 +29,17 @@ Documentation mise à jour automatiquement tous les `jeudi 4:30 UTC` à [z-shell
 | [side.zsh][6]        | [adoc][7], [pdf][8], [html][9]    | Fonctions, chargées par les scripts `install.zsh` et `autoload.zsh`               |
 | [install.zsh][10]    | [adoc][11], [pdf][12], [html][13] | Fonctions utilisées uniquement lors de l'installation d'un plugin ou d'un snippet |
 | [autoload.zsh][14]   | [adoc][15], [pdf][16], [html][17] | Fonctions utilisées uniquement dans les invocations interactives `Zi`             |
-| [additional.zsh][18] | [adoc][19], [pdf][20], [html][21] | Support additionnel pour les fonctions                                            |
+| [additional.zsh][18] | [adoc][19], [pdf][20], [html][21] | Additional support for functions                                                  |
 
-[1]: https://github.com/z-shell/docs
+```mdx-code-block
+</APITable>
+```
+
+<!-- end-of-file -->
+<!-- links -->
+<!-- external -->
+
+[z-shell/docs]: https://github.com/z-shell/docs
 [2]: https://github.com/z-shell/zi/blob/main/zi.zsh
 [3]: https://github.com/z-shell/docs/blob/main/code/zsdoc/asciidoc/zi.zsh.adoc
 [4]: https://github.com/z-shell/docs/blob/main/code/zsdoc/pdf/zi.zsh.pdf

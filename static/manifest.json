@@ -1,92 +1,127 @@
 {
-	"name": "Zi Wiki",
-	"short_name": "ZW",
-	"theme_color": "#23b898",
-	"background_color": "#0d1117",
-	"display": "standalone",
-	"scope": "./",
-	"start_url": "./index.html",
-	"description": "Z Wiki PWA App",
-	"orientation": "any",
-	"prefer_related_applications": false,
-	"related_applications": [
-		{
-			"platform": "webapp",
-			"url": "https://wiki.zshell.dev/manifest.json"
-		}
-	],
-	"icons": [
-		{
-			"src": "img/logo.svg",
-			"type": "image/svg+xml",
-			"sizes": "192x192"
-		},
-		{
-			"src": "img/favicon.svg",
-			"type": "image/svg+xml",
-			"sizes": "48x48"
-		},
-		{
-			"src": "img/logo/36x36.png",
-			"sizes": "36x36",
-			"type": "image/png",
-			"density": "0.75"
-		},
-		{
-			"src": "img/logo/48x48.png",
-			"sizes": "48x48",
-			"type": "image/png",
-			"density": "1.0"
-		},
-		{
-			"src": "img/logo/72x72.png",
-			"sizes": "72x72",
-			"type": "image/png",
-			"density": "1.5"
-		},
-		{
-			"src": "img/logo/96x96.png",
-			"sizes": "96x96",
-			"type": "image/png",
-			"density": "2.0"
-		},
-		{
-			"src": "img/logo/128x128.png",
-			"type": "image/png",
-			"sizes": "128x128",
-			"density": "2.5"
-		},
-		{
-			"src": "img/logo/144x144.png",
-			"sizes": "144x144",
-			"type": "image/png",
-			"density": "3.0"
-		},
-		{
-			"src": "img/logo/192x192.png",
-			"sizes": "192x192",
-			"type": "image/png",
-			"density": "4.0"
-		},
-		{
-			"src": "img/logo/320x320.png",
-			"type": "image/png",
-			"sizes": "320x320",
-			"density": "4.5"
-		},
-		{
-			"src": "img/logo/501x501.png",
-			"type": "image/png",
-			"sizes": "501x501",
-			"density": "5.0"
-		},
-		{
-			"src": "img/logo/512x512.png",
-			"type": "image/png",
-			"sizes": "512x512",
-			"density": "5.5"
-		}
-	],
-	"features": ["Cross Platform", "fast", "simple"],
-	"categories": ["website", "utility", "wiki"]
+  "name": "Zi Wiki",
+  "short_name": "ZW",
+  "theme_color": "#23b898",
+  "background_color": "#0d1117",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./index.html",
+  "description": "Zi Wiki PWA App",
+  "orientation": "any",
+  "prefer_related_applications": false,
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://wiki.zshell.dev/manifest.json"
+    }
+  ],
+  "icons": [
+    {
+      "src": "img/logo/36x36.svg",
+      "type": "image/svg+xml",
+      "sizes": "36x36"
+    },
+    {
+      "src": "img/logo/48x48.svg",
+      "type": "image/svg+xml",
+      "sizes": "48x48"
+    },
+    {
+      "src": "img/logo/72x72.svg",
+      "type": "image/svg+xml",
+      "sizes": "72x72"
+    },
+    {
+      "src": "img/logo/96x96.svg",
+      "type": "image/svg+xml",
+      "sizes": "96x96"
+    },
+    {
+      "src": "img/logo/128x128.svg",
+      "type": "image/svg+xml",
+      "sizes": "128x128"
+    },
+    {
+      "src": "img/logo/144x144.svg",
+      "type": "image/svg+xml",
+      "sizes": "144x144"
+    },
+    {
+      "src": "img/logo/192x192.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192"
+    },
+    {
+      "src": "img/logo/320x320.svg",
+      "type": "image/svg+xml",
+      "sizes": "320x320"
+    },
+    {
+      "src": "img/logo/512x512.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512"
+    },
+    {
+      "src": "img/logo/36x36.png",
+      "sizes": "36x36",
+      "type": "image/png",
+      "density": "0.75"
+    },
+    {
+      "src": "img/logo/48x48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "density": "1.0"
+    },
+    {
+      "src": "img/logo/72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "density": "1.5"
+    },
+    {
+      "src": "img/logo/96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "density": "2.0"
+    },
+    {
+      "src": "img/logo/128x128.png",
+      "type": "image/png",
+      "sizes": "128x128",
+      "density": "2.5"
+    },
+    {
+      "src": "img/logo/144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "density": "3.0"
+    },
+    {
+      "src": "img/logo/192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "density": "4.0"
+    },
+    {
+      "src": "img/logo/320x320.png",
+      "type": "image/png",
+      "sizes": "320x320",
+      "density": "4.5"
+    },
+    {
+      "src": "img/logo/501x501.png",
+      "type": "image/png",
+      "sizes": "501x501",
+      "density": "5.0"
+    },
+    {
+      "src": "img/logo/512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "density": "5.5"
+    }
+  ],
+  "features": ["Cross Platform", "fast", "simple"],
+  "categories": ["website", "utility", "wiki"]
 }

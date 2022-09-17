@@ -1,6 +1,6 @@
 ---
 id: zsh_plugin_standard
-title: ℹ️ Zsh Plugin Standard
+title: "ℹ️ Zsh Plugin Standard"
 sidebar_position: 2
 image: /img/logo/320x320.png
 toc_max_heading_level: 2
@@ -9,7 +9,9 @@ keywords:
   - create
   - plugin
   - zsh-plugin
-  - best-pratices
+  - best-practices
+  - create-zsh-plugin
+  - zsh-plugin-standard
 ---
 
 <!-- @format -->
@@ -20,9 +22,9 @@ Historically, Zsh plugins were first defined by Oh My Zsh. They provide a way to
 
 At a simple level, a plugin:
 
-1. Has its directory added to `$fpath` ([Zsh documentation: #Autoloading-Functions][autoloading-functions]). This is being done either by a plugin manager or by the plugin itself (see [5th section](#run-on-unload-call) for more information).
+1. Has directory added to `$fpath` ([Zsh documentation: #Autoloading-Functions][autoloading-functions]). This is being done either by a plugin manager or by the plugin itself (see [5th section](#run-on-unload-call) for more information).
 
-2. Has it's first `*.plugin.zsh` file sourced (or `*.zsh`, `init.zsh`, `*.sh`, these are non-standard).
+2. Has first `*.plugin.zsh` file sourced (or `*.zsh`, `init.zsh`, `*.sh`, these are non-standard).
 
    2.1 The first point allows plugins to provide completions and functions that are loaded via Zsh’s `autoload` mechanism (a single function per file).
 
@@ -30,11 +32,11 @@ At a simple level, a plugin:
 
    3.1. a directory containing various files (the main script, autoload functions, completions, Makefiles, backend programs, documentation).
 
-   3.2. a sourceable script that obtains the path to its directory via `$0` (see the [next section](#zero-handling) for a related enhancement proposal).
+   3.2. a source-able script that obtains the path to its directory via `$0` (see the [next section](#zero-handling) for a related enhancement proposal).
 
    3.3. GitHub (or another site) repository identified by two components **username**/**plugin-name**.
 
-   3.4. software package containing any type of command line artifacts – when used with advanced plugin managers that have hooks, can run Makefiles, add directories to `$PATH`.
+   3.4. software package containing any type of command line artifacts – when used with advanced plugin managers that have hooks, can run Makefiles, and add directories to `$PATH`.
 
 Below follow the proposed enhancements and codifications of the definition of a "Zsh the plugin" and the actions of plugin managers – the proposed standardization.
 
@@ -79,13 +81,13 @@ The one-line code above will:
 
 The goal is flexibility, with essential motivation to support `eval "$(<plugin)"` and definitely solve `setopt no_function_argzero` and `setopt posix_argzero` cases.
 
-A plugin manager will be even able to convert a plugin to a function (the author implemented such proof of concept functionality, it’s fully possible – also in an automatic fashion), but performance differences of this are yet unclear.
+A plugin manager will be even able to convert a plugin to a function, but the performance differences of this are yet unclear.
 
 It might however provide a use case.
 
 The last, 5th point also allows using the `$0` handling in scripts (i.e. runnable with the hashbang `#!…`) to get the directory in which the script file resides.
 
-The assignment uses quoting to make it resilient to the combination of `GLOB_SUBST` and `GLOB_ASSIGN` options. It’s a standard snippet of code, so it has to be always working.
+The assignment uses quoting to make it resilient to the combination of the `GLOB_SUBST` and `GLOB_ASSIGN` options. It’s a standard snippet of code, so it has to be always working.
 
 When you’ll set e.g.: the `zsh` emulation in a function, you in general don’t have to quote assignments.
 
@@ -93,7 +95,7 @@ When you’ll set e.g.: the `zsh` emulation in a function, you in general don’
 
 - GitHub Search: [ZERO](https://github.com/search?q=%22${ZERO:-${0:%23$ZSH_ARGZERO}}%22&type=Code)
 
-## 2. Functions directory {#funtions-directory}
+## 2. Functions directory {#functions-directory}
 
 > [ functions-directory ]
 
@@ -176,11 +178,11 @@ Note that the unload function should contain `unfunction $0` (or better `unfunct
 
 The plugin manager can provide a function `@zsh-plugin-run-on-unload` which has the following call syntax:
 
-```zsh
+```shell
 @zsh-plugin-run-on-unload "{code-snippet-1}" "{code-snippet-2}" …
 ```
 
-The function registers pieces of code to be run by the plugin manager **on unload of the plugin**. The execution of the code should be done by the `eval` built-in in the same order as they are passed to the call. The code should be executed in the plugin’s directory, in the current shell. The mechanism thus provides another way, side to the [unload function](#unload-function), for the plugin to participate in the process of unloading it.
+d The function registers pieces of code to be run by the plugin manager **on the unloading of the plugin**. The execution of the code should be done by the `eval` built-in in the same order as they are passed to the call. The code should be executed in the plugin’s directory, in the current shell. The mechanism thus provides another way, side to the [unload function](#unload-function), for the plugin to participate in the process of unloading it.
 
 ### **STATUS:** [ run-on-unload-call ]
 
@@ -300,7 +302,7 @@ The document is to define a **Zsh-plugin** but also to serve as an information s
 
 Zsh ships with the function `add-zsh-hook`. It has the following invocation syntax:
 
-```zsh
+```shell
 add-zsh-hook [ -L | -dD ] [ -Uzk ] hook function
 ```
 
@@ -316,7 +318,7 @@ The syntax of the call is:
 add-zle-hook-widget [ -L | -dD ] [ -Uzk ] hook widgetname
 ```
 
-The call resembles the syntax of the `add-zsh-hook` function. The only difference is that it takes a `widgetname`, not a function name and that the `hook` is being one of: `isearch-exit`, `isearch-update`, `line-pre-redraw`, `line-init`, `line-finish`, `history-line-set`, or `keymap-select`. Their meaning is explained in the [Zsh documentation: #Special-Widgets][special-widgets].
+The call resembles the syntax of the `add-zsh-hook` function. The only difference is that it takes a `widgetname`, not a function name and that the `hook` is one of: `isearch-exit`, `isearch-update`, `line-pre-redraw`, `line-init`, `line-finish`, `history-line-set`, or `keymap-select`. Their meaning is explained in the [Zsh documentation: #Special-Widgets][special-widgets].
 
 The use of this function is recommended because it allows the installation **multiple** hooks per each `hook` entry. Before introducing the `add-zle-hook-widget` function the "normal" way to install a hook was to define a widget with the name of one of the special widgets. Now, after the function has been introduced in Zsh `5.3` it should be used instead.
 
@@ -343,7 +345,7 @@ typeset -gA Plugins
 Plugins[MY_PLUGIN_REPO_DIR]="${0:h}"
 ```
 
-This way all the data of all plugins will be kept in a single parameter, available for easy examination and overview (via e.g.: `varied Plugins`) and also not polluting the namespace.
+This way all the data of all plugins will be kept in a single parameter, available for easy examination and overview (via e.g.: `varied Plugins`), and also not polluting the namespace.
 
 ## Standard recommended [options][]
 
@@ -389,7 +391,7 @@ Their use is naturally limited to the functions called from the main function of
 
 The recommendation is the purely subjective opinion of the author.
 
-It can evolve – if you have any remarks, don’t hesitate to [fill-them][].
+It can evolve – if you have any remarks, don’t hesitate to [fill them](https://github.com/z-shell/zw/issues/new).
 
 ## The problems solved by the proposition
 
@@ -399,7 +401,7 @@ However, when adopted, the proposition will solve the following issues:
 
 2. Not using a prefix at all – this is also an unwanted practice as it pollutes the command namespace of such an issue appearing.
 
-3. It would allow to quickly discriminate between function types – e.g.: seeing the `:` prefix informs the user that it’s a hook-type function while seeing the `@` prefix informs the user that it’s an API-like function, etc.
+3. It would allow quickly discriminate between function types – e.g.: seeing the `:` prefix informs the user that it’s a hook-type function while seeing the `@` prefix informs the user that it’s an API-like function, etc.
 
 4. It also provides an improvement during programming, by allowing to quickly limit the number of completions offered by the editor, e.g.: for Vim’s <kbd>Ctrl-P</kbd> completing, when entering <kbd>+Ctrl-P</kbd>, then only a subset of the functions are being completed (see below for the type of the functions). **Note:** the editor has to be configured so that it accepts such special characters as part of keywords, for Vim it’s: `:set isk+=@-@,.,+,/,:` for all of the proposed prefixes.
 
@@ -417,7 +419,7 @@ The proposition of the standard prefixes is as follows:
 
    2.3. the arrow is easy to type on most keyboard layouts – it is `Right-Alt`+`I`; in case of problems with typing the character can be always copied – handler functions do occur in the code rarely,
 
-   2.4. Zsh supports any string as a function name because absolutely any string can be a **file** name – if there would be an exception in the name of the callables, then how would it be possible to run a script called "→abcd"? There are **no** exceptions, the function can be called even as a sequence of null bytes:
+   2.4. Zsh supports any string as a function name because absolutely any string can be a **file** name – if there would be an exception in the name of the call-ables, then how would it be possible to run a script called "→abcd"? There are **no** exceptions, the function can be called even as a sequence of null bytes:
 
    ```shell showLineNumbers
    ❯ $'\0'() { print hello }
@@ -436,7 +438,7 @@ The proposition of the standard prefixes is as follows:
 ```shell showLineNumbers
 .zinc_register_hooks() {
   add-zsh-hook precmd :zinc_precmd
-  /zinc_dmsg "Installed precmd hook with result: $?"
+  /zinc_dmsg "Installed precmd hook with the result: $?"
   @zsh-plugin-run-on-unload "add-zsh-hook -d precmd :zinc_precmd"
   +zinc_print "Zinc initialization complete"
 }
@@ -491,9 +493,13 @@ PlgMap[SomeMap__state]=1
 PlgMap[some_array__1]=state
 ```
 
-The use of this method is very unproblematic. The author reduced the number of global parameters in one of the projects by 21 by using an automatic conversion with Vim substitution patterns with backreferences without any problems.
+The use of this method is very unproblematic. The author reduced the number of global parameters in one of the projects by 21 by using an automatic conversion with Vim substitution patterns with back references without any problems.
 
 Following the [Standard Plugins Hash](#standard-plugins-hash) section, the plugin could even use a common hash name – `Plugins` – to lower the pollution even more.
+
+<!-- end-of-file -->
+<!-- links -->
+<!-- external -->
 
 [Zi]: https://github.com/z-shell/zi
 [comparison]: http://www.zsh.org/mla/workers/2017/msg01827.html
@@ -503,7 +509,6 @@ Following the [Standard Plugins Hash](#standard-plugins-hash) section, the plugi
 [agkozak/zsh-z is using]: https://github.com/agkozak/zsh-z/blob/16fba5e9d5c4b650358d65e07609dda4947f97e8/zsh-z.plugin.zsh#L680-L698
 [agkozak/zhooks is using]: https://github.com/agkozak/zhooks/blob/628e1e3b8373bf31c26cb154f71c16ebe9d13b51/zhooks.plugin.zsh#L75-L82
 [tj/git-extras]: https://github.com/tj/git-extras
-[fill-them]: https://github.com/z-shell/zw/issues/new
 [zsh-workers post]: https://www.zsh.org/mla/workers/2011/msg01050.html
 [autoloading-functions]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions
 [special-widgets]: http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Special-Widgets

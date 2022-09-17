@@ -12,15 +12,17 @@ on:
   pull_request:
     branches: ["main"]
     paths-ignore:
-      [
-        "docs/**",
-        "community/**",
-        "ecosystem/**",
-        "blog/**",
-        "src/pages/**",
-        "package.json",
-        "pnpm-lock.yaml",
-      ]
+      - "docs/**"
+      - "community/**"
+      - "ecosystem/**"
+      - "blog/**"
+      - "src/pages/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 env:
   URL: "https://wiki.zshell.dev"
@@ -30,8 +32,6 @@ jobs:
     name: " 📊 Build Size Report"
     timeout-minutes: 30
     runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
     strategy:
       matrix:
         node-version: ["16"]
@@ -56,8 +56,6 @@ jobs:
     name: 💹 Build Time Perf
     timeout-minutes: 30
     runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
     strategy:
       matrix:
         node-version: ["16"]

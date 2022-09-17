@@ -16,7 +16,6 @@ jobs:
       actions: read
       contents: read
       security-events: write
-
     steps:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@v3

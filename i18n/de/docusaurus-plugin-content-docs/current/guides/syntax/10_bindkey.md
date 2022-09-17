@@ -3,10 +3,10 @@ id: bindkey
 title: "🗒 Bindkeys Map"
 sidebar_position: 5
 image: /img/logo/320x320.png
-description: The Bindmap & Bindkey Zi syntax
+description: Usage bindmap & bindkey.
 keywords:
   - syntax
-  - binkey
+  - bindkey
   - bindmap
   - how-to-use
 ---
@@ -15,13 +15,11 @@ keywords:
 
 ## <i class="fa-solid fa-keyboard"></i> Bindkey
 
-The `bindkey` key mappings can be very confusing to decipher. It can use multiple different notations but it's smart to use the same key notation throughout your configuration.
+The `bindkey` key mappings can be very confusing to decipher. It can use multiple different notations but it's smart to use the same key notation throughout your configuration. You can print all of your current key bindings in the current keymap with `bindkey`. To print the full `bindkey` command to add to your `.zshrc` file use `bindkey -L`.
 
-You can print all of your current key bindings in the current keymap with `bindkey`. To print the full `bindkey` command to add to your `.zshrc` file use `bindkey -L`.
+In general, you'll bind a widget so a key sequence or a key with a modifier. This can be declared in [caret notation][5] using `^`, using [escape sequences][6] using `\`, in octal (`\NNN`), hex (`\xNN`), or Unicode (`\uNNNN`). None of these are particularly great for people to read. This is also tricky because it depends on your keyboard, operating system, and shell.
 
-In general, you'll bind a widget so a key sequence or a key with a modifier. This can be declared in [caret notation][5] using `^`, using [escape sequences][6] using `\`, in octal (`\NNN`), hex (`\xNN`), or Unicode (`\uNNNN`). None of these are particularly great for people to read.
-
-This is also tricky because it depends on your keyboard, operating system, and shell. Here are some basics
+Here are some basics:
 
 - `\e`, `\E`, = Escape
 - `^[` = Alt key (on some keyboards this is the same as escape)
@@ -64,7 +62,7 @@ zi wait light-mode trackbinds bindmap'"\\e[1\;6D" -> \\e[1\;5D"' \
   michaelxmcbride/zsh-dircycle
 ```
 
-Map space to regular space and <kbd>Ctrl-Space</kbd> to the `globalias' widget, which expands the alias entered on the left, provided by OMZ globalias plugin.
+Map space to regular space and <kbd>Ctrl-Space</kbd> to the `globalias` widget, which expands the alias entered on the left, provided by OMZ globalias plugin.
 
 ```shell showLineNumbers
 zi bindmap='!" " -> magic-space; !"^ " -> globalias' nocompletions \
@@ -133,7 +131,7 @@ The benefit of using the <kbd>UPAR</kbd>, … shorthands is that they cover mult
 <!-- end-of-file -->
 <!-- links -->
 
-[1]: /search/?q=binkey
+[1]: /search/?q=bindkey
 [2]: /search/?q=ice+modifier
 [3]: /docs/guides/syntax/ice
 [5]: https://en.wikipedia.org/wiki/Caret_notation

@@ -1,34 +1,37 @@
 ---
 id: patch-dl
 title: "🌀 Patch DL"
-image: img/logo/320x320.png
+image: /img/logo/320x320.png
 description: Annex - Patch DL documentation
 keywords:
-  - annex,
+  - annex
+  - zannex
   - patch-dl
 ---
 
 <!-- @format -->
 
-## <i class="fa-brands fa-github"></i> [z-shell/z-a-patch-dl][]
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Link from '@docusaurus/Link';
 
-An annex downloads files and applies patches and adds two ice modifiers:
+An annex downloads files and applies patches and adds two ice-modifiers:
 
-First:
+first:
 
 ```shell
 zi ice dl'{URL} [-> {optional-output-file-name}]; …' …
 ```
 
-Second:
+second:
 
 ```shell
 zi ice patch'{file-name-with-the-patch-to-apply}; …' …
 ```
 
-The annex (i.e. Zi extension) will download the given `{URL}` under the path `{optional-output-file-name}` (if no file name given, then it is taken from last segment of the URL) in case of the `dl'…'` ice-modifier, and apply a patch given by the `{file-name-with-the-patch-to-apply}` in case of the `patch'…'` ice-modfier.
+The annex will download the given `{URL}` under the path `{optional-output-file-name}` (if no file name given, then it is taken from last segment of the URL) in case of the `dl'…'` ice-modifier, and apply a patch given by the `{file-name-with-the-patch-to-apply}` in case of the `patch'…'` ice-modifier. You can use this functionality to download and apply patches.
 
-You can use this functionality to download and apply patches. For example, to install `fbterm`, two patches are being needed, one to fix the operation, the other one to fix the build:
+For example, to install `fbterm`, two patches are being needed, one to fix the operation, the other one to fix the build:
 
 ```shell showLineNumbers
 zi ice as"command" pick"$ZPFX/bin/fbterm" \
@@ -44,14 +47,24 @@ This command will result in:
 
 ![fbterm example](https://raw.githubusercontent.com/z-shell/z-a-patch-dl/main/docs/images/fbterm-ex.png#center)
 
-## Install Patch DL
+## Install patch-dl
 
-Simply load like a plugin, i.e.:
+:::info Source
+
+- <Link className="github-link" href="https://github.com/z-shell/z-a-patch-dl">z-shell/z-a-patch-dl</Link>
+
+:::
+
+<Tabs>
+  <TabItem value="default" label="Default" default>
+
+Add the following snippet in the `.zshrc` file:
 
 ```shell
 zi light z-shell/z-a-patch-dl
 ```
 
-After executing this command you can then use the `dl'…'` and `patch'…'` ice-mods.
+</TabItem>
+</Tabs>
 
-[z-shell/z-a-patch-dl]: https://github.com/z-shell/z-a-patch-dl
+This will register the `dl'…'` and `patch'…'` ice-modifiers.

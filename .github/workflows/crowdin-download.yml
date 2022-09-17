@@ -7,6 +7,10 @@ on:
     - cron: "0 */4 * * *"
   workflow_dispatch: {}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   GITHUB_TOKEN: ${{ secrets.GH_PAT }}
   CROWDIN_PROJECT: ${{ secrets.CROWDIN_PROJECT }}
@@ -15,20 +19,18 @@ env:
 jobs:
   download:
     runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
-      cancel-in-progress: true
-    timeout-minutes: 10
+    environment: crowdin
+    timeout-minutes: 30
     steps:
       - name: "⤵️ Check out code from GitHub"
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: "🚀 Crowdin Download"
-        uses: crowdin/github-action@1.4.11
+        uses: crowdin/github-action@1.4.13
         with:
           upload_sources: false
           upload_translations: false
           download_translations: true
-          github_user_name: digital-teams[bot]
-          github_user_email: actions@zshell.dev
+          github_user_name: ${{ secrets.ACTIONS_USER }}
+          github_user_email: ${{ secrets.ACTIONS_MAIL }}

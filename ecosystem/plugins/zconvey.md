@@ -13,21 +13,20 @@ keywords:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Image from '@theme/IdealImage';
+import ImgShow from '@site/src/components/ImgShow';
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zconvey][]
 
 ZConvey integrates multiple Zsh sessions. They are given an `ID`, optionally a `NAME` (both unique), and can send commands to each other. Use this to switch all your Zshells to a given directory, via `zc-all cd $PWD`! Also, there's a `zc-bg-notify` **script** (not a function), that will show notification under the prompt of every active Zsh session. You can call this script from any program, Bash or GUI.
 
-<div className="ScreenView">
-  <Image img="https://cdn.zshell.dev/img/asciicast/gif/zsh/zconvey.gif" className="ImageView" alt="ZConvey Preview" />
-</div>
+<ImgShow
+  img="https://cdn.zshell.dev/img/asciicast/gif/zsh/zconvey.gif"
+  alt="ZConvey Preview"
+/>
 
 ## [Zstyles](/search?q=zstyle) for ZConvey
 
 The values being set are the defaults. They must be set before loading the plugin.
-
-<div className="apitable">
 
 | Value                                             | Description                                                                                                                                                                                                                                      |
 | :------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -40,11 +39,7 @@ The values being set are the defaults. They must be set before loading the plugi
 | zstyle ":plugin:zconvey" output_method "feeder"   | To put commands on the command line, ZConvey can use the small program "feeder" or "zsh" method, which currently doesn't automatically run the command – to use when e.g. feeder doesn't build (unlikely) or when occurring any problems with it |
 | zstyle ":plugin:zconvey" timestamp_from "datetime | Use zsh/datetime module for obtaining timestamp. "date" – use date command (fork)                                                                                                                                                                |
 
-</div>
-
 ## ZConvey commands
-
-<div className="apitable">
 
 | Command        | Description                                                                                            |
 | -------------- | :----------------------------------------------------------------------------------------------------- |
@@ -57,23 +52,12 @@ The values being set are the defaults. They must be set before loading the plugi
 | `zc-rename`    | Assigns a name to a current or selected session; won't rename if there's a session with the same name  |
 | `zc-bg-notify` | In subdirectory `cmds`, link it to `/usr/local/bin`, etc. or load with e.g. Zi                         |
 
-</div>
-
 The main command is `zc` (yet it is rather rarely used, I'm always sending to all sessions with `zc-all`). It is used to execute commands on other sessions. `zc-ls` is the main tool to obtain overall information on sessions and `zc-take` is a nice rename tool to quickly name a few sessions. Keyboard shortcut <kbd>Ctrl-O</kbd> and <kbd>Ctrl-I</kbd> will show current session's `ID` and `NAME` in form of an on-screen logo.
 
 ## Install zconvey
 
 <Tabs>
-  <TabItem value="standalone" label="Standalone" default>
-
-The **standalone"** plugin install, unpack `zconvey` somewhere and add to `.zshrc`:
-
-```shell
-source {where-zconvey-is}/zconvey.plugin.zsh
-```
-
-  </TabItem>
-  <TabItem value="zi" label="Zi">
+  <TabItem value="zi" label="Zi" default>
 
 Add the following to your `.zshrc` file. Zi will clone the plugin the next time you start Zsh. To update issue `zi update z-shell/zconvey`.
 
@@ -93,6 +77,15 @@ Adding `zc-bg-notify` to `$PATH`:
 ```shell showLineNumbers
 zi ice wait"0" as"command" pick"cmds/zc-bg-notify" silent
 zi light z-shell/zconvey
+```
+
+  </TabItem>
+  <TabItem value="standalone" label="Standalone" default>
+
+The **standalone"** plugin install, unpack `zconvey` somewhere and add to `.zshrc`:
+
+```shell
+source {where-zconvey-is}/zconvey.plugin.zsh
 ```
 
   </TabItem>

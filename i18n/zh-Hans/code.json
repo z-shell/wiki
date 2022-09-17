@@ -1,15 +1,47 @@
 {
+  "homepage.hero.title": {
+    "message": "<b>Zsh</b> Unix <b>Shell</b> 的 <b>瑞士军刀</b> ",
+    "description": "Home page hero title, can contain simple html tags"
+  },
+  "homepage.banner.button.1": {
+    "message": "开始使用",
+    "description": "The homepage get started button"
+  },
+  "homepage.banner.button.2": {
+    "message": "社区",
+    "description": "The homepage community button"
+  },
   "homepage.feature1.title": {
     "message": "Zsh 启动速度快 50-80%",
     "description": "Title of feature 1 (left) on the home page"
+  },
+  "home.feature1": {
+    "message": "即时提示将插件加载推迟到 .zshrc 文件处理完成时。",
+    "description": "Description of first featured banner in homepage"
   },
   "homepage.feature2.title": {
     "message": "专注于重要的事情",
     "description": "Title of feature 2 (middle) on the home page"
   },
+  "home.feature2": {
+    "message": "关于插件的统计信息，描述插件设置的功能、键位绑定、补全和其他东西。",
+    "description": "Description of second featured banner in homepage"
+  },
   "homepage.feature3.title": {
     "message": "广泛的功能",
     "description": "Title of feature 3 (right) on the home page"
+  },
+  "home.feature3": {
+    "message": "支持 Oh-My-Zsh 和 Prezto - 不特定于框架的。轻松制作您的插件、库和主题。",
+    "description": "Description of third featured banner in homepage"
+  },
+  "homepage.video.heading.1": {
+    "message": "快速且功能丰富",
+    "description": "The homepage video container heading 1"
+  },
+  "homepage.video.heading.2": {
+    "message": "整齐而灵活",
+    "description": "The homepage video container heading 2"
   },
   "theme.ErrorPageContent.title": {
     "message": "页面已崩溃。",
@@ -18,42 +50,6 @@
   "theme.ErrorPageContent.tryAgain": {
     "message": "重试",
     "description": "The label of the button to try again when the page crashed"
-  },
-  "theme.NotFound.title": {
-    "message": "找不到页面",
-    "description": "The title of the 404 page"
-  },
-  "theme.NotFound.p1": {
-    "message": "我们找不到您要找的页面。",
-    "description": "The first paragraph of the 404 page"
-  },
-  "theme.NotFound.p2": {
-    "message": "请联系原始链接来源网站的所有者，并告知他们链接已损坏。",
-    "description": "The 2nd paragraph of the 404 page"
-  },
-  "theme.admonition.note": {
-    "message": "备注",
-    "description": "The default label used for the Note admonition (:::note)"
-  },
-  "theme.admonition.tip": {
-    "message": "提示",
-    "description": "The default label used for the Tip admonition (:::tip)"
-  },
-  "theme.admonition.danger": {
-    "message": "危险",
-    "description": "The default label used for the Danger admonition (:::danger)"
-  },
-  "theme.admonition.info": {
-    "message": "信息",
-    "description": "The default label used for the Info admonition (:::info)"
-  },
-  "theme.admonition.caution": {
-    "message": "警告",
-    "description": "The default label used for the Caution admonition (:::caution)"
-  },
-  "theme.AnnouncementBar.closeButtonAriaLabel": {
-    "message": "关闭",
-    "description": "The ARIA label for close button of announcement bar"
   },
   "theme.BackToTopButton.buttonAriaLabel": {
     "message": "回到顶部",
@@ -190,6 +186,10 @@
     "message": "选择版本",
     "description": "The label for the navbar versions dropdown on mobile view"
   },
+  "theme.NotFound.title": {
+    "message": "找不到页面",
+    "description": "The title of the 404 page"
+  },
   "theme.common.skipToMainContent": {
     "message": "跳到主要内容",
     "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
@@ -197,6 +197,30 @@
   "theme.tags.tagsListLabel": {
     "message": "标签：",
     "description": "The label alongside a tag list"
+  },
+  "theme.admonition.caution": {
+    "message": "警告",
+    "description": "The default label used for the Caution admonition (:::caution)"
+  },
+  "theme.admonition.danger": {
+    "message": "危险",
+    "description": "The default label used for the Danger admonition (:::danger)"
+  },
+  "theme.admonition.info": {
+    "message": "信息",
+    "description": "The default label used for the Info admonition (:::info)"
+  },
+  "theme.admonition.note": {
+    "message": "备注",
+    "description": "The default label used for the Note admonition (:::note)"
+  },
+  "theme.admonition.tip": {
+    "message": "提示",
+    "description": "The default label used for the Tip admonition (:::tip)"
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "关闭",
+    "description": "The ARIA label for close button of announcement bar"
   },
   "theme.blog.sidebar.navAriaLabel": {
     "message": "最近博文导航",
@@ -225,6 +249,14 @@
   "theme.navbar.mobileLanguageDropdown.label": {
     "message": "选择语言",
     "description": "The label for the mobile language switcher dropdown"
+  },
+  "theme.NotFound.p1": {
+    "message": "我们找不到您要找的页面。",
+    "description": "The first paragraph of the 404 page"
+  },
+  "theme.NotFound.p2": {
+    "message": "请联系原始链接来源网站的所有者，并告知他们链接已损坏。",
+    "description": "The 2nd paragraph of the 404 page"
   },
   "theme.TOCCollapsible.toggleButtonLabel": {
     "message": "本页总览",
@@ -264,38 +296,6 @@
   },
   "theme.SearchBar.seeAll": {
     "message": "查看全部 {count} 个结果"
-  },
-  "theme.SearchPage.documentsFound.plurals": {
-    "message": "找到 {count} 份文件",
-    "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-  },
-  "theme.SearchPage.existingResultsTitle": {
-    "message": "「{query}」的搜索结果",
-    "description": "The search page title for non-empty query"
-  },
-  "theme.SearchPage.emptyResultsTitle": {
-    "message": "在文档中搜索",
-    "description": "The search page title for empty query"
-  },
-  "theme.SearchPage.inputPlaceholder": {
-    "message": "在此输入搜索字词",
-    "description": "The placeholder for search page input"
-  },
-  "theme.SearchPage.inputLabel": {
-    "message": "搜索",
-    "description": "The ARIA label for search page input"
-  },
-  "theme.SearchPage.algoliaLabel": {
-    "message": "通过 Algolia 搜索",
-    "description": "The ARIA label for Algolia mention"
-  },
-  "theme.SearchPage.noResultsText": {
-    "message": "未找到任何结果",
-    "description": "The paragraph for empty search result"
-  },
-  "theme.SearchPage.fetchingNewResults": {
-    "message": "正在获取新的搜索结果...",
-    "description": "The paragraph for fetching new search results"
   },
   "theme.SearchBar.label": {
     "message": "搜索",
@@ -393,6 +393,38 @@
     "message": "搜索文档",
     "description": "The placeholder of the input of the DocSearch pop-up modal"
   },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "找到 {count} 份文件",
+    "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "「{query}」的搜索结果",
+    "description": "The search page title for non-empty query"
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "在文档中搜索",
+    "description": "The search page title for empty query"
+  },
+  "theme.SearchPage.inputPlaceholder": {
+    "message": "在此输入搜索字词",
+    "description": "The placeholder for search page input"
+  },
+  "theme.SearchPage.inputLabel": {
+    "message": "搜索",
+    "description": "The ARIA label for search page input"
+  },
+  "theme.SearchPage.algoliaLabel": {
+    "message": "通过 Algolia 搜索",
+    "description": "The ARIA label for Algolia mention"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "未找到任何结果",
+    "description": "The paragraph for empty search result"
+  },
+  "theme.SearchPage.fetchingNewResults": {
+    "message": "正在获取新的搜索结果...",
+    "description": "The paragraph for fetching new search results"
+  },
   "theme.IdealImageMessage.loading": {
     "message": "加载中……",
     "description": "When the full-scale image is loading"
@@ -425,8 +457,8 @@
     "message": "关闭",
     "description": "The ARIA label for close button of PWA reload popup"
   },
-  "homepage.banner.button.2": {
-    "message": "社区",
-    "description": "The homepage community button"
+  "theme.tags.tagsPageTitle": {
+    "message": "标签",
+    "description": "The title of the tag list page"
   }
 }

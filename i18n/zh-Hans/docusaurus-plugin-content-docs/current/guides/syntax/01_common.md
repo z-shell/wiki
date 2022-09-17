@@ -8,13 +8,16 @@ keywords:
   - common
   - syntax
   - how-to-use
+  - fundamental
 ---
 
 <!-- @format -->
 
+import APITable from '@site/src/components/APITable';
+
 :::tip
 
-It is recommended to familiarize yourself with [getting_started/oveview][9] before this.
+It is recommended to familiarize yourself with [getting_started/overview][] before this.
 
 :::
 
@@ -37,7 +40,7 @@ The `Makefile` with 2 tasks, can use:
 
 :::info
 
-[$ZPFX][zpfx] is provided by Zi, it is set to `~/.zi/polaris` by default. However, it can be changed by specifying: `$ZPFX=` target.
+[$ZPFX][zpfx] is provided by Zi, it is set to `~/.zi/polaris` by default. However, it can be changed by specifying the `$ZPFX=` target.
 
 :::
 
@@ -49,17 +52,21 @@ zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
 zi light vim/vim
 ```
 
-<div className="apitable">
+```mdx-code-block
+<APITable>
+```
 
 | Syntax             | Description                                                                               |
-| ------------------ | :---------------------------------------------------------------------------------------- |
+| ------------------ |:----------------------------------------------------------------------------------------- |
 | `as'program'`      | Add file selected by `pick'…'` to `$PATH`, and do not source it.                          |
 | `atclone'…'`       | Execute code after downloading.                                                           |
 | `atpull'%atclone'` | Execute the same code `atclone'…'` is given, but after successful update.                 |
 | `make`             | Run `make` after `atclone'…'` and `atpull'…'` (note: `make'!'` will execute before them). |
 | `pick'src/vim'`    | Set executable flag on `src/vim`, hint that `src/` should be added to `$PATH`.            |
 
-</div>
+```mdx-code-block
+</APITable>
+```
 
 The same but with **installation** (`make install`) under [$ZPFX][zpfx] by default:
 
@@ -69,21 +76,25 @@ zi ice as'program' atclone'rm -f src/auto/config.cache; \
 zi light vim/vim
 ```
 
-<div className="apitable">
+```mdx-code-block
+<APITable>
+```
 
 | Syntax             | Description                                                                                  |
-| ------------------ | :------------------------------------------------------------------------------------------- |
+| ------------------ |:-------------------------------------------------------------------------------------------- |
 | `as'program'`      | As above.                                                                                    |
 | `atclone'…'`       | As above **plus** pass `--prefix=$ZPFX` to `./configure`, to set the installation directory. |
 | `atpull'%atclone'` | As above.                                                                                    |
 | `make`             | As above, but also run the `install` target.                                                 |
 | `pick'src/vim'`    | as above, but for a different path `$ZPFX/bin/vim`.                                          |
 
-</div>
+```mdx-code-block
+</APITable>
+```
 
 ## <i class="fa-solid fa-palette"></i> LS_COLORS {#ls_colors}
 
-A repository [trapd00r/LS_COLORS][1] provides a file with color definitions for GNU `ls` command, and also for [ogham/exa][2]. Typically one does `eval $( dircolors -b $HOME/LS_COLORS)` to process this file and set the environment for `ls`. This means `dircolors` is run by every shell startup. It costs much time to create a fork and program, i.e., `dircolors` binary needs to be loaded to obtain and process the colors definitions. The following invocation solves this problem:
+A repository [trapd00r/LS_COLORS][1] provides a file with color definitions for GNU `ls` command, and also for [ogham/exa][2]. Typically one does `eval $( dircolors -b $HOME/LS_COLORS)` to process this file and set the environment for `ls`. This means `dircolors` is run by every shell startup. It costs much time to create a fork and program, i.e., the `dircolors` binary needs to be loaded to obtain and process the color definitions. The following invocation solves this problem:
 
 ```shell showLineNumbers
 zi ice atclone'dircolors -b LS_COLORS > clrs.zsh' \
@@ -92,23 +103,27 @@ zi ice atclone'dircolors -b LS_COLORS > clrs.zsh' \
 zi light trapd00r/LS_COLORS
 ```
 
-<div className="apitable">
+```mdx-code-block
+<APITable>
+```
 
-| Syntax             | Description                                                                                                 |
-| ------------------ | :---------------------------------------------------------------------------------------------------------- |
-| `atclone'…'`       | Generate shell script, passing it to `eval`. More: [^1]                                                     |
-| `atpull'%atclone'` | Do the same at any update of the plugin. More: [^2]                                                         |
-| `pick"clrs.zsh"`   | Source the previously generated file `clrs.zsh`.                                                            |
-| `nocompile'!'`     | Invokes compilation **after** the `atclone'…'` [ice-modifier][3] and the [exclamation mark][4] causes this. |
-| `atload'…'`        | Additionally sets up the Zsh completion to use the colors provided by the trapd00r package.                 |
+| Syntax             | Description                                                                                               |
+| ------------------ |:--------------------------------------------------------------------------------------------------------- |
+| `atclone'…'`       | Generate shell script, passing it to `eval`. More: [^1]                                                   |
+| `atpull'%atclone'` | Do the same at any update of the plugin. More: [^2]                                                       |
+| `pick"clrs.zsh"`   | Source the previously generated file `clrs.zsh`.                                                          |
+| `nocompile'!'`     | Invokes compilation **after** the `atclone'…'` [ice-modifier][] and the [exclamation][] mark causes this. |
+| `atload'…'`        | Additionally sets up the Zsh completion to use the colors provided by the trapd00r package.               |
 
-</div>
+```mdx-code-block
+</APITable>
+```
 
 This way, except for the plugin installation and update, `dircolors` isn't run, just normal sourcing is done. The everyday sourced file, i.e. `clrs.zsh`, is being compiled to speed up the loading.
 
 ## <i class="fa-solid fa-folder-tree"></i> Direnv {#direnv}
 
-The project [**direnv/direnv**][5] registers itself in the Z shell to modify the environment on directory change. This registration is most often done by `eval "$(direnv hook zsh)"` added to `.zshrc`.
+The project [direnv/direnv][5] registers itself in the Z shell to modify the environment on directory change. This registration is most often done by `eval "$(direnv hook zsh)"` added to `.zshrc`.
 
 ```shell showLineNumbers
 zi ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
@@ -133,10 +148,12 @@ zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
     direnv/direnv
 ```
 
-<div className="apitable">
+```mdx-code-block
+<APITable>
+```
 
 | Syntax             | Description                                                                                                                    |
-| ------------------ | :----------------------------------------------------------------------------------------------------------------------------- |
+| ------------------ |:------------------------------------------------------------------------------------------------------------------------------ |
 | `make'!'`          | Compile `direnv`, the exclamation mark means: run the `make` first, before `atclone'…'` and `atpull'…'` hooks.                 |
 | `atclone'…'`       | As soon as the plugin is installed generate the registration code and save it to `zhook.zsh`, instead of passing it to `eval`. |
 | `atpull'%atclone'` | The `atclone'…'` runs on **installation** while `atpull'…'` runs on **update** of the plugin.                                  |
@@ -144,7 +161,9 @@ zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
 | `pick'direnv'`     | Ensure `+x` permission on the binary                                                                                           |
 | `as'program'`      | The plugin is a program, there's no main file to the source.                                                                   |
 
-</div>
+```mdx-code-block
+</APITable>
+```
 
 In this method, the registered code is generated once on every installation or update, then sourced without running `direnv` itself. The project is also available as a binary [GitHub releases][6]. This distribution can be installed by:
 
@@ -155,19 +174,23 @@ zi from"gh-r" as"program" mv"direnv* -> direnv" \
     direnv/direnv
 ```
 
-<div className="apitable">
+```mdx-code-block
+<APITable>
+```
 
-| Syntax                    | Description                                                                |
-| ------------------------- | :------------------------------------------------------------------------- |
-| `from'gh-r'`              | Install from `direnv` from [GitHub releases][6].                           |
-| `mv'direnv* -> direnv'`   | After installation, rename `direnv.linux-386` or similar file to `direnv`. |
-| `atclone'…'`, `atpull'…'` | As in the above example.                                                   |
-| `pick'direnv'`            | As in the above example.                                                   |
-| `as'program'`             | As in the above example.                                                   |
+| Syntax                     | Description                                                                |
+| -------------------------- |:-------------------------------------------------------------------------- |
+| `from'gh-r'`               | Install from `direnv` from [GitHub releases][6].                           |
+| `mv'direnv* -> direnv'` | After installation, rename `direnv.linux-386` or similar file to `direnv`. |
+| `atclone'…'`, `atpull'…'`  | Same above example.                                                        |
+| `pick'direnv'`             | Same above example.                                                        |
+| `as'program'`              | Same above example.                                                        |
 
-</div>
+```mdx-code-block
+</APITable>
+```
 
-## <i class="fa-solid fa-pen-to-square"></i> Standart syntax {#standart-syntax}
+## <i class="fa-solid fa-pen-to-square"></i> Standard syntax {#standard-syntax}
 
 ```shell showLineNumbers
 zi …
@@ -195,7 +218,7 @@ There's no `ice` that can be used as a subcommand.
 
 However, Zi also supports syntaxes such as the equal (`=`) syntax:
 
-```shell
+```shell showLineNumbers
 zi wait=1 from=gh-r atload="print Hello World"
 zi load …
 ```
@@ -218,7 +241,7 @@ zi load …
 
 It's up to the user which syntax to use.
 
-The motivation behind the syntaxes is to utilize the syntax highlighting of editors like Vim – and have the strings and ice expressions colorized with a distinct color. However, with the [zi/zi-vim-syntax][11] syntax definition this motivation can be superseded with the highlighting specificaly for Zi.
+The motivation behind the syntaxes is to utilize the syntax highlighting of editors like Vim – and have the strings and ice expressions colorized with a distinct color. However, with the [zi-vim-syntax][] syntax definition this motivation can be superseded with the highlighting specifically for Zi.
 
 <!-- end-of-file -->
 <!-- footnotes -->
@@ -227,10 +250,22 @@ The motivation behind the syntaxes is to utilize the syntax highlighting of edit
 
 <!-- links -->
 
+
+
+<!-- external -->
+
+[^1]: Save it to file. The `atclone'…'` is being run on the **installation** while the `atpull'…'` hook is being run on an **update** of the [**trapd00r/LS_COLORS**][1] plugin.
+[^2]: The `%atclone` is just a special string that denotes the `atclone'…'` hook and is copied onto the `atpull'…'` hook.
+
+[ice-modifier]: /docs/guides/syntax/ice-modifiers
+[exclamation]: /search?q=exclamation+mark
+[zpfx]: /docs/guides/customization#$ZPFX
+[getting_started/overview]: /docs/getting_started/overview
+
+[1]: https://github.com/trapd00r/LS_COLORS
+
 [1]: https://github.com/trapd00r/LS_COLORS
 [2]: https://github.com/ogham/exa
 [5]: https://github.com/direnv/direnv
 [6]: https://github.com/direnv/direnv/releases/
-[zpfx]: /docs/guides/customization#$ZPFX
-[9]: /docs/getting_started/overview
-[11]: https://github.com/z-shell/zi-vim-syntax
+[zi-vim-syntax]: https://github.com/z-shell/zi-vim-syntax

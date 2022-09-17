@@ -7,30 +7,6 @@
     "message": "Spróbuj ponownie",
     "description": "The label of the button to try again when the page crashed"
   },
-  "theme.NotFound.title": {
-    "message": "Strona nie została znaleziona",
-    "description": "The title of the 404 page"
-  },
-  "theme.NotFound.p1": {
-    "message": "Nie mogliśmy znaleźć strony której szukasz.",
-    "description": "The first paragraph of the 404 page"
-  },
-  "theme.NotFound.p2": {
-    "message": "Proszę skontaktuj się z właścielem strony, z której link doprowadził Cię tutaj i poinformuj go, że link jest nieprawidłowy.",
-    "description": "The 2nd paragraph of the 404 page"
-  },
-  "theme.admonition.tip": {
-    "message": "tip",
-    "description": "The default label used for the Tip admonition (:::tip)"
-  },
-  "theme.admonition.info": {
-    "message": "info",
-    "description": "The default label used for the Info admonition (:::info)"
-  },
-  "theme.AnnouncementBar.closeButtonAriaLabel": {
-    "message": "Zamknij",
-    "description": "The ARIA label for close button of announcement bar"
-  },
   "theme.BackToTopButton.buttonAriaLabel": {
     "message": "Przewiń do góry",
     "description": "The ARIA label for the back to top button"
@@ -158,6 +134,10 @@
     "message": "Wersje",
     "description": "The label for the navbar versions dropdown on mobile view"
   },
+  "theme.NotFound.title": {
+    "message": "Strona nie została znaleziona",
+    "description": "The title of the 404 page"
+  },
   "theme.common.skipToMainContent": {
     "message": "Przejdź do głównej zawartości",
     "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
@@ -165,6 +145,18 @@
   "theme.tags.tagsListLabel": {
     "message": "Tagi:",
     "description": "The label alongside a tag list"
+  },
+  "theme.admonition.info": {
+    "message": "info",
+    "description": "The default label used for the Info admonition (:::info)"
+  },
+  "theme.admonition.tip": {
+    "message": "tip",
+    "description": "The default label used for the Tip admonition (:::tip)"
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "Zamknij",
+    "description": "The ARIA label for close button of announcement bar"
   },
   "theme.blog.sidebar.navAriaLabel": {
     "message": "Nawigacja po najnowszych postach na blogu",
@@ -189,6 +181,14 @@
   "theme.navbar.mobileLanguageDropdown.label": {
     "message": "Języki",
     "description": "The label for the mobile language switcher dropdown"
+  },
+  "theme.NotFound.p1": {
+    "message": "Nie mogliśmy znaleźć strony której szukasz.",
+    "description": "The first paragraph of the 404 page"
+  },
+  "theme.NotFound.p2": {
+    "message": "Proszę skontaktuj się z właścielem strony, z której link doprowadził Cię tutaj i poinformuj go, że link jest nieprawidłowy.",
+    "description": "The 2nd paragraph of the 404 page"
   },
   "theme.TOCCollapsible.toggleButtonLabel": {
     "message": "Na tej stronie",
@@ -229,6 +229,10 @@
   "theme.SearchBar.seeAll": {
     "message": "Wyświetl wszystkie {count} wyników"
   },
+  "theme.SearchBar.label": {
+    "message": "Szukaj",
+    "description": "The ARIA label and placeholder for search button"
+  },
   "theme.SearchPage.documentsFound.plurals": {
     "message": "Jeden dokument znaleziony|{count} dokumenty znalezione|{count} dokumentów znalezionych",
     "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
@@ -261,10 +265,6 @@
     "message": "Pobieranie nowych wyników…",
     "description": "The paragraph for fetching new search results"
   },
-  "theme.SearchBar.label": {
-    "message": "Szukaj",
-    "description": "The ARIA label and placeholder for search button"
-  },
   "theme.IdealImageMessage.loading": {
     "message": "Wczytywanie...",
     "description": "When the full-scale image is loading"
@@ -296,5 +296,9 @@
   "theme.PwaReloadPopup.closeButtonAriaLabel": {
     "message": "Zamknij",
     "description": "The ARIA label for close button of PWA reload popup"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "Tagi",
+    "description": "The title of the tag list page"
   }
 }

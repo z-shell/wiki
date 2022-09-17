@@ -2,25 +2,35 @@
 
 version: 0.1
 cli:
-  version: 0.16.1-beta
+  version: 0.17.0-beta
+  options:
+    - commands: [check, fmt]
+    - args: -y
 repo:
   repo:
     host: github.com
     owner: z-shell
     name: wiki
+actions:
+  enabled:
+    - trunk-check-pre-push
+    - trunk-fmt-pre-commit
+    - trunk-cache-prune
+    - trunk-check-upgrade
+    - trunk-upgrade
 lint:
   disabled:
     - shellcheck
     - hadolint
     - taplo
-    - svgo
   enabled:
-    - stylelint@14.10.0
+    - svgo@2.8.0
+    - stylelint@14.11.0
     - git-diff-check@SYSTEM
-    - actionlint@1.6.15
-    - eslint@8.21.0
-    - gitleaks@8.10.3
-    - markdownlint@0.32.1
+    - actionlint@1.6.17
+    - eslint@8.23.1
+    - gitleaks@8.12.0
+    - markdownlint@0.32.2
     - prettier@2.7.1
     - shfmt@3.5.0
   ignore:
@@ -34,3 +44,6 @@ lint:
       paths:
         - "pnpm-lock.yaml"
         - "docusaurus.config.js"
+    - linters: [markdownlint]
+      paths:
+        - "src/components/Markdown/**"

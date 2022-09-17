@@ -13,9 +13,9 @@ keywords:
 
 :::info
 
-- Recommended to familiarize with [common syntax][8].
-- Additional installation methods: [meta plugins][3], [packages][4].
-- Some installations may require additional functionally, it can be done by installing required [annexes][1]:
+- Recommended to familiarize with [common syntax][common-syntax].
+- Additional installation methods: [meta-plugins](/ecosystem/annexes/meta-plugins), [packages][].
+- Some installations may require additional functionally, it can be done by installing required [annexes][]:
 
 ```shell
 zi light-mode for z-shell/z-a-meta-plugins @annexes
@@ -27,8 +27,8 @@ zi light-mode for z-shell/z-a-meta-plugins @annexes
 
 Is an excellent tool you like not included in the gallery? Use the "Edit this page" at the bottom or links below for additional support.
 
-- [Issue report][5]
-- [Suggestions][6]
+- [Issue report][issues]
+- [Suggestions][suggestions]
 
 Any contributions you make will benefit everybody else and are greatly appreciated.
 
@@ -36,23 +36,25 @@ Any contributions you make will benefit everybody else and are greatly appreciat
 
 ## Prefixed header tags
 
-For the [search][7], prefixed tags help as a minimal description of the visible results.
+For the [search][search], prefixed tags help as a minimal description of the visible results.
 
-| Tag name | Install type    |
-| -------- | --------------- |
-| GH-R     | GitHub release  |
-| COMP     | Completion      |
-| ZS       | Service         |
-| SC       | Script          |
-| B        | Build           |
-| RA       | [Rust Annex][2] |
-| THP      | Themes/Prompts  |
+| Tag  | Type               |
+| ---- | ------------------ |
+| GH-R | GitHub release     |
+| COMP | Completion         |
+| ZS   | Service            |
+| SC   | Script             |
+| B    | Build              |
+| RA   | [Rust Annex][rust] |
+| THP  | Themes/Prompts     |
 
-[1]: /ecosystem/annexes/overview
-[2]: /ecosystem/annexes/rust
-[3]: /ecosystem/annexes/meta-plugins
-[4]: /ecosystem/packages/synopsis
-[5]: https://github.com/z-shell/zi/issues/new/choose
-[6]: https://github.com/orgs/z-shell/discussions/new
-[7]: /search/?q=GH-R
-[8]: /docs/guides/syntax/common
+<!-- end-of-file -->
+<!-- links -->
+
+[annexes]: /ecosystem/annexes/overview
+[rust]: /ecosystem/annexes/rust
+[packages]: /ecosystem/packages/synopsis
+[issues]: https://github.com/z-shell/zi/issues/new/choose
+[suggestions]: https://github.com/orgs/z-shell/discussions/new
+[search]: /search/?q=GH-R
+[common-syntax]: /docs/guides/syntax/common

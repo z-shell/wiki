@@ -1,0 +1,23 @@
+/** @format */
+
+.asciinema {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  padding-bottom: 1%;
+  overflow: hidden;
+}
+
+.asciinemaBorder {
+  cursor: pointer;
+  border: 0 solid transparent;
+  border-radius: 1em;
+  transition: border 4s !important;
+}
+
+.asciinemaBorder:hover {
+  border: 0.1em solid var(--ifm-color-white);
+  transition: border 4s !important;
+}

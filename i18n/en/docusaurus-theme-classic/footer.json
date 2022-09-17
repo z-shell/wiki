@@ -19,37 +19,41 @@
     "message": "Introduction",
     "description": "The label of footer link with label=Introduction linking to /docs"
   },
-  "link.item.label.Community": {
-    "message": "Community",
-    "description": "The label of footer link with label=Community linking to /community"
-  },
   "link.item.label.Ecosystem": {
     "message": "Ecosystem",
     "description": "The label of footer link with label=Ecosystem linking to /ecosystem"
   },
-  "link.item.label.Slack.com": {
-    "message": "Slack.com",
-    "description": "The label of footer link with label=Slack.com linking to https://join.slack.com/t/z-shell/shared_invite/zt-16twpopd2-p08ROUeT2aGZ5njJwysawA"
+  "link.item.label.Community": {
+    "message": "Community",
+    "description": "The label of footer link with label=Community linking to /community"
   },
-  "link.item.label.Matrix.org": {
-    "message": "Matrix.org",
-    "description": "The label of footer link with label=Matrix.org linking to https://matrix.to/#/#z-shell_zi:gitter.im"
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://discussions.zshell.dev"
   },
-  "link.item.label.Gitter.im": {
-    "message": "Gitter.im",
-    "description": "The label of footer link with label=Gitter.im linking to https://gitter.im/z-shell/zi"
+  "link.item.label.Matrix": {
+    "message": "Matrix",
+    "description": "The label of footer link with label=Matrix linking to https://matrix.to/#/#z-shell_zi:gitter.im"
   },
-  "link.item.label.GitHub Discussions": {
-    "message": "GitHub Discussions",
-    "description": "The label of footer link with label=GitHub Discussions linking to https://discussions.zshell.dev/"
+  "link.item.label.Gitter": {
+    "message": "Gitter",
+    "description": "The label of footer link with label=Gitter linking to https://gitter.im/z-shell/zi"
   },
-  "link.item.label.GitHub Organization": {
-    "message": "GitHub Organization",
-    "description": "The label of footer link with label=GitHub Organization linking to https://github.com/z-shell/"
+  "link.item.label.GitHub Repositories": {
+    "message": "GitHub Repositories",
+    "description": "The label of footer link with label=GitHub Repositories linking to https://github.com/orgs/z-shell/repositories/"
   },
   "link.item.label.Crowdin Translations": {
     "message": "Crowdin Translations",
-    "description": "The label of footer link with label=Crowdin Translations linking to https://translate.zshell.dev/"
+    "description": "The label of footer link with label=Crowdin Translations linking to https://translate.zshell.dev"
+  },
+  "link.item.label.Z-Shell Uptime Status": {
+    "message": "Z-Shell Uptime Status",
+    "description": "The label of footer link with label=Z-Shell Uptime Status linking to https://status.zshell.dev"
+  },
+  "link.item.label.Contributing": {
+    "message": "Contributing",
+    "description": "The label of footer link with label=Contributing linking to legal/CONTRIBUTING"
   },
   "link.item.label.Privacy Policy": {
     "message": "Privacy Policy",
@@ -58,10 +62,6 @@
   "link.item.label.Code of Conduct": {
     "message": "Code of Conduct",
     "description": "The label of footer link with label=Code of Conduct linking to legal/CODE_OF_CONDUCT"
-  },
-  "link.item.label.Contributing": {
-    "message": "Contributing",
-    "description": "The label of footer link with label=Contributing linking to legal/CONTRIBUTING"
   },
   "copyright": {
     "message": "Copyright © 2022 Z-Shell Community.",

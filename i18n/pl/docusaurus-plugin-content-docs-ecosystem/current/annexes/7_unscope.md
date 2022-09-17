@@ -1,8 +1,8 @@
 ---
 id: unscope
 title: "🌀 Unscope"
-image: img/logo/320x320.png
-description: Annex - Unscope documentation
+image: /img/logo/320x320.png
+description: Annex - Unscope IDs documentation
 keywords:
   - annex
   - zannex
@@ -11,13 +11,16 @@ keywords:
 
 <!-- @format -->
 
-## <i class="fa-brands fa-github"></i> [z-shell/z-a-unscope][]
+<!-- TODO: Include image/video/code examples. -->
 
-An aannex allows to install plugins without specifying the GitHub user name.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Link from '@docusaurus/Link';
+import Highlight from "@site/src/components/Highlight";
 
-It works as follows:
+An annex allows the installation of plugins without specifying the GitHub user name, as follows:
 
-1. On the installation of a plugin without any slashes (/) in its name the annex will query the GitHub API searching for **\*/{the-name}**, sorting on stars.
+1. On the installation of a plugin without any slashes (/) in its name the annex will query the GitHub API searching for `*/{the-name}`, sorting on stars.
 
 2. It first requires at least 10 forks on the candidates, then 2, then 0.
 
@@ -25,120 +28,898 @@ It works as follows:
 
 4. For security, for such GH-API request to be made a newly added (by this annex) ice: `ghapi` is required to be given.
 
-5. Otherwise only the static database of mappings of short-plugin nicknames to the full scoped IDs will be searched. It contains many mappings, like, e.g.: **vi-reg** → **zsh-vi-more/evil-registers**, and also the usual basic unscopings of some of the popular plugins out there, like, e.g.: **zsh-syntax-highlighting** → **zsh-users/zsh-syntax-highlighting** and more.
+5. Otherwise only the static database of mappings of short-plugin nicknames to the full scoped IDs will be searched. It contains many mappings, like, e.g.: `vi-reg → zsh-vi-more/evil-registers`, and some of the popular plugins, like, e.g.: `zsh-syntax-highlighting → zsh-users/zsh-syntax-highlighting` and more.
 
 ## Static mappings
 
+:::info
+
+Fill [request](https://github.com/z-shell/z-a-unscope/issues/new/choose) to add new repositories with scoped IDs.
+
+:::
+
 Besides the GitHub-API querying, there's also a fixed, curated list of mappings of short names to the full GitHub IDs. The list currently consists of:
 
-|    Short (Nick-) Name     | GitHub ID / scoped ID             |
-|:-------------------------:| --------------------------------- |
-|           null            | z-shell/null                      |
-|        z-a-readurl        | z-shell/z-a-readurl               |
-|          readurl          | z-shell/z-a-readurl               |
-|           rdurl           | z-shell/z-a-readurl               |
-|       z-a-patch-dl        | z-shell/z-a-patch-dl              |
-|         patch-dl          | z-shell/z-a-patch-dl              |
-|        z-a-submods        | z-shell/z-a-submods               |
-|          submods          | z-shell/z-a-submods               |
-|         z-a-rust          | z-shell/z-a-rust                  |
-|           rust            | z-shell/z-a-rust                  |
-|     z-a-bin-gem-node      | z-shell/z-a-bin-gem-node          |
-|       bin-gem-node        | z-shell/z-a-bin-gem-node          |
-|            bgn            | z-shell/z-a-bin-gem-node          |
-|           meta            | z-shell/z-a-meta-plugins          |
-|          metaplg          | z-shell/z-a-meta-plugins          |
-|       meta-plugins        | z-shell/z-a-meta-plugins          |
-|          archive          | PZTM::archive                     |
-|           arch            | PZTM::archive                     |
-|         directory         | PZTM::directory                   |
-|            dir            | PZTM::directory                   |
-|        environment        | PZTM::environment                 |
-|            env            | PZTM::environment                 |
-|          utility          | PZTM::utility                     |
-|           util            | PZTM::utility                     |
-| fast-syntax-highlighting  | z-shell/fast-syntax-highlighting  |
-|          f-sy-h           | z-shell/fast-syntax-highlighting  |
-|            fsh            | z-shell/fast-syntax-highlighting  |
-| history-search-multi-word | z-shell/history-search-multi-word |
-|           hsmw            | z-shell/history-search-multi-word |
-|            zui            | z-shell/zui                       |
-|            ZUI            | z-shell/zui                       |
-|          zconvey          | z-shell/zconvey                   |
-|           zconv           | z-shell/zzconvey                  |
-|          zbrowse          | z-shell/zbrowse                   |
-|        zzcomplete         | z-shell/zzcomplete                |
-|          zzcomp           | z-shell/zzcomplete                |
-|           zzcom           | z-shell/zzcomplete                |
-|    zsh-autosuggestions    | zsh-users/zsh-autosuggestions     |
-|      autosuggestions      | zsh-users/zsh-autosuggestions     |
-|          autosug          | zsh-users/zsh-autosuggestions     |
-|           asug            | zsh-users/zsh-autosuggestions     |
-|          z-asug           | zsh-users/zsh-autosuggestions     |
-|  zsh-syntax-highlighting  | zsh-users/zsh-syntax-highlighting |
-|          z-sy-h           | zsh-users/zsh-syntax-highlighting |
-|     zsh-autocomplete      | marlonrichert/zsh-autocomplete    |
-|       autocomplete        | marlonrichert/zsh-autocomplete    |
-|         autocomp          | marlonrichert/zsh-autocomplete    |
-|           aucom           | marlonrichert/zsh-autocomplete    |
-|           acom            | marlonrichert/zsh-autocomplete    |
-|          z-aucom          | marlonrichert/zsh-autocomplete    |
-|          z-acom           | marlonrichert/zsh-autocomplete    |
-|       zsh-autopair        | hlissner/zsh-autopair             |
-|         autopair          | hlissner/zsh-autopair             |
-|          aupair           | hlissner/zsh-autopair             |
-|           aupa            | hlissner/zsh-autopair             |
-|          z-aupa           | hlissner/zsh-autopair             |
-|      evil-registers       | zsh-vi-more/evil-registers        |
-|         evil-reg          | zsh-vi-more/evil-registers        |
-|          vi-reg           | zsh-vi-more/evil-registers        |
-|           vireg           | zsh-vi-more/evil-registers        |
-|        vi-motions         | zsh-vi-more/vi-motions            |
-|         evil-mot          | zsh-vi-more/vi-motions            |
-|          vi-mot           | zsh-vi-more/vi-motions            |
-|           vimot           | zsh-vi-more/vi-motions            |
-|       vi-increment        | zsh-vi-more/vi-increment          |
-|         evil-inc          | zsh-vi-more/vi-increment          |
-|          vi-inc           | zsh-vi-more/vi-increment          |
-|           viinc           | zsh-vi-more/vi-increment          |
-|         vi-quote          | zsh-vi-more/vi-quote              |
-|         evil-qte          | zsh-vi-more/vi-quote              |
-|          vi-qte           | zsh-vi-more/vi-quote              |
-|           viqte           | zsh-vi-more/vi-quote              |
-|      directory-marks      | zsh-vi-more/directory-marks       |
-|      evil-dir-marks       | zsh-vi-more/directory-marks       |
-|       vi-dir-marks        | zsh-vi-more/directory-marks       |
-|         vi-dirma          | zsh-vi-more/directory-marks       |
-|          vidirma          | zsh-vi-more/directory-marks       |
-|            fd             | sharkdp/fd                        |
-|         shark-fd          | sharkdp/fd                        |
-|            bat            | sharkdp/bat                       |
-|         shark-bat         | sharkdp/bat                       |
-|            exa            | ogham/exa                         |
-|      zsh-completions      | zsh-users/zsh-completions         |
-|        completions        | zsh-users/zsh-completions         |
-|           comps           | zsh-users/zsh-completions         |
+<table spaces-before="0">
+  <tr>
+    <th align="center">
+      Short (Nick-) Name
+    </th>
+    
+    <th align="left">
+      GitHub ID / scoped ID
+    </th>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> null </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/null
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> z-a-readurl </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/z-a-readurl
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> readurl </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/z-a-readurl
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> rdurl </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/z-a-readurl
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> z-a-patch-dl </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/z-a-patch-dl
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> patch-dl </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/z-a-patch-dl
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> z-a-submods </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/z-a-submods
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> submods </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/z-a-submods
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> z-a-rust </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/z-a-rust
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> rust </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/z-a-rust
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> z-a-bin-gem-node </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/z-a-bin-gem-node
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> bin-gem-node </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/z-a-bin-gem-node
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> bgn </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/z-a-bin-gem-node
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> meta </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/z-a-meta-plugins
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> metaplg </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/z-a-meta-plugins
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> meta-plugins </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/z-a-meta-plugins
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> archive </Highlight>
+    </td>
+    
+    <td align="left">
+      PZTM::archive
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> arch </Highlight>
+    </td>
+    
+    <td align="left">
+      PZTM::archive
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> directory </Highlight>
+    </td>
+    
+    <td align="left">
+      PZTM::directory
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> dir </Highlight>
+    </td>
+    
+    <td align="left">
+      PZTM::directory
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> environment </Highlight>
+    </td>
+    
+    <td align="left">
+      PZTM::environment
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> env </Highlight>
+    </td>
+    
+    <td align="left">
+      PZTM::environment
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> utility </Highlight>
+    </td>
+    
+    <td align="left">
+      PZTM::utility
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> util </Highlight>
+    </td>
+    
+    <td align="left">
+      PZTM::utility
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)">fast-syntax-highlighting </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/fast-syntax-highlighting
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> f-sy-h </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/fast-syntax-highlighting
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> fsh </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/fast-syntax-highlighting
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)">history-search-multi-word </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/history-search-multi-word
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> hsmw </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/history-search-multi-word
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> zui </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/zui
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> ZUI </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/zui
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> zconvey </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/zconvey
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> zconv </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/zconvey
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> zbrowse </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/zbrowse
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> zzcomplete </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/zzcomplete
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> zzcomp </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/zzcomplete
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> zzcom </Highlight>
+    </td>
+    
+    <td align="left">
+      z-shell/zzcomplete
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> zsh-autosuggestions </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-users/zsh-autosuggestions
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> autosuggestions </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-users/zsh-autosuggestions
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> autosug </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-users/zsh-autosuggestions
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> asug </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-users/zsh-autosuggestions
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> z-asug </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-users/zsh-autosuggestions
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> zsh-syntax-highlighting </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-users/zsh-syntax-highlighting
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> z-sy-h </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-users/zsh-syntax-highlighting
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> zsh-autocomplete </Highlight>
+    </td>
+    
+    <td align="left">
+      marlonrichert/zsh-autocomplete
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> autocomplete </Highlight>
+    </td>
+    
+    <td align="left">
+      marlonrichert/zsh-autocomplete
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> autocomp </Highlight>
+    </td>
+    
+    <td align="left">
+      marlonrichert/zsh-autocomplete
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> aucom </Highlight>
+    </td>
+    
+    <td align="left">
+      marlonrichert/zsh-autocomplete
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> acom </Highlight>
+    </td>
+    
+    <td align="left">
+      marlonrichert/zsh-autocomplete
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> z-aucom </Highlight>
+    </td>
+    
+    <td align="left">
+      marlonrichert/zsh-autocomplete
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> z-acom </Highlight>
+    </td>
+    
+    <td align="left">
+      marlonrichert/zsh-autocomplete
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> zsh-autopair </Highlight>
+    </td>
+    
+    <td align="left">
+      hlissner/zsh-autopair
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> autopair </Highlight>
+    </td>
+    
+    <td align="left">
+      hlissner/zsh-autopair
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> aupair </Highlight>
+    </td>
+    
+    <td align="left">
+      hlissner/zsh-autopair
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> aupa </Highlight>
+    </td>
+    
+    <td align="left">
+      hlissner/zsh-autopair
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> z-aupa </Highlight>
+    </td>
+    
+    <td align="left">
+      hlissner/zsh-autopair
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> evil-registers </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/evil-registers
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> evil-reg </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/evil-registers
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> vi-reg </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/evil-registers
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> vireg </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/evil-registers
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> vi-motions </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/vi-motions
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> evil-mot </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/vi-motions
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> vi-mot </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/vi-motions
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> vimot </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/vi-motions
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> vi-increment </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/vi-increment
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> evil-inc </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/vi-increment
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> vi-inc </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/vi-increment
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> viinc </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/vi-increment
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> vi-quote </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/vi-quote
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> evil-qte </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/vi-quote
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> vi-qte </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/vi-quote
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> viqte </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/vi-quote
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> directory-marks </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/directory-marks
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> evil-dir-marks </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/directory-marks
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> vi-dir-marks </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/directory-marks
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> vi-dirma </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/directory-marks
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> vidirma </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-vi-more/directory-marks
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> fd </Highlight>
+    </td>
+    
+    <td align="left">
+      sharkdp/fd
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> shark-fd </Highlight>
+    </td>
+    
+    <td align="left">
+      sharkdp/fd
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> bat </Highlight>
+    </td>
+    
+    <td align="left">
+      sharkdp/bat
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> shark-bat </Highlight>
+    </td>
+    
+    <td align="left">
+      sharkdp/bat
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> exa </Highlight>
+    </td>
+    
+    <td align="left">
+      ogham/exa
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> zsh-completions </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-users/zsh-completions
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> completions </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-users/zsh-completions
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center">
+      <Highlight color="var(--ifm-color-info)"> comps </Highlight>
+    </td>
+    
+    <td align="left">
+      zsh-users/zsh-completions
+    </td>
+  </tr>
+</table>
 
-You can let me know if you would like a name to be added to the list.
+## Install unscope {#install-unscope}
 
-## Usage examples
+:::info Source
 
-- An example installation via 2 nicknames (**env** and **vi-reg**) and by one unscoped (i.e.: not using any GitHub username) ID that's being dynamically resolved by a request to **GitHub API**:
+- <Link className="github-link" href="https://github.com/z-shell/z-a-unscope">z-shell/z-a-unscope</Link>
 
-![zi-for-command](https://github.com/z-shell/z-a-unscope/raw/main/docs/images/unscope-zinit-for.png#center)
+:::
 
-- An example call to the **zi scope …** subcommand that is added by this annex. It allows to translate the unscoped IDs and the short-static nicknames into the full **username/repository** plugin ID.
+<Tabs>
+  <TabItem value="default" label="Default" default>
 
-![scope-subcommand](https://github.com/z-shell/z-a-unscope/raw/main/docs/images/unscope-scope-cmd.png#center)
-
-## Install unscope
-
-Simply load as a regular plugin, i.e.:
+Add the following snippet in the `.zshrc` file:
 
 ```shell
-zi light-mode for z-shell/z-a-unscope
+zi light z-shell/z-a-unscope
 ```
 
-It should be done possibly early in the `zshrc`, as otherwise the preceding `zi` calls will not have the unscoped IDs resolved.
+</TabItem>
+</Tabs>
 
-[z-shell/z-a-unscope]: https://github.com/z-shell/z-a-unscope
+This will allow scoped IDs to be searched and resolved.

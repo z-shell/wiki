@@ -1,61 +1,64 @@
 ---
 id: overview
-title: "☑️ General Overview"
+title: "☑️ 一般概述"
 image: /img/logo/320x320.png
-description: Overview of use cases with Zi
+description: Zi 使用概述
 keywords:
   - overview
 ---
 
 <!-- @format -->
 
-This overview will cover the basics for:
+import ImgShow from '@site/src/components/ImgShow';
+import Link from '@docusaurus/Link';
+
+此概览包括以下内容：
 
 1. [Oh-My-Zsh & Prezto](/search?q=Oh+My+Zsh+%26+Prezto)
 2. [命令补全](/search?q=completions)
 3. [Turbo 模式](/search?q=turbo+mode)
 4. [Ice 修饰符](/search?q=ice+modifiers)
 
-## Plugin and snippet loading
+## 加载插件和片段
 
 ```shell showLineNumbers
 zi load z-shell/H-S-MW
 zi light zsh-users/zsh-syntax-highlighting
 ```
 
-The above commands show two ways of basic plugin loading. If you want to source local or remote files (using a direct URL), you can do so with `snippet`.
+上面的命令显示了两种加载基本插件的方式。 如果你想加载本地或远程 (使用直链) 文件, 你可以使用 `snippet` 来实现。
 
 ```shell
 zi snippet <URL>
 ```
 
-Such lines should be added to `.zshrc`. Snippets are cached locally, use the `-f` option to download a fresh version of a snippet, or `zi update {URL}`. Use `zi update --all` to update all snippets and plugins.
+应将此类行添加到 `.zshrc`。 片段在本地缓存，使用 `-f` 选项下载片段的新版本，或 `zi update {URL}`。 使用 `zi update --all` 更新所有片段和插件。
 
-Using `load` causes reporting to be enabled – you can track what the plugin does, view the information with `zi report {plugin-name}` and then also unload the plugin with `zi unload {plugin-name}`.
+使用 `load` 可以启用报告 -- 这样你可以跟踪插件的工作，用 `zi report {plugin-name}`查看信息，然后用 `zi unload {plugin-name}`卸载插件。
 
-Using `light` is a faster loading without tracking and reporting about the plugin but also withdrawing the ability to unload it.
+使用 `light` ，可以在不跟踪和报告有关插件的情况下加速插件加载，但也牺牲了了卸载插件的能力。
 
-Using `load` or `light`.
+使用 `load` 或 `light`。
 
 ```shell showLineNumbers
 zi load  <repo/plugin> # Load with reporting/investigating.
 zi light <repo/plugin> # Load without reporting/investigating.
 ```
 
-Plugin history-search-multi-word loaded with investigating:
+带着跟踪报告加载 history-search-multi-word 插件：
 
 ```shell
 zi load z-shell/H-S-MW
 ```
 
-Two regular plugins loaded without investigating:
+不带跟踪报告加载两个普通插件：
 
 ```shell showLineNumbers
 zi light zsh-users/zsh-autosuggestions
 zi light z-shell/F-Sy-H
 ```
 
-Snippet:
+片段:
 
 ```shell
 zi snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
@@ -63,31 +66,31 @@ zi snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
 
 :::note
 
-In turbo mode loading, the slowdown by plugin tracking is done in the background and does not affect the user experience, i.e., loading with `zi light` and `zi load` has the same effect.
+在 Turbo 加载模式中，由插件跟踪带来的速度减慢是在后台完成的，并且不会影响用户体验。 例如,，使用`zi light` 和 `zi load` 具有相同的效果。
 
 :::
 
 ## Oh-My-Zsh, Prezto
 
-To load Oh-My-Zsh and Prezto plugins, use the `snippet` feature. Snippets are **single files** downloaded by `curl`, `wget`, etc., automatic detection of the download tool is being performed, directly from the URL:
+要加载Oh-My-Zsh和Prezto插件，请使用 `snippet` 功能。 片断是 **单个文件** ，通过 `curl`， `wget` 等工具从 URL 直接下载。下载工具会自动检测：
 
 ```shell showLineNumbers
 zi snippet 'https://github.com/robbyrussell/oh-my-zsh/raw/master/plugins/git/git.plugin.zsh'
 zi snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/helper/init.zsh'
 ```
 
-Also, for Oh-My-Zsh and Prezto, you can use `OMZ::` and `PZT::` shorthands:
+另外，对于 Oh-My-Zsh 和 Prezto ，你可以使用 `OMZ::` 和 `PZT::` 的缩写：
 
 ```shell showLineNumbers
 zi snippet OMZ::plugins/git/git.plugin.zsh
 zi snippet PZT::modules/helper/init.zsh
 ```
 
-Moreover, GitHub supports the Subversion protocol for snippets. This allows loading snippets that are multi-file (for example, a Prezto module can consist of two or more files, e.g. `init.zsh` and `alias.zsh`).
+此外，GitHub 支持通过 Subversion 协议加载片段。 这允许加载多文件的片段（例如，一个 Prezto 模块可以由两个或多个文件组成，例如 `init.zsh` 和 `alias.zsh`）。
 
-Default files that will be sourced are: `*.plugin.zsh`, `init.zsh`, `*.zsh-theme`:
+默认加载的文件是： `*.plugin.zsh`, `init.zsh`, `*.zsh-theme`。
 
-URL points to a directory:
+指向目录的URL：
 
 ```shell {2} showLineNumbers
 zi ice svn
@@ -96,45 +99,45 @@ zi snippet PZT::modules/docker
 
 ## Snippet 和性能
 
-Using `curl`, `wget`, etc. along with Subversion allows us to almost completely avoid code dedicated to Oh-My-Zsh and Prezto, and also to other frameworks. It delivers better performance as has a low footprint on memory and shorter loading times.
+使用 `curl`， `wget` 等，加上Subversion，使我们几乎完全避免了专门用于 Oh-My-Zsh 和 Prezto 的代码，也避免了其他框架。 它提供了更好的性能，因为它对内存的占用很低，加载时间更短。
 
 ## Ice 修饰符
 
-The command `zi ice` provides [ice modifiers][1] for the single Zi command, i.e., `zi ice <some-ice-modifier>; zi load some/plugin`, after loading some/plugin the ice-modifier has to be set again.
+命令 `zi ice` 将为其紧随的下一条命令提供 [冰修饰符][1]。例：`zi ice <some-ice-modifier> zi load some/plugin`，在执行完下一条命令后，冰修饰符将会失效。
 
-The logic is that "ice" is something that’s added, e.g. to a drink or a coffee, and in the Zi sense this means that ice is a modifier added to the next Zi command, and also something that melts, so it doesn’t last long, – and in the Zi use it means that the modifier lasts for only single next Zi command.
+“冰”是一种添加物，例如添加到饮料或咖啡中 —— 在 Zi 里，冰修饰符将是下一条 Zi 命令的添加物。 “冰”也是会融化的东西，所以它不会留存很久 —— 在 Zi 里，这意味着它的效果只能作用于一条命令。
 
-Using one other ice modifier "**pick**" users can explicitly **select the file to source**:
+使用另一个冰修饰符 **pick** 用户可以明确地 **指定加载的文件**：
 
 ```shell {1} showLineNumbers
 zi ice svn pick"init.zsh"
 zi snippet PZT::modules/git
 ```
 
-Content of ice-modifier is simply put into `"…"`, `'…'`, or `$'…'`. No need for `":"` after the ice-modifier name (although it's allowed: as the equal sign `=`, e.g. `pick="init.zsh"` or `pick=init.zsh`).
+冰修饰符的内容只需要简单地置于 `"…"`、`'…'` 或 `$'…'` 之中。 不需要再在冰修饰符名称后加上 `":"`（当然这是合规的：它与 `=` 等效，例如 `pick="init.zsh"` 或 `pick=init.zsh`）。
 
-This way editors like `vim` and `emacs` and also `zsh-users/zsh-syntax-highlighting` and `z-shell/F-Sy-H` will highlight contents of ice-modifiers.
+以这样的写法，`vim`、`emacs` 等编辑器与 `zsh-users/zsh-syntax-highlighting`、`z-shell/F-Sy-H` 等插件可以高亮冰修饰符的内容。
 
-## About as"program"
+## 关于 as"program"
 
-A plugin might not be a file for sourcing, but a command to be added to `$PATH`. To obtain this effect, use ice-modifier `as` with value `program` (or an alias value `command`).
+一个插件可能不是一个用于 source 的文件，而是要添加到 `$PATH` 的命令 为了达到这种效果，使用 ice 修饰符 `as` 配合值 `program` (或者使用其别名 `command`).
 
 ```shell {1} showLineNumbers
 zi ice as"program" cp"httpstat.sh -> httpstat" pick"httpstat"
 zi light b4b4r07/httpstat
 ```
 
-The above command will add plugin directory to `$PATH`, copy file `httpstat.sh` into `httpstat` and add execution rights (`+x`) to the file selected with `pick`, i.e. to `httpstat`. Another ice-mod exists, `mv`, which works like `cp` but **moves** a file instead of **copying** it. `mv` is run before `cp`.
+上述命令会把插件目录添加到 `$PATH`，拷贝文件 `httpstat.sh` 到 `httpstat` 并将可执行权限 (`+x`) 添加到通过 `pick` 所选的文件上.。即 `httpstat`。 另一个 ice 修饰符。`mv`。其工作原理类似于 `cp` 但 **移动**，而不是 **复制** 文件。 `mv` 在 `cp` 之前运行。
 
 :::tip
 
-The `cp` and `mv` ices (and also some other ones, like `atclone`) are being run when the plugin or snippet is being _installed_. To test them again first delete the plugin or snippet (example: `zi delete PZT::modules/osx`).
+`cp` 和 `mv` 这些 ice ( 还有一些其他的，如 `atclone`) 在插件或片段被 _安装_ 时运行. 要再次测试它们，请首先删除该插件或片段 ( 例如: `zi delete PZT::modules/osx`)。
 
 :::
 
-## Ice modifier: atpull'…'
+## Ice 修饰符: atpull'…'
 
-Copying file is safe for doing later updates – original files of the repository are unmodified and `Git` will report no conflicts. However, `mv` also can be used, if a proper `atpull`, an ice-modifier ran at **update** of the plugin:
+复制文件对日后的更新是安全的 - 仓库的原始文件没有被修改， `Git` 会报告没有冲突。 However, `mv` also can be used, if a proper `atpull`, an ice-modifier ran at **update** of the plugin:
 
 ```shell showLineNumbers
 zi ice as"program" mv"httpstat.sh -> httpstat" \
@@ -142,7 +145,7 @@ zi ice as"program" mv"httpstat.sh -> httpstat" \
 zi light b4b4r07/httpstat
 ```
 
-If `atpull` starts with an exclamation mark, then it will be run before `git pull`, and before `mv`. Nevertheless, `atpull`, `mv`, `cp` are run **only if new commits are to be fetched**.
+如果 `atpull` 以感叹号 (!) 开头，那么它将在 `git pull`，以及 `mv`之前运行。 Nevertheless, `atpull`, `mv`, and `cp` are run **only if new commits are to be fetched**.
 
 So in summary, when the user runs `zi update b4b4r07/httpstat` to update this plugin, and there are new commits, what happens first is that `git reset --hard` is run – and it **restores** original `httpstat.sh`, **then** `git pull` is ran and it downloads new commits (doing fast-forward), **then** `mv` is running again so that the command is `httpstat` not `httpstat.sh`.
 
@@ -156,7 +159,7 @@ For exclamation marks to not be expanded by Zsh an interactive session, use `'�
 
 ## Ice modifier: subscribe'…'
 
-Ice modifier defers the loading of a plugin, while checking the modification time of the given file(s), and when it changes, it then triggers loading of the plugin or a snippet.
+Ice modifier defers the loading of a plugin while checking the modification time of the given file(s), and when it changes, it then triggers the loading of the plugin or a snippet.
 
 Copy and paste the example below to the terminal or add it to the `.zshrc` file and reload the shell with `exec zsh`.
 
@@ -193,16 +196,16 @@ Snippets also support `atpull`, e.g. `atpull'!svn revert'`. There’s also an `a
 
 ## Snippets as'…' completion
 
-By using the `as''` ice modifier with the value `completion` you can point the `snippet` subcommand directly to a completion file:
+By using the `as'…'` ice modifier with the value `completion` you can point the `snippet` subcommand directly to a completion file:
 
 ```shell {1} showLineNumbers
 zi ice as"completion"
 zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 ```
 
-## The completion management
+## 补全管理
 
-Zi allows to disable and enable each completion in every plugin. Try installing a popular plugin that provides completions:
+Zi allows disabling and enabling each completion in every plugin. Try installing a popular plugin that provides completions:
 
 ```shell {1} showLineNumbers
 zi ice blockf
@@ -211,10 +214,19 @@ zi light zsh-users/zsh-completions
 
 The first command, the `blockf` ice, will block the traditional method of adding completions. Zi uses this method, based on symlinks instead of adding several directories to `$fpath`. Zi will automatically **install** completions of a newly downloaded plugin.
 
-To uninstall and install the completions:
+To uninstall and install completions:
 
-- uninstall: `zi cuninstall zsh-users/zsh-completions`
-- install: `zi creinstall zsh-users/zsh-completions`
+Uninstall:
+
+```shell
+zi cuninstall zsh-users/zsh-completions
+```
+
+Install:
+
+```shell
+zi creinstall zsh-users/zsh-completions
+```
 
 ### 列出可用补全
 
@@ -226,49 +238,33 @@ zi clist
 
 This command is adapted for plugins like `zsh-users/zsh-completions`, which provide many completions – listing will have `3` completions per line, and a smaller number of terminal pages can be occupied like this:
 
-<div className="ScreenView">
-  <img
-    className="ImageView"
-    width="1000"
-    height="500"
-    src="/asciicast/zi_clist.svg" alt="Zi completion list"
-  />
-</div>
+<ImgShow height="455.91" width="1660" img="/asciicast/zi_clist.svg" alt="Zi completion list" />
 
 To show more completions per line by providing an **argument** to `clist`, e.g.: `zi clist 6`, will show:
 
-<div className="ScreenView">
-  <img
-    className="ImageView"
-    width="1000"
-    height="500"
-    src="/asciicast/zi_clist_6.svg" alt="Zi completion list 6"
-  />
-</div>
+<ImgShow height="455.91" width="1660" img="/asciicast/zi_clist_6.svg" alt="Zi completion list 6" />
 
 ### 启用/禁用 - 补全
 
 Completions can be disabled and other completion will be used, e.g. Zsh builtin. The commands are very basic, they only need completion **name**:
 
-```shell {1,3} showLineNumbers
-$ zi cdisable cmake
-Disabled cmake completion belonging to zsh-users/zsh-completions
-$ zi cenable cmake
-Enabled cmake completion belonging to zsh-users/zsh-completions
+Disable `cmake` completion:
+
+```shell
+zi cdisable cmake
+```
+
+Enable `cmake` completion:
+
+```shell
+zi cenable cmake
 ```
 
 Command `zi csearch` will **search** all plugin directories for available completions:
 
-<div className="ScreenView">
-  <img
-    className="ImageView"
-    width="1000"
-    height="500"
-    src="/asciicast/zi_csearch.svg" alt="Zi completion search"
-  />
-</div>
+<ImgShow height="455.91" width="1180" img="/asciicast/zi_csearch.svg" alt="Zi completion search" />
 
-## The subversion for subdirectories
+## 对子目录的 subversion
 
 In general, to use **subdirectories** of Github projects as snippets add `/trunk/{path-to-dir}` to the URL:
 
@@ -290,23 +286,23 @@ zi snippet PZT::modules/docker
 
 ## Turbo 模式（Zsh >= 5.3） {#turbo-mode-zsh--53}
 
-The ice-modifier `wait` allows the user to postpone the loading of a plugin to the moment when the processing of `.zshrc` is finished and the first prompt is shown.
+冰修饰符 `wait` 允许用户将插件的加载时机推迟到 `.zshrc` 处理完毕、第一行命令行提示符出现之后。
 
-It is like Windows – during startup, it shows desktop even though it still loads data in the background. This has drawbacks but is for sure better than a blank screen for 10 minutes. But in Zi, there are no drawbacks of this approach – no lags, freezes, etc. – the command line is fully usable while the plugins are being loaded, for any number of plugins.
+它就像 Windows 的逻辑 —— 启动过程中，它首先显示一个桌面，然后在后台继续加载数据。 这种做法有缺点，但肯定比 10 分钟的空白屏幕要好。 但在 Zi 中，这种方法没有任何缺点 —— 没有延迟、冻结等问题。—— 在加载插件的过程中，命令行仍然完全可用，无论以这种方法加载了多少插件。
 
 :::info
 
-Turbo will speed up Zsh startup by **50%–80%**. For example, instead of 200 ms, it'll be 40 ms.
+Turbo 模式将加速 Zsh 启动速度 **50%-80%**。 例如，从 200 ms 加速到 40 ms。
 
 :::
 
 :::note
 
-Zsh 5.3 or greater is required.
+需要 Zsh 5.3 及以上的版本。
 
 :::
 
-To use turbo mode add `wait` ice to the target plugin in one of the following ways:
+为了使用 Turbo 模式，以下列方式之一对目标插件使用冰修饰符 `wait`：
 
 ```shell {2} showLineNumbers
 PS1="READY > "
@@ -314,7 +310,7 @@ zi ice wait'!0'
 zi load halfo/lambda-mod-zsh-theme
 ```
 
-This sets plugin `halfo/lambda-mod-zsh-theme` to be loaded `0` seconds after `zshrc`. It will fire up after c.a. 1 ms of showing the basic prompt `READY >`.
+This sets plugin `halfo/lambda-mod-zsh-theme` to be loaded `0` seconds after `.zshrc`. It will fire up after c.a. 1 ms of showing the basic prompt `READY >`.
 
 You probably won't load the prompt in such a way, however, it is a good example in which turbo mode can be observed. The exclamation mark causes Zi to reset the prompt after loading the plugin – commonly needed for themes. The same with Prezto prompts, with a longer delay:
 
@@ -332,11 +328,11 @@ zi light zsh-users/zsh-autosuggestions
 
 ### Turbo mode is the key to the performance
 
-It can be loaded asynchronously, which makes a huge difference when the amount of plugins increases. Usually used as `zi ice wait"<SECONDS>"`.
+Turbo 模式可以异步地加载，这在插件数量增加时作用重大。 一般用法为 `zi ice wait'<SECONDS>'`。
 
 :::note
 
-The `wait` and `wait"0"` is the same
+单独使用 `wait` 等效于 `wait'0'`。
 
 :::
 
@@ -345,14 +341,14 @@ zi ice wait
 zi load z-shell/history-search-multi-word
 ```
 
-Load after 2 seconds:
+2秒后加载：
 
 ```shell showLineNumbers
-zi ice wait"2"
+zi ice wait'2'
 zi load z-shell/history-search-multi-word
 ```
 
-Also can be used in `light` and `snippet`:
+异步加载同样可用于 `light` 与 `snippet`：
 
 ```shell showLineNumbers
 zi ice wait
@@ -361,7 +357,7 @@ zi snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
 
 ### Turbo mode & lucid
 
-Turbo and lucid are the most used options because turbo mode is verbose and may require an option for quiet and this can be achieved with the `lucid`.
+Turbo 模式与 lucid 是最常用的组合，因为 Turbo 模式会打印加载日志 —— 可以通过添加 `lucid` 静默加载。
 
 ```shell showLineNumbers
 zi ice wait lucid
@@ -370,18 +366,17 @@ zi load z-shell/history-search-multi-word
 
 ## Turbo mode with sophisticated prompts
 
-For some, mostly advanced themes the initialization of the prompt is being done in a `precmd`-hook, i.e.; in a function that gets called before each prompt. The hook is installed by the [add-zsh-hook][12] Zsh function by adding its name to the `$precmd_functions` array.
+对于一些，主要是高级主题，命令行提示符的初始化是在 `precmd` 钩子中完成的：`precmd` 钩子会在每行提示符出现之前执行一次。 钩子是由 [add-zsh-hook][12] Zsh 函数安装的，它将被添加到 `$precmd_functions` 列表中。
 
-To make the prompt fully initialized after turbo mode loading in the middle of the prompt the same situation as with the `zsh-autosuggestions` plugin, the hook should be called from `atload'…'` ice`.
+使用 Turbo 模式异步加载主题可能导致钩子未执行，主题未能立即初始化。为了确保其能加载后能立即初始化，应使用 `atload'…'` 冰修饰符。
 
-First, find the name of the hook function by examining the `$precmd_functions` array. For example, for the `robobenklein/zinc` theme, they'll be two functions: `prompt_zinc_setup` and `prompt_zinc_precmd`:
+首先检查 `$precmd_functions` 找到主题安装的钩子。 在这里以主题 `robobenklein/zinc` 为例，它安装了两个钩子：`prompt_zinc_setup` 与 `prompt_zinc_precmd`：
 
-```shell showLineNumbers
-root@user > ~ > print $precmd_functions < ✔ < 22:21:33
+```shell title="print $precmd_functions"
 _zsh_autosuggest_start prompt_zinc_setup prompt_zinc_precmd
 ```
 
-Then, add them to the ice list in the `atload'…'` ice:
+将其加入 `atload'…'`，确保主题加载后立即执行一遍钩子，完成初始化。
 
 ```shell {2} showLineNumbers
 zi ice wait'!' lucid nocd \
@@ -389,13 +384,13 @@ zi ice wait'!' lucid nocd \
 zi load robobenklein/zinc
 ```
 
-The exclamation mark in `atload'!…'` is to track the functions allowing the plugin to be unloaded, as described [here](/docs/guides/syntax/ice#atclone-atpull-atinit-atload). It might be useful for the multi-prompt setup described next.
+`atload'!…'` 中的感叹号用于跟踪允许插件被卸载的方法，详见[此处](/docs/guides/syntax/ice#atclone-atpull-atinit-atload)。 It might be useful for the multi-prompt setup described next.
 
 ### Summary of turbo mode
 
-Autosuggestions use the `precmd` hook, which is being called right after processing `.zshrc` – `precmd` hooks are being called **right before displaying each prompt**.
+自动提示（auto-suggestion）功能使用了 `precmd` 钩子，它会在 `.zshrc` 处理过程结束后立即执行一次 —— 即所谓的**在每行提示符出现之前执行一次**。
 
-Turbo mode with the empty `wait` ice will postpone the loading `1` ms after that, so `precmd` will not be called at that first prompt. This makes autosuggestions inactive at the first prompt.
+Turbo 模式中，被单独的 `wait` 修饰的命令，其将在 `precmd` 钩子执行完毕的 `1` ms 后才执行。 这将使自动提示在第一行提示符无法支持这些命令。
 
 **However** the given `atload'…'` ice-modifier fixes this, it calls the same function that `precmd` would, right after loading autosuggestions, resulting in the same behavior of the plugin.
 
@@ -405,7 +400,7 @@ The ice called `lucid` causes the under-prompt message saying `Loaded zsh-users/
 
 Ices `load` and `unload` allow defining when you want plugins active or inactive:
 
-Load when in ~/tmp
+Load when in `~/tmp`:
 
 ```shell {1} showLineNumbers
 zi ice load'![[ $PWD = */tmp* ]]' unload'![[ $PWD != */tmp* ]]' \
@@ -413,30 +408,16 @@ zi ice load'![[ $PWD = */tmp* ]]' unload'![[ $PWD != */tmp* ]]' \
 zi load z-shell/zprompts
 ```
 
-<span className="ScreenView">
-  <img
-    className="ImageView"
-    width="1000"
-    height="500"
-    src="/asciicast/zi_load_at_tmp.svg" alt="Zi load at /tmp"
-  />
-</span>
+<ImgShow width="1100" height="325.65" img="/asciicast/zi_load_at_tmp.svg" alt="Zi load at /tmp" />
 
-Load when NOT in ~/tmp
+Load when NOT in `~/tmp`:
 
 ```shell {1} showLineNumbers
 zi ice load'![[ $PWD != */tmp* ]]' unload'![[ $PWD = */tmp* ]]'
 zi load russjohnson/angry-fly-zsh
 ```
 
-<span className="ScreenView">
-  <img
-    className="ImageView"
-    width="1000"
-    height="500"
-    src="/asciicast/zi_load_not_tmp.svg" alt="Zi load not at /tmp"
-  />
-</span>
+<ImgShow width="1100" height="325.65" img="/asciicast/zi_load_not_tmp.svg" alt="Zi load not at /tmp" />
 
 Two prompts, each active in different directories. This technique can be used to have plugin-sets, e.g. by defining parameter `$PLUGINS` with possible values like `cpp`, `web`, `admin` and by setting `load` / `unload` conditions to activate different plugins on `cpp`, on `web`, etc.
 
@@ -452,22 +433,22 @@ Tracking causes a slight slowdown, however, this doesn’t influence Zsh startup
 
 :::tip
 
-See: [multiple prompts](/docs/guides/customization#multiple-prompts) for more information. It contains more real-world examples of a multi-prompt setup, which is close to what the author uses in his setup.
+See: <Link to="/docs/guides/customization#multiple-prompts">multiple prompts</Link> or more information. It contains more real-world examples of a multi-prompt setup, which is close to what the author uses in his setup.
 
 :::
 
 This is [powerlevel10k](https://github.com/romkatv/powerlevel10k), [pure](https://github.com/sindresorhus/pure), [starship](https://github.com/starship/starship) sample:
 
-Load powerlevel10k theme.
+Load powerlevel10k theme:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice depth"1"
 zi light romkatv/powerlevel10k
 ```
 
-Load pure theme
+Load pure theme:
 
-- Will pick the `async.zsh` library and will source it.
+> will pick the `async.zsh` library and will source it.
 
 ```shell {1} title="~/.zshrc" showLineNumbers
 zi ice pick"async.zsh" src"pure.zsh"
@@ -476,20 +457,19 @@ zi light sindresorhus/pure
 
 Load starship theme:
 
-- will pick `starship` binary as a command, from the GitHub release
-- `starship` setup: `atclone` create `init.zsh` and `completion`
-- `atpull'…'` behavior same as `atclone'…'` and will be used when running `zi update`
-- `src` will source init.zsh
+> - pick `starship` binary as a command, from the GitHub release.
+> - setup `starship` using `atclone` and create `init.zsh` and `completion`.
+> - the `atpull'…'` behavior same as `atclone'…'` and but is used when running `zi update`.
+> - `src` will source `init.zsh`.
 
-```shell title="~/.zshrc" showLineNumbers
+```shell {2} {3} title="~/.zshrc" showLineNumbers
 zi ice as"command" from"gh-r" \
   atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-  atpull"%atclone" \
-  src"init.zsh"
+  atpull"%atclone" src"init.zsh"
 zi light starship/starship
 ```
 
-## Updates & upgrades
+## Updates & upgrades {#updates-upgrades}
 
 Self-update & compile:
 
@@ -499,7 +479,7 @@ zi self-update
 
 Update plugins and snippets:
 
-```shell
+```shell showLineNumbers
 zi update --all
 zi update --reset
 zi update --quiet
@@ -507,12 +487,12 @@ zi update --quiet
 
 Update plugins or snippets:
 
-```shell
+```shell showLineNumbers
 zi update --plugins
 zi update --snippets
 ```
 
-Update specific plugin. Default is GitHub but can specify any with ice [from'…'](/search?q=from):
+Update specific plugins. Default is GitHub but can specify any with ice [from'…'](/search?q=from):
 
 ```shell
 zi update <user>/<repo>
@@ -567,7 +547,7 @@ Scripts that are built to install
 
 > 有一个默认的 make 目标，「install」，它可以构建脚本。
 
-The `make''` ice could also be: `make"install PREFIX=$ZPFX"`, if "install" wouldn't be the only, default target.
+The `make'…'` ice could also be: `make"install PREFIX=$ZPFX"`, if "install" wouldn't be the only, default target.
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
@@ -580,7 +560,7 @@ Handle completions without loading any plugin, see the `clist` command. This one
 zi creinstall %HOME/my_completions
 ```
 
-For GNU "ls" the binaries can be gls, gdircolors, but not on OS X when installing the coreutils package from Homebrew.
+For GNU "ls" the binaries can be `gls`, `gdircolors`, but not on OS X when installing the `coreutils` package from Homebrew.
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice atclone"dircolors -b LS_COLORS > c.zsh" \
@@ -590,7 +570,7 @@ zi light trapd00r/LS_COLORS
 
 `make'!'` -> run make before `atclone` & `atpull`.
 
-```shell showLineNumbers
+```shell title="~/.zshrc" showLineNumbers
 zi ice as"program" make'!' \
   atclone'./direnv hook zsh > zhook.zsh' \
   atpull'%atclone' src"zhook.zsh"

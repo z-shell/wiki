@@ -1,20 +1,109 @@
 /**
- * /* @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;800&display=swap');
+ *
  *
  * @format
  */
 
 @font-face {
-  font-family: "JetBrains Mono";
-  font-weight: 300 800;
-  src: local("JetBrains Mono"), local("JetBrainsMono"),
-    url("/assets/fonts/variable/JetBrainsMono[wght].ttf") format("truetype");
+  font-family: "JetBrains Mono", monospace;
+  font-style: italic;
+  font-weight: 300;
+  src: url("/fonts/ttf/JetBrainsMono-LightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono", monospace;
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/ttf/JetBrainsMono-Light.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono", monospace;
+  font-style: italic;
+  font-weight: 400;
+  src: url("/fonts/ttf/JetBrainsMono-Italic.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/ttf/JetBrainsMono-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono", monospace;
+  font-style: italic;
+  font-weight: 500;
+  src: url("/fonts/ttf/JetBrainsMono-MediumItalic.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono", monospace;
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/ttf/JetBrainsMono-Medium.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono", monospace;
+  font-style: italic;
+  font-weight: 600;
+  src: url("/fonts/ttf/JetBrainsMonoNL-SemiBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono", monospace;
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/ttf/JetBrainsMonoNL-SemiBold.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono", monospace;
+  font-style: italic;
+  font-weight: 700;
+  src: url("/fonts/ttf/JetBrainsMonoNL-BoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono", monospace;
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/ttf/JetBrainsMonoNL-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono", monospace;
+  font-style: italic;
+  font-weight: 100 800;
+  src: url("/fonts/variable/JetBrainsMono-Italic[wght].ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono", monospace;
+  font-style: normal;
+  font-weight: 100 800;
+  src: url("/fonts/variable/JetBrainsMono[wght].ttf") format("truetype");
   font-display: swap;
 }
 
 :root {
-  font-family: "JetBrains Mono", monospace;
   transition-duration: 1s !important;
+
+  --ifm-font-family: "JetBrains Mono", monospace;
   --ifm-font-family-base: "JetBrains Mono", monospace;
   --ifm-font-family-monospace: "JetBrains Mono", monospace;
   --site-primary-hue-saturation: 168 70%;
@@ -159,6 +248,19 @@ html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
   display: none;
 }
 
+.player-tabs .tabs__item {
+  padding: 0.7rem;
+  margin-right: 0.2rem;
+  line-height: 0.2rem;
+}
+
+.player-tabs .tabs__item--active {
+  color: var(--ifm-color-primary);
+  border-bottom: 0.01rem solid var(--ifm-color-primary);
+  border-radius: var(--ifm-global-radius);
+  transition: border-bottom 1s ease-in-out;
+}
+
 /* Image styles */
 .IceLogo {
   display: block;
@@ -170,15 +272,20 @@ html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
 }
 
 .ImageView {
+  display: block;
   max-width: 100%;
   height: auto;
-  border-radius: 0.5rem;
+  margin: 0 auto;
+  border-radius: 0.5em;
 }
 
 .ScreenView {
   display: block;
+  justify-content: center;
   max-width: 100%;
   height: auto;
+  padding: 0;
+  margin: auto;
   text-align: center;
 }
 
@@ -190,27 +297,54 @@ html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
   text-align: right;
 }
 
-/* Image position in markdown */
-img[src$="#center"] {
-  display: block;
+/* Table */
+table {
+  display: table;
   width: 100%;
-  height: auto;
-  margin-right: auto;
-  margin-left: auto;
+  overflow-x: auto;
+
+  border-spacing: 0;
+  border-collapse: collapse;
 }
 
-img[src$="#floatleft"] {
-  display: block;
-  float: left;
-  width: 100%;
-  height: auto;
+thead {
+  font-size: smaller;
+  font-weight: bold;
+  color: var(--ifm-table-header-color);
+  background-color: var(--ifm-table-header-bg-color);
 }
 
-img[src$="#floatright"] {
-  display: block;
-  float: right;
-  width: 100%;
-  height: auto;
+thead th:first-child {
+  white-space: nowrap;
+}
+
+tbody {
+  font-size: small;
+  color: var(--ifm-table-body-color);
+  background-color: var(--ifm-table-body-bg-color);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--ifm-table-body-even-bg-color);
+}
+
+tbody tr:focus,
+tbody tr:hover {
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 0 8px 0 inset var(--ifm-color-primary);
+  transition: box-shadow 0.4s;
+}
+
+/* FontAwesome */
+
+.fa-beat {
+  --fa-animation-duration: 3s;
+}
+
+.fa-beat-fade {
+  --fa-beat-fade-opacity: 0.6;
+  --fa-beat-fade-scale: 1.075;
 }
 
 /* Github Link */
@@ -232,43 +366,6 @@ html[data-theme="dark"] .header-github-link::before {
     no-repeat;
 }
 
-/* API Table */
-
-.apitable {
-  font-size: 14px;
-}
-
-.apitable tbody tr {
-  transition: box-shadow 0.2s;
-}
-
-.apitable tbody tr:focus,
-.apitable tbody tr:hover {
-  cursor: pointer;
-  outline: none;
-  box-shadow: 0 0 7px 0 inset var(--ifm-color-primary);
-  transition: box-shadow 0.2s;
-}
-
-.apitable tbody th {
-  font-weight: bold;
-}
-
-.apitable tbody th:first-of-type {
-  width: 18%;
-}
-
-/* FontAwesome */
-
-.fa-beat {
-  --fa-animation-duration: 3s;
-}
-
-.fa-beat-fade {
-  --fa-beat-fade-opacity: 0.6;
-  --fa-beat-fade-scale: 1.075;
-}
-
 /* RSS Link */
 .rss-link::before {
   display: inline-block;
@@ -281,21 +378,49 @@ html[data-theme="dark"] .header-github-link::before {
   text-rendering: auto;
 }
 
+/* Github Link Default */
+.github-link:hover {
+  opacity: 0.6;
+}
+
+.github-link::before {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  padding-right: 0.2em;
+  padding-left: 0.2em;
+  content: "";
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
+    no-repeat;
+}
+
+html[data-theme="dark"] .github-link::before {
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='white' d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
+    no-repeat;
+}
+
 /* Announcement banner */
-div[class^="announcementBarContent"] {
-  font-size: 14px;
+div[class^="announcementBar_"] {
+  font-size: 16px;
   font-weight: bold;
   line-height: 16px;
 }
 
-div[class^="announcementBarContent"] a {
+div[class^="announcementBar_"] a {
   display: inline-block;
-  color: var(--ifm-color-primary) !important;
-  text-decoration: underline;
+  color: var(--ifm-link-color) !important;
 }
 
-div[class^="announcementBarContent"] a:hover {
-  color: var(--ifm-color-brand) !important;
+div[class^="announcementBar_"] a:hover {
+  text-decoration: underline !important;
+}
+
+html[data-theme="light"] div[class^="announcementBar_"] a:hover {
+  color: var(--ifm-color-black) !important;
+}
+
+html[data-theme="dark"] div[class^="announcementBar_"] a:hover {
+  color: var(--ifm-color-white) !important;
 }
 
 html[data-theme="light"] div[class^="announcementBar_"] {
@@ -310,11 +435,35 @@ html[data-theme="dark"] div[class^="announcementBar_"] {
   transition-duration: 1s !important;
 }
 
-@media only screen and (max-width: 768px) {
-  div[class^="announcementBarContent"] {
-    padding: 4px 32px;
-    font-size: 12px;
+@media screen and (min-width: 997px) {
+  header h1 {
+    font-size: 2.4rem !important;
+  }
+}
+
+@media only screen and (max-width: 996px) {
+  header h1 {
+    font-size: 2.2rem !important;
+  }
+}
+
+@media only screen and (max-width: 765px) {
+  div[class^="announcementBar_"] {
+    padding: 2px 24px;
+    font-size: 14px;
     line-height: 18px;
+  }
+
+  header h1 {
+    font-size: 2rem !important;
+  }
+
+  table {
+    table-layout: fixed;
+  }
+
+  thead th:first-child {
+    white-space: wrap;
   }
 
   .IceLogo {
@@ -323,9 +472,12 @@ html[data-theme="dark"] div[class^="announcementBar_"] {
 }
 
 @media only screen and (max-width: 500px) {
-  div[class^="announcementBarContent"] {
-    padding: 4px 32px;
-    line-height: 24px;
+  div[class^="announcementBar_"] {
+    padding: 2px 12px;
+  }
+
+  header h1 {
+    font-size: 1.8rem !important;
   }
 
   .IceLogo {

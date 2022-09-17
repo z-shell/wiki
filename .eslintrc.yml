@@ -3,26 +3,37 @@
 env:
   browser: true
   commonjs: true
+  es2022: true
   node: true
 extends:
   - eslint:recommended
-  - plugin:react-hooks/recommended
-  - plugin:@typescript-eslint/recommended
   - airbnb
+  - airbnb/hooks
+  - plugin:@typescript-eslint/recommended
+  - plugin:import/recommended
+  - plugin:import/typescript
+  - plugin:react/recommended
+  - plugin:react-hooks/recommended
+  - plugin:jsx-a11y/recommended
   - prettier
   - plugin:@docusaurus/recommended
-parser: "@typescript-eslint/parser"
+settings:
+  import/resolver:
+    typescript: {}
+  parser: "@typescript-eslint/parser"
 parserOptions:
   ecmaFeatures:
     jsx: true
   ecmaVersion: latest
-  type: molule
+  type: module
 plugins:
   - react-hooks
   - "@typescript-eslint"
   - "@docusaurus"
 rules:
   {
+    "semi": [2, "always"],
+    "prefer-const": "error",
     "no-undef": 0,
     "global-require": 0,
     "no-await-in-loop": 0,

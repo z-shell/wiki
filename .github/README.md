@@ -6,7 +6,7 @@
   <h2>
    <a title="❮ Zi ❯" target="_self" href="https://github.com/z-shell/wiki">
   <img style="width:60;height:60px"
-    src="https://raw.githubusercontent.com/z-shell/zi/main/docs/images/favicon.svg"
+    src="https://raw.githubusercontent.com/z-shell/zi/main/docs/images/logo.svg"
     alt="Logo" /></a>❮ Zi ❯
   </h2>
 <h3>
@@ -50,7 +50,7 @@
   />
   <img
     align="center" style="width:80%;height:auto"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
+    src="https://github.zshell.dev/.github/plugin/metrics.svg"
   />
   </td>
 </tr>
@@ -80,7 +80,7 @@
  <p> - For more information and to report security issues, please refer to our <a href="https://github.com/z-shell/zi/blob/main/docs/SECURITY.md">security documentation</a>.</p>
  <hr />
  <h2 align="left">Acknowledgements</h2>
- <p> The <a href="https://github.com/z-shell">Z-Shell</a> organization was created to recover the <a href="https://github.com/zdharma">Zdharma</a> organization which was deleted by the owner for an unknown reason. It took a lot of time and offer for all those who liked the project and were depending on it don't want to depend on an unreliable source. </p>
+ <p> The <a href="https://github.com/z-shell">Z-Shell</a> organization was created to recover the <a href="https://github.com/zdharma">Zdharma</a> organization which was deleted by the owner for an unknown reason. It took a lot of time and effort for all those who liked the project and were depending on it don't want to depend on an unreliable source. </p>
  <p> <a href="https://github.com/z-shell/zi">ZI</a>, formerly known as zplugin, zinit, is an open-source community project released under the <a href="https://github.com/z-shell/zi/blob/main/LICENSE">MIT License</a>.</p>
 <hr />
 <h2 align="left">Authors & contributors</h2>

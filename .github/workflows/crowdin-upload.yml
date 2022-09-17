@@ -13,6 +13,10 @@ on:
       - "src/pages/**"
   workflow_dispatch: {}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   GITHUB_TOKEN: ${{ secrets.GH_PAT }}
   CROWDIN_PROJECT: ${{ secrets.CROWDIN_PROJECT }}
@@ -21,9 +25,7 @@ env:
 jobs:
   upload:
     runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
-      cancel-in-progress: true
+    environment: crowdin
     timeout-minutes: 10
     steps:
       - name: "⤵️ Check out code from GitHub"
@@ -31,7 +33,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: "🚀 Crowdin Upload"
-        uses: crowdin/github-action@1.4.11
+        uses: crowdin/github-action@1.4.13
         with:
           upload_sources: true
           upload_translations: false

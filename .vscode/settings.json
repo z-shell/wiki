@@ -1,7 +1,11 @@
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll.markdownlint": true
+    "source.fixAll.markdownlint": true,
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
   },
+  "trunk.inlineDecoratorsForAllExtensions": true,
+  "trunk.trunkGrayOutNonBlockingIssues": true,
   "conventionalCommits.scopes": [
     "maintenance",
     "library",
@@ -65,5 +69,55 @@
       "background": "#0077ff",
       "opacity": 0.1
     }
-  }
+  },
+  "eslint.options": {
+    "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"],
+    "eslint.validate": [
+      "markdown",
+      "mdx",
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact"
+    ]
+  },
+  "cSpell.enableFiletypes": [
+    "editorconfig",
+    "gitignore",
+    "ini",
+    "jsx",
+    "jsx-tags",
+    "mdx",
+    "shellscript",
+    "styled-css",
+    "toml"
+  ],
+  "cSpell.customDictionaries": {
+    "custom-dictionary": {
+      "name": "custom-dictionary",
+      "path": "${workspaceFolder:wiki}/.cspell/custom-dictionary.txt",
+      "addWords": true,
+      "scope": "workspace"
+    },
+    "usernames": {
+      "name": "usernames",
+      "path": "${workspaceFolder:wiki}/.cspell/usernames.txt",
+      "addWords": true,
+      "scope": "workspace"
+    }
+  },
+  "grammarly.files.include": [
+    "**/*.txt",
+    "**/*.mdx",
+    "**/*.md",
+    "*/**.markdown"
+  ],
+  "grammarly.config.documentDomain": "academic",
+  "grammarly.config.suggestions.OxfordComma": true,
+  "grammarly.config.suggestions.PassiveVoice": true,
+  "grammarly.config.suggestions.StylisticFragments": true,
+  "grammarly.config.suggestions.UnnecessaryEllipses": true,
+  "grammarly.startTextCheckInPausedState": true,
+  "cSpell.language": "en-GB,lorem,en-US,en",
+  "cSpell.autoFormatConfigFile": true
 }

@@ -1,5 +1,5 @@
 ---
-id: zsh-editing-workbech
+id: zsh-editing-workbench
 title: ⚙️ Zsh Editing Workbench
 image: /img/logo/320x320.png
 description: Organized shortcuts for Zsh
@@ -25,17 +25,7 @@ Organized shortcuts for various command line editing operations, plus new operat
 ## Install Zsh Editing Workbench
 
 <Tabs>
-  <TabItem value="standalone" label="Standalone" default>
-
-After extracting `ZEW` to `{some-directory}` add the following two lines to `~/.zshrc`:
-
-```shell title="~/.zshrc" showLineNumbers
-fpath+=( {some-directory} )
-source "{some-directory}/zsh-editing-workbench.plugin.zsh"
-```
-
-  </TabItem>
-  <TabItem value="zi" label="Zi">
+  <TabItem value="zi" label="Zi" default>
 
 Add the following to `.zshrc`. The config files will be available in `~/.config/zew`.
 
@@ -47,6 +37,16 @@ zi load z-shell/zsh-editing-workbench
   <TabItem value="zgen" label="Zgen">
 
 Add `zgen load z-shell/zsh-editing-workbench` to `.zshrc` and issue a `zgen reset` (this assumes that there is a proper `zgen save` construct in `.zshrc`). The config files will be available in `~/.config/zew`.
+
+  </TabItem>
+  <TabItem value="standalone" label="Standalone">
+
+After extracting `ZEW` to `{some-directory}` add the following two lines to `~/.zshrc`:
+
+```shell title="~/.zshrc" showLineNumbers
+fpath+=( {some-directory} )
+source "{some-directory}/zsh-editing-workbench.plugin.zsh"
+```
 
   </TabItem>
 </Tabs>
@@ -63,5 +63,6 @@ echo 'XTerm*metaSendsEscape: true' >> ~/.Xresources
 
 <!-- end-of-file -->
 <!-- links -->
+<!-- external -->
 
 [z-shell/zsh-editing-workbench]: https://github.com/z-shell/zsh-editing-workbench

@@ -32,18 +32,7 @@ This script can be used with most plugin managers and [Zi][] is not required.
 :::
 
 <Tabs>
-  <TabItem value="standalone" label="Standalone" default>
-
-Install just the **standalone** binary which can be used with any other plugin manager.
-
-```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
-```
-
-This script will display what to add to `~/.zshrc` (2 lines) and show usage instructions.
-
-  </TabItem>
-  <TabItem value="zi" label="Zi">
+  <TabItem value="zi" label="Zi" default>
 
 :::tip
 
@@ -56,6 +45,17 @@ zi module build
 ```
 
 This command will compile the module and display instructions on what to add to `~/.zshrc`.
+
+  </TabItem>
+  <TabItem value="standalone" label="Standalone">
+
+Install just the **standalone** binary which can be used with any other plugin manager.
+
+```shell
+sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
+```
+
+This script will display what to add to `~/.zshrc` (2 lines) and show usage instructions.
 
   </TabItem>
 </Tabs>
@@ -90,7 +90,7 @@ Change the values before loading the `zgdbm` plugin.
 
 :::
 
-```shell title="~/.zshrc" showLineNumers
+```shell title="~/.zshrc" showLineNumbers
 zstyle ":plugin:zgdbm" cppflags "-I/usr/local/include"  # Additional include directory
 zstyle ":plugin:zgdbm" cflags "-Wall -O2 -g"            # Additional CFLAGS
 zstyle ":plugin:zgdbm" ldflags "-L/usr/local/lib"       # Additional library directory
@@ -101,6 +101,10 @@ zstyle ":plugin:zgdbm" ldflags "-L/usr/local/lib"       # Additional library dir
 ```shell
 zi light z-shell/zgdbm
 ```
+
+<!-- end-of-file -->
+<!-- links -->
+<!-- external -->
 
 [z-shell/zpmod]: https://github.com/z-shell/zpmod
 [zi]: https://github.com/z-shell/zi

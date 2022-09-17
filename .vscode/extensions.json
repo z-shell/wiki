@@ -8,12 +8,16 @@
     "vivaxy.vscode-conventional-commits",
     "mgmcdermott.vscode-language-babel",
     "esbenp.prettier-vscode",
-    "blanu.vscode-styled-jsx",
     "stylelint.vscode-stylelint",
-    "silvenon.mdx",
     "dbaeumer.vscode-eslint",
     "crowdin.vscode-crowdin",
     "codesandbox-io.codesandbox-projects",
-    "wayou.vscode-todo-highlight"
+    "wayou.vscode-todo-highlight",
+    "unifiedjs.vscode-mdx",
+    "trunk.io",
+    "tyriar.sort-lines",
+    "rvest.vs-code-prettier-eslint",
+    "streetsidesoftware.code-spell-checker",
+    "znck.grammarly"
   ]
 }

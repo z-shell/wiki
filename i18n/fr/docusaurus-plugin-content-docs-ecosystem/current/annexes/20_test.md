@@ -1,19 +1,27 @@
 ---
 id: test
 title: "🌀 Test"
-image: img/logo/320x320.png
+hide_title: false
+hide_table_of_contents: false
+image: /img/logo/320x320.png
 description: Annexe - Documentation des tests
 keywords:
   - annex
+  - zannex
   - test
-  - zsh
+draft: true
 ---
 
 <!-- @format -->
 
-## <i class="fa-brands fa-github"></i> [z-shell/z-a-test][]
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Link from '@docusaurus/Link';
+import ImgShow from '@site/src/components/ImgShow';
 
-Une annexe exécute des tests (par exemple `make test``) - si elle est trouvée, elle sera exécutée automatiquement après l'installation et la mise à jour d'un plugin ou d'un snippet.
+An annex runs `zunit` and `make` tests if they are configured in the repository.
+
+<ImgShow width={1000} height={900} img="https://user-images.githubusercontent.com/59910950/162143845-c44ead50-b21a-46c0-8372-18325eb1f33a.gif" alt="Annex - z-a-test preview" />
 
 Il suffit de le charger comme n'importe quel autre plugin pour le rendre actif:
 
@@ -29,26 +37,9 @@ Pour exécuter les tests en mode verbeux, exécutez:
 zstyle :zi:annex:test quiet 0
 ```
 
-avant d'installer ou de mettre à jour le plugin. Pour sauter les tests d'un seul plugin, ajoutez la glace `notest`:
+To skip tests for a single plugin before installing or updating add the `notest` ice-modifier:
 
 ```shell showLineNumbers
 zi ice notest
 zi load …
 ```
-
-### Démonstration de l'annexe
-
-Exemple d'activation en mode silencieux par défaut:
-
-![z-p-test-1][2]
-
-Exemple d'activation en mode non silencieux:
-
-![z-p-test-2][3]
-
-![z-a-test][4]
-
-[3]: https://raw.githubusercontent.com/z-shell/z-a-test/main/docs/images/z-p-test-2.png#center
-[2]: https://raw.githubusercontent.com/z-shell/z-a-test/main/docs/images/z-p-test-1.png#center
-[4]: https://user-images.githubusercontent.com/59910950/162143845-c44ead50-b21a-46c0-8372-18325eb1f33a.gif#center
-[z-shell/z-a-test]: https://github.com/z-shell/z-a-test

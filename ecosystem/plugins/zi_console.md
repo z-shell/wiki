@@ -5,16 +5,16 @@ image: /img/logo/320x320.png
 description: A console based on the `zsh/zcurses` Zshell module.
 keywords:
   - console
+  - zplugin
   - zi-console
   - zsh-plugin
-  - zplugin
 ---
 
 <!-- @format -->
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import AsciinemaPlayer from "@site/src/components/AsciinemaPlayer";
+import Player from "@site/src/components/Player";
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zi-console][]
 
@@ -27,8 +27,6 @@ A console for [Zi][] – based on the `zsh/zcurses` Zshell module allows the use
 ## Zi Console keybindings
 
 Start the console by <kbd>Ctrl-O</kbd> <kbd>Ctrl-J</kbd> keyboard shortcut, or by running `ziconsole` function in the shell.
-
-<div className="apitable">
 
 | Key(s)                                                                   | Description                                                      |
 | ------------------------------------------------------------------------ | ---------------------------------------------------------------- |
@@ -44,22 +42,18 @@ Start the console by <kbd>Ctrl-O</kbd> <kbd>Ctrl-J</kbd> keyboard shortcut, or b
 | <kbd>Ctrl-W</kbd>                                                        | Delete whole word (in incremental search)                        |
 | <kbd>Ctrl-K</kbd>                                                        | Delete whole line (in incremental search)                        |
 
-</div>
-
 ## Zi Console preview
 
-<AsciinemaPlayer
+<Player
   src='https://asciinema.org/a/512999.cast'
   rows={21}
   cols={125}
-  speed={1.5}
-  idleTimeLimit={1}
   preload
 />
 
 ## Install Zi Console
 
-> Prerequisities: [ZUI][z-shell/zui] library.
+> Prerequisites: [ZUI][z-shell/zui] library.
 
 <Tabs>
   <TabItem value="standard" label="Standard" default>
@@ -119,9 +113,15 @@ zi load zsh-users/zsh
 
 Then, to update, rebuild and reinstall the `zsh`, you can do `zi update zsh`. The binary can be safely copied over `/bin/zsh` as it has paths to all needed directories built-in.
 
-[zi]: https://github.com/z-shell/zi
-[z-shell/zui]: https://github.com/z-shell/zui
+<!-- end-of-file -->
+<!-- links -->
+
 [4]: /docs/getting_started/overview#turbo-mode-zsh--53
 [5]: /docs/guides/syntax/for
+
+<!-- external -->
+
+[zi]: https://github.com/z-shell/zi
+[z-shell/zui]: https://github.com/z-shell/zui
 [6]: https://github.com/z-shell/z-a-patch-dl
 [z-shell/zi-console]: https://github.com/z-shell/zi-console

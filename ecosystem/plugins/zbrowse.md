@@ -14,7 +14,7 @@ keywords:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Image from '@theme/IdealImage';
+import ImgShow from '@site/src/components/ImgShow';
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zbrowse][]
 
@@ -22,25 +22,17 @@ When doing shell work, it is often the case that `echo $variable` is invoked mul
 
 With ZBrowse, you just need to press <kbd>Ctrl-B</kbd>, which invokes the`ZBrowse` variable browser for the Z shell.
 
-<div className="ScreenView">
-  <Image img="https://cdn.zshell.dev/img/asciicast/gif/zsh/zbrowse.gif" className="ImageView" alt="ZBrowse Preview" />
-</div>
+<ImgShow
+  img="https://cdn.zshell.dev/img/asciicast/gif/zsh/zbrowse.gif"
+  alt="ZBrowse Preview"
+/>
 
 ## Install Zbrowse
 
 First, install the [z-shell/zui][] plugin - a UI library for Z shell.
 
 <Tabs>
-  <TabItem value="standalone" label="Standalone" default>
-
-**The plugin is "standalone"**, which means that only sourcing it is needed. So to install, unpack ZBrowse somewhere and add to `.zshrc`:
-
-```shell title="~/.zshrc"
-source {where-zbrowse-is}/zbrowse.plugin.zsh
-```
-
-  </TabItem>
-  <TabItem value="zi" label="Zi">
+  <TabItem value="zi" label="Zi" default>
 
 Add the following to your `.zshrc`. Zi will handle cloning the plugin for you automatically the next time you start Zsh. To update run `zi update z-shell/zbrowse`.
 
@@ -68,6 +60,15 @@ ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zbrowse
 ```
 
 And add `Zbrowse` to your plugin list.
+
+  </TabItem>
+  <TabItem value="standalone" label="Standalone">
+
+**The plugin is "standalone"**, which means that only sourcing it is needed. So to install, unpack ZBrowse somewhere and add to `.zshrc`:
+
+```shell title="~/.zshrc"
+source {where-zbrowse-is}/zbrowse.plugin.zsh
+```
 
   </TabItem>
 </Tabs>
