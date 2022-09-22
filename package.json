@@ -48,12 +48,12 @@
     "remark-math": "3.0.1"
   },
   "devDependencies": {
-    "@crowdin/cli": "3.8.0",
+    "@crowdin/cli": "3.8.1",
     "@docusaurus/eslint-plugin": "2.1.0",
     "@docusaurus/module-type-aliases": "2.1.0",
     "@trunkio/launcher": "1.2.1",
     "@types/node": "18.0.6",
-    "@types/react": "18.0.20",
+    "@types/react": "18.0.21",
     "@typescript-eslint/eslint-plugin": "5.38.0",
     "@typescript-eslint/parser": "5.38.0",
     "eslint": "8.23.1",
