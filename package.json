@@ -74,7 +74,7 @@
     "stylelint-config-standard": "28.0.0",
     "typescript": "4.8.3"
   },
-  "packageManager": "pnpm@7.12.1",
+  "packageManager": "pnpm@7.12.2",
   "pnpm": {
     "overrides": {
       "trim@<0.0.3": ">=0.0.3",
