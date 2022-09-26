@@ -1,8 +1,12 @@
 # @format
 
+runtimes:
+  enabled:
+    - go@1.18.3
+    - node@16.14.2
 version: 0.1
 cli:
-  version: 0.17.0-beta
+  version: 0.18.0-beta
   options:
     - commands: [check, fmt]
     - args: -y
@@ -25,11 +29,11 @@ lint:
     - taplo
   enabled:
     - svgo@2.8.0
-    - stylelint@14.11.0
+    - stylelint@14.12.1
     - git-diff-check@SYSTEM
-    - actionlint@1.6.17
-    - eslint@8.23.1
-    - gitleaks@8.12.0
+    - actionlint@1.6.19
+    - eslint@8.24.0
+    - gitleaks@8.13.0
     - markdownlint@0.32.2
     - prettier@2.7.1
     - shfmt@3.5.0
