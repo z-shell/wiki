@@ -137,7 +137,7 @@ zi light b4b4r07/httpstat
 
 ## Ice 修饰符: atpull'…'
 
-复制文件对日后的更新是安全的 - 仓库的原始文件没有被修改， `Git` 会报告没有冲突。 However, `mv` also can be used, if a proper `atpull`, an ice-modifier ran at **update** of the plugin:
+复制文件对日后的更新是安全的 - 仓库的原始文件没有被修改， `Git` 会报告没有冲突。 然而, 如果在插件 **更新** 过程中使用了 `atpull` Ice 修饰符，那么 `mv` 也是可以使用的。
 
 ```shell showLineNumbers
 zi ice as"program" mv"httpstat.sh -> httpstat" \
@@ -145,11 +145,11 @@ zi ice as"program" mv"httpstat.sh -> httpstat" \
 zi light b4b4r07/httpstat
 ```
 
-如果 `atpull` 以感叹号 (!) 开头，那么它将在 `git pull`，以及 `mv`之前运行。 Nevertheless, `atpull`, `mv`, and `cp` are run **only if new commits are to be fetched**.
+如果 `atpull` 以感叹号 (!) 开头，那么它将在 `git pull`，以及 `mv`之前运行。 尽管如此， `atpull`, `mv`, 和 `cp` **只有在需要获取新的提交时才会运行**。
 
-So in summary, when the user runs `zi update b4b4r07/httpstat` to update this plugin, and there are new commits, what happens first is that `git reset --hard` is run – and it **restores** original `httpstat.sh`, **then** `git pull` is ran and it downloads new commits (doing fast-forward), **then** `mv` is running again so that the command is `httpstat` not `httpstat.sh`.
+简言之，当用户运行 `zi update b4b4r07/httpstat` 以更新此插件，并且有新的提交时， 首先发生的是 `git reset --hard` 并且它 **还原** 了原始 `httpstat.sh`。 **然后运行** `git pull` ，它下载新的提交(快速前进), **接着** `mv` 重新运行，所以命令是 `httpstat` 而不是 `httpstat.sh`。
 
-This way the `mv` ice can be used to induce permanent changes into the plugin's contents without blocking the ability to update it with `git` or with `subversion` in the case of snippets.
+这样， `mv` Ice 修饰符可以用来对插件的内容进行永久性的修改，而不妨碍用 `git` ，或者用 `subversion` 在使用片段的情况下来更新它。
 
 :::info
 

@@ -96,7 +96,7 @@ The loader can be manually fetched from available [links](#loader) to any locati
   </TabItem>
   <TabItem value="repository" label="Repository">
 
-Clone repository using default or if set <Link to="/docs/guides/customization#customizing-paths">custom</Link> values:
+使用默认值或如果设置 <Link to="/docs/guides/customization#customizing-paths">自定义</Link> 值克隆储存库。
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
@@ -105,7 +105,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
   </TabItem>
   <TabItem value="minimal-annexes" label="Annex">
 
-Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link>:
+使用最小化配置和推荐的 <Link to="/ecosystem/annexes/overview">附件</Link> 安装:
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
@@ -114,7 +114,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
   </TabItem>
   <TabItem value="minimal-zunit" label="ZUnit">
 
-Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link> and setup <Link href="https://github.com/zdharma/zunit">zdharma/zunit</Link>:
+使用最小化配置，安装推荐的 <Link to="/ecosystem/annexes/overview">附件</Link> ，并配置 <Link href="https://github.com/zdharma/zunit">zdharma/zunit</Link>:
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
