@@ -24,12 +24,9 @@ const config = {
   onBrokenMarkdownLinks: "warn",
   staticDirectories: ["static"],
   favicon: "img/favicon.ico",
+  i18n: { defaultLocale: "en", locales: ["en", "ja", "zh-Hans"] },
   stylesheets: isProd ? [] : [{ href: css }],
   scripts: isProd ? [{ src: style, crossorigin: "anonymous" }] : [],
-  i18n: {
-    defaultLocale: "en",
-    locales: isProd ? ["en", "ja", "zh-Hans"] : ["en"],
-  },
   presets: [
     [
       "classic",
