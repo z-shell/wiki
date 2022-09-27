@@ -7,10 +7,12 @@ alacritty
 Aloxaf
 argoproj
 arzzen
+awarewen
 beetbox
 bugaevc
 Buku
 burntsushi
+colerar
 dandavison
 danielg
 davidosomething
@@ -54,6 +56,7 @@ sindresorhus
 smxi
 srijanshetty
 stpv
+syrinka
 tealdeer
 termcap
 thefuck
