@@ -39,6 +39,7 @@ autoreconf
 autorun
 autosug
 azuretools
+Benoit
 bindir
 bindkey
 bindkeys
@@ -58,6 +59,7 @@ cdreplay
 cenable
 CGITURL
 changefreq
+Chezelles
 chpwd
 clist
 cloneonly
@@ -169,11 +171,13 @@ ipfs
 isearch
 kalc
 katex
+Kazuma
 keychain
 keymap
 konsole
 ksharrays
 kubectl
+Lapshin
 LASTREPORT
 lbin
 LBUFFER
@@ -183,6 +187,7 @@ libexec
 linkbin
 lsix
 lstupd
+Lukosius
 lzui
 macports
 Magnusson
@@ -193,8 +198,11 @@ markdownlint
 mbegin
 meslo
 metaplg
+Miebori
 Mikael
+Misaka
 mitmproxy
+MRTT
 mullvad
 multios
 multisrc
@@ -297,6 +305,7 @@ rvest
 Rxvt
 safebrowsing
 sall
+Salvydas
 Santangelo
 SAVEHIST
 sbin'argocd
