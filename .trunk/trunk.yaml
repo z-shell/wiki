@@ -15,6 +15,12 @@ repo:
     host: github.com
     owner: z-shell
     name: wiki
+plugins:
+  sources:
+    - id: trunk
+      uri: https://github.com/trunk-io/plugins
+      ref: v0.0.4
+      import_to_global: true
 actions:
   enabled:
     - trunk-check-pre-push
