@@ -3,30 +3,33 @@
 
 const url = process.env.URL ?? "https://wiki.zshell.dev";
 const baseUrl = process.env.BASE_URL ?? "/";
-
-/* const isDev = process.env.NODE_ENV === 'development'; */
-/* const isProd = process.env.NODE_ENV === 'production'; */
-/* const inCloudflarePages = process.env.CF_PAGES === '1'; */
-
-const katex = require("rehype-katex");
+const isProd = process.env.CF_PAGES_BRANCH === "main";
+const css = process.env.CSS ?? "/assets/fa/css/all.min.css";
+const style = process.env.STYLE ?? "/assets/fa/js/all.min.js";
 const math = require("remark-math");
+const katex = require("rehype-katex");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "❮ Zi ❯",
-  tagline: "A Swiss Army Knife for Zsh Unix shell",
   url,
   baseUrl,
   trailingSlash: false,
+  title: "❮ Zi ❯",
   titleDelimiter: "|",
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
+  tagline: "A Swiss Army Knife for Zsh Unix shell",
   projectName: "wiki",
   organizationName: "z-shell",
+  baseUrlIssueBanner: false,
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
   staticDirectories: ["static"],
-  stylesheets: [{ href: "/assets/fa/css/all.min.css" }],
-  i18n: { defaultLocale: "en", locales: ["en", "fr", "ja", "zh-Hans"] },
+  favicon: "img/favicon.ico",
+  stylesheets: isProd ? [] : [{ href: css }],
+  scripts: isProd ? [{ src: style, crossorigin: "anonymous" }] : [],
+  i18n: {
+    defaultLocale: "en",
+    locales: isProd ? ["en", "ja", "zh-Hans"] : ["en"],
+  },
   presets: [
     [
       "classic",
@@ -49,7 +52,7 @@ const config = {
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           remarkPlugins: [math],
-          rehypePlugins: [],
+          rehypePlugins: [katex],
           beforeDefaultRemarkPlugins: [],
           beforeDefaultRehypePlugins: [],
         },
@@ -61,7 +64,7 @@ const config = {
             return `https://github.com/z-shell/wiki/tree/main/${blogDirPath}/${blogPath}`;
           },
           remarkPlugins: [math],
-          rehypePlugins: [],
+          rehypePlugins: [katex],
           beforeDefaultRemarkPlugins: [],
           beforeDefaultRehypePlugins: [],
           showReadingTime: true,
