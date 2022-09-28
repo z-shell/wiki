@@ -9,7 +9,7 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  run:
+  rclone:
     runs-on: ubuntu-latest
     steps:
       - name: "⤵️ Check out code from GitHub"
@@ -17,6 +17,9 @@ jobs:
       - name: "⏫ Rclone"
         uses: z-shell/.github/actions/rclone@main
         with:
-          RCLONE_CONF: ${{ secrets.RCLONE_STORE }}
+          # Configuration for rclone (required)
+          RCLONE_CONF: ${{ secrets.R2_STORE }}
+          # Run required arguments with rclone (required)
           RUN: sync static r2store:r2-store/public
-          #RCLONE_CONF_PATH:
+          # Default PATH to rclone configuration (optional)
+          #RCLONE_CONF_PATH: "${HOME}/.config/rclone"
