@@ -2,25 +2,28 @@
 name: "🔄 Rclone"
 on:
   push:
-    branches: [main]
-    tags: ["v*.*.*"]
-  #  schedule:
-  #    - cron: "0 07 * * 5"
+    paths:
+      - "static/**"
   workflow_dispatch: {}
+
+env:
+  sync_path: static
+  remote_path: "r2store:r2-store/public"
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+    environment: r2-store
     steps:
       - name: "⤵️ Check out code from GitHub"
         uses: actions/checkout@v3
-      - name: "⏫ Rclone"
-        uses: z-shell/.github/actions/rclone@main
+      - name: "⏫ Run rclone"
+        uses: z-shell/.github/actions/rclone@v1
         with:
           # Configuration to set up for rclone (required)
           config: ${{ secrets.R2_STORE }}
           # Argumets to pass for rclone (required)
-          args: sync static r2store:r2-store/public
+          args: "sync ${{ env.sync_path }} ${{ env.remote_path }}"
           # Set custom location for rclone configuration file (optional)
           config-file: ""
           # Verbose debugging and logging or carry on, but do quit on errors (optional)
