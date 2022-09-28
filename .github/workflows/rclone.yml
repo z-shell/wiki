@@ -6,14 +6,18 @@ on:
       - "static/**"
   workflow_dispatch: {}
 
-env:
-  sync_path: static
-  remote_path: "r2store:r2-store/public"
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   sync:
+    if: github.repository == 'z-shell/wiki'
     runs-on: ubuntu-latest
     environment: r2-store
+    env:
+      sync_path: static
+      remote_path: "r2store:r2-store/public"
     steps:
       - name: "⤵️ Check out code from GitHub"
         uses: actions/checkout@v3
