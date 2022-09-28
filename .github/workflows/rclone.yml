@@ -18,7 +18,5 @@ jobs:
         uses: z-shell/.github/actions/rclone@main
         env:
           RCLONE_CONF: ${{ secrets.R2_STORE }}
-          RCLONE_CONF_PATH: "$HOME/.config/rclone"
         with:
-          # Run required arguments with rclone (required)
-          RUN: sync static r2store:r2-store/public
+          args: sync static r2store:r2-store/public
