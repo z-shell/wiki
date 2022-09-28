@@ -17,5 +17,11 @@ jobs:
       - name: "⏫ Rclone"
         uses: z-shell/.github/actions/rclone@main
         with:
+          # Configuration to set up for rclone (required)
           config: ${{ secrets.R2_STORE }}
+          # Argumets to pass for rclone (required)
           args: sync static r2store:r2-store/public
+          # Set custom location for rclone configuration file (optional)
+          config-file: ""
+          # Verbose debugging and logging or carry on, but do quit on errors (optional)
+          debug: false
