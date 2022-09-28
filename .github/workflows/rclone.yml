@@ -1,5 +1,5 @@
 ---
-name: "🔄 Run rclone"
+name: "🔄 Rclone"
 on:
   push:
     branches: [main]
@@ -9,7 +9,7 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  rclone:
+  run:
     runs-on: ubuntu-latest
     steps:
       - name: "⤵️ Check out code from GitHub"
