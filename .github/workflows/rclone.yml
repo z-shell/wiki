@@ -16,10 +16,9 @@ jobs:
         uses: actions/checkout@v3
       - name: "⏫ Rclone"
         uses: z-shell/.github/actions/rclone@main
-        with:
-          # Configuration for rclone (required)
+        env:
           RCLONE_CONF: ${{ secrets.R2_STORE }}
+          RCLONE_CONF_PATH: "$HOME/.config/rclone"
+        with:
           # Run required arguments with rclone (required)
           RUN: sync static r2store:r2-store/public
-          # Default PATH to rclone configuration (optional)
-          #RCLONE_CONF_PATH: "${HOME}/.config/rclone"
