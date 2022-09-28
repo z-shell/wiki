@@ -35,7 +35,7 @@ lint:
     - taplo
   enabled:
     - svgo@2.8.0
-    - stylelint@14.12.1
+    - stylelint@14.13.0
     - git-diff-check@SYSTEM
     - actionlint@1.6.19
     - eslint@8.24.0

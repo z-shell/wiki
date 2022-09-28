@@ -22,10 +22,10 @@ settings:
     typescript: {}
   parser: "@typescript-eslint/parser"
 parserOptions:
+  ecmaVersion: latest
   ecmaFeatures:
     jsx: true
-  ecmaVersion: latest
-  type: module
+  sourceType: module
 plugins:
   - react-hooks
   - "@typescript-eslint"
