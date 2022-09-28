@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "static/**"
+      - ".github/workflows/rclone.yml"
   workflow_dispatch: {}
 
 concurrency:
@@ -14,7 +15,7 @@ jobs:
   sync:
     if: github.repository == 'z-shell/wiki'
     runs-on: ubuntu-latest
-    environment: r2-store
+    environment: R2
     env:
       sync_path: static
       remote_path: "r2store:r2-store/public"
@@ -22,7 +23,7 @@ jobs:
       - name: "⤵️ Check out code from GitHub"
         uses: actions/checkout@v3
       - name: "⏫ Run rclone"
-        uses: z-shell/.github/actions/rclone@main
+        uses: z-shell/.github/actions/rclone@v1
         with:
           # Configuration to set up for rclone (required)
           config: ${{ secrets.R2_STORE }}
