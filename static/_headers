@@ -1,22 +1,22 @@
+img/*
+  Cache-Control: max-age=460800, s-maxage=2976000, stale-if-error=400
+  Cloudflare-CDN-Cache-Control: max-age=195200, stale-if-error=60
+  CDN-Cache-Control: max-age=144000, stale-if-error=200
+
+fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /assets/*
-  Cache-Control: public
-  Cache-Control: max-age=31536000
-  Cache-Control: immutable
+  Cache-Control: public, max-age=31536000, immutable
 
 /fr/assets/*
-  Cache-Control: public
-  Cache-Control: max-age=31536000
-  Cache-Control: immutable
+  Cache-Control: public, max-age=31536000, immutable
 
 /ja/assets/*
-  Cache-Control: public
-  Cache-Control: max-age=31536000
-  Cache-Control: immutable
+  Cache-Control: public, max-age=31536000, immutable
 
 /zh-Hans/assets/*
-  Cache-Control: public
-  Cache-Control: max-age=31536000
-  Cache-Control: immutable
+  Cache-Control: public, max-age=31536000, immutable
 
 https://:zsh.pages.dev/*
   X-Robots-Tag: noindex
