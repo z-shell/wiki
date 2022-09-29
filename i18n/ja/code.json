@@ -308,5 +308,9 @@
   "theme.PwaReloadPopup.closeButtonAriaLabel": {
     "message": "閉じる",
     "description": "The ARIA label for close button of PWA reload popup"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "タグ",
+    "description": "The title of the tag list page"
   }
 }
