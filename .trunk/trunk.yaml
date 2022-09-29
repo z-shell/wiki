@@ -6,7 +6,7 @@ runtimes:
     - node@16.14.2
 version: 0.1
 cli:
-  version: 0.18.0-beta
+  version: 0.18.1-beta
   options:
     - commands: [check, fmt]
     - args: -y
@@ -23,6 +23,7 @@ plugins:
       import_to_global: true
 actions:
   enabled:
+    - trunk-upgrade-available
     - trunk-check-pre-push
     - trunk-fmt-pre-commit
     - trunk-cache-prune

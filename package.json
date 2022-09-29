@@ -20,7 +20,7 @@
     "write-ecosystem-version": "docusaurus docs:version:ecosystem",
     "crowdin:sync": "docusaurus write-translations && crowdin upload && crowdin download",
     "crowdin:check": "crowdin lint && crowdin status",
-    "prebuild": "test \"$CF_PAGES\" = 1 && npx pnpm install --prod --store=node_modules/.pnpm-store || echo Install not required...",
+    "prebuild": "test \"$CF_PAGES\" = 1 && npx pnpm install --prod || echo Install not required...",
     "clean": "pnpm exec rm -rf node_modules build pnpm-lock.yaml",
     "preinstall": "npx only-allow pnpm",
     "postinstall": "pnpm audit",
@@ -74,13 +74,6 @@
     "typescript": "4.8.4"
   },
   "packageManager": "pnpm@7.12.2",
-  "pnpm": {
-    "overrides": {
-      "trim@<0.0.3": ">=0.0.3",
-      "got@<11.8.5": ">=11.8.5",
-      "glob-parent@<6.0.1": ">=6.0.1"
-    }
-  },
   "engines": {
     "node": ">=16",
     "pnpm": ">=7"
