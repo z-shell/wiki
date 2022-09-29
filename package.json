@@ -89,5 +89,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "pnpm": {
+    "overrides": {
+      "trim@<0.0.3": ">=0.0.3",
+      "got@<11.8.5": ">=11.8.5"
+    }
   }
 }
