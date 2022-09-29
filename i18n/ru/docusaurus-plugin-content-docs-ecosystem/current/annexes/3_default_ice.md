@@ -1,7 +1,7 @@
 ---
 id: default-ice
 title: "🌀 Default Ice"
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: Annex - Default Ice documentation
 keywords:
   - annex

@@ -2,7 +2,7 @@
 id: benchmark
 title: "⏲ ベンチマーク"
 sidebar_position: 3
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: Benchmarking, Profiling & Statistics
 keywords:
   - statistics

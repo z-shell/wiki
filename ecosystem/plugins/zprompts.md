@@ -1,7 +1,7 @@
 ---
 id: zprompts
 title: ⚙️ ZPrompts
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: Zsh themes (prompts) that use original Zsh theming subsystem.
 keywords:
   - zsh-plugin
@@ -27,12 +27,12 @@ The previews demonstrate:
 - list of oldest unstaged modified files in the repo (3 files, starting from the oldest)
 
 <ImgShow
-  img="https://cdn.zshell.dev/img/asciicast/gif/zsh/zprompts.gif"
+  img="/img/cast/gif/zsh/zprompts.gif"
   alt="Zprompts Preview"
 />
 
 <ImgShow
-  img="https://cdn.zshell.dev/img/asciicast/gif/zsh/zprompts_theming.gif"
+  img="/img/cast/gif/zsh/zprompts_theming.gif"
   alt="Zprompts Theming Preview"
 />
 
@@ -41,7 +41,7 @@ The previews demonstrate:
 <Tabs>
   <TabItem value="zi" label="Zi" default>
 
-Add the following to your `.zshrc` file with prefered theme e.g:
+Add the following to your `.zshrc` file with preferred theme e.g:
 
 ```shell {2} showLineNumbers
 zi nocd for \

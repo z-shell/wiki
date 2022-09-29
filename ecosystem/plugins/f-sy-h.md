@@ -1,7 +1,7 @@
 ---
 id: f-sy-h
 title: ⚙️ Feature-rich syntax highlighting
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: Feature-rich Syntax Highlighting for Zsh
 toc_max_heading_level: 3
 keywords:
@@ -59,9 +59,9 @@ zgen load z-shell/F-Sy-H
 
 Clone the Repository:
 
-```shell
+```shell showLineNumbers
 git clone https://github.com/z-shell/F-Sy-H.git \
-    ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/F-Sy-H
+  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/F-Sy-H
 ```
 
 And add `F-Sy-H` to your plugin list.
@@ -170,8 +170,8 @@ A secondary theme (`zdharma` in the example) will be used for highlighting of ar
 In the above screen-shot the interior of `$( ... )` uses different colors than the rest of the code. Example for `eval`:
 
 <ImgShow
- img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/eval_cmp.png"
- alt="Syntax highlighting eval"
+  img="https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/eval_cmp.png"
+  alt="Syntax highlighting eval"
 />
 
 The first line doesn't use recursive highlighting, highlights the `eval` argument as a regular string. The second line switches the theme to `zdharma` and does full recursive highlighting of the eval argument.
@@ -263,63 +263,63 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 #### Autoload
 
 <ImgShow
-  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-autoload.gif"
+  img="/img/cast/gif/fsh/fsh-autoload.gif"
   alt="Syntax highlighting autoload"
 />
 
 #### Awk
 
 <ImgShow
-  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-awk.gif"
+  img="/img/cast/gif/fsh/fsh-awk.gif"
   alt="Syntax highlighting awk"
 />
 
 #### Docker
 
 <ImgShow
-  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-docker.gif"
+  img="/img/cast/gif/fsh/fsh-docker.gif"
   alt="Syntax highlighting docker"
 />
 
 #### Git commit
 
 <ImgShow
-  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-git-commit.gif"
+  img="/img/cast/gif/fsh/fsh-git-commit.gif"
   alt="Syntax highlighting git commit"
 />
 
 #### Git checkout
 
 <ImgShow
-  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-git-checkout.gif"
+  img="/img/cast/gif/fsh/fsh-git-checkout.gif"
   alt="Syntax highlighting git checkout"
 />
 
 #### Grep
 
 <ImgShow
-  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-grep.gif"
+  img="/img/cast/gif/fsh/fsh-grep.gif"
   alt="Syntax highlighting grep"
 />
 
 #### Make
 
 <ImgShow
-  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-make.gif"
+  img="/img/cast/gif/fsh/fsh-make.gif"
   alt="Syntax highlighting make"
 />
 
 #### Perl
 
 <ImgShow
-  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-perl.gif"
+  img="/img/cast/gif/fsh/fsh-perl.gif"
   alt="Syntax highlighting perl"
 />
 
 #### Sh
 
 <ImgShow
-  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-sh-c.gif"
+  img="/img/cast/gif/fsh/fsh-sh-c.gif"
   alt="Syntax highlighting sh -c"
 />
 
@@ -328,14 +328,14 @@ The [chromas](https://github.com/z-shell/F-Sy-H/tree/main/→chroma) that are en
 ### Fpath highlighting
 
 <ImgShow
-  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-fpath.gif"
+  img="/img/cast/gif/fsh/fsh-fpath.gif"
   alt="Syntax highlighting fpath"
 />
 
 ### Case highlighting
 
 <ImgShow
-  img="https://cdn.zshell.dev/img/asciicast/gif/fsh/fsh-case.gif"
+  img="/img/cast/gif/fsh/fsh-case.gif"
   alt="Syntax highlighting case"
 />
 

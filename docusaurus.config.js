@@ -1,14 +1,15 @@
 /** @format */
 // @ts-check
 
-const url = process.env.URL ?? "https://wiki.zshell.dev";
+const style =
+  process.env.STYLE ??
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js";
+const url = process.env.CF_PAGES_URL ?? "https://wiki.zshell.dev";
 const baseUrl = process.env.BASE_URL ?? "/";
-const isProd = process.env.CF_PAGES_BRANCH === "main";
-const css = process.env.CSS ?? "/assets/fa/css/all.min.css";
-const style = process.env.STYLE ?? "/assets/fa/js/all.min.js";
 const math = require("remark-math");
 const katex = require("rehype-katex");
 
+/** const isProd = process.env.CF_PAGES_BRANCH === "main"; */
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   url,
@@ -24,18 +25,15 @@ const config = {
   onBrokenMarkdownLinks: "warn",
   staticDirectories: ["static"],
   favicon: "img/favicon.ico",
+  scripts: [{ src: style, crossorigin: "anonymous" }],
   i18n: { defaultLocale: "en", locales: ["en", "ja", "zh-Hans"] },
-  stylesheets: isProd ? [] : [{ href: css }],
-  scripts: isProd ? [{ src: style, crossorigin: "anonymous" }] : [],
   presets: [
     [
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         debug: true,
-        theme: {
-          customCss: require.resolve("./src/css/custom.css"),
-        },
+        theme: { customCss: "src/css/custom.css" },
         docs: {
           sidebarPath: "sidebars.js",
           sidebarCollapsible: true,

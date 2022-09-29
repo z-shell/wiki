@@ -3,7 +3,7 @@ id: intro
 slug: /
 title: "🎉 Introduction"
 sidebar_position: 1
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: Introduction to a Swiss Army Knife for Zsh, formerly known as zplugin, zinit.
 keywords:
   - 介绍
@@ -20,7 +20,7 @@ import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
 import Image from '@theme/IdealImage';
 import ImgShow from '@site/src/components/ImgShow';
-import ZGitImg from '@site/static/img/png/z_git.png';
+import ZGitImg from '@site/static/img/png/theme/z_git.png';
 
 <Image img={ZGitImg} />
 <Link href="https://github.com/orgs/z-shell/">

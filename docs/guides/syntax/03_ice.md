@@ -3,7 +3,7 @@ id: ice
 title: "🧊 Ice Syntax"
 sidebar_position: 3
 toc_max_heading_level: 3
-image: /img/png/ice_180x170.png
+image: /img/png/theme/ice_180x170.png
 description: Ice syntax documentation
 keywords:
   - ice
@@ -14,7 +14,7 @@ keywords:
 <!-- @format -->
 
 import Image from '@theme/IdealImage';
-import ZIceImg from '/img/png/ice_180x170.png';
+import ZIceImg from '/img/png/theme/ice_180x170.png';
 import ImgShow from '@site/src/components/ImgShow';
 import APITable from '@site/src/components/APITable';
 
@@ -249,7 +249,7 @@ zi light z-shell/zi-crasis
 - screencast that presents the feature:
 
 <ImgShow height="390.78" width="970"
-  img="/asciicast/crasis_01.svg" alt="Crasis example screencast"
+  img="/img/cast/svg/crasis_01.svg" alt="Crasis example screencast"
 />
 
 - `$ZLAST_COMMANDS` is an array built by [F-Sy-H][2], it contains commands currently entered at prompt,

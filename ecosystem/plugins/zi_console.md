@@ -1,13 +1,14 @@
 ---
 id: zi-console
 title: ⚙️ Zi Console
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: A console based on the `zsh/zcurses` Zshell module.
 keywords:
   - console
   - zplugin
   - zi-console
   - zsh-plugin
+draft: false
 ---
 
 <!-- @format -->
@@ -15,6 +16,7 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Player from "@site/src/components/Player";
+import APITable from '@site/src/components/APITable';
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zi-console][]
 
@@ -27,6 +29,10 @@ A console for [Zi][] – based on the `zsh/zcurses` Zshell module allows the use
 ## Zi Console keybindings
 
 Start the console by <kbd>Ctrl-O</kbd> <kbd>Ctrl-J</kbd> keyboard shortcut, or by running `ziconsole` function in the shell.
+
+```mdx-code-block
+<APITable>
+```
 
 | Key(s)                                                                   | Description                                                      |
 | ------------------------------------------------------------------------ | ---------------------------------------------------------------- |
@@ -41,6 +47,10 @@ Start the console by <kbd>Ctrl-O</kbd> <kbd>Ctrl-J</kbd> keyboard shortcut, or b
 | <kbd>Esc</kbd>                                                           | Exit incremental search, clearing query                          |
 | <kbd>Ctrl-W</kbd>                                                        | Delete whole word (in incremental search)                        |
 | <kbd>Ctrl-K</kbd>                                                        | Delete whole line (in incremental search)                        |
+
+```mdx-code-block
+</APITable>
+```
 
 ## Zi Console preview
 

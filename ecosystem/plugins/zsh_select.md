@@ -1,7 +1,7 @@
 ---
 id: zsh-select
-title: ⚙️ Zsh Select
-image: /img/logo/320x320.png
+title: ⚙️ Select
+image: /img/png/theme/z/320x320.png
 description: A shell command that will display a selection list.
 keywords:
   - zsh-plugin
@@ -31,7 +31,7 @@ The file `zsh-select` can be copied to any `bin` directory. `Zsh` will serve as 
 Pressing <kbd>o</kbd> will make elements uniqe. To search again after pressing enter, press <kbd>/</kbd>. Approximate matching mode is activated by <kbd>Ctrl-F</kbd>.
 
 <div className="ScreenView">
-  <Image img="https://cdn.zshell.dev/img/asciicast/gif/zsh/zsh-select.gif" className="ImageView" alt="Zsh Select Preview" />
+  <Image img="/img/cast/gif/zsh/zsh-select.gif" className="ImageView" alt="Zsh Select Preview" />
 </div>
 
 ## Install Zsh Select

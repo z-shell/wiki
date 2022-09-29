@@ -1,7 +1,7 @@
 ---
 id: zsh-unique-id
-title: ⚙️ Zsh Unique ID
-image: /img/logo/320x320.png
+title: ⚙️ Unique ID
+image: /img/png/theme/z/320x320.png
 description: Provides a **unique number** that identifies a **running** Zshell session.
 keywords:
   - zsh-unique-id
@@ -90,7 +90,7 @@ Clone the Repository:
 
 ```shell title="~/.zshrc" showLineNumbers
 git clone https://github.com/z-shell/zsh-unique-id.git \
-${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-unique-id
+  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-unique-id
 ```
 
 And add `zsh-unique-id` to your plugin list.

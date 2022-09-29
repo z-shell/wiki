@@ -2,7 +2,7 @@
 id: bindkey
 title: "🗒 Bindkeys Map"
 sidebar_position: 5
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: Usage bindmap & bindkey.
 keywords:
   - syntax

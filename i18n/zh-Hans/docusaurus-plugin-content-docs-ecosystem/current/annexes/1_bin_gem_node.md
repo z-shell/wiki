@@ -1,7 +1,7 @@
 ---
 id: bin-gem-node
 title: "🌀 Bin Gem Node"
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: Annex - Bin Gem Node documentation.
 keywords:
   - zannex,
@@ -15,6 +15,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
 import Player from '@site/src/components/Player';
+import APITable from '@site/src/components/APITable';
 import Shortcuts from '@site/src/components/Markdown/\_player_shortcuts.mdx';
 
 An annex provides the following functionality:
@@ -68,6 +69,10 @@ fzf "$@"
 
 Running the script will forward the call to the program accessed through an embedded path to it. Thus, no `$PATH` changes are needed.
 
+```mdx-code-block
+<APITable>
+```
+
 | Ice modifier  | Description                                                                                                |
 |:------------- |:---------------------------------------------------------------------------------------------------------- |
 | [sbin](#sbin) | Creates `shims` for binaries and scripts.                                                                  |
@@ -79,7 +84,15 @@ Running the script will forward the call to the program accessed through an embe
 | [fsrc](#fsrc) | Creates functions that source given scripts.                                                               |
 | [ferc](#ferc) | The same as [fsrc](#fscr), but using an alternate script-loading method.                                   |
 
+```mdx-code-block
+</APITable>
+```
+
 Function wrappers for binaries, scripts, gems, node_modules, python packages, etc:
+
+```mdx-code-block
+<APITable>
+```
 
 | Flag | Description                                                                                                                  |
 |:---- |:---------------------------------------------------------------------------------------------------------------------------- |
@@ -90,6 +103,10 @@ Function wrappers for binaries, scripts, gems, node_modules, python packages, et
 | `N`  | Append `&>/dev/null` to the call of the binary, i.e. redirect both standard output and standard error to `/dev/null`. |
 | `E`  | Append `2>/dev/null` to the call of the binary, i.e. redirect standard error to `/dev/null`.                              |
 | `O`  | Append `>/dev/null` to the call of the binary, i.e. redirect standard output to `/dev/null`.                              |
+
+```mdx-code-block
+</APITable>
+```
 
 View all currently registered:
 

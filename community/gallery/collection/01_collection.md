@@ -2,7 +2,7 @@
 id: collection
 slug: /gallery/collection
 title: "🔺 Quick Introduction"
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: The Gallery of Invocations
 keywords:
   - collection

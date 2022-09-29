@@ -1,7 +1,7 @@
 ---
 id: migration
 title: "♻️ 迁移"
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: Migration Guide
 keywords:
   - setup

@@ -1,7 +1,7 @@
 ---
 id: zsh-navigation-tools
-title: ⚙️ Zsh Navigation Tools
-image: /img/logo/320x320.png
+title: ⚙️ Navigation Tools
+image: /img/png/theme/z/320x320.png
 description: Multi-word history searcher, `n-cd` – directory bookmark manager, `n-kill` – `htop` like kill utility, and more.
 keywords:
   - zsh-navigation-tools
@@ -13,21 +13,36 @@ keywords:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import APITable from '@site/src/components/APITable';
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zsh-navigation-tools][]
 
 ## Available tools
 
-- `n-aliases` - browse aliases, relegates editing to `vared`
-- `n-cd` - browses dir stack and bookmarked directories, allows entering the selected directory
-- `n-functions` - browses functions, relegates editing to `zed` or `vared`
-- `n-history` - browses history, allows to edit and run commands from it
-- `n-kill` - browses processes list, allows sending a signal to the selected process
-- `n-env` - browses environment, relegates editing to `vared`
-- `n-options` - browse options, allows toggling their state
-- `n-panelize` - loads the output of a given command into the list for browsing
+```mdx-code-block
+<APITable>
+```
+
+| Function      | Description                                                                  |
+| ------------- | ---------------------------------------------------------------------------- |
+| `n-aliases`   | Aliases, relegates editing to `vared`                                        |
+| `n-cd`        | Dir stack and bookmarked directories, allows entering the selected directory |
+| `n-functions` | Functions, relegates editing to `zed` or `vared`                             |
+| `n-history`   | History, allows to edit and run commands from it                             |
+| `n-kill`      | Processes list, allows sending a signal to the selected process              |
+| `n-env`       | Environment, relegates editing to `vared`                                    |
+| `n-options`   | Options, allows toggling their state                                         |
+| `n-panelize`  | Loads the output of a given command into the list for browsing               |
+
+```mdx-code-block
+</APITable>
+```
 
 All tools support horizontal scroll with <kbd>&lt;</kbd>, <kbd>&gt;</kbd>, <kbd>&#123;</kbd>, <kbd>&#125;</kbd> , <kbd>h</kbd>, <kbd>l</kbd> or left and right cursors. Other keys are:
+
+```mdx-code-block
+<APITable>
+```
 
 | Key(s)                                              | Description                                                                    |
 | --------------------------------------------------- | ------------------------------------------------------------------------------ |
@@ -47,12 +62,16 @@ All tools support horizontal scroll with <kbd>&lt;</kbd>, <kbd>&gt;</kbd>, <kbd>
 | <kbd>/</kbd>                                        | Show incremental search                                                        |
 | <kbd>F3</kbd>                                       | Show/hide incremental search                                                   |
 | <kbd>Esc</kbd>                                      | Exit incremental search, clearing filter                                       |
-| <kbd>Ctrl-W</kbd> (in incremental search)           | delete whole word                                                              |
-| <kbd>Ctrl-K</kbd> (in incremental search)           | delete whole line                                                              |
+| <kbd>Ctrl-W</kbd> (in incremental search)           | Delete whole word                                                              |
+| <kbd>Ctrl-K</kbd> (in incremental search)           | Delete whole line                                                              |
 | <kbd>Ctrl-O</kbd>, <kbd>o</kbd>                     | Enter uniq mode (no duplicate lines)                                           |
 | <kbd>Ctrl-E</kbd>, <kbd>e</kbd>                     | Edit private history (when in private history view)                            |
 | <kbd>F1</kbd> (in n-history)                        | Switch view                                                                    |
 | <kbd>F2</kbd>, <kbd>Ctrl-X</kbd>, <kbd>Ctrl-/</kbd> | Search predefined keywords (defined in config files)                           |
+
+```mdx-code-block
+</APITable>
+```
 
 Set of tools like `n-history` – multi-word history searcher, `n-cd` – directory bookmark manager, `n-kill` – `htop` like kill utility, and more.
 

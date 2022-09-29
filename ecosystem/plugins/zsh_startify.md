@@ -1,7 +1,7 @@
 ---
 id: zsh-startify
-title: ⚙️ Zsh Startify
-image: /img/logo/320x320.png
+title: ⚙️ Startify
+image: /img/png/theme/z/320x320.png
 description: Zsh Plugin Startify documentation.
 keywords:
   - zsh-plugin

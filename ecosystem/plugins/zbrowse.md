@@ -1,7 +1,7 @@
 ---
 id: zbrowse
 title: ⚙️ ZBrowse
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: Check variables of a possible loop.
 keywords:
   - zbrowse
@@ -23,7 +23,7 @@ When doing shell work, it is often the case that `echo $variable` is invoked mul
 With ZBrowse, you just need to press <kbd>Ctrl-B</kbd>, which invokes the`ZBrowse` variable browser for the Z shell.
 
 <ImgShow
-  img="https://cdn.zshell.dev/img/asciicast/gif/zsh/zbrowse.gif"
+  img="/img/cast/gif/zsh/zbrowse.gif"
   alt="ZBrowse Preview"
 />
 

@@ -238,11 +238,11 @@ zi clist
 
 This command is adapted for plugins like `zsh-users/zsh-completions`, which provide many completions – listing will have `3` completions per line, and a smaller number of terminal pages can be occupied like this:
 
-<ImgShow height="455.91" width="1660" img="/asciicast/zi_clist.svg" alt="Zi completion list" />
+<ImgShow height="455.91" width="1660" img="/img/cast/svg/zi_clist.svg" alt="Zi completion list" />
 
 To show more completions per line by providing an **argument** to `clist`, e.g.: `zi clist 6`, will show:
 
-<ImgShow height="455.91" width="1660" img="/asciicast/zi_clist_6.svg" alt="Zi completion list 6" />
+<ImgShow height="455.91" width="1660" img="/img/cast/svg/zi_clist_6.svg" alt="Zi completion list 6" />
 
 ### 启用/禁用 - 补全
 
@@ -262,7 +262,7 @@ zi cenable cmake
 
 Command `zi csearch` will **search** all plugin directories for available completions:
 
-<ImgShow height="455.91" width="1180" img="/asciicast/zi_csearch.svg" alt="Zi completion search" />
+<ImgShow height="455.91" width="1180" img="/img/cast/svg/zi_csearch.svg" alt="Zi completion search" />
 
 ## 对子目录的 subversion
 
@@ -408,7 +408,7 @@ zi ice load'![[ $PWD = */tmp* ]]' unload'![[ $PWD != */tmp* ]]' \
 zi load z-shell/zprompts
 ```
 
-<ImgShow width="1100" height="325.65" img="/asciicast/zi_load_at_tmp.svg" alt="Zi load at /tmp" />
+<ImgShow width="1100" height="325.65" img="/img/cast/svg/zi_load_at_tmp.svg" alt="Zi load at /tmp" />
 
 Load when NOT in `~/tmp`:
 
@@ -417,7 +417,7 @@ zi ice load'![[ $PWD != */tmp* ]]' unload'![[ $PWD = */tmp* ]]'
 zi load russjohnson/angry-fly-zsh
 ```
 
-<ImgShow width="1100" height="325.65" img="/asciicast/zi_load_not_tmp.svg" alt="Zi load not at /tmp" />
+<ImgShow width="1100" height="325.65" img="/img/cast/svg/zi_load_not_tmp.svg" alt="Zi load not at /tmp" />
 
 Two prompts, each active in different directories. This technique can be used to have plugin-sets, e.g. by defining parameter `$PLUGINS` with possible values like `cpp`, `web`, `admin` and by setting `load` / `unload` conditions to activate different plugins on `cpp`, on `web`, etc.
 

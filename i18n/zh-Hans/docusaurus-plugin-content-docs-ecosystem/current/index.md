@@ -3,7 +3,7 @@ id: 生态系统
 slug: /
 title: "🌐 生态系统"
 sidebar_position: 1
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: 生态系统简介。
 keywords:
   - 附件
@@ -26,8 +26,8 @@ import ThemedImage from '@theme/ThemedImage';
   className="ImageView"
   alt="Zsh Image"
   sources={{
-      light: useBaseUrl('/img/zsh/zsh2.png'),
-      dark: useBaseUrl('/img/zsh/zsh1.png'),
+      light: useBaseUrl('/img/png/zsh/zsh2.png'),
+      dark: useBaseUrl('/img/png/zsh/zsh1.png'),
     }}
   />
 </div>

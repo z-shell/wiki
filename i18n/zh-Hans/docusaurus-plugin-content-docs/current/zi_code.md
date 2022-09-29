@@ -1,7 +1,8 @@
 ---
 id: code
 title: "🔖 代码文档"
-description: 文档列出了所有函数，以及它们之间的交互，注释和功能。
+image: /img/png/theme/z/320x320.png
+description: The documentation lists all functions, interactions between them, their comments, and features.
 keywords:
   - code
   - zi-code

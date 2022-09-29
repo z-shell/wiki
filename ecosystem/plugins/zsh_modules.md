@@ -1,7 +1,7 @@
 ---
 id: zsh-modules
-title: ⚙️ Zsh Modules
-image: /img/logo/320x320.png
+title: ⚙️ Modules
+image: /img/png/theme/z/320x320.png
 description: Plugins & Modules Introduction
 toc_max_heading_level: 3
 keywords:

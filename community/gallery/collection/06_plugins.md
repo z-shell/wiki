@@ -1,7 +1,7 @@
 ---
 id: plugins
 title: "🔺 Plugins"
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: The Collection of Plugins
 keywords:
   - Collection
@@ -43,12 +43,12 @@ zi light …
 
 :::tip Create your own syntax style:
 
-- The ver'master' - allows to select specific commit, version or branch.
+- The ver'main' - allows to select specific commit, version or branch.
 - It's optional and can be removed if not required.
 
 ```shell showLineNumbers
 z_lucid() {
-  zi ice lucid ver'master' "$@"
+  zi ice lucid ver'main' "$@"
 }
 
 zi0a() {
@@ -87,11 +87,11 @@ zi light …
 
 ```shell showLineNumbers
 zi ice wait lucid reset \
- atclone"[[ -z \${commands[dircolors]} ]] && local P=g
+  atclone"[[ -z \${commands[dircolors]} ]] && local P=g
     \${P}sed -i '/DIR/c\DIR 38;5;63;1' LS_COLORS
     \${P}dircolors -b LS_COLORS >! clrs.zsh" \
- atpull'%atclone' pick"clrs.zsh" nocompile'!' \
- atload'zstyle ":completion:*:default" list-colors "${(s.:.)LS_COLORS}";'
+  atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+  atload'zstyle ":completion:*:default" list-colors "${(s.:.)LS_COLORS}";'
 zi light trapd00r/LS_COLORS
 ```
 
@@ -252,7 +252,7 @@ zi wait lucid for as"command" from"gh-r" sbin"grex" \
 
 ### GH-R: [ahmetb/kubectx](https://github.com/ahmetb/kubectx)
 
-```shellshowLineNumbers
+```shell showLineNumbers
 zi wait lucid for as"command" from"gh-r" \
   bpick"kubectx;kubens" sbin"kubectx;kubens" \
     ahmetb/kubectx
@@ -275,8 +275,9 @@ zi wait lucid for \
     @github/git-sizer
 ```
 
-[1]: https://github.com/zsh-users/zsh-autosuggestions
-[2]: https://github.com/z-shell/F-Sy-H
+<!-- end-of-file -->
+<!-- links -->
+
 [3]: /docs/getting_started/overview#turbo--lucid
 [4]: /docs/guides/syntax/for
 [5]: /docs/guides/syntax/ice
@@ -284,3 +285,8 @@ zi wait lucid for \
 [7]: /docs/guides/syntax/common#-compiling-programs
 [8]: /docs/guides/customization#-customizing-paths
 [9]: /ecosystem/annexes/bin-gem-node#the-ice-modifiers-provided-by-the-annex
+
+<!-- external -->
+
+[1]: https://github.com/zsh-users/zsh-autosuggestions
+[2]: https://github.com/z-shell/F-Sy-H

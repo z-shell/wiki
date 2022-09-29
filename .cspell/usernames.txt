@@ -2,6 +2,7 @@
 aaronng
 abishekvashok
 agkozak
+ahmetb
 ajeetdsouza
 alacritty
 Aloxaf
@@ -23,16 +24,20 @@ dylanaraps
 ergenekonyigit
 Fakerr
 halfo
+hkbakke
 hlissner
 iwata
 izmntuk
 jarun
 junegunn
+leonjza
+leophys
 Locehiliosan
 lurst
 marlonrichert
 martinrotter
 mfaerevaag
+mhinz
 michaelxmcbride
 motemen
 mptre
@@ -40,8 +45,10 @@ mvdan
 nicosantangelo
 obihann
 Osse
+paoloantinori
 paulirish
 Peltoche
+pemistahl
 rgburke
 ripgrep
 robbyrussell
@@ -55,6 +62,7 @@ sharkdp
 sindresorhus
 smxi
 srijanshetty
+stedolan
 stpv
 syrinka
 tealdeer
@@ -64,6 +72,7 @@ thelocehiliosan
 tldr
 unixorn
 urbainvaes
+voronkovich
 wfxr
 woefe
 xpanes

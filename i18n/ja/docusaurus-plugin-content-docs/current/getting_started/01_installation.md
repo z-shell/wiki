@@ -2,7 +2,7 @@
 id: installation
 title: "⚡️ 導入"
 sidebar_position: 1
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: Installation Guide
 keywords:
   - セットアップ

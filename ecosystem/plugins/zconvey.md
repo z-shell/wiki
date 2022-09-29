@@ -1,7 +1,7 @@
 ---
 id: zconvey
 title: ⚙️ ZConvey
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: Zsh Plugin ZConvey documentation
 keywords:
   - zconvey
@@ -14,19 +14,24 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ImgShow from '@site/src/components/ImgShow';
+import APITable from '@site/src/components/APITable';
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zconvey][]
 
 ZConvey integrates multiple Zsh sessions. They are given an `ID`, optionally a `NAME` (both unique), and can send commands to each other. Use this to switch all your Zshells to a given directory, via `zc-all cd $PWD`! Also, there's a `zc-bg-notify` **script** (not a function), that will show notification under the prompt of every active Zsh session. You can call this script from any program, Bash or GUI.
 
 <ImgShow
-  img="https://cdn.zshell.dev/img/asciicast/gif/zsh/zconvey.gif"
+  img="/img/cast/gif/zsh/zconvey.gif"
   alt="ZConvey Preview"
 />
 
 ## [Zstyles](/search?q=zstyle) for ZConvey
 
 The values being set are the defaults. They must be set before loading the plugin.
+
+```mdx-code-block
+<APITable>
+```
 
 | Value                                             | Description                                                                                                                                                                                                                                      |
 | :------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -39,7 +44,15 @@ The values being set are the defaults. They must be set before loading the plugi
 | zstyle ":plugin:zconvey" output_method "feeder"   | To put commands on the command line, ZConvey can use the small program "feeder" or "zsh" method, which currently doesn't automatically run the command – to use when e.g. feeder doesn't build (unlikely) or when occurring any problems with it |
 | zstyle ":plugin:zconvey" timestamp_from "datetime | Use zsh/datetime module for obtaining timestamp. "date" – use date command (fork)                                                                                                                                                                |
 
+```mdx-code-block
+</APITable>
+```
+
 ## ZConvey commands
+
+```mdx-code-block
+<APITable>
+```
 
 | Command        | Description                                                                                            |
 | -------------- | :----------------------------------------------------------------------------------------------------- |
@@ -51,6 +64,10 @@ The values being set are the defaults. They must be set before loading the plugi
 | `zc-logo`      | The same as `zc-id`, but in a form of an on-screen logo; bound to <kbd>Ctrl-O</kbd>, <kbd>Ctrl-I</kbd> |
 | `zc-rename`    | Assigns a name to a current or selected session; won't rename if there's a session with the same name  |
 | `zc-bg-notify` | In subdirectory `cmds`, link it to `/usr/local/bin`, etc. or load with e.g. Zi                         |
+
+```mdx-code-block
+</APITable>
+```
 
 The main command is `zc` (yet it is rather rarely used, I'm always sending to all sessions with `zc-all`). It is used to execute commands on other sessions. `zc-ls` is the main tool to obtain overall information on sessions and `zc-take` is a nice rename tool to quickly name a few sessions. Keyboard shortcut <kbd>Ctrl-O</kbd> and <kbd>Ctrl-I</kbd> will show current session's `ID` and `NAME` in form of an on-screen logo.
 

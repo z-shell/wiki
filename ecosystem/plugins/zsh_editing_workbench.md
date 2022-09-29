@@ -1,7 +1,7 @@
 ---
 id: zsh-editing-workbench
-title: ⚙️ Zsh Editing Workbench
-image: /img/logo/320x320.png
+title: ⚙️ Editing Workbench
+image: /img/png/theme/z/320x320.png
 description: Organized shortcuts for Zsh
 keywords:
   - zsh-plugin

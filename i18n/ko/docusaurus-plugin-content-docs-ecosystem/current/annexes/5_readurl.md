@@ -1,7 +1,7 @@
 ---
 id: readurl
 title: "🌀 Read URL"
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: Annex - Read URL documentation.
 keywords:
   - annex

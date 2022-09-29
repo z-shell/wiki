@@ -1,7 +1,7 @@
 ---
 id: services
 title: "🔺 Services"
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: The Collection of Services
 keywords:
   - collection

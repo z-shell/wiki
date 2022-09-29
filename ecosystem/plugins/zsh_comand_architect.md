@@ -1,7 +1,7 @@
 ---
 id: zsh-cmd-architect
-title: ⚙️ Zsh Command Architect
-image: /img/logo/320x320.png
+title: ⚙️ Command Architect
+image: /img/png/theme/z/320x320.png
 description: Allows to copy segments of commands in history, rearrange segments of the current command, and delete segments of the current command.
 keywords:
   - zsh-command-architect
@@ -13,12 +13,17 @@ keywords:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import APITable from '@site/src/components/APITable';
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zsh-cmd-architect][]
 
 The Zsh Command Architect allows to copy segments of commands in history, rearrange segments of the current command, and delete segments of the current command. This way user glues commands from parts without using a mouse. Advanced history search (multi-word, without duplicate lines) allows to quickly find the parts.
 
 ## Command architect keybindings
+
+```mdx-code-block
+<APITable>
+```
 
 | Key(s)                                                               | Description                                                                                               |
 | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
@@ -37,6 +42,10 @@ The Zsh Command Architect allows to copy segments of commands in history, rearra
 | <kbd>Ctrl-K</kbd> (in incremental search)                            | Delete whole line                                                                                         |
 | <kbd>Ctrl-D</kbd>, <kbd>Ctrl-U</kbd>                                 | Half page up or down                                                                                      |
 | <kbd>Ctrl-P</kbd>, <kbd>Ctrl-N</kbd>                                 | Previous and next (also done with vim's j,k)                                                              |
+
+```mdx-code-block
+</APITable>
+```
 
 ## Install Zsh Command Architect
 

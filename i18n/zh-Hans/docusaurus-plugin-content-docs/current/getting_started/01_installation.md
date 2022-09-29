@@ -2,7 +2,7 @@
 id: installation
 title: "⚡️ 安装"
 sidebar_position: 1
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: 安装指南
 keywords:
   - setup

@@ -3,7 +3,7 @@ id: test
 title: "🌀 Test"
 hide_title: false
 hide_table_of_contents: false
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: Annex - Test documentation
 keywords:
   - annex

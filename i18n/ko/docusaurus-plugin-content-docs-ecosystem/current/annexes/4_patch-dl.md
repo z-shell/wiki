@@ -1,7 +1,7 @@
 ---
 id: patch-dl
 title: "🌀 Patch DL"
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: Annex - Patch DL documentation
 keywords:
   - annex

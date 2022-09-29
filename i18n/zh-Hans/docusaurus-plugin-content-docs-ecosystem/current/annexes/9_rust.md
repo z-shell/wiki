@@ -1,7 +1,7 @@
 ---
 id: rust
 title: "🌀 Rust"
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: Annex - Rust documentation.
 keywords:
   - annex

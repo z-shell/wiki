@@ -1,7 +1,7 @@
 ---
 id: submods
 title: "🌀 子模块"
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: Annex - Submods documentation.
 keywords:
   - annex

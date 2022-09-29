@@ -1,7 +1,7 @@
 ---
 id: usage
 title: "📦 Usage"
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: Zi packages usage information.
 keywords:
   - zpackage
