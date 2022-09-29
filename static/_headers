@@ -1,34 +1,27 @@
 /img/*
-  Cache-Control: max-age=460800, s-maxage=2976000, stale-if-error=400
-  Cloudflare-CDN-Cache-Control: max-age=195200, stale-if-error=60
-  CDN-Cache-Control: max-age=144000, stale-if-error=200
-  Access-Control-Allow-Origin: *
-  X-Robots-Tag: nosnippet
-
-/fonts/*
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
-  X-Robots-Tag: nosnippet
+  X-Robots-Tag: nosnippet, noindex
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
-  X-Robots-Tag: nosnippet
+  X-Robots-Tag: nosnippet, noindex
 
 /fr/assets/*
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
-  X-Robots-Tag: nosnippet
+  X-Robots-Tag: nosnippet, noindex
 
 /ja/assets/*
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
-  X-Robots-Tag: nosnippet
+  X-Robots-Tag: nosnippet, noindex
 
 /zh-Hans/assets/*
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
-  X-Robots-Tag: nosnippet
+  X-Robots-Tag: nosnippet, noindex
 
-https://zsh.pages.dev/*
-  X-Robots-Tag: noindex
+https://:zsh.pages.dev/*
+  X-Robots-Tag: nosnippet, noindex
