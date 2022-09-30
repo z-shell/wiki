@@ -8,11 +8,6 @@
   Access-Control-Allow-Origin: *
   X-Robots-Tag: nosnippet, noindex
 
-/fr/assets/*
-  Cache-Control: public, max-age=31536000, immutable
-  Access-Control-Allow-Origin: *
-  X-Robots-Tag: nosnippet, noindex
-
 /ja/assets/*
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
