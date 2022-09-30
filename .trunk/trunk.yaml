@@ -38,7 +38,7 @@ lint:
     - svgo@2.8.0
     - stylelint@14.13.0
     - git-diff-check@SYSTEM
-    - actionlint@1.6.19
+    - actionlint@1.6.20
     - eslint@8.24.0
     - gitleaks@8.13.0
     - markdownlint@0.32.2

@@ -1,9 +1,5 @@
 {
-  "editor.codeActionsOnSave": {
-    "source.fixAll.markdownlint": true,
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
-  },
+  "extends": "z-shell-settings.json",
   "trunk.inlineDecoratorsForAllExtensions": true,
   "trunk.trunkGrayOutNonBlockingIssues": true,
   "conventionalCommits.scopes": [
@@ -106,6 +102,8 @@
       "scope": "workspace"
     }
   },
+  "cSpell.language": "en",
+  "cSpell.autoFormatConfigFile": true,
   "grammarly.files.include": [
     "**/*.txt",
     "**/*.mdx",
@@ -117,7 +115,5 @@
   "grammarly.config.suggestions.PassiveVoice": true,
   "grammarly.config.suggestions.StylisticFragments": true,
   "grammarly.config.suggestions.UnnecessaryEllipses": true,
-  "grammarly.startTextCheckInPausedState": true,
-  "cSpell.language": "en-GB,lorem,en-US,en",
-  "cSpell.autoFormatConfigFile": true
+  "grammarly.startTextCheckInPausedState": true
 }
