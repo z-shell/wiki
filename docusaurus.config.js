@@ -1,9 +1,6 @@
 /** @format */
 // @ts-check
 
-const style =
-  process.env.STYLE ??
-  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js";
 const url = process.env.CF_PAGES_URL ?? "https://wiki.zshell.dev";
 const baseUrl = process.env.BASE_URL ?? "/";
 const math = require("remark-math");
@@ -24,9 +21,9 @@ const config = {
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   staticDirectories: ["static"],
-  favicon: "img/favicon.ico",
-  scripts: [{ src: style, crossorigin: "anonymous" }],
+  favicon: "/img/favicon.ico",
   i18n: { defaultLocale: "en", locales: ["en", "ja", "zh-Hans"] },
+  stylesheets: [{ href: "https://r2.zshell.dev/fa/6.2.0/css/all.min.css" }],
   presets: [
     [
       "classic",

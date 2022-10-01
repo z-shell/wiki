@@ -1657,7 +1657,7 @@ packages:
       '@docusaurus/utils-common': 2.1.0_@docusaurus+types@2.1.0
       '@docusaurus/utils-validation': 2.1.0_@docusaurus+types@2.1.0
       '@slorber/static-site-generator-webpack-plugin': 4.0.7
-      '@svgr/webpack': 6.3.1
+      '@svgr/webpack': 6.4.0
       autoprefixer: 10.4.12_postcss@8.4.17
       babel-loader: 8.2.5_wfdvla2jorjoj23kkavho2upde
       babel-plugin-dynamic-import-node: 2.3.3
@@ -2492,7 +2492,7 @@ packages:
     dependencies:
       '@docusaurus/logger': 2.1.0
       '@docusaurus/types': 2.1.0_sfoxds7t5ydpegc3knd667wn6m
-      '@svgr/webpack': 6.3.1
+      '@svgr/webpack': 6.4.0
       file-loader: 6.2.0_webpack@5.74.0
       fs-extra: 10.1.0
       github-slugger: 1.4.0
@@ -2891,8 +2891,8 @@ packages:
       '@babel/core': 7.19.3
     dev: false
 
-  /@svgr/babel-preset/6.3.1_@babel+core@7.19.3:
-    resolution: {integrity: sha512-tQtWtzuMMQ3opH7je+MpwfuRA1Hf3cKdSgTtAYwOBDfmhabP7rcTfBi3E7V3MuwJNy/Y02/7/RutvwS1W4Qv9g==}
+  /@svgr/babel-preset/6.4.0_@babel+core@7.19.3:
+    resolution: {integrity: sha512-Ytuh7N282fv2Cy1JePf6HZ29/G5Hb8mQAjx4iykPjvfFl9NK6o5lZavmewgjOGT8kNPtwgvheuOQn4CifHRUhQ==}
     engines: {node: '>=10'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -2908,54 +2908,56 @@ packages:
       '@svgr/babel-plugin-transform-svg-component': 6.3.1_@babel+core@7.19.3
     dev: false
 
-  /@svgr/core/6.3.1:
-    resolution: {integrity: sha512-Sm3/7OdXbQreemf9aO25keerZSbnKMpGEfmH90EyYpj1e8wMD4TuwJIb3THDSgRMWk1kYJfSRulELBy4gVgZUA==}
+  /@svgr/core/6.4.0_@babel+core@7.19.3:
+    resolution: {integrity: sha512-wU9uyF6BUnwAqG7fDOowmDQzmbvovj1uq/iETfMK9xwQNaT+e7yN7SmDDcETXC72dnOrMcRuEWw0JEvpJha+yg==}
     engines: {node: '>=10'}
     dependencies:
-      '@svgr/plugin-jsx': 6.3.1_@svgr+core@6.3.1
+      '@svgr/babel-preset': 6.4.0_@babel+core@7.19.3
+      '@svgr/plugin-jsx': 6.4.0_@svgr+core@6.4.0
       camelcase: 6.3.0
       cosmiconfig: 7.0.1
     transitivePeerDependencies:
+      - '@babel/core'
       - supports-color
     dev: false
 
-  /@svgr/hast-util-to-babel-ast/6.3.1:
-    resolution: {integrity: sha512-NgyCbiTQIwe3wHe/VWOUjyxmpUmsrBjdoIxKpXt3Nqc3TN30BpJG22OxBvVzsAh9jqep0w0/h8Ywvdk3D9niNQ==}
+  /@svgr/hast-util-to-babel-ast/6.4.0:
+    resolution: {integrity: sha512-PjcU8jCneKXJnrREycsgfgQ/bzR1ogSKC5MBeUu2wmEoJIjzXX7X14DDktUjU9bkBy26yMDiVHn46Nl82P3WEg==}
     engines: {node: '>=10'}
     dependencies:
       '@babel/types': 7.19.3
       entities: 4.4.0
     dev: false
 
-  /@svgr/plugin-jsx/6.3.1_@svgr+core@6.3.1:
-    resolution: {integrity: sha512-r9+0mYG3hD4nNtUgsTXWGYJomv/bNd7kC16zvsM70I/bGeoCi/3lhTmYqeN6ChWX317OtQCSZZbH4wq9WwoXbw==}
+  /@svgr/plugin-jsx/6.4.0_@svgr+core@6.4.0:
+    resolution: {integrity: sha512-gu6E7v8qRAtCxbymI1et3G7athogvKvzsJkSWiHVZsuVZbyx5O2b7+DIkKvAGh2RvEzgSvfGf8QD1BaHal2vBw==}
     engines: {node: '>=10'}
     peerDependencies:
       '@svgr/core': ^6.0.0
     dependencies:
       '@babel/core': 7.19.3
-      '@svgr/babel-preset': 6.3.1_@babel+core@7.19.3
-      '@svgr/core': 6.3.1
-      '@svgr/hast-util-to-babel-ast': 6.3.1
+      '@svgr/babel-preset': 6.4.0_@babel+core@7.19.3
+      '@svgr/core': 6.4.0_@babel+core@7.19.3
+      '@svgr/hast-util-to-babel-ast': 6.4.0
       svg-parser: 2.0.4
     transitivePeerDependencies:
       - supports-color
     dev: false
 
-  /@svgr/plugin-svgo/6.3.1_@svgr+core@6.3.1:
+  /@svgr/plugin-svgo/6.3.1_@svgr+core@6.4.0:
     resolution: {integrity: sha512-yJIjTDKPYqzFVjmsbH5EdIwEsmKxjxdXSGJVLeUgwZOZPAkNQmD1v7LDbOdOKbR44FG8465Du+zWPdbYGnbMbw==}
     engines: {node: '>=10'}
     peerDependencies:
       '@svgr/core': ^6.0.0
     dependencies:
-      '@svgr/core': 6.3.1
+      '@svgr/core': 6.4.0_@babel+core@7.19.3
       cosmiconfig: 7.0.1
       deepmerge: 4.2.2
       svgo: 2.8.0
     dev: false
 
-  /@svgr/webpack/6.3.1:
-    resolution: {integrity: sha512-eODxwIUShLxSMaRjzJtrj9wg89D75JLczvWg9SaB5W+OtVTkiC1vdGd8+t+pf5fTlBOy4RRXAq7x1E3DUl3D0A==}
+  /@svgr/webpack/6.4.0:
+    resolution: {integrity: sha512-ejt2JdVX6k0XzUjVObMcTzTgsaCadEVCHBvOt3J0Vcp3eFirf0nqsjQCUD+ogFep25+ICDMZa1nLlotbXxKDXw==}
     engines: {node: '>=10'}
     dependencies:
       '@babel/core': 7.19.3
@@ -2963,9 +2965,9 @@ packages:
       '@babel/preset-env': 7.19.3_@babel+core@7.19.3
       '@babel/preset-react': 7.18.6_@babel+core@7.19.3
       '@babel/preset-typescript': 7.18.6_@babel+core@7.19.3
-      '@svgr/core': 6.3.1
-      '@svgr/plugin-jsx': 6.3.1_@svgr+core@6.3.1
-      '@svgr/plugin-svgo': 6.3.1_@svgr+core@6.3.1
+      '@svgr/core': 6.4.0_@babel+core@7.19.3
+      '@svgr/plugin-jsx': 6.4.0_@svgr+core@6.4.0
+      '@svgr/plugin-svgo': 6.3.1_@svgr+core@6.4.0
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -5267,7 +5269,7 @@ packages:
       import-fresh: 3.3.0
       imurmurhash: 0.1.4
       is-glob: 4.0.3
-      js-sdsl: 4.1.4
+      js-sdsl: 4.1.5
       js-yaml: 4.1.0
       json-stable-stringify-without-jsonify: 1.0.1
       levn: 0.4.1
@@ -6622,8 +6624,8 @@ packages:
       '@sideway/formula': 3.0.0
       '@sideway/pinpoint': 2.0.0
 
-  /js-sdsl/4.1.4:
-    resolution: {integrity: sha512-Y2/yD55y5jteOAmY50JbUZYwk3CP3wnLPEZnlR1w9oKhITrBEtAxwuWKebFf8hMrPMgbYwFoWK/lH2sBkErELw==}
+  /js-sdsl/4.1.5:
+    resolution: {integrity: sha512-08bOAKweV2NUC1wqTtf3qZlnpOX/R2DU9ikpjOHs0H+ibQv3zpncVQg6um4uYtRtrwIX8M4Nh3ytK4HGlYAq7Q==}
 
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
