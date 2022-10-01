@@ -1,7 +1,12 @@
 {
-  "extends": "z-shell-settings.json",
   "trunk.inlineDecoratorsForAllExtensions": true,
   "trunk.trunkGrayOutNonBlockingIssues": true,
+  "prettier.configPath": ".trunk/config/prettierrc",
+  "prettier.ignorePath": ".trunk/config/.prettierignore",
+  "stylelint.configBasedir": ".trunk/config",
+  "markdownlint.config": {
+    "extends": ".trunk/config/.markdownlint.yaml"
+  },
   "conventionalCommits.scopes": [
     "maintenance",
     "library",
@@ -115,5 +120,9 @@
   "grammarly.config.suggestions.PassiveVoice": true,
   "grammarly.config.suggestions.StylisticFragments": true,
   "grammarly.config.suggestions.UnnecessaryEllipses": true,
-  "grammarly.startTextCheckInPausedState": true
+  "grammarly.startTextCheckInPausedState": true,
+  "eslint.packageManager": "pnpm",
+  "editor.quickSuggestions": {
+    "other": "inline"
+  }
 }

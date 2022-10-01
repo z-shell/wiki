@@ -8,8 +8,10 @@ version: 0.1
 cli:
   version: 0.18.1-beta
   options:
+    - commands: [ALL]
+      args: --monitor=true
     - commands: [check, fmt]
-    - args: -y
+      args: -y
 repo:
   repo:
     host: github.com
