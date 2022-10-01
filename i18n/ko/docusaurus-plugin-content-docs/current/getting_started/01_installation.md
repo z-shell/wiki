@@ -135,8 +135,7 @@ Set up install location and create a directory:
 
 ```shell showLineNumbers
 typeset -Ag ZI
-export ZI[HOME_DIR]="${HOME}/.zi"
-export ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
+typeset -gx ZI[HOME_DIR]="${HOME}/.zi" ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
 command mkdir -p "$ZI[BIN_DIR]"
 ```
 
