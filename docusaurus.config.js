@@ -6,6 +6,9 @@ const baseUrl = process.env.BASE_URL ?? "/";
 const math = require("remark-math");
 const katex = require("rehype-katex");
 
+const styles =
+  process.env.STYLES ?? "https://r2.zshell.dev/fa/6.2.0/js/all.min.js";
+
 /** const isProd = process.env.CF_PAGES_BRANCH === "main"; */
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -17,13 +20,13 @@ const config = {
   tagline: "A Swiss Army Knife for Zsh Unix shell",
   projectName: "wiki",
   organizationName: "z-shell",
-  baseUrlIssueBanner: false,
+  baseUrlIssueBanner: true,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   staticDirectories: ["static"],
   favicon: "/img/favicon.ico",
+  scripts: [{ src: styles, crossorigin: "anonymous" }],
   i18n: { defaultLocale: "en", locales: ["en", "ja", "zh-Hans"] },
-  stylesheets: [{ href: "https://r2.zshell.dev/fa/6.2.0/css/all.min.css" }],
   presets: [
     [
       "classic",
@@ -211,12 +214,11 @@ const config = {
               },
             ],
           },
-          {
-            type: "dropdown",
-            label: "Feed",
+          /** {
+            type: 'dropdown',
             position: "right",
-            className: "rss-link",
-            "aria-label": "Feed",
+            className: "header-rss-link",
+            "aria-label": "Feeds Dropdown",
             items: [
               {
                 label: "JSON",
@@ -231,7 +233,7 @@ const config = {
                 href: "https://wiki.zshell.dev/blog/atom.xml",
               },
             ],
-          },
+          }, */
           {
             href: "https://github.com/z-shell/zi/",
             position: "right",

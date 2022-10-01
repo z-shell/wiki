@@ -10,7 +10,7 @@ cli:
   options:
     - commands: [ALL]
       args: --monitor=true
-    - commands: [check, fmt]
+    - commands: [check]
       args: -y
 repo:
   repo:
