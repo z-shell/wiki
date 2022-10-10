@@ -73,7 +73,7 @@
     "stylelint-config-standard": "28.0.0",
     "typescript": "4.8.4"
   },
-  "packageManager": "pnpm@7.13.3",
+  "packageManager": "pnpm@7.13.4",
   "engines": {
     "node": ">=16",
     "pnpm": ">=7"
