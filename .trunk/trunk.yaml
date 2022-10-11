@@ -21,7 +21,7 @@ plugins:
   sources:
     - id: trunk
       uri: https://github.com/trunk-io/plugins
-      ref: v0.0.4
+      ref: v0.0.5
       import_to_global: true
 actions:
   enabled:
@@ -40,9 +40,9 @@ lint:
     - svgo@2.8.0
     - stylelint@14.13.0
     - git-diff-check@SYSTEM
-    - actionlint@1.6.20
-    - eslint@8.24.0
-    - gitleaks@8.13.0
+    - actionlint@1.6.21
+    - eslint@8.25.0
+    - gitleaks@8.14.1
     - markdownlint@0.32.2
     - prettier@2.7.1
     - shfmt@3.5.0
