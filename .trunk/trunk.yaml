@@ -38,11 +38,11 @@ lint:
     - taplo
   enabled:
     - svgo@2.8.0
-    - stylelint@14.13.0
+    - stylelint@14.14.0
     - git-diff-check@SYSTEM
     - actionlint@1.6.21
     - eslint@8.25.0
-    - gitleaks@8.14.1
+    - gitleaks@8.15.0
     - markdownlint@0.32.2
     - prettier@2.7.1
     - shfmt@3.5.0
