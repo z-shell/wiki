@@ -39,12 +39,12 @@ specifiers:
   react-spinners: 0.13.6
   rehype-katex: 5.0.0
   remark-math: 3.0.1
-  stylelint: 14.13.0
+  stylelint: 14.14.0
   stylelint-color-format: 1.1.0
   stylelint-config-prettier: 9.0.3
   stylelint-config-recess-order: 3.0.0
   stylelint-config-recommended: 9.0.0
-  stylelint-config-standard: 28.0.0
+  stylelint-config-standard: 29.0.0
   typescript: 4.8.4
 
 dependencies:
@@ -84,12 +84,12 @@ devDependencies:
   eslint-plugin-react: 7.31.10_eslint@8.25.0
   eslint-plugin-react-hooks: 4.6.0_eslint@8.25.0
   prettier: 2.7.1
-  stylelint: 14.13.0
-  stylelint-color-format: 1.1.0_stylelint@14.13.0
-  stylelint-config-prettier: 9.0.3_stylelint@14.13.0
-  stylelint-config-recess-order: 3.0.0_stylelint@14.13.0
-  stylelint-config-recommended: 9.0.0_stylelint@14.13.0
-  stylelint-config-standard: 28.0.0_stylelint@14.13.0
+  stylelint: 14.14.0
+  stylelint-color-format: 1.1.0_stylelint@14.14.0
+  stylelint-config-prettier: 9.0.3_stylelint@14.14.0
+  stylelint-config-recess-order: 3.0.0_stylelint@14.14.0
+  stylelint-config-recommended: 9.0.0_stylelint@14.14.0
+  stylelint-config-standard: 29.0.0_stylelint@14.14.0
   typescript: 4.8.4
 
 packages:
@@ -9376,7 +9376,7 @@ packages:
       postcss-selector-parser: 6.0.10
     dev: false
 
-  /stylelint-color-format/1.1.0_stylelint@14.13.0:
+  /stylelint-color-format/1.1.0_stylelint@14.14.0:
     resolution: {integrity: sha512-3VLzcNjspKuUcZJz6MsIrwf3cQfR1HPXf+skZ11ayvhTQscgmwRz6gVgiqxkbz6TLGMkkVsqP7UkVdBqznkMcQ==}
     engines: {node: '>=7'}
     peerDependencies:
@@ -9384,57 +9384,57 @@ packages:
     dependencies:
       color: 3.2.1
       style-search: 0.1.0
-      stylelint: 14.13.0
+      stylelint: 14.14.0
     dev: true
 
-  /stylelint-config-prettier/9.0.3_stylelint@14.13.0:
+  /stylelint-config-prettier/9.0.3_stylelint@14.14.0:
     resolution: {integrity: sha512-5n9gUDp/n5tTMCq1GLqSpA30w2sqWITSSEiAWQlpxkKGAUbjcemQ0nbkRvRUa0B1LgD3+hCvdL7B1eTxy1QHJg==}
     engines: {node: '>= 12'}
     hasBin: true
     peerDependencies:
       stylelint: '>=11.0.0'
     dependencies:
-      stylelint: 14.13.0
+      stylelint: 14.14.0
     dev: true
 
-  /stylelint-config-recess-order/3.0.0_stylelint@14.13.0:
+  /stylelint-config-recess-order/3.0.0_stylelint@14.14.0:
     resolution: {integrity: sha512-uNXrlDz570Q7HJlrq8mNjgfO/xlKIh2hKVKEFMTG1/ih/6tDLcTbuvO1Zoo2dnQay990OAkWLDpTDOorB+hmBw==}
     peerDependencies:
       stylelint: '>=14'
     dependencies:
-      stylelint: 14.13.0
-      stylelint-order: 5.0.0_stylelint@14.13.0
+      stylelint: 14.14.0
+      stylelint-order: 5.0.0_stylelint@14.14.0
     dev: true
 
-  /stylelint-config-recommended/9.0.0_stylelint@14.13.0:
+  /stylelint-config-recommended/9.0.0_stylelint@14.14.0:
     resolution: {integrity: sha512-9YQSrJq4NvvRuTbzDsWX3rrFOzOlYBmZP+o513BJN/yfEmGSr0AxdvrWs0P/ilSpVV/wisamAHu5XSk8Rcf4CQ==}
     peerDependencies:
       stylelint: ^14.10.0
     dependencies:
-      stylelint: 14.13.0
+      stylelint: 14.14.0
     dev: true
 
-  /stylelint-config-standard/28.0.0_stylelint@14.13.0:
-    resolution: {integrity: sha512-q/StuowDdDmFCravzGHAwgS9pjX0bdOQUEBBDIkIWsQuYGgYz/xsO8CM6eepmIQ1fc5bKdDVimlJZ6MoOUcJ5Q==}
+  /stylelint-config-standard/29.0.0_stylelint@14.14.0:
+    resolution: {integrity: sha512-uy8tZLbfq6ZrXy4JKu3W+7lYLgRQBxYTUUB88vPgQ+ZzAxdrvcaSUW9hOMNLYBnwH+9Kkj19M2DHdZ4gKwI7tg==}
     peerDependencies:
-      stylelint: ^14.11.0
+      stylelint: ^14.14.0
     dependencies:
-      stylelint: 14.13.0
-      stylelint-config-recommended: 9.0.0_stylelint@14.13.0
+      stylelint: 14.14.0
+      stylelint-config-recommended: 9.0.0_stylelint@14.14.0
     dev: true
 
-  /stylelint-order/5.0.0_stylelint@14.13.0:
+  /stylelint-order/5.0.0_stylelint@14.14.0:
     resolution: {integrity: sha512-OWQ7pmicXufDw5BlRqzdz3fkGKJPgLyDwD1rFY3AIEfIH/LQY38Vu/85v8/up0I+VPiuGRwbc2Hg3zLAsJaiyw==}
     peerDependencies:
       stylelint: ^14.0.0
     dependencies:
       postcss: 8.4.17
       postcss-sorting: 7.0.1_postcss@8.4.17
-      stylelint: 14.13.0
+      stylelint: 14.14.0
     dev: true
 
-  /stylelint/14.13.0:
-    resolution: {integrity: sha512-NJSAdloiAB/jgVJKxMR90mWlctvmeBFGFVUvyKngi9+j/qPSJ5ZB+u8jOmGbLTnS7OHrII9NFGehPRyar8U5vg==}
+  /stylelint/14.14.0:
+    resolution: {integrity: sha512-yUI+4xXfPHVnueYddSQ/e1GuEA/2wVhWQbGj16AmWLtQJtn28lVxfS4b0CsWyVRPgd3Auzi0NXOthIEUhtQmmA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
