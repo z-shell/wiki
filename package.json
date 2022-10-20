@@ -51,7 +51,7 @@
     "@crowdin/cli": "3.9.0",
     "@docusaurus/eslint-plugin": "2.1.0",
     "@docusaurus/module-type-aliases": "2.1.0",
-    "@trunkio/launcher": "1.2.1",
+    "@trunkio/launcher": "1.2.2",
     "@types/node": "18.0.6",
     "@types/react": "18.0.21",
     "@typescript-eslint/eslint-plugin": "5.40.1",
@@ -59,7 +59,7 @@
     "eslint": "8.25.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-prettier": "8.5.0",
-    "eslint-import-resolver-typescript": "3.5.1",
+    "eslint-import-resolver-typescript": "3.5.2",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-react": "7.31.10",
@@ -73,7 +73,7 @@
     "stylelint-config-standard": "29.0.0",
     "typescript": "4.8.4"
   },
-  "packageManager": "pnpm@7.13.5",
+  "packageManager": "pnpm@7.13.6",
   "engines": {
     "node": ">=16",
     "pnpm": ">=7"
