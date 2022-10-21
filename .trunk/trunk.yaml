@@ -6,7 +6,7 @@ runtimes:
     - node@16.14.2
 version: 0.1
 cli:
-  version: 0.18.1-beta
+  version: 1.0.1
   options:
     - commands: [ALL]
       args: --monitor=true
