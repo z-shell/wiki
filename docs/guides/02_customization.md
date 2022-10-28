@@ -44,10 +44,13 @@ source "${ZI[BIN_DIR]}/zi.zsh"
 | `ZI[HOME_DIR]`                       | `$HOME/.zi`                                  | Where Zi should create all working directories                                                                                             |
 | `ZI[BIN_DIR]`                        | `$HOME/.zi/bin`                              | Directory where Zi code resides                                                                                                            |
 | `ZI[COMPLETIONS_DIR]`                | `$ZI[HOME_DIR]/completions`                  | Completion working directory                                                                                                               |
-| `ZI[MAN_DIR]`                        | `$ZPFX/man`                                  | Directory to store manpages (`atclone"cp -vf man.1 $ZI[MAN_DIR]/man1"`). If overridden, this directory will not necessarily be used by man |
+| `ZI[CACHE_DIR]`                     | `$HOME/.cache/zi`                             | Cache directory |                                       
+| `ZI[CONFIG_DIR]`                    | `$HOME/.config/zi`                            | Directory for configuration files |
+| `ZI[MAN_DIR]`                        | `$ZPFX/man`                                  | Directory to store manpages |
+| `ZI[LOG_DIR]`                        | `$ZI[CACHE_DIR]/log`                         | Directory to store log files |
 | `ZI[PLUGINS_DIR]`                    | `$ZI[HOME_DIR]/plugins`                      | Plugins working directory                                                                                                                  |
 | `ZI[SNIPPETS_DIR]`                   | `$ZI[HOME_DIR]/snippets`                     | Snippets working directory                                                                                                                 |
-| `ZI[ZCOMPDUMP_PATH]`                 | `$XDG_DATA_HOME:-$ZDOTDIR:-$HOME/.zcompdump` | Path to `.zcompdump` file (including file)                                                                                                 |
+| `ZI[ZCOMPDUMP_PATH]`                 | `${ZI[CACHE_DIR]}/.zcompdump` | Path to `.zcompdump` file                                                                                                 |
 | `ZI[ZMODULES_DIR]`                   | `$ZI[HOME_DIR]/zmodules`                     | Zsh modules working directory                                                                                                              |
 | [ZPFX][global-parameter-with-prefix] | `$ZI[HOME_DIR]/polaris`                      | Directory to store binary and related files                                                                                                |
 
