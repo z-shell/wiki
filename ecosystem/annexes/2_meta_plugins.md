@@ -65,8 +65,8 @@ zi light-mode for @annexes \
 | @romkatv         | [powerlevel10k][]                                                                                                     |
 | @rust-utils      | rust-toolchain, cargo-extensions                                                                                      |
 | @sharkdp         | [fd][], [bat][], [hexyl][], [hyperfine][], [vivid][]                                                                  |
-| @z-shell         | [F-Sy-H][], [H-S-MW][], [zsh-diff-so-fancy][], [zsh-select][]                                                         |
-| @z-shell+        | [zconvey][], [zui][], [zflai][]                                                                                       |
+| @z-shell         | [F-Sy-H][], [H-S-MW][], [zsh-diff-so-fancy][], [z-shell/zsh-fancy-completions][]                                      |
+| @z-shell+        | [zsh-select][], [zconvey][], [zui][], [zflai][]                                                                       |
 | @zsh-users       | [zsh-syntax-highlighting][], [zsh-autosuggestions][], [zsh-completions][]                                             |
 | @zsh-users+fast  | [F-Sy-H][], [zsh-autosuggestions][], [zsh-completions][]                                                              |
 | @zunit           | [color][], [revolver][], [zunit][]                                                                                    |
@@ -168,3 +168,4 @@ This will register the `skip'…'` ice-modifier.
 [zsh-syntax-highlighting]: https://github.com/zsh-users/zsh-syntax-highlighting
 [zui]: https://github.com/z-shell/zui
 [zunit]: https://github.com/zdharma/zunit
+[z-shell/zsh-fancy-completions]: https://github.com/z-shell/zsh-fancy-completions
