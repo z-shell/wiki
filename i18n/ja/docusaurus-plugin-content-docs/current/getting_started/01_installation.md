@@ -3,7 +3,7 @@ id: installation
 title: "⚡️ 導入"
 sidebar_position: 1
 image: /img/png/theme/z/320x320.png
-description: Installation Guide
+description: インストールガイド
 keywords:
   - セットアップ
   - quick-start
@@ -17,9 +17,9 @@ import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
 import Emoji from '@site/src/components/Emoji';
 
-## <i class="fas fa-spinner fa-spin"></i> Quick setup {#quick-setup}
+## <i class="fas fa-spinner fa-spin"></i> クイックセットアップ {#quick-setup}
 
-Add the following snippet in the `.zshrc` file:
+`.zshrc` ファイルに以下のコードを追加します。
 
 <Tabs>
   <TabItem value="instant-source" label="Instant" default>
@@ -46,12 +46,12 @@ local cs=$(sha256sum <(curl -sL git.io/zi-loader) | awk '{print $1}')
 
 Reload shell with `exec zsh` and run `zi -h` for usage information.
 
-## <i class="fas fa-spinner fa-spin"></i> Automated setup {#automated-setup}
+## <i class="fas fa-spinner fa-spin"></i> 自動セットアップ {#automated-setup}
 
 :::tip
 
-- Verify the sha256 [checksum][checksum] for file: `lib/sh/install.sh`
-- If required append `-b <tag>` or `-b <branch>` e.g:
+- ファイル: `lib/sh/install.sh` の sha256[checksum][checksum]を検証します
+- 必要であれば `-b <tag>` または `-b <branch>` を追加してください。 以下のように:
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
@@ -62,7 +62,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
 <Tabs>
   <TabItem value="minimal" label="Minimal" default>
 
-Install and include minimal configuration to the `.zshrc`:
+最小構成で`.zshrc`に設定するには:
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" --
@@ -71,13 +71,14 @@ sh -c "$(curl -fsSL git.io/get-zi)" --
   </TabItem>
   <TabItem value="minimal-loader" label="Loader">
 
-Install and include minimal configuration with [loader](#loader):
+最小構成で[loader](#loader)に設定する場合:
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" -- -a loader
 ```
 
-The installer will download the loader and add the snippet below to the `.zshrc` file.
+を実行します
+インストーラはloaderをダウンロードし、以下のスニペットを`.zshrc`に追加します
 
 ```shell showLineNumbers
 if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]]; then
@@ -87,11 +88,11 @@ fi
 
 :::tip
 
-The loader can be manually fetched from available [links](#loader) to any location on the system, and sourced from `.zshrc` or as shown in the [quick-setup](#quick-setup).
+ローダーは、利用可能な [links](#loader) からシステム上の任意の場所に手動で取得し、 `.zshrc` または [quick-setup](#quick-setup) に示すところに読み込むことが可能です。
 
 :::
 
-Then reload shell with: `exec zsh`. All done!
+次に、`exec zsh`でシェルを再読み込みします。 すべて完了です！
 
   </TabItem>
   <TabItem value="repository" label="Repository">
@@ -123,7 +124,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
   </TabItem>
   </Tabs>
 
-## <i class="fas fa-spinner fa-spin"></i> Manual Setup {#manual-setup}
+## <i class="fas fa-spinner fa-spin"></i> マニュアルセットアップ {#manual-setup}
 
 :::tip Related
 
@@ -131,7 +132,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
 
 :::
 
-Set up install location and create a directory:
+インストール先を設定し、ディレクトリを作成します。
 
 ```shell showLineNumbers
 typeset -Ag ZI
@@ -139,9 +140,9 @@ typeset -gx ZI[HOME_DIR]="${HOME}/.zi" ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
 command mkdir -p "$ZI[BIN_DIR]"
 ```
 
-For security reasons run function `compaudit` to check if the [completion system][completion-system] would use files owned by `root` or by the current `user`, or files in directories that are `world` or `group-writable`.
+セキュリティ上の理由から、関数 `compaudit` を実行して、 [補完システム][completion-system] が `root` または現在の `ユーザー`が所有するファイルであるか、もしくは、ファイルが`全ユーザー` か`グループ内のユーザーが書き込み可能`であるかをチェックします。
 
-If failed, then set the current user as the owner of directories, then remove group/others write permissions, and clone the repository:
+失敗した場合は、現在のユーザーをディレクトリのオーナーに設定し、グループ/その他の書き込み権限を削除して、リポジトリを複製します。
 
 ```shell showLineNumbers
 compaudit | xargs chown -R "$(whoami)" "$ZI[HOME_DIR]"
@@ -149,7 +150,7 @@ compaudit | xargs chmod -R go-w "$ZI[HOME_DIR]"
 command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
 ```
 
-To enable Zi, source the `zi.zsh` from the previously set up directory placing the following snippet in the `.zshrc` file:
+Zi を有効にするには、先に設定したディレクトリから `zi.zsh` をソースとして、 `.zshrc` ファイルに以下のスニペットを配置します。
 
 ```shell title="~/.zshrc" showLineNumbers
 typeset -A ZI
@@ -163,7 +164,7 @@ The two lines below must be placed after the lines above, i.e. after enabling Zi
 
 :::
 
-Enable Zi completions:
+以下でZi補完を有効にします:
 
 ```shell title="~/.zshrc" showLineNumbers
 autoload -Uz _zi
@@ -172,17 +173,17 @@ autoload -Uz _zi
 
 ## <i class="fas fa-spinner fa-spin"></i> Post-install {#post-install}
 
-After a fresh install, recommended to reload the shell with `exec zsh` and compile Zi with `zi self-update`. Run `zi -h` to see all available commands. Increase Zi functionality, and performance, or get started by exploring the wiki.
+新しくインストールした後は、 `exec zsh` でシェルをリロードし、 `zi self-update` で Zi をコンパイルすることをお勧めします。 `zi -h` を実行することで、利用可能な全コマンドを確認できます。 Increase Zi functionality, and performance, or get started by exploring the wiki.
 
-If you have any issue or need help <Emoji symbol="🤦‍♂️" label="man-facepalming"/>, lets [discuss][discuss] it or open an [issue][issue] in any language.
+何か問題があったり、助けが必要な場合は どの言語でも<Emoji symbol="🤦‍♂️" label="man-facepalming"/>、 [それについて話し合うか][discuss]、 [issueを作成][issue]してください。
 
-It helps us to improve and make Zi better. Don't forget to help the project: share, contribute, or [translate][translate] <Emoji symbol="🌐" label="globe-with-meridians"/> <Emoji symbol="🥰" label="smiling-face-with-hearts"/> <Emoji symbol="🤓" label="nerd-face"/>.
+Zi の改善に役立ちます。 どうか、シェア、貢献、または [翻訳][translate] <Emoji symbol="🌐" label="globe-with-meridians"/>で私たちに協力してください <Emoji symbol="🥰" label="smiling-face-with-hearts"/> <Emoji symbol="🤓" label="nerd-face"/>.
 
 Let's glue everything together to create a toolchain that works for us <Emoji symbol="🚀" label="rocket"/>.
 
-## <i class="fas fa-sync-alt fa-spin"></i> Have ideas?
+## <i class="fas fa-sync-alt fa-spin"></i> アイデアがありますか？
 
-### <i class="fa-solid fa-list-check"></i>&nbsp;Suggest or request at&nbsp;<Link href="https://github.com/z-shell/playground">playground</Link>
+### <i class="fa-solid fa-list-check"></i>&nbsp;<Link href="https://github.com/z-shell/playground">playgroundで提案・リクエストできます</Link>
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" -- -a ???
@@ -196,7 +197,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a ???
 docker run --rm -it ghcr.io/z-shell/zd:latest
 ```
 
-### <i class="fa-brands fa-docker"></i> Turbo Zi in Docker
+### <i class="fa-brands fa-docker"></i> DockerでのTurbo Zi
 
 If you create a Docker image that uses Zi, install Turbo-loaded plugins before the shell starts interactively, with the `@zi-scheduler` function in such a way, that it:
 
@@ -216,7 +217,7 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 
 :::info
 
-- Required Zsh version: >= v5.8.0
+- 必要な Zsh バージョン: >= v5.8.0
 - <i className="fa-brands fa-github"></i>&nbsp;<Link href="https://github.com/z-shell/zpmod">z-shell/zpmod</Link>
 
 :::
@@ -250,11 +251,11 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
   </TabItem>
 </Tabs>
 
-## <i class="fas fa-sync-alt fa-spin"></i> Available links {#available-links}
+## <i class="fas fa-sync-alt fa-spin"></i> 利用可能なリンク {#available-links}
 
-[Status page][status] <Emoji symbol="✅" label="check-mark-button"/>
+[ステータスページ][status] <Emoji symbol="✅" label="check-mark-button"/>
 
-### <i class="fa-solid fa-gear"></i> Installer {#installer}
+### <i class="fa-solid fa-gear"></i> インストーラー {#installer}
 
 | Service                    | URL                                                                       |
 |:-------------------------- | ------------------------------------------------------------------------- |
@@ -262,7 +263,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
 | [IPFS][ipfs.io]            | <https://ipfs.zshell.dev/sh/install.sh>                                   |
 | [Direct][direct-install]   | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
-### <i class="fa-brands fa-superpowers"></i> Loader {#loader}
+### <i class="fa-brands fa-superpowers"></i> ローダー {#loader}
 
 | Service                     | URL                                                                      |
 |:--------------------------- | ------------------------------------------------------------------------ |

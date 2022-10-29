@@ -1,8 +1,8 @@
 ---
 id: migration
-title: "♻️ Migration"
+title: "♻️ 移行"
 image: /img/png/theme/z/320x320.png
-description: Migration Guide
+description: 移行ガイド
 keywords:
   - セットアップ
   - prezto
@@ -17,7 +17,7 @@ import Link from '@docusaurus/Link';
 
 ## Oh-My-Zsh
 
-### OMZ shorthand syntax
+### OMZ のショートハンドシンタックス
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet <URL>        # Raw syntax with URL
@@ -27,7 +27,7 @@ zi snippet OMZT::<PATH> # Shorthand OMZ::themes   (http://github.com/ohmyzsh/ohm
 zi snippet OMZP::<PATH> # Shorthand OMZ::plugins  (http://github.com/ohmyzsh/ohmyzsh/raw/master/plugins)
 ```
 
-### OMZ library
+### OMZライブラリ
 
 Importing the [clipboard][omz/clipboard] and [termsupport][omz/termsupport] from the OMZ library example:
 
@@ -289,7 +289,7 @@ Prezto modules:
 
 Available Prezto modules:
 
-| Module name                                                                                                                | Description                                                                                                |
+| Module name                                                                                                                | 説明                                                                                                         |
 | -------------------------------------------------------------------------------------------------------------------------- |:---------------------------------------------------------------------------------------------------------- |
 | [archive](https://github.com/sorin-ionescu/prezto/blob/master/modules/archive/README.md)                                   | Provides functions to list and extract archives.                                                           |
 | [autosuggestions](https://github.com/sorin-ionescu/prezto/blob/master/modules/autosuggestions/README.md)                   | Integrates `zsh-autosuggestions` plugin into Prezto.                                                       |
@@ -379,7 +379,7 @@ Available
 
 ## Zgen
 
-### Load OMZ library
+### OMZライブラリの読み込み
 
 ```diff title="~/.zshrc" showLineNumbers
 - zgen oh-my-zsh

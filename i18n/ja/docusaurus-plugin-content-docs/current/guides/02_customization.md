@@ -39,7 +39,7 @@ source "${ZI[BIN_DIR]}/zi.zsh"
 <APITable>
 ```
 
-| Hash Field                           | Default                       | Description                                    |
+| Hash Field                           | Default                       | 説明                                             |
 | ------------------------------------ | ----------------------------- | ---------------------------------------------- |
 | `ZI[HOME_DIR]`                       | `$HOME/.zi`                   | Where Zi should create all working directories |
 | `ZI[BIN_DIR]`                        | `$HOME/.zi/bin`               | Directory where Zi code resides                |
@@ -64,7 +64,7 @@ source "${ZI[BIN_DIR]}/zi.zsh"
 <APITable>
 ```
 
-| Hash Field                       | Default     | Description                                                                                                                                                                                               |
+| Hash Field                       | Default     | 説明                                                                                                                                                                                                        |
 | -------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ZI[OPTIMIZE_OUT_DISK_ACCESSES]` | `undefined` | If set to `1`, will skip checking if a turbo-loaded object exists on the disk. This option can give a performance gain of about 10 ms out of 150 ms (e.g: Zsh will start up in 140 ms instead of 150 ms). |
 | `ZI[COMPINIT_OPTS]`              | `undefined` | Options for `compinit` call (e.g: done by `zicompinit`), commonly used with `-C` to speed up loading                                                                                                      |
@@ -237,7 +237,7 @@ skip_global_compinit=1
 <APITable>
 ```
 
-| Syntax      | Description                                                       |
+| Syntax      | 説明                                                                |
 | ----------- |:----------------------------------------------------------------- |
 | `load'…'`   | Condition that when fulfilled will cause the plugin to be loaded. |
 | `unload'…'` | Same as above, but will unload the plugin.                        |
@@ -252,7 +252,7 @@ skip_global_compinit=1
 
 :::
 
-| Syntax       | Description                                                                                           |
+| Syntax       | 説明                                                                                                    |
 | ------------ |:----------------------------------------------------------------------------------------------------- |
 | `atload'!…'` | Run the `precmd` hooks to make the prompts fully initialized when loaded in the middle of the prompt. |
 | `precmd`     | Hooks are normally run before each **new** prompt.                                                    |
@@ -269,7 +269,7 @@ To allow better unloading, conditions are checked every second, you can use cond
 <APITable>
 ```
 
-| Condition                 | Description                                                                                                                                              |
+| Condition                 | 説明                                                                                                                                                       |
 | ------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `![[ $PWD == *github* ]]` | Change prompt after changing directory to `*github*`.                                                                                                    |
 | `![[ $MYPROMPT = 1 ]]`    | Change prompt when variable `MYPROMPT = 1` is true.                                                                                                      |

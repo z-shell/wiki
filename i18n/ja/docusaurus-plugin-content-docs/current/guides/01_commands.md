@@ -131,7 +131,7 @@ Following commands are passed to `zi …` to obtain described effects.
 <APITable>
 ```
 
-|       Command        | Description                                                                                       |
+|       Command        | 説明                                                                                                |
 |:--------------------:| ------------------------------------------------------------------------------------------------- |
 |     `load` `'…'`     | Load plugin, can also receive absolute local path.                                                |
 |  `light` `-b` `'…'`  | Light plugin load, without reporting/investigating. `-b` – investigate `bindkey`-calls only. [^1] |
@@ -148,7 +148,7 @@ Following commands are passed to `zi …` to obtain described effects.
 <APITable>
 ```
 
-|                   Command                    | Description                                                                                                                             |
+|                   Command                    | 説明                                                                                                                                      |
 |:--------------------------------------------:| --------------------------------------------------------------------------------------------------------------------------------------- |
 | `clist` `columns` or `completions` `columns` | List completions in use, with `columns` completions per line. `zi clist 5` will for example print 5 completions per line. Default is 3. |
 |               `cdisable` `'…'`               | Disable completion.                                                                                                                     |
@@ -172,7 +172,7 @@ Following commands are passed to `zi …` to obtain described effects.
 <APITable>
 ```
 
-|     Command      | Description                                           |
+|     Command      | 説明                                                    |
 |:----------------:| ----------------------------------------------------- |
 | `dtrace, dstart` | Start investigating what's going on in the session.   |
 |     `dstop`      | Stop investigating what's going on in the session.    |
@@ -190,7 +190,7 @@ Following commands are passed to `zi …` to obtain described effects.
 <APITable>
 ```
 
-|             Command             | Description                                                                                                                                                |
+|             Command             | 説明                                                                                                                                                         |
 |:-------------------------------:| ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |     `times` `-s` `-m` `-a`      | Statistics on plugin load times, sorted in order of loading. `-s` – use seconds instead of milliseconds. `-m` – show plugin loading moments and `-a` both. |
 |            `zstatus`            | Overall ZI status.                                                                                                                                         |
@@ -212,7 +212,7 @@ Following commands are passed to `zi …` to obtain described effects.
 <APITable>
 ```
 
-|          Command          | Description                                                             |
+|          Command          | 説明                                                                      |
 |:-------------------------:| ----------------------------------------------------------------------- |
 |  `compile` `'…'` `--all`  | Compile plugin. `--all` – compile all plugins.                          |
 | `uncompile` `'…'` `--all` | Remove compiled version of the plugin. `--all` – do it for all plugins. |
@@ -228,7 +228,7 @@ Following commands are passed to `zi …` to obtain described effects.
 <APITable>
 ```
 
-|                         Command                          | Description                                                                                                                                                |
+|                         Command                          | 説明                                                                                                                                                         |
 |:--------------------------------------------------------:| ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |                      `self-update`                       | Updates and compiles Zi.                                                                                                                                   |
 |           `update` `-q` `-r` `'…'` or `--all`            | Update all plugins and snippets with `--all` – for quiet `-q` – execute `git reset --hard` or `svn revert` before pulling changes with `-r`.               |
@@ -257,7 +257,7 @@ Following commands are passed to `zi …` to obtain described effects.
 <APITable>
 ```
 
-|  Command   | Description        |
+|  Command   | 説明                 |
 |:----------:| ------------------ |
 | `-h, help` | Usage information. |
 |   `man`    | Manual.            |

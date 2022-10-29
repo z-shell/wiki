@@ -320,7 +320,7 @@ zi ice pick'powerless.zsh' src'utilities.zsh'
 zi light martinrotter/powerless
 ```
 
-|  Syntax   | Description                                                                                                |
+|  Syntax   | 説明                                                                                                         |
 |:---------:|:---------------------------------------------------------------------------------------------------------- |
 | `pick'…'` | Provide the main file to the source - like `*.sh`, otherwise alphabetically first matched file is sourced. |
 | `src'…'`  | Provide a second file to the source - not a pattern - plain file name.                                     |
@@ -335,7 +335,7 @@ zi ice svn pick'completion.zsh' \
 zi snippet OMZ::lib
 ```
 
-|   Syntax    | Description                                                                                                                        |
+|   Syntax    | 説明                                                                                                                                 |
 |:-----------:|:---------------------------------------------------------------------------------------------------------------------------------- |
 |    `svn`    | Use Subversion to clone `OMZ::lib` (the whole Oh-My-Zsh `lib/` directory). More [^1].                                              |
 | `atload'…'` | Code isn't tracked and cannot be unloaded. The `atload'…'` is executed after loading main files `pick'…'` and `src'…'`. More [^2]. |
@@ -406,7 +406,7 @@ zi ice multisrc'(functions|misc|completion).zsh'
 zi snippet OMZ::lib
 ```
 
-it's possible to write:
+書き込みが可能：
 
 ```shell showLineNumbers
 zi for \

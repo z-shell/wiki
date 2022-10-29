@@ -1,8 +1,8 @@
 ---
 id: overview
-title: "☑️ General Overview"
+title: "☑️ 概要"
 image: /img/logo/320x320.png
-description: General overview of Zi usage
+description: Zi の使用方法の概要
 keywords:
   - overview
 ---
@@ -12,14 +12,14 @@ keywords:
 import ImgShow from '@site/src/components/ImgShow';
 import Link from '@docusaurus/Link';
 
-This overview will cover the basics for:
+この概要では、以下の基礎を説明します。
 
 1. [Oh-My-Zsh & Prezto](/search?q=Oh+My+Zsh+%26+Prezto)
-2. [Completions](/search?q=completions)
+2. [補完](/search?q=completions)
 3. [Turbo mode](/search?q=turbo+mode)
-4. [Ice modifiers](/search?q=ice+modifiers)
+4. [Ice 修飾子](/search?q=ice+modifiers)
 
-## Plugin and snippet loading
+## プラグインとスニペットの読み込み
 
 ```shell showLineNumbers
 zi load z-shell/H-S-MW

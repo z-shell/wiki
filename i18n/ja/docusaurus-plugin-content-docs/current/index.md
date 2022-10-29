@@ -65,7 +65,7 @@ Install and control almost everything from GitHub: [Annexes](/ecosystem/category
 - [Annexes](ecosystem/category/-annexes) allow extend the plugin manager with new commands.
 - [Turbo][turbo-mode-zsh--53] mode yields **50-80%** faster Zsh startup.
 
-## <i className="fa-beat" class="fa-solid fa-heart fa-beat"></i> Neat and flexible
+## <i className="fa-beat" class="fa-solid fa-heart fa-beat"></i> 端正で柔軟。
 
 - [Customize paths][customizing-paths], use [multiple prompts][multiple-prompts] or create [your own][non-github-local-plugins] plugins.
 - Supports [Oh My Zsh][oh-my-zsh-prezto] and [Prezto][oh-my-zsh-prezto] plugins and libraries. ([migration][]).

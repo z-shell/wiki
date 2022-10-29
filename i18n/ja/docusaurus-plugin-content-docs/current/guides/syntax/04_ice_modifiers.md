@@ -24,7 +24,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 <APITable>
 ```
 
-|  Ice-modifier   | Description                                                                                                                                                                                                                                                                                                                                                              |
+|  Ice-modifier   | 説明                                                                                                                                                                                                                                                                                                                                                                       |
 |:---------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |      `as`       | Can be `as"program"` (alias: `as"command"`), and will cause to add script/program to `$PATH` instead of sourcing (see `pick`). Can also be `as"completion"` – use with plugins or snippets in whose only underscore-starting `_*` files you are interested in. [^8]                                                                                                      |
 |   [id-as][6]    | Nickname a plugin or snippet, e.g. create a short handler for the long-URL snippet.                                                                                                                                                                                                                                                                                      |
@@ -51,7 +51,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 <APITable>
 ```
 
-|   Ice-modifier   | Description                                                                                                                                                                                                                                                                                                                     |
+|   Ice-modifier   | 説明                                                                                                                                                                                                                                                                                                                              |
 |:----------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |     `proto`      | Change protocol to `git`,`ftp`,`ftps`,`ssh`, `rsync`, etc. The default is `https`. **Does not work with snippets.**                                                                                                                                                                                                             |
 | [from](ice#from) | Clone plugin from a given site. Supported are `from"github"` (default), `…"github-rel"`, `…"gitlab"`, `…"bitbucket"`, `…"notabug"` (short names: `gh`, `gh-r`, `gl`, `bb`, `nb`). Can also be a full domain name e.g: for GitHub enterprise. **Does not work with snippets.**                                                   |
@@ -72,7 +72,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 <APITable>
 ```
 
-| Ice-modifier  | Description                                                                                                                                       |
+| Ice-modifier  | 説明                                                                                                                                                |
 |:-------------:| ------------------------------------------------------------------------------------------------------------------------------------------------- |
 |   [pick][1]   | Select the file to source, or the file to set as a command, when using `snippet --command` or the ice `as"program"`. More below [^1].             |
 |   [src][1]    | Specify an additional file to source after the main file or after setting up command via `as"program"`. It is not a pattern but a plain filename. |
@@ -88,7 +88,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 <APITable>
 ```
 
-|  Ice-modifier  | Description                                                                                                              |
+|  Ice-modifier  | 説明                                                                                                                       |
 |:--------------:| ------------------------------------------------------------------------------------------------------------------------ |
 |   [wait][2]    | Postpone loading a plugin or snippet. For `wait'1'`, loading is done `1` second after the prompt. [^3].                  |
 |   [load][3]    | A condition to check which should cause the plugin to load. [^4].                                                        |
@@ -109,7 +109,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 <APITable>
 ```
 
-| Ice-modifier | Description                                                                                                                                                                                                                                                                                                 |
+| Ice-modifier | 説明                                                                                                                                                                                                                                                                                                          |
 |:------------:| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |   `silent`   | Mute plugin's or snippet's `stderr` & `stdout`. Also, skip the `loaded …` message under the prompt for `wait`, etc. loaded plugins, and completion-installation messages.                                                                                                                                   |
 |   `lucid`    | Skip `loaded …` message under prompt for `wait`, etc. loaded plugins (a subset of `silent`).                                                                                                                                                                                                                |
@@ -119,13 +119,13 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 </APITable>
 ```
 
-## <i class="fa-solid fa-list"></i> Completions {#completions}
+## <i class="fa-solid fa-list"></i> 補完 {#completions}
 
 ```mdx-code-block
 <APITable>
 ```
 
-|  Ice-modifier   | Description                                                                                                                                                           |
+|  Ice-modifier   | 説明                                                                                                                                                                    |
 |:---------------:| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |    `blockf`     | Disallow plugin to modify `fpath`. Useful when a plugin wants to provide completions traditionally. Manage completions using Zi and block the plugins to expose them. |
 | `nocompletions` | Skip plugin completions detection and installation. Completions can be installed anytime using: `zi creinstall {plugin-name}`.                                        |
@@ -140,7 +140,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 <APITable>
 ```
 
-| Ice-modifier | Description                                                                                                                                                                                                                                                                                            |
+| Ice-modifier | 説明                                                                                                                                                                                                                                                                                                     |
 |:------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |     `mv`     | Move file after cloning or update (only for new commits). Example: `mv "fzf-* -> fzf"`. It uses `->` as a separator for old and new file names. Also works with snippets.                                                                                                                        |
 |     `cp`     | Copy file after cloning or update (only for new commits). Example: `cp "docker-c* -> dcompose"`. Ran after `mv`.                                                                                                                                                                                    |
@@ -164,7 +164,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 <APITable>
 ```
 
-|  Ice-modifier   | Description                                                                                                                                                                                                                                                                                                          |
+|  Ice-modifier   | 説明                                                                                                                                                                                                                                                                                                                   |
 |:---------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |   `sh`, `!sh`   | Source the plugin's (or snippet's) script with `sh` emulation so that also all functions declared within the file will get a **sticky** emulation assigned and invoked with the `sh` emulation set-up. The `!sh` version switches additional options that are rather not important from the portability perspective. |
 | `bash`, `!bash` | The same as `sh`, but with the `SH_GLOB` option disabled, for "Bash" regular expressions to work.                                                                                                                                                                                                                    |

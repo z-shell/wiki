@@ -23,7 +23,7 @@ For all the available packages use [GitHub search][github-search].
 <APITable>
 ```
 
-|      Package Name      | Description                                                                                         |
+|      Package Name      | 説明                                                                                                  |
 |:----------------------:|:--------------------------------------------------------------------------------------------------- |
 |      [any-node][]      | The any Node module(s) locally in a newly created plugin directory.                                 |
 |      [any-gem][]       | The any Gem(s) locally in a newly created plugin directory.                                         |

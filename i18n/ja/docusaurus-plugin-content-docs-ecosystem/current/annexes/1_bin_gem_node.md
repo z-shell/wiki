@@ -73,7 +73,7 @@ Running the script will forward the call to the program accessed through an embe
 <APITable>
 ```
 
-| Ice modifier  | Description                                                                                                |
+| Ice modifier  | 説明                                                                                                         |
 |:------------- |:---------------------------------------------------------------------------------------------------------- |
 | [sbin](#sbin) | Creates `shims` for binaries and scripts.                                                                  |
 | [fbin](#fbin) | Creates functions for binaries and scripts.                                                                |
@@ -94,7 +94,7 @@ Function wrappers for binaries, scripts, gems, node_modules, python packages, et
 <APITable>
 ```
 
-| Flag | Description                                                                                                                  |
+| Flag | 説明                                                                                                                           |
 |:---- |:---------------------------------------------------------------------------------------------------------------------------- |
 | `g`  | Set `$GEM_HOME` variable to `{plugin-dir}`.                                                                                  |
 | `n`  | Set `$NODE_PATH` variable to `{plugin-dir}/node_modules`.                                                                    |
@@ -458,7 +458,7 @@ Available flags are:
 zi shim-list [ -t | -i | -o | -s | -h ]
 ```
 
-| Flag               | Description                                                                              |
+| Flag               | 説明                                                                                       |
 |:------------------ |:---------------------------------------------------------------------------------------- |
 | `-t` `--this-dir`  | Instructs Zi to look for shims in the current directory instead of `$ZPFX/bin`.          |
 | `-i` `--from-ices` | Normally the code looks for the shim files by examining their contents (more info [^1]). |

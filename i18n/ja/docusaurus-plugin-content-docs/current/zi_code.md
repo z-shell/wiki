@@ -1,8 +1,8 @@
 ---
 id: code
-title: "🔖 Code documentation"
+title: "🔖 コードドキュメント"
 image: /img/png/theme/z/320x320.png
-description: The documentation lists all functions, interactions between them, their comments, and features.
+description: 文書には、すべての機能、それらの間の相互作用、それらのコメント、および機能が示されています。
 keywords:
   - code
   - zi-code
@@ -16,7 +16,7 @@ import APITable from '@site/src/components/APITable';
 
 :::info
 
-Documentation is automatically updated every `Thursday` at `4:30 UTC` at [z-shell/docs][].
+[z-shell/docs][] にあるドキュメントは、 `木曜日` の `4:30 UTC` に自動的に更新されます。
 
 :::
 
@@ -24,13 +24,13 @@ Documentation is automatically updated every `Thursday` at `4:30 UTC` at [z-shel
 <APITable>
 ```
 
-| ファイル                 | ドキュメントの様式                         | Description                                                   |
-| -------------------- | --------------------------------- | ------------------------------------------------------------- |
-| [zi.zsh][2]          | [adoc][3], [pdf][4], [html][5]    | `.zshrc`で常に読み込まれるメインスクリプト                                     |
-| [side.zsh][6]        | [adoc][7], [pdf][8], [html][9]    | Functions, loaded by `install.zsh` and `autoload.zsh` scripts |
-| [install.zsh][10]    | [adoc][11], [pdf][12], [html][13] | Functions used only when installing a plugin or snippet       |
-| [autoload.zsh][14]   | [adoc][15], [pdf][16], [html][17] | Functions used only in interactive `Zi` invocations           |
-| [additional.zsh][18] | [adoc][19], [pdf][20], [html][21] | Additional support for functions                              |
+| ファイル                 | ドキュメントの様式                         | 説明                                                  |
+| -------------------- | --------------------------------- | --------------------------------------------------- |
+| [zi.zsh][2]          | [adoc][3], [pdf][4], [html][5]    | `.zshrc`で常に読み込まれるメインスクリプト                           |
+| [side.zsh][6]        | [adoc][7], [pdf][8], [html][9]    | `install.zsh` および `autoload.zsh` スクリプトによって読み込まれる関数  |
+| [install.zsh][10]    | [adoc][11], [pdf][12], [html][13] | プラグインまたはスニペットをインストールする場合にのみ使用される関数                  |
+| [autoload.zsh][14]   | [adoc][15], [pdf][16], [html][17] | Functions used only in interactive `Zi` invocations |
+| [additional.zsh][18] | [adoc][19], [pdf][20], [html][21] | Additional support for functions                    |
 
 ```mdx-code-block
 </APITable>
