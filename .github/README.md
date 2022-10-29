@@ -50,7 +50,7 @@
   />
   <img
     align="center" style="width:80%;height:auto"
-    src="https://github.zshell.dev/.github/plugin/metrics.svg"
+    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/metrics.svg"
   />
   </td>
 </tr>
