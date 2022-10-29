@@ -97,7 +97,7 @@ zi wait lucid light-mode for \
 <APITable>
 ```
 
-| Syntax       | Description                                                                                  |
+| Syntax       | 説明                                                                                           |
 | ------------ |:-------------------------------------------------------------------------------------------- |
 | `wait`       | Load 0 seconds (about 5 ms exactly) after prompt ([turbo mode][6]).                          |
 | `lucid`      | Silence the under-prompt messages ("`Loaded {name of the plugin}`").                         |

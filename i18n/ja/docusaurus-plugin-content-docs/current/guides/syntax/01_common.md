@@ -56,7 +56,7 @@ zi light vim/vim
 <APITable>
 ```
 
-| Syntax             | Description                                                                               |
+| Syntax             | 説明                                                                                        |
 | ------------------ |:----------------------------------------------------------------------------------------- |
 | `as'program'`      | Add file selected by `pick'…'` to `$PATH`, and do not source it.                          |
 | `atclone'…'`       | Execute code after downloading.                                                           |
@@ -80,7 +80,7 @@ zi light vim/vim
 <APITable>
 ```
 
-| Syntax             | Description                                                                                  |
+| Syntax             | 説明                                                                                           |
 | ------------------ |:-------------------------------------------------------------------------------------------- |
 | `as'program'`      | As above.                                                                                    |
 | `atclone'…'`       | As above **plus** pass `--prefix=$ZPFX` to `./configure`, to set the installation directory. |
@@ -107,7 +107,7 @@ zi light trapd00r/LS_COLORS
 <APITable>
 ```
 
-| Syntax             | Description                                                                                               |
+| Syntax             | 説明                                                                                                        |
 | ------------------ |:--------------------------------------------------------------------------------------------------------- |
 | `atclone'…'`       | Generate shell script, passing it to `eval`. More: [^1]                                                   |
 | `atpull'%atclone'` | Do the same at any update of the plugin. More: [^2]                                                       |
@@ -152,7 +152,7 @@ zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
 <APITable>
 ```
 
-| Syntax             | Description                                                                                                                    |
+| Syntax             | 説明                                                                                                                             |
 | ------------------ |:------------------------------------------------------------------------------------------------------------------------------ |
 | `make'!'`          | Compile `direnv`, the exclamation mark means: run the `make` first, before `atclone'…'` and `atpull'…'` hooks.                 |
 | `atclone'…'`       | As soon as the plugin is installed generate the registration code and save it to `zhook.zsh`, instead of passing it to `eval`. |
@@ -178,7 +178,7 @@ zi from"gh-r" as"program" mv"direnv* -> direnv" \
 <APITable>
 ```
 
-| Syntax                     | Description                                                                |
+| Syntax                     | 説明                                                                         |
 | -------------------------- |:-------------------------------------------------------------------------- |
 | `from'gh-r'`               | Install from `direnv` from [GitHub releases][6].                           |
 | `mv'direnv* -> direnv'` | After installation, rename `direnv.linux-386` or similar file to `direnv`. |
