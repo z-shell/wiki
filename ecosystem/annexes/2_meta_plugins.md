@@ -70,10 +70,10 @@ zi light-mode for @annexes \
 | @romkatv         | [powerlevel10k][]                                                                                                     |
 | @rust-utils      | rust-toolchain, cargo-extensions                                                                                      |
 | @sharkdp         | [fd][], [bat][], [hexyl][], [hyperfine][], [vivid][]                                                                  |
-| @z-shell         | [F-Sy-H][], [H-S-MW][], [zsh-diff-so-fancy][], [z-shell/zsh-fancy-completions][]                                      |
+| @z-shell         | [F-Sy-H][], [H-S-MW][], [zsh-diff-so-fancy][]                                                                         |
 | @z-shell+        | [zsh-select][], [zconvey][], [zui][], [zflai][]                                                                       |
 | @zsh-users       | [zsh-syntax-highlighting][], [zsh-autosuggestions][], [zsh-completions][]                                             |
-| @zsh-users+fast  | [F-Sy-H][], [zsh-autosuggestions][], [zsh-completions][]                                                              |
+| @zsh-users+fast  | [F-Sy-H][], [zsh-autosuggestions][], [zsh-completions][], [z-shell/zsh-fancy-completions][]                           |
 | @zunit           | [color][], [revolver][], [zunit][]                                                                                    |
 
 ```mdx-code-block
