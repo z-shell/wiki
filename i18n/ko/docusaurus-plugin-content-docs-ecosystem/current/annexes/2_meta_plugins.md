@@ -15,6 +15,7 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
+import APITable from '@site/src/components/APITable';
 
 An annex has the curated, optimal [ice][] lists automatically applied. For more details refer to [z-a-meta-plugins.plugin.zsh][] file.
 
@@ -51,6 +52,10 @@ zi light-mode for @annexes \
 
 ## Available meta-plugins
 
+```mdx-code-block
+<APITable>
+```
+
 | Meta-plugin name | Consisting plugins                                                                                                    |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------- |
 | @annexes         | [bin-gem-node][], [readurl][], [patch-dl][], [rust][], [default-ice][], [unscope][]                                   |
@@ -65,11 +70,15 @@ zi light-mode for @annexes \
 | @romkatv         | [powerlevel10k][]                                                                                                     |
 | @rust-utils      | rust-toolchain, cargo-extensions                                                                                      |
 | @sharkdp         | [fd][], [bat][], [hexyl][], [hyperfine][], [vivid][]                                                                  |
-| @z-shell         | [F-Sy-H][], [H-S-MW][], [zsh-diff-so-fancy][], [zsh-select][]                                                         |
-| @z-shell+        | [zconvey][], [zui][], [zflai][]                                                                                       |
+| @z-shell         | [F-Sy-H][], [H-S-MW][], [zsh-diff-so-fancy][], [z-shell/zsh-fancy-completions][]                                      |
+| @z-shell+        | [zsh-select][], [zconvey][], [zui][], [zflai][]                                                                       |
 | @zsh-users       | [zsh-syntax-highlighting][], [zsh-autosuggestions][], [zsh-completions][]                                             |
 | @zsh-users+fast  | [F-Sy-H][], [zsh-autosuggestions][], [zsh-completions][]                                                              |
 | @zunit           | [color][], [revolver][], [zunit][]                                                                                    |
+
+```mdx-code-block
+</APITable>
+```
 
 ## Summary of the meta-plugins
 
@@ -79,19 +88,35 @@ It consumes time to:
 - Over and over reconstruct the new findings on the new machines.
 - Constantly extend and tweak the ice list of each plugin, so that it's hard on the eyes, especially for an outsider.
 
+```mdx-code-block
+<APITable>
+```
+
 | Problem                                               | Solution                                                                                                                                                                                                                                                                               |
 |:----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | (1) _finding new plugins_                             | The annex contains a curated, broad list of plugins, e.g.: all the console tools like `fd`, `fzf`, `exa`, `ripgrep`, etc.,                                                                                                                                                             |
 | (2) _reconstructing the findings in new environments_ | It's easy to say and memorize e.g.: `zi for console-tools` – one label pulls a group of plugins and also the curated, optimal, default ice lists for each of them,                                                                                                                     |
 | (3) _constant increase of complexity of the commands_ | The provided, hopefully, best/optimal ices for each plugin are handled transparently and automatically; care is given to each ice list so that the plugin loads without any glitches (e.g.: without the "No files for compilation found." message and other, even such slight issues). |
 
+```mdx-code-block
+</APITable>
+```
+
 Other unique benefits of the meta-plugins annex:
+
+```mdx-code-block
+<APITable>
+```
 
 | Benefit                                                     | Description                                                                                                                                                                                                                                                                                                           |
 |:----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Plugin dependencies                                         | The meta-plugins implement a dependency mechanism: selecting a from-source built [ogham/exa][exa] will automatically pull in also the Rust compiler (available under the meta-plugin name: `rust-toolchain`).                                                                                                         |
 | Flexible disabling of chosen sub-plugins in any meta-plugin | A meta-plugin can contain many sub-plugins and it's possible to skip installing some of them by the **skip'plugin-1 plugin-2…'** ice, e.g.: `zi skip'ripgrep fd' for console-tools`. This way despite that some of the meta plugins are broad the user still has control over what's and how much is being installed. |
 | Common from-source meta plugins                             | For the plugins that provide the binary programs it is often the case that a meta-plugin exists that'll build the program from the source (e.g.: **fuzzy** meta-plugin and its **fuzzy-src** counterpart). This might be handy e.g.: if there's no binary for our machine.                                            |
+
+```mdx-code-block
+</APITable>
+```
 
 ## Install meta-plugins
 
@@ -171,3 +196,4 @@ This will register the `skip'…'` ice-modifier.
 [zsh-syntax-highlighting]: https://github.com/zsh-users/zsh-syntax-highlighting
 [zui]: https://github.com/z-shell/zui
 [zunit]: https://github.com/zdharma/zunit
+[z-shell/zsh-fancy-completions]: https://github.com/z-shell/zsh-fancy-completions
