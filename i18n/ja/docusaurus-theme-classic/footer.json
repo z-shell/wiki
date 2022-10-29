@@ -15,14 +15,6 @@
     "message": "はじめに",
     "description": "The label of footer link with label=Introduction linking to /docs"
   },
-  "link.item.label.Ecosystem": {
-    "message": "Ecosystem",
-    "description": "The label of footer link with label=Ecosystem linking to /ecosystem"
-  },
-  "link.item.label.Community": {
-    "message": "Community",
-    "description": "The label of footer link with label=Community linking to /community"
-  },
   "link.item.label.Privacy Policy": {
     "message": "プライバシーポリシー",
     "description": "The label of footer link with label=Privacy Policy linking to legal/PRIVACY"
