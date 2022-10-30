@@ -49,14 +49,15 @@ lint:
   ignore:
     - linters: [ALL]
       paths:
-        - "i18n/**"
-        - "build/**"
-        - "static/**"
-        - ".docusaurus/**"
+        - i18n/*
+        - build/*
+        - .docusaurus/*
+        - static/img/cast/*
+        - static/assets/fonts/*
     - linters: [gitleaks]
       paths:
-        - "pnpm-lock.yaml"
-        - "docusaurus.config.js"
+        - pnpm-lock.yaml
+        - docusaurus.config.js
     - linters: [markdownlint]
       paths:
-        - "src/components/Markdown/**"
+        - src/components/Markdown/*

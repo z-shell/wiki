@@ -180,7 +180,7 @@ const config = {
       ],
       announcementBar: {
         id: "announcement-bar",
-        content: `If you like Zi - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi"><i class="fa-solid fa-star"></i></a>, share it on <a target="_blank" rel="noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=https://wiki.zshell.dev/&t=A%20Swiss%20Army%20Knife%20for%20Zsh%20Unix%20shell%20|%20%E2%9D%AE%20Zi%20%E2%9D%AF"><i class="fa-brands fa-square-hacker-news"></i></a>, and consider following us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell"><i class="fa-brands fa-github-alt"></i></a> or <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/zshell_zi"><i class="fa-brands fa-twitter"></i></a>`,
+        content: `If you like Zi - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi"><i class="fa-solid fa-star"></i></a>, share it on <a target="_blank" rel="noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=https://wiki.zshell.dev/&t=A%20Swiss%20Army%20Knife%20for%20Zsh%20Unix%20shell%20|%20%E2%9D%AE%20Zi%20%E2%9D%AF"><i class="fa-brands fa-square-hacker-news"></i></a>, and consider following us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell"><i class="fa-brands fa-github-alt"></i></a>`,
         isCloseable: true,
       },
       algolia: {
@@ -272,7 +272,7 @@ const config = {
               },
               {
                 label: "Matrix",
-                href: "https://matrix.to/#/#z-shell_zi:gitter.im",
+                href: "https://matrix.to/#/#zshell:matrix.org",
               },
               {
                 label: "Gitter",
@@ -301,7 +301,10 @@ const config = {
           {
             title: "Legal",
             items: [
-              { label: "Contributing", to: "legal/CONTRIBUTING" },
+              {
+                label: "Contributing",
+                href: "https://github.com/z-shell/wiki/blob/main/.github/CONTRIBUTING.md",
+              },
               { label: "Privacy Policy", to: "legal/PRIVACY" },
               { label: "Code of Conduct", to: "legal/CODE_OF_CONDUCT" },
             ],
