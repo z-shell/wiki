@@ -7,6 +7,26 @@
     "message": "Попробуйте ещё раз",
     "description": "The label of the button to try again when the page crashed"
   },
+  "theme.NotFound.title": {
+    "message": "Страница не найдена",
+    "description": "The title of the 404 page"
+  },
+  "theme.NotFound.p1": {
+    "message": "К сожалению, мы не смогли найти запрашиваемую вами страницу.",
+    "description": "The first paragraph of the 404 page"
+  },
+  "theme.NotFound.p2": {
+    "message": "Пожалуйста, обратитесь к владельцу сайта, с которого вы перешли на эту ссылку, чтобы сообщить ему, что ссылка не работает.",
+    "description": "The 2nd paragraph of the 404 page"
+  },
+  "theme.admonition.tip": {
+    "message": "tip",
+    "description": "The default label used for the Tip admonition (:::tip)"
+  },
+  "theme.admonition.info": {
+    "message": "info",
+    "description": "The default label used for the Info admonition (:::info)"
+  },
   "theme.BackToTopButton.buttonAriaLabel": {
     "message": "Прокрутка к началу",
     "description": "The ARIA label for the back to top button"
@@ -142,25 +162,9 @@
     "message": "Версии",
     "description": "The label for the navbar versions dropdown on mobile view"
   },
-  "theme.NotFound.title": {
-    "message": "Страница не найдена",
-    "description": "The title of the 404 page"
-  },
-  "theme.common.skipToMainContent": {
-    "message": "Перейти к основному содержимому",
-    "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
-  },
   "theme.tags.tagsListLabel": {
     "message": "Теги:",
     "description": "The label alongside a tag list"
-  },
-  "theme.admonition.info": {
-    "message": "info",
-    "description": "The default label used for the Info admonition (:::info)"
-  },
-  "theme.admonition.tip": {
-    "message": "tip",
-    "description": "The default label used for the Tip admonition (:::tip)"
   },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
     "message": "Закрыть",
@@ -189,14 +193,6 @@
   "theme.navbar.mobileLanguageDropdown.label": {
     "message": "Языки",
     "description": "The label for the mobile language switcher dropdown"
-  },
-  "theme.NotFound.p1": {
-    "message": "К сожалению, мы не смогли найти запрашиваемую вами страницу.",
-    "description": "The first paragraph of the 404 page"
-  },
-  "theme.NotFound.p2": {
-    "message": "Пожалуйста, обратитесь к владельцу сайта, с которого вы перешли на эту ссылку, чтобы сообщить ему, что ссылка не работает.",
-    "description": "The 2nd paragraph of the 404 page"
   },
   "theme.TOCCollapsible.toggleButtonLabel": {
     "message": "Содержание этой страницы",
@@ -237,10 +233,6 @@
   "theme.SearchBar.seeAll": {
     "message": "Посмотреть все результаты ({count})"
   },
-  "theme.SearchBar.label": {
-    "message": "Поиск",
-    "description": "The ARIA label and placeholder for search button"
-  },
   "theme.SearchPage.documentsFound.plurals": {
     "message": "{count} документ|{count} документа|{count} документов",
     "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
@@ -273,6 +265,10 @@
     "message": "Загрузка новых результатов поиска...",
     "description": "The paragraph for fetching new search results"
   },
+  "theme.SearchBar.label": {
+    "message": "Поиск",
+    "description": "The ARIA label and placeholder for search button"
+  },
   "theme.IdealImageMessage.loading": {
     "message": "Загрузка...",
     "description": "When the full-scale image is loading"
@@ -304,6 +300,10 @@
   "theme.PwaReloadPopup.closeButtonAriaLabel": {
     "message": "Закрыть",
     "description": "The ARIA label for close button of PWA reload popup"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "Перейти к основному содержимому",
+    "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
   },
   "theme.tags.tagsPageTitle": {
     "message": "Теги",

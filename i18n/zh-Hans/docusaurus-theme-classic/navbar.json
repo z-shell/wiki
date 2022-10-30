@@ -14,9 +14,5 @@
   "item.label.Community": {
     "message": "社区",
     "description": "Navbar item with label Community"
-  },
-  "item.label.Feed": {
-    "message": "新闻源",
-    "description": "Navbar item with label Feed"
   }
 }
