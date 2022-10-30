@@ -7,6 +7,38 @@
     "message": "다시 시도해 보세요",
     "description": "The label of the button to try again when the page crashed"
   },
+  "theme.NotFound.title": {
+    "message": "페이지를 찾을 수 없습니다.",
+    "description": "The title of the 404 page"
+  },
+  "theme.NotFound.p1": {
+    "message": "원하는 페이지를 찾을 수 없습니다.",
+    "description": "The first paragraph of the 404 page"
+  },
+  "theme.NotFound.p2": {
+    "message": "사이트 관리자에게 링크가 깨진 것을 알려주세요.",
+    "description": "The 2nd paragraph of the 404 page"
+  },
+  "theme.admonition.note": {
+    "message": "노트",
+    "description": "The default label used for the Note admonition (:::note)"
+  },
+  "theme.admonition.tip": {
+    "message": "팁",
+    "description": "The default label used for the Tip admonition (:::tip)"
+  },
+  "theme.admonition.danger": {
+    "message": "위험",
+    "description": "The default label used for the Danger admonition (:::danger)"
+  },
+  "theme.admonition.info": {
+    "message": "정보",
+    "description": "The default label used for the Info admonition (:::info)"
+  },
+  "theme.admonition.caution": {
+    "message": "주의",
+    "description": "The default label used for the Caution admonition (:::caution)"
+  },
   "theme.BackToTopButton.buttonAriaLabel": {
     "message": "맨 위로 스크롤하기",
     "description": "The ARIA label for the back to top button"
@@ -138,37 +170,9 @@
     "message": "버전",
     "description": "The label for the navbar versions dropdown on mobile view"
   },
-  "theme.NotFound.title": {
-    "message": "페이지를 찾을 수 없습니다.",
-    "description": "The title of the 404 page"
-  },
-  "theme.common.skipToMainContent": {
-    "message": "본문으로 건너뛰기",
-    "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
-  },
   "theme.tags.tagsListLabel": {
     "message": "태그:",
     "description": "The label alongside a tag list"
-  },
-  "theme.admonition.caution": {
-    "message": "주의",
-    "description": "The default label used for the Caution admonition (:::caution)"
-  },
-  "theme.admonition.danger": {
-    "message": "위험",
-    "description": "The default label used for the Danger admonition (:::danger)"
-  },
-  "theme.admonition.info": {
-    "message": "정보",
-    "description": "The default label used for the Info admonition (:::info)"
-  },
-  "theme.admonition.note": {
-    "message": "노트",
-    "description": "The default label used for the Note admonition (:::note)"
-  },
-  "theme.admonition.tip": {
-    "message": "팁",
-    "description": "The default label used for the Tip admonition (:::tip)"
   },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
     "message": "닫기",
@@ -201,14 +205,6 @@
   "theme.navbar.mobileLanguageDropdown.label": {
     "message": "언어",
     "description": "The label for the mobile language switcher dropdown"
-  },
-  "theme.NotFound.p1": {
-    "message": "원하는 페이지를 찾을 수 없습니다.",
-    "description": "The first paragraph of the 404 page"
-  },
-  "theme.NotFound.p2": {
-    "message": "사이트 관리자에게 링크가 깨진 것을 알려주세요.",
-    "description": "The 2nd paragraph of the 404 page"
   },
   "theme.TOCCollapsible.toggleButtonLabel": {
     "message": "이 페이지에서",
@@ -249,10 +245,6 @@
   "theme.SearchBar.seeAll": {
     "message": "{count}개의 결과 확인하기"
   },
-  "theme.SearchBar.label": {
-    "message": "검색",
-    "description": "The ARIA label and placeholder for search button"
-  },
   "theme.SearchPage.documentsFound.plurals": {
     "message": "{count}개 문서를 찾았습니다.",
     "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
@@ -285,6 +277,10 @@
     "message": "새로운 검색 결과를 불러오는 중 입니다...",
     "description": "The paragraph for fetching new search results"
   },
+  "theme.SearchBar.label": {
+    "message": "검색",
+    "description": "The ARIA label and placeholder for search button"
+  },
   "theme.IdealImageMessage.loading": {
     "message": "로딩",
     "description": "When the full-scale image is loading"
@@ -316,5 +312,9 @@
   "theme.PwaReloadPopup.closeButtonAriaLabel": {
     "message": "닫기",
     "description": "The ARIA label for close button of PWA reload popup"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "본문으로 건너뛰기",
+    "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
   }
 }
