@@ -70,7 +70,7 @@ Inline quotes with `<q>` get curly quotation marks around them: <q>inline quote<
 
 ## `<ruby>`, `<rt>` and `<rp>`
 
-`<ruby>`, `<rt>` and `<rp>` can be used for [showing pronunciation of East Asian characters](http://html5doctor.com/ruby-rt-rp-element/). 
+`<ruby>`, `<rt>` and `<rp>` can be used for [showing pronunciation of East Asian characters](http://html5doctor.com/ruby-rt-rp-element/).
 
 Example:
 
