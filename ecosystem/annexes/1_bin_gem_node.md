@@ -30,9 +30,9 @@ An annex provides the following functionality:
 5. Create the so-called `shims` known from [rbenv][rbenv/rbenv] – the same feature as the first item of this enumeration – of running a program without adding anything to `$PATH` with all of the above features, however through an automatic **script** created in `$ZPFX/bin`, not a **function** (the first item uses a function-based mechanism),
 6. Automatic updates of Ruby gems and Node modules during regular plugin and snippet updates with `zi update …`.
 
-The [sbin](#sbin) ice-modifier that creates forwarder-scripts instead of forwarder-functions created by the [fbin](#fbin) ice-modifier turned out to be the proper, best method for exposing binary programs and scripts. This way there is no need to add anything to `$PATH` – `z-a-bin-gem-node` will automatically create a function that will wrap the binary and provide it on the command line as if it was being placed in the `$PATH`.
+The [sbin](#sbin-1) ice-modifier that creates forwarder-scripts instead of forwarder-functions created by the [fbin](#fbin-1) ice-modifier turned out to be the proper, best method for exposing binary programs and scripts. This way there is no need to add anything to `$PATH` – `z-a-bin-gem-node` will automatically create a function that will wrap the binary and provide it on the command line as if it was being placed in the `$PATH`.
 
-As previously mentioned, the function can automatically export `$GEM_HOME`, `$NODE_PATH`, `$VIRTUALENV` shell variables and also automatically cd into the plugin or snippet directory right before executing the binary and then cd back to the original directory after the execution is finished. As previously mentioned, instead of the function an automatically created script – the so-called `shim` – can be used for the same purpose and with the same functionality, so that the command is accessible practically fully normally – not only in the live Zsh session, only within which the functions created by [fbin](#fbin) exist, but also from any Zsh script.
+As previously mentioned, the function can automatically export `$GEM_HOME`, `$NODE_PATH`, `$VIRTUALENV` shell variables and also automatically cd into the plugin or snippet directory right before executing the binary and then cd back to the original directory after the execution is finished. As previously mentioned, instead of the function an automatically created script – the so-called `shim` – can be used for the same purpose and with the same functionality, so that the command is accessible practically fully normally – not only in the live Zsh session, only within which the functions created by [fbin](#fbin-1) exist, but also from any Zsh script.
 
 Suppose that we want to install the `junegunn/fzf` plugin from GitHub Releases, which contains only a single file – the `fzf` binary for the selected architecture. It is possible to do it in the standard way – by adding the plugin's directory to the `$PATH`.
 
@@ -47,7 +47,7 @@ After this command, the `$PATH` variable will contain e.g.:
 /home/sall/.zi/plugins/junegunn---fzf:/bin:/usr/bin:/usr/sbin:/sbin
 ```
 
-For many such programs loaded as plugins, the PATH can become quite cluttered. I've had 26 entries before switching to `z-a-bin-gem-node`. To solve this, load with the use of [sbin](#sbin) ice-modifier provided and handled by `z-a-bin-gem-node`:
+For many such programs loaded as plugins, the PATH can become quite cluttered. I've had 26 entries before switching to `z-a-bin-gem-node`. To solve this, load with the use of [sbin](#sbin-1) ice-modifier provided and handled by `z-a-bin-gem-node`:
 
 ```shell showLineNumbers
 zi ice as'program' from'gh-r' sbin'fzf'
@@ -73,16 +73,16 @@ Running the script will forward the call to the program accessed through an embe
 <APITable>
 ```
 
-| Ice modifier  | Description                                                                                                |
-| :------------ | :--------------------------------------------------------------------------------------------------------- |
-| [sbin](#sbin) | Creates `shims` for binaries and scripts.                                                                  |
-| [fbin](#fbin) | Creates functions for binaries and scripts.                                                                |
-| [gem](#gem)   | Installs and updates gems + creates functions for gems binaries.                                           |
-| [node](#node) | Installs and updates node_modules + creates functions for binaries of the modules.                         |
-| [pip](#pip)   | Installs and updates python packages into a `virtualenv` + creates functions for binaries of the packages. |
-| [fmod](#fmod) | Creates wrapping functions for other functions.                                                            |
-| [fsrc](#fsrc) | Creates functions that source given scripts.                                                               |
-| [ferc](#ferc) | The same as [fsrc](#fscr), but using an alternate script-loading method.                                   |
+| Ice modifier    | Description                                                                                                |
+| :-------------- | :--------------------------------------------------------------------------------------------------------- |
+| [sbin](#sbin-1) | Creates `shims` for binaries and scripts.                                                                  |
+| [fbin](#fbin-2) | Creates functions for binaries and scripts.                                                                |
+| [gem](#gem-3)   | Installs and updates gems + creates functions for gems binaries.                                           |
+| [node](#node-4) | Installs and updates node_modules + creates functions for binaries of the modules.                         |
+| [pip](#pip-5)   | Installs and updates python packages into a `virtualenv` + creates functions for binaries of the packages. |
+| [fmod](#fmod-6) | Creates wrapping functions for other functions.                                                            |
+| [fsrc](#fsrc-7) | Creates functions that source given scripts.                                                               |
+| [ferc](#ferc-8) | The same as [fsrc](#fscr-7), but using an alternate script-loading method.                                 |
 
 ```mdx-code-block
 </APITable>
@@ -113,7 +113,7 @@ View all currently registered:
 - ice-modifiers: `zi icemods`
 - subcommand: `zi subcmds`
 
-## `SBIN'…'` {#sbin}
+## `SBIN'…'` {#sbin-1}
 
 `sbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-script}]; …'`
 
@@ -153,7 +153,7 @@ fzf "$@"
 
 - as'program' (an alias: as'command') - used for the plugin to be added to $PATH when a plugin is not a file for sourcing.
 
-The [sbin](#sbin) ice-modifier can be empty, it will then try to create the shim for the trailing component of the [id-as][] ice, e.g.:
+The [sbin](#sbin-1) ice-modifier can be empty, it will then try to create the shim for the trailing component of the [id-as][] ice, e.g.:
 
 - `id_as'exts/git-my'` → it'll check if a file `git-my` exists and if yes, will create the function `git-my`.
 - `paulirish/git-open` → it'll check if a file `git-open` exists and if yes, will create the function `git-open`.
@@ -162,7 +162,7 @@ The same trailing component would be set for the snippet URL, for any alphabetic
 
 :::
 
-## `FBIN'…'` {#fbin}
+## `FBIN'…'` {#fbin-2}
 
 `fbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-function}]; …'`
 
@@ -201,7 +201,7 @@ myfzf () {
 
 :::
 
-## `GEM'…'` {#gem}
+## `GEM'…'` {#gem-3}
 
 `gem'{gem-name}; …'`
 
@@ -244,7 +244,7 @@ asciidoctor () {
 
 :::
 
-## `NODE'…'` {#node}
+## `NODE'…'` {#node-4}
 
 `node'{node-module}; …'`
 
@@ -289,7 +289,7 @@ In this case, the name of the binary program provided by the node module is diff
 
 :::
 
-## `PIP'…'` {#pip}
+## `PIP'…'` {#pip-5}
 
 `pip'{pip-package}; …'`
 
@@ -332,7 +332,7 @@ youtube-dl () {
 
 :::
 
-## `FMOD'…'` {#fmod}
+## `FMOD'…'` {#fmod-6}
 
 `fmod'[{g|n|c|N|E|O}:]{function-name}; …'`
 
@@ -392,13 +392,17 @@ README.md
 
 :::
 
-## `FSCR'…'` {#fscr}
+## `FSCR'…'` {#fscr-7}
 
-`fsrc'[{g|n|c|N|E|O}:]{path-to-script}[ -> {name-of-the-function}]; …'`
+```mdx-code-block
+fsrc'[{g|n|c|N|E|O}:]{path-to-script}[ -> {name-of-the-function}]; …'
+```
 
-## `FERC'…'` {#ferc}
+## `FERC'…'` {#ferc-8}
 
-`ferc'[{g|n|c|N|E|O}:]{path-to-script}[ -> {name-of-the-function}]; …'`
+```mdx-code-block
+ferc'[{g|n|c|N|E|O}:]{path-to-script}[ -> {name-of-the-function}]; …'
+```
 
 Creates a wrapper function that at each invocation sources the given file. The second ice, `FERC'…'` works the same with the single difference that it uses `eval "$(<{path-to-script})"` instead of `source "{path-to-script}"` to load the script.
 
@@ -444,7 +448,7 @@ myscript () {
 
 - `nocompile` ice-modifier is used to skip file compilation when it is not required.
 
-The ices can be empty as the trailing component will be assigned with [id-as][] ice-modifier the same way as described in the [sbin](#sbin).
+The ices can be empty as the trailing component will be assigned with [id-as][] ice-modifier the same way as described in the [sbin](#sbin-1).
 
 :::
 
@@ -468,7 +472,7 @@ zi shim-list [ -t | -i | -o | -s | -h ]
 
 ## Cygwin support {#cygwin-support}
 
-The [sbin](#sbin) ice-modifier has an explicit Cygwin support – it creates additional, **extra shim files** – Windows batch scripts that allow running the shielded applications from e.g.: Windows run dialog – if the `~/.zi/polaris/bin` directory is being added to the Windows `PATH` environment variable, for example (it is a good idea to do so, IMHO). The Windows shims have the same name as the standard ones (which are also being created, normally) plus the `.cmd` extension. You can test the feature by e.g.: installing Firefox from the Zi package via:
+The [sbin](#sbin-1) ice-modifier has an explicit Cygwin support – it creates additional, **extra shim files** – Windows batch scripts that allow running the shielded applications from e.g.: Windows run dialog – if the `~/.zi/polaris/bin` directory is being added to the Windows `PATH` environment variable, for example (it is a good idea to do so, IMHO). The Windows shims have the same name as the standard ones (which are also being created, normally) plus the `.cmd` extension. You can test the feature by e.g.: installing Firefox from the Zi package via:
 
 ```shell
 zi pack=bgn for firefox
@@ -508,7 +512,7 @@ This will register the [shim-list](#shim-list) subcommand and following ice-modi
 <!-- end-of-file -->
 <!--footnotes-->
 
-[^1]: shims created by the `bin-gem-node` annex have a fixed structure, this option instructs Zi to show the list of shims that results from the [sbin](#sbin) ice-modifier of the loaded plugins. If a plugin for example has `sbin'git-open'`, means that such shim has already been created.
+[^1]: shims created by the `bin-gem-node` annex have a fixed structure, this option instructs Zi to show the list of shims that results from the [sbin](#sbin-1) ice-modifier of the loaded plugins. If a plugin for example has `sbin'git-open'`, means that such shim has already been created.
 
 <!-- links -->
 

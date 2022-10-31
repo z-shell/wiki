@@ -638,13 +638,13 @@ zi for as'program' nocompile'!' depth'1' \
 <!-- links -->
 
 [about-asprogram]: /docs/getting_started/overview/#about-asprogram
-[compiling-programs]: /docs/guides/syntax/common#compiling-programs
+[compiling-programs]: /docs/guides/syntax/standard#compiling-programs
 [customizing-paths]: /docs/guides/customization#customizing-paths
 [for-syntax]: /docs/guides/syntax/for
 [ice-modifiers-by-bin-gem-node]: /ecosystem/annexes/bin-gem-node#the-ice-modifiers-provided-by-the-annex
 [ice-modifiers]: /docs/guides/syntax/ice-modifiers
 [ice-syntax]: /docs/guides/syntax/ice
-[make-syntax]: /docs/guides/syntax/common#the-make-syntax
+[make-syntax]: /docs/guides/syntax/standard#the-make-syntax
 [turbo-and-lucid]: /docs/getting_started/overview/#turbo--lucid
 [bin-gem-node]: /ecosystem/annexes/bin-gem-node
 
