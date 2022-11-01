@@ -15,7 +15,7 @@ const config = {
   url,
   baseUrl,
   trailingSlash: false,
-  title: "❮ Zi ❯",
+  title: "❮Z-Shell❯",
   titleDelimiter: "|",
   tagline: "A Swiss Army Knife for Zsh Unix shell",
   projectName: "wiki",
@@ -48,8 +48,6 @@ const config = {
           showLastUpdateTime: true,
           remarkPlugins: [math],
           rehypePlugins: [katex],
-          beforeDefaultRemarkPlugins: [],
-          beforeDefaultRehypePlugins: [],
         },
         blog: {
           editUrl: ({ locale, blogDirPath, blogPath }) => {
