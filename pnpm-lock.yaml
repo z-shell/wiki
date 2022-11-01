@@ -10,7 +10,6 @@ specifiers:
   '@docusaurus/core': 2.2.0
   '@docusaurus/eslint-plugin': 2.2.0
   '@docusaurus/module-type-aliases': 2.2.0
-  '@docusaurus/plugin-client-redirects': 2.2.0
   '@docusaurus/plugin-ideal-image': 2.2.0
   '@docusaurus/plugin-pwa': 2.2.0
   '@docusaurus/preset-classic': 2.2.0
@@ -50,7 +49,6 @@ specifiers:
 
 dependencies:
   '@docusaurus/core': 2.2.0_t6ac3np5vlwu6qqqywpfdqwssy
-  '@docusaurus/plugin-client-redirects': 2.2.0_t6ac3np5vlwu6qqqywpfdqwssy
   '@docusaurus/plugin-ideal-image': 2.2.0_ffonhub7ze6kdac6fwang45mxy
   '@docusaurus/plugin-pwa': 2.2.0_qko2wzt6ojzw7m6dwz7sq6l6v4
   '@docusaurus/preset-classic': 2.2.0_azjh2moahpnrthrykztqhizndu
@@ -1830,43 +1828,6 @@ packages:
       - esbuild
       - uglify-js
       - webpack-cli
-
-  /@docusaurus/plugin-client-redirects/2.2.0_t6ac3np5vlwu6qqqywpfdqwssy:
-    resolution: {integrity: sha512-psBoWi+cbc2I+VPkKJlcZ12tRN3xiv22tnZfNKyMo18iSY8gr4B6Q0G2KZXGPgNGJ/6gq7ATfgDK6p9h9XRxMQ==}
-    engines: {node: '>=16.14'}
-    peerDependencies:
-      react: ^16.8.4 || ^17.0.0
-      react-dom: ^16.8.4 || ^17.0.0
-    dependencies:
-      '@docusaurus/core': 2.2.0_t6ac3np5vlwu6qqqywpfdqwssy
-      '@docusaurus/logger': 2.2.0
-      '@docusaurus/utils': 2.2.0_@docusaurus+types@2.2.0
-      '@docusaurus/utils-common': 2.2.0_@docusaurus+types@2.2.0
-      '@docusaurus/utils-validation': 2.2.0_@docusaurus+types@2.2.0
-      eta: 1.12.3
-      fs-extra: 10.1.0
-      lodash: 4.17.21
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-      tslib: 2.4.0
-    transitivePeerDependencies:
-      - '@docusaurus/types'
-      - '@parcel/css'
-      - '@swc/core'
-      - '@swc/css'
-      - bufferutil
-      - csso
-      - debug
-      - esbuild
-      - eslint
-      - lightningcss
-      - supports-color
-      - typescript
-      - uglify-js
-      - utf-8-validate
-      - vue-template-compiler
-      - webpack-cli
-    dev: false
 
   /@docusaurus/plugin-content-blog/2.2.0_qko2wzt6ojzw7m6dwz7sq6l6v4:
     resolution: {integrity: sha512-0mWBinEh0a5J2+8ZJXJXbrCk1tSTNf7Nm4tYAl5h2/xx+PvH/Bnu0V+7mMljYm/1QlDYALNIIaT/JcoZQFUN3w==}
