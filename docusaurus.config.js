@@ -15,7 +15,7 @@ const config = {
   url,
   baseUrl,
   trailingSlash: false,
-  title: "❮Z-Shell❯",
+  title: "❮ Z-Shell ❯",
   titleDelimiter: "|",
   tagline: "A Swiss Army Knife for Zsh Unix shell",
   projectName: "wiki",
