@@ -1,3 +1,5 @@
+# Branching
+
 ## Quick Legend
 
 |Instance|Branch|Description, Instructions, Notes|
