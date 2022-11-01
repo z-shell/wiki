@@ -27,6 +27,18 @@
     "message": "社区",
     "description": "The label of footer link with label=Community linking to /community"
   },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://discussions.zshell.dev"
+  },
+  "link.item.label.Matrix": {
+    "message": "Matrix",
+    "description": "The label of footer link with label=Matrix linking to https://matrix.to/#/#zshell:matrix.org"
+  },
+  "link.item.label.Gitter": {
+    "message": "Gitter",
+    "description": "The label of footer link with label=Gitter linking to https://gitter.im/z-shell/zi"
+  },
   "link.item.label.GitHub Repositories": {
     "message": "GitHub 存储库",
     "description": "The label of footer link with label=GitHub Repositories linking to https://github.com/orgs/z-shell/repositories/"
@@ -41,7 +53,7 @@
   },
   "link.item.label.Contributing": {
     "message": "参与贡献",
-    "description": "The label of footer link with label=Contributing linking to legal/CONTRIBUTING"
+    "description": "The label of footer link with label=Contributing linking to https://github.com/z-shell/wiki/blob/main/.github/CONTRIBUTING.md"
   },
   "link.item.label.Privacy Policy": {
     "message": "隐私政策",

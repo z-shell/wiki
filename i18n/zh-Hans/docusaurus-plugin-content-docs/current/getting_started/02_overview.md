@@ -366,7 +366,7 @@ zi load z-shell/history-search-multi-word
 
 ## Turbo mode with sophisticated prompts
 
-对于一些，主要是高级主题，命令行提示符的初始化是在 `precmd` 钩子中完成的：`precmd` 钩子会在每行提示符出现之前执行一次。 钩子是由 [add-zsh-hook][12] Zsh 函数安装的，它将被添加到 `$precmd_functions` 列表中。
+对于一些，主要是高级主题，命令行提示符的初始化是在 `precmd` 钩子中完成的：`precmd` 钩子会在每行提示符出现之前执行一次。 The hook is installed by the [add-zsh-hook][12] Zsh function by adding its name to the `$precmd_functions` array.
 
 使用 Turbo 模式异步加载主题可能导致钩子未执行，主题未能立即初始化。为了确保其能加载后能立即初始化，应使用 `atload'…'` 冰修饰符。
 
@@ -469,48 +469,7 @@ zi ice as"command" from"gh-r" \
 zi light starship/starship
 ```
 
-## Updates & upgrades {#updates-upgrades}
-
-Self-update & compile:
-
-```shell
-zi self-update
-```
-
-Update plugins and snippets:
-
-```shell showLineNumbers
-zi update --all
-zi update --reset
-zi update --quiet
-```
-
-Update plugins or snippets:
-
-```shell showLineNumbers
-zi update --plugins
-zi update --snippets
-```
-
-Update specific plugins. Default is GitHub but can specify any with ice [from'…'](/search?q=from):
-
-```shell
-zi update <user>/<repo>
-```
-
-Plugin parallel update plugins:
-
-```shell
-zi update --parallel
-```
-
-Increase the number of jobs in a concurrent set to 40
-
-```shell
-zi update --parallel 40
-```
-
-### More examples of common use cases
+### Common use cases {#common-use-cases}
 
 Load the pure theme, with the **zsh-async** library that's bundled with it.
 
@@ -535,51 +494,15 @@ zi ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*"
 zi load docker/compose
 ```
 
-Vim repository on GitHub – a typical source code that needs compilation, Zi can manage the run of `./configure` and other `make` stuff. Ice-modifier `pick` adds the binary program to `$PATH`. You could also install the package under the path $ZPFX.
-
-```shell title="~/.zshrc" showLineNumbers
-zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
-  atpull"%atclone" make pick"src/vim"
-zi light vim/vim
-```
-
-Scripts that are built to install
-
-> 有一个默认的 make 目标，「install」，它可以构建脚本。
-
-The `make'…'` ice could also be: `make"install PREFIX=$ZPFX"`, if "install" wouldn't be the only, default target.
-
-```shell title="~/.zshrc" showLineNumbers
-zi ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
-zi light tj/git-extras
-```
-
 Handle completions without loading any plugin, see the `clist` command. This one is to be run just once, in an interactive session.
 
 ```shell title="~/.zshrc"
 zi creinstall %HOME/my_completions
 ```
 
-For GNU "ls" the binaries can be `gls`, `gdircolors`, but not on OS X when installing the `coreutils` package from Homebrew.
-
-```shell title="~/.zshrc" showLineNumbers
-zi ice atclone"dircolors -b LS_COLORS > c.zsh" \
-  atpull'%atclone' pick"c.zsh" nocompile'!'
-zi light trapd00r/LS_COLORS
-```
-
-`make'!'` -> run make before `atclone` & `atpull`.
-
-```shell title="~/.zshrc" showLineNumbers
-zi ice as"program" make'!' \
-  atclone'./direnv hook zsh > zhook.zsh' \
-  atpull'%atclone' src"zhook.zsh"
-zi light direnv/direnv
-```
-
 If you are interested to try out more then check out the [playground repository](https://github.com/z-shell/playground) where users have uploaded the `~/.zshrc` and other Zi configurations. Feel free to [submit](https://github.com/z-shell/playground/issues/new?template=request-to-add-zshrc-to-the-zi-configs-repo.md) your `~/.zshrc` configuration.
 
-Additional examples: [collection][10].
+Additional examples: [collection](/community/gallery/collection).
 
 <!-- end-of-file -->
 <!-- links -->
@@ -587,5 +510,4 @@ Additional examples: [collection][10].
 [1]: /search?q=ice+modifiers
 
 [1]: /search?q=ice+modifiers
-[10]: /community/gallery/collection
 [12]: /community/zsh_plugin_standard#use-of-add-zsh-hook-to-install-hooks

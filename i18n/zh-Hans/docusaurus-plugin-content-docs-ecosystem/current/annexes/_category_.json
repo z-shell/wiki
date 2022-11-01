@@ -1,7 +1,7 @@
 {
   "label": "🌀 附件",
-  "position": "",
+  "position": 2,
   "link": {
-    "type": ""
+    "type": "generated-index"
   }
 }
