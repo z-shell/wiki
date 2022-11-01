@@ -6,9 +6,6 @@ sidebar_position: 1
 image: /img/png/theme/z/320x320.png
 description: Introduction to the ecosystem.
 keywords:
-  - annexes
-  - packages
-  - toolchain
   - zsh-plugins
   - zsh-modules
   - zsh-annexes
@@ -26,8 +23,8 @@ import ThemedImage from '@theme/ThemedImage';
   className="ImageView"
   alt="Zsh Image"
   sources={{
-      light: useBaseUrl('/img/png/zsh/zsh2.png'),
-      dark: useBaseUrl('/img/png/zsh/zsh1.png'),
+      light: useBaseUrl('/img/zsh/artwork/png/color_horizontal_icon.png'),
+      dark: useBaseUrl('/img/zsh/artwork/png/white_horizontal_icon.png'),
     }}
   />
 </div>
