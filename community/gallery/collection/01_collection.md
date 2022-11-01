@@ -13,7 +13,7 @@ keywords:
 
 :::info
 
-- Recommended to familiarize with [common syntax][common-syntax].
+- Recommended to familiarize with [standard syntax][standard-syntax].
 - Additional installation methods: [meta-plugins](/ecosystem/annexes/meta-plugins), [packages][].
 - Some installations may require additional functionally, it can be done by installing required [annexes][]:
 
@@ -57,4 +57,4 @@ For the [search][search], prefixed tags help as a minimal description of the vis
 [issues]: https://github.com/z-shell/zi/issues/new/choose
 [suggestions]: https://github.com/orgs/z-shell/discussions/new
 [search]: /search/?q=GH-R
-[common-syntax]: /docs/guides/syntax/common
+[standard-syntax]: /docs/guides/syntax/standard

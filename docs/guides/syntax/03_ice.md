@@ -28,7 +28,7 @@ The <strong>ice</strong> is something that melts in a drink, though in Zi syntax
 
 ## <i class="fas fa-arrow-down-short-wide"></i> Order of execution {#order-of-execution}
 
-The order of execution of related ice modifiers is as follows:
+The order of execution of related ice-modifiers is as follows:
 
 ```shell showLineNumbers
   atinit'' →
@@ -565,4 +565,4 @@ zi load romkatv/powerlevel10k
 [6]: https://github.com/romkatv/powerlevel10k
 [7]: /docs/guides/customization#multiple-prompts
 [8]: /docs/guides/syntax/for
-[9]: /docs/guides/syntax/common#direnv
+[9]: /docs/guides/syntax/standard#direnv

@@ -1,7 +1,7 @@
 {
   "label": "🌐 生态系统",
-  "position": "",
+  "position": 1,
   "link": {
-    "type": ""
+    "type": "generated-index"
   }
 }

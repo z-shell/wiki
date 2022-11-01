@@ -1,7 +1,7 @@
 {
-  "label": "",
-  "position": "",
+  "label": "💡 Guides",
+  "position": 2,
   "link": {
-    "type": ""
+    "type": "generated-index"
   }
 }

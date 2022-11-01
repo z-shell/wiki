@@ -15,11 +15,7 @@ import Link from '@docusaurus/Link';
 import APITable from '@site/src/components/APITable';
 import ZiTabCompletion from '@site/src/components/Markdown/\_zi_tab_completion.mdx';
 
-## Commands available using <kbd>^TAB</kbd> <Link to="/docs/getting_started/installation#enable-completions">completion</Link>
-
-<ZiTabCompletion/>
-
-## Updates
+## Updates {#updates-upgrades}
 
 To update and recompile Zi run `zi self-update` in the command line. To update all plugins and snippets, issue `zi update`. To update all in parallel (up to 40 at the time) `zi update -p 40` If you wish to update only a single plugin/snippet instead issue `zi update <plugin-name>`. A list of commits will be shown if any.
 
@@ -27,12 +23,44 @@ Some plugins require acting each time they're updated. One way you can do this i
 
 The ice-modifiers for any plugin or snippet are stored in their directory in a `._zi` subdirectory, hence the plugin doesn't have to be loaded to be correctly updated. There's one other file created there, `.zi_lstupd` – it holds the log of the new commits pulled-in in the last update.
 
-:::info Related
+Self-update & compile:
 
-- It is possible to combine system updates with tools like [topgrade][5] which will run Zi updates automatically.
-- Additional information on updates available at [general overview](/docs/getting_started/overview#updates-upgrades) section.
+```shell
+zi self-update
+```
 
-:::
+Update plugins and snippets:
+
+```shell showLineNumbers
+zi update --all
+zi update --reset
+zi update --quiet
+```
+
+Update plugins or snippets:
+
+```shell showLineNumbers
+zi update --plugins
+zi update --snippets
+```
+
+Update specific plugins. Default is GitHub but can specify any with ice [from'…'](/search?q=from):
+
+```shell
+zi update <user>/<repo>
+```
+
+Plugin parallel update plugins:
+
+```shell
+zi update --parallel
+```
+
+Increase the number of jobs in a concurrent set to 40
+
+```shell
+zi update --parallel 40
+```
 
 ## Compinit
 
@@ -266,6 +294,10 @@ Following commands are passed to `zi …` to obtain described effects.
 </APITable>
 ```
 
+## Commands available using <kbd>^TAB</kbd> <Link to="/docs/getting_started/installation#enable-completions">completion</Link>
+
+<ZiTabCompletion/>
+
 <!-- end-of-file -->
 <!--footnotes-->
 
@@ -283,4 +315,3 @@ Following commands are passed to `zi …` to obtain described effects.
 
 [3]: https://github.com/zsh-users/zsh-syntax-highlighting
 [4]: https://github.com/z-shell/F-Sy-H
-[5]: https://github.com/r-darwish/topgrade

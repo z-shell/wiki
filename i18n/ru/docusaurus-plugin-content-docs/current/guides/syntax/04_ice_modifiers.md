@@ -7,16 +7,15 @@ description: Ice Modifiers Documentation
 keywords:
   - ice-syntax
   - ice-modifiers
-  - ice-modifiers-reference
 ---
 
 <!-- @format -->
 
 import APITable from '@site/src/components/APITable';
 
-An ice modifiers are [passed][alternate-syntax] to `zi ice …` to obtain described effects, additionally can be added with [annexes][12]. To see all available ice modifiers run `zi -h`. The word `ice` means something that's added, like ice to a drink – and in Zi, it means adding a modifier to a next `zi` command, and also something temporary because it melts – and this means that the modification will last only for a **single** next `zi` command.
+An ice-modifiers are [passed][alternate-syntax] to `zi ice …` to obtain described effects, additionally can be added with [annexes][12]. To see all available ice-modifiers run `zi icemods`. The word `ice` means something that's added, like ice to a drink – and in Zi, it means adding a modifier to a next `zi` command, and also something temporary because it melts – and this means that the modification will last only for a **single** next `zi` command.
 
-Some ice modifiers are highlighted and clicking on them will take you to the appropriate Wiki page for an extended explanation. You may safely assume that given ice works with both plugins and snippets unless explicitly stated otherwise.
+Some ice-modifiers are highlighted and clicking on them will take you to the appropriate Wiki page for an extended explanation. You may safely assume that given ice works with both plugins and snippets unless explicitly stated otherwise.
 
 ## <i class="fa-solid fa-list"></i> Ice effects {#ice-effects}
 
@@ -151,7 +150,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 | `run-atpull` | Always run the atpull hook (when updating), not exclusively for new commits.                                                                                                                                                                                                                           |
 |    `nocd`    | Don't switch the current directory to the plugin's directory when evaluating the above ice-modifiers `atinit'…'`, `atload'…'`, etc.                                                                                                                                                                    |
 |  [make][5]   | Run the `make` command after cloning or updating and executing the `mv`, `cp`, `atpull`, `atclone` ice-modifiers. Can obtain argument, e.g. `make"install PREFIX=/opt"`. If the value starts with `!` then `make` is run before `atclone` and `atpull` ice-modifiers, e.g. `make'!'`.                  |
-| `countdown`  | Causes an interruptible (by <kbd>Ctrl-C</kbd>) countdown 5…4…3…2…1…0 to be displayed before executing `atclone'…'`, `atpull'…'` and `make` ices-modifiers.                                                                                                                                             |
+| `countdown`  | Causes an interruptive (<kbd>Ctrl-C</kbd>) countdown 5…4…3…2…1…0 to be displayed before executing `atclone'…'`, `atpull'…'` and `make` ices-modifiers.                                                                                                                                                 |
 |   `reset`    | Invokes `git reset --hard HEAD` for plugins or `svn revert` for SVN snippets before pulling any new changes. This way `git` or `svn` will not report conflicts if some changes were done by e.g.: `atclone'…'` ice-modifier. For file snippets and `gh-r` plugins, it invokes `rm -rf *`.              |
 
 ```mdx-code-block
@@ -205,7 +204,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 [9]: /docs/guides/syntax/ice#wrap
 [10]: /docs/guides/syntax/ice#extract
 [12]: /ecosystem/annexes/overview
-[alternate-syntax]: /docs/guides/syntax/common#the-alternative-syntaxes
+[alternate-syntax]: /docs/guides/syntax/standard#the-alternative-syntaxes
 [1]: /docs/guides/syntax/ice#src-pick-multisrc
 [1]: /docs/guides/syntax/ice#src-pick-multisrc
 [1]: /docs/guides/syntax/ice#src-pick-multisrc
@@ -216,7 +215,7 @@ Some ice modifiers are highlighted and clicking on them will take you to the app
 [4]: /docs/guides/syntax/ice#atclone-atpull-atinit-atload
 [4]: /docs/guides/syntax/ice#atclone-atpull-atinit-atload
 [4]: /docs/guides/syntax/ice#atclone-atpull-atinit-atload
-[5]: /docs/guides/syntax/common#the-make-syntax
+[5]: /docs/guides/syntax/standard#the-make-syntax
 [6]: /docs/guides/syntax/ice#id-as
 
 [7]: https://github.com/search?q=topic%3Azservice+org%3Az-shell&type=Repositories

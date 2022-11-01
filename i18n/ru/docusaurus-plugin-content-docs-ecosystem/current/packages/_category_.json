@@ -1,7 +1,7 @@
 {
-  "label": "",
-  "position": "",
+  "label": "📦 Packages",
+  "position": 3,
   "link": {
-    "type": ""
+    "type": "generated-index"
   }
 }

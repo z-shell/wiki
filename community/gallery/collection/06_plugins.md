@@ -282,7 +282,7 @@ zi wait lucid for \
 [4]: /docs/guides/syntax/for
 [5]: /docs/guides/syntax/ice
 [6]: /docs/guides/syntax/ice-modifiers
-[7]: /docs/guides/syntax/common#-compiling-programs
+[7]: /docs/guides/syntax/standard#-compiling-programs
 [8]: /docs/guides/customization#-customizing-paths
 [9]: /ecosystem/annexes/bin-gem-node#the-ice-modifiers-provided-by-the-annex
 

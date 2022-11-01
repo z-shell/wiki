@@ -43,6 +43,7 @@ autoreconf
 autorun
 autosug
 azuretools
+bapo
 Benoit
 bindir
 bindkey

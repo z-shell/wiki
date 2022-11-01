@@ -1,7 +1,7 @@
 {
   "label": "📦 软件包",
-  "position": "",
+  "position": 3,
   "link": {
-    "type": ""
+    "type": "generated-index"
   }
 }
