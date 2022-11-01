@@ -1,7 +1,7 @@
 {
   "label": "💡指南",
-  "position": "",
+  "position": 2,
   "link": {
-    "type": ""
+    "type": "generated-index"
   }
 }

@@ -1,7 +1,7 @@
 {
   "label": "👥 社区文档",
-  "position": "",
+  "position": 1,
   "link": {
-    "type": ""
+    "type": "generated-index"
   }
 }

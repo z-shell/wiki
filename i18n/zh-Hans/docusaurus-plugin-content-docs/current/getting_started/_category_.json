@@ -1,7 +1,7 @@
 {
   "label": "🚀 开始使用",
-  "position": "",
+  "position": 2,
   "link": {
-    "type": ""
+    "type": "generated-index"
   }
 }

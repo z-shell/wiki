@@ -1,7 +1,7 @@
 {
-  "label": "",
-  "position": "",
+  "label": "✍️ Syntax",
+  "position": 1,
   "link": {
-    "type": ""
+    "type": "generated-index"
   }
 }
