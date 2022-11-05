@@ -51,8 +51,8 @@
     "@docusaurus/eslint-plugin": "2.2.0",
     "@docusaurus/module-type-aliases": "2.2.0",
     "@trunkio/launcher": "1.2.2",
-    "@types/node": "18.11.8",
-    "@types/react": "18.0.24",
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.25",
     "@typescript-eslint/eslint-plugin": "5.42.0",
     "@typescript-eslint/parser": "5.42.0",
     "eslint": "8.26.0",
@@ -64,7 +64,7 @@
     "eslint-plugin-react": "7.31.10",
     "eslint-plugin-react-hooks": "4.6.0",
     "prettier": "2.7.1",
-    "stylelint": "14.14.0",
+    "stylelint": "14.14.1",
     "stylelint-color-format": "1.1.0",
     "stylelint-config-prettier": "9.0.3",
     "stylelint-config-recess-order": "3.0.0",
@@ -72,7 +72,7 @@
     "stylelint-config-standard": "29.0.0",
     "typescript": "4.8.4"
   },
-  "packageManager": "pnpm@7.14.1",
+  "packageManager": "pnpm@7.14.2",
   "engines": {
     "node": ">=16",
     "pnpm": ">=7"
