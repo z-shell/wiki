@@ -522,7 +522,7 @@ This will register the [shim-list](#shim-list) subcommand and following ice-modi
 
 [^1]: shims created by the `bin-gem-node` annex have a fixed structure, this option instructs Zi to show the list of shims that results from the [sbin](#sbin-1) ice-modifier of the loaded plugins. If a plugin for example has `sbin'git-open'`, means that such shim has already been created.
 
-[id-as]: /docs/guides/syntax/ice#id-as
+[id-as]: /docs/guides/syntax/standard#id-as
 
 [gem-home]: https://guides.rubygems.org/command-reference/#gem-environment
 [node-path]: https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders

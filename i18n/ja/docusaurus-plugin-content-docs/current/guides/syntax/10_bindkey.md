@@ -38,7 +38,7 @@ Sometimes plugins call [bindkey][1] to assign keyboard shortcuts. This can cause
 
 Also, the user might want a different binding(s), which will require complicated, additional `bindkey` commands in `.zshrc`.
 
-Zi provides a solution to this problem – the ability to remap the bindkeys with a short [ice-modifier][2] specification with the `bindmap'…'` [ice][3].
+Zi provides a solution to this problem – the ability to remap the bindkeys with a short [ice-modifier][2] `bindmap'…'`.
 
 ### <i class="fa-solid fa-circle-check"></i> Examples for `bindmap'…'`
 
@@ -131,8 +131,12 @@ The benefit of using the <kbd>UPAR</kbd>, … shorthands is that they cover mult
 <!-- end-of-file -->
 <!-- links -->
 
+
+
+<!-- external -->
+
 [1]: /search/?q=bindkey
 [2]: /search/?q=ice+modifier
-[3]: /docs/guides/syntax/ice
+
 [5]: https://en.wikipedia.org/wiki/Caret_notation
 [6]: https://en.wikipedia.org/wiki/Escape_sequence

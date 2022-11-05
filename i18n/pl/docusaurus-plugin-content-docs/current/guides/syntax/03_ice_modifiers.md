@@ -11,9 +11,19 @@ keywords:
 
 <!-- @format -->
 
+import Image from '@theme/IdealImage';
+import ZIceImg from '/img/png/theme/ice_180x170.png';
 import APITable from '@site/src/components/APITable';
 
-An ice-modifiers are [passed][alternate-syntax] to `zi ice …` to obtain described effects, additionally can be added with [annexes][12]. To see all available ice-modifiers run `zi icemods`. The word `ice` means something that's added, like ice to a drink – and in Zi, it means adding a modifier to a next `zi` command, and also something temporary because it melts – and this means that the modification will last only for a **single** next `zi` command.
+:::info FAQ: What is ice?
+
+<Image className="IceLogo" img={ZIceImg} alt="What is ice" />
+
+The <strong>ice</strong> is something that melts in a drink, though in Zi syntax, it means adding an <strong>ice-modifier</strong> that's temporary because it disappears – which means that the <strong>ice-modifier</strong> will last only for the next Zi command.
+
+:::
+
+An ice-modifiers are [passed][alternate-syntax] to `zi ice …` to obtain described effects, additionally can be added with [annexes][12]. To see all available ice-modifiers run `zi icemods`.
 
 Some ice-modifiers are highlighted and clicking on them will take you to the appropriate Wiki page for an extended explanation. You may safely assume that given ice works with both plugins and snippets unless explicitly stated otherwise.
 
@@ -50,16 +60,16 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 <APITable>
 ```
 
-|   Ice-modifier   | Description                                                                                                                                                                                                                                                                                                                     |
-|:----------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|     `proto`      | Change protocol to `git`,`ftp`,`ftps`,`ssh`, `rsync`, etc. The default is `https`. **Does not work with snippets.**                                                                                                                                                                                                             |
-| [from](ice#from) | Clone plugin from a given site. Supported are `from"github"` (default), `…"github-rel"`, `…"gitlab"`, `…"bitbucket"`, `…"notabug"` (short names: `gh`, `gh-r`, `gl`, `bb`, `nb`). Can also be a full domain name e.g: for GitHub enterprise. **Does not work with snippets.**                                                   |
-|      `ver`       | Used with `from"gh-r"` (i.e. downloading a binary release, e.g. for use with `as"program"`) – selects which version to download. Default is latest, can also be explicit `ver"latest"`. Works also with regular plugins, and checkouts e.g. `ver"branch"`, i.e. a specific version. **Does not work with snippets.**            |
-|     `bpick`      | Used to select which release from GitHub Releases to download, e.g. `zi ice from"gh-r" as"program" bpick"*Darwin*"; zi load docker/compose`. **Does not work with snippets.**                                                                                                                                                   |
-|     `depth`      | Pass `--depth` to `git`. I.e., limit how much history to download. **Does not work with snippets.**                                                                                                                                                                                                                             |
-|   `cloneopts`    | Pass the contents of `cloneopts` to `git clone`. Defaults to `--recursive`. I.e., change cloning options. Pass empty ice to disable recursive cloning. **Does not work with snippets.**                                                                                                                                         |
-|    `pullopts`    | Pass the contents of `pullopts` to `git pull` used when updating plugins. **Does not work with snippets.**                                                                                                                                                                                                                      |
-|      `svn`       | Use Subversion for downloading snippets. GitHub supports the `SVN` protocol, which allows cloning of subdirectories as snippets, e.g. `zi ice svn; zi snippet OMZP::git`. Other ice `pick` can be used to select a file to the source (default are: `*.plugin.zsh`, `init.zsh`, `*.zsh-theme`). **Does not work with plugins.** |
+|     Ice-modifier      | Description                                                                                                                                                                                                                                                                                                                     |
+|:---------------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|        `proto`        | Change protocol to `git`,`ftp`,`ftps`,`ssh`, `rsync`, etc. The default is `https`. **Does not work with snippets.**                                                                                                                                                                                                             |
+| [from](standard#from) | Clone plugin from a given site. Supported are `from"github"` (default), `…"github-rel"`, `…"gitlab"`, `…"bitbucket"`, `…"notabug"` (short names: `gh`, `gh-r`, `gl`, `bb`, `nb`). Can also be a full domain name e.g: for GitHub enterprise. **Does not work with snippets.**                                                   |
+|         `ver`         | Used with `from"gh-r"` (i.e. downloading a binary release, e.g. for use with `as"program"`) – selects which version to download. Default is latest, can also be explicit `ver"latest"`. Works also with regular plugins, and checkouts e.g. `ver"branch"`, i.e. a specific version. **Does not work with snippets.**            |
+|        `bpick`        | Used to select which release from GitHub Releases to download, e.g. `zi ice from"gh-r" as"program" bpick"*Darwin*"; zi load docker/compose`. **Does not work with snippets.**                                                                                                                                                   |
+|        `depth`        | Pass `--depth` to `git`. I.e., limit how much history to download. **Does not work with snippets.**                                                                                                                                                                                                                             |
+|      `cloneopts`      | Pass the contents of `cloneopts` to `git clone`. Defaults to `--recursive`. I.e., change cloning options. Pass empty ice to disable recursive cloning. **Does not work with snippets.**                                                                                                                                         |
+|      `pullopts`       | Pass the contents of `pullopts` to `git pull` used when updating plugins. **Does not work with snippets.**                                                                                                                                                                                                                      |
+|         `svn`         | Use Subversion for downloading snippets. GitHub supports the `SVN` protocol, which allows cloning of subdirectories as snippets, e.g. `zi ice svn; zi snippet OMZP::git`. Other ice `pick` can be used to select a file to the source (default are: `*.plugin.zsh`, `init.zsh`, `*.zsh-theme`). **Does not work with plugins.** |
 
 ```mdx-code-block
 </APITable>
@@ -201,21 +211,21 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 [8]: /docs/guides/syntax/bindkey
 
 [8]: /docs/guides/syntax/bindkey
-[9]: /docs/guides/syntax/ice#wrap
-[10]: /docs/guides/syntax/ice#extract
+[9]: /docs/guides/syntax/standard#wrap
+[10]: /docs/guides/syntax/standard#extract
 [12]: /ecosystem/annexes/overview
 [alternate-syntax]: /docs/guides/syntax/standard#the-alternative-syntaxes
-[1]: /docs/guides/syntax/ice#src-pick-multisrc
-[1]: /docs/guides/syntax/ice#src-pick-multisrc
-[1]: /docs/guides/syntax/ice#src-pick-multisrc
-[2]: /docs/guides/syntax/ice#wait
+[1]: /docs/guides/syntax/standard#src-pick-multisrc
+[1]: /docs/guides/syntax/standard#src-pick-multisrc
+[1]: /docs/guides/syntax/standard#src-pick-multisrc
+[2]: /docs/guides/syntax/standard#wait
 [3]: /docs/guides/customization#multiple-prompts
 [3]: /docs/guides/customization#multiple-prompts
-[4]: /docs/guides/syntax/ice#atclone-atpull-atinit-atload
-[4]: /docs/guides/syntax/ice#atclone-atpull-atinit-atload
-[4]: /docs/guides/syntax/ice#atclone-atpull-atinit-atload
-[4]: /docs/guides/syntax/ice#atclone-atpull-atinit-atload
+[4]: /docs/guides/syntax/standard#atclone-atpull-atinit-atload
+[4]: /docs/guides/syntax/standard#atclone-atpull-atinit-atload
+[4]: /docs/guides/syntax/standard#atclone-atpull-atinit-atload
+[4]: /docs/guides/syntax/standard#atclone-atpull-atinit-atload
 [5]: /docs/guides/syntax/standard#the-make-syntax
-[6]: /docs/guides/syntax/ice#id-as
+[6]: /docs/guides/syntax/standard#id-as
 
 [7]: https://github.com/search?q=topic%3Azservice+org%3Az-shell&type=Repositories

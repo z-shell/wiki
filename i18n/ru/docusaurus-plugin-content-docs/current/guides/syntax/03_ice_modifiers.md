@@ -11,9 +11,19 @@ keywords:
 
 <!-- @format -->
 
+import Image from '@theme/IdealImage';
+import ZIceImg from '/img/png/theme/ice_180x170.png';
 import APITable from '@site/src/components/APITable';
 
-An ice-modifiers are [passed][alternate-syntax] to `zi ice …` to obtain described effects, additionally can be added with [annexes][12]. To see all available ice-modifiers run `zi icemods`. The word `ice` means something that's added, like ice to a drink – and in Zi, it means adding a modifier to a next `zi` command, and also something temporary because it melts – and this means that the modification will last only for a **single** next `zi` command.
+:::info FAQ: What is ice?
+
+<Image className="IceLogo" img={ZIceImg} alt="What is ice" />
+
+The <strong>ice</strong> is something that melts in a drink, though in Zi syntax, it means adding an <strong>ice-modifier</strong> that's temporary because it disappears – which means that the <strong>ice-modifier</strong> will last only for the next Zi command.
+
+:::
+
+An ice-modifiers are [passed][alternate-syntax] to `zi ice …` to obtain described effects, additionally can be added with [annexes][12]. To see all available ice-modifiers run `zi icemods`.
 
 Some ice-modifiers are highlighted and clicking on them will take you to the appropriate Wiki page for an extended explanation. You may safely assume that given ice works with both plugins and snippets unless explicitly stated otherwise.
 
@@ -23,7 +33,7 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 <APITable>
 ```
 
-|  Ice-modifier   | 説明                                                                                                                                                                                                                                                                                                                                                                       |
+|  Ice-modifier   | Description                                                                                                                                                                                                                                                                                                                                                              |
 |:---------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |      `as`       | Can be `as"program"` (alias: `as"command"`), and will cause to add script/program to `$PATH` instead of sourcing (see `pick`). Can also be `as"completion"` – use with plugins or snippets in whose only underscore-starting `_*` files you are interested in. [^8]                                                                                                      |
 |   [id-as][6]    | Nickname a plugin or snippet, e.g. create a short handler for the long-URL snippet.                                                                                                                                                                                                                                                                                      |
@@ -50,16 +60,16 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 <APITable>
 ```
 
-|   Ice-modifier   | 説明                                                                                                                                                                                                                                                                                                                              |
-|:----------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|     `proto`      | Change protocol to `git`,`ftp`,`ftps`,`ssh`, `rsync`, etc. The default is `https`. **Does not work with snippets.**                                                                                                                                                                                                             |
-| [from](ice#from) | Clone plugin from a given site. Supported are `from"github"` (default), `…"github-rel"`, `…"gitlab"`, `…"bitbucket"`, `…"notabug"` (short names: `gh`, `gh-r`, `gl`, `bb`, `nb`). Can also be a full domain name e.g: for GitHub enterprise. **Does not work with snippets.**                                                   |
-|      `ver`       | Used with `from"gh-r"` (i.e. downloading a binary release, e.g. for use with `as"program"`) – selects which version to download. Default is latest, can also be explicit `ver"latest"`. Works also with regular plugins, and checkouts e.g. `ver"branch"`, i.e. a specific version. **Does not work with snippets.**            |
-|     `bpick`      | Used to select which release from GitHub Releases to download, e.g. `zi ice from"gh-r" as"program" bpick"*Darwin*"; zi load docker/compose`. **Does not work with snippets.**                                                                                                                                                   |
-|     `depth`      | Pass `--depth` to `git`. I.e., limit how much history to download. **Does not work with snippets.**                                                                                                                                                                                                                             |
-|   `cloneopts`    | Pass the contents of `cloneopts` to `git clone`. Defaults to `--recursive`. I.e., change cloning options. Pass empty ice to disable recursive cloning. **Does not work with snippets.**                                                                                                                                         |
-|    `pullopts`    | Pass the contents of `pullopts` to `git pull` used when updating plugins. **Does not work with snippets.**                                                                                                                                                                                                                      |
-|      `svn`       | Use Subversion for downloading snippets. GitHub supports the `SVN` protocol, which allows cloning of subdirectories as snippets, e.g. `zi ice svn; zi snippet OMZP::git`. Other ice `pick` can be used to select a file to the source (default are: `*.plugin.zsh`, `init.zsh`, `*.zsh-theme`). **Does not work with plugins.** |
+|     Ice-modifier      | Description                                                                                                                                                                                                                                                                                                                     |
+|:---------------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|        `proto`        | Change protocol to `git`,`ftp`,`ftps`,`ssh`, `rsync`, etc. The default is `https`. **Does not work with snippets.**                                                                                                                                                                                                             |
+| [from](standard#from) | Clone plugin from a given site. Supported are `from"github"` (default), `…"github-rel"`, `…"gitlab"`, `…"bitbucket"`, `…"notabug"` (short names: `gh`, `gh-r`, `gl`, `bb`, `nb`). Can also be a full domain name e.g: for GitHub enterprise. **Does not work with snippets.**                                                   |
+|         `ver`         | Used with `from"gh-r"` (i.e. downloading a binary release, e.g. for use with `as"program"`) – selects which version to download. Default is latest, can also be explicit `ver"latest"`. Works also with regular plugins, and checkouts e.g. `ver"branch"`, i.e. a specific version. **Does not work with snippets.**            |
+|        `bpick`        | Used to select which release from GitHub Releases to download, e.g. `zi ice from"gh-r" as"program" bpick"*Darwin*"; zi load docker/compose`. **Does not work with snippets.**                                                                                                                                                   |
+|        `depth`        | Pass `--depth` to `git`. I.e., limit how much history to download. **Does not work with snippets.**                                                                                                                                                                                                                             |
+|      `cloneopts`      | Pass the contents of `cloneopts` to `git clone`. Defaults to `--recursive`. I.e., change cloning options. Pass empty ice to disable recursive cloning. **Does not work with snippets.**                                                                                                                                         |
+|      `pullopts`       | Pass the contents of `pullopts` to `git pull` used when updating plugins. **Does not work with snippets.**                                                                                                                                                                                                                      |
+|         `svn`         | Use Subversion for downloading snippets. GitHub supports the `SVN` protocol, which allows cloning of subdirectories as snippets, e.g. `zi ice svn; zi snippet OMZP::git`. Other ice `pick` can be used to select a file to the source (default are: `*.plugin.zsh`, `init.zsh`, `*.zsh-theme`). **Does not work with plugins.** |
 
 ```mdx-code-block
 </APITable>
@@ -71,7 +81,7 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 <APITable>
 ```
 
-| Ice-modifier  | 説明                                                                                                                                                |
+| Ice-modifier  | Description                                                                                                                                       |
 |:-------------:| ------------------------------------------------------------------------------------------------------------------------------------------------- |
 |   [pick][1]   | Select the file to source, or the file to set as a command, when using `snippet --command` or the ice `as"program"`. More below [^1].             |
 |   [src][1]    | Specify an additional file to source after the main file or after setting up command via `as"program"`. It is not a pattern but a plain filename. |
@@ -87,7 +97,7 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 <APITable>
 ```
 
-|  Ice-modifier  | 説明                                                                                                                       |
+|  Ice-modifier  | Description                                                                                                              |
 |:--------------:| ------------------------------------------------------------------------------------------------------------------------ |
 |   [wait][2]    | Postpone loading a plugin or snippet. For `wait'1'`, loading is done `1` second after the prompt. [^3].                  |
 |   [load][3]    | A condition to check which should cause the plugin to load. [^4].                                                        |
@@ -108,7 +118,7 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 <APITable>
 ```
 
-| Ice-modifier | 説明                                                                                                                                                                                                                                                                                                          |
+| Ice-modifier | Description                                                                                                                                                                                                                                                                                                 |
 |:------------:| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |   `silent`   | Mute plugin's or snippet's `stderr` & `stdout`. Also, skip the `loaded …` message under the prompt for `wait`, etc. loaded plugins, and completion-installation messages.                                                                                                                                   |
 |   `lucid`    | Skip `loaded …` message under prompt for `wait`, etc. loaded plugins (a subset of `silent`).                                                                                                                                                                                                                |
@@ -118,13 +128,13 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 </APITable>
 ```
 
-## <i class="fa-solid fa-list"></i> 補完 {#completions}
+## <i class="fa-solid fa-list"></i> Completions {#completions}
 
 ```mdx-code-block
 <APITable>
 ```
 
-|  Ice-modifier   | 説明                                                                                                                                                                    |
+|  Ice-modifier   | Description                                                                                                                                                           |
 |:---------------:| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |    `blockf`     | Disallow plugin to modify `fpath`. Useful when a plugin wants to provide completions traditionally. Manage completions using Zi and block the plugins to expose them. |
 | `nocompletions` | Skip plugin completions detection and installation. Completions can be installed anytime using: `zi creinstall {plugin-name}`.                                        |
@@ -139,7 +149,7 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 <APITable>
 ```
 
-| Ice-modifier | 説明                                                                                                                                                                                                                                                                                                     |
+| Ice-modifier | Description                                                                                                                                                                                                                                                                                            |
 |:------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |     `mv`     | Move file after cloning or update (only for new commits). Example: `mv "fzf-* -> fzf"`. It uses `->` as a separator for old and new file names. Also works with snippets.                                                                                                                        |
 |     `cp`     | Copy file after cloning or update (only for new commits). Example: `cp "docker-c* -> dcompose"`. Ran after `mv`.                                                                                                                                                                                    |
@@ -163,7 +173,7 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 <APITable>
 ```
 
-|  Ice-modifier   | 説明                                                                                                                                                                                                                                                                                                                   |
+|  Ice-modifier   | Description                                                                                                                                                                                                                                                                                                          |
 |:---------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |   `sh`, `!sh`   | Source the plugin's (or snippet's) script with `sh` emulation so that also all functions declared within the file will get a **sticky** emulation assigned and invoked with the `sh` emulation set-up. The `!sh` version switches additional options that are rather not important from the portability perspective. |
 | `bash`, `!bash` | The same as `sh`, but with the `SH_GLOB` option disabled, for "Bash" regular expressions to work.                                                                                                                                                                                                                    |
@@ -201,21 +211,21 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 [8]: /docs/guides/syntax/bindkey
 
 [8]: /docs/guides/syntax/bindkey
-[9]: /docs/guides/syntax/ice#wrap
-[10]: /docs/guides/syntax/ice#extract
+[9]: /docs/guides/syntax/standard#wrap
+[10]: /docs/guides/syntax/standard#extract
 [12]: /ecosystem/annexes/overview
 [alternate-syntax]: /docs/guides/syntax/standard#the-alternative-syntaxes
-[1]: /docs/guides/syntax/ice#src-pick-multisrc
-[1]: /docs/guides/syntax/ice#src-pick-multisrc
-[1]: /docs/guides/syntax/ice#src-pick-multisrc
-[2]: /docs/guides/syntax/ice#wait
+[1]: /docs/guides/syntax/standard#src-pick-multisrc
+[1]: /docs/guides/syntax/standard#src-pick-multisrc
+[1]: /docs/guides/syntax/standard#src-pick-multisrc
+[2]: /docs/guides/syntax/standard#wait
 [3]: /docs/guides/customization#multiple-prompts
 [3]: /docs/guides/customization#multiple-prompts
-[4]: /docs/guides/syntax/ice#atclone-atpull-atinit-atload
-[4]: /docs/guides/syntax/ice#atclone-atpull-atinit-atload
-[4]: /docs/guides/syntax/ice#atclone-atpull-atinit-atload
-[4]: /docs/guides/syntax/ice#atclone-atpull-atinit-atload
+[4]: /docs/guides/syntax/standard#atclone-atpull-atinit-atload
+[4]: /docs/guides/syntax/standard#atclone-atpull-atinit-atload
+[4]: /docs/guides/syntax/standard#atclone-atpull-atinit-atload
+[4]: /docs/guides/syntax/standard#atclone-atpull-atinit-atload
 [5]: /docs/guides/syntax/standard#the-make-syntax
-[6]: /docs/guides/syntax/ice#id-as
+[6]: /docs/guides/syntax/standard#id-as
 
 [7]: https://github.com/search?q=topic%3Azservice+org%3Az-shell&type=Repositories

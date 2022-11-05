@@ -15,9 +15,9 @@ keywords:
 
 import APITable from '@site/src/components/APITable';
 
-The `for` syntax is the most popular, more concise, and more optimized. The single command will work the same as the classic-syntax invocation.
+The `for` syntax is the most popular, more concise, and more optimized. The single command will work the same as the [standard syntax][standard-syntax] invocation.
 
-It allows providing common/default ice-modifiers for a <b>set of plugins</b> or to source <b>multiple files</b> with the ices: [src, pick, multisrc][ice#src-pick-multisrc].
+It allows providing common/default ice-modifiers for a <b>set of plugins</b> or to source <b>multiple files</b> with the ices: [src, pick, multisrc][src-pick-multisrc].
 
 :::tip
 
@@ -81,7 +81,7 @@ zi wait lucid for \
     OMZ::plugins/git/git.plugin.zsh
 ```
 
-Popular plugin set with [turbo][6] and [for][10]:
+Popular plugin set with [turbo][6] and The "For":
 
 ```shell {1} showLineNumbers
 zi wait lucid light-mode for \
@@ -112,9 +112,9 @@ zi wait lucid light-mode for \
 </APITable>
 ```
 
-## <i class="fa-solid fa-list"></i> Oh-My-Zsh, [turbo][6] Oh-My-Zsh and the [for][10] syntax
+## <i class="fa-solid fa-list"></i> Oh-My-Zsh, [turbo][6] Oh-My-Zsh and the The "For" syntax
 
-### <i class="fa-solid fa-forward-step"></i> Without [turbo mode][6] and [for][10]
+### <i class="fa-solid fa-forward-step"></i> Without [turbo mode][6] and The "For"
 
 ```shell showLineNumbers
 # A.
@@ -142,7 +142,7 @@ zi ice atinit"zicompinit; zicdreplay"
 zi light z-shell/F-Sy-H
 ```
 
-### <i class="fa-solid fa-forward-fast"></i> With [turbo mode][6] and [for][10]
+### <i class="fa-solid fa-forward-fast"></i> With [turbo mode][6] and The "For"
 
 ```shell showLineNumbers
 # A.
@@ -191,6 +191,37 @@ The above setup loads everything after the prompt, because of the preceding `wai
 
 Try both setups on the daily basis to notice the difference. The features of Zi can do much more than this simple example.
 
+### `zi-turbo '…' for …` {#zi-turbo--for-}
+
+The `zi-turbo` is a function to simplify `wait`:
+
+```shell showLineNumbers
+zi-turbo() {
+  zi depth'3' lucid ${1/#[0-9][a-c]/wait"${1}"} "${@:2}"
+}
+```
+
+Then use the `for` syntax in the imposed loading order:
+
+```shell {1,6,10,15} showLineNumbers
+zi-turbo '0a' for \
+  OMZL::git.zsh \
+  OMZL::compfix.zsh \
+  OMZL::functions.zsh \
+
+zi-turbo '0b' for \
+  OMZL::prompt_info_functions.zsh OMZL::spectrum.zsh \
+  OMZL::clipboard.zsh OMZL::termsupport.zsh OMZL::directories.zsh
+
+zi-turbo '0c' for \
+  OMZP::sudo OMZP::encode64 \
+    atload"unalias grv g" OMZP::git \
+  OMZP::gcloud OMZP::nvm OMZP::gem OMZP::rust
+
+zi-turbo '1a' for \
+  MichaelAquilina/zsh-you-should-use
+```
+
 ## <i class="fa-solid fa-book-bookmark"></i> Summary
 
 In general, [turbo mode][6] can be optionally enabled only for a subset of plugins or for all plugins.
@@ -206,6 +237,10 @@ However, in practice, you just have to ensure that such plugin is loaded after p
 
 <!-- links -->
 
+
+
+<!-- external -->
+
 [^1]: Then the tracking of plugin, activity report gathering, accessible via the `zi report {plugin-name}` subcommand) is being disabled. Note that for turbo mode, the performance gains are almost `0`, so in this mode, you can load all plugins with the tracking and the `light-mode` ice can be removed from the command.
 [^2]: They were recorded and `compinit` can be called later. `compinit` provides the `compdef` function, so it must be run before issuing the taken-over `compdef`s with `zicdreplay`.
 
@@ -220,7 +255,8 @@ However, in practice, you just have to ensure that such plugin is loaded after p
 [6]: /search/?q=turbo+mode
 [7]: /search/?q=oh+my+zsh
 [8]: /search/?q=snippets
-[10]: /docs/guides/syntax/for
+[standard-syntax]: /docs/guides/syntax/standard
+[src-pick-multisrc]: /docs/guides/syntax/standard#src-pick-multisrc
+
 [11]: https://github.com/z-shell/F-Sy-H
 [12]: https://github.com/zsh-users/zsh-syntax-highlighting
-[ice#src-pick-multisrc]: /docs/guides/syntax/ice#src-pick-multisrc

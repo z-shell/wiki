@@ -20,10 +20,10 @@ The motivation for adding packages functionality:
 2. It has multiple package-manager-like features, such as:
 
    - get the plugin's Git repository OR release-package URL,
-   - get the list of the recommended [ices][] for the plugin,
-     - there can be multiple lists of [ices][],
-     - the ices list is stored in profiles; there's at least one profile, default,
-     - the [ices][] can be selectively overridden.
+   - get the list of the recommended [ice-modifiers][] for the plugin,
+     - there can be multiple lists of [ice-modifiers][],
+     - the ice-modifiers list is stored in profiles; there's at least one profile, default,
+     - the [ice-modifiers][] can be selectively overridden.
    - automatically provide so-called shims (i.e.: forwarder scripts) for the binaries,
    - extend `$PATH` to expose the binaries,
    - it can run `Makefile` and more.
@@ -57,7 +57,7 @@ The Unicode arrow is allowed in Zi syntax as in the example below.
 zi id-as=jekyll pack param='GEM → jekyll' for any-gem
 ```
 
-The binaries will be exposed without altering the PATH via shims. Shims are correctly removed when deleting a plugin with `zi delete …` The so-called packages are GitHub repositories holding a `package.json` file with the meta-data in them. This way you don't have to (but still can) specify ices, which might be handy when the [ice-modifiers][] list is long and complex.
+The binaries will be exposed without altering the PATH via shims. Shims are correctly removed when deleting a plugin with `zi delete …` The so-called packages are GitHub repositories holding a `package.json` file with the meta-data in them. This way you don't have to (but still can) specify ice-modifiers, which might be handy when the [ice-modifiers][] list is long and complex.
 
 ## Introductory example
 
@@ -114,7 +114,7 @@ Thus, summing up 1. with 4., it might be nice/convenient too, for example, have 
 
 1. Contact the author to have the repository at the [Z-Shell][z-shell] organization or set the [ZI\[PKG_OWNER\]][modify-settings].
 
-2. Populate the `package.json` – I suggest grabbing the one for `fzf` or `doctoc` and doing a few substitutions like [doctoc][] → `your-project` and then simply filling the `default` profile in the `zi-ices` object – it is same as passing ices to `zi ice …` but in JSON.
+2. Populate the `package.json` – I suggest grabbing the one for `fzf` or `doctoc` and doing a few substitutions like [doctoc][] → `your-project` and then simply filling the `default` profile in the `zi-ices` object – it is same as passing ice-modifiers to `zi ice …` but in JSON.
 
 3. The project name in the `package.json` should start with `zsh-`. The prefix will be skipped when specifying it with Zi.
 
@@ -129,7 +129,6 @@ Thus, summing up 1. with 4., it might be nice/convenient too, for example, have 
 
 [bin-gem-node]: /ecosystem/annexes/bin-gem-node
 [ice-modifiers]: /docs/guides/syntax/ice-modifiers
-[ices]: /docs/guides/syntax/ice
 [modify-settings]: /docs/guides/customization#modify-settings
 
 [any-gem]: https://github.com/z-shell/any-gem
