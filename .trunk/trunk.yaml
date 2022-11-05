@@ -21,7 +21,7 @@ plugins:
   sources:
     - id: trunk
       uri: https://github.com/trunk-io/plugins
-      ref: v0.0.5
+      ref: v0.0.6
       import_to_global: true
 actions:
   enabled:
@@ -38,9 +38,9 @@ lint:
     - taplo
   enabled:
     - svgo@3.0.0
-    - stylelint@14.14.0
+    - stylelint@14.14.1
     - git-diff-check@SYSTEM
-    - actionlint@1.6.21
+    - actionlint@1.6.22
     - eslint@8.26.0
     - gitleaks@8.15.0
     - markdownlint@0.32.2

@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
 import APITable from '@site/src/components/APITable';
 
-An annex has the curated, optimal [ice][] lists automatically applied. For more details refer to [z-a-meta-plugins.plugin.zsh][] file.
+An annex has the curated, optimal [ice-modifiers][] lists automatically applied. For more details refer to [z-a-meta-plugins.plugin.zsh][] file.
 
 :::tip
 
@@ -143,7 +143,7 @@ This will register the `skip'…'` ice-modifier.
 <!-- end-of-file -->
 <!-- links -->
 
-[ice]: /docs/guides/syntax/ice
+[ice-modifiers]: /docs/guides/syntax/ice-modifiers
 
 <!-- external -->
 

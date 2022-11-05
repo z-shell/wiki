@@ -29,7 +29,7 @@ Do not hesitate to [report any issues][issues] you encounter.
 2. [Turbo and lucid][turbo-and-lucid]
 3. [The "for" syntax][for-syntax]
 4. [The "make" syntax][make-syntax]
-5. [Ice syntax][ice-syntax]
+5. [Standard syntax][standard-syntax]
 6. [Ice modifiers][ice-modifiers]
 7. [Compiling programs][compiling-programs]
 8. [Customizing paths][customizing-paths]
@@ -643,7 +643,7 @@ zi for as'program' nocompile'!' depth'1' \
 [for-syntax]: /docs/guides/syntax/for
 [ice-modifiers-by-bin-gem-node]: /ecosystem/annexes/bin-gem-node#the-ice-modifiers-provided-by-the-annex
 [ice-modifiers]: /docs/guides/syntax/ice-modifiers
-[ice-syntax]: /docs/guides/syntax/ice
+[standard-syntax]: /docs/guides/syntax/standard
 [make-syntax]: /docs/guides/syntax/standard#the-make-syntax
 [turbo-and-lucid]: /docs/getting_started/overview/#turbo--lucid
 [bin-gem-node]: /ecosystem/annexes/bin-gem-node

@@ -250,7 +250,7 @@ zi snippet "$XDG_CONFIG_HOME/broot/launcher/bash/br"
 [calling-compinit-without-turbo-mode]: /docs/guides/commands#calling-compinit-without-turbo-mode
 [completions-management]: /docs/guides/commands#completions-management
 [ice-modifiers-completions]: /docs/guides/syntax/ice-modifiers#completions
-[ice-src-pick-multisrc]: /docs/guides/syntax/ice#src-pick-multisrc
+[ice-src-pick-multisrc]: /docs/guides/syntax/standard#src-pick-multisrc
 
 <!-- external-links -->
 

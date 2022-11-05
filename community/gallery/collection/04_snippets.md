@@ -12,8 +12,8 @@ keywords:
 
 :::info Related:
 
-1. [Ice: svn](/docs/guides/syntax/ice#the-ice-ice)
-2. [Ice: multisrc'…'](/docs/guides/syntax/ice#the-multisrc-ice)
+1. [Ice: svn][the-svn-ice]
+2. [Ice: multisrc'…'][the-multisrc-ice]
 
 :::
 
@@ -36,3 +36,9 @@ zi snippet OMZ::lib
 zi ice svn
 zi snippet OMZ::plugins/osx
 ```
+
+<!-- end-of-file -->
+<!-- links -->
+
+[the-svn-ice]: /docs/guides/syntax/standard#the-svn-ice
+[the-multisrc-ice]: /docs/guides/syntax/standard#the-multisrc-ice

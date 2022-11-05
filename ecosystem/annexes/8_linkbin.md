@@ -70,7 +70,7 @@ myfzf --version
 
 ## Auto nickname link
 
-If ice-modifier [id-as](/docs/guides/syntax/ice#id-as) is empty, then will try to create the link with a nickname as follows:
+If ice-modifier [id-as](/docs/guides/syntax/standard#id-as) is empty, then will try to create the link with a nickname as follows:
 
 1. Trailing component of the `id-as` ice-modifier, e.g.: `id-as'exts/git-my'` → it will check if a file `git-my` exists and if yes, create the link `git-my`.
 2. The plugin name, e.g.: for `paulirish/git-open` it'll check if a file `git-open` exists and if yes, create the link `git-open`.

@@ -416,7 +416,7 @@ Load repositories as prezto plugins:
 
 :::info
 
-For the `location`: refer <Link to="/docs/guides/syntax/ice#src-pick-multisrc">src, pick, multisrc</Link> ice-modifier.
+For the `location`: refer <Link to="/docs/guides/syntax/standard#src-pick-multisrc">src, pick, multisrc</Link> ice-modifier.
 
 :::
 

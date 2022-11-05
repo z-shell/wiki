@@ -516,7 +516,7 @@ This will register the [shim-list](#shim-list) subcommand and following ice-modi
 
 <!-- links -->
 
-[id-as]: /docs/guides/syntax/ice#id-as
+[id-as]: /docs/guides/syntax/standard#id-as
 [unscope]: /ecosystem/annexes/unscope
 
 <!-- external -->

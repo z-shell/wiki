@@ -13,9 +13,9 @@ keywords:
 
 :::info Related
 
-1. [Multiple prompts](/docs/guides/customization#multiple-prompts)
-2. [Automatic load/unload based on condition](/docs/getting_started/overview#automatic-condition-based---load--unload)
-3. [Ice `atclone`, `atpull`, `atinit`, `atload`](/docs/guides/syntax/ice#atclone-atpull-atinit-atload)
+1. [Multiple prompts][multiple-prompts]
+2. [Automatic load/unload based on condition][automatic-condition-based---load--unload]
+3. [Ice `atclone`, `atpull`, `atinit`, `atload`][atclone-atpull-atinit-atload]
 
 :::
 
@@ -199,6 +199,15 @@ ZINC git info is already async, but if you want it even faster with [gitstatus][
 zi ice wait'1' atload'zinc_optional_dependency_loaded'
 zi load romkatv/gitstatus
 ```
+
+<!-- end-of-file -->
+<!-- links -->
+
+[multiple-prompts]: /docs/guides/customization#multiple-prompts
+[automatic-condition-based---load--unload]: /docs/getting_started/overview#automatic-condition-based---load--unload
+[atclone-atpull-atinit-atload]: /docs/guides/syntax/standard#atclone-atpull-atinit-atload
+
+<!-- external -->
 
 [robobenklein/zinc]: https://github.com/robobenklein/zinc
 [gitstatus]: https://github.com/romkatv/gitstatus

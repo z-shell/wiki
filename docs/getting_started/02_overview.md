@@ -386,7 +386,7 @@ zi ice wait'!' lucid nocd \
 zi load robobenklein/zinc
 ```
 
-The exclamation mark in `atload'!…'` is to track the functions allowing the plugin to be unloaded, as described [here](/docs/guides/syntax/ice#atclone-atpull-atinit-atload). It might be useful for the multi-prompt setup described next.
+The exclamation mark in `atload'!…'` is to track the functions allowing the plugin to be unloaded, as described [here](/docs/guides/syntax/standard#atclone-atpull-atinit-atload). It might be useful for the multi-prompt setup described next.
 
 ### Summary of turbo mode
 

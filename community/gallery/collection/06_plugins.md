@@ -16,7 +16,7 @@ Related:
 
 1. [Usage: Turbo and Lucid][3]
 2. [Syntax: The `for` syntax][4]
-3. [Guides: Ice Syntax][5]
+3. [Guides: Standard Syntax][5]
 4. [Guides: Ice Modifiers][6]
 5. [Compiling programs][7]
 6. [Customizing paths][8]
@@ -280,10 +280,10 @@ zi wait lucid for \
 
 [3]: /docs/getting_started/overview#turbo--lucid
 [4]: /docs/guides/syntax/for
-[5]: /docs/guides/syntax/ice
+[5]: /docs/guides/syntax/standard
 [6]: /docs/guides/syntax/ice-modifiers
-[7]: /docs/guides/syntax/standard#-compiling-programs
-[8]: /docs/guides/customization#-customizing-paths
+[7]: /docs/guides/syntax/standard#compiling-programs
+[8]: /docs/guides/customization#customizing-paths
 [9]: /ecosystem/annexes/bin-gem-node#the-ice-modifiers-provided-by-the-annex
 
 <!-- external -->
