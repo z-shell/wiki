@@ -50,7 +50,7 @@
     "@crowdin/cli": "3.9.0",
     "@docusaurus/eslint-plugin": "2.2.0",
     "@docusaurus/module-type-aliases": "2.2.0",
-    "@trunkio/launcher": "1.2.2",
+    "@trunkio/launcher": "1.2.3",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@typescript-eslint/eslint-plugin": "5.42.1",
