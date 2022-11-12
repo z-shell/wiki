@@ -85,7 +85,6 @@
 }
 
 .indexCtasGitHubButton {
-  overflow: hidden;
   border: 0;
 }
 
@@ -113,6 +112,18 @@
 
 .indexCtas a:last-of-type {
   margin: 16px 24px;
+}
+
+.section {
+  padding: 72px 0;
+}
+
+.sectionAlt {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.sectionInner {
+  margin: 0 auto;
 }
 
 @media only screen and (max-width: 768px) {
@@ -166,16 +177,4 @@
   .heroLogo {
     display: none;
   }
-}
-
-.section {
-  padding: 72px 0;
-}
-
-.sectionAlt {
-  background-color: var(--ifm-color-emphasis-100);
-}
-
-.sectionInner {
-  margin: 0 auto;
 }

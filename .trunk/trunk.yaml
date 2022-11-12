@@ -6,7 +6,7 @@ runtimes:
     - node@16.14.2
 version: 0.1
 cli:
-  version: 1.0.1
+  version: 1.1.0
   options:
     - commands: [ALL]
       args: --monitor=true
@@ -25,23 +25,24 @@ plugins:
       import_to_global: true
 actions:
   enabled:
+    - trunk-announce
+    - trunk-check-pre-push
+    - trunk-fmt-pre-commit
     - trunk-upgrade-available
     - trunk-check-pre-push
     - trunk-fmt-pre-commit
     - trunk-cache-prune
-    - trunk-check-upgrade
-    - trunk-upgrade
 lint:
   disabled:
     - shellcheck
     - hadolint
     - taplo
   enabled:
-    - svgo@3.0.0
+    - svgo@3.0.1
     - stylelint@14.14.1
     - git-diff-check@SYSTEM
     - actionlint@1.6.22
-    - eslint@8.26.0
+    - eslint@8.27.0
     - gitleaks@8.15.0
     - markdownlint@0.32.2
     - prettier@2.7.1
