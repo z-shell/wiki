@@ -11,9 +11,7 @@ keywords:
 
 <!-- @format -->
 
-import Emoji from '@site/src/components/Emoji';
-import APITable from '@site/src/components/APITable';
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
+import Emoji from '@site/src/components/Emoji'; import APITable from '@site/src/components/APITable'; import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 ## Package repositories
 

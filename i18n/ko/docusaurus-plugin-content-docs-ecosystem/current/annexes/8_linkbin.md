@@ -12,9 +12,7 @@ keywords:
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import Link from '@docusaurus/Link';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link';
 
 An annex exposes a binary program without modifying `$PATH` – `z-a-linkbin` and automatically creates a hard or soft link to the binary at `$ZPFX/bin` exposing the program to the command line as if it were being placed in `$PATH`.
 

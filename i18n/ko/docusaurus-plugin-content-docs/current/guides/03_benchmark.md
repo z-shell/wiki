@@ -13,8 +13,7 @@ keywords:
 
 <!-- @format -->
 
-import APITable from '@site/src/components/APITable';
-import ReportZprofExample from '@site/src/components/Markdown/\_report_zprof_example.mdx';
+import APITable from '@site/src/components/APITable'; import ReportZprofExample from '@site/src/components/Markdown/\_report_zprof_example.mdx';
 
 :::info
 

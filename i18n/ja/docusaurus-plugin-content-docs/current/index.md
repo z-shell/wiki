@@ -15,12 +15,7 @@ keywords:
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import Link from '@docusaurus/Link';
-import Image from '@theme/IdealImage';
-import ImgShow from '@site/src/components/ImgShow';
-import ZGitImg from '@site/static/img/png/theme/z_git.png';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link'; import Image from '@theme/IdealImage'; import ImgShow from '@site/src/components/ImgShow'; import ZGitImg from '@site/static/img/png/theme/z_git.png';
 
 <Image img={ZGitImg} />
 <Link href="https://github.com/orgs/z-shell/">

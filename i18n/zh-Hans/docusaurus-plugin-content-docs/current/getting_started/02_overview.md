@@ -9,8 +9,7 @@ keywords:
 
 <!-- @format -->
 
-import ImgShow from '@site/src/components/ImgShow';
-import Link from '@docusaurus/Link';
+import ImgShow from '@site/src/components/ImgShow'; import Link from '@docusaurus/Link';
 
 此概览包括以下内容：
 
