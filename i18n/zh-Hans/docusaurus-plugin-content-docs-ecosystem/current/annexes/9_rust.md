@@ -11,9 +11,7 @@ keywords:
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import Link from '@docusaurus/Link';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link';
 
 An annex installs rust and cargo packages locally inside the plugin or snippet directories. The crate can create so-called _shims_ – scripts that are exposed to the standard `$PATH`.
 

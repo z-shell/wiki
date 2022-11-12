@@ -12,10 +12,7 @@ keywords:
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import Link from '@docusaurus/Link';
-import Emoji from '@site/src/components/Emoji';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link'; import Emoji from '@site/src/components/Emoji';
 
 ## <i class="fas fa-spinner fa-spin"></i> Quick setup {#quick-setup}
 

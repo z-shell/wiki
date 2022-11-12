@@ -14,10 +14,7 @@ draft: true
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import Link from '@docusaurus/Link';
-import ImgShow from '@site/src/components/ImgShow';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link'; import ImgShow from '@site/src/components/ImgShow';
 
 An annex runs `zunit` and `make` tests if they are configured in the repository.
 

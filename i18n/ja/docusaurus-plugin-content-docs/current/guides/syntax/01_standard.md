@@ -14,8 +14,7 @@ keywords:
 
 <!-- @format -->
 
-import ImgShow from '@site/src/components/ImgShow';
-import APITable from '@site/src/components/APITable';
+import ImgShow from '@site/src/components/ImgShow'; import APITable from '@site/src/components/APITable';
 
 ## <i class="fas fa-circle-info"></i> Introduction
 

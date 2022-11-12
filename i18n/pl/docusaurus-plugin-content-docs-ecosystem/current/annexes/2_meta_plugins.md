@@ -12,10 +12,7 @@ keywords:
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import Link from '@docusaurus/Link';
-import APITable from '@site/src/components/APITable';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link'; import APITable from '@site/src/components/APITable';
 
 An annex has the curated, optimal [ice-modifiers][] lists automatically applied. For more details refer to [z-a-meta-plugins.plugin.zsh][] file.
 

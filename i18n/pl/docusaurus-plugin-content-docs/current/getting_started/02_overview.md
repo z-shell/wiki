@@ -9,8 +9,7 @@ keywords:
 
 <!-- @format -->
 
-import ImgShow from '@site/src/components/ImgShow';
-import Link from '@docusaurus/Link';
+import ImgShow from '@site/src/components/ImgShow'; import Link from '@docusaurus/Link';
 
 This overview will cover the basics for:
 

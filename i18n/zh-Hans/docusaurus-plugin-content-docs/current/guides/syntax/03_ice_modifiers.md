@@ -11,9 +11,7 @@ keywords:
 
 <!-- @format -->
 
-import Image from '@theme/IdealImage';
-import ZIceImg from '/img/png/theme/ice_180x170.png';
-import APITable from '@site/src/components/APITable';
+import Image from '@theme/IdealImage'; import ZIceImg from '/img/png/theme/ice_180x170.png'; import APITable from '@site/src/components/APITable';
 
 :::info FAQ: What is ice?
 

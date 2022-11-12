@@ -11,9 +11,7 @@ keywords:
 
 <!-- @format -->
 
-import Link from '@docusaurus/Link';
-import APITable from '@site/src/components/APITable';
-import ZiTabCompletion from '@site/src/components/Markdown/\_zi_tab_completion.mdx';
+import Link from '@docusaurus/Link'; import APITable from '@site/src/components/APITable'; import ZiTabCompletion from '@site/src/components/Markdown/\_zi_tab_completion.mdx';
 
 ## Updates {#updates-upgrades}
 

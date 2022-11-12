@@ -12,8 +12,7 @@ keywords:
 
 <!-- @format -->
 
-import APITable from '@site/src/components/APITable';
-import MultiplePromptsExample from '@site/src/components/Markdown/\_multiple_prompts_example.mdx';
+import APITable from '@site/src/components/APITable'; import MultiplePromptsExample from '@site/src/components/Markdown/\_multiple_prompts_example.mdx';
 
 ## <i class="fa-solid fa-hashtag"></i> Hash parameter
 
