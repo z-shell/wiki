@@ -93,7 +93,7 @@ The assignment uses quoting to make it resilient to the combination of the `GLOB
 
 ### **STATUS:** [ zero-handling ]
 
-- GitHub Search: [ZSH_ARGZERO](https://github.com/search?q=%22%24ZSH_ARGZERO%22&type=code)
+- GitHub 搜索： [ZSH_ARGZERO](https://github.com/search?q=%22%24ZSH_ARGZERO%22&type=code)
 
 ## 2. Functions directory {#functions-directory}
 
@@ -119,8 +119,8 @@ The above snippet added to the `plugin.zsh` file will add the directory to the `
 
 ### **STATUS:** [ functions-directory ]
 
-- GitHub Search: [zsh_loaded_plugins](https://github.com/search?q=%22$zsh_loaded_plugins%22&type=code)
-- GitHub Search: [PMSPEC \*f\*](https://github.com/search?q=[[%20%22$PMSPEC%22%20!=%20*f*%20]]&type=code)
+- GitHub 搜索： [zsh_loaded_plugins](https://github.com/search?q=%22$zsh_loaded_plugins%22&type=code)
+- GitHub 搜索： [PMSPEC \*f\*](https://github.com/search?q=[[%20%22$PMSPEC%22%20!=%20*f*%20]]&type=code)
 
 ## 3. Binaries directory {#binaries-directory}
 
@@ -146,7 +146,7 @@ fi
 
 ### **STATUS:** [ binaries-directory ]
 
-- GitHub Search: [PMSPEC \*b\*](https://github.com/search?q=[[%20%22$PMSPEC%22%20!=%20*b*%20]]&type=code)
+- GitHub 搜索： [PMSPEC \*b\*](https://github.com/search?q=[[%20%22$PMSPEC%22%20!=%20*b*%20]]&type=code)
 
 ## 4. Unload function {#unload-function}
 
@@ -182,11 +182,11 @@ The plugin manager can provide a function `@zsh-plugin-run-on-unload` which has 
 @zsh-plugin-run-on-unload "{code-snippet-1}" "{code-snippet-2}" …
 ```
 
-d The function registers pieces of code to be run by the plugin manager **on the unloading of the plugin**. The execution of the code should be done by the `eval` built-in in the same order as they are passed to the call. The code should be executed in the plugin’s directory, in the current shell. The mechanism thus provides another way, side to the [unload function](#unload-function), for the plugin to participate in the process of unloading it.
+The function registers pieces of code to be run by the plugin manager **on the unloading of the plugin**. The execution of the code should be done by the `eval` built-in in the same order as they are passed to the call. The code should be executed in the plugin’s directory, in the current shell. The mechanism thus provides another way, side to the [unload function](#unload-function), for the plugin to participate in the process of unloading it.
 
 ### **STATUS:** [ run-on-unload-call ]
 
-- GitHub Search: [zsh-plugin-run-on-unload](https://github.com/search?q=@zsh-plugin-run-on-unload&type=code)
+- GitHub 搜索： [zsh-plugin-run-on-unload](https://github.com/search?q=@zsh-plugin-run-on-unload&type=code)
 
 ## 6. `@zsh-plugin-run-on-update` call {#run-on-update-call}
 
@@ -202,7 +202,7 @@ The function registers pieces of code to be run by the plugin manager on an upda
 
 ### **STATUS:** [ run-on-update-call ]
 
-- GitHub Search: [zsh-plugin-run-on-update](https://github.com/search?q=@zsh-plugin-run-on-update&type=code)
+- GitHub 搜索： [zsh-plugin-run-on-update](https://github.com/search?q=@zsh-plugin-run-on-update&type=code)
 
 ## 7. Plugin manager activity indicator {#activity-indicator}
 
@@ -230,7 +230,7 @@ This will allow the user to reliably source the plugin without using a plugin ma
 
 ### **STATUS:** [ activity-indicator ]
 
-- GitHub Search: [zsh_loaded_plugins](https://github.com/search?q=%22${zsh_loaded_plugins[-1]}%22&type=code)
+- GitHub 搜索： [zsh_loaded_plugins](https://github.com/search?q=%22${zsh_loaded_plugins[-1]}%22&type=code)
 
 ## 8. Global parameter with PREFIX for make, configure, etc {#global-parameter-with-prefix}
 
@@ -256,7 +256,7 @@ No-narration facts-list related to `$ZPFX`:
 
 ### **STATUS:** [ global-parameter-with-prefix ]
 
-- GitHub Search: [ZPFX](https://github.com/search?q=%22$ZPFX%22&type=code)
+- GitHub 搜索： [ZPFX](https://github.com/search?q=%22$ZPFX%22&type=code)
 
 ## 9. Global parameter holding the plugin manager’s capabilities {#global-parameter-with-capabilities}
 
@@ -292,7 +292,7 @@ fi
 
 ### **STATUS:** [ global-parameter-with-capabilities ]
 
-- GitHub Search: [PMSPEC](https://github.com/search?q=%22export+PMSPEC=%22&type=code)
+- GitHub 搜索： [PMSPEC](https://github.com/search?q=%22export+PMSPEC=%22&type=code)
 
 ## Zsh plugin-programming best practices
 
