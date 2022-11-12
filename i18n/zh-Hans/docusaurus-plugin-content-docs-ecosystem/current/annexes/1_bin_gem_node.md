@@ -12,8 +12,8 @@ keywords:
 <!-- @format -->
 
 import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
+import TabItem from '@theme/TabItem';
 import Player from '@site/src/components/Player';
 import APITable from '@site/src/components/APITable';
 import Shortcuts from '@site/src/components/Markdown/\_player_shortcuts.mdx';
@@ -115,7 +115,9 @@ View all currently registered:
 
 ## `SBIN'…'` {#sbin-1}
 
-`sbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-script}]; …'`
+```shell
+sbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-script}]; …'
+```
 
 Creates the so-called `shim` known from `rbenv` – a wrapper script that forwards the call to the actual binary. The script is created always under the same, standard, and single `$PATH` entry: `$ZPFX/bin` (which is `~/.zi/polaris/bin` by default). The flags have the same meaning as with `fbin'…'` ice.
 
@@ -164,7 +166,9 @@ The same trailing component would be set for the snippet URL, for any alphabetic
 
 ## `FBIN'…'` {#fbin-2}
 
-`fbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-function}]; …'`
+```shell
+fbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-function}]; …'
+```
 
 Creates a wrapper function of the name the same as the last segment of the path or as `{name-of-the-function}`.
 
@@ -203,9 +207,10 @@ myfzf () {
 
 ## `GEM'…'` {#gem-3}
 
-`gem'{gem-name}; …'`
-
-`gem'[{path-to-binary} <-] !{gem-name} [-> {name-of-the-function}]; …'`
+```shell showLineNumbers
+gem'{gem-name}; …'
+gem'[{path-to-binary} <-] !{gem-name} [-> {name-of-the-function}]; …'
+```
 
 Installs the gem of name `{gem-name}` with `$GEM_HOME` set to the plugin's or snippet's directory. In other words, the gem and its dependencies will be installed locally in that directory. In the second form, it also creates a wrapper function identical to the one created with `fbin'…'` ice.
 
@@ -246,9 +251,10 @@ asciidoctor () {
 
 ## `NODE'…'` {#node-4}
 
-`node'{node-module}; …'`
-
-`node'[{path-to-binary} <-] !{node-module} [-> {name-of-the-function}]; …'`
+```shell showLineNumbers
+node'{node-module}; …'
+node'[{path-to-binary} <-] !{node-module} [-> {name-of-the-function}]; …'
+```
 
 Installs the node module of name `{node-module}` inside the plugin's or snippet's directory. In the second form, it also creates a wrapper function identical to the one created with `fbin'…'` ice.
 
@@ -291,9 +297,10 @@ In this case, the name of the binary program provided by the node module is diff
 
 ## `PIP'…'` {#pip-5}
 
-`pip'{pip-package}; …'`
-
-`pip'[{path-to-binary} <-] !{pip-package} [-> {name-of-the-function}]; …'`
+```shell showLineNumbers
+pip'{pip-package}; …'
+pip'[{path-to-binary} <-] !{pip-package} [-> {name-of-the-function}]; …'
+```
 
 Installs the node module of name `{pip-package}` inside the plugin's or snippet's directory. In the second form, it also creates a wrapper function identical to the one created with `fbin'…'` ice.
 
@@ -334,9 +341,10 @@ youtube-dl () {
 
 ## `FMOD'…'` {#fmod-6}
 
-`fmod'[{g|n|c|N|E|O}:]{function-name}; …'`
-
-`fmod'[{g|n|c|N|E|O}:]{function-name} -> {wrapping-function-name}; …'`
+```shell showLineNumbers
+fmod'[{g|n|c|N|E|O}:]{function-name}; …'
+fmod'[{g|n|c|N|E|O}:]{function-name} -> {wrapping-function-name}; …'
+```
 
 It wraps the given function with the ability to set `$GEM_HOME`, etc. – the meaning of the `g`, `n`, and `c` flags is the same as in the `fbin'…'` ice.
 
@@ -394,13 +402,13 @@ README.md
 
 ## `FSCR'…'` {#fscr-7}
 
-```mdx-code-block
+```shell
 fsrc'[{g|n|c|N|E|O}:]{path-to-script}[ -> {name-of-the-function}]; …'
 ```
 
 ## `FERC'…'` {#ferc-8}
 
-```mdx-code-block
+```shell
 ferc'[{g|n|c|N|E|O}:]{path-to-script}[ -> {name-of-the-function}]; …'
 ```
 
