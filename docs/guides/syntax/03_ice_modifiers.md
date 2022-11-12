@@ -35,6 +35,7 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 | :-: | --- |
 | `as` | Can be `as"program"` (alias: `as"command"`), and will cause to add script/program to `$PATH` instead of sourcing (see `pick`). Can also be `as"completion"` – use with plugins or snippets in whose only underscore-starting `_*` files you are interested in. [^8] |
 | [id-as][6] | Nickname a plugin or snippet, e.g. create a short handler for the long-URL snippet. |
+| `teleid` | Effective remote-ID (i.e.: URL, GitHub username/repo, package name, etc.). |
 | `compile` | Pattern (possible `{…}` expansion, like `{a/*,b*}`) to select additional files to compile, e.g. `compile"(pure \| async).zsh"`for`sindresorhus/pure`. |
 | `nocompile` | Don't try to compile `pick`-pointed files. If passed the exclamation mark (i.e. `nocompile'!'`), then do compile, but after `make'…'` and `atclone'…'` (useful if Makefile installs some scripts, to point `pick'…'` at the location of their installation). |
 | `service` | Make the following plugin or snippet a _service_, which will run in the background, and only in a single Zshell instance. See [#zservice][7] topic. |
