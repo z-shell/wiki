@@ -10,10 +10,7 @@ This page will not be indexed by search engines because it contains the page fol
 
 ```html
 <head>
-  <meta
-    name="robots"
-    content="noindex, nofollow"
-  />
+  <meta name="robots" content="noindex, nofollow" />
 </head>
 ```
 

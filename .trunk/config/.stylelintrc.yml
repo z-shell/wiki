@@ -10,10 +10,9 @@ plugins:
 rules:
   {
     "order/properties-alphabetical-order": null,
-    "color-format/format": { "format": "hsl" },
-    "selector-pseudo-class-no-unknown":
-      [true, { ignorePseudoClasses: ["global"] }],
-    "value-keyword-case": ["lower", { camelCaseSvgKeywords: true }],
+    "color-format/format": {"format": "hsl"},
+    "selector-pseudo-class-no-unknown": [true, {ignorePseudoClasses: ["global"]}],
+    "value-keyword-case": ["lower", {camelCaseSvgKeywords: true}],
     "selector-class-pattern": null,
     "custom-property-empty-line-before": null,
     "selector-id-pattern": null,

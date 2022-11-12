@@ -20,9 +20,7 @@ Members are continuously active contributors in the community. They can have iss
 
 ### Established community members
 
-Established community members are expected to demonstrate their adherence to the principles in this document.
-Familiarity with project organization, roles, policies, procedures, conventions, etc., and technical and/or writing ability.
-Role-specific expectations, responsibilities.
+Established community members are expected to demonstrate their adherence to the principles in this document. Familiarity with project organization, roles, policies, procedures, conventions, etc., and technical and/or writing ability. Role-specific expectations, responsibilities.
 
 ---
 

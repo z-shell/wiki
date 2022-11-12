@@ -1,7 +1,10 @@
 {
   "insertPragma": false,
   "requirePragma": false,
-  "jsxSingleQuote": true,
-  "singleAttributePerLine": true,
-  "vueIndentScriptAndStyle": true
+  "arrowParens": "always",
+  "bracketSpacing": false,
+  "bracketSameLine": true,
+  "printWidth": 120,
+  "proseWrap": "never",
+  "jsxSingleQuote": true
 }

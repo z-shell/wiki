@@ -1,14 +1,12 @@
 /** @format */
 // @ts-check
 
-const url = process.env.CF_PAGES_URL ?? "https://wiki.zshell.dev";
+const url = process.env.URL ?? "https://wiki.zshell.dev";
 const baseUrl = process.env.BASE_URL ?? "/";
+const styles = process.env.STYLES ?? "https://r2.zshell.dev/fa/6.2.0/js/all.min.js";
 const math = require("remark-math");
 const katex = require("rehype-katex");
-
-const styles =
-  process.env.STYLES ?? "https://r2.zshell.dev/fa/6.2.0/js/all.min.js";
-
+/** const CurrentPagesUrl = process.env.CF_PAGES_URL ?? "https://wiki.zshell.dev"; */
 /** const isProd = process.env.CF_PAGES_BRANCH === "main"; */
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -25,20 +23,20 @@ const config = {
   onBrokenMarkdownLinks: "warn",
   staticDirectories: ["static"],
   favicon: "/img/favicon.ico",
-  scripts: [{ src: styles, crossorigin: "anonymous" }],
-  i18n: { defaultLocale: "en", locales: ["en", "ja", "zh-Hans"] },
+  scripts: [{src: styles, crossorigin: "anonymous"}],
+  i18n: {defaultLocale: "en", locales: ["en", "ja", "zh-Hans"]},
   presets: [
     [
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         debug: true,
-        theme: { customCss: "src/css/custom.css" },
+        theme: {customCss: "src/css/custom.css"},
         docs: {
           sidebarPath: "sidebars.js",
           sidebarCollapsible: true,
           sidebarCollapsed: true,
-          editUrl: ({ locale, versionDocsDirPath, docPath }) => {
+          editUrl: ({locale, versionDocsDirPath, docPath}) => {
             if (locale !== "en") {
               return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
             }
@@ -50,16 +48,12 @@ const config = {
           rehypePlugins: [katex],
         },
         blog: {
-          editUrl: ({ locale, blogDirPath, blogPath }) => {
+          editUrl: ({locale, blogDirPath, blogPath}) => {
             if (locale !== "en") {
               return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
             }
             return `https://github.com/z-shell/wiki/tree/main/${blogDirPath}/${blogPath}`;
           },
-          remarkPlugins: [math],
-          rehypePlugins: [katex],
-          beforeDefaultRemarkPlugins: [],
-          beforeDefaultRehypePlugins: [],
           showReadingTime: true,
           postsPerPage: "ALL",
           feedOptions: {
@@ -67,8 +61,8 @@ const config = {
             copyright: `Copyright © ${new Date().getFullYear()} Z-Shell Community.`,
           },
         },
-        pages: { remarkPlugins: [math] },
-        sitemap: { changefreq: "daily" },
+        pages: {},
+        sitemap: {changefreq: "weekly"},
       }),
     ],
   ],
@@ -76,23 +70,19 @@ const config = {
     [
       "ideal-image",
       /** @type {import('@docusaurus/plugin-ideal-image').PluginOptions} */
-      ({ max: 1030, min: 480, disableInDev: false }),
+      ({max: 1030, min: 480, disableInDev: false}),
     ],
     [
       "pwa",
       /** @type {import('@docusaurus/plugin-pwa').PluginOptions} */
       {
         debug: true,
-        offlineModeActivationStrategies: [
-          "appInstalled",
-          "standalone",
-          "queryString",
-        ],
+        offlineModeActivationStrategies: ["appInstalled", "standalone", "queryString"],
         pwaHead: [
-          { tagName: "link", rel: "icon", href: "img/logo.svg" },
-          { tagName: "link", rel: "icon", href: "img/logo.png" },
-          { tagName: "link", rel: "manifest", href: "manifest.json" },
-          { tagName: "link", rel: "browserconfig", href: "browserconfig.xml" },
+          {tagName: "link", rel: "icon", href: "img/logo.svg"},
+          {tagName: "link", rel: "icon", href: "img/logo.png"},
+          {tagName: "link", rel: "manifest", href: "manifest.json"},
+          {tagName: "link", rel: "browserconfig", href: "browserconfig.xml"},
           {
             tagName: "meta",
             name: "theme-color",
@@ -113,7 +103,7 @@ const config = {
             name: "msapplication-TileImage",
             content: "img/logo.png",
           },
-          { tagName: "meta", name: "msapplication-TileColor", content: "#000" },
+          {tagName: "meta", name: "msapplication-TileColor", content: "#000"},
         ],
       },
     ],
@@ -125,7 +115,7 @@ const config = {
         path: "community",
         routeBasePath: "community",
         sidebarPath: "sidebars.js",
-        editUrl: ({ locale, versionDocsDirPath, docPath }) => {
+        editUrl: ({locale, versionDocsDirPath, docPath}) => {
           if (locale !== "en") {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
           }
@@ -133,8 +123,6 @@ const config = {
         },
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
-        remarkPlugins: [math],
-        rehypePlugins: [katex],
       }),
     ],
     [
@@ -145,7 +133,7 @@ const config = {
         path: "ecosystem",
         routeBasePath: "ecosystem",
         sidebarPath: "sidebars.js",
-        editUrl: ({ locale, versionDocsDirPath, docPath }) => {
+        editUrl: ({locale, versionDocsDirPath, docPath}) => {
           if (locale !== "en") {
             return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
           }
@@ -153,15 +141,13 @@ const config = {
         },
         showLastUpdateAuthor: false,
         showLastUpdateTime: true,
-        remarkPlugins: [math],
-        rehypePlugins: [katex],
       }),
     ],
   ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      docs: { sidebar: { hideable: true, autoCollapseCategories: true } },
+      docs: {sidebar: {hideable: true, autoCollapseCategories: true}},
       colorMode: {
         defaultMode: "dark",
         disableSwitch: false,
@@ -169,16 +155,15 @@ const config = {
       },
       image: "img/logo/320x320.png",
       metadata: [
-        { name: "twitter:card", content: "summary" },
+        {name: "twitter:card", content: "summary"},
         {
           name: "keywords",
-          content:
-            "zsh, zsh-plugins, plugin-manager, zinit, zplugin, oh-my-zsh, prezto, zi",
+          content: "z-shell, ,zshell, zsh, zsh-plugins, zinit, zplugin, oh-my-zsh, prezto, zi",
         },
       ],
       announcementBar: {
         id: "announcement-bar",
-        content: `If you like Zi - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi"><i class="fa-solid fa-star"></i></a>, share it on <a target="_blank" rel="noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=https://wiki.zshell.dev/&t=A%20Swiss%20Army%20Knife%20for%20Zsh%20Unix%20shell%20|%20%E2%9D%AE%20Zi%20%E2%9D%AF"><i class="fa-brands fa-square-hacker-news"></i></a>, and consider following us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell"><i class="fa-brands fa-github-alt"></i></a>`,
+        content: `If you like Zi - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi" aria-label="GitHub repository star"><i class="fa-solid fa-star">star</i></a>, share it on <a target="_blank" rel="noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=https://wiki.zshell.dev/&t=A%20Swiss%20Army%20Knife%20for%20Zsh%20Unix%20shell%20|%20%E2%9D%AE%20Zi%20%E2%9D%AF" aria-label="Hacker News"><i class="fa-brands fa-square-hacker-news">Hacker News</i></a>, and consider following us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell" aria-label="GitHub"><i class="fa-brands fa-github-alt">GitHub</i></a>`,
         isCloseable: true,
       },
       algolia: {
@@ -189,18 +174,18 @@ const config = {
       },
       navbar: {
         hideOnScroll: true,
-        title: "❮ Zi ❯",
+        title: "Z-Shell",
         logo: {
-          alt: "A Swiss Army Knife for Zsh Unix shell - ❮ Zi ❯",
+          alt: "A Swiss Army Knife for Zsh Unix shell",
           src: "img/logo.svg",
           target: "_self",
           width: 32,
           height: 32,
         },
         items: [
-          { type: "doc", docId: "intro", position: "left", label: "Docs" },
-          { to: "ecosystem", position: "left", label: "Ecosystem" },
-          { to: "community", position: "left", label: "Community" },
+          {type: "doc", docId: "intro", position: "left", label: "Docs"},
+          {to: "ecosystem", position: "left", label: "Ecosystem"},
+          {to: "community", position: "left", label: "Community"},
           /* { to: 'blog', position: 'left', label: 'Blog' }, */
           {
             type: "localeDropdown",
@@ -213,10 +198,9 @@ const config = {
             ],
           },
           /** {
-            type: 'dropdown',
+            type: "dropdown",
             position: "right",
-            className: "header-rss-link",
-            "aria-label": "Feeds Dropdown",
+            label: "Feed",
             items: [
               {
                 label: "JSON",
@@ -245,7 +229,7 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Docs",
+            title: "Knowledge Base",
             items: [
               {
                 label: "Introduction",
@@ -259,14 +243,22 @@ const config = {
                 label: "Community",
                 to: "/community",
               },
+              {
+                label: "Guides",
+                to: "/docs/category/-guides",
+              },
             ],
           },
           {
             title: "Community",
             items: [
               {
-                label: "GitHub",
+                label: "Discussions",
                 href: "https://discussions.zshell.dev",
+              },
+              {
+                label: "GitHub",
+                href: "https://github.com/orgs/z-shell",
               },
               {
                 label: "Matrix",
@@ -282,15 +274,19 @@ const config = {
             title: "More",
             items: [
               {
-                label: "GitHub Repositories",
-                href: "https://github.com/orgs/z-shell/repositories/",
+                label: "Zsh News",
+                href: "https://zsh.sourceforge.io/News/",
               },
               {
-                label: "Crowdin Translations",
+                label: "Zsh Manual",
+                href: "https://zsh.sourceforge.io/Doc/Release/zsh_toc.html                ",
+              },
+              {
+                label: "Localization",
                 href: "https://translate.zshell.dev",
               },
               {
-                label: "Z-Shell Uptime Status",
+                label: "Uptime Status",
                 href: "https://status.zshell.dev",
               },
               /* {html: ``}, */
@@ -299,12 +295,8 @@ const config = {
           {
             title: "Legal",
             items: [
-              {
-                label: "Contributing",
-                href: "https://github.com/z-shell/wiki/blob/main/.github/CONTRIBUTING.md",
-              },
-              { label: "Privacy Policy", to: "legal/PRIVACY" },
-              { label: "Code of Conduct", to: "legal/CODE_OF_CONDUCT" },
+              {label: "Privacy Policy", to: "legal/PRIVACY"},
+              {label: "Code of Conduct", to: "legal/CODE_OF_CONDUCT"},
             ],
           },
         ],
@@ -319,7 +311,7 @@ const config = {
           {
             className: "theme-code-block-highlighted-line",
             line: "highlight-next-line",
-            block: { start: "highlight-start", end: "highlight-end" },
+            block: {start: "highlight-start", end: "highlight-end"},
           },
           {
             className: "code-block-error-line",
@@ -327,7 +319,7 @@ const config = {
           },
         ],
       },
-      tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 5 },
+      tableOfContents: {minHeadingLevel: 2, maxHeadingLevel: 5},
     }),
 };
 

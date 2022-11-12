@@ -12,11 +12,12 @@ jobs:
     name: 🔁 Rebase
     # Automate with comments: /autosquash, /rebase
     if: >-
-      github.event.issue.pull_request != '' &&
-      (
+      github.event.issue.pull_request != '' && (
         contains(github.event.comment.body, '/rebase') ||
         contains(github.event.comment.body, '/autosquash')
       )
+
+
     steps:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@5c3ccc22eb2c950a0fa5bc7c47190d8e3f7e681a

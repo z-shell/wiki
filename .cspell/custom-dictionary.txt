@@ -89,6 +89,8 @@ coreutils
 cppflags
 cras
 creinstall
+crossorigin
+crowdjet
 csearch
 csok
 Csvg
@@ -97,6 +99,7 @@ Cygwin
 dclear
 DCMAKE
 dcompose
+digitalclouds
 dircolors
 dircycle
 direnv
@@ -277,6 +280,7 @@ otool
 pacman
 pandoc
 panelize
+Parens
 pcss
 peco
 pick'exiftool
