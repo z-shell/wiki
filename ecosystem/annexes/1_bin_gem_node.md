@@ -11,12 +11,7 @@ keywords:
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs';
-import Link from '@docusaurus/Link';
-import TabItem from '@theme/TabItem';
-import Player from '@site/src/components/Player';
-import APITable from '@site/src/components/APITable';
-import Shortcuts from '@site/src/components/Markdown/\_player_shortcuts.mdx';
+import Tabs from '@theme/Tabs'; import Link from '@docusaurus/Link'; import TabItem from '@theme/TabItem'; import Player from '@site/src/components/Player'; import APITable from '@site/src/components/APITable'; import Shortcuts from '@site/src/components/Markdown/\_player_shortcuts.mdx';
 
 An annex provides the following functionality:
 
@@ -73,16 +68,16 @@ Running the script will forward the call to the program accessed through an embe
 <APITable>
 ```
 
-| Ice modifier    | Description                                                                                                |
-| :-------------- | :--------------------------------------------------------------------------------------------------------- |
-| [sbin](#sbin-1) | Creates `shims` for binaries and scripts.                                                                  |
-| [fbin](#fbin-2) | Creates functions for binaries and scripts.                                                                |
-| [gem](#gem-3)   | Installs and updates gems + creates functions for gems binaries.                                           |
-| [node](#node-4) | Installs and updates node_modules + creates functions for binaries of the modules.                         |
-| [pip](#pip-5)   | Installs and updates python packages into a `virtualenv` + creates functions for binaries of the packages. |
-| [fmod](#fmod-6) | Creates wrapping functions for other functions.                                                            |
-| [fsrc](#fsrc-7) | Creates functions that source given scripts.                                                               |
-| [ferc](#ferc-8) | The same as [fsrc](#fscr-7), but using an alternate script-loading method.                                 |
+| Ice modifier | Description |
+| :-- | :-- |
+| [sbin](#sbin-1) | Creates `shims` for binaries and scripts. |
+| [fbin](#fbin-2) | Creates functions for binaries and scripts. |
+| [gem](#gem-3) | Installs and updates gems + creates functions for gems binaries. |
+| [node](#node-4) | Installs and updates node_modules + creates functions for binaries of the modules. |
+| [pip](#pip-5) | Installs and updates python packages into a `virtualenv` + creates functions for binaries of the packages. |
+| [fmod](#fmod-6) | Creates wrapping functions for other functions. |
+| [fsrc](#fsrc-7) | Creates functions that source given scripts. |
+| [ferc](#ferc-8) | The same as [fsrc](#fscr-7), but using an alternate script-loading method. |
 
 ```mdx-code-block
 </APITable>
@@ -94,15 +89,15 @@ Function wrappers for binaries, scripts, gems, node_modules, python packages, et
 <APITable>
 ```
 
-| Flag | Description                                                                                                           |
-| :--- | :-------------------------------------------------------------------------------------------------------------------- |
-| `g`  | Set `$GEM_HOME` variable to `{plugin-dir}`.                                                                           |
-| `n`  | Set `$NODE_PATH` variable to `{plugin-dir}/node_modules`.                                                             |
-| `p`  | Set `$VIRTUALENV` variable to `{plugin-dir}/venv`.                                                                    |
-| `c`  | `cd` to the plugin's directory before running the program and then cd back after it has been run.                     |
-| `N`  | Append `&>/dev/null` to the call of the binary, i.e. redirect both standard output and standard error to `/dev/null`. |
-| `E`  | Append `2>/dev/null` to the call of the binary, i.e. redirect standard error to `/dev/null`.                          |
-| `O`  | Append `>/dev/null` to the call of the binary, i.e. redirect standard output to `/dev/null`.                          |
+| Flag | Description |
+| :-- | :-- |
+| `g` | Set `$GEM_HOME` variable to `{plugin-dir}`. |
+| `n` | Set `$NODE_PATH` variable to `{plugin-dir}/node_modules`. |
+| `p` | Set `$VIRTUALENV` variable to `{plugin-dir}/venv`. |
+| `c` | `cd` to the plugin's directory before running the program and then cd back after it has been run. |
+| `N` | Append `&>/dev/null` to the call of the binary, i.e. redirect both standard output and standard error to `/dev/null`. |
+| `E` | Append `2>/dev/null` to the call of the binary, i.e. redirect standard error to `/dev/null`. |
+| `O` | Append `>/dev/null` to the call of the binary, i.e. redirect standard output to `/dev/null`. |
 
 ```mdx-code-block
 </APITable>

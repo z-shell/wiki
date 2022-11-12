@@ -1,15 +1,9 @@
 /** @format */
 // @ts-check
 
-import React, { type ReactNode } from "react";
+import React, {type ReactNode} from "react";
 
-export default function Highlight({
-  children,
-  color,
-}: {
-  children: ReactNode;
-  color: string;
-}): JSX.Element {
+export default function Highlight({children, color}: {children: ReactNode; color: string}): JSX.Element {
   return (
     <span
       style={{
@@ -18,8 +12,7 @@ export default function Highlight({
         padding: "0 0.1rem",
         fontWeight: "bold",
         color: "var(--ifm-color-black)",
-      }}
-    >
+      }}>
       {children}
     </span>
   );

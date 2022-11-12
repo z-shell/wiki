@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { type ReactNode, type ComponentProps } from "react";
+import React, {type ReactNode, type ComponentProps} from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
 
@@ -14,15 +14,7 @@ export type SvgIconProps = ComponentProps<"svg"> & {
 };
 
 export default function Svg(props: SvgIconProps): JSX.Element {
-  const {
-    svgClass,
-    colorAttr,
-    children,
-    color = "inherit",
-    size = "medium",
-    viewBox = "0 0 24 24",
-    ...rest
-  } = props;
+  const {svgClass, colorAttr, children, color = "inherit", size = "medium", viewBox = "0 0 24 24", ...rest} = props;
 
   return (
     <svg
@@ -30,8 +22,7 @@ export default function Svg(props: SvgIconProps): JSX.Element {
       color={colorAttr}
       aria-hidden
       className={clsx(styles.svgIcon, styles[color], styles[size], svgClass)}
-      {...rest}
-    >
+      {...rest}>
       {children}
     </svg>
   );

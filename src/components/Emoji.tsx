@@ -8,7 +8,7 @@
  * @format
  */
 
-import * as React from "react";
+import React from "react";
 
 export interface EmojiProps extends React.HTMLAttributes<HTMLSpanElement> {
   label?: string;
@@ -16,14 +16,9 @@ export interface EmojiProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 export default function Emoji(props: EmojiProps) {
-  const { label, symbol, ...rest } = props;
+  const {label, symbol, ...rest} = props;
   return (
-    <span
-      aria-hidden={label ? undefined : true}
-      aria-label={label || undefined}
-      role='img'
-      {...rest}
-    >
+    <span aria-hidden={label ? undefined : true} aria-label={label || undefined} {...rest} role='img'>
       {symbol}
     </span>
   );

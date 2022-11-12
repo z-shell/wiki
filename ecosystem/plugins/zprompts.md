@@ -12,9 +12,7 @@ keywords:
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import ImgShow from '@site/src/components/ImgShow';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import ImgShow from '@site/src/components/ImgShow';
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zprompts][]
 

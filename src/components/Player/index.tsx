@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useEffect, useRef, useState } from "react";
+import React, {useEffect, useRef, useState} from "react";
 import Spinner from "@site/src/components/Spinner";
 import "asciinema-player/dist/bundle/asciinema-player.css";
 
@@ -23,10 +23,7 @@ type PlayerProps = {
   terminalFontSize?: string;
 };
 
-export default function AsciinemaPlayer({
-  src,
-  ...options
-}: PlayerProps): JSX.Element {
+export default function AsciinemaPlayer({src, ...options}: PlayerProps): JSX.Element {
   const ref = useRef<HTMLDivElement>(null);
   const [player, setPlayer] = useState<typeof import("asciinema-player")>();
 
@@ -34,11 +31,12 @@ export default function AsciinemaPlayer({
     const currentRef = ref.current;
     const instance = player?.create(src, currentRef, options);
 
-    if (!player) {
+    if (!instance) {
       import("asciinema-player").then((module) => {
         setPlayer(module);
       });
     }
+
     return () => {
       instance?.dispose();
     };

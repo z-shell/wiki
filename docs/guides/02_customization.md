@@ -12,8 +12,7 @@ keywords:
 
 <!-- @format -->
 
-import APITable from '@site/src/components/APITable';
-import MultiplePromptsExample from '@site/src/components/Markdown/\_multiple_prompts_example.mdx';
+import APITable from '@site/src/components/APITable'; import MultiplePromptsExample from '@site/src/components/Markdown/\_multiple_prompts_example.mdx';
 
 ## <i class="fa-solid fa-hashtag"></i> Hash parameter
 
@@ -39,20 +38,20 @@ source "${ZI[BIN_DIR]}/zi.zsh"
 <APITable>
 ```
 
-| Hash Field                           | Default                       | Description                                    |
-| ------------------------------------ | ----------------------------- | ---------------------------------------------- |
-| `ZI[HOME_DIR]`                       | `$HOME/.zi`                   | Where Zi should create all working directories |
-| `ZI[BIN_DIR]`                        | `$HOME/.zi/bin`               | Directory where Zi code resides                |
-| `ZI[COMPLETIONS_DIR]`                | `$ZI[HOME_DIR]/completions`   | Completion working directory                   |
-| `ZI[CACHE_DIR]`                      | `$HOME/.cache/zi`             | Cache directory                                |
-| `ZI[CONFIG_DIR]`                     | `$HOME/.config/zi`            | Directory for configuration files              |
-| `ZI[MAN_DIR]`                        | `$ZPFX/man`                   | Directory to store manpages                    |
-| `ZI[LOG_DIR]`                        | `$ZI[CACHE_DIR]/log`          | Directory to store log files                   |
-| `ZI[PLUGINS_DIR]`                    | `$ZI[HOME_DIR]/plugins`       | Plugins working directory                      |
-| `ZI[SNIPPETS_DIR]`                   | `$ZI[HOME_DIR]/snippets`      | Snippets working directory                     |
-| `ZI[ZCOMPDUMP_PATH]`                 | `${ZI[CACHE_DIR]}/.zcompdump` | Path to `.zcompdump` file                      |
-| `ZI[ZMODULES_DIR]`                   | `$ZI[HOME_DIR]/zmodules`      | Zsh modules working directory                  |
-| [ZPFX][global-parameter-with-prefix] | `$ZI[HOME_DIR]/polaris`       | Directory to store binary and related files    |
+| Hash Field | Default | Description |
+| --- | --- | --- |
+| `ZI[HOME_DIR]` | `$HOME/.zi` | Where Zi should create all working directories |
+| `ZI[BIN_DIR]` | `$HOME/.zi/bin` | Directory where Zi code resides |
+| `ZI[COMPLETIONS_DIR]` | `$ZI[HOME_DIR]/completions` | Completion working directory |
+| `ZI[CACHE_DIR]` | `$HOME/.cache/zi` | Cache directory |
+| `ZI[CONFIG_DIR]` | `$HOME/.config/zi` | Directory for configuration files |
+| `ZI[MAN_DIR]` | `$ZPFX/man` | Directory to store manpages |
+| `ZI[LOG_DIR]` | `$ZI[CACHE_DIR]/log` | Directory to store log files |
+| `ZI[PLUGINS_DIR]` | `$ZI[HOME_DIR]/plugins` | Plugins working directory |
+| `ZI[SNIPPETS_DIR]` | `$ZI[HOME_DIR]/snippets` | Snippets working directory |
+| `ZI[ZCOMPDUMP_PATH]` | `${ZI[CACHE_DIR]}/.zcompdump` | Path to `.zcompdump` file |
+| `ZI[ZMODULES_DIR]` | `$ZI[HOME_DIR]/zmodules` | Zsh modules working directory |
+| [ZPFX][global-parameter-with-prefix] | `$ZI[HOME_DIR]/polaris` | Directory to store binary and related files |
 
 ```mdx-code-block
 </APITable>
@@ -64,12 +63,12 @@ source "${ZI[BIN_DIR]}/zi.zsh"
 <APITable>
 ```
 
-| Hash Field                       | Default     | Description                                                                                                                                                                                               |
-| -------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hash Field | Default | Description |
+| --- | --- | --- |
 | `ZI[OPTIMIZE_OUT_DISK_ACCESSES]` | `undefined` | If set to `1`, will skip checking if a turbo-loaded object exists on the disk. This option can give a performance gain of about 10 ms out of 150 ms (e.g: Zsh will start up in 140 ms instead of 150 ms). |
-| `ZI[COMPINIT_OPTS]`              | `undefined` | Options for `compinit` call (e.g: done by `zicompinit`), commonly used with `-C` to speed up loading                                                                                                      |
-| `ZI[MUTE_WARNINGS]`              | `undefined` | If set to `1`, mutes some warnings, specifically the `plugin already registered` warning                                                                                                                  |
-| `ZI[PKG_OWNER]`                  | `z-shell`   | Owner of the [packages][] (`zi pack …`)                                                                                                                                                                   |
+| `ZI[COMPINIT_OPTS]` | `undefined` | Options for `compinit` call (e.g: done by `zicompinit`), commonly used with `-C` to speed up loading |
+| `ZI[MUTE_WARNINGS]` | `undefined` | If set to `1`, mutes some warnings, specifically the `plugin already registered` warning |
+| `ZI[PKG_OWNER]` | `z-shell` | Owner of the [packages][] (`zi pack …`) |
 
 ```mdx-code-block
 </APITable>
@@ -269,15 +268,15 @@ To allow better unloading, conditions are checked every second, you can use cond
 <APITable>
 ```
 
-| Condition                 | Description                                                                                                                                              |
-| ------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `![[ $PWD == *github* ]]` | Change prompt after changing directory to `*github*`.                                                                                                    |
-| `![[ $MYPROMPT = 1 ]]`    | Change prompt when variable `MYPROMPT = 1` is true.                                                                                                      |
-| `![[ … ]]`                | The exclamation mark causes the prompt to be reset after loading or unloading the plugin `pick'/dev/null'` – disable sourcing of the default-found file. |
-| `multisrc'…'`             | Source multiple files.                                                                                                                                   |
-| `lucid`                   | Don't show the under-prompt message that says e.g: `Loaded geometry-zsh/geometry`.                                                                       |
-| `nocd`                    | Don't cd into the plugin's directory when executing the `atload'…'`.                                                                                     |
-| `atload'…'`               | This ice can make the path that's displayed by the theme point to that directory.                                                                        |
+| Condition | Description |
+| --- | :-- |
+| `![[ $PWD == *github* ]]` | Change prompt after changing directory to `*github*`. |
+| `![[ $MYPROMPT = 1 ]]` | Change prompt when variable `MYPROMPT = 1` is true. |
+| `![[ … ]]` | The exclamation mark causes the prompt to be reset after loading or unloading the plugin `pick'/dev/null'` – disable sourcing of the default-found file. |
+| `multisrc'…'` | Source multiple files. |
+| `lucid` | Don't show the under-prompt message that says e.g: `Loaded geometry-zsh/geometry`. |
+| `nocd` | Don't cd into the plugin's directory when executing the `atload'…'`. |
+| `atload'…'` | This ice can make the path that's displayed by the theme point to that directory. |
 
 ```mdx-code-block
 </APITable>

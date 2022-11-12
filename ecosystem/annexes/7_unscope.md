@@ -13,10 +13,7 @@ keywords:
 
 <!-- TODO: Include image/video/code examples. -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import Link from '@docusaurus/Link';
-import Highlight from "@site/src/components/Highlight";
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link'; import Highlight from "@site/src/components/Highlight";
 
 An annex allows the installation of plugins without specifying the GitHub user name, as follows:
 

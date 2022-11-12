@@ -12,10 +12,7 @@ keywords:
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import Link from '@docusaurus/Link';
-import APITable from '@site/src/components/APITable';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link'; import APITable from '@site/src/components/APITable';
 
 An annex has the curated, optimal [ice-modifiers][] lists automatically applied. For more details refer to [z-a-meta-plugins.plugin.zsh][] file.
 
@@ -56,25 +53,25 @@ zi light-mode for @annexes \
 <APITable>
 ```
 
-| Meta-plugin name | Consisting plugins                                                                                                    |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------- |
-| @annexes         | [bin-gem-node][], [readurl][], [patch-dl][], [rust][], [default-ice][], [unscope][]                                   |
-| @annexes+        | @annexes + [submods][], [test][]                                                                                      |
-| @console-tools   | [dircolors-material][] (package), [fd][], [bat][], [hexyl][], [hyperfine][], [vivid][], [exa][], [ripgrep][], [tig][] |
-| @developer-tools | [color][], [revolver][], [zunit][], [gitignore.plugin.zsh][], [tig][]                                                 |
-| @ext-git         | [git-open][], [git-recent][], [git-my][], [git-quick-stats][], [git-now][], [git-extras][], [forgit][]                |
-| @fuzzy           | [fzf][] (package), [fzy][] (package), [skim][], [peco][]                                                              |
-| @fuzzy-src       | fzf-go, [fzy][], skim-cargo, peco-go                                                                                  |
-| @prezto          | PZTM::archive, PZTM::directory, PZTM::utility                                                                         |
-| @py-utils        | [pyenv][] (package)                                                                                                   |
-| @romkatv         | [powerlevel10k][]                                                                                                     |
-| @rust-utils      | rust-toolchain, cargo-extensions                                                                                      |
-| @sharkdp         | [fd][], [bat][], [hexyl][], [hyperfine][], [vivid][]                                                                  |
-| @z-shell         | [F-Sy-H][], [H-S-MW][], [zsh-diff-so-fancy][]                                                                         |
-| @z-shell+        | [zsh-select][], [zconvey][], [zui][], [zflai][]                                                                       |
-| @zsh-users       | [zsh-syntax-highlighting][], [zsh-autosuggestions][], [zsh-completions][]                                             |
-| @zsh-users+fast  | [F-Sy-H][], [zsh-autosuggestions][], [zsh-completions][], [z-shell/zsh-fancy-completions][]                           |
-| @zunit           | [color][], [revolver][], [zunit][]                                                                                    |
+| Meta-plugin name | Consisting plugins |
+| --- | --- |
+| @annexes | [bin-gem-node][], [readurl][], [patch-dl][], [rust][], [default-ice][], [unscope][] |
+| @annexes+ | @annexes + [submods][], [test][] |
+| @console-tools | [dircolors-material][] (package), [fd][], [bat][], [hexyl][], [hyperfine][], [vivid][], [exa][], [ripgrep][], [tig][] |
+| @developer-tools | [color][], [revolver][], [zunit][], [gitignore.plugin.zsh][], [tig][] |
+| @ext-git | [git-open][], [git-recent][], [git-my][], [git-quick-stats][], [git-now][], [git-extras][], [forgit][] |
+| @fuzzy | [fzf][] (package), [fzy][] (package), [skim][], [peco][] |
+| @fuzzy-src | fzf-go, [fzy][], skim-cargo, peco-go |
+| @prezto | PZTM::archive, PZTM::directory, PZTM::utility |
+| @py-utils | [pyenv][] (package) |
+| @romkatv | [powerlevel10k][] |
+| @rust-utils | rust-toolchain, cargo-extensions |
+| @sharkdp | [fd][], [bat][], [hexyl][], [hyperfine][], [vivid][] |
+| @z-shell | [F-Sy-H][], [H-S-MW][], [zsh-diff-so-fancy][] |
+| @z-shell+ | [zsh-select][], [zconvey][], [zui][], [zflai][] |
+| @zsh-users | [zsh-syntax-highlighting][], [zsh-autosuggestions][], [zsh-completions][] |
+| @zsh-users+fast | [F-Sy-H][], [zsh-autosuggestions][], [zsh-completions][], [z-shell/zsh-fancy-completions][] |
+| @zunit | [color][], [revolver][], [zunit][] |
 
 ```mdx-code-block
 </APITable>
@@ -92,10 +89,10 @@ It consumes time to:
 <APITable>
 ```
 
-| Problem                                               | Solution                                                                                                                                                                                                                                                                               |
-| :---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| (1) _finding new plugins_                             | The annex contains a curated, broad list of plugins, e.g.: all the console tools like `fd`, `fzf`, `exa`, `ripgrep`, etc.,                                                                                                                                                             |
-| (2) _reconstructing the findings in new environments_ | It's easy to say and memorize e.g.: `zi for console-tools` – one label pulls a group of plugins and also the curated, optimal, default ice lists for each of them,                                                                                                                     |
+| Problem | Solution |
+| :-- | --- |
+| (1) _finding new plugins_ | The annex contains a curated, broad list of plugins, e.g.: all the console tools like `fd`, `fzf`, `exa`, `ripgrep`, etc., |
+| (2) _reconstructing the findings in new environments_ | It's easy to say and memorize e.g.: `zi for console-tools` – one label pulls a group of plugins and also the curated, optimal, default ice lists for each of them, |
 | (3) _constant increase of complexity of the commands_ | The provided, hopefully, best/optimal ices for each plugin are handled transparently and automatically; care is given to each ice list so that the plugin loads without any glitches (e.g.: without the "No files for compilation found." message and other, even such slight issues). |
 
 ```mdx-code-block
@@ -108,11 +105,11 @@ Other unique benefits of the meta-plugins annex:
 <APITable>
 ```
 
-| Benefit                                                     | Description                                                                                                                                                                                                                                                                                                           |
-| :---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Plugin dependencies                                         | The meta-plugins implement a dependency mechanism: selecting a from-source built [ogham/exa][exa] will automatically pull in also the Rust compiler (available under the meta-plugin name: `rust-toolchain`).                                                                                                         |
+| Benefit | Description |
+| :-- | --- |
+| Plugin dependencies | The meta-plugins implement a dependency mechanism: selecting a from-source built [ogham/exa][exa] will automatically pull in also the Rust compiler (available under the meta-plugin name: `rust-toolchain`). |
 | Flexible disabling of chosen sub-plugins in any meta-plugin | A meta-plugin can contain many sub-plugins and it's possible to skip installing some of them by the **skip'plugin-1 plugin-2…'** ice, e.g.: `zi skip'ripgrep fd' for console-tools`. This way despite that some of the meta plugins are broad the user still has control over what's and how much is being installed. |
-| Common from-source meta plugins                             | For the plugins that provide the binary programs it is often the case that a meta-plugin exists that'll build the program from the source (e.g.: **fuzzy** meta-plugin and its **fuzzy-src** counterpart). This might be handy e.g.: if there's no binary for our machine.                                            |
+| Common from-source meta plugins | For the plugins that provide the binary programs it is often the case that a meta-plugin exists that'll build the program from the source (e.g.: **fuzzy** meta-plugin and its **fuzzy-src** counterpart). This might be handy e.g.: if there's no binary for our machine. |
 
 ```mdx-code-block
 </APITable>

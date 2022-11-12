@@ -22,12 +22,8 @@
   --ifm-color-primary-darker: hsl(var(--site-primary-hue-saturation) 23%);
   --ifm-color-primary-darkest: hsl(var(--site-primary-hue-saturation) 17%);
   --ifm-color-primary-light: hsl(var(--site-primary-hue-saturation-light) 39%);
-  --ifm-color-primary-lighter: hsl(
-    var(--site-primary-hue-saturation-light) 47%
-  );
-  --ifm-color-primary-lightest: hsl(
-    var(--site-primary-hue-saturation-light) 58%
-  );
+  --ifm-color-primary-lighter: hsl(var(--site-primary-hue-saturation-light) 47%);
+  --ifm-color-primary-lightest: hsl(var(--site-primary-hue-saturation-light) 58%);
   --site-color-favorite-background: hsl(210deg 29% 97%);
   --site-color-tooltip-background: hsl(200deg 3% 21%);
   --site-color-feedback-background: hsl(0deg 0% 100%);
@@ -58,12 +54,8 @@ html[data-theme="dark"] {
   --ifm-color-primary-darkest: hsl(var(--site-primary-hue-saturation) 32%);
 
   --ifm-color-primary-light: hsl(var(--site-primary-hue-saturation-light) 54%);
-  --ifm-color-primary-lighter: hsl(
-    var(--site-primary-hue-saturation-light) 62%
-  );
-  --ifm-color-primary-lightest: hsl(
-    var(--site-primary-hue-saturation-light) 73%
-  );
+  --ifm-color-primary-lighter: hsl(var(--site-primary-hue-saturation-light) 62%);
+  --ifm-color-primary-lightest: hsl(var(--site-primary-hue-saturation-light) 73%);
 }
 
 .code-block-error-line {
@@ -91,8 +83,7 @@ html[data-theme="dark"] {
 
 .footer__title {
   padding: 0.3rem;
-  font: bold var(--ifm-h3-font-size) / var(--ifm-heading-line-height)
-    var(--ifm-font-family-base);
+  font: bold var(--ifm-h3-font-size) / var(--ifm-heading-line-height) var(--ifm-font-family-base);
   color: var(--ifm-color-primary);
 }
 

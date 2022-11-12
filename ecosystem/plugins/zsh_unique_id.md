@@ -12,9 +12,7 @@ keywords:
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import Highlight from "@site/src/components/Highlight";
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Highlight from "@site/src/components/Highlight";
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zsh-unique-id][]
 

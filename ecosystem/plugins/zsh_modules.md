@@ -14,8 +14,7 @@ keywords:
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zpmod][]
 

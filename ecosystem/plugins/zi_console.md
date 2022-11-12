@@ -13,10 +13,7 @@ draft: false
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import Player from "@site/src/components/Player";
-import APITable from '@site/src/components/APITable';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Player from "@site/src/components/Player"; import APITable from '@site/src/components/APITable';
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zi-console][]
 
@@ -34,19 +31,19 @@ Start the console by <kbd>Ctrl-O</kbd> <kbd>Ctrl-J</kbd> keyboard shortcut, or b
 <APITable>
 ```
 
-| Key(s)                                                                   | Description                                                      |
-| ------------------------------------------------------------------------ | ---------------------------------------------------------------- |
-| <kbd>Ctrl-U</kbd> ,<kbd>Ctrl-D</kbd>                                     | Half page up; half page down                                     |
-| <kbd>Ctrl-P</kbd> ,<kbd>Ctrl-N</kbd>                                     | Previous line, centered; next line, centered                     |
-| <kbd>Ctrl-L</kbd>                                                        | Redraw of whole display                                          |
-| <kbd>[</kbd> , <kbd>]</kbd>                                              | Jump to next and previous section (e.g.: next plugin or snippet) |
-| <kbd>g</kbd> , <kbd>G</kbd>                                              | Jump to beginning and end of whole interface                     |
-| <kbd>&lt;</kbd> ,<kbd>&gt;</kbd> or <kbd>&#123;</kbd> ,<kbd>&#125;</kbd> | Horizontal scroll (i.e.: left or right)                          |
-| <kbd>/</kbd>                                                             | Show incremental search                                          |
-| <kbd>F1</kbd>                                                            | Jump to result (in incremental search) and back                  |
-| <kbd>Esc</kbd>                                                           | Exit incremental search, clearing query                          |
-| <kbd>Ctrl-W</kbd>                                                        | Delete whole word (in incremental search)                        |
-| <kbd>Ctrl-K</kbd>                                                        | Delete whole line (in incremental search)                        |
+| Key(s) | Description |
+| --- | --- |
+| <kbd>Ctrl-U</kbd> ,<kbd>Ctrl-D</kbd> | Half page up; half page down |
+| <kbd>Ctrl-P</kbd> ,<kbd>Ctrl-N</kbd> | Previous line, centered; next line, centered |
+| <kbd>Ctrl-L</kbd> | Redraw of whole display |
+| <kbd>[</kbd> , <kbd>]</kbd> | Jump to next and previous section (e.g.: next plugin or snippet) |
+| <kbd>g</kbd> , <kbd>G</kbd> | Jump to beginning and end of whole interface |
+| <kbd>&lt;</kbd> ,<kbd>&gt;</kbd> or <kbd>&#123;</kbd> ,<kbd>&#125;</kbd> | Horizontal scroll (i.e.: left or right) |
+| <kbd>/</kbd> | Show incremental search |
+| <kbd>F1</kbd> | Jump to result (in incremental search) and back |
+| <kbd>Esc</kbd> | Exit incremental search, clearing query |
+| <kbd>Ctrl-W</kbd> | Delete whole word (in incremental search) |
+| <kbd>Ctrl-K</kbd> | Delete whole line (in incremental search) |
 
 ```mdx-code-block
 </APITable>

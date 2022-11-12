@@ -14,11 +14,7 @@ keywords:
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import ImgShow from '@site/src/components/ImgShow';
-import Player from "@site/src/components/Player";
-import ChromaFunctionExample from "@site/src/components/Markdown/\_chroma_function_example.mdx";
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import ImgShow from '@site/src/components/ImgShow'; import Player from "@site/src/components/Player"; import ChromaFunctionExample from "@site/src/components/Markdown/\_chroma_function_example.mdx";
 
 ## <i class="fa-brands fa-github"></i> [z-shell/f-sy-h][]
 

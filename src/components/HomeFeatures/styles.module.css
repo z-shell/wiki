@@ -1,48 +1,64 @@
 /** @format */
 
-.videocontainer {
-  display: block;
-  width: 100%;
-  height: auto;
+.HomeFeatures {
+  position: relative;
+  padding: 2rem 0;
+  overflow: hidden;
 }
 
-.videocontainer h2 {
+.VideoContainer {
+  position: relative;
+  padding: 2rem 0;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.VideoContainer h2 {
   text-align: left;
 }
 
-.featurecontainer {
-  display: block;
+.FeatureContainer {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  width: 100%;
-  height: auto;
-}
-
-.features {
-  position: relative;
-  align-items: center;
-  padding: 4rem 0;
+  padding: 2rem 0;
   overflow: hidden;
   text-align: center;
 }
 
-.featureimage {
+.FeatureItem {
+  display: block;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.FeatureImg {
   display: inline;
   width: 200px;
   height: 200px;
 }
 
 @media only screen and (max-width: 996px) {
-  .features {
-    padding: 2rem 0;
+  .HomeFeatures {
+    padding: 1rem 0;
+  }
+
+  .VideoContainer {
+    padding: 1rem 0;
+  }
+
+  .FeaturesContainer {
+    padding: 1rem 0;
   }
 }
 
 @media only screen and (max-width: 700px) {
-  .features {
-    padding: 0;
+  .VideoContainer {
+    display: none;
   }
 
-  .videocontainer {
-    display: none;
+  .FeatureContainer {
+    padding: 0;
   }
 }

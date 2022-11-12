@@ -8,17 +8,15 @@ import HomeBanner from "@site/src/components/HomeBanner";
 import HomeFeatures from "@site/src/components/HomeFeatures";
 
 export default function Home(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext();
+  const {
+    siteConfig: {customFields, tagline},
+  } = useDocusaurusContext();
+  const {description} = customFields as {description: string};
   return (
-    <Layout
-      title={siteConfig.tagline}
-      description={siteConfig.tagline}
-    >
+    <Layout title={tagline} description={description}>
       <main>
         <HomeBanner />
-        <div>
-          <HomeFeatures />
-        </div>
+        <HomeFeatures />
       </main>
     </Layout>
   );

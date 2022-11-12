@@ -11,9 +11,7 @@ keywords:
 
 <!-- @format -->
 
-import Link from '@docusaurus/Link';
-import APITable from '@site/src/components/APITable';
-import ZiTabCompletion from '@site/src/components/Markdown/\_zi_tab_completion.mdx';
+import Link from '@docusaurus/Link'; import APITable from '@site/src/components/APITable'; import ZiTabCompletion from '@site/src/components/Markdown/\_zi_tab_completion.mdx';
 
 ## Updates {#updates-upgrades}
 
@@ -159,12 +157,12 @@ Following commands are passed to `zi …` to obtain described effects.
 <APITable>
 ```
 
-|       Command        | Description                                                                                       |
-| :------------------: | ------------------------------------------------------------------------------------------------- |
-|     `load` `'…'`     | Load plugin, can also receive absolute local path.                                                |
-|  `light` `-b` `'…'`  | Light plugin load, without reporting/investigating. `-b` – investigate `bindkey`-calls only. [^1] |
-| `unload` `-q` `'…'`  | Unload plugin loaded with `zi load …`. `-q` – quiet.                                              |
-| `snippet` `-f` `URL` | Source local (full path) or remote file (URL). `-f` – don't use cache (force re-download). [^2]   |
+| Command | Description |
+| :-: | --- |
+| `load` `'…'` | Load plugin, can also receive absolute local path. |
+| `light` `-b` `'…'` | Light plugin load, without reporting/investigating. `-b` – investigate `bindkey`-calls only. [^1] |
+| `unload` `-q` `'…'` | Unload plugin loaded with `zi load …`. `-q` – quiet. |
+| `snippet` `-f` `URL` | Source local (full path) or remote file (URL). `-f` – don't use cache (force re-download). [^2] |
 
 ```mdx-code-block
 </APITable>
@@ -176,19 +174,19 @@ Following commands are passed to `zi …` to obtain described effects.
 <APITable>
 ```
 
-|                   Command                    | Description                                                                                                                             |
-| :------------------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Command | Description |
+| :-: | --- |
 | `clist` `columns` or `completions` `columns` | List completions in use, with `columns` completions per line. `zi clist 5` will for example print 5 completions per line. Default is 3. |
-|               `cdisable` `'…'`               | Disable completion.                                                                                                                     |
-|               `cenable` `'…'`                | Enable completion.                                                                                                                      |
-|         `creinstall` `-q` `-Q` `'…'`         | Install completions for the plugin, can also receive absolute local path. `-q` – quiet. `-Q` - quiet all.                               |
-|               `cuninstall '…'`               | Uninstall completions for the plugin.                                                                                                   |
-|                  `csearch`                   | Search for available completions from any plugin.                                                                                       |
-|                  `compinit`                  | Refresh installed completions.                                                                                                          |
-|                   `cclear`                   | Clear stray and improper completions.                                                                                                   |
-|                   `cdlist`                   | Show compdef replay list.                                                                                                               |
-|               `cdreplay` `-q`                | Replay compdefs (to be done after compinit). `-q` – quiet.                                                                              |
-|                `cdclear` `-q`                | Clear compdef replay list. `-q` – quiet.                                                                                                |
+| `cdisable` `'…'` | Disable completion. |
+| `cenable` `'…'` | Enable completion. |
+| `creinstall` `-q` `-Q` `'…'` | Install completions for the plugin, can also receive absolute local path. `-q` – quiet. `-Q` - quiet all. |
+| `cuninstall '…'` | Uninstall completions for the plugin. |
+| `csearch` | Search for available completions from any plugin. |
+| `compinit` | Refresh installed completions. |
+| `cclear` | Clear stray and improper completions. |
+| `cdlist` | Show compdef replay list. |
+| `cdreplay` `-q` | Replay compdefs (to be done after compinit). `-q` – quiet. |
+| `cdclear` `-q` | Clear compdef replay list. `-q` – quiet. |
 
 ```mdx-code-block
 </APITable>
@@ -218,17 +216,17 @@ Following commands are passed to `zi …` to obtain described effects.
 <APITable>
 ```
 
-|             Command             | Description                                                                                                                                                |
-| :-----------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|     `times` `-s` `-m` `-a`      | Statistics on plugin load times, sorted in order of loading. `-s` – use seconds instead of milliseconds. `-m` – show plugin loading moments and `-a` both. |
-|            `zstatus`            | Overall ZI status.                                                                                                                                         |
-|     `report` `'…'` `--all`      | Show plugin report. `--all` – do it for all plugins.                                                                                                       |
-|            `loaded`             | Show loaded plugins                                                                                                                                        |
-|        `list` `keyword`         | Filter loaded plugins with only 'keyword'                                                                                                                  |
-|              `ls`               | List snippets in a formatted and colorized manner. Requires **tree** program.                                                                              |
-| `status` `'…'` or `URL` `--all` | Git status for plugin or svn status for the snippet. `--all` – do it for all plugins and snippets.                                                         |
-|     `recently` `time-spec`      | Show plugins that changed recently, the argument is e.g. 1 month 2 days.                                                                                   |
-|           `bindkeys`            | Lists bindkeys set up by each plugin.                                                                                                                      |
+| Command | Description |
+| :-: | --- |
+| `times` `-s` `-m` `-a` | Statistics on plugin load times, sorted in order of loading. `-s` – use seconds instead of milliseconds. `-m` – show plugin loading moments and `-a` both. |
+| `zstatus` | Overall ZI status. |
+| `report` `'…'` `--all` | Show plugin report. `--all` – do it for all plugins. |
+| `loaded` | Show loaded plugins |
+| `list` `keyword` | Filter loaded plugins with only 'keyword' |
+| `ls` | List snippets in a formatted and colorized manner. Requires **tree** program. |
+| `status` `'…'` or `URL` `--all` | Git status for plugin or svn status for the snippet. `--all` – do it for all plugins and snippets. |
+| `recently` `time-spec` | Show plugins that changed recently, the argument is e.g. 1 month 2 days. |
+| `bindkeys` | Lists bindkeys set up by each plugin. |
 
 ```mdx-code-block
 </APITable>
@@ -256,24 +254,24 @@ Following commands are passed to `zi …` to obtain described effects.
 <APITable>
 ```
 
-|                         Command                          | Description                                                                                                                                                |
-| :------------------------------------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                      `self-update`                       | Updates and compiles Zi.                                                                                                                                   |
-|           `update` `-q` `-r` `'…'` or `--all`            | Update all plugins and snippets with `--all` – for quiet `-q` – execute `git reset --hard` or `svn revert` before pulling changes with `-r`.               |
-|                        `ice '…'`                         | Add ice to next command, argument e.g.: from"gitlab".                                                                                                      |
-|           `delete` `'…'` or `--clean` `--all`            | Remove plugin or snippet from disk (good to forget wrongly passed ice-modifiers) `--all` – delete plugins and snippets that are not loaded with `--clean`. |
-|                         `cd '…'`                         | Jump into the plugin's directory. Also support snippets if fed with URL.                                                                                   |
-|                        `edit '…'`                        | Edit plugin's file with set \$EDITOR.                                                                                                                      |
-|                       `glance '…'`                       | Look at plugin's source (pygmentize, {,source-}highlight).                                                                                                 |
-|                       `stress '…'`                       | Test plugin for compatibility with a set of options.                                                                                                       |
-|                      `changes '…'`                       | View plugin's git log.                                                                                                                                     |
-|                       `create '…'`                       | Create plugin (also together with GitHub repository).                                                                                                      |
-|              `srv` `service-id` `{command}`              | Control a service, command can be: stop,start,restart,next,quit; `next` moves the service to another Z shell.                                              |
-|                    `recall '…'` `URL`                    | Fetch saved ice modifiers and construct `zi ice '…'` command.                                                                                              |
-|           `env-whitelist` `-v` `-h` `{env..}`            | Allows to specify names or patterns of variables left unchanged during an unload – verbose `-v` – help `-h`.                                               |
-|                         `module`                         | Manage binary Zsh module shipped with ZI, see `zi module help`.                                                                                            |
-| `add-fpath` `fpath` `-f` `--front` `'…'` `sub-directory` | Adds given plugin (not yet snippet) directory to `$fpath`. If the second argument is given, it is appended to the directory path. [^3]                     |
-|             `run` `-l` `plugin` `{command}`              | Runs the given command in the given plugin's directory. [^4]                                                                                               |
+| Command | Description |
+| :-: | --- |
+| `self-update` | Updates and compiles Zi. |
+| `update` `-q` `-r` `'…'` or `--all` | Update all plugins and snippets with `--all` – for quiet `-q` – execute `git reset --hard` or `svn revert` before pulling changes with `-r`. |
+| `ice '…'` | Add ice to next command, argument e.g.: from"gitlab". |
+| `delete` `'…'` or `--clean` `--all` | Remove plugin or snippet from disk (good to forget wrongly passed ice-modifiers) `--all` – delete plugins and snippets that are not loaded with `--clean`. |
+| `cd '…'` | Jump into the plugin's directory. Also support snippets if fed with URL. |
+| `edit '…'` | Edit plugin's file with set \$EDITOR. |
+| `glance '…'` | Look at plugin's source (pygmentize, {,source-}highlight). |
+| `stress '…'` | Test plugin for compatibility with a set of options. |
+| `changes '…'` | View plugin's git log. |
+| `create '…'` | Create plugin (also together with GitHub repository). |
+| `srv` `service-id` `{command}` | Control a service, command can be: stop,start,restart,next,quit; `next` moves the service to another Z shell. |
+| `recall '…'` `URL` | Fetch saved ice modifiers and construct `zi ice '…'` command. |
+| `env-whitelist` `-v` `-h` `{env..}` | Allows to specify names or patterns of variables left unchanged during an unload – verbose `-v` – help `-h`. |
+| `module` | Manage binary Zsh module shipped with ZI, see `zi module help`. |
+| `add-fpath` `fpath` `-f` `--front` `'…'` `sub-directory` | Adds given plugin (not yet snippet) directory to `$fpath`. If the second argument is given, it is appended to the directory path. [^3] |
+| `run` `-l` `plugin` `{command}` | Runs the given command in the given plugin's directory. [^4] |
 
 ```mdx-code-block
 </APITable>
