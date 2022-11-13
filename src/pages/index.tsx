@@ -10,7 +10,7 @@ import HomeFeatures from "@site/src/components/HomeFeatures";
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <Layout title={siteConfig.tagline} description={siteConfig.description}>
+    <Layout title={siteConfig.tagline} description='A Swiss Army Knife Toolchain for Zsh Unix shell'>
       <header>
         <HomeBanner />
       </header>

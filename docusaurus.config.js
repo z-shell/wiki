@@ -1,6 +1,5 @@
 /** @format */
 // @ts-check
-
 const url = process.env.URL ?? "https://wiki.zshell.dev";
 const baseUrl = process.env.BASE_URL ?? "/";
 const styles = process.env.STYLES ?? "https://r2.zshell.dev/fa/6.2.0/js/all.min.js";
@@ -13,8 +12,8 @@ const config = {
   url,
   baseUrl,
   trailingSlash: false,
-  title: "❮ Z-Shell ❯",
-  titleDelimiter: "|",
+  title: "Z-Shell",
+  titleDelimiter: "⥍",
   tagline: "A Swiss Army Knife for Zsh Unix shell",
   projectName: "wiki",
   organizationName: "z-shell",
@@ -61,7 +60,6 @@ const config = {
             copyright: `Copyright © ${new Date().getFullYear()} Z-Shell Community.`,
           },
         },
-        pages: {},
         sitemap: {changefreq: "weekly"},
       }),
     ],
@@ -83,26 +81,10 @@ const config = {
           {tagName: "link", rel: "icon", href: "img/logo.png"},
           {tagName: "link", rel: "manifest", href: "manifest.json"},
           {tagName: "link", rel: "browserconfig", href: "browserconfig.xml"},
-          {
-            tagName: "meta",
-            name: "theme-color",
-            content: "hsl(167°, 68%, 43%)",
-          },
-          {
-            tagName: "meta",
-            name: "apple-mobile-web-app-capable",
-            content: "yes",
-          },
-          {
-            tagName: "meta",
-            name: "apple-mobile-web-app-status-bar-style",
-            content: "#000",
-          },
-          {
-            tagName: "meta",
-            name: "msapplication-TileImage",
-            content: "img/logo.png",
-          },
+          {tagName: "meta", name: "theme-color", content: "hsl(167°, 68%, 43%)"},
+          {tagName: "meta", name: "apple-mobile-web-app-capable", content: "yes"},
+          {tagName: "meta", name: "apple-mobile-web-app-status-bar-style", content: "#000"},
+          {tagName: "meta", name: "msapplication-TileImage", content: "img/logo.png"},
           {tagName: "meta", name: "msapplication-TileColor", content: "#000"},
         ],
       },
@@ -158,7 +140,7 @@ const config = {
         {name: "twitter:card", content: "summary"},
         {
           name: "keywords",
-          content: "z-shell, ,zshell, zsh, zsh-plugins, zinit, zplugin, oh-my-zsh, prezto, zi",
+          content: "z-shell, zsh, zinit, zplugin, oh-my-zsh, prezto, zi, devops, zsh-plugins",
         },
       ],
       announcementBar: {
@@ -279,7 +261,7 @@ const config = {
               },
               {
                 label: "Zsh Manual",
-                href: "https://zsh.sourceforge.io/Doc/Release/zsh_toc.html                ",
+                href: "https://zsh.sourceforge.io/Doc/Release/zsh_toc.html",
               },
               {
                 label: "Localization",
@@ -289,7 +271,7 @@ const config = {
                 label: "Uptime Status",
                 href: "https://status.zshell.dev",
               },
-              /* {html: ``}, */
+              /* {html: `▼▼▼`}, */
             ],
           },
           {
