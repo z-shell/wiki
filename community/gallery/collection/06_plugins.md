@@ -66,7 +66,7 @@ zi0c() {
 
 :::
 
-:::Load:
+:::tip Load:
 
 ```shell showLineNumbers
 zi0a
