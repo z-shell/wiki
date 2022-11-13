@@ -10,7 +10,7 @@ name: "📊 Build Performance"
 # See https://securitylab.github.com/research/github-actions-preventing-pwn-requests
 on:
   pull_request:
-    branches: ["main, next"]
+    branches: [main, next]
     paths-ignore:
       - "static/**"
       - "i18n/**"
