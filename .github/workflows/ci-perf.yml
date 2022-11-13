@@ -48,8 +48,8 @@ jobs:
       - uses: preactjs/compressed-size-action@v2
         with:
           build-script: "build:en"
-          pattern: "{build/assets/js/*.js,build/assets/css/*.css,build/assets/**/*.ttf,build/**/*.html,.docusaurus/globalData.json,build/blog/**/swiss-army-knife-for-zsh/*}"
-          exclude: "{./build/manifest.json,./build/**/*.xml,**/*.map,**/node_modules/**}"
+          pattern: "{build/assets/js/*.js,build/assets/css/*.css,build/**/*.html,.docusaurus/globalData.json,build/blog/**/swiss-army-knife-for-zsh/*}"
+          exclude: "{./build/manifest.json,./build/**/*.xml,**/*.map,**/node_modules/**,build/assets/**/*.ttf}"
           strip-hash: '\.([^;]\w{7})\.'
           minimum-change-threshold: 30
           compression: none
