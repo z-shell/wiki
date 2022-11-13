@@ -10,8 +10,10 @@ name: "📊 Build Performance"
 # See https://securitylab.github.com/research/github-actions-preventing-pwn-requests
 on:
   pull_request:
-    branches: ["main"]
+    branches: ["main, next"]
     paths-ignore:
+      - "static/**"
+      - "i18n/**"
       - "docs/**"
       - "community/**"
       - "ecosystem/**"
@@ -34,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ["16"]
+        node-version: [16, 18]
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2.2.4
@@ -42,12 +44,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
-      - run: pnpm install
+      - run: pnpm i --prod --fix-lockfile
       - uses: preactjs/compressed-size-action@v2
         with:
           build-script: "build:en"
-          pattern: "{build/assets/js/*.js,build/assets/css/*.css,build/**/*.html,.docusaurus/globalData.json,build/blog/**/swiss-army-knife-for-zsh/*}"
-          exclude: "{./build/manifest.json,**/*.map,**/node_modules/**}"
+          pattern: "{build/assets/js/*.js,build/assets/css/*.css,build/assets/**/*.ttf,build/**/*.html,.docusaurus/globalData.json,build/blog/**/swiss-army-knife-for-zsh/*}"
+          exclude: "{./build/manifest.json,./build/**/*.xml,**/*.map,**/node_modules/**}"
           strip-hash: '\.([^;]\w{7})\.'
           minimum-change-threshold: 30
           compression: none
@@ -58,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ["16"]
+        node-version: [16, 18]
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2.2.4
@@ -66,7 +68,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
-      - run: pnpm install
+      - run: pnpm i --prod --fix-lockfile
       # Ensure build with a cold cache does not increase too much
       - name: "Build (cold cache)"
         run: pnpm build:en
