@@ -6,7 +6,7 @@ overrides:
   minimatch@<3.0.5: '>=3.0.5'
 
 specifiers:
-  '@crowdin/cli': 3.9.0
+  '@crowdin/cli': 3.9.1
   '@docusaurus/core': 2.2.0
   '@docusaurus/eslint-plugin': 2.2.0
   '@docusaurus/module-type-aliases': 2.2.0
@@ -66,7 +66,7 @@ dependencies:
   remark-math: 3.0.1
 
 devDependencies:
-  '@crowdin/cli': 3.9.0
+  '@crowdin/cli': 3.9.1
   '@docusaurus/eslint-plugin': 2.2.0_rmayb2veg2btbq6mbmnyivgasy
   '@docusaurus/module-type-aliases': 2.2.0_sfoxds7t5ydpegc3knd667wn6m
   '@trunkio/launcher': 1.2.3
@@ -1577,8 +1577,8 @@ packages:
     dev: false
     optional: true
 
-  /@crowdin/cli/3.9.0:
-    resolution: {integrity: sha512-4wQjqJZmU/mg3VYfRL6IYXw/pPAL9vdfW3QVSBovYA+bYaEt43ZuGsSrqeBGOhLehasWwRqklXWsl96gxQlLdw==}
+  /@crowdin/cli/3.9.1:
+    resolution: {integrity: sha512-Ca+mzVvLE9lYmTA4peTHOQdH42+eThwQ0DK6URT7crInQKJRjVJdsA2kkfEwi2mQPruAIG/KIKaPieRWPanlIQ==}
     hasBin: true
     dependencies:
       njre: 0.2.0
