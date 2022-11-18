@@ -8,29 +8,15 @@ import Player from "@site/src/components/Player";
 import Emoji from "@site/src/components/Emoji";
 import styles from "./styles.module.css";
 
-const turboSvg = () => (
-  <span className='fa-6x'>
-    <i className='fa-solid fa-forward' />
-  </span>
-);
-
-const statsSvg = () => (
-  <span className='fa-8x'>
-    <i className='fa-solid fa-ranking-star' />
-  </span>
-);
-
-const createSvg = () => (
-  <span className='fa-6x'>
-    <i className='fa-solid fa-layer-group' />
-  </span>
-);
-
 type FeatureItem = {
   title: string;
   Svg: () => JSX.Element;
   description: JSX.Element;
 };
+
+const turbo = () => <i className='fa-6x fa-solid fa-forward' />;
+const stats = () => <i className='fa-8x fa-solid fa-ranking-star' />;
+const create = () => <i className=' fa-6x fa-solid fa-layer-group' />;
 
 const Features: FeatureItem[] = [
   {
@@ -39,7 +25,7 @@ const Features: FeatureItem[] = [
       message: "Zsh Startup 50-80% Faster",
       description: "Title of feature 1 (left) on the home page",
     }),
-    Svg: turboSvg,
+    Svg: turbo,
     description: (
       <Translate id='home.feature1' description='Description of first featured banner in homepage'>
         Instant prompt postponing plugins loading to a moment when the processing of .zshrc file is finished.
@@ -52,7 +38,7 @@ const Features: FeatureItem[] = [
       message: "Focus on What Matters",
       description: "Title of feature 2 (middle) on the home page",
     }),
-    Svg: statsSvg,
+    Svg: stats,
     description: (
       <Translate id='home.feature2' description='Description of second featured banner in homepage'>
         Statistics about the plugins, describing what functions, bindkeys, completions, and other elements a plugin has
@@ -66,7 +52,7 @@ const Features: FeatureItem[] = [
       message: "Wide Range of Features",
       description: "Title of feature 3 (right) on the home page",
     }),
-    Svg: createSvg,
+    Svg: create,
     description: (
       <Translate id='home.feature3' description='Description of third featured banner in homepage'>
         Supports Oh-My-Zsh and Prezto - not framework-specific. Produce your plugins, libraries, and themes
@@ -78,71 +64,83 @@ const Features: FeatureItem[] = [
 
 function VideoContainer1() {
   return (
-    <div className={clsx("container", styles.VideoContainer)}>
-      <h2>
-        <Emoji
-          style={{
-            paddingRight: "0.5rem",
-          }}
-          symbol='⚡'
-          label='high-voltage'
-        />
-        <Translate id='homepage.video.heading.1' description='The homepage video container heading 1'>
-          Fast and feature-rich
-        </Translate>
-      </h2>
-      <Player src='https://asciinema.org/a/509113.cast' rows={34} cols={231} />
+    <div className={styles.VideoContainer}>
+      <div className='container'>
+        <h2>
+          <Emoji
+            style={{
+              paddingRight: "0.5rem",
+            }}
+            symbol='⚡'
+            label='high-voltage'
+          />
+          <Translate id='homepage.video.heading.1' description='The homepage video container heading 1'>
+            Fast and feature-rich
+          </Translate>
+        </h2>
+        <Player src='https://asciinema.org/a/509113.cast' rows={34} cols={231} />
+      </div>
     </div>
   );
 }
 
 function VideoContainer2() {
   return (
-    <div className={clsx("container", styles.VideoContainer)}>
-      <h2>
-        <Emoji
-          style={{
-            paddingRight: "0.5rem",
-          }}
-          symbol='✨'
-          label='sparkles'
-        />
-        <Translate id='homepage.video.heading.2' description='The homepage video container heading 2'>
-          Neat and flexible
-        </Translate>
-      </h2>
-      <Player src='https://asciinema.org/a/497831.cast' rows={34} cols={231} />
+    <div className={styles.VideoContainer}>
+      <div className='container'>
+        <h2>
+          <Emoji
+            style={{
+              paddingRight: "0.5rem",
+            }}
+            symbol='✨'
+            label='sparkles'
+          />
+          <Translate id='homepage.video.heading.2' description='The homepage video container heading 2'>
+            Neat and flexible
+          </Translate>
+        </h2>
+        <Player src='https://asciinema.org/a/497831.cast' rows={34} cols={231} />
+      </div>
+    </div>
+  );
+}
+
+function Feature({Svg, title, description}: FeatureItem) {
+  return (
+    <div className={clsx("col col--4")}>
+      <div className={styles.FeatureImg}>
+        <Svg />
+      </div>
+      <div className={styles.FeatureText}>
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </div>
     </div>
   );
 }
 
 function FeaturesContainer() {
   return (
-    <div className={clsx("container", styles.FeatureContainer)}>
-      {Features.map(({Svg, title, description}, idx) => (
-        <div
-          // eslint-disable-next-line react/no-array-index-key
-          key={idx}
-          className={clsx("col col--4", styles.FeatureItem)}>
-          {Svg && (
-            <div className={styles.FeatureImg}>
-              <Svg />
-            </div>
-          )}
-          <h3>{title}</h3>
-          <p>{description}</p>
+    <div className={styles.FeatureContainer}>
+      <div className='container'>
+        <div className='row'>
+          {Features.map((props, idx) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <Feature key={idx} {...props} />
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }
 
 export default function HomeFeatures(): JSX.Element {
   return (
-    <div className={styles.HomeFeatures}>
+    <section>
       <VideoContainer1 />
       <FeaturesContainer />
       <VideoContainer2 />
-    </div>
+    </section>
   );
 }

@@ -1,11 +1,5 @@
 /** @format */
 
-.HomeFeatures {
-  position: relative;
-  padding: 2rem 0;
-  overflow: hidden;
-}
-
 .VideoContainer {
   position: relative;
   padding: 2rem 0;
@@ -19,36 +13,31 @@
 
 .FeatureContainer {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 2rem 0;
-  overflow: hidden;
-  text-align: center;
-}
-
-.FeatureItem {
-  display: block;
   align-items: center;
   width: 100%;
-  height: auto;
+  padding: 2rem 0;
 }
 
 .FeatureImg {
-  display: inline;
-  width: 200px;
-  height: 200px;
+  display: block;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.FeatureText {
+  text-align: center;
 }
 
 @media only screen and (max-width: 996px) {
-  .HomeFeatures {
-    padding: 1rem 0;
-  }
-
   .VideoContainer {
     padding: 1rem 0;
   }
 
   .FeaturesContainer {
+    padding: 1rem 0;
+  }
+
+  .FeatureImg {
     padding: 1rem 0;
   }
 }
