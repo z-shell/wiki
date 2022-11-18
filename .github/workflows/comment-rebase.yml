@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: ⤵️ Check out code from GitHub
-        uses: actions/checkout@5c3ccc22eb2c950a0fa5bc7c47190d8e3f7e681a
+        uses: actions/checkout@bf085276cecdb0cc76fbbe0687a5a0e786646936
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0 # otherwise, you will fail to push refs to dest repo
