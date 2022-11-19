@@ -417,7 +417,7 @@ The proposition of the standard prefixes is as follows:
 
    2.2. the arrow has a rationale behind it - it denotes the execution **coming back** to the function at a later time after it has been registered as a callback or a handler,
 
-   2.3. the arrow is easy to type on most keyboard layouts – it is `Right-Alt`+`I`; in case of problems with typing the character can be always copied – handler functions do occur in the code rarely,
+   2.3. the arrow is easy to type on most keyboard layouts – it is <kbd>Right-Alt</kbd>+<kbd>I</kbd>; in case of problems with typing the character can be always copied – handler functions do occur in the code rarely,
 
    2.4. Zsh supports any string as a function name because absolutely any string can be a **file** name – if there would be an exception in the name of the call-ables, then how would it be possible to run a script called "→abcd"? There are **no** exceptions, the function can be called even as a sequence of null bytes:
 
