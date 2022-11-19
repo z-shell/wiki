@@ -1,10 +1,8 @@
-# @format
-
+version: 0.1
 runtimes:
   enabled:
     - go@1.18.3
     - node@16.14.2
-version: 0.1
 cli:
   version: 1.1.0
   options:
@@ -29,8 +27,6 @@ actions:
     - trunk-check-pre-push
     - trunk-fmt-pre-commit
     - trunk-upgrade-available
-    - trunk-check-pre-push
-    - trunk-fmt-pre-commit
     - trunk-cache-prune
 lint:
   disabled:
