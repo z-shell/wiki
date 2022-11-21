@@ -16,7 +16,7 @@ keywords:
 
 import ImgShow from '@site/src/components/ImgShow'; import APITable from '@site/src/components/APITable';
 
-## <i class="fas fa-circle-info"></i> Introduction
+## <i class="fas fa-circle-info"></i> はじめに
 
 Zi provides two syntax types for structured statements or expressions:
 

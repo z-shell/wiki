@@ -182,7 +182,7 @@ The plugin manager can provide a function `@zsh-plugin-run-on-unload` which has 
 @zsh-plugin-run-on-unload "{code-snippet-1}" "{code-snippet-2}" …
 ```
 
-The function registers pieces of code to be run by the plugin manager **on the unloading of the plugin**. The execution of the code should be done by the `eval` built-in in the same order as they are passed to the call. The code should be executed in the plugin’s directory, in the current shell. The mechanism thus provides another way, side to the [unload function](#unload-function), for the plugin to participate in the process of unloading it.
+该函数注册了由插件管理器 **，在卸载插件时运行的代码片断**。 The execution of the code should be done by the `eval` built-in in the same order as they are passed to the call. The code should be executed in the plugin’s directory, in the current shell. The mechanism thus provides another way, side to the [unload function](#unload-function), for the plugin to participate in the process of unloading it.
 
 ### **STATUS:** [ run-on-unload-call ]
 

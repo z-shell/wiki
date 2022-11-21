@@ -1,7 +1,7 @@
 ---
 id: ecosystem
 slug: /
-title: "🌐 Ecosystem"
+title: "🌐 エコシステム"
 sidebar_position: 1
 image: /img/png/theme/z/320x320.png
 description: Introduction to the ecosystem.
