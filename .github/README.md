@@ -56,7 +56,7 @@
 </tr>
 <tr>
 <td align="center">
-<a title="ZI WIKI" target="_self" href="https://github.com/z-shell/wiki">
+<a title="Zi Wiki" target="_self" href="https://github.com/z-shell/wiki">
   <img
     align="center" style="width:80%;height:auto"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/pagespeed/detailed.svg"
@@ -75,14 +75,10 @@
  <p> Participate in the community by showing the <a href="https://github.com/z-shell/community/issues/new?assignees=&labels=%F0%9F%91%A5+member&template=membership.yml&title=team%3A+">interest</a> to the project, as it may bring us together, then great things may happen. If you would like to participate, but are not sure about what and how - do not hesitate to contact us so we can discuss the situation 👍. We've all been there, we all had to start from something - together is much easier, just need to do the first step 🚀. </p>
  <hr />
  <h2 align="left">Security</h2>
- <p> - Z-Shell ZI follows good practices of security, but 100% security cannot be assured.</p>
- <p> - Z-Shell ZI is provided <bold>"as is"</bold> without any <bold>warranty</bold>. Use at your own risk. </p>
+ <p> - Z-Shell follows good practices of security, but 100% security cannot be assured.</p>
+ <p> - Z-Shell is provided <bold>"as is"</bold> without any <bold>warranty</bold>. Use at your own risk. </p>
  <p> - For more information and to report security issues, please refer to our <a href="https://github.com/z-shell/zi/blob/main/docs/SECURITY.md">security documentation</a>.</p>
  <hr />
- <h2 align="left">Acknowledgements</h2>
- <p> The <a href="https://github.com/z-shell">Z-Shell</a> organization was created to recover the <a href="https://github.com/zdharma">Zdharma</a> organization which was deleted by the owner for an unknown reason. It took a lot of time and effort for all those who liked the project and were depending on it don't want to depend on an unreliable source. </p>
- <p> <a href="https://github.com/z-shell/zi">ZI</a>, formerly known as zplugin, zinit, is an open-source community project released under the <a href="https://github.com/z-shell/zi/blob/main/LICENSE">MIT License</a>.</p>
-<hr />
 <h2 align="left">Authors & contributors</h2>
  <p> Check the list of authors and contributors in this <a href="https://github.com/z-shell/zi/contributors">repository</a> and also all other repositories under <a href="https://github.com/z-shell">Z-Shell</a> organization. We will inlclude all showning the interest or dedicated their time to take a part.
  </p>
