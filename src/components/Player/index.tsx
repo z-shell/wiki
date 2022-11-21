@@ -28,14 +28,14 @@ export default function AsciinemaPlayer({src, ...options}: PlayerProps): JSX.Ele
   const [player, setPlayer] = useState<typeof import("asciinema-player")>();
 
   useEffect(() => {
+    import("asciinema-player").then((module) => {
+      setPlayer(module);
+    });
+  }, []);
+
+  useEffect(() => {
     const currentRef = ref.current;
     const instance = player?.create(src, currentRef, options);
-
-    if (!instance) {
-      import("asciinema-player").then((module) => {
-        setPlayer(module);
-      });
-    }
 
     return () => {
       instance?.dispose();
@@ -45,5 +45,6 @@ export default function AsciinemaPlayer({src, ...options}: PlayerProps): JSX.Ele
   if (!player) {
     return <Spinner />;
   }
+
   return <div ref={ref} />;
 }
