@@ -2,7 +2,7 @@
 // @ts-check
 const url = process.env.URL ?? "https://wiki.zshell.dev";
 const baseUrl = process.env.BASE_URL ?? "/";
-const styles = process.env.STYLES ?? "https://r2.zshell.dev/fa/6.2.0/js/all.min.js";
+const styles = process.env.STYLES ?? "https://r2.zshell.dev/fa/6.2.1/js/all.min.js";
 const math = require("remark-math");
 const katex = require("rehype-katex");
 /** const CurrentPagesUrl = process.env.CF_PAGES_URL ?? "https://wiki.zshell.dev"; */
