@@ -45,7 +45,7 @@ zi light ajeetdsouza/zoxide
 ```shell showLineNumbers
 zi ice atclone"dircolors -b LS_COLORS > init.zsh" \
   atpull"%atclone" pick"init.zsh" nocompile'!' \
-  atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
+  atload'zstyle ":completion:*" list-colors ${(s.:.)LS_COLORS}'
 zi light trapd00r/LS_COLORS
 ```
 
@@ -60,7 +60,7 @@ zi light ajeetdsouza/zoxide
 
 ```shell {1} showLineNumbers
 zi ice eval"dircolors -b LS_COLORS" \
-  atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
+  atload'zstyle ":completion:*" list-colors ${(s.:.)LS_COLORS}'
 zi light trapd00r/LS_COLORS
 ```
 
