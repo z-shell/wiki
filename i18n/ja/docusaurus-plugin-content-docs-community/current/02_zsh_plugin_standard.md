@@ -16,13 +16,13 @@ keywords:
 
 <!-- @format -->
 
-## What is a Zsh plugin?
+## Zshプラグインとは何か
 
 歴史的に、ZshプラグインはOh My Zshによって最初に定義されました。 They provide a way to package together files that extend or configure the shell’s functionality in a particular way.
 
 簡単なレベルでは、プラグインは:
 
-1. Has directory added to `$fpath` ([Zsh documentation: #Autoloading-Functions][autoloading-functions]). This is being done either by a plugin manager or by the plugin itself (see [5th section](#run-on-unload-call) for more information).
+1. Has directory added to `$fpath` ([Zsh documentation: #Autoloading-Functions][autoloading-functions]). これは、プラグインマネージャまたはプラグイン自体によって行われています(詳細については、 [5番目のセクション](#run-on-unload-call) を参照してください)。
 
 2. Has first `*.plugin.zsh` file sourced (or `*.zsh`, `init.zsh`, `*.sh`, these are non-standard).
 

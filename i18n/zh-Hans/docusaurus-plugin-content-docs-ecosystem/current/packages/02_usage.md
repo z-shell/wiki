@@ -5,7 +5,7 @@ image: /img/png/theme/z/320x320.png
 description: Zi packages usage information.
 keywords:
   - zpackage
-  - packages
+  - 软件包
   - zsh-packages
 ---
 
