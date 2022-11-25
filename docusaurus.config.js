@@ -135,7 +135,7 @@ const config = {
         disableSwitch: false,
         respectPrefersColorScheme: true,
       },
-      image: "img/logo/320x320.png",
+      image: "/img/png/theme/z/320x320.png",
       metadata: [
         {name: "twitter:card", content: "summary"},
         {
