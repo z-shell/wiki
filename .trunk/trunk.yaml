@@ -50,7 +50,6 @@ lint:
         - build/*
         - .docusaurus/*
         - static/img/**
-        - static/assets/**
     - linters: [gitleaks]
       paths:
         - pnpm-lock.yaml

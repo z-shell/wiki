@@ -24,11 +24,12 @@ const config = {
   favicon: "/img/favicon.ico",
   i18n: {defaultLocale: "en", locales: ["en", "ja", "zh-Hans"]},
   scripts: [{src: styles, crossorigin: "anonymous"}],
+  /**
   headTags: [
     {tagName: "link", attributes: {rel: "preconnect", href: "https://fonts.googleapis.com"}},
     {tagName: "link", attributes: {rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "anonymous"}},
   ],
-  stylesheets: [{href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap"}],
+*/
   presets: [
     [
       "classic",

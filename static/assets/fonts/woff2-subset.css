@@ -1,0 +1,31 @@
+@font-face {
+  font-family: Hack;
+  font-style: normal;
+  font-weight: 400;
+  src: url("woff2/hack-regular-subset.woff2?sha=3114f1256") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Hack;
+  font-style: normal;
+  font-weight: 700;
+  src: url("woff2/hack-bold-subset.woff2?sha=3114f1256") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Hack;
+  font-style: italic;
+  font-weight: 400;
+  src: url("woff2/hack-italic-subset.woff2?sha=3114f1256") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Hack;
+  font-style: italic;
+  font-weight: 700;
+  src: url("woff2/hack-bolditalic-subset.woff2?sha=3114f1256") format("woff2");
+  font-display: swap;
+}

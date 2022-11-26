@@ -1,28 +1,17 @@
 /* @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap"); */
+/* @import "/assets/fonts/woff-subset.css"; */
+/* @import url("/assets/fonts/ttf.css"); */
 
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: italic;
-  font-weight: 100 800;
-  src: url("/assets/fonts/variable/JetBrainsMono-Italic[wght].ttf") format("truetype");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 100 800;
-  src: url("/assets/fonts/variable/JetBrainsMono[wght].ttf") format("truetype");
-  font-display: swap;
-}
+@import url("/assets/fonts/variable.css");
+@import url("/assets/fonts/woff2.css");
 
 :root {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "JetBrains Mono", Hack, monospace;
   transition-duration: 1s !important;
 
-  --ifm-font-family: "JetBrains Mono", monospace;
-  --ifm-font-family-base: "JetBrains Mono", monospace;
-  --ifm-font-family-monospace: "JetBrains Mono", monospace;
+  --ifm-font-family: "JetBrains Mono", "Hack", monospace;
+  --ifm-font-family-base: "JetBrains Mono", "Hack", monospace;
+  --ifm-font-family-monospace: "Hack", monospace;
 
   --site-primary-hue-saturation: 168 70%;
   --site-primary-hue-saturation-light: 167 60%;
