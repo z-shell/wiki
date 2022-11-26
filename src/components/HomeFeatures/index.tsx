@@ -3,10 +3,12 @@
 
 import React from "react";
 import clsx from "clsx";
+import Loadable from "@loadable/component";
 import Translate, {translate} from "@docusaurus/Translate";
-import Player from "@site/src/components/Player";
 import Emoji from "@site/src/components/Emoji";
 import styles from "./styles.module.css";
+
+const Player = Loadable(() => import("@site/src/components/Player"));
 
 type FeatureItem = {
   title: string;
@@ -140,7 +142,9 @@ export default function HomeFeatures(): JSX.Element {
     <section>
       <div>
         <VideoContainer1 />
-        <FeaturesContainer />
+        <div>
+          <FeaturesContainer />
+        </div>
         <VideoContainer2 />
       </div>
     </section>

@@ -49,8 +49,8 @@ lint:
         - i18n/*
         - build/*
         - .docusaurus/*
-        - static/img/cast/*
-        - static/assets/fonts/*
+        - static/img/**
+        - static/assets/**
     - linters: [gitleaks]
       paths:
         - pnpm-lock.yaml

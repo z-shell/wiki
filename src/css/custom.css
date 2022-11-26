@@ -3,8 +3,7 @@
 @font-face {
   font-family: "JetBrains Mono", monospace;
   font-style: normal;
-  src: local("JetBrains Mono"), local("JetBrainsMono"), local("JetBrainsMonoNL"),
-    url("/assets/fonts/variable/JetBrainsMono[wght].ttf") format("truetype");
+  src: url("/assets/fonts/variable/JetBrainsMono[wght].ttf") format("truetype");
   font-display: swap;
 }
 
