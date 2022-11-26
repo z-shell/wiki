@@ -54,7 +54,7 @@ Install and control almost everything from GitHub: [Annexes](/ecosystem/category
 
 - [Meta plugins][meta-plugins] allow installing groups of plugins via a single, friendly label.
 - [Packages](/ecosystem/category/-packages) offload the user from providing long and complex commands.
-- [Annexes](ecosystem/category/-annexes) allow extending the plugin manager with new commands.
+- [Annexes](ecosystem/category/-annexes) allow extending the plugin manager with new features.
 - [Turbo][turbo-mode-zsh--53] mode yields **50-80%** faster Zsh startup.
 
 ## <i className="fa-beat" class="fa-solid fa-heart fa-beat"></i> Neat and flexible
