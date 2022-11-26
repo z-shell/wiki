@@ -3,8 +3,8 @@
 
 import React from "react";
 import clsx from "clsx";
-import Player from "@site/src/components/Player";
 import Translate, {translate} from "@docusaurus/Translate";
+import Player from "@site/src/components/Player";
 import Emoji from "@site/src/components/Emoji";
 import styles from "./styles.module.css";
 

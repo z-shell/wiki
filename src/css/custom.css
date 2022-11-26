@@ -1,13 +1,8 @@
-/* @format */
-
-@font-face {
-  font-family: "JetBrains Mono", monospace;
-  font-style: normal;
-  src: url("/assets/fonts/variable/JetBrainsMono[wght].ttf") format("truetype");
-  font-display: swap;
-}
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap");
+/* @import url('https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css'); */
 
 :root {
+  font-family: "JetBrains Mono", monospace;
   transition-duration: 1s !important;
 
   --ifm-font-family: "JetBrains Mono", monospace;
