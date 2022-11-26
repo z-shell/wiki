@@ -22,9 +22,11 @@ type PlayerProps = {
   terminalLineHeight?: number;
   terminalFontFamily?: string;
   terminalFontSize?: string;
+  className?: string;
 };
 
-export default function Player({src, ...opts}: PlayerProps): JSX.Element {
+export default function Player(props: PlayerProps): JSX.Element {
+  const {src, ...opts} = props;
   const ref = useRef<HTMLDivElement>(null);
   const [player, setPlayer] = useState<typeof import("asciinema-player")>();
 

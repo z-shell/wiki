@@ -113,7 +113,7 @@ function Feature({Svg, title, description}: FeatureItem) {
         <Svg />
       </div>
       <div className={styles.FeatureText}>
-        <h3>{title}</h3>
+        <h2>{title}</h2>
         <p>{description}</p>
       </div>
     </div>
@@ -138,9 +138,11 @@ function FeaturesContainer() {
 export default function HomeFeatures(): JSX.Element {
   return (
     <section>
-      <VideoContainer1 />
-      <FeaturesContainer />
-      <VideoContainer2 />
+      <div>
+        <VideoContainer1 />
+        <FeaturesContainer />
+        <VideoContainer2 />
+      </div>
     </section>
   );
 }
