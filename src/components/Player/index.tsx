@@ -5,7 +5,8 @@ import {PlayerConfig} from "asciinema-player";
 import Spinner from "@site/src/components/Spinner";
 import "asciinema-player/dist/bundle/asciinema-player.css";
 
-export default function Player({src, ...options}: PlayerConfig): JSX.Element {
+export default function Player(props: PlayerConfig): JSX.Element {
+  const {src, ...options} = props;
   const element = useRef<HTMLDivElement>(null);
   const [player, setPlayer] = useState<typeof import("asciinema-player")>();
   useEffect(() => {
@@ -21,5 +22,5 @@ export default function Player({src, ...options}: PlayerConfig): JSX.Element {
     };
   }, [src, player, options]);
 
-  return player ? <div ref={element} /> : <Spinner />;
+  return player ? <div className='asciinema-player' ref={element} /> : <Spinner />;
 }

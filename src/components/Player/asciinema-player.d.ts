@@ -20,7 +20,7 @@ declare module "asciinema-player" {
 
   export function create(
     src: string,
-    elem: HTMLElement | null,
+    element: HTMLElement | null,
     opts: {
       cols?: number;
       rows?: number;

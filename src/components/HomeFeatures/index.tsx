@@ -3,12 +3,10 @@
 
 import React from "react";
 import clsx from "clsx";
-import Loadable from "@loadable/component";
+import Player from "@site/src/components/Player";
 import Translate, {translate} from "@docusaurus/Translate";
 import Emoji from "@site/src/components/Emoji";
 import styles from "./styles.module.css";
-
-const Player = Loadable(() => import("@site/src/components/Player"));
 
 type FeatureItem = {
   title: string;
