@@ -1,6 +1,7 @@
 /** @format */
 
 import React, {useEffect, useRef, useState} from "react";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 import Spinner from "@site/src/components/Spinner";
 import "asciinema-player/dist/bundle/asciinema-player.css";
 
@@ -23,28 +24,22 @@ type PlayerProps = {
   terminalFontSize?: string;
 };
 
-export default function AsciinemaPlayer({src, ...options}: PlayerProps): JSX.Element {
+export default function Player({src, ...opts}: PlayerProps): JSX.Element {
   const ref = useRef<HTMLDivElement>(null);
   const [player, setPlayer] = useState<typeof import("asciinema-player")>();
 
   useEffect(() => {
-    import("asciinema-player").then((module) => {
-      setPlayer(module);
-    });
+    import("asciinema-player").then((ready) => setPlayer(ready));
   }, []);
 
   useEffect(() => {
     const currentRef = ref.current;
-    const instance = player?.create(src, currentRef, options);
+    const instance = player?.create(src, currentRef, opts);
 
     return () => {
       instance?.dispose();
     };
-  }, [player, src, options]);
+  }, [player, src, opts]);
 
-  if (!player) {
-    return <Spinner />;
-  }
-
-  return <div ref={ref} />;
+  return <BrowserOnly fallback={<Spinner />}>{() => <div ref={ref} />}</BrowserOnly>;
 }

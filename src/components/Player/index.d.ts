@@ -2,7 +2,6 @@ declare module "asciinema-player" {
   export function create(
     src: string,
     element: HTMLElement | null,
-    // START asciinemaOptions
     opts: {
       src: string;
       cols: number;

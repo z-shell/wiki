@@ -8,9 +8,6 @@ description: Introduction to a Swiss Army Knife for Zsh, formerly known as zplug
 keywords:
   - introduction
   - features
-  - synopsis
-  - overview
-  - welcome
 ---
 
 <!-- @format -->
@@ -57,7 +54,7 @@ Install and control almost everything from GitHub: [Annexes](/ecosystem/category
 
 - [Meta plugins][meta-plugins] allow installing groups of plugins via a single, friendly label.
 - [Packages](/ecosystem/category/-packages) offload the user from providing long and complex commands.
-- [Annexes](ecosystem/category/-annexes) allow extend the plugin manager with new commands.
+- [Annexes](ecosystem/category/-annexes) allow extending the plugin manager with new commands.
 - [Turbo][turbo-mode-zsh--53] mode yields **50-80%** faster Zsh startup.
 
 ## <i className="fa-beat" class="fa-solid fa-heart fa-beat"></i> Neat and flexible
@@ -70,8 +67,9 @@ Install and control almost everything from GitHub: [Annexes](/ecosystem/category
 
 ## <i className="fa-beat-fade" class="fa-solid fa-circle-info fa-beat-fade"></i> Familiarize and control
 
-- Visualize data: **aliases**, **functions**, **bindkeys**, **Zle widgets**, **zstyles**, **completions**, **variables**, `$PATH`, and `$FPATH` elements a plugin has set up.
-- Quickly familiarize oneself with a new plugin and provides rich and easy-to-digest information that might be helpful on various occasions.
+- [Visualize and manage][commands] elements of the plugin:
+  - **aliases**, **functions**, **bindkeys**, **zle widgets**, **completions**, **variables**.
+- Quickly [familiarize][reports-and-statistics] yourself with rich and easy-to-digest information.
 - [Load or unload][loading-and-unloading] plugins, use the ability to [manage][completions-management] completions.
 - Docker [playground][], test or propose configurations.
 
@@ -87,15 +85,17 @@ Install and control almost everything from GitHub: [Annexes](/ecosystem/category
 <!-- end-of-file -->
 <!-- links -->
 
-[turbo-mode-zsh--53]: /docs/getting_started/overview#turbo-mode-zsh--53
+[commands]: /docs/guides/commands
+[completions-management]: /docs/guides/commands#completions-management
 [customizing-paths]: /docs/guides/customization#customizing-paths
+[loading-and-unloading]: /docs/guides/commands#loading-and-unloading
+[meta-plugins]: /search?q=meta+plugins
+[migration]: /docs/getting_started/migration
 [multiple-prompts]: /docs/guides/customization#multiple-prompts
 [non-github-local-plugins]: /docs/guides/customization#non-github-local-plugins
 [oh-my-zsh-prezto]: /docs/getting_started/overview#oh-my-zsh-prezto
-[migration]: /docs/getting_started/migration
-[loading-and-unloading]: /docs/guides/commands#loading-and-unloading
-[completions-management]: /docs/guides/commands#completions-management
-[meta-plugins]: /search?q=meta+plugins
+[reports-and-statistics]: /docs/guides/commands#reports-and-statistics
+[turbo-mode-zsh--53]: /docs/getting_started/overview#turbo-mode-zsh--53
 
 <!-- external -->
 

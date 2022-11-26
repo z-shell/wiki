@@ -3,8 +3,8 @@
 const url = process.env.URL ?? "https://wiki.zshell.dev";
 const baseUrl = process.env.BASE_URL ?? "/";
 const styles = process.env.STYLES ?? "https://r2.zshell.dev/fa/6.2.1/js/all.min.js";
-const math = require("remark-math");
-const katex = require("rehype-katex");
+/** const math = require("remark-math"); */
+/** const katex = require("rehype-katex"); */
 /** const CurrentPagesUrl = process.env.CF_PAGES_URL ?? "https://wiki.zshell.dev"; */
 /** const isProd = process.env.CF_PAGES_BRANCH === "main"; */
 /** @type {import('@docusaurus/types').Config} */
@@ -43,8 +43,6 @@ const config = {
           },
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          remarkPlugins: [math],
-          rehypePlugins: [katex],
         },
         blog: {
           editUrl: ({locale, blogDirPath, blogPath}) => {
