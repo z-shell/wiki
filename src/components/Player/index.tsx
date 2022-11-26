@@ -22,5 +22,5 @@ export default function Player(props: PlayerConfig): JSX.Element {
     };
   }, [src, player, options]);
 
-  return player ? <div className='asciinema-player' ref={element} /> : <Spinner />;
+  return player ? <div ref={element} /> : <Spinner />;
 }
