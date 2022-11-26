@@ -18,8 +18,8 @@ export default function ImgShow({
   label?: string;
   children: ReactNode;
   className?: string;
-  height?: number;
-  width?: number;
+  height?: string;
+  width?: string;
 }): JSX.Element {
   const Image = Loadable(() => import("@theme/IdealImage"));
   return (

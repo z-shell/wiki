@@ -13,7 +13,7 @@ const config = {
   baseUrl,
   trailingSlash: false,
   title: "Z-Shell",
-  titleDelimiter: "⥍",
+  titleDelimiter: "|",
   tagline: "A Swiss Army Knife for Zsh Unix shell",
   projectName: "wiki",
   organizationName: "z-shell",
@@ -22,6 +22,7 @@ const config = {
   onBrokenMarkdownLinks: "warn",
   staticDirectories: ["static"],
   favicon: "/img/favicon.ico",
+  headTags: [{tagName: "link", attributes: {rel: "preconnect", href: "https://fonts.googleapis.com"}}],
   scripts: [{src: styles, crossorigin: "anonymous"}],
   i18n: {defaultLocale: "en", locales: ["en", "ja", "zh-Hans"]},
   presets: [

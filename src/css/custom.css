@@ -1,5 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap");
-/* @import url('https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css'); */
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..600&display=swap");
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: italic;
+  font-weight: 100 800;
+  src: url("/assets/fonts/variable/JetBrainsMono-Italic[wght].ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 100 800;
+  src: url("/assets/fonts/variable/JetBrainsMono[wght].ttf") format("truetype");
+  font-display: swap;
+}
 
 :root {
   font-family: "JetBrains Mono", monospace;
@@ -240,27 +255,6 @@ tbody tr:hover {
   --fa-beat-fade-opacity: 0.6;
   --fa-beat-fade-scale: 1.075;
 }
-
-/* RSS Link */
-/**
-.header-rss-link::before {
-  display: inline-block;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  width: 1.1em;
-  height: 1.1em;
-  padding-bottom: 0;
-  padding-right: 0.3em;
-  content: "";
-  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'><path d='M0 64C0 46.3 14.3 32 32 32c229.8 0 416 186.2 416 416c0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96C14.3 96 0 81.7 0 64zM128 416c0 35.3-28.7 64-64 64s-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64zM32 160c159.1 0 288 128.9 288 288c0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224c-17.7 0-32-14.3-32-32s14.3-32 32-32z'/></svg>")
-    no-repeat;
-}
-
-[data-theme="dark"] .header-rss-link::before {
-  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'><path fill='white' d='M0 64C0 46.3 14.3 32 32 32c229.8 0 416 186.2 416 416c0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96C14.3 96 0 81.7 0 64zM128 416c0 35.3-28.7 64-64 64s-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64zM32 160c159.1 0 288 128.9 288 288c0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224c-17.7 0-32-14.3-32-32s14.3-32 32-32z'/></svg>")
-    no-repeat;
-}
-*/
 
 /* Github Link */
 
