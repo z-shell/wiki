@@ -1,5 +1,5 @@
 ---
-name: "🚀 Deploy"
+name: "🚀 Deploy Wiki"
 on:
   push:
     branches: [main]
@@ -8,9 +8,6 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
-
-env:
-  CF_PAGES: "1"
 
 jobs:
   deploy:
@@ -29,7 +26,7 @@ jobs:
           node-version: 18
           cache: "pnpm"
       - name: "🏗  Build"
-        run: pnpm run build
+        run: pnpm install --prod && pnpm run build
       - name: "🚀 Publish"
         uses: cloudflare/pages-action@1
         with:
