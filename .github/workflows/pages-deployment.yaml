@@ -32,7 +32,7 @@ jobs:
       - name: "🏗  Build"
         run: pnpm install --prod && pnpm run build
       - name: "🚀 Publish"
-        uses: cloudflare/pages-action@1.2.0
+        uses: cloudflare/pages-action@v1.2.0
         with:
           apiToken: ${{ secrets.CF_PAGES_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
