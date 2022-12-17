@@ -29,6 +29,8 @@ jobs:
         with:
           node-version: 18
           cache: "pnpm"
+          always-auth: true
+          check-latest: true
       - name: "🏗  Build"
         run: pnpm install --prod && pnpm run build
       - name: "🚀 Publish"
