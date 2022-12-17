@@ -152,15 +152,15 @@ zi light b4b4r07/httpstat
 
 :::info
 
-For exclamation marks to not be expanded by Zsh an interactive session, use `'…'` not `"…"` to enclose contents of `atpull` [ice-modifier](/search?q=ice-modifier).
+要想让Zsh在交互式会话中不展开感叹号，请使用 `'…'` ，而不是 `"…"` ，以包围 `atpull` [冰点修改器](/search?q=ice-modifier)的内容。
 
 :::
 
-## Ice modifier: subscribe'…'
+## Ice 修饰符: subscribe'…'
 
-Ice modifier defers the loading of a plugin while checking the modification time of the given file(s), and when it changes, it then triggers the loading of the plugin or a snippet.
+Ice修饰符延迟加载加载一个插件，同时检查给定文件的修改时间。当给定文件发生变化时，它就会触发插件或片段的加载。
 
-Copy and paste the example below to the terminal or add it to the `.zshrc` file and reload the shell with `exec zsh`.
+复制并粘贴下面的例子到终端，或将其添加到 `.zshrc` 文件中，然后用 `exec zsh`重新加载shell。
 
 ```shell {1} showLineNumbers
 zi ice subscribe'{~/files-*,/tmp/files-*}' id-as'z-sub' lucid \
@@ -169,17 +169,17 @@ zi ice subscribe'{~/files-*,/tmp/files-*}' id-as'z-sub' lucid \
 zi load z-shell/0
 ```
 
-Update file as subscribed above to test the ice modifier:
+按照上面订阅的内容更新文件，测试 Ice 修饰符：
 
 ```shell
 touch ~/files-1
 ```
 
-The plugin or snippet will be sourced as many times as the file gets updated.
+该插件或片段将随着文件的更新而被 source 。
 
-## Snippets as'…' program
+## 片段 as'…' program
 
-Commands can also be added to `$PATH` using **snippets**:
+还可以使用**片段**将命令添加到 `$PATH`：
 
 ```shell {2} showLineNumbers
 zi ice mv"httpstat.sh -> httpstat" \
@@ -189,13 +189,13 @@ zi snippet https://github.com/b4b4r07/httpstat/blob/master/httpstat.sh
 
 :::tip
 
-Snippets also support `atpull`, e.g. `atpull'!svn revert'`. There’s also an `atinit` ice-modifier, executed before each loading of plugin or snippet.
+片断也支持 `atpull`，例如 `atpull'!svn revert'`。 还有一个 `atinit` ice 修饰符，在每次加载插件或片段之前执行。
 
 :::
 
-## Snippets as'…' completion
+## 片段 as'…' completion
 
-By using the `as'…'` ice modifier with the value `completion` you can point the `snippet` subcommand directly to a completion file:
+通过使用 `as'…'` ice 修饰符，其值为 `completion` ，你可以将 `snippet` 子命令直接指向一个代码补全文件：
 
 ```shell {1} showLineNumbers
 zi ice as"completion"
@@ -204,24 +204,24 @@ zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_doc
 
 ## 补全管理
 
-Zi allows disabling and enabling each completion in every plugin. Try installing a popular plugin that provides completions:
+Zi允许在每个插件中禁用和启用每个补全。 尝试安装一个提供补全的热门插件：
 
 ```shell {1} showLineNumbers
 zi ice blockf
 zi light zsh-users/zsh-completions
 ```
 
-The first command, the `blockf` ice, will block the traditional method of adding completions. Zi uses this method, based on symlinks instead of adding several directories to `$fpath`. Zi will automatically **install** completions of a newly downloaded plugin.
+第一个命令， `blockf` ice 修饰符，将阻塞添加补全的传统方法。 Zi将使用基于符号链接的方法，而不是将几个目录添加到 `$fpath`。 Zi会自动**安装**，完成新下载的插件。
 
-To uninstall and install completions:
+要卸载或安装补全：
 
-Uninstall:
+卸载：
 
 ```shell
 zi cuninstall zsh-users/zsh-completions
 ```
 
-Install:
+安装：
 
 ```shell
 zi creinstall zsh-users/zsh-completions
@@ -229,43 +229,43 @@ zi creinstall zsh-users/zsh-completions
 
 ### 列出可用补全
 
-To see what completions **all** plugins provide, in tabular formatting and with the name of each plugin:
+要查看**所有的**插件都提供哪些补全，下面的命令将以表格的形式展示并附上每个插件的名称：
 
 ```shell
 zi clist
 ```
 
-This command is adapted for plugins like `zsh-users/zsh-completions`, which provide many completions – listing will have `3` completions per line, and a smaller number of terminal pages can be occupied like this:
+此命令适用于 `zsh-users/zsh-completions` 之类的插件，这些插件提供许多补全列表，每行有 `3` 个补全，这样做可以占用更少的终端页面，像这样：
 
 <ImgShow height="455.91" width="1660" img="/img/cast/svg/zi_clist.svg" alt="Zi completion list" />
 
-To show more completions per line by providing an **argument** to `clist`, e.g.: `zi clist 6`, will show:
+若要每行显示更多的补全，请向 `clist` 提供一个**参数**。比如 `zi clist 6`，将显示：
 
 <ImgShow height="455.91" width="1660" img="/img/cast/svg/zi_clist_6.svg" alt="Zi completion list 6" />
 
 ### 启用/禁用 - 补全
 
-Completions can be disabled and other completion will be used, e.g. Zsh builtin. The commands are very basic, they only need completion **name**:
+可以禁用补全功能，并使用其他补全功能，例如 Zsh 的内置补全。 命令非常基本，只需要补全的**名字**：
 
-Disable `cmake` completion:
+禁用 `cmake` 补全
 
 ```shell
 zi cdisable cmake
 ```
 
-Enable `cmake` completion:
+启用 `cmake` 补全
 
 ```shell
 zi cenable cmake
 ```
 
-Command `zi csearch` will **search** all plugin directories for available completions:
+命令 `zi csearch` 将**搜索**所有的插件目录，寻找可用的补全：
 
 <ImgShow height="455.91" width="1180" img="/img/cast/svg/zi_csearch.svg" alt="Zi completion search" />
 
 ## 对子目录的 subversion
 
-In general, to use **subdirectories** of Github projects as snippets add `/trunk/{path-to-dir}` to the URL:
+一般来说，要使用 Github 项目的**子目录**作为片段，可以在 URL 中添加 `/trunk/{path-to-dir}`：
 
 ```shell showLineNumbers
 zi ice svn
@@ -274,7 +274,7 @@ zi snippet https://github.com/zsh-users/zsh-completions/trunk/src
 
 :::tip
 
-For Oh-My-Zsh and Prezto, the OMZ:: and PZT:: prefixes work without the need to add the `/trunk/` infix, however, the path should point to a directory, not to a file.
+对于 Oh-My-Zsh 和 Prezto，还可以使用 `OMZ::` 和 `PZT::` 前缀，不需要添加 `/trunk/` 的后缀。如果这么做，路径应该指向一个目录，而不是一个文件。
 
 :::
 
@@ -354,7 +354,7 @@ zi ice wait
 zi snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
 ```
 
-### Turbo mode & lucid
+### Turbo 模式和 lucid
 
 Turbo 模式与 lucid 是最常用的组合，因为 Turbo 模式会打印加载日志 —— 可以通过添加 `lucid` 静默加载。
 
@@ -363,9 +363,9 @@ zi ice wait lucid
 zi load z-shell/history-search-multi-word
 ```
 
-## Turbo mode with sophisticated prompts
+## 带有复杂命令行提示符的 Turbo 模式
 
-对于一些，主要是高级主题，命令行提示符的初始化是在 `precmd` 钩子中完成的：`precmd` 钩子会在每行提示符出现之前执行一次。 The hook is installed by the [add-zsh-hook][12] Zsh function by adding its name to the `$precmd_functions` array.
+对于一些，主要是高级主题，命令行提示符的初始化是在 `precmd` 钩子中完成的：`precmd` 钩子会在每行提示符出现之前执行一次。 钩子是由 Zsh [add-zsh-hook][12] 函数安装的，将其名称添加到 `$precmd_functions` 数组中。
 
 使用 Turbo 模式异步加载主题可能导致钩子未执行，主题未能立即初始化。为了确保其能加载后能立即初始化，应使用 `atload'…'` 冰修饰符。
 
@@ -383,23 +383,23 @@ zi ice wait'!' lucid nocd \
 zi load robobenklein/zinc
 ```
 
-`atload'!…'` 中的感叹号用于跟踪允许插件被卸载的方法，详见[此处](/docs/guides/syntax/standard#atclone-atpull-atinit-atload)。 It might be useful for the multi-prompt setup described next.
+`atload'!…'` 中的感叹号用于跟踪允许插件被卸载的方法，详见[此处](/docs/guides/syntax/standard#atclone-atpull-atinit-atload)。 它可能对接下来描述的命令行多重提示符设置很有用。
 
-### Summary of turbo mode
+### Turbo 方式的总结
 
 自动提示（auto-suggestion）功能使用了 `precmd` 钩子，它会在 `.zshrc` 处理过程结束后立即执行一次 —— 即所谓的**在每行提示符出现之前执行一次**。
 
 Turbo 模式中，被单独的 `wait` 修饰的命令，其将在 `precmd` 钩子执行完毕的 `1` ms 后才执行。 这将使自动提示在第一行提示符无法支持这些命令。
 
-**However** the given `atload'…'` ice-modifier fixes this, it calls the same function that `precmd` would, right after loading autosuggestions, resulting in the same behavior of the plugin.
+**然而** `atload'…'` ice 修饰符解决了这个问题，它调用了与 `precmd` 相同的函数，在加载自动建议之后执行，和插件有着相同的行为。
 
 The ice called `lucid` causes the under-prompt message saying `Loaded zsh-users/zsh-autosuggestions` that normally appears for every Turbo-loaded plugin to not show.
 
-## Automatic condition based - load & unload
+## 基于条件的自动化 - 加载和卸载
 
-Ices `load` and `unload` allow defining when you want plugins active or inactive:
+Ice 修饰符 `load` 和 `unload` 允许定义你想要的插件何时激活或不激活：
 
-Load when in `~/tmp`:
+在 `~/tmp` 时加载：
 
 ```shell {1} showLineNumbers
 zi ice load'![[ $PWD = */tmp* ]]' unload'![[ $PWD != */tmp* ]]' \
@@ -409,7 +409,7 @@ zi load z-shell/zprompts
 
 <ImgShow width="1100" height="325.65" img="/img/cast/svg/zi_load_at_tmp.svg" alt="Zi load at /tmp" />
 
-Load when NOT in `~/tmp`:
+在 `~/tmp` 时不加载：
 
 ```shell {1} showLineNumbers
 zi ice load'![[ $PWD != */tmp* ]]' unload'![[ $PWD = */tmp* ]]'
@@ -468,7 +468,7 @@ zi ice as"command" from"gh-r" \
 zi light starship/starship
 ```
 
-### Common use cases {#common-use-cases}
+### 常见用例 {#common-use-cases}
 
 Load the pure theme, with the **zsh-async** library that's bundled with it.
 
@@ -501,7 +501,7 @@ zi creinstall %HOME/my_completions
 
 If you are interested to try out more then check out the [playground repository](https://github.com/z-shell/playground) where users have uploaded the `~/.zshrc` and other Zi configurations. Feel free to [submit](https://github.com/z-shell/playground/issues/new?template=request-to-add-zshrc-to-the-zi-configs-repo.md) your `~/.zshrc` configuration.
 
-Additional examples: [collection](/community/gallery/collection).
+其他例子：[collection](/community/gallery/collection)
 
 <!-- end-of-file -->
 <!-- links -->
