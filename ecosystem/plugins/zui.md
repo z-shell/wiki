@@ -32,7 +32,7 @@ ZUI will allow you to learn Zsh at the advanced level. The library uses Zshell e
 
 ### API
 
-The API consists of [Standard Library](#standard-library), [Utilities Library](#utilities-library) and [Callbacks](#callbacks). You normally want a few calls from Standard Library – to create buttons and regenerate document parts, and one or two callbacks. The fastest way to learn ZUI is to look at [Hello World example][5] and other [example codes][6] like the [timeout example][7].
+The API consists of [Standard Library](#standard-library), [Utility Library](#utility-library) and [Callbacks](#callbacks). You normally want a few calls from Standard Library – to create buttons and regenerate document parts, and one or two callbacks. The fastest way to learn ZUI is to look at [Hello World example][5] and other [example codes][6] like the [timeout example][7].
 
 ## Screenshots
 
@@ -119,7 +119,7 @@ Configure/Make wrapper:
 </Tabs>
 ```
 
-## Standard Library
+## Standard Library {#standard-library}
 
 Standard Library contains functions to:
 
@@ -490,7 +490,7 @@ The second module (and 1st instance) is an array `history` that is made unique (
 -zui_std_fly_array_refresh 2
 ```
 
-## Utility Library
+## Utility Library {#utility-library}
 
 Standard Library contains functions to:
 
@@ -617,7 +617,7 @@ reply=( {path1} {path2} ... )
 
 Returns absolute file paths of the given circular buffer. The paths are ordered from most recent to least recent. No count is obtained, so all files are returned, even actually disabled by any used `<size>` (with `-zui_util_circular_next`).
 
-### Callbacks
+### Callbacks {#callbacks}
 
 Many situations are solved by callbacks. This eases the API, you don't have to e.g. supply a function name in a call but instead just define a function. Callback names follow scheme `-zui-standard-*-callback`. They are automatically cleared at cleanup (i.e. at the `-zui_std_cleanup` call).
 
