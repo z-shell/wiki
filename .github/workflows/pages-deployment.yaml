@@ -1,0 +1,40 @@
+---
+name: "🚀 Deploy"
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+env:
+  CF_PAGES: "1"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: "⤵️  Check out code from GitHub"
+        uses: actions/checkout@v3
+      - name: "🏗  Initialize PNPM"
+        uses: pnpm/action-setup@v2.2.4
+      - name: "🏗  Initialize Node"
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "pnpm"
+      - name: "🏗  Build"
+        run: pnpm run build
+      - name: "🚀 Publish"
+        uses: cloudflare/pages-action@1
+        with:
+          apiToken: ${{ secrets.CF_PAGES_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          projectName: "zsh"
+          directory: "build"
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
