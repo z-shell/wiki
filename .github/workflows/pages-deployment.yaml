@@ -9,6 +9,10 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
+env:
+  URL: "https://wiki.zshell.dev"
+  STYLES: ${{ secrets.FA_STYLES_KIT }}
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -28,7 +32,7 @@ jobs:
       - name: "🏗  Build"
         run: pnpm install --prod && pnpm run build
       - name: "🚀 Publish"
-        uses: cloudflare/pages-action@1
+        uses: cloudflare/pages-action@1.2.0
         with:
           apiToken: ${{ secrets.CF_PAGES_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
