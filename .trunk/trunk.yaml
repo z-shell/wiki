@@ -1,15 +1,11 @@
 version: 0.1
-runtimes:
-  enabled:
-    - go@1.18.3
-    - node@16.14.2
 cli:
   version: 1.2.1
   options:
     - commands: [ALL]
       args: --monitor=true
-    - commands: [check]
-      args: -y
+    - commands: [check, fmt]
+    - args: -y
 repo:
   repo:
     host: github.com
@@ -21,39 +17,49 @@ plugins:
       uri: https://github.com/trunk-io/plugins
       ref: v0.0.8
       import_to_global: true
-actions:
-  enabled:
-    - trunk-announce
-    - trunk-check-pre-push
-    - trunk-fmt-pre-commit
-    - trunk-upgrade-available
-    - trunk-cache-prune
 lint:
   disabled:
     - shellcheck
-    - hadolint
-    - taplo
   enabled:
+    - oxipng@7.0.0
     - svgo@3.0.2
     - stylelint@14.16.0
     - git-diff-check@SYSTEM
     - actionlint@1.6.22
-    - eslint@8.29.0
+    - eslint@8.30.0
     - gitleaks@8.15.2
     - markdownlint@0.32.2
     - prettier@2.8.1
     - shfmt@3.5.0
+    - hadolint@2.12.0
+    - taplo@1.0.0
   ignore:
     - linters: [ALL]
       paths:
-        - i18n/*
-        - build/*
-        - .docusaurus/*
-        - static/img/**
-    - linters: [gitleaks]
+        - "i18n/*"
+        - "build/*"
+        - ".docusaurus/*"
+        - "static/assets/fonts/ttf"
+        - "static/assets/fonts/woff"
+        - "static/assets/fonts/woff2"
+        - "static/assets/fonts/variable"
+    - linters: [svgo]
       paths:
-        - pnpm-lock.yaml
-        - docusaurus.config.js
+        - "static/img/**"
+    - linters: [eslint]
+      paths:
+        - ".trunk/config/*"
     - linters: [markdownlint]
       paths:
-        - src/components/Markdown/*
+        - "src/components/Markdown/*"
+runtimes:
+  enabled:
+    - go@1.18.3
+    - node@16.14.2
+actions:
+  enabled:
+    - trunk-upgrade-available
+    - trunk-fmt-pre-commit
+    - trunk-check-pre-push
+    - trunk-cache-prune
+    - trunk-announce
