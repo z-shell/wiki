@@ -5,10 +5,6 @@ on:
     branches: [main]
   workflow_dispatch: {}
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
-  cancel-in-progress: true
-
 env:
   URL: "https://wiki.zshell.dev"
   STYLES: ${{ secrets.FA_STYLES_KIT }}
@@ -16,11 +12,13 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: production
     timeout-minutes: 30
     permissions:
       contents: read
       deployments: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+      cancel-in-progress: true
     steps:
       - name: "⤵️  Check out code from GitHub"
         uses: actions/checkout@v3
