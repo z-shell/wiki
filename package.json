@@ -52,7 +52,7 @@
     "@docusaurus/eslint-plugin": "2.2.0",
     "@docusaurus/module-type-aliases": "2.2.0",
     "@trunkio/launcher": "1.2.3",
-    "@types/node": "18.11.16",
+    "@types/node": "18.11.17",
     "@types/react": "18.0.26",
     "@typescript-eslint/eslint-plugin": "5.46.1",
     "@typescript-eslint/parser": "5.46.1",
