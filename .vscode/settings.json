@@ -1,5 +1,5 @@
 {
-  "trunk.inlineDecoratorsForAllExtensions": true,
+  "trunk.inlineDecoratorsForAllExtensions": false,
   "trunk.trunkGrayOutNonBlockingIssues": true,
   "prettier.configPath": ".trunk/config/prettierrc",
   "prettier.ignorePath": ".trunk/config/.prettierignore",

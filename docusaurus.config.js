@@ -234,6 +234,10 @@ const config = {
             copyright: `Copyright © ${new Date().getFullYear()} Z-Shell Community.`,
           },
         },
+        gtag: {
+          trackingID: "G-4R9S46N2LB",
+          anonymizeIP: true,
+        },
         sitemap: {changefreq: "weekly"},
       }),
     ],

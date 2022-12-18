@@ -1,3 +1,4 @@
+
 /img/*
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
@@ -20,3 +21,6 @@
 
 https://:zsh.pages.dev/*
   X-Robots-Tag: nosnippet, noindex
+
+https://:zsh.pages.dev/*
+  Access-Control-Allow-Origin: https://staging.:zsh.pages.dev/

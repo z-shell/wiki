@@ -22,6 +22,7 @@ files:
     translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs-community/current/**/%original_file_name%
     ignore:
       - /community/gallery/**
+      - /community/01_zsh_guide/**
   ### Blog Markdown files
   #- source: /blog/**/*
   #  translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog/current/**/%original_file_name%

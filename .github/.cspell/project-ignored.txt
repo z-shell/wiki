@@ -1,4 +1,7 @@
 bolditalic
+debianpackage
 jetbrainsmono
+ldrt
+Lldrt
 navbutton
 starturl

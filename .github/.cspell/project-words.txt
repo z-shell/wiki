@@ -1,0 +1,3 @@
+globbed
+ofobar
+shopt
