@@ -8,46 +8,41 @@ description: Introduction to a Swiss Army Knife for Zsh, formerly known as zplug
 keywords:
   - 介绍
   - features
+  - summary
 ---
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link'; import Image from '@theme/IdealImage'; import ImgShow from '@site/src/components/ImgShow'; import ZGitImg from '@site/static/img/png/theme/z_git.png';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link'; import Image from '@theme/IdealImage'; import ImgShow from '@site/src/components/ImgShow'; import ZGitImg from '@site/static/img/png/theme/branch_box.png';
 
-<Image img={ZGitImg} />
-<Link href="https://github.com/orgs/z-shell/">
-<ImgShow
-  alt="Z-Shell Organization Stats" width="100%" height="auto"
-  img="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/metrics.svg"
-/>
-</Link>
+<Image alt="Z-Shell" width="100%" height="auto" img={ZGitImg} />
 
 <Tabs>
-<TabItem value="gems" label="RubyGems">
+  <TabItem value="gems" label="RubyGems">
 
-The [RubyGems](https://rubygems.org) and [\$GEM_HOME](https://guides.rubygems.org/command-reference/#gem-environment) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex or installed by the [any-gem](https://github.com/z-shell/any-gem) package.
+The [RubyGems](https://rubygems.org) and [$GEM_HOME](https://guides.rubygems.org/command-reference/#gem-environment) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex or installed by the [any-gem](https://github.com/z-shell/any-gem) package.
 
-</TabItem>
-<TabItem value="node" label="Node">
+  </TabItem>
+  <TabItem value="node" label="Node">
 
-The [Node](https://www.npmjs.com) modules and [\$NODE_PATH](https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex or installed by the [any-node](https://github.com/z-shell/any-node) package.
+The [Node](https://www.npmjs.com) modules and [$NODE_PATH](https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex or installed by the [any-node](https://github.com/z-shell/any-node) package.
 
-</TabItem>
-<TabItem value="pip" label="Python">
+  </TabItem>
+  <TabItem value="pip" label="Python">
 
-The [Python](https://python.org) modules, [\$VIRTUALENV](https://docs.python.org/3/tutorial/venv.html) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex.
+The [Python](https://python.org) modules, [$VIRTUALENV](https://docs.python.org/3/tutorial/venv.html) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex.
 
-</TabItem>
-<TabItem value="rust" label="Rust">
+  </TabItem>
+  <TabItem value="rust" label="Rust">
 
 The [Rust](https://crates.io) packages are managed by the [rust](/ecosystem/annexes/rust) annex.
 
-</TabItem>
-<TabItem value="github" label="GitHub" default>
+  </TabItem>
+  <TabItem value="github" label="GitHub" default>
 
 Install and control almost everything from GitHub: [Annexes](/ecosystem/category/-annexes), [Packages](/ecosystem/category/-packages), [Gallery of Invocations](/community/gallery/collection).
 
-</TabItem>
+  </TabItem>
 </Tabs>
 
 ## <i class="fa-solid fa-spinner fa-spin-pulse"></i> 快速且功能丰富
@@ -75,11 +70,11 @@ Install and control almost everything from GitHub: [Annexes](/ecosystem/category
 
 ## <i class="fa-solid fa-list-check"></i> 摘要
 
-<Link href="https://github.com/orgs/z-shell/projects/">
-<ImgShow
-  alt="Z-Shell Organization FollowUp" width="100%" height="auto"
-  img="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg"
-/>
+<Link href="https://github.com/orgs/z-shell">
+  <ImgShow alt="Z-Shell Metrics" width="100%" height="auto" img="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/metrics.svg" />
+  <ImgShow alt="Z-Shell Repositories" width="100%" height="auto" img="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/repositories_metrics.svg" />
+  <ImgShow alt="Z-Shell FollowUp" width="100%" height="auto" img="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg" />
+  <ImgShow alt="Z-Shell Stargazers" width="100%" height="auto" img="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/stargazers/worldmap.svg" />
 </Link>
 
 <!-- end-of-file -->
