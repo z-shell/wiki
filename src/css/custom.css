@@ -1,16 +1,14 @@
-/* @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap"); */
-
-@import url("/assets/fonts/jetbrainsmono.css");
+/* @import url("/assets/fonts/jetbrainsmono.css"); */
+/* @import url("/assets/fonts/hack.css"); */
 @import url("/assets/fonts/jetbrainsmono-variable.css");
-@import url("/assets/fonts/hack.css");
+@import url("/assets/fonts/hack-subset.css");
 
 :root {
-  font-family: "JetBrains Mono", Hack, monospace;
   transition-duration: 1s !important;
 
-  --ifm-font-family: "JetBrains Mono", hack, monospace;
+  --ifm-font-family: "JetBrains Mono", "Hack", monospace;
   --ifm-font-family-base: "JetBrains Mono", monospace;
-  --ifm-font-family-monospace: hack, monospace;
+  --ifm-font-family-monospace: "Hack", monospace;
 
   --site-primary-hue-saturation: 168 70%;
   --site-primary-hue-saturation-light: 167 60%;
@@ -300,13 +298,13 @@ html[data-theme="dark"] div[class^="announcementBar_"] {
   transition-duration: 1s !important;
 }
 
-@media screen and (min-width: 997px) {
+@media screen and (min-width: 980px) {
   header h1 {
     font-size: 2.4rem !important;
   }
 }
 
-@media only screen and (max-width: 996px) {
+@media only screen and (max-width: 960px) {
   header h1 {
     font-size: 2.2rem !important;
   }
