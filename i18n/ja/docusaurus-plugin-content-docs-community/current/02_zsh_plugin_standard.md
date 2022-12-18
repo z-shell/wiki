@@ -285,8 +285,8 @@ The above paragraphs of the standard spec each constitute a capability, a featur
 The contents of the parameter describing a fully-compliant plugin manager should be: `0fuUpiPs`. The plugin can then verify the support by:
 
 ```shell showLineNumbers
-if [[ $PMSPEC != *f* ]]; then
-  fpath+=( "${0:h}/functions" )
+if [[ $PMSPEC != *P* ]]; then
+  path+=( "${0:h}/bin" )
 fi
 ```
 
