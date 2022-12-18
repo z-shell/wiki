@@ -10,6 +10,7 @@ dependencies 📦:
   - "yarn.lock"
 enhancement ✨:
   - "functions/**"
+  - "static/**"
   - "src/**"
   - "lib/**"
 maintenance 📈:
