@@ -2,7 +2,7 @@
   font-family: Hack;
   font-style: normal;
   font-weight: 400;
-  src: url("woff2/hack-regular.woff2?sha=3114f1256") format("woff2");
+  src: url("webfonts/hack-regular-subset.woff2?sha=3114f1256") format("woff2");
   font-display: swap;
 }
 
@@ -10,7 +10,7 @@
   font-family: Hack;
   font-style: normal;
   font-weight: 700;
-  src: url("woff2/hack-bold.woff2?sha=3114f1256") format("woff2");
+  src: url("webfonts/hack-bold-subset.woff2?sha=3114f1256") format("woff2");
   font-display: swap;
 }
 
@@ -18,7 +18,7 @@
   font-family: Hack;
   font-style: italic;
   font-weight: 400;
-  src: url("woff2/hack-italic.woff2?sha=3114f1256") format("woff2");
+  src: url("webfonts/hack-italic-subset.woff2?sha=3114f1256") format("woff2");
   font-display: swap;
 }
 
@@ -26,6 +26,6 @@
   font-family: Hack;
   font-style: italic;
   font-weight: 700;
-  src: url("woff2/hack-bolditalic.woff2?sha=3114f1256") format("woff2");
+  src: url("webfonts/hack-bolditalic-subset.woff2?sha=3114f1256") format("woff2");
   font-display: swap;
 }

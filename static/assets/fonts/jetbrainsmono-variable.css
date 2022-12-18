@@ -1,0 +1,16 @@
+/* Variable */
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 100 800;
+  src: url("variable/JetBrainsMono[wght].ttf") format("truetype");
+  font-display: swap;
+}
+/* Variable Italic */
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: italic;
+  font-weight: 100 800;
+  src: url("variable/JetBrainsMono-Italic[wght].ttf") format("truetype");
+  font-display: swap;
+}
