@@ -2,6 +2,7 @@
 
 import React, {useEffect, useRef, useState} from "react";
 import {PlayerConfig} from "asciinema-player";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 import Spinner from "@site/src/components/Spinner";
 import "asciinema-player/dist/bundle/asciinema-player.css";
 
@@ -22,5 +23,5 @@ export default function Player(props: PlayerConfig): JSX.Element {
     };
   }, [src, player, options]);
 
-  return player ? <div ref={element} /> : <Spinner />;
+  return <BrowserOnly fallback={<Spinner />}>{() => <div ref={element} />}</BrowserOnly>;
 }
