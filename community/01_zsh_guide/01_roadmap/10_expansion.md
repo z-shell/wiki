@@ -55,7 +55,7 @@ ls zsh_demo/**/*.txt # <= this is a glob
 
 :::info
 
-Global expansion requires `extended_glob`, `dot_glob`, and related options to be enabled, this will treat the ‘#’, ‘~’, ‘^’, and more characters as part of patterns for filename generation, etc.
+Global expansion requires `extended_glob`, `dot_glob`, and related options to be enabled, this will treat the `#`, `~`, `^`, and more characters as part of patterns for filename generation, etc.
 
 :::
 
@@ -64,6 +64,8 @@ Enable option:
 ```shell
 setopt extended_glob
 ```
+
+<!-- TODO: Tables below has ascaped '\|' because it breakes the table and requires other solution as the '\' makes the syntax in the codeblock incorrect -->
 
 | Pattern | Description |
 | :-- | :-- |
@@ -85,13 +87,13 @@ setopt extended_glob
 | `ls -l foo<23->` | List files beginning at `foo23` upwards (foo23, foo24, foo25, ..) |
 | `ls -l 200406{04..10}*(N)` | List all files that begin with the date strings from June 4 through June 9 of 2004 |
 | `ls -l 200406<4-10>.*` | List will match the form of 200406XX |
-| `ls -l *.(c\|h)` | Show only all `*.c` and `*.h` - files |
+| `ls -l *.(c\|h)` | Show only all `*.c` and `*.h` files |
 | `ls -l *(R)` | Show only world-readable files |
 | `ls -fld *(OL)` | Sort the output from `ls -l` by file size |
 | `ls -fl *(DOL[1,5])` | Print only 5 lines by the `ls` command (is equal to: `ls -laS \| head -n 5`) |
 | `ls -l *(G[users])` | Show only files are owned from group `users` |
-| `ls *(L0f.go-w.)` | Show only empty files which nor `group' or `world writable` |
-| `ls *.c~foo.c` | Show only all `*.c` - files and ignore `foo.c` |
+| `ls *(L0f.go-w.)` | Show only empty files which nor `group` or `world writable` |
+| `ls *.c~foo.c` | Show only all `*.c` files and ignore `foo.c` |
 
 :::note
 
