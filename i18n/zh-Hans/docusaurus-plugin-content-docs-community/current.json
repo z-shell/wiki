@@ -10,5 +10,13 @@
   "sidebar.SideBar.category.✨ Collection": {
     "message": "✨ 集合",
     "description": "The label for category ✨ Collection in sidebar SideBar"
+  },
+  "sidebar.SideBar.category.📖 Zsh User's Guide": {
+    "message": "📖 Zsh User's Guide",
+    "description": "The label for category 📖 Zsh User's Guide in sidebar SideBar"
+  },
+  "sidebar.SideBar.category.🎯 Roadmap": {
+    "message": "🎯 Roadmap",
+    "description": "The label for category 🎯 Roadmap in sidebar SideBar"
   }
 }
