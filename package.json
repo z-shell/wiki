@@ -24,6 +24,7 @@
     "clean": "pnpm exec rm -rf node_modules build pnpm-lock.yaml",
     "preinstall": "npx only-allow pnpm",
     "postinstall": "pnpm audit",
+    "upgrade": "pnpm up -i -L",
     "fmt": "trunk fmt",
     "check": "trunk check",
     "typecheck": "tsc"
