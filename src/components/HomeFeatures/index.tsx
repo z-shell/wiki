@@ -1,4 +1,3 @@
-/** @format */
 // @ts-check
 
 import React from "react";
@@ -113,7 +112,7 @@ function Feature({Svg, title, description}: FeatureItem) {
         <Svg />
       </div>
       <div className={styles.FeatureText}>
-        <h2>{title}</h2>
+        <h3>{title}</h3>
         <p>{description}</p>
       </div>
     </div>
@@ -138,13 +137,9 @@ function FeaturesContainer() {
 export default function HomeFeatures(): JSX.Element {
   return (
     <section>
-      <div>
-        <VideoContainer1 />
-        <div>
-          <FeaturesContainer />
-        </div>
-        <VideoContainer2 />
-      </div>
+      <VideoContainer1 />
+      <FeaturesContainer />
+      <VideoContainer2 />
     </section>
   );
 }

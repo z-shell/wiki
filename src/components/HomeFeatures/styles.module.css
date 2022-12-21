@@ -1,7 +1,5 @@
-/** @format */
-
 .VideoContainer {
-  position: relative;
+  position: flex;
   padding: 2rem 0;
   margin: 0 auto;
   overflow: hidden;
@@ -28,12 +26,12 @@
   text-align: center;
 }
 
-.FeatureText h2 {
+.FeatureText h3 {
+  font-weight: 700;
   color: var(--ifm-color-primary);
 }
 
 .FeatureText p {
-  font-weight: 600;
   line-height: 1.4;
 }
 
