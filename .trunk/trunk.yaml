@@ -22,7 +22,7 @@ lint:
     - shellcheck
   enabled:
     - flake8@6.0.0
-    - isort@5.11.3
+    - isort@5.11.4
     - black@22.12.0
     - oxipng@7.0.0
     - svgo@3.0.2
