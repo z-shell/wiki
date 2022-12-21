@@ -4,6 +4,7 @@
 @import url("/assets/fonts/hack-subset.css");
 
 :root {
+  font-family: "JetBrains Mono", Hack, monospace;
   transition-duration: 1s !important;
 
   --ifm-font-family: "JetBrains Mono", monospace;
