@@ -4,8 +4,8 @@ cli:
   options:
     - commands: [ALL]
       args: --monitor=true
-    - commands: [check, fmt]
-    - args: -y
+    - commands: [check]
+      args: -y
 repo:
   repo:
     host: github.com
@@ -48,16 +48,16 @@ lint:
     - linters: [svgo]
       paths:
         - "static/img/**"
-    - linters: [eslint]
-      paths:
-        - ".trunk/config/*"
     - linters: [markdownlint]
       paths:
         - "src/components/Markdown/*"
+    - linters: [eslint]
+      paths:
+        - ".trunk/config/*"
 runtimes:
   enabled:
     - python@3.10.8
-    - go@1.18.3
+    - go@1.19.4
     - node@18.12.1
 actions:
   enabled:
