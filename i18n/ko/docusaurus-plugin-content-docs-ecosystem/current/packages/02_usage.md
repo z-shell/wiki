@@ -833,8 +833,8 @@ zi pack"rootless" for zsh-bin
 
 [any-node]: https://github.com/z-shell/any-node
 [any-gem]: https://github.com/z-shell/any-gem
-[APR]: https://github.com/z-shell/apr
 [apr]: https://github.com/z-shell/apr
+[APR]: https://github.com/z-shell/apr
 [fzf]: https://github.com/z-shell/fzf
 [fzy]: https://github.com/z-shell/fzy
 [pyenv]: https://github.com/z-shell/pyenv
