@@ -1,19 +1,4 @@
 {
-  "zi.logo": {
-    "message": "ZI logo"
-  },
-  "homepage.hero.title": {
-    "message": "A <b>Swiss Army</b> Knife for <b>Zsh</b> Unix <b>Shell</b>",
-    "description": "Home page hero title, can contain simple html tags"
-  },
-  "homepage.banner.button.1": {
-    "message": "Get Started",
-    "description": "The homepage get started button"
-  },
-  "homepage.banner.button.2": {
-    "message": "Community",
-    "description": "The homepage community button"
-  },
   "homepage.feature1.title": {
     "message": "Zsh Startup 50-80% Faster",
     "description": "Title of feature 1 (left) on the home page"
@@ -38,13 +23,24 @@
     "message": "Supports Oh-My-Zsh and Prezto - not framework-specific. Produce your plugins, libraries, and themes effortlessly.",
     "description": "Description of third featured banner in homepage"
   },
+  "zi.logo": {
+    "message": "ZI logo"
+  },
+  "homepage.hero.title": {
+    "message": "A <b>Swiss Army</b> Knife for <b>Zsh</b> Unix <b>Shell</b>",
+    "description": "Home page hero title, can contain simple html tags"
+  },
+  "homepage.banner.button.1": {
+    "message": "Get Started",
+    "description": "The homepage get started button"
+  },
+  "homepage.banner.button.2": {
+    "message": "Community",
+    "description": "The homepage community button"
+  },
   "homepage.video.heading.1": {
     "message": "Fast and feature-rich",
     "description": "The homepage video container heading 1"
-  },
-  "homepage.video.heading.2": {
-    "message": "Neat and flexible",
-    "description": "The homepage video container heading 2"
   },
   "theme.ErrorPageContent.title": {
     "message": "This page crashed.",
