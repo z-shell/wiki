@@ -1,3 +1,4 @@
+fortawesome
 globbed
 ofobar
 shopt

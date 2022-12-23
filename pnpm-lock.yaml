@@ -13,7 +13,7 @@ specifiers:
   '@docusaurus/plugin-ideal-image': 2.2.0
   '@docusaurus/plugin-pwa': 2.2.0
   '@docusaurus/preset-classic': 2.2.0
-  '@docusaurus/theme-mermaid': ^2.2.0
+  '@docusaurus/theme-mermaid': 2.2.0
   '@docusaurus/types': 2.2.0
   '@loadable/babel-plugin': 5.13.2
   '@loadable/component': 5.15.2
@@ -39,8 +39,6 @@ specifiers:
   react: 17.0.2
   react-dom: 17.0.2
   react-spinners: 0.13.7
-  rehype-katex: 5.0.0
-  remark-math: 3.0.1
   stylelint: 14.16.0
   stylelint-color-format: 1.1.0
   stylelint-config-prettier: 9.0.4
@@ -49,7 +47,6 @@ specifiers:
   stylelint-config-standard: 29.0.0
   swc-loader: 0.2.3
   typescript: 4.9.4
-  unist-util-visit: 2.0.3
 
 dependencies:
   '@docusaurus/core': 2.2.0_yo4lty77hu56a52ldlwe4stwm4
@@ -68,10 +65,7 @@ dependencies:
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   react-spinners: 0.13.7_sfoxds7t5ydpegc3knd667wn6m
-  rehype-katex: 5.0.0
-  remark-math: 3.0.1
   swc-loader: 0.2.3_gyzimtxqgxuicuv6kqhpgce7ve
-  unist-util-visit: 2.0.3
 
 devDependencies:
   '@crowdin/cli': 3.9.1
@@ -981,8 +975,8 @@ packages:
       '@babel/helper-plugin-utils': 7.20.2
     dev: false
 
-  /@babel/plugin-transform-block-scoping/7.20.8_@babel+core@7.20.7:
-    resolution: {integrity: sha512-ztBCIWJvcWJvtxhMqIrItLmGlbxaa/5hl7HlZvV4f9oS08wWn/mEtf5D35qxFp3rTK8KjV9TePEoeal8z02gzA==}
+  /@babel/plugin-transform-block-scoping/7.20.9_@babel+core@7.20.7:
+    resolution: {integrity: sha512-hwZN0kr16UkIF/kR9F9x8gd1kTkQl1vyAF2lkUmlTuCtTKOGLE5blQctuxEeKXwz0dkArQ9RYL8+HLb/75KGMA==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -1450,7 +1444,7 @@ packages:
       '@babel/plugin-transform-arrow-functions': 7.20.7_@babel+core@7.20.7
       '@babel/plugin-transform-async-to-generator': 7.20.7_@babel+core@7.20.7
       '@babel/plugin-transform-block-scoped-functions': 7.18.6_@babel+core@7.20.7
-      '@babel/plugin-transform-block-scoping': 7.20.8_@babel+core@7.20.7
+      '@babel/plugin-transform-block-scoping': 7.20.9_@babel+core@7.20.7
       '@babel/plugin-transform-classes': 7.20.7_@babel+core@7.20.7
       '@babel/plugin-transform-computed-properties': 7.20.7_@babel+core@7.20.7
       '@babel/plugin-transform-destructuring': 7.20.7_@babel+core@7.20.7
@@ -3167,10 +3161,6 @@ packages:
     resolution: {integrity: sha512-oh/6byDPnL1zeNXFrDXFLyZjkr1MsBG667IM792caf1L2UPOOMf65NFzjUH/ltyfwjAGfs1rsX1eftK0jC/KIg==}
     dev: false
 
-  /@types/http-cache-semantics/4.0.1:
-    resolution: {integrity: sha512-SZs7ekbP8CN0txVG2xVRH6EgKmEm31BOxA07vkFaETzZz1xh+cbt8BcI0slpymvwhx5dlFnQG2rTlPVQn+iRPQ==}
-    dev: false
-
   /@types/http-proxy/1.17.9:
     resolution: {integrity: sha512-QsbSjA/fSk7xB+UXlCT3wHBy5ai9wOcNDWwZAtud+jXhwOM3l+EYZh8Lng4+/6n8uar0J7xILzqftJdJ/Wdfkw==}
     dependencies:
@@ -3199,10 +3189,6 @@ packages:
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: true
-
-  /@types/katex/0.11.1:
-    resolution: {integrity: sha512-DUlIj2nk0YnJdlWgsFuVKcX27MLW0KbKmGVoUHmFr+74FYYNUDAaj9ZqTADvsbE8rfxuVmSFc7KczYn5Y09ozg==}
-    dev: false
 
   /@types/mdast/3.0.10:
     resolution: {integrity: sha512-W864tg/Osz1+9f4lrGTZpCSO5/z4608eUp19tbozkq2HJK6i3z1kT0H9tlADXuYIb1YYOBByU4Jsqkk75q48qA==}
@@ -4105,11 +4091,10 @@ packages:
     engines: {node: '>=14.16'}
     dev: false
 
-  /cacheable-request/10.2.3:
-    resolution: {integrity: sha512-6BehRBOs7iurNjAYN9iPazTwFDaMQavJO8W1MEm3s2pH8q/tkPTtLDRUZaweWK87WFGf2Y5wLAlaCJlR5kOz3w==}
+  /cacheable-request/10.2.4:
+    resolution: {integrity: sha512-IWIea8ei1Ht4dBqvlvh7Gs7EYlMyBhlJybLDUB9sadEqHqftmdNieMLIR5ia3vs8gbjj9t8hXLBpUVg3vcQNbg==}
     engines: {node: '>=14.16'}
     dependencies:
-      '@types/http-cache-semantics': 4.0.1
       get-stream: 6.0.1
       http-cache-semantics: 4.1.0
       keyv: 4.5.2
@@ -6252,7 +6237,7 @@ packages:
       '@sindresorhus/is': 5.3.0
       '@szmarczak/http-timer': 5.0.1
       cacheable-lookup: 7.0.0
-      cacheable-request: 10.2.3
+      cacheable-request: 10.2.4
       decompress-response: 6.0.0
       form-data-encoder: 2.1.4
       get-stream: 6.0.1
@@ -6354,10 +6339,6 @@ packages:
       web-namespaces: 1.1.4
     dev: false
 
-  /hast-util-is-element/1.1.0:
-    resolution: {integrity: sha512-oUmNua0bFbdrD/ELDSSEadRVtWZOf3iF6Lbv81naqsIV99RnSCieTbWuWCY8BAeEfKJTKl0gRdokv+dELutHGQ==}
-    dev: false
-
   /hast-util-parse-selector/2.2.5:
     resolution: {integrity: sha512-7j6mrk/qqkSehsM92wQjdIgWM2/BW61u/53G6xmC8i1OmEdKLHbk419QKQUjz6LglWsfqoiHmyMRkP1BGjecNQ==}
     dev: false
@@ -6385,14 +6366,6 @@ packages:
       web-namespaces: 1.1.4
       xtend: 4.0.2
       zwitch: 1.0.5
-    dev: false
-
-  /hast-util-to-text/2.0.1:
-    resolution: {integrity: sha512-8nsgCARfs6VkwH2jJU9b8LNTuR4700na+0h3PqCaEk4MAnMDeu5P0tP8mjk9LLNGxIeQRLbiDbZVw6rku+pYsQ==}
-    dependencies:
-      hast-util-is-element: 1.1.0
-      repeat-string: 1.6.1
-      unist-util-find-after: 3.0.0
     dev: false
 
   /hastscript/6.0.0:
@@ -7110,13 +7083,6 @@ packages:
       array-includes: 3.1.6
       object.assign: 4.1.4
     dev: true
-
-  /katex/0.13.24:
-    resolution: {integrity: sha512-jZxYuKCma3VS5UuxOx/rFV1QyGSl3Uy/i0kTJF3HgQ5xMinCQVF8Zd4bMY/9aI9b9A2pjIBOsjSSm68ykTAr8w==}
-    hasBin: true
-    dependencies:
-      commander: 8.3.0
-    dev: false
 
   /keyv/4.5.2:
     resolution: {integrity: sha512-5MHbFaKn8cNSmVW7BYnijeAVlE4cYA/SVkifVgrh7yotnfhKmjuXpDKjrABLnT0SfHWV21P8ow07OGfRrNDg8g==}
@@ -8978,24 +8944,6 @@ packages:
       jsesc: 0.5.0
     dev: false
 
-  /rehype-katex/5.0.0:
-    resolution: {integrity: sha512-ksSuEKCql/IiIadOHiKRMjypva9BLhuwQNascMqaoGLDVd0k2NlE2wMvgZ3rpItzRKCd6vs8s7MFbb8pcR0AEg==}
-    dependencies:
-      '@types/katex': 0.11.1
-      hast-util-to-text: 2.0.1
-      katex: 0.13.24
-      rehype-parse: 7.0.1
-      unified: 9.2.2
-      unist-util-visit: 2.0.3
-    dev: false
-
-  /rehype-parse/7.0.1:
-    resolution: {integrity: sha512-fOiR9a9xH+Le19i4fGzIEowAbwG7idy2Jzs4mOrFWBSJ0sNUgy0ev871dwWnbOo371SjgjG4pwzrbgSVrKxecw==}
-    dependencies:
-      hast-util-from-parse5: 6.0.1
-      parse5: 6.0.1
-    dev: false
-
   /relateurl/0.2.7:
     resolution: {integrity: sha512-G08Dxvm4iDN3MLM0EsP62EDV9IuhXPR6blNz6Utcp7zyV3tr4HVNINt6MpaRWbxoOHT3Q7YN2P+jaHX8vUbgog==}
     engines: {node: '>= 0.10'}
@@ -9011,10 +8959,6 @@ packages:
 
   /remark-footnotes/2.0.0:
     resolution: {integrity: sha512-3Clt8ZMH75Ayjp9q4CorNeyjwIxHFcTkaektplKGl2A1jNGEUey8cKL0ZC5vJwfcD5GFGsNLImLG/NGzWIzoMQ==}
-    dev: false
-
-  /remark-math/3.0.1:
-    resolution: {integrity: sha512-epT77R/HK0x7NqrWHdSV75uNLwn8g9qTyMqCRCDujL0vj/6T6+yhdrR7mjELWtkse+Fw02kijAaBuVcHBor1+Q==}
     dev: false
 
   /remark-mdx/1.6.22:
@@ -10273,12 +10217,6 @@ packages:
 
   /unist-builder/2.0.3:
     resolution: {integrity: sha512-f98yt5pnlMWlzP539tPc4grGMsFaQQlP/vM396b00jngsiINumNmsY8rkXjfoi1c6QaM8nQ3vaGDuoKWbe/1Uw==}
-    dev: false
-
-  /unist-util-find-after/3.0.0:
-    resolution: {integrity: sha512-ojlBqfsBftYXExNu3+hHLfJQ/X1jYY/9vdm4yZWjIbf0VuWF6CRufci1ZyoD/wV2TYMKxXUoNuoqwy+CkgzAiQ==}
-    dependencies:
-      unist-util-is: 4.1.0
     dev: false
 
   /unist-util-generated/1.1.6:

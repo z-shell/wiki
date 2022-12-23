@@ -3,7 +3,7 @@
   "trunk.trunkGrayOutNonBlockingIssues": true,
   "prettier.configPath": ".trunk/config/prettierrc",
   "prettier.ignorePath": ".trunk/config/.prettierignore",
-  "stylelint.configBasedir": ".trunk/config",
+  "stylelint.configBasedir": ".trunk/config/.stylelintrc.yml",
   "markdownlint.config": {
     "extends": ".trunk/config/.markdownlint.yaml"
   },

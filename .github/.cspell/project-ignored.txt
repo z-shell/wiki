@@ -4,4 +4,6 @@ jetbrainsmono
 ldrt
 Lldrt
 navbutton
+nosnippet
 starturl
+unist

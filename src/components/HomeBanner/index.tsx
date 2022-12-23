@@ -1,10 +1,9 @@
-/** @format */
 // @ts-check
 
 import React from "react";
-import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import Translate, {translate} from "@docusaurus/Translate";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./styles.module.css";
 
 export default function HeroBanner(): JSX.Element {
@@ -15,7 +14,7 @@ export default function HeroBanner(): JSX.Element {
           <img
             alt={translate({id: "zi.logo", message: "ZI logo"})}
             className={styles.heroLogo}
-            src='/img/logo.svg'
+            src={useBaseUrl("/img/logo.svg")}
             height='200'
             width='200'
           />
@@ -32,12 +31,12 @@ export default function HeroBanner(): JSX.Element {
           />
         </h1>
         <div className={styles.indexCtas}>
-          <Link className={clsx("button button--primary")} to='/docs/getting_started/installation'>
+          <Link className='button button--primary' to='/docs/getting_started/installation'>
             <Translate id='homepage.banner.button.1' description='The homepage get started button'>
               Get Started
             </Translate>
           </Link>
-          <Link className={clsx("button button--secondary")} to='/community'>
+          <Link className='button button--secondary' to='/community'>
             <Translate id='homepage.banner.button.2' description='The homepage community button'>
               Community
             </Translate>
@@ -46,15 +45,15 @@ export default function HeroBanner(): JSX.Element {
             <iframe
               className={styles.indexCtasGitHubButton}
               src='https://ghbtns.com/github-btn.html?user=z-shell&amp;repo=zi&amp;type=star&amp;count=true&amp;size=large'
-              width='230'
-              height='30'
+              width={230}
+              height={30}
               title='GitHub Stars'
             />
             <iframe
               className={styles.indexCtasGitHubButton}
               src='https://ghbtns.com/github-btn.html?user=z-shell&amp;type=follow&count=false&size=large'
-              width='230'
-              height='30'
+              width={230}
+              height={30}
               title='Follow on GitHub'
             />
           </span>

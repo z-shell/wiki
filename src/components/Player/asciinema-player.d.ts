@@ -12,7 +12,6 @@ declare module "asciinema-player" {
     theme?: string;
     poster?: string;
     fit?: string;
-    fontSize?: string;
     terminalLineHeight?: number;
     terminalFontFamily?: string;
     terminalFontSize?: string;
@@ -33,7 +32,6 @@ declare module "asciinema-player" {
       theme?: string;
       poster?: string;
       fit?: string;
-      fontSize?: string;
       terminalLineHeight?: number;
       terminalFontFamily?: string;
       terminalFontSize?: string;

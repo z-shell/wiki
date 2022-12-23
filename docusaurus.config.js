@@ -2,8 +2,8 @@
 const url = process.env.URL ?? "https://wiki.zshell.dev";
 const baseUrl = process.env.BASE_URL ?? "/";
 const styles = process.env.STYLES ?? "https://r2.zshell.dev/fa/6.2.1/js/all.min.js";
-const math = require("remark-math");
-const katex = require("rehype-katex");
+/* const math = require("remark-math"); */
+/* const katex = require("rehype-katex"); */
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -22,25 +22,46 @@ const config = {
   favicon: "/img/favicon.ico",
   i18n: {defaultLocale: "en", locales: ["en", "ja", "zh-Hans"]},
   scripts: [{src: styles, crossorigin: "anonymous"}],
-  themes: ["@docusaurus/theme-mermaid"],
-  webpack: {
-    jsLoader: (isServer) => ({
-      loader: require.resolve("swc-loader"),
-      options: {
-        jsc: {
-          parser: {
-            syntax: "typescript",
-            tsx: true,
+  presets: [
+    [
+      "classic",
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
+        debug: true,
+        theme: {customCss: [require.resolve("./src/css/custom.css")]},
+        docs: {
+          sidebarPath: require.resolve("./sidebars.js"),
+          sidebarCollapsible: true,
+          sidebarCollapsed: true,
+          editUrl: ({locale, versionDocsDirPath, docPath}) => {
+            if (locale !== "en") {
+              return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
+            }
+            return `https://github.com/z-shell/wiki/tree/main/${versionDocsDirPath}/${docPath}`;
           },
-          target: "es2017",
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
+          remarkPlugins: [],
+          rehypePlugins: [],
         },
-        module: {
-          type: isServer ? "commonjs" : "es6",
+        blog: {
+          editUrl: ({locale, blogDirPath, blogPath}) => {
+            if (locale !== "en") {
+              return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
+            }
+            return `https://github.com/z-shell/wiki/tree/main/${blogDirPath}/${blogPath}`;
+          },
+          showReadingTime: true,
+          postsPerPage: "ALL",
+          feedOptions: {
+            type: "all",
+            copyright: `Copyright © ${new Date().getFullYear()} Z-Shell Community.`,
+          },
         },
-      },
-    }),
-  },
-  markdown: {mermaid: false},
+        sitemap: {changefreq: "weekly"},
+      }),
+    ],
+  ],
   plugins: [
     [
       "content-docs",
@@ -58,8 +79,8 @@ const config = {
         },
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
-        remarkPlugins: [math],
-        rehypePlugins: [katex],
+        remarkPlugins: [],
+        rehypePlugins: [],
       }),
     ],
     [
@@ -78,8 +99,8 @@ const config = {
         },
         showLastUpdateAuthor: false,
         showLastUpdateTime: true,
-        remarkPlugins: [math],
-        rehypePlugins: [katex],
+        remarkPlugins: [],
+        rehypePlugins: [],
       }),
     ],
     [
@@ -120,46 +141,8 @@ const config = {
       },
     ],
   ],
-  presets: [
-    [
-      "classic",
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
-        debug: true,
-        theme: {customCss: [require.resolve("./src/css/custom.css")]},
-        docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
-          sidebarCollapsible: true,
-          sidebarCollapsed: true,
-          editUrl: ({locale, versionDocsDirPath, docPath}) => {
-            if (locale !== "en") {
-              return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
-            }
-            return `https://github.com/z-shell/wiki/tree/main/${versionDocsDirPath}/${docPath}`;
-          },
-          showLastUpdateAuthor: true,
-          showLastUpdateTime: true,
-          remarkPlugins: [math],
-          rehypePlugins: [katex],
-        },
-        blog: {
-          editUrl: ({locale, blogDirPath, blogPath}) => {
-            if (locale !== "en") {
-              return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
-            }
-            return `https://github.com/z-shell/wiki/tree/main/${blogDirPath}/${blogPath}`;
-          },
-          showReadingTime: true,
-          postsPerPage: "ALL",
-          feedOptions: {
-            type: "all",
-            copyright: `Copyright © ${new Date().getFullYear()} Z-Shell Community.`,
-          },
-        },
-        sitemap: {changefreq: "weekly"},
-      }),
-    ],
-  ],
+  themes: ["@docusaurus/theme-mermaid"],
+  markdown: {mermaid: false},
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
