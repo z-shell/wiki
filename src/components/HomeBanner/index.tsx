@@ -1,6 +1,7 @@
 // @ts-check
 
 import React from "react";
+import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import Translate, {translate} from "@docusaurus/Translate";
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -10,7 +11,7 @@ export default function HeroBanner(): JSX.Element {
   return (
     <div className={styles.hero} data-theme='dark'>
       <div className={styles.heroInner}>
-        <h1 className={styles.heroProjectTagline}>
+        <h1 className={clsx(styles.heroProjectTagline)}>
           <img
             alt={translate({id: "zi.logo", message: "ZI logo"})}
             className={styles.heroLogo}
