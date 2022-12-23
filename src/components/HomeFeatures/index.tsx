@@ -10,11 +10,11 @@ import styles from "./styles.module.css";
 
 function Feature({feature}: {feature: FeatureItem}) {
   return (
-    <div className={clsx("col")}>
-      <div className={styles.FeatureImg}>
+    <div className={clsx("col col--4")}>
+      <div className={clsx(styles.FeatureImg)}>
         <feature.image />
       </div>
-      <h3 className={clsx(styles.FeatureHeading)}>{feature.title}</h3>
+      <h2 className={clsx(styles.FeatureHeading)}>{feature.title}</h2>
       <p className='padding-horiz--md'>{feature.description}</p>
     </div>
   );
@@ -61,11 +61,11 @@ function VideoContainer() {
 
 export default function HomeFeatures(): JSX.Element {
   return (
-    <div className={styles.HomeFeatures}>
+    <section className={styles.HomeFeatures}>
       <FeaturesContainer />
       <div className={styles.VideoContainer}>
         <VideoContainer />
       </div>
-    </div>
+    </section>
   );
 }

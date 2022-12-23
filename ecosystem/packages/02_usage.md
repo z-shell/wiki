@@ -21,29 +21,29 @@ For all the available packages use [GitHub search][github-search].
 <APITable>
 ```
 
-| Package Name | Description |
-| :-: | :-- |
-| [any-node][] | The any Node module(s) locally in a newly created plugin directory. |
-| [any-gem][] | The any Gem(s) locally in a newly created plugin directory. |
-| [apr][] | The Apache Portable Runtime (APR) library. |
-| [fzf][] | The fzf command-line fuzzy finder. |
-| [fzy][] | The fzy command-line fuzzy finder. |
-| [pyenv][] | The pyenv Python virtual environment manager. |
-| [remark][] | The remark Markdown processor. |
-| [doctoc][] | The doctoc Markdown processor. |
-| [ls_colors][] | The LS_COLORS and setup a zsh-completion system color scheme. |
-| [dircolors-material][] | The dircolors-material and set up a zsh-completion system color scheme. |
-| [asciidoctor][] | The asciidoctor Markdown processor. |
-| [system-completions][] | Moves the stock Zsh completions under the control of Zi. |
-| [brew-completions][] | The Homebrew Shell Completion under the control of Zsh & Zi. |
-| [ecs-cli][] | The AWS ECS CLI. |
-| [subversion][] | The Subversion client. |
-| [github-issues][] | The GitHub Issues client. |
-| [github-issues-srv][] | The GitHub Issues server. |
-| [firefox-dev][] | The Firefox Developer Edition. |
-| [zsh][] | The Zsh mirror of zsh-users. |
-| [nb][] | Bookmarking, and archiving with linking, tagging, search, Git syncing, Pandoc conversion, and more. |
-| [zsh-bin][] | Package of statically-linked, hermetic, relocatable - romkatv/zsh-bin. |
+|      Package Name      | Description                                                                                         |
+| :--------------------: | :-------------------------------------------------------------------------------------------------- |
+|      [any-node][]      | The any Node module(s) locally in a newly created plugin directory.                                 |
+|      [any-gem][]       | The any Gem(s) locally in a newly created plugin directory.                                         |
+|        [apr][]         | The Apache Portable Runtime (APR) library.                                                          |
+|        [fzf][]         | The fzf command-line fuzzy finder.                                                                  |
+|        [fzy][]         | The fzy command-line fuzzy finder.                                                                  |
+|       [pyenv][]        | The pyenv Python virtual environment manager.                                                       |
+|       [remark][]       | The remark Markdown processor.                                                                      |
+|       [doctoc][]       | The doctoc Markdown processor.                                                                      |
+|     [ls_colors][]      | The LS_COLORS and setup a zsh-completion system color scheme.                                       |
+| [dircolors-material][] | The dircolors-material and set up a zsh-completion system color scheme.                             |
+|    [asciidoctor][]     | The asciidoctor Markdown processor.                                                                 |
+| [system-completions][] | Moves the stock Zsh completions under the control of Zi.                                            |
+|  [brew-completions][]  | The Homebrew Shell Completion under the control of Zsh & Zi.                                        |
+|      [ecs-cli][]       | The AWS ECS CLI.                                                                                    |
+|     [subversion][]     | The Subversion client.                                                                              |
+|   [github-issues][]    | The GitHub Issues client.                                                                           |
+| [github-issues-srv][]  | The GitHub Issues server.                                                                           |
+|    [firefox-dev][]     | The Firefox Developer Edition.                                                                      |
+|        [zsh][]         | The Zsh mirror of zsh-users.                                                                        |
+|         [nb][]         | Bookmarking, and archiving with linking, tagging, search, Git syncing, Pandoc conversion, and more. |
+|      [zsh-bin][]       | Package of statically-linked, hermetic, relocatable - romkatv/zsh-bin.                              |
 
 ```mdx-code-block
 </APITable>

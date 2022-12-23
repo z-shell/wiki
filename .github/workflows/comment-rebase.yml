@@ -17,7 +17,6 @@ jobs:
         contains(github.event.comment.body, '/autosquash')
       )
 
-
     steps:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@3ba5ee6fac7e0e30e2ea884e236f282d3a775891

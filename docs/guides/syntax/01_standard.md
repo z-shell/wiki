@@ -258,14 +258,14 @@ zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
 <APITable>
 ```
 
-| Syntax | Description |
-| --- | :-- |
-| `make'!'` | Compile `direnv`, the exclamation mark means: run the `make` first, before `atclone'…'` and `atpull'…'` hooks. |
-| `atclone'…'` | As soon as the plugin is installed generate the registration code and save it to `zhook.zsh`, instead of passing it to `eval`. |
-| `atpull'%atclone'` | The `atclone'…'` runs on **installation** while `atpull'…'` runs on **update** of the plugin. |
-| `src'zhook.zsh'` | Load generated registration code |
-| `pick'direnv'` | Ensure `+x` permission on the binary |
-| `as'program'` | The plugin is a program, there's no main file to the source. |
+| Syntax             | Description                                                                                                                    |
+| ------------------ | :----------------------------------------------------------------------------------------------------------------------------- |
+| `make'!'`          | Compile `direnv`, the exclamation mark means: run the `make` first, before `atclone'…'` and `atpull'…'` hooks.                 |
+| `atclone'…'`       | As soon as the plugin is installed generate the registration code and save it to `zhook.zsh`, instead of passing it to `eval`. |
+| `atpull'%atclone'` | The `atclone'…'` runs on **installation** while `atpull'…'` runs on **update** of the plugin.                                  |
+| `src'zhook.zsh'`   | Load generated registration code                                                                                               |
+| `pick'direnv'`     | Ensure `+x` permission on the binary                                                                                           |
+| `as'program'`      | The plugin is a program, there's no main file to the source.                                                                   |
 
 ```mdx-code-block
 </APITable>
@@ -531,10 +531,10 @@ zi ice pick'powerless.zsh' src'utilities.zsh'
 zi light martinrotter/powerless
 ```
 
-| Syntax | Description |
-| :-: | :-- |
+|  Syntax   | Description                                                                                                |
+| :-------: | :--------------------------------------------------------------------------------------------------------- |
 | `pick'…'` | Provide the main file to the source - like `*.sh`, otherwise alphabetically first matched file is sourced. |
-| `src'…'` | Provide a second file to the source - not a pattern - plain file name. |
+| `src'…'`  | Provide a second file to the source - not a pattern - plain file name.                                     |
 
 ### The `svn` ice {#the-svn-ice}
 
@@ -546,9 +546,9 @@ zi ice svn pick'completion.zsh' \
 zi snippet OMZ::lib
 ```
 
-| Syntax | Description |
-| :-: | :-- |
-| `svn` | Use Subversion to clone `OMZ::lib` (the whole Oh-My-Zsh `lib/` directory). More [^3]. |
+|   Syntax    | Description                                                                                                                        |
+| :---------: | :--------------------------------------------------------------------------------------------------------------------------------- |
+|    `svn`    | Use Subversion to clone `OMZ::lib` (the whole Oh-My-Zsh `lib/` directory). More [^3].                                              |
 | `atload'…'` | Code isn't tracked and cannot be unloaded. The `atload'…'` is executed after loading main files `pick'…'` and `src'…'`. More [^4]. |
 
 ### The `multisrc'…'` ice {#the-multisrc-ice}

@@ -24,13 +24,13 @@ Documentation is automatically updated every `Thursday` at `4:30 UTC` at [z-shel
 <APITable>
 ```
 
-| File | Document format | Description |
-| --- | --- | --- |
-| [zi.zsh][2] | [adoc][3], [pdf][4], [html][5] | The main script which is always loaded, in `.zshrc` |
-| [side.zsh][6] | [adoc][7], [pdf][8], [html][9] | Functions, loaded by `install.zsh` and `autoload.zsh` scripts |
-| [install.zsh][10] | [adoc][11], [pdf][12], [html][13] | Functions used only when installing a plugin or snippet |
-| [autoload.zsh][14] | [adoc][15], [pdf][16], [html][17] | Functions used only in interactive `Zi` invocations |
-| [additional.zsh][18] | [adoc][19], [pdf][20], [html][21] | Additional support for functions |
+| File                 | Document format                   | Description                                                   |
+| -------------------- | --------------------------------- | ------------------------------------------------------------- |
+| [zi.zsh][2]          | [adoc][3], [pdf][4], [html][5]    | The main script which is always loaded, in `.zshrc`           |
+| [side.zsh][6]        | [adoc][7], [pdf][8], [html][9]    | Functions, loaded by `install.zsh` and `autoload.zsh` scripts |
+| [install.zsh][10]    | [adoc][11], [pdf][12], [html][13] | Functions used only when installing a plugin or snippet       |
+| [autoload.zsh][14]   | [adoc][15], [pdf][16], [html][17] | Functions used only in interactive `Zi` invocations           |
+| [additional.zsh][18] | [adoc][19], [pdf][20], [html][21] | Additional support for functions                              |
 
 ```mdx-code-block
 </APITable>

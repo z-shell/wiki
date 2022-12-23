@@ -1,7 +1,7 @@
 import React from "react";
 import Translate, {translate} from "@docusaurus/Translate";
 
-const turbo = () => <i className='fa-6x fa-solid fa-fast-forward' />;
+const turbo = () => <i className='fa-6x fa-solid fa-forward' />;
 const stats = () => <i className='fa-8x fa-solid fa-ranking-star' />;
 const create = () => <i className=' fa-6x fa-solid fa-layer-group' />;
 

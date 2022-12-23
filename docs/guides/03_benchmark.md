@@ -33,9 +33,9 @@ zi light z-shell/F-Sy-H
 <APITable>
 ```
 
-| Syntax | Description |
-| --- | :-- |
-| `atinit'…'` | loads the `zsh/zprof` module, shipped with Zsh, before loading the plugin – this starts the profiling. |
+| Syntax      | Description                                                                                                              |
+| ----------- | :----------------------------------------------------------------------------------------------------------------------- |
+| `atinit'…'` | loads the `zsh/zprof` module, shipped with Zsh, before loading the plugin – this starts the profiling.                   |
 | `atload'…'` | works after loading the plugin – shows profiling results `zprof / head`, unloads `zsh/zprof` - this stops the profiling. |
 
 ```mdx-code-block

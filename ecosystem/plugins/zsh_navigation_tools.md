@@ -42,30 +42,30 @@ All tools support horizontal scroll with <kbd>&lt;</kbd>, <kbd>&gt;</kbd>, <kbd>
 <APITable>
 ```
 
-| Key(s) | Description |
-| --- | --- |
-| <kbd>H</kbd>, <kbd>?</kbd> | (from n-history) - run n-help |
-| <kbd>Ctrl-R</kbd> | Start n-history, the incremental, multi-keyword history searcher (Zsh binding) |
-| <kbd>Ctrl-A</kbd> | Rotate entered words (1+2+3 -> 3+1+2) |
-| <kbd>Ctrl-F</kbd> | Fix mode (approximate matching) |
-| <kbd>Ctrl-L</kbd> | Redraw of whole display |
-| <kbd>Ctrl-T</kbd> | Browse themes (next theme) |
-| <kbd>Ctrl-G</kbd> | Browse themes (previous theme) |
-| <kbd>Ctrl-U</kbd> | Half page up |
-| <kbd>Ctrl-D</kbd> | Half page down |
-| <kbd>Ctrl-P</kbd> | Previous element (also done with vim's k) |
-| <kbd>Ctrl-N</kbd> | Next element (also done with vim's j) |
-| <kbd>[</kbd>, <kbd>]</kbd> | Jump directory bookmarks in n-cd and typical signals in n-kill |
-| <kbd>g</kbd>, <kbd>G</kbd> | Beginning and end of the list |
-| <kbd>/</kbd> | Show incremental search |
-| <kbd>F3</kbd> | Show/hide incremental search |
-| <kbd>Esc</kbd> | Exit incremental search, clearing filter |
-| <kbd>Ctrl-W</kbd> (in incremental search) | Delete whole word |
-| <kbd>Ctrl-K</kbd> (in incremental search) | Delete whole line |
-| <kbd>Ctrl-O</kbd>, <kbd>o</kbd> | Enter uniq mode (no duplicate lines) |
-| <kbd>Ctrl-E</kbd>, <kbd>e</kbd> | Edit private history (when in private history view) |
-| <kbd>F1</kbd> (in n-history) | Switch view |
-| <kbd>F2</kbd>, <kbd>Ctrl-X</kbd>, <kbd>Ctrl-/</kbd> | Search predefined keywords (defined in config files) |
+| Key(s)                                              | Description                                                                    |
+| --------------------------------------------------- | ------------------------------------------------------------------------------ |
+| <kbd>H</kbd>, <kbd>?</kbd>                          | (from n-history) - run n-help                                                  |
+| <kbd>Ctrl-R</kbd>                                   | Start n-history, the incremental, multi-keyword history searcher (Zsh binding) |
+| <kbd>Ctrl-A</kbd>                                   | Rotate entered words (1+2+3 -> 3+1+2)                                          |
+| <kbd>Ctrl-F</kbd>                                   | Fix mode (approximate matching)                                                |
+| <kbd>Ctrl-L</kbd>                                   | Redraw of whole display                                                        |
+| <kbd>Ctrl-T</kbd>                                   | Browse themes (next theme)                                                     |
+| <kbd>Ctrl-G</kbd>                                   | Browse themes (previous theme)                                                 |
+| <kbd>Ctrl-U</kbd>                                   | Half page up                                                                   |
+| <kbd>Ctrl-D</kbd>                                   | Half page down                                                                 |
+| <kbd>Ctrl-P</kbd>                                   | Previous element (also done with vim's k)                                      |
+| <kbd>Ctrl-N</kbd>                                   | Next element (also done with vim's j)                                          |
+| <kbd>[</kbd>, <kbd>]</kbd>                          | Jump directory bookmarks in n-cd and typical signals in n-kill                 |
+| <kbd>g</kbd>, <kbd>G</kbd>                          | Beginning and end of the list                                                  |
+| <kbd>/</kbd>                                        | Show incremental search                                                        |
+| <kbd>F3</kbd>                                       | Show/hide incremental search                                                   |
+| <kbd>Esc</kbd>                                      | Exit incremental search, clearing filter                                       |
+| <kbd>Ctrl-W</kbd> (in incremental search)           | Delete whole word                                                              |
+| <kbd>Ctrl-K</kbd> (in incremental search)           | Delete whole line                                                              |
+| <kbd>Ctrl-O</kbd>, <kbd>o</kbd>                     | Enter uniq mode (no duplicate lines)                                           |
+| <kbd>Ctrl-E</kbd>, <kbd>e</kbd>                     | Edit private history (when in private history view)                            |
+| <kbd>F1</kbd> (in n-history)                        | Switch view                                                                    |
+| <kbd>F2</kbd>, <kbd>Ctrl-X</kbd>, <kbd>Ctrl-/</kbd> | Search predefined keywords (defined in config files)                           |
 
 ```mdx-code-block
 </APITable>

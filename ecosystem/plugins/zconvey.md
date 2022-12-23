@@ -30,16 +30,16 @@ The values being set are the defaults. They must be set before loading the plugi
 <APITable>
 ```
 
-| Value | Description |
-| :-- | --- |
-| zstyle ":plugin:zconvey" check_interval "2" | How often to check if there are new commands (in seconds) |
-| zstyle ":plugin:zconvey" expire_seconds "22" | If the shell is busy for 22 seconds, the received command will expire and not run |
-| zstyle ":plugin:zconvey" greeting "logo" | Display logo at Zsh start ("text" – display text, "none" – no greeting) |
-| zstyle ":plugin:zconvey" ask "0" | The `zc` won't ask for missing data ("1" has the same effect as always using `-a` option) |
-| zstyle ":plugin:zconvey" ls_after_rename "0" | Don't execute zc-ls after doing rename (with zc-rename or zc-take) |
-| zstyle ":plugin:zconvey" use_zsystem_flock "1" | Should use a faster zsystem's flock when it's possible? (default true) |
-| zstyle ":plugin:zconvey" output_method "feeder" | To put commands on the command line, ZConvey can use the small program "feeder" or "zsh" method, which currently doesn't automatically run the command – to use when e.g. feeder doesn't build (unlikely) or when occurring any problems with it |
-| zstyle ":plugin:zconvey" timestamp_from "datetime | Use zsh/datetime module for obtaining timestamp. "date" – use date command (fork) |
+| Value                                             | Description                                                                                                                                                                                                                                      |
+| :------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| zstyle ":plugin:zconvey" check_interval "2"       | How often to check if there are new commands (in seconds)                                                                                                                                                                                        |
+| zstyle ":plugin:zconvey" expire_seconds "22"      | If the shell is busy for 22 seconds, the received command will expire and not run                                                                                                                                                                |
+| zstyle ":plugin:zconvey" greeting "logo"          | Display logo at Zsh start ("text" – display text, "none" – no greeting)                                                                                                                                                                          |
+| zstyle ":plugin:zconvey" ask "0"                  | The `zc` won't ask for missing data ("1" has the same effect as always using `-a` option)                                                                                                                                                        |
+| zstyle ":plugin:zconvey" ls_after_rename "0"      | Don't execute zc-ls after doing rename (with zc-rename or zc-take)                                                                                                                                                                               |
+| zstyle ":plugin:zconvey" use_zsystem_flock "1"    | Should use a faster zsystem's flock when it's possible? (default true)                                                                                                                                                                           |
+| zstyle ":plugin:zconvey" output_method "feeder"   | To put commands on the command line, ZConvey can use the small program "feeder" or "zsh" method, which currently doesn't automatically run the command – to use when e.g. feeder doesn't build (unlikely) or when occurring any problems with it |
+| zstyle ":plugin:zconvey" timestamp_from "datetime | Use zsh/datetime module for obtaining timestamp. "date" – use date command (fork)                                                                                                                                                                |
 
 ```mdx-code-block
 </APITable>
@@ -51,16 +51,16 @@ The values being set are the defaults. They must be set before loading the plugi
 <APITable>
 ```
 
-| Command | Description |
-| --- | :-- |
-| `zc` | Sends to another session; use the `-a` option to be asked for a target and a command to send |
-| `zc-ls` | Lists all active and named sessions |
-| `zc-id` | Shows `ID` and `NAME` of current session |
-| `zc-all` | The same as `zc`, but targets are all other active sessions (with `-f` also busy sessions) |
-| `zc-take` | Takes a name for current or selected sessions, schematically renames any conflicting sessions |
-| `zc-logo` | The same as `zc-id`, but in a form of an on-screen logo; bound to <kbd>Ctrl-O</kbd>, <kbd>Ctrl-I</kbd> |
-| `zc-rename` | Assigns a name to a current or selected session; won't rename if there's a session with the same name |
-| `zc-bg-notify` | In subdirectory `cmds`, link it to `/usr/local/bin`, etc. or load with e.g. Zi |
+| Command        | Description                                                                                            |
+| -------------- | :----------------------------------------------------------------------------------------------------- |
+| `zc`           | Sends to another session; use the `-a` option to be asked for a target and a command to send           |
+| `zc-ls`        | Lists all active and named sessions                                                                    |
+| `zc-id`        | Shows `ID` and `NAME` of current session                                                               |
+| `zc-all`       | The same as `zc`, but targets are all other active sessions (with `-f` also busy sessions)             |
+| `zc-take`      | Takes a name for current or selected sessions, schematically renames any conflicting sessions          |
+| `zc-logo`      | The same as `zc-id`, but in a form of an on-screen logo; bound to <kbd>Ctrl-O</kbd>, <kbd>Ctrl-I</kbd> |
+| `zc-rename`    | Assigns a name to a current or selected session; won't rename if there's a session with the same name  |
+| `zc-bg-notify` | In subdirectory `cmds`, link it to `/usr/local/bin`, etc. or load with e.g. Zi                         |
 
 ```mdx-code-block
 </APITable>

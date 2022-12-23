@@ -289,48 +289,48 @@ Prezto modules:
 
 Available Prezto modules:
 
-| Module name | Description |
-| --- | :-- |
-| [archive](https://github.com/sorin-ionescu/prezto/blob/master/modules/archive/README.md) | Provides functions to list and extract archives. |
-| [autosuggestions](https://github.com/sorin-ionescu/prezto/blob/master/modules/autosuggestions/README.md) | Integrates `zsh-autosuggestions` plugin into Prezto. |
-| [command-not-found](https://github.com/sorin-ionescu/prezto/tree/master/modules/command-not-found/README.md) | Loads the `command-not-found` tool on macOS or Debian-based distributions. |
-| [completion](https://github.com/sorin-ionescu/prezto/tree/master/modules/completion/README.md) | Sets <kbd>TAB</kbd> completion and provides additional completions from the `zsh-completions`. |
-| [directory](https://github.com/sorin-ionescu/prezto/tree/master/modules/directory/README.md) | Sets directory options and defines directory aliases. |
-| [dnf](https://github.com/sorin-ionescu/prezto/tree/master/modules/dnf/README.md) | Defines `dnf` aliases. |
-| [docker](https://github.com/sorin-ionescu/prezto/tree/master/modules/docker/README.md) | Defines `docker` aliases and functions. |
-| [dpkg](https://github.com/sorin-ionescu/prezto/tree/master/modules/dpkg/README.md) | Defines `dpkg` aliases and functions. |
-| [editor](https://github.com/sorin-ionescu/prezto/tree/master/modules/editor/README.md) | Sets key bindings. |
-| [emacs](https://github.com/sorin-ionescu/prezto/tree/master/modules/emacs/README.md) | Enables Emacs dependency management. |
-| [environment](https://github.com/sorin-ionescu/prezto/tree/master/modules/environment/README.md) | Sets general shell options and defines environment variables. |
-| [fasd](https://github.com/sorin-ionescu/prezto/tree/master/modules/fasd/README.md) | Maintains a frequently used file and directory list for fast access. |
-| [git](https://github.com/sorin-ionescu/prezto/tree/master/modules/git/README.md) | Enhances the Git by providing aliases, functions and by exposing repository status information to prompts. |
-| [gnu-utility](https://github.com/sorin-ionescu/prezto/tree/master/modules/gnu-utility/README.md) | Provides for the interactive use of GNU utilities on non-GNU systems. |
-| [gpg](https://github.com/sorin-ionescu/prezto/tree/master/modules/gpg/README.md) | Provides for an easier use of GPG by setting up `gpg-agent`. |
-| [haskell](https://github.com/sorin-ionescu/prezto/tree/master/modules/haskell/README.md) | Enables local Haskell package installation. |
-| [helper](https://github.com/sorin-ionescu/prezto/tree/master/modules/helper/README.md) | Provides helper functions for developing modules. |
-| [history-substring-search](https://github.com/sorin-ionescu/prezto/tree/master/modules/history-substring-search/README.md) | Integrates zsh-history-substring-search into Prezto. |
-| [history](https://github.com/sorin-ionescu/prezto/tree/master/modules/history/README.md) | Sets history options and defines history aliases. |
-| [homebrew](https://github.com/sorin-ionescu/prezto/tree/master/modules/homebrew/README.md) | Defines Homebrew aliases. |
-| [macports](https://github.com/sorin-ionescu/prezto/tree/master/modules/macports/README.md) | Defines MacPorts aliases and adds MacPorts directories to path variables. |
-| [node](https://github.com/sorin-ionescu/prezto/tree/master/modules/node/README.md) | Provides utility functions for Node.js and loads `npm` completion. |
-| [ocaml](https://github.com/sorin-ionescu/prezto/tree/master/modules/ocaml/README.md) | Initializes OCaml package management. |
-| [osx](https://github.com/sorin-ionescu/prezto/tree/master/modules/osx/README.md) | Defines macOS aliases and functions. |
-| [pacman](https://github.com/sorin-ionescu/prezto/tree/master/modules/pacman/README.md) | Provides aliases and functions for the Pacman package manager and frontends. |
-| [perl](https://github.com/sorin-ionescu/prezto/tree/master/modules/perl/README.md) | Enables local Perl module installation on macOS and defines aliases. |
-| [prompt](https://github.com/sorin-ionescu/prezto/tree/master/modules/prompt/README.md) | Loads prompt themes. |
-| [python](https://github.com/sorin-ionescu/prezto/tree/master/modules/python/README.md) | Enables local Python and local Python package installation. |
-| [rails](https://github.com/sorin-ionescu/prezto/tree/master/modules/rails/README.md) | Defines Ruby on Rails aliases. |
-| [rsync](https://github.com/sorin-ionescu/prezto/tree/master/modules/rsync/README.md) | Defines `rsync` aliases. |
-| [ruby](https://github.com/sorin-ionescu/prezto/tree/master/modules/ruby/README.md) | Configures Ruby local gem installation, loads version managers, and defines aliases. |
-| [screen](https://github.com/sorin-ionescu/prezto/tree/master/modules/screen/README.md) | Defines GNU Screen aliases and provides for auto launching it at start-up. |
-| [spectrum](https://github.com/sorin-ionescu/prezto/tree/master/modules/spectrum/README.md) | Provides for easier use of 256 colors and effects. |
-| [ssh](https://github.com/sorin-ionescu/prezto/tree/master/modules/ssh/README.md) | Provides for an easier use of SSH by setting up `ssh-agent`. |
-| [syntax-highlighting](https://github.com/sorin-ionescu/prezto/tree/master/modules/syntax-highlighting/README.md) | Integrates `zsh-syntax-highlighting` into Prezto. |
-| [terminal](https://github.com/sorin-ionescu/prezto/tree/master/modules/terminal/README.md) | Sets terminal window and tab titles. |
-| [tmux](https://github.com/sorin-ionescu/prezto/tree/master/modules/tmux/README.md) | Defines `tmux` aliases and provides for auto launching it at start-up. |
-| [utility](https://github.com/sorin-ionescu/prezto/tree/master/modules/utility/README.md) | Defines general aliases and functions. |
-| [wakeonlan](https://github.com/sorin-ionescu/prezto/tree/master/modules/wakeonlan/README.md) | This module provides a wrapper around the wakeonlan tool. |
-| [yum](https://github.com/sorin-ionescu/prezto/blob/master/modules/autosuggestions/README.md) | Defines yum aliases. |
+| Module name                                                                                                                | Description                                                                                                |
+| -------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------- |
+| [archive](https://github.com/sorin-ionescu/prezto/blob/master/modules/archive/README.md)                                   | Provides functions to list and extract archives.                                                           |
+| [autosuggestions](https://github.com/sorin-ionescu/prezto/blob/master/modules/autosuggestions/README.md)                   | Integrates `zsh-autosuggestions` plugin into Prezto.                                                       |
+| [command-not-found](https://github.com/sorin-ionescu/prezto/tree/master/modules/command-not-found/README.md)               | Loads the `command-not-found` tool on macOS or Debian-based distributions.                                 |
+| [completion](https://github.com/sorin-ionescu/prezto/tree/master/modules/completion/README.md)                             | Sets <kbd>TAB</kbd> completion and provides additional completions from the `zsh-completions`.             |
+| [directory](https://github.com/sorin-ionescu/prezto/tree/master/modules/directory/README.md)                               | Sets directory options and defines directory aliases.                                                      |
+| [dnf](https://github.com/sorin-ionescu/prezto/tree/master/modules/dnf/README.md)                                           | Defines `dnf` aliases.                                                                                     |
+| [docker](https://github.com/sorin-ionescu/prezto/tree/master/modules/docker/README.md)                                     | Defines `docker` aliases and functions.                                                                    |
+| [dpkg](https://github.com/sorin-ionescu/prezto/tree/master/modules/dpkg/README.md)                                         | Defines `dpkg` aliases and functions.                                                                      |
+| [editor](https://github.com/sorin-ionescu/prezto/tree/master/modules/editor/README.md)                                     | Sets key bindings.                                                                                         |
+| [emacs](https://github.com/sorin-ionescu/prezto/tree/master/modules/emacs/README.md)                                       | Enables Emacs dependency management.                                                                       |
+| [environment](https://github.com/sorin-ionescu/prezto/tree/master/modules/environment/README.md)                           | Sets general shell options and defines environment variables.                                              |
+| [fasd](https://github.com/sorin-ionescu/prezto/tree/master/modules/fasd/README.md)                                         | Maintains a frequently used file and directory list for fast access.                                       |
+| [git](https://github.com/sorin-ionescu/prezto/tree/master/modules/git/README.md)                                           | Enhances the Git by providing aliases, functions and by exposing repository status information to prompts. |
+| [gnu-utility](https://github.com/sorin-ionescu/prezto/tree/master/modules/gnu-utility/README.md)                           | Provides for the interactive use of GNU utilities on non-GNU systems.                                      |
+| [gpg](https://github.com/sorin-ionescu/prezto/tree/master/modules/gpg/README.md)                                           | Provides for an easier use of GPG by setting up `gpg-agent`.                                               |
+| [haskell](https://github.com/sorin-ionescu/prezto/tree/master/modules/haskell/README.md)                                   | Enables local Haskell package installation.                                                                |
+| [helper](https://github.com/sorin-ionescu/prezto/tree/master/modules/helper/README.md)                                     | Provides helper functions for developing modules.                                                          |
+| [history-substring-search](https://github.com/sorin-ionescu/prezto/tree/master/modules/history-substring-search/README.md) | Integrates zsh-history-substring-search into Prezto.                                                       |
+| [history](https://github.com/sorin-ionescu/prezto/tree/master/modules/history/README.md)                                   | Sets history options and defines history aliases.                                                          |
+| [homebrew](https://github.com/sorin-ionescu/prezto/tree/master/modules/homebrew/README.md)                                 | Defines Homebrew aliases.                                                                                  |
+| [macports](https://github.com/sorin-ionescu/prezto/tree/master/modules/macports/README.md)                                 | Defines MacPorts aliases and adds MacPorts directories to path variables.                                  |
+| [node](https://github.com/sorin-ionescu/prezto/tree/master/modules/node/README.md)                                         | Provides utility functions for Node.js and loads `npm` completion.                                         |
+| [ocaml](https://github.com/sorin-ionescu/prezto/tree/master/modules/ocaml/README.md)                                       | Initializes OCaml package management.                                                                      |
+| [osx](https://github.com/sorin-ionescu/prezto/tree/master/modules/osx/README.md)                                           | Defines macOS aliases and functions.                                                                       |
+| [pacman](https://github.com/sorin-ionescu/prezto/tree/master/modules/pacman/README.md)                                     | Provides aliases and functions for the Pacman package manager and frontends.                               |
+| [perl](https://github.com/sorin-ionescu/prezto/tree/master/modules/perl/README.md)                                         | Enables local Perl module installation on macOS and defines aliases.                                       |
+| [prompt](https://github.com/sorin-ionescu/prezto/tree/master/modules/prompt/README.md)                                     | Loads prompt themes.                                                                                       |
+| [python](https://github.com/sorin-ionescu/prezto/tree/master/modules/python/README.md)                                     | Enables local Python and local Python package installation.                                                |
+| [rails](https://github.com/sorin-ionescu/prezto/tree/master/modules/rails/README.md)                                       | Defines Ruby on Rails aliases.                                                                             |
+| [rsync](https://github.com/sorin-ionescu/prezto/tree/master/modules/rsync/README.md)                                       | Defines `rsync` aliases.                                                                                   |
+| [ruby](https://github.com/sorin-ionescu/prezto/tree/master/modules/ruby/README.md)                                         | Configures Ruby local gem installation, loads version managers, and defines aliases.                       |
+| [screen](https://github.com/sorin-ionescu/prezto/tree/master/modules/screen/README.md)                                     | Defines GNU Screen aliases and provides for auto launching it at start-up.                                 |
+| [spectrum](https://github.com/sorin-ionescu/prezto/tree/master/modules/spectrum/README.md)                                 | Provides for easier use of 256 colors and effects.                                                         |
+| [ssh](https://github.com/sorin-ionescu/prezto/tree/master/modules/ssh/README.md)                                           | Provides for an easier use of SSH by setting up `ssh-agent`.                                               |
+| [syntax-highlighting](https://github.com/sorin-ionescu/prezto/tree/master/modules/syntax-highlighting/README.md)           | Integrates `zsh-syntax-highlighting` into Prezto.                                                          |
+| [terminal](https://github.com/sorin-ionescu/prezto/tree/master/modules/terminal/README.md)                                 | Sets terminal window and tab titles.                                                                       |
+| [tmux](https://github.com/sorin-ionescu/prezto/tree/master/modules/tmux/README.md)                                         | Defines `tmux` aliases and provides for auto launching it at start-up.                                     |
+| [utility](https://github.com/sorin-ionescu/prezto/tree/master/modules/utility/README.md)                                   | Defines general aliases and functions.                                                                     |
+| [wakeonlan](https://github.com/sorin-ionescu/prezto/tree/master/modules/wakeonlan/README.md)                               | This module provides a wrapper around the wakeonlan tool.                                                  |
+| [yum](https://github.com/sorin-ionescu/prezto/blob/master/modules/autosuggestions/README.md)                               | Defines yum aliases.                                                                                       |
 
 Use `zi ice svn` if multiple files require an entire subdirectory.
 
