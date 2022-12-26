@@ -93,7 +93,7 @@
       "minimatch@<3.0.5": ">=3.0.5"
     }
   },
-  "packageManager": "pnpm@7.19.0",
+  "packageManager": "pnpm@7.20.0",
   "engines": {
     "node": ">=16.14"
   }
