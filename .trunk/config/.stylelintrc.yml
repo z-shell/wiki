@@ -17,6 +17,10 @@ rules:
     "value-keyword-case": ["lower", {camelCaseSvgKeywords: true}],
     "alpha-value-notation": ["percentage", {"exceptProperties": ["opacity"]}],
     "block-no-empty": null,
-    "selector-class-pattern": null,
     "order/properties-alphabetical-order": null,
+    "selector-class-pattern": null,
+    "custom-property-empty-line-before": null,
+    "selector-id-pattern": null,
+    "declaration-empty-line-before": null,
+    "comment-empty-line-before": null,
   }

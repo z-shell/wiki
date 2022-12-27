@@ -1,4 +1,3 @@
-/** @format */
 // @ts-check
 
 import React, {type ReactNode} from "react";
