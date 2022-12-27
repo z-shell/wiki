@@ -47,7 +47,7 @@ source "${ZI[BIN_DIR]}/zi.zsh"
 | `ZI[CONFIG_DIR]`                     | `$HOME/.config/zi`            | 設定ファイルのディレクトリ                                  |
 | `ZI[MAN_DIR]`                        | `$ZPFX/man`                   | Directory to store manpages                    |
 | `ZI[LOG_DIR]`                        | `$ZI[CACHE_DIR]/log`          | Directory to store log files                   |
-| `ZI[PLUGINS_DIR]`                    | `$ZI[HOME_DIR]/plugins`       | Plugins working directory                      |
+| `ZI[PLUGINS_DIR]`                    | `$ZI[HOME_DIR]/plugins`       | 作業中ディレクトリのプラグイン                                |
 | `ZI[SNIPPETS_DIR]`                   | `$ZI[HOME_DIR]/snippets`      | Snippets working directory                     |
 | `ZI[ZCOMPDUMP_PATH]`                 | `${ZI[CACHE_DIR]}/.zcompdump` | Path to `.zcompdump` file                      |
 | `ZI[ZMODULES_DIR]`                   | `$ZI[HOME_DIR]/zmodules`      | Zsh modules working directory                  |

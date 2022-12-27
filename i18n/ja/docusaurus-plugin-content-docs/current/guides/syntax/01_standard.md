@@ -356,7 +356,7 @@ zi ice from"user@github.com"
 zi load user/fsh-auto-themes
 ```
 
-Current preset:
+現在のプリセット：
 
 ```mdx-code-block
 <APITable>
