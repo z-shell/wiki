@@ -7,7 +7,7 @@ image: /img/png/theme/z/320x320.png
 description: Introduction to the ecosystem.
 keywords:
   - zsh-plugins
-  - zsh-modules
+  - zshモジュール
   - zsh-annexes
   - awesome-zsh
 ---
