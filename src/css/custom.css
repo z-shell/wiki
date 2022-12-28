@@ -326,7 +326,7 @@ html[data-theme="dark"] div[class^="announcementBar_"] {
   }
 
   thead th:first-child {
-    white-space: wrap;
+    white-space: normal;
   }
 
   .IceLogo {

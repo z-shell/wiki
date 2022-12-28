@@ -5,8 +5,10 @@ extends:
   - stylelint-config-prettier
 plugins:
   - stylelint-color-format
+  - stylelint-csstree-validator
 rules:
   {
+    "csstree/validator": true,
     "no-descending-specificity": true,
     "declaration-block-no-duplicate-custom-properties": true,
     "declaration-block-no-duplicate-properties": true,
@@ -15,7 +17,6 @@ rules:
     "color-format/format": {"format": "hsl"},
     "selector-pseudo-class-no-unknown": [true, {ignorePseudoClasses: ["global"]}],
     "value-keyword-case": ["lower", {camelCaseSvgKeywords: true}],
-    "alpha-value-notation": ["percentage", {"exceptProperties": ["opacity"]}],
     "block-no-empty": null,
     "order/properties-alphabetical-order": null,
     "selector-class-pattern": null,

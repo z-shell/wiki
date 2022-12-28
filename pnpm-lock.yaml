@@ -45,6 +45,7 @@ specifiers:
   stylelint-config-recess-order: 3.1.0
   stylelint-config-recommended: 9.0.0
   stylelint-config-standard: 29.0.0
+  stylelint-csstree-validator: 2.0.0
   typescript: 4.9.4
 
 dependencies:
@@ -89,6 +90,7 @@ devDependencies:
   stylelint-config-recess-order: 3.1.0_stylelint@14.16.0
   stylelint-config-recommended: 9.0.0_stylelint@14.16.0
   stylelint-config-standard: 29.0.0_stylelint@14.16.0
+  stylelint-csstree-validator: 2.0.0_stylelint@14.16.0
   typescript: 4.9.4
 
 packages:
@@ -4539,6 +4541,14 @@ packages:
       source-map: 0.6.1
     dev: false
 
+  /css-tree/2.3.1:
+    resolution: {integrity: sha512-6Fv1DV/TYw//QF5IzQdqsNDjx/wc8TrMBZsqjL9eW01tWb7R7k/mq+/VXfJCl7SoD5emsJop9cOByJZfs8hYIw==}
+    engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
+    dependencies:
+      mdn-data: 2.0.30
+      source-map-js: 1.0.2
+    dev: true
+
   /css-what/6.1.0:
     resolution: {integrity: sha512-HTUrgRJ7r4dsZKU6GjmpfRK1O76h97Z8MfS1G0FozR+oF2kG6Vfe8JE6zwrkbxigziPHinCJ+gCPjA9EaBDtRw==}
     engines: {node: '>= 6'}
@@ -7224,6 +7234,10 @@ packages:
     resolution: {integrity: sha512-dn6wd0uw5GsdswPFfsgMp5NSB0/aDe6fK94YJV/AJDYXL6HVLWBsxeq7js7Ad+mU2K9LAlwpk6kN2D5mwCPVow==}
     dev: false
 
+  /mdn-data/2.0.30:
+    resolution: {integrity: sha512-GaqWWShW4kv/G9IEucWScBx9G1/vsFZZJUO+tD26M8J8z3Kw5RDQjaoZe03YAClgeS/SWPOcb4nkFBTEi5DUEA==}
+    dev: true
+
   /mdurl/1.0.1:
     resolution: {integrity: sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g==}
     dev: false
@@ -9646,6 +9660,16 @@ packages:
     dependencies:
       stylelint: 14.16.0
       stylelint-config-recommended: 9.0.0_stylelint@14.16.0
+    dev: true
+
+  /stylelint-csstree-validator/2.0.0_stylelint@14.16.0:
+    resolution: {integrity: sha512-nAnG4CynM4P4POUCGVz/PnrByKcgdD2isKlmAccoxykkaH1IuEposiOJcUQlAp/kXD/T0ZRwlDbqMGgrHRbhog==}
+    engines: {node: ^12.20.0 || ^14.13.0 || >=15.0.0, npm: '>=7.0.0'}
+    peerDependencies:
+      stylelint: '>=7.0.0 <15.0.0'
+    dependencies:
+      css-tree: 2.3.1
+      stylelint: 14.16.0
     dev: true
 
   /stylelint-order/5.0.0_stylelint@14.16.0:
