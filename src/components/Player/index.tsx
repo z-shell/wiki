@@ -1,6 +1,7 @@
 // @ts-check
 
 import React, {useEffect, useRef, useState} from "react";
+import Loadable from "@loadable/component";
 import Spinner from "@site/src/components/Spinner";
 import "asciinema-player/dist/bundle/asciinema-player.css";
 
@@ -29,8 +30,9 @@ export default function Player(props: PlayerConfig): JSX.Element {
   const showPlayer = player ? <div ref={element} /> : <Spinner />;
 
   useEffect(() => {
-    import("asciinema-player").then((p) => {
-      setPlayer(p);
+    const library = Loadable(() => import("asciinema-player"));
+    library.load().then((module) => {
+      setPlayer(module);
     });
   }, []);
 
