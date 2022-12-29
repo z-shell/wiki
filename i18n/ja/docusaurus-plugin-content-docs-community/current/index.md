@@ -1,7 +1,7 @@
 ---
 id: コミュニティ
 slug: /
-title: "👥 Community Docs"
+title: "👥 コミュニティ ドキュメント"
 sidebar_position: 1
 image: /img/png/theme/z/320x320.png
 keywords:

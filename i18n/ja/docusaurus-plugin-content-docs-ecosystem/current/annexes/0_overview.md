@@ -134,7 +134,7 @@ zi snippet PZT::modules/autosuggestions
 
 Check out the project which fully implements this idea, [z-a-submods][submods]. It e.g. also implements the `atpull` hook, i.e. supports the automatic update of the submodules. The `z-a-*` prefix is recommended for projects which indicate annexes.
 
-## Summary
+## 概要
 
 There are 2 or 3 subtypes for each of the hooks:
 

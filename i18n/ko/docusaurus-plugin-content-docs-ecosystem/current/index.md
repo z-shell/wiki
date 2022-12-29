@@ -1,15 +1,10 @@
 ---
 id: ecosystem
 slug: /
-title: "🌐 Ecosystem"
+title: '🌐 Ecosystem'
 sidebar_position: 1
 image: /img/png/theme/z/320x320.png
-description: Introduction to the ecosystem.
-keywords:
-  - zsh-plugins
-  - zsh-modules
-  - zsh-annexes
-  - awesome-zsh
+description: "Introduction to the ecosystem"
 ---
 
 <!-- @format -->

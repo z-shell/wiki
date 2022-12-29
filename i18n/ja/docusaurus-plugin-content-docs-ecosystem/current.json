@@ -4,15 +4,15 @@
     "description": "The label for version current"
   },
   "sidebar.SideBar.category.🌀 Annexes": {
-    "message": "🌀 Annexes",
+    "message": "🌀 別館",
     "description": "The label for category 🌀 Annexes in sidebar SideBar"
   },
   "sidebar.SideBar.category.📦 Packages": {
-    "message": "📦 Packages",
+    "message": "📦 パッケージ",
     "description": "The label for category 📦 Packages in sidebar SideBar"
   },
   "sidebar.SideBar.category.⚙️ Plugins & Modules": {
-    "message": "⚙️ Plugins & Modules",
+    "message": "⚙️ プラグインとモジュール",
     "description": "The label for category ⚙️ Plugins & Modules in sidebar SideBar"
   }
 }

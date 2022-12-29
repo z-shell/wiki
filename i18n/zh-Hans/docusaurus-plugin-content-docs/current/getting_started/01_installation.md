@@ -1,13 +1,11 @@
 ---
 id: installation
-title: "⚡️ 安装"
+title: '⚡️ 安装'
 sidebar_position: 1
 image: /img/png/theme/z/320x320.png
 description: 安装指南
 keywords:
-  - setup
-  - quick-start
-  - installation
+  - 安装
 ---
 
 <!-- @format -->

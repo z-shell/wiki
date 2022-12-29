@@ -1,15 +1,11 @@
 ---
 id: ice-modifiers
-title: "🧊 Ice Modifiers"
+title: '🧊 Ice Modifiers'
 sidebar_position: 4
 image: /img/png/theme/z/320x320.png
 description: Ice Modifiers Documentation
-keywords:
-  - ice-syntax
-  - ice-modifiers
+slug: ice-modifiers
 ---
-
-<!-- @format -->
 
 import Image from '@theme/IdealImage'; import ZIceImg from '/img/png/theme/ice_180x170.png'; import APITable from '@site/src/components/APITable';
 

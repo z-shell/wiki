@@ -277,16 +277,16 @@ Following commands are passed to `zi …` to obtain described effects.
 </APITable>
 ```
 
-## Help & manual
+## ヘルプ＆マニュアル
 
 ```mdx-code-block
 <APITable>
 ```
 
-|  Command   | 説明                 |
-|:----------:| ------------------ |
-| `-h, help` | Usage information. |
-|   `man`    | Manual.            |
+|  Command   | 説明    |
+|:----------:| ----- |
+| `-h, help` | 利用方法  |
+|   `man`    | マニュアル |
 
 ```mdx-code-block
 </APITable>

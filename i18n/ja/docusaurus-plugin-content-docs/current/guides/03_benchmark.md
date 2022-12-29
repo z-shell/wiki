@@ -3,12 +3,12 @@ id: benchmark
 title: "⏲ ベンチマーク"
 sidebar_position: 3
 image: /img/png/theme/z/320x320.png
-description: Benchmarking, Profiling & Statistics
+description: ベンチマーク、プロファイリング & 統計情報
 keywords:
   - statistics
   - benchmark
   - profiling
-  - reporting
+  - レポート
 ---
 
 <!-- @format -->
@@ -17,11 +17,11 @@ import APITable from '@site/src/components/APITable'; import ReportZprofExample 
 
 :::info
 
-Run `zi analytics` to see the available commands for statistics and reporting.
+統計およびレポートに使用可能なコマンドを表示するには、 `zi analytics` を実行します。
 
 :::
 
-## <i class="fa-solid fa-gauge-high"></i> Profile plugins
+## <i class="fa-solid fa-gauge-high"></i> プラグインをプロファイルする
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice atinit'zmodload zsh/zprof' \
@@ -33,7 +33,7 @@ zi light z-shell/F-Sy-H
 <APITable>
 ```
 
-| Syntax      | 説明                                                                                                                       |
+| 構文          | 説明                                                                                                                       |
 | ----------- |:------------------------------------------------------------------------------------------------------------------------ |
 | `atinit'…'` | loads the `zsh/zprof` module, shipped with Zsh, before loading the plugin – this starts the profiling.                   |
 | `atload'…'` | works after loading the plugin – shows profiling results `zprof / head`, unloads `zsh/zprof` - this stops the profiling. |
@@ -63,13 +63,13 @@ The fourth column is also a time in milliseconds, but it denotes the amount of t
 
 The table is sorted in the **self-time** column.
 
-## <i class="fas fa-spinner fa-spin"></i> Profile `.zshrc` startup
+## <i class="fas fa-spinner fa-spin"></i> `.zshrc`起動時のプロファイル
 
-### Method 1
+### 方法1
 
-> `PROFILE_STARTUP=true` to enable profiling.
+> `PROFILE_STARTUP=true` でプロファイリングを有効にします。
 
-Place the snippet below at the top of `.zshrc`.
+以下を `.zshrc` の最上部に配置します。
 
 ```shell title="~/.zshrc" showLineNumbers
 PROFILE_STARTUP=false
@@ -82,13 +82,13 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
 fi
 ```
 
-:::info PS4 Prompt Expansion
+:::info PS4 プロンプト拡張
 
-Zsh Sourceforge docs: [Prompt Expansion][prompt-expansion]
+Zsh Sourceforge docs: [プロンプトの展開][prompt-expansion]
 
 :::
 
-Place at the bottom of `.zshrc`
+`.zshrc`の最下部に配置します。
 
 ```shell title="~/.zshrc" showLineNumbers
 if [[ "$PROFILE_STARTUP" == true ]]; then
@@ -97,9 +97,9 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
 fi
 ```
 
-The next time your `.zshrc` is sourced it will generate 2 files in the `$HOME` directory.
+次回 `.zshrc`がロードされるとき、2つのファイルが`$HOME` ディレクトリ以下に生成されます。
 
-### Method 2
+### 方法2
 
 Store multiple values to a variable:
 

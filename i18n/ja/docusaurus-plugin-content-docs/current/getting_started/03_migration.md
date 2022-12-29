@@ -68,7 +68,7 @@ if (( $+commands[svn] )) {
 }
 ```
 
-### OMZ plugins
+### OMZ プラグイン
 
 ```diff title="~/.zshrc" showLineNumbers
 - plugins=(
@@ -152,7 +152,7 @@ zi ice as"completion"
 zi snippet OMZP::ag/_ag
 ```
 
-### OMZ themes
+### OMZ テーマ
 
 Themes are stored in the `themes` directory and loaded in the background with the simple syntax:
 
