@@ -30,7 +30,7 @@ jobs:
       - uses: hrabiel/check-crowdin-translation-progress@c20323f4b2331a24a7b4e7fdf27620e5c59851a4
         with:
           api-token: "${{ secrets.CROWDIN_TOKEN }}"
-          organization-domain: 'digitalclouds'
+          organization-domain: "digitalclouds"
           project-id: "2"
           #branch-name: "feature.my-awesome-feature"
           languages: "zh-Hans,ja,ko,ru"
