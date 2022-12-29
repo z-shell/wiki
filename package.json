@@ -94,7 +94,7 @@
       "json5@<2.2.2": ">=2.2.2"
     }
   },
-  "packageManager": "pnpm@7.20.0",
+  "packageManager": "pnpm@7.21.0",
   "engines": {
     "node": ">=16.14"
   }
