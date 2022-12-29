@@ -22,11 +22,9 @@
   <a title="Crowdin" target="_self" href="https://translate.zshell.dev/">
     <img align="center" src="https://badges.crowdin.net/e/f108c12713ee8526ac878d5671ad6e29/localized.svg" />
   </a>
-  <!--
   <a title="Releases" target="_self" href="https://github.com/z-shell/wiki/releases">
     <img align="center" src="https://img.shields.io/github/tag/z-shell/wiki.svg" alt="Version" />
   </a>
-  -->
   <a title="License GPL-3.0" target="_self" href="https://www.gnu.org/licenses/gpl-3.0">
     <img align="center" src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="Project License" />
   </a>
