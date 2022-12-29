@@ -1,5 +1,5 @@
 ---
-slug: swiss-army-knife-for-zsh
+slug: feature-rich-plugin-manager
 title: Fast and feature-rich plugin manager for Zsh
 authors: ss-o
 sidebar_position: 1
@@ -7,15 +7,10 @@ hide_title: false
 hide_table_of_contents: true
 sidebar_label: Swiss Army Knife for Zsh
 description: Introduction to a Swiss Army Knife for Zsh - Unix shell
-keywords:
-  - zi
-  - omz
-  - zinit
-  - zplugin
-  - oh-my-zsh
-  - introduction
-tags: [github, zsh]
-image: /img/logo/320x320.png
+tags:
+  - github
+  - zsh
+image: /img/png/theme/z/320x320.png
 ---
 
 <!-- @format -->

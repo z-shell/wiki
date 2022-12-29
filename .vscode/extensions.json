@@ -17,6 +17,7 @@
     "tyriar.sort-lines",
     "rvest.vs-code-prettier-eslint",
     "streetsidesoftware.code-spell-checker",
-    "znck.grammarly"
+    "znck.grammarly",
+    "eliostruyf.vscode-front-matter"
   ]
 }

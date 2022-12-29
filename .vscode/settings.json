@@ -108,5 +108,107 @@
   "eslint.packageManager": "pnpm",
   "editor.quickSuggestions": {
     "other": "inline"
-  }
+  },
+  "[markdown]": {
+    "editor.fontSize": 14,
+    "editor.lineHeight": 26,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 64,
+    "editor.lineNumbers": "off",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": false
+    },
+    "editor.minimap.enabled": false
+  },
+  "frontMatter.content.autoUpdateDate": true,
+  "frontMatter.preview.host": "http://localhost:3000",
+  "frontMatter.framework.startCommand": "pnpm start",
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Publishing date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Content preview",
+          "name": "preview",
+          "type": "image"
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "boolean"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
+        },
+        {
+          "title": "id",
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "title": "sidebar_position",
+          "name": "sidebar_position",
+          "type": "datetime"
+        },
+        {
+          "title": "image",
+          "name": "image",
+          "type": "string"
+        },
+        {
+          "title": "keywords",
+          "name": "keywords",
+          "type": "choice",
+          "choices": ["install"]
+        },
+        {
+          "title": "authors",
+          "name": "authors",
+          "type": "string"
+        },
+        {
+          "title": "hide_title",
+          "name": "hide_title",
+          "type": "datetime"
+        },
+        {
+          "title": "hide_table_of_contents",
+          "name": "hide_table_of_contents",
+          "type": "datetime"
+        },
+        {
+          "title": "sidebar_label",
+          "name": "sidebar_label",
+          "type": "string"
+        }
+      ]
+    }
+  ]
 }
