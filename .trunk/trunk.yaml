@@ -36,10 +36,8 @@ lint:
       paths:
         - "i18n/*"
         - "build/*"
+        - "static/*"
         - ".docusaurus/*"
-        - "static/assets/fonts/variable"
-        - "static/assets/fonts/webfonts"
-        - "static/assets/fonts/*.min.css"
     - linters: [svgo]
       paths:
         - "static/img/**"
