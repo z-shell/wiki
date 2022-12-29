@@ -33,6 +33,6 @@ jobs:
           organization-domain: "digitalclouds"
           project-id: "2"
           #branch-name: "feature.my-awesome-feature"
-          languages: "zh-Hans,ja,ko,ru"
+          languages: "ja,ko,ru,zh-CN"
           target-progress: "10"
           check-approval: false
