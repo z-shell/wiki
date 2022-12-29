@@ -1,6 +1,6 @@
 ---
 id: for
-title: '✨ The "For" Syntax'
+title: '✨ "For" 構文'
 sidebar_position: 2
 image: /img/png/theme/z/320x320.png
 description: The "For" Syntax documentation
@@ -97,7 +97,7 @@ zi wait lucid light-mode for \
 <APITable>
 ```
 
-| Syntax       | 説明                                                                                           |
+| 構文           | 説明                                                                                           |
 | ------------ |:-------------------------------------------------------------------------------------------- |
 | `wait`       | Load 0 seconds (about 5 ms exactly) after prompt ([turbo mode][6]).                          |
 | `lucid`      | Silence the under-prompt messages ("`Loaded {name of the plugin}`").                         |
@@ -222,7 +222,7 @@ zi-turbo '1a' for \
   MichaelAquilina/zsh-you-should-use
 ```
 
-## <i class="fa-solid fa-book-bookmark"></i> Summary
+## <i class="fa-solid fa-book-bookmark"></i> 概要
 
 In general, [turbo mode][6] can be optionally enabled only for a subset of plugins or for all plugins.
 

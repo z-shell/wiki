@@ -24,13 +24,13 @@ import APITable from '@site/src/components/APITable';
 <APITable>
 ```
 
-| ファイル                 | ドキュメントの様式                         | 説明                                                  |
-| -------------------- | --------------------------------- | --------------------------------------------------- |
-| [zi.zsh][2]          | [adoc][3], [pdf][4], [html][5]    | `.zshrc`で常に読み込まれるメインスクリプト                           |
-| [side.zsh][6]        | [adoc][7], [pdf][8], [html][9]    | `install.zsh` および `autoload.zsh` スクリプトによって読み込まれる関数  |
-| [install.zsh][10]    | [adoc][11], [pdf][12], [html][13] | プラグインまたはスニペットをインストールする場合にのみ使用される関数                  |
-| [autoload.zsh][14]   | [adoc][15], [pdf][16], [html][17] | Functions used only in interactive `Zi` invocations |
-| [additional.zsh][18] | [adoc][19], [pdf][20], [html][21] | Additional support for functions                    |
+| ファイル                 | ドキュメントの様式                         | 説明                                                 |
+| -------------------- | --------------------------------- | -------------------------------------------------- |
+| [zi.zsh][2]          | [adoc][3], [pdf][4], [html][5]    | `.zshrc`で常に読み込まれるメインスクリプト                          |
+| [side.zsh][6]        | [adoc][7], [pdf][8], [html][9]    | `install.zsh` および `autoload.zsh` スクリプトによって読み込まれる関数 |
+| [install.zsh][10]    | [adoc][11], [pdf][12], [html][13] | プラグインまたはスニペットをインストールする場合にのみ使用される関数                 |
+| [autoload.zsh][14]   | [adoc][15], [pdf][16], [html][17] | 対話型 `Zi` 呼び出しでのみ使用される関数                            |
+| [additional.zsh][18] | [adoc][19], [pdf][20], [html][21] | 関数に対する追加サポート                                       |
 
 ```mdx-code-block
 </APITable>

@@ -1,14 +1,10 @@
 ---
 id: intro
 slug: /
-title: "🎉 Introduction"
+title: '🎉 Introduction'
 sidebar_position: 1
 image: /img/png/theme/z/320x320.png
 description: Introduction to a Swiss Army Knife for Zsh, formerly known as zplugin, zinit.
-keywords:
-  - はじめに
-  - features
-  - summary
 ---
 
 <!-- @format -->
@@ -68,7 +64,7 @@ Install and control almost everything from GitHub: [Annexes](/ecosystem/category
 - [Load or unload][loading-and-unloading] plugins, use the ability to [manage][completions-management] completions.
 - Docker [playground][], test or propose configurations.
 
-## <i class="fa-solid fa-list-check"></i> Summary
+## <i class="fa-solid fa-list-check"></i> 概要
 
 <Link href="https://github.com/orgs/z-shell">
   <ImgShow alt="Z-Shell Metrics" width="100%" height="auto" img="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/metrics.svg" />

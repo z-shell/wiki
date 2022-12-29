@@ -1,13 +1,11 @@
 ---
 id: installation
-title: "⚡️ 導入"
+title: '⚡️ 導入'
 sidebar_position: 1
 image: /img/png/theme/z/320x320.png
 description: インストールガイド
 keywords:
-  - セットアップ
-  - quick-start
-  - installation
+  - install
 ---
 
 <!-- @format -->
@@ -41,7 +39,7 @@ local cs=$(sha256sum <(curl -sL git.io/zi-loader) | awk '{print $1}')
   </TabItem>
 </Tabs>
 
-Reload shell with `exec zsh` and run `zi -h` for usage information.
+`exec zsh` でシェルをリロードし、 `zi -h` を実行して、使い方を確認します。
 
 ## <i class="fas fa-spinner fa-spin"></i> 自動セットアップ {#automated-setup}
 
@@ -123,7 +121,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
 
 ## <i class="fas fa-spinner fa-spin"></i> マニュアルセットアップ {#manual-setup}
 
-:::tip Related
+:::ヒント 関連
 
 - [🏗 Configuration management](/docs/guides/customization#customizing-paths)
 
@@ -157,7 +155,7 @@ source "${ZI[BIN_DIR]}/zi.zsh"
 
 :::caution
 
-The two lines below must be placed after the lines above, i.e. after enabling Zi.
+以下の2行は、上の行の後、つまりZiを有効にした後に配置する必要があります。
 
 :::
 
@@ -168,7 +166,7 @@ autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 ```
 
-## <i class="fas fa-spinner fa-spin"></i> Post-install {#post-install}
+## <i class="fas fa-spinner fa-spin"></i> インストール後 {#post-install}
 
 新しくインストールした後は、 `exec zsh` でシェルをリロードし、 `zi self-update` で Zi をコンパイルすることをお勧めします。 `zi -h` を実行することで、利用可能な全コマンドを確認できます。 Increase Zi functionality, and performance, or get started by exploring the wiki.
 
@@ -186,7 +184,7 @@ Let's glue everything together to create a toolchain that works for us <Emoji sy
 sh -c "$(curl -fsSL git.io/get-zi)" -- -a ???
 ```
 
-## <i class="fas fa-sync-alt fa-spin"></i>&nbsp;Need warm-up?
+## <i class="fas fa-sync-alt fa-spin"></i>&nbsp;ウォーミングアップが必要ですか？
 
 ### <i class="fa-brands fa-docker"></i>&nbsp;<Link href="https://github.com/z-shell/zd/pkgs/container/zd">Docker Alpine</Link>
 
@@ -207,7 +205,7 @@ To accomplish this, use burst argument and call the `@zi-scheduler` function:
 RUN zsh -i -c -- '@zi-scheduler burst || true'
 ```
 
-> - An example: [Dockerfile][dockerfile]
+> - 例: [Dockerfile][dockerfile]
 > - In action: [Playground][playground]
 
 ## <i class="fas fa-cog fa-pulse"></i> Zi Module: [zpmod][z-shell/zpmod] {#zi-module}
@@ -254,19 +252,19 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
 
 ### <i class="fa-solid fa-gear"></i> インストーラー {#installer}
 
-| Service                    | URL                                                                       |
-|:-------------------------- | ------------------------------------------------------------------------- |
-| [Redirect][get.zshell.dev] | <https://get.zshell.dev>                                                  |
-| [IPFS][ipfs.io]            | <https://ipfs.zshell.dev/sh/install.sh>                                   |
-| [Direct][direct-install]   | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
+| サービス                     | URL                                                                       |
+|:------------------------ | ------------------------------------------------------------------------- |
+| [リダイレクト][get.zshell.dev] | <https://get.zshell.dev>                                                  |
+| [IPFS][ipfs.io]          | <https://ipfs.zshell.dev/sh/install.sh>                                   |
+| [直接][direct-install]     | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
 ### <i class="fa-brands fa-superpowers"></i> ローダー {#loader}
 
-| Service                     | URL                                                                      |
-|:--------------------------- | ------------------------------------------------------------------------ |
-| [Redirect][init.zshell.dev] | <https://init.zshell.dev>                                                |
-| [IPFS][ipfs.io]             | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
-| [Direct][direct-init]       | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
+| サービス                      | URL                                                                      |
+|:------------------------- | ------------------------------------------------------------------------ |
+| [リダイレクト][init.zshell.dev] | <https://init.zshell.dev>                                                |
+| [IPFS][ipfs.io]           | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
+| [直接][direct-init]         | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
 
 <!-- end-of-file -->
 <!-- links -->

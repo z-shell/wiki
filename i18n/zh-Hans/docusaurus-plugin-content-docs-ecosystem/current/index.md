@@ -1,15 +1,10 @@
 ---
 id: 生态系统
 slug: /
-title: "🌐 生态系统"
+title: '🌐 生态系统'
 sidebar_position: 1
 image: /img/png/theme/z/320x320.png
-description: 生态系统简介。
-keywords:
-  - zsh-plugins
-  - zsh-modules
-  - zsh-annexes
-  - awesome-zsh
+description: "生态系统简介。"
 ---
 
 <!-- @format -->
