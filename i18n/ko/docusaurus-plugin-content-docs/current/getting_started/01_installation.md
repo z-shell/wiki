@@ -1,13 +1,11 @@
 ---
 id: installation
-title: "⚡️ Installation"
+title: '⚡️ Installation'
 sidebar_position: 1
 image: /img/png/theme/z/320x320.png
 description: Installation Guide
 keywords:
-  - setup
-  - quick-start
-  - installation
+  - install
 ---
 
 <!-- @format -->

@@ -15,13 +15,13 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Lin
 
 An annex downloads files and applies patches and adds two ice-modifiers:
 
-first:
+1番目
 
 ```shell
 zi ice dl'{URL} [-> {optional-output-file-name}]; …' …
 ```
 
-second:
+2番目
 
 ```shell
 zi ice patch'{file-name-with-the-patch-to-apply}; …' …
@@ -29,7 +29,7 @@ zi ice patch'{file-name-with-the-patch-to-apply}; …' …
 
 The annex will download the given `{URL}` under the path `{optional-output-file-name}` (if no file name given, then it is taken from last segment of the URL) in case of the `dl'…'` ice-modifier, and apply a patch given by the `{file-name-with-the-patch-to-apply}` in case of the `patch'…'` ice-modifier. You can use this functionality to download and apply patches.
 
-For example, to install `fbterm`, two patches are being needed, one to fix the operation, the other one to fix the build:
+例えば、 `fbterm`をインストールする場合、2つのパッチが必要です。1つは動作を修正するためのもの、もう1つはビルドを修正するためのものです。
 
 ```shell showLineNumbers
 zi ice as"command" pick"$ZPFX/bin/fbterm" \
@@ -41,11 +41,11 @@ zi ice as"command" pick"$ZPFX/bin/fbterm" \
 zi load izmntuk/fbterm
 ```
 
-This command will result in:
+このコマンドを実行すると、次のようになります。
 
-![fbterm example](https://raw.githubusercontent.com/z-shell/z-a-patch-dl/main/docs/images/fbterm-ex.png#center)
+![fbtermの例](https://raw.githubusercontent.com/z-shell/z-a-patch-dl/main/docs/images/fbterm-ex.png#center)
 
-## Install patch-dl
+## patch-dlのインストール
 
 :::info Source
 
