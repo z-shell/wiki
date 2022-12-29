@@ -1,8 +1,11 @@
 bolditalic
+Callista
 debianpackage
+Farzat
 jetbrainsmono
 ldrt
 Lldrt
+nakayama
 navbutton
 nosnippet
 starturl

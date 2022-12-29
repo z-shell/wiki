@@ -21,6 +21,7 @@ dbaeumer
 dbrgn
 denilsonsa
 denisidoro
+Dongsen
 dylanaraps
 ergenekonyigit
 Fakerr
@@ -31,6 +32,7 @@ iwata
 izmntuk
 jarun
 junegunn
+Kritiqual
 leonjza
 leophys
 Locehiliosan
@@ -46,6 +48,7 @@ mptre
 mvdan
 nicosantangelo
 obihann
+onokatio
 Osse
 paoloantinori
 paulirish
