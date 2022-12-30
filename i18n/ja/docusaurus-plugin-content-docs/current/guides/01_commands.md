@@ -13,21 +13,21 @@ keywords:
 
 import Link from '@docusaurus/Link'; import APITable from '@site/src/components/APITable'; import ZiTabCompletion from '@site/src/components/Markdown/\_zi_tab_completion.mdx';
 
-## Updates {#updates-upgrades}
+## アップデート {#updates-upgrades}
 
-To update and recompile Zi run `zi self-update` in the command line. To update all plugins and snippets, issue `zi update`. To update all in parallel (up to 40 at the time) `zi update -p 40` If you wish to update only a single plugin/snippet instead issue `zi update <plugin-name>`. A list of commits will be shown if any.
+Zi を更新して再コンパイルするには、コマンドラインで `zi self-update` を実行します。 To update all plugins and snippets, issue `zi update`. To update all in parallel (up to 40 at the time) `zi update -p 40` If you wish to update only a single plugin/snippet instead issue `zi update <plugin-name>`. A list of commits will be shown if any.
 
 Some plugins require acting each time they're updated. One way you can do this is by using the `atpull'…'` ice modifier. For example, writing `zi ice atpull'./configure'` before loading a plugin will execute `./configure` after a successful update. Refer to [ice-modifiers][1] for more information.
 
 The ice-modifiers for any plugin or snippet are stored in their directory in a `._zi` subdirectory, hence the plugin doesn't have to be loaded to be correctly updated. There's one other file created there, `.zi_lstupd` – it holds the log of the new commits pulled-in in the last update.
 
-Self-update & compile:
+自己アップデート & コンパイル:
 
 ```shell
 zi self-update
 ```
 
-Update plugins and snippets:
+プラグインとスニペットを更新:
 
 ```shell showLineNumbers
 zi update --all
@@ -35,26 +35,26 @@ zi update --reset
 zi update --quiet
 ```
 
-Update plugins or snippets:
+プラグインまたはスニペットを更新:
 
 ```shell showLineNumbers
 zi update --plugins
 zi update --snippets
 ```
 
-Update specific plugins. Default is GitHub but can specify any with ice [from'…'](/search?q=from):
+特定のプラグインを更新 デフォルトはGitHubですが、ice [from'…'](/search?q=from)で任意の指定が可能です:
 
 ```shell
 zi update <user>/<repo>
 ```
 
-Plugin parallel update plugins:
+プラグインの並列アップデート
 
 ```shell
 zi update --parallel
 ```
 
-Increase the number of jobs in a concurrent set to 40
+同時実行するジョブの数を 40 に増やす
 
 ```shell
 zi update --parallel 40

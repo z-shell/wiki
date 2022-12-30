@@ -70,7 +70,7 @@ zi bindmap='!" " -> magic-space; !"^ " -> globalias' nocompletions \
   ohmyzsh/ohmyzsh
 ```
 
-### <i class="fa-solid fa-circle-check"></i> Explanation
+### <i class="fa-solid fa-circle-check"></i> 説明
 
 The `bindmap'…'` ice has two modes of operation: normal and exclamation-mark (`bindmap'!…'`). In the first mode, the remapping is being done from-key to-key, i.e.: `bindmap'fromkey -> to-key'`.
 

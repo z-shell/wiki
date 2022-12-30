@@ -1,10 +1,10 @@
 ---
 id: standard
-title: "🔀 Standard Syntax"
+title: "🔀 標準の構文"
 sidebar_position: 1
 toc_max_heading_level: 3
 image: /img/png/theme/z/320x320.png
-description: The fundamental syntax documentation.
+description: 基本的な構文のドキュメントです。
 keywords:
   - syntax
   - standard
@@ -18,45 +18,45 @@ import ImgShow from '@site/src/components/ImgShow'; import APITable from '@site/
 
 ## <i class="fas fa-circle-info"></i> はじめに
 
-Zi provides two syntax types for structured statements or expressions:
+Ziは、構造化された文・式に対して2つの構文タイプを提供します。
 
-- Standard syntax
-- The ["For"][for-syntax] syntax
+- 標準構文
+- ["For"][for-syntax] 構文
 
-It is up to the user which syntax to use, but it is highly recommended to familiarize yourself with both of them. In this example, we will use an empty repository [z-shell/0](https://github.com/z-shell/0) to practice the basics of the standard syntax.
+どちらの構文を使うかはユーザー次第ですが、両方の構文に慣れることを強くお勧めします。 今回は、空のリポジトリ [z-shell/0](https://github.com/z-shell/0) を使って、標準構文の基本を練習します。
 
-- Execute the following command in your terminal:
+- ターミナルで以下のコマンドを実行します。
 
 ```shell
 zi load z-shell/0
 ```
 
-Successfully installed the Zsh plugin which usually contains all the setup instructions as described in the [Zsh plugin standard](https://wiki.zshell.dev/community/zsh_plugin_standard).
+[Zsh プラグイン標準](https://wiki.zshell.dev/community/zsh_plugin_standard) に含まれているすべての手順が実行され、Zsh プラグインを正常にインストールしました。
 
-A snippet is a single file with a portion of reusable source code, machine code, or text and requires a full path or URL to the file.
+スニペットは、再利用可能なソースコード、マシンコード、またはテキストの一部を含む単一のファイルで、ファイルへのフルパスまたはURLが必要です。
 
-> - Execute the following command in your terminal:
+> - ターミナルで以下のコマンドを実行します。
 
 ```shell
 zi snippet https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/snippets/welcome.zsh
 ```
 
-Success! But not always everything is so easy and simple, also sometimes we want certain things to happen at certain times or conditions. This can be achieved using [ice-modifiers][ice-mods].
+成功しました！ しかし、必ずしもとても簡単でシンプルであるとは限りません。時には、特定の時間や条件であることを指定したいこともあります。 これは、 [ice-modifiers][ice-mods]（ice修飾子）を使うことで実現できます。
 
-The top line contains ice-modifiers, and the bottom line is the plugin.
+上の行には ice 修飾子が含まれており、下の行でプラグインを読み込んでいます。
 
-> - Execute the following commands in your terminal:
+> - ターミナルで以下のコマンドを実行します。
 
 ```shell showLineNumbers
 zi ice id-as'zsh/plugin' atinit'print "Hello World!"'
 zi load z-shell/0
 ```
 
-This registered the plugin under the [plugin ID](#id-as) `zsh/plugin` instead of `z-shell/0`. This will work as expected e.g. `zi update zsh/plugin`, `zi remove zsh/plugin`, etc. The "Hello World!" printed before loading the plugin
+これにより、[プラグイン ID](#id-as) `zsh/plugin` の代わりに `z-shell/0` でプラグインを登録しました。 この設定は例えば `zi update zsh/plugin`, `zi remove zsh/plugin`, などのプラグイン指定時に活用できます。 プラグインをロードする前に「Hello World!」が表示されます。
 
-Let's install again with more ice-modifiers.
+Ice-modifierを増やしてもう一度インストールしましょう。
 
-> - Execute the following commands in your terminal:
+> - ターミナルで以下のコマンドを実行します。
 
 ```shell showLineNumbers
 zi ice id-as'final/countdown' \
@@ -66,9 +66,9 @@ zi ice id-as'final/countdown' \
 zi load z-shell/0
 ```
 
-## <i class="fas fa-arrow-down-short-wide"></i> Order of execution {#order-of-execution}
+## <i class="fas fa-arrow-down-short-wide"></i> 実行順序 {#order-of-execution}
 
-The order of execution of related ice-modifiers is as follows:
+関連する ice-modifier の実行順序は次のとおりです。
 
 ```shell showLineNumbers
   atinit'' →
@@ -85,39 +85,39 @@ The order of execution of related ice-modifiers is as follows:
                       atload''
 ```
 
-### <i class="fa-solid fa-list"></i> A few remarks {#a-few-remarks}
+### <i class="fa-solid fa-list"></i> 備考 {#a-few-remarks}
 
-- The syntax automatically detects if the object is a snippet or a plugin, by checking if the object is an URL, i.e.: if it starts with `http*://` or `OMZ::`, etc.
-- To load a local-file snippet (which will be treated as a local-directory plugin by default) use the `is-snippet` ice,
-- To load a plugin in `light` mode use the `light-mode` ice.
+- オブジェクトがURLであるかどうか、すなわち `http*://` または `OMZ::` で始まっているかどうかをチェックすることによって、オブジェクトがスニペットであるかプラグインであるかは自動的に検出します。
+- ローカルファイルのスニペット ( デフォルトではローカルディレクトリーのプラグインとして扱われる) をロードするには、 `is-snippet` iceを使用します。
+- `light` モードでプラグインをロードするには、 `light-mode` のiceを使用します。
 - If the plugin name collides with an ice name, precede the plugin name with `@`, e.g.: `@sharkdp/fd` (collides with the `sh` ice, ZI will take the plugin name as `sh"arkdp/fd"`), see the next section for an example.
 
-### <i class="fa-solid fa-list"></i> Syntax alternatives {#syntax-alternatives}
+### <i class="fa-solid fa-list"></i> 代わりの構文 {#syntax-alternatives}
 
-Zi supports alternatives such as the equal (`=`) syntax:
+Zi は equal (`=`) のような代わりの構文をサポートします。
 
 ```shell showLineNumbers
 zi ice id-as=equal atload="print Hello World"
 zi load z-shell/0
 ```
 
-The colon (`:`) syntax:
+コロン (`:`) 構文:
 
 ```shell showLineNumbers
 zi ice id-as:colon atload:"print Hello World"
 zi load z-shell/0
 ```
 
-And also – in conjunction with all of the above – the GNU syntax:
+そして、上記の全てと併せて、GNU 構文も同様に利用できます。
 
 ```shell showLineNumbers
 zi ice id-as=GNU --atload="print Hello World"
 zi load z-shell/0
 ```
 
-The syntax alternatives can utilize the highlighting of editors like Vim – and have the strings and ice expressions colorized with a distinct color. However, with [zi-vim-syntax][] the syntax definition can be superseded with the highlighting specifically for Zi. syntax definition can be superseded with the highlighting specifically for Zi.
+代わりの構文はVimのようなエディタのハイライトを利用し、文字列とiceの表現を別の色にすることができます。 However, with [zi-vim-syntax][] the syntax definition can be superseded with the highlighting specifically for Zi. syntax definition can be superseded with the highlighting specifically for Zi.
 
-### <i class="fa-solid fa-circle-nodes"></i> Utilizing "make" {#utilizing-make}
+### <i class="fa-solid fa-circle-nodes"></i> "make" を活用する {#utilizing-make}
 
 Vim repository on GitHub – a typical source code that needs compilation, Zi can manage the run of `./configure` and other `make` stuff. Ice-modifier `pick` adds the binary program to `$PATH`. You could also install the package under the path $ZPFX.
 
@@ -150,7 +150,7 @@ The `Makefile` with 2 tasks, can use:
 1. `make"all install PREFIX=…"`,
 2. `pick'…'` will `chmod +x` all matching files and add `$ZPFX/bin/` to `$PATH`.
 
-### <i class="fa-solid fa-arrows-to-dot"></i> Compiling programs {#compiling-programs}
+### <i class="fa-solid fa-arrows-to-dot"></i> プログラムのコンパイル {#compiling-programs}
 
 ```shell showLineNumbers
 zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
@@ -164,8 +164,8 @@ zi light vim/vim
 
 | 構文                 | 説明                                                                                        |
 | ------------------ |:----------------------------------------------------------------------------------------- |
-| `as'program'`      | Add file selected by `pick'…'` to `$PATH`, and do not source it.                          |
-| `atclone'…'`       | Execute code after downloading.                                                           |
+| `as'program'`      | `pick'…'` で選択されたファイルを `$PATH`に追加し、sourceはしない。                                             |
+| `atclone'…'`       | ダウンロード後、任意のコマンドを実行する。                                                                     |
 | `atpull'%atclone'` | Execute the same code `atclone'…'` is given, but after successful update.                 |
 | `make`             | Run `make` after `atclone'…'` and `atpull'…'` (note: `make'!'` will execute before them). |
 | `pick'src/vim'`    | Set the executable flag on `src/vim`, hint that `src/` should be added to `$PATH`.        |
@@ -343,7 +343,7 @@ It recognizes the following options:
 4. `--norm` - prevents the archive file removal.
 5. And also one option specific only to the function: `--nobkp`, which prevents clearing the plugin's directory before the extraction. – All files besides the archive are being moved into the `._backup` directory after extraction is done. - `extract` ice also skips creating the backup **if** more than one archive is found or given as the argument.
 
-### <i class="fas fa-circle-info"></i> Supported file formats {#supported-file-formats}
+### <i class="fas fa-circle-info"></i> 対応しているファイル形式 {#supported-file-formats}
 
 Zip, rar, tar.gz, tar.bz2, tar.xz, tar.7z, tar, tgz, tbz2, gz, bz2, txz, xz, 7z, exe, deb, OS X (dmg).
 
@@ -458,7 +458,7 @@ zi load hlissner/zsh-autopair
 
 - empty `id-as'…'`:
 
-An empty `id-as'…'` will work the same as `id-as'auto'` as if id-as'zsh-autopair' was passed, e.g:
+空の `id-as'…'` は `id-as'auto'` と同じように id-as'zsh-autopair' が渡されたように動作します。
 
 ```shell showLineNumbers
 zi ice wait lucid id-as
@@ -469,12 +469,12 @@ zi load hlissner/zsh-autopair
 
 :::note
 
-Turbo mode, i.e. the `wait'…'` is ice that implements it - needs Zsh >= 5.3.
+ターボ・モード、すなわち `wait'…'` は、 Zsh >= 5.3を必要とするiceです。
 
 :::
 
 ```shell showLineNumbers
-zi ice wait'0' # or just: zi ice wait
+zi ice wait'0' # もしくは単に zi ice wait
 zi light wfxr/forgit
 ```
 
@@ -659,7 +659,7 @@ The [wrap'…'](#wrap) The ice-modifier allows the track and unload of plugins t
 
 However, if the function is being called from the `atload'…'` ice, then the _exclamation mark_-preceded method can be used with `atload'…'` contents. The exclamation mark causes the effects of the execution of the code passed to `atload'…'` ice to be recorded.
 
-### Use case for `atload'…'`
+### `atload'…'` の使用例
 
 For example, in the following invocation:
 
@@ -708,7 +708,7 @@ For example, [romkatv/powerlevel10k][romkatv-powerlevel10k] works this way. The 
 zi ice wrap"func1;func2;…"
 ```
 
-### Use case for `wrap'…'` {#use-case-for-wrap}
+### `wrap'…'` の使用例 {#use-case-for-wrap}
 
 Therefore, to load and unload for the example powerlevel10k prompt in the fashion of [multiple prompts][multiple-prompts] article, the `precmd` function of the plugin – called `_p9k_precmd`, to get the name of the function do `echo $precmd_functions` after loading a theme, should be passed to `wrap'…'` ice.
 
@@ -754,7 +754,7 @@ Functions created:
 (…)
 ```
 
-Summary of `wrap'…'`:
+`wrap'…'` の要約:
 
 As it can be seen, the creation of four additional Zle-widgets has been recorded - `Zle -N …` lines. They will be properly deleted/restored on the plugin unload with `MYPROMPT=3` as an example and the shell state will be clean, ready to load a new prompt.
 

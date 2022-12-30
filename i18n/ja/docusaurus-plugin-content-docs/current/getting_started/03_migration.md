@@ -1,5 +1,5 @@
 ---
-id: migration
+id: 移行
 title: "♻️ 移行"
 image: /img/png/theme/z/320x320.png
 description: 移行ガイド
@@ -7,8 +7,8 @@ keywords:
   - セットアップ
   - prezto
   - oh-my-zsh
-  - migration
-  - migration-guide
+  - 移行
+  - 移行ガイド
 ---
 
 <!-- @format -->
@@ -164,11 +164,11 @@ However, Zi doesn't support the `ZSH_THEME` variable natively.
 
 To use **themes** created for OMZ requires loading shown below as it would be the same as OMZ does in the background.
 
-> Some themes may require additional configuration it can be determined from the theme configuration file.
+> テーマによっては、追加の設定が必要な場合があります。それは、テーマ設定ファイルから判断できます。
 
 - Load `git` library
 - Load the `git` plugin
-- Load library dependencies
+- ライブラリの依存関係を読み込む
 - Enable `setopt prompt_subst`
 
 If any of the above are not in order or missing, the theme will break similar as shown below:
@@ -250,7 +250,7 @@ zi snippet PZT::<PATH>  # Shorthand PZT::         (https://github.com/sorin-ione
 zi snippet PZTM::<PATH> # Shorthand PZT::modules/ (https://github.com/sorin-ionescu/prezto/tree/master/modules/)
 ```
 
-### PZT modules {#pzt-modules}
+### PZT モジュール {#pzt-modules}
 
 Importing the [environment](https://github.com/sorin-ionescu/prezto/tree/master/modules/environment/README.md) and [terminal](https://github.com/sorin-ionescu/prezto/tree/master/modules/terminal/README.md) Prezto modules example:
 
@@ -289,7 +289,7 @@ Prezto modules:
 
 Available Prezto modules:
 
-| Module name                                                                                                                | 説明                                                                                                         |
+| モジュール名                                                                                                                     | 説明                                                                                                         |
 | -------------------------------------------------------------------------------------------------------------------------- |:---------------------------------------------------------------------------------------------------------- |
 | [archive](https://github.com/sorin-ionescu/prezto/blob/master/modules/archive/README.md)                                   | Provides functions to list and extract archives.                                                           |
 | [autosuggestions](https://github.com/sorin-ionescu/prezto/blob/master/modules/autosuggestions/README.md)                   | Integrates `zsh-autosuggestions` plugin into Prezto.                                                       |
@@ -299,7 +299,7 @@ Available Prezto modules:
 | [dnf](https://github.com/sorin-ionescu/prezto/tree/master/modules/dnf/README.md)                                           | Defines `dnf` aliases.                                                                                     |
 | [docker](https://github.com/sorin-ionescu/prezto/tree/master/modules/docker/README.md)                                     | Defines `docker` aliases and functions.                                                                    |
 | [dpkg](https://github.com/sorin-ionescu/prezto/tree/master/modules/dpkg/README.md)                                         | Defines `dpkg` aliases and functions.                                                                      |
-| [editor](https://github.com/sorin-ionescu/prezto/tree/master/modules/editor/README.md)                                     | Sets key bindings.                                                                                         |
+| [editor](https://github.com/sorin-ionescu/prezto/tree/master/modules/editor/README.md)                                     | キーバインディングを設定します。                                                                                           |
 | [emacs](https://github.com/sorin-ionescu/prezto/tree/master/modules/emacs/README.md)                                       | Enables Emacs dependency management.                                                                       |
 | [environment](https://github.com/sorin-ionescu/prezto/tree/master/modules/environment/README.md)                           | Sets general shell options and defines environment variables.                                              |
 | [fasd](https://github.com/sorin-ionescu/prezto/tree/master/modules/fasd/README.md)                                         | Maintains a frequently used file and directory list for fast access.                                       |
@@ -395,7 +395,7 @@ Available
 + zi snippet OMZP::<PATH>
 ```
 
-### Load Prezto modules
+### Prezto モジュールのロード
 
 ```diff title="~/.zshrc" showLineNumbers
 - zgen prezto <module name>
@@ -412,7 +412,7 @@ Load repositories as prezto plugins:
 + zi load <repo/plugin>
 ```
 
-### Summarized Zgen
+### Zgenの要約
 
 :::info
 
@@ -427,7 +427,7 @@ For the `location`: refer <Link to="/docs/guides/syntax/standard#src-pick-multis
 + zi load <repo>
 ```
 
-## Zplug Basics
+## Zplugの基本
 
 ```diff title="~/.zshrc" showLineNumbers
 - zplug <repo/plugin>, tag1:<option1>, tag2:<option2>
@@ -436,7 +436,7 @@ For the `location`: refer <Link to="/docs/guides/syntax/standard#src-pick-multis
 + zi load <repo/plugin>
 ```
 
-### Tag comparison
+### タグの比較
 
 - `as` => `as`
 - `use` => `pick`, `src`, `multisrc`

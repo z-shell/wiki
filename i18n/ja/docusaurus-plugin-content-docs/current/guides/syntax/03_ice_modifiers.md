@@ -1,33 +1,33 @@
 ---
 id: ice-modifiers
-title: '🧊 Ice Modifiers'
+title: '🧊 Ice 修飾子'
 sidebar_position: 4
 image: /img/png/theme/z/320x320.png
-description: Ice Modifiers Documentation
+description: Ice 修飾子 ドキュメント
 slug: ice-modifiers
 ---
 
 import Image from '@theme/IdealImage'; import ZIceImg from '/img/png/theme/ice_180x170.png'; import APITable from '@site/src/components/APITable';
 
-:::info FAQ: What is ice?
+:::info FAQ: iceとは何か?
 
 <Image className="IceLogo" img={ZIceImg} alt="What is ice" />
 
-The <strong>ice</strong> is something that melts in a drink, though in Zi syntax, it means adding an <strong>ice-modifier</strong> that's temporary because it disappears – which means that the <strong>ice-modifier</strong> will last only for the next Zi command.
+<strong>ice</strong> は飲み物で溶けるものですが、Zi 構文では、一時的である <strong>ice 修飾子</strong> を加えることを意味します。つまり、 <strong>ice 修飾子</strong> は次の Zi コマンドまでしか持ちません。
 
 :::
 
-An ice-modifiers are [passed][alternate-syntax] to `zi ice …` to obtain described effects, additionally can be added with [annexes][12]. To see all available ice-modifiers run `zi icemods`.
+An ice-modifiers are [passed][alternate-syntax] to `zi ice …` to obtain described effects, additionally can be added with [annexes][12]. 利用可能なすべてのice 修飾子を見るには、 `zi icemods`を実行してください。
 
-Some ice-modifiers are highlighted and clicking on them will take you to the appropriate Wiki page for an extended explanation. You may safely assume that given ice works with both plugins and snippets unless explicitly stated otherwise.
+いくつかのice 修飾子はハイライト表示されており、クリックすると該当するWikiページに移動し、詳しい説明が表示されます。 特に明記されていない限り、与えられたiceはプラグインとスニペットの両方で機能すると考えていただいて結構です。
 
-## <i class="fa-solid fa-list"></i> Ice effects {#ice-effects}
+## <i class="fa-solid fa-list"></i> Iceの効果 {#ice-effects}
 
 ```mdx-code-block
 <APITable>
 ```
 
-|  Ice-modifier   | 説明                                                                                                                                                                                                                                                                                                                                                                       |
+|     Ice 修飾子     | 説明                                                                                                                                                                                                                                                                                                                                                                       |
 |:---------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |      `as`       | Can be `as"program"` (alias: `as"command"`), and will cause to add script/program to `$PATH` instead of sourcing (see `pick`). Can also be `as"completion"` – use with plugins or snippets in whose only underscore-starting `_*` files you are interested in. [^8]                                                                                                      |
 |   [id-as][6]    | Nickname a plugin or snippet, e.g. create a short handler for the long-URL snippet.                                                                                                                                                                                                                                                                                      |
@@ -49,13 +49,13 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 </APITable>
 ```
 
-## <i class="fa-solid fa-list"></i> Cloning options {#cloning-options}
+## <i class="fa-solid fa-list"></i> クローンのオプション {#cloning-options}
 
 ```mdx-code-block
 <APITable>
 ```
 
-|     Ice-modifier      | 説明                                                                                                                                                                                                                                                                                                                              |
+|        Ice 修飾子        | 説明                                                                                                                                                                                                                                                                                                                              |
 |:---------------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |        `proto`        | Change protocol to `git`,`ftp`,`ftps`,`ssh`, `rsync`, etc. The default is `https`. **Does not work with snippets.**                                                                                                                                                                                                             |
 | [from](standard#from) | Clone plugin from a given site. Supported are `from"github"` (default), `…"github-rel"`, `…"gitlab"`, `…"bitbucket"`, `…"notabug"` (short names: `gh`, `gh-r`, `gl`, `bb`, `nb`). Can also be a full domain name e.g: for GitHub enterprise. **Does not work with snippets.**                                                   |
@@ -70,13 +70,13 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 </APITable>
 ```
 
-## <i class="fa-solid fa-list"></i> Selection of files (source '…') {#selection-of-files-source}
+## <i class="fa-solid fa-list"></i> ファイルの選択 (source '…') {#selection-of-files-source}
 
 ```mdx-code-block
 <APITable>
 ```
 
-| Ice-modifier  | 説明                                                                                                                                                |
+|    Ice 修飾子    | 説明                                                                                                                                                |
 |:-------------:| ------------------------------------------------------------------------------------------------------------------------------------------------- |
 |   [pick][1]   | Select the file to source, or the file to set as a command, when using `snippet --command` or the ice `as"program"`. More below [^1].             |
 |   [src][1]    | Specify an additional file to source after the main file or after setting up command via `as"program"`. It is not a pattern but a plain filename. |
@@ -86,13 +86,13 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 </APITable>
 ```
 
-## <i class="fa-solid fa-list"></i> Conditional loading {#conditional-loading}
+## <i class="fa-solid fa-list"></i> 条件付き読み込み {#conditional-loading}
 
 ```mdx-code-block
 <APITable>
 ```
 
-|  Ice-modifier  | 説明                                                                                                                       |
+|    Ice 修飾子     | 説明                                                                                                                       |
 |:--------------:| ------------------------------------------------------------------------------------------------------------------------ |
 |   [wait][2]    | Postpone loading a plugin or snippet. For `wait'1'`, loading is done `1` second after the prompt. [^3].                  |
 |   [load][3]    | A condition to check which should cause the plugin to load. [^4].                                                        |
@@ -107,17 +107,17 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 </APITable>
 ```
 
-## <i class="fa-solid fa-list"></i> Plugin output {#plugin-output}
+## <i class="fa-solid fa-list"></i> プラグインの出力 {#plugin-output}
 
 ```mdx-code-block
 <APITable>
 ```
 
-| Ice-modifier | 説明                                                                                                                                                                                                                                                                                                          |
-|:------------:| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|   `silent`   | Mute plugin's or snippet's `stderr` & `stdout`. Also, skip the `loaded …` message under the prompt for `wait`, etc. loaded plugins, and completion-installation messages.                                                                                                                                   |
-|   `lucid`    | Skip `loaded …` message under prompt for `wait`, etc. loaded plugins (a subset of `silent`).                                                                                                                                                                                                                |
-|   `notify`   | Output given message under-prompt after successfully loading a plugin/snippet. In case of problems with the loading, output a warning message and the return code. If starts with `!` it will then always output the given message. Hint: if the message is empty, then it will just notify about problems. |
+| Ice 修飾子  | 説明                                                                                                                                                                                                                                                                                                          |
+|:--------:| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `silent` | Mute plugin's or snippet's `stderr` & `stdout`. Also, skip the `loaded …` message under the prompt for `wait`, etc. loaded plugins, and completion-installation messages.                                                                                                                                   |
+| `lucid`  | Skip `loaded …` message under prompt for `wait`, etc. loaded plugins (a subset of `silent`).                                                                                                                                                                                                                |
+| `notify` | Output given message under-prompt after successfully loading a plugin/snippet. In case of problems with the loading, output a warning message and the return code. If starts with `!` it will then always output the given message. Hint: if the message is empty, then it will just notify about problems. |
 
 ```mdx-code-block
 </APITable>
@@ -129,7 +129,7 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 <APITable>
 ```
 
-|  Ice-modifier   | 説明                                                                                                                                                                    |
+|     Ice 修飾子     | 説明                                                                                                                                                                    |
 |:---------------:| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |    `blockf`     | Disallow plugin to modify `fpath`. Useful when a plugin wants to provide completions traditionally. Manage completions using Zi and block the plugins to expose them. |
 | `nocompletions` | Skip plugin completions detection and installation. Completions can be installed anytime using: `zi creinstall {plugin-name}`.                                        |
@@ -138,13 +138,13 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 </APITable>
 ```
 
-## <i class="fa-solid fa-list"></i> Command execution after cloning, updating or loading {#command-execution-after-cloning-updating-or-loading}
+## <i class="fa-solid fa-list"></i> クローン、更新、読み込み後のコマンド実行 {#command-execution-after-cloning-updating-or-loading}
 
 ```mdx-code-block
 <APITable>
 ```
 
-| Ice-modifier | 説明                                                                                                                                                                                                                                                                                                     |
+|   Ice 修飾子    | 説明                                                                                                                                                                                                                                                                                                     |
 |:------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |     `mv`     | Move file after cloning or update (only for new commits). Example: `mv "fzf-* -> fzf"`. It uses `->` as a separator for old and new file names. Also works with snippets.                                                                                                                        |
 |     `cp`     | Copy file after cloning or update (only for new commits). Example: `cp "docker-c* -> dcompose"`. Ran after `mv`.                                                                                                                                                                                    |
@@ -168,7 +168,7 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 <APITable>
 ```
 
-|  Ice-modifier   | 説明                                                                                                                                                                                                                                                                                                                   |
+|     Ice 修飾子     | 説明                                                                                                                                                                                                                                                                                                                   |
 |:---------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |   `sh`, `!sh`   | Source the plugin's (or snippet's) script with `sh` emulation so that also all functions declared within the file will get a **sticky** emulation assigned and invoked with the `sh` emulation set-up. The `!sh` version switches additional options that are rather not important from the portability perspective. |
 | `bash`, `!bash` | The same as `sh`, but with the `SH_GLOB` option disabled, for "Bash" regular expressions to work.                                                                                                                                                                                                                    |
