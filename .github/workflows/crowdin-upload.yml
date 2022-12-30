@@ -35,5 +35,5 @@ jobs:
         with:
           upload_sources: true
           upload_translations: false
-          import_eq_suggestions: true
           download_translations: false
+          upload_sources_args: "--delete-obsolete"

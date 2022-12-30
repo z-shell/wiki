@@ -1,13 +1,9 @@
 ---
 id: overview
-title: "☑️ 概要"
+title: '☑️ 概要'
 image: /img/logo/320x320.png
 description: Zi の使用方法の概要
-keywords:
-  - overview
 ---
-
-<!-- @format -->
 
 import ImgShow from '@site/src/components/ImgShow'; import Link from '@docusaurus/Link';
 

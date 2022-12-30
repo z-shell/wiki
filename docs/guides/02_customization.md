@@ -1,13 +1,12 @@
 ---
 id: customization
-title: "🏗 Configuration management"
+title: 🏗 Configuration management
 sidebar_position: 2
 image: /img/png/theme/z/320x320.png
 description: User preferences, environment, and configuration.
 keywords:
   - config
   - preferences
-  - customization
 ---
 
 <!-- @format -->

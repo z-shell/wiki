@@ -1,12 +1,10 @@
 ---
 id: commands
-title: "🛠 Commands"
+title: 🛠 Commands
 sidebar_position: 1
 image: /img/png/theme/z/320x320.png
-description: Zi commands, functions
-keywords:
-  - commands
-  - functions
+description: Zi subcommands and functionality
+slug: commands
 ---
 
 <!-- @format -->

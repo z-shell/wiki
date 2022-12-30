@@ -1,13 +1,9 @@
 ---
 id: overview
-title: "☑️ 一般概述"
+title: '☑️ 一般概述'
 image: /img/logo/320x320.png
 description: Zi 使用概述
-keywords:
-  - overview
 ---
-
-<!-- @format -->
 
 import ImgShow from '@site/src/components/ImgShow'; import Link from '@docusaurus/Link';
 
