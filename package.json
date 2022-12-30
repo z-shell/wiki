@@ -20,14 +20,13 @@
     "write-ecosystem-version": "docusaurus docs:version:ecosystem",
     "crowdin:sync": "docusaurus write-translations && crowdin upload && crowdin download",
     "crowdin:check": "crowdin lint && crowdin status",
+    "crowdin:upload": "pnpm crowdin upload sources --delete-obsolete",
     "prebuild": "test \"$CF_PAGES\" = 1 && npx pnpm install --prod || echo Install not required...",
     "clean": "pnpm exec rm -rf node_modules build pnpm-lock.yaml",
     "preinstall": "npx only-allow pnpm",
     "postinstall": "pnpm audit",
     "upgrade": "pnpm upgrade -i -L",
-    "fmt": "trunk fmt",
-    "check": "trunk check",
-    "typecheck": "tsc"
+    "check": "trunk check"
   },
   "dependencies": {
     "@docusaurus/core": "2.2.0",

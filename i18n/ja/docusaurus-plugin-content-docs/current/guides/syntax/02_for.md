@@ -3,7 +3,7 @@ id: for
 title: '✨ "For" 構文'
 sidebar_position: 2
 image: /img/png/theme/z/320x320.png
-description: The "For" Syntax documentation
+description: '"For" 構文のドキュメント'
 keywords:
   - for
   - syntax
@@ -15,13 +15,13 @@ keywords:
 
 import APITable from '@site/src/components/APITable';
 
-The `for` syntax is the most popular, more concise, and more optimized. The single command will work the same as the [standard syntax][standard-syntax] invocation.
+`for` 構文は、最も人気があり、より簡潔で、より最適化されている構文です。 単一のコマンドは、 [標準構文][standard-syntax] 呼び出しと同じように動作します。
 
-It allows providing common/default ice-modifiers for a <b>set of plugins</b> or to source <b>multiple files</b> with the ices: [src, pick, multisrc][src-pick-multisrc].
+これはより、 <b>プラグインの集合</b> 、または<b>複数のファイル</b> のsourceについて、 [src, pick, multisrc][src-pick-multisrc] などの共通/デフォルトのice修飾子を提供することができます。
 
 :::tip
 
-To find more information about anything use [search][3] or just <kbd>CTRL+K</kbd>.
+より詳しい情報を得るには、 [検索][3] または、 <kbd>CTRL+K</kbd>を使ってください。
 
 :::
 
@@ -34,7 +34,7 @@ zi light-mode for \
       sindresorhus/pure
 ```
 
-It is best presented by real-world examples:
+実例を挙げて紹介するのが一番です。
 
 ```shell showLineNumbers
 zi wait"3" lucid for as"null" \
@@ -46,9 +46,9 @@ zi wait"3" lucid for as"null" \
   make"PREFIX=$ZPFX" tj/git-extras
 ```
 
-The above single command installs 6 plugins ([git extension][2] packages), with the base ices `as"null" wait"3" lucid` that are common to all of the plugins and 6 plugin-specific add-on ice-modifiers.
+上記の1つのコマンドで、6つのプラグイン ([git extension][2] packages) がインストールされます。`as"null" wait"3" lucid` はベースのiceとしてすべてのプラグインに共通して指定され、それぞれ6つのプラグイン固有の ice修飾子も指定されます。
 
-Load a few useful binary packages from the [GitHub releases][1], utils:
+[GitHub リリース][1]から、いくつかの便利なバイナリー・パッケージをロードする場合:
 
 ```shell showLineNumbers
 zi for as"null" wait"2" lucid from"gh-r" \
@@ -112,7 +112,7 @@ zi wait lucid light-mode for \
 </APITable>
 ```
 
-## <i class="fa-solid fa-list"></i> Oh-My-Zsh, [turbo][6] Oh-My-Zsh and the The "For" syntax
+## <i class="fa-solid fa-list"></i> Oh-My-Zsh, [turbo][6] Oh-My-Zsh と "For" 構文
 
 ### <i class="fa-solid fa-forward-step"></i> Without [turbo mode][6] and The "For"
 

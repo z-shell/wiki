@@ -1,17 +1,12 @@
 ---
 id: migration
-title: "♻️ Migration"
+title: '♻️ Migration'
 image: /img/png/theme/z/320x320.png
 description: Migration Guide
 keywords:
-  - setup
   - prezto
   - oh-my-zsh
-  - migration
-  - migration-guide
 ---
-
-<!-- @format -->
 
 import Link from '@docusaurus/Link';
 

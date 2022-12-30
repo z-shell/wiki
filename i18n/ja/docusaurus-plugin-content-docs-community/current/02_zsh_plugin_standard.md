@@ -1,6 +1,6 @@
 ---
 id: zsh_plugin_standard
-title: "ℹ️ Zsh Plugin Standard"
+title: "ℹ️ Zsh プラグイン標準"
 sidebar_position: 2
 image: /img/png/theme/z/320x320.png
 toc_max_heading_level: 2
@@ -9,7 +9,7 @@ keywords:
   - create
   - plugin
   - zsh-plugin
-  - best-practices
+  - ベストプラクティス
   - create-zsh-plugin
   - zsh-plugin-standard
 ---

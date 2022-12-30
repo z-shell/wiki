@@ -1,6 +1,6 @@
 ---
 id: synopsis
-title: "📦 Synopsis"
+title: "📦 概要"
 sidebar_position: 1
 image: /img/png/theme/z/320x320.png
 description: Introduction to packages.

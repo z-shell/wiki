@@ -1,5 +1,6 @@
 bolditalic
 Callista
+csstree
 debianpackage
 Farzat
 jetbrainsmono
