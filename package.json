@@ -52,7 +52,6 @@
     "@docusaurus/eslint-plugin": "2.2.0",
     "@docusaurus/module-type-aliases": "2.2.0",
     "@trunkio/launcher": "1.2.3",
-    "@tsconfig/docusaurus": "^1.0.6",
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",
     "@typescript-eslint/eslint-plugin": "5.47.1",
