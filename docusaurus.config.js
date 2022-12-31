@@ -119,6 +119,7 @@ const config = {
           {tagName: "link", rel: "icon", href: "img/logo.png"},
           {tagName: "link", rel: "manifest", href: "manifest.json"},
           {tagName: "link", rel: "browserconfig", href: "browserconfig.xml"},
+          {tagName: "link", rel: "preload", href: "/assets/fonts/jetbrainsmono-variable.css", as: "style"},
           /* Windows  */
           {tagName: "meta", name: "msapplication-TileColor", content: "#23b898"},
           {tagName: "meta", name: "msapplication-TileImage", content: "img/logo.png"},
