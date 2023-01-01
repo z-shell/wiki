@@ -32,6 +32,6 @@ jobs:
           upload_translations: false
           download_translations: true
           github_user_name: ${{ secrets.ACTIONS_USER }}
-          github_user_email: digital-teams@proton.me
+          github_user_email: ${{ secrets.ACTIONS_MAIL }}
           gpg_private_key: ${{ secrets.ACTIONS_GPG_KEY }}
           gpg_passphrase: ${{ secrets.ACTIONS_GPG_PASS }}
