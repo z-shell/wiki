@@ -121,7 +121,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
 
 ## <i class="fas fa-spinner fa-spin"></i> マニュアルセットアップ {#manual-setup}
 
-:::ヒント 関連
+:::tip 関連
 
 - [🏗 Configuration management](/docs/guides/customization#customizing-paths)
 
