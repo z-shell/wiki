@@ -12,7 +12,7 @@
     "description": "Title of feature 2 (middle) on the home page"
   },
   "home.feature2": {
-    "message": "Statistics about the plugins, describing what functions, bindkeys, completions, and other elements a plugin has set up.",
+    "message": "プラグインが設定した関数、バインドキー、補完、その他の要素などプラグインに関する統計情報について説明します。",
     "description": "Description of second featured banner in homepage"
   },
   "homepage.feature3.title": {
@@ -20,7 +20,7 @@
     "description": "Title of feature 3 (right) on the home page"
   },
   "home.feature3": {
-    "message": "Supports Oh-My-Zsh and Prezto - not framework-specific. Produce your plugins, libraries, and themes effortlessly.",
+    "message": "Oh-My-ZshとPreztoをサポートします。フレームワーク固有ではありません。プラグイン、ライブラリ、テーマを簡単に作成できます。",
     "description": "Description of third featured banner in homepage"
   },
   "zi.logo": {
@@ -39,7 +39,7 @@
     "description": "The homepage community button"
   },
   "homepage.video.heading.1": {
-    "message": "Fast and feature-rich",
+    "message": "高速かつ豊富な機能",
     "description": "The homepage video container heading 1"
   },
   "theme.ErrorPageContent.title": {
@@ -48,7 +48,7 @@
   },
   "theme.ErrorPageContent.tryAgain": {
     "message": "やり直す",
-    "description": "The label of the button to try again rendering when the React error boundary captures an error"
+    "description": "The label of the button to try again when the page crashed"
   },
   "theme.NotFound.title": {
     "message": "ページが見つかりません",
@@ -87,11 +87,11 @@
     "description": "The ARIA label for the back to top button"
   },
   "theme.blog.archive.title": {
-    "message": "Archive",
+    "message": "アーカイブ",
     "description": "The page & hero title of the blog archive page"
   },
   "theme.blog.archive.description": {
-    "message": "Archive",
+    "message": "アーカイブ",
     "description": "The page & hero description of the blog archive page"
   },
   "theme.blog.paginator.navAriaLabel": {
@@ -467,21 +467,5 @@
   "theme.tags.tagsPageTitle": {
     "message": "タグ",
     "description": "The title of the tag list page"
-  },
-  "theme.NavBar.navAriaLabel": {
-    "message": "Main",
-    "description": "The ARIA label for the main navigation"
-  },
-  "theme.docs.sidebar.navAriaLabel": {
-    "message": "Docs sidebar",
-    "description": "The ARIA label for the sidebar navigation"
-  },
-  "theme.unlistedContent.title": {
-    "message": "Unlisted page",
-    "description": "The unlisted content banner title"
-  },
-  "theme.unlistedContent.message": {
-    "message": "This page is unlisted. Search engines will not index it, and only users having a direct link can access it.",
-    "description": "The unlisted content banner message"
   }
 }

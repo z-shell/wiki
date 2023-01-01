@@ -1,9 +1,9 @@
 ---
 id: bindkey
-title: "🗒 Bindkeys Map"
+title: "🗒 Bindkeys マップ"
 sidebar_position: 5
 image: /img/png/theme/z/320x320.png
-description: Usage bindmap & bindkey.
+description: bindmap & bindkeyの使い方
 keywords:
   - syntax
   - bindkey
@@ -19,16 +19,16 @@ The `bindkey` key mappings can be very confusing to decipher. It can use multipl
 
 In general, you'll bind a widget so a key sequence or a key with a modifier. This can be declared in [caret notation][5] using `^`, using [escape sequences][6] using `\`, in octal (`\NNN`), hex (`\xNN`), or Unicode (`\uNNNN`). None of these are particularly great for people to read. This is also tricky because it depends on your keyboard, operating system, and shell.
 
-Here are some basics:
+次に、いくつかの例を示します:
 
 - `\e`, `\E`, = Escape
-- `^[` = Alt key (on some keyboards this is the same as escape)
+- `^[` = Altキー (一部のキーボードではescapeと同じ)
 - `^?` = Delete
 - `^X`, `^` = Control
 
 The keys that come after the modifier can add more confusion.
 
-## <i class="fa-solid fa-delete-left"></i> Delete key binding
+## <i class="fa-solid fa-delete-left"></i> キーバインドを削除する
 
 To delete a key binding you can use `bindkey -d $KEYS`. Make sure you don't delete the characters you need for typing.
 

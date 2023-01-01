@@ -24,30 +24,30 @@ zi snippet OMZP::<PATH> # Shorthand OMZ::plugins  (http://github.com/ohmyzsh/ohm
 
 ### OMZライブラリ
 
-Importing the [clipboard][omz/clipboard] and [termsupport][omz/termsupport] from the OMZ library example:
+OMZ ライブラリから [クリップボード][omz/clipboard] と [termsupport][omz/termsupport] をインポートする例:
 
-Raw syntax:
+生の構文:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh
 ```
 
-OMZ shorthand syntax:
+OMZの省略記号構文:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZ::lib/clipboard.zsh
 zi snippet OMZ::lib/termsupport.zsh
 ```
 
-OMZL shorthand syntax:
+OMZLの省略記号構文:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZL::clipboard.zsh
 zi snippet OMZL::termsupport.zsh
 ```
 
-Example of more advanced, library loading using subversion:
+より高度な、Subversionを使ったライブラリの読み込みの例:
 
 ```shell title="~/.zshrc" showLineNumbers
 if (( $+commands[svn] )) {
@@ -81,7 +81,7 @@ if (( $+commands[svn] )) {
 + zi snippet OMZP::ruby
 ```
 
-Example of more advanced, conditional turbo loading:
+より高度な、条件付きターボローディングの例:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi is-snippet wait lucid for \
@@ -107,13 +107,13 @@ zi is-snippet wait lucid for \
 
 :::tip
 
-Bundle the example above to a single file:
+上の例を1つのファイルに束ねる:
 
 `zi snippet <some/path/or/url/bundled-snippets.zsh`
 
 :::
 
-Use `zi ice svn` if multiple files require an entire subdirectory.
+複数のファイルがサブディレクトリ全体を必要とする場合は、 `zi ice svn` を使用します。
 
 - [gitfast][omz/gitfast]
 - [osx][omz/osx]
@@ -130,7 +130,7 @@ zi ice svn
 zi snippet OMZP::history-substring-search
 ```
 
-Use `zi ice as"completion"` to directly add single file completion snippets.
+`zi ice as "completion"` を使用すると、単一ファイルの補完スニペットを直接追加することができます。
 
 - [docker][omz/docker]
 - [fd][omz/fd]
@@ -149,49 +149,49 @@ zi snippet OMZP::ag/_ag
 
 ### OMZ テーマ
 
-Themes are stored in the `themes` directory and loaded in the background with the simple syntax:
+テーマは `themes` ディレクトリに保存され、簡単な構文でバックグラウンドで読み込まれます。
 
 ```shell title="~/.zshrc"
 ZSH_THEME="robbyrussell"
 ```
 
-However, Zi doesn't support the `ZSH_THEME` variable natively.
+ただし、Zi は `ZSH_THEME` 変数をネイティブにサポートしていません。
 
-To use **themes** created for OMZ requires loading shown below as it would be the same as OMZ does in the background.
+**OMZ用に作成したテーマ** を使用するには、バックグラウンドでOMZが行っているのと同じように、以下のような読み込みが必要です。
 
 > テーマによっては、追加の設定が必要な場合があります。それは、テーマ設定ファイルから判断できます。
 
-- Load `git` library
-- Load the `git` plugin
+- `git` ライブラリを読み込む
+- `git` プラグインをロードする
 - ライブラリの依存関係を読み込む
-- Enable `setopt prompt_subst`
+- `setopt prompt_subst`を設定
 
-If any of the above are not in order or missing, the theme will break similar as shown below:
+上記のうち1つでも欠けていたり、順番が違っていたりすると、以下のようにテーマが壊れます。
 
 ```shell
 … $(build_prompt) …
 ```
 
-If the `Git` library is not loaded or loaded in the wrong order, then it may appear similar to the following:
+`Git` ライブラリがロードされていなかったり、ロードする順番を間違えたりすると、以下のような表示になることがあります。
 
 ```shell showLineNumbers
 ........:1: command not found: git_prompt_status
 ........:1: command not found: git_prompt_short_sha
 ```
 
-If you encounter any issue with the theme, OMZ support libraries are to be loaded
+テーマで問題が発生した場合、OMZサポートライブラリを読み込む必要があります。
 
-- If your theme isn't colored when it should, you will want to load `theme-and-appearance.zsh`
+- もし、あなたのテーマがあるべき時に色づけされていないなら、 `theme-and-appearance.zsh`をロードしてください。
 
-- If you encounter an error message similar to:
+- 次のようなエラーメッセージが表示された場合:
 
 ```shell showLineNumbers
 zsh: command not found: ruby_prompt_info
 ```
 
-You need to load `prompt_info_functions.zsh`
+`prompt_info_functions.zsh`を読み込む必要があります。
 
-All together it looks like this:
+まとめると、次のようになります:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZL::git.zsh
@@ -200,35 +200,35 @@ zi snippet OMZL::theme-and-appearance.zsh
 zi snippet OMZL::prompt_info_functions.zsh
 ```
 
-Then load the prompt:
+その後、プロンプトを読み込みます:
 
 ```shell showLineNumbers
 setopt prompt_subst
 zi snippet OMZT::robbyrussell
 ```
 
-### External theme sample: [NicoSantangelo/Alpharized][]
+### 外部テーマのサンプル: [NicoSantangelo/Alpharized][]
 
-Load with OMZ:
+OMZを読み込む:
 
 ```shell title="~/.zshrc"
 ZSH_THEME="alpharized"
 ```
 
-Load `git` library from OMZ:
+OMZから `git` ライブラリを読み込む:
 
 ```shell title="~/.zshrc"
 zi snippet OMZL::git.zsh
 ```
 
-Load `git` plugin from OMZ:
+OMZから `git` プラグインを読み込む:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZP::git
 zi cdclear -q
 ```
 
-Then load the prompt:
+その後、プロンプトを読み込みます:
 
 ```shell title="~/.zshrc" showLineNumbers
 setopt prompt_subst
@@ -237,7 +237,7 @@ zi light NicoSantangelo/Alpharized
 
 ## Prezto
 
-### PZT shorthand syntax
+### PZT 省略記号構文
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet <URL>        # Raw syntax with URL
@@ -247,16 +247,16 @@ zi snippet PZTM::<PATH> # Shorthand PZT::modules/ (https://github.com/sorin-ione
 
 ### PZT モジュール {#pzt-modules}
 
-Importing the [environment](https://github.com/sorin-ionescu/prezto/tree/master/modules/environment/README.md) and [terminal](https://github.com/sorin-ionescu/prezto/tree/master/modules/terminal/README.md) Prezto modules example:
+Preztoの[environment](https://github.com/sorin-ionescu/prezto/tree/master/modules/environment/README.md) と [terminal](https://github.com/sorin-ionescu/prezto/tree/master/modules/terminal/README.md) モジュールのインポートの例:
 
-Raw syntax
+生の構文
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet https://github.com/sorin-ionescu/prezto/blob/master/modules/environment/init.zsh
 zi snippet https://github.com/sorin-ionescu/prezto/blob/master/modules/terminal/init.zsh
 ```
 
-PZT shorthand syntax:
+PZT 省略記号構文:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet PZT::<PATH>
@@ -264,7 +264,7 @@ zi snippet PZT::modules/environment
 zi snippet PZT::modules/terminal
 ```
 
-PZTM shorthand syntax:
+PZTMの省略記号構文:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet PZTM::<PATH>
@@ -272,7 +272,7 @@ zi snippet PZTM::environment
 zi snippet PZTM::terminal
 ```
 
-Prezto modules:
+Preztoモジュール:
 
 ```diff title="~/.zshrc" showLineNumbers
 - zstyle ':prezto:load' pmodule 'git'
@@ -282,52 +282,52 @@ Prezto modules:
 + zi is-snippet for PZTM::environment PZTM::terminal
 ```
 
-Available Prezto modules:
+利用可能なPreztoモジュール:
 
-| モジュール名                                                                                                                     | 説明                                                                                                         |
-| -------------------------------------------------------------------------------------------------------------------------- |:---------------------------------------------------------------------------------------------------------- |
-| [archive](https://github.com/sorin-ionescu/prezto/blob/master/modules/archive/README.md)                                   | Provides functions to list and extract archives.                                                           |
-| [autosuggestions](https://github.com/sorin-ionescu/prezto/blob/master/modules/autosuggestions/README.md)                   | Integrates `zsh-autosuggestions` plugin into Prezto.                                                       |
-| [command-not-found](https://github.com/sorin-ionescu/prezto/tree/master/modules/command-not-found/README.md)               | Loads the `command-not-found` tool on macOS or Debian-based distributions.                                 |
-| [completion](https://github.com/sorin-ionescu/prezto/tree/master/modules/completion/README.md)                             | Sets <kbd>TAB</kbd> completion and provides additional completions from the `zsh-completions`.             |
-| [directory](https://github.com/sorin-ionescu/prezto/tree/master/modules/directory/README.md)                               | Sets directory options and defines directory aliases.                                                      |
-| [dnf](https://github.com/sorin-ionescu/prezto/tree/master/modules/dnf/README.md)                                           | Defines `dnf` aliases.                                                                                     |
-| [docker](https://github.com/sorin-ionescu/prezto/tree/master/modules/docker/README.md)                                     | Defines `docker` aliases and functions.                                                                    |
-| [dpkg](https://github.com/sorin-ionescu/prezto/tree/master/modules/dpkg/README.md)                                         | Defines `dpkg` aliases and functions.                                                                      |
-| [editor](https://github.com/sorin-ionescu/prezto/tree/master/modules/editor/README.md)                                     | キーバインディングを設定します。                                                                                           |
-| [emacs](https://github.com/sorin-ionescu/prezto/tree/master/modules/emacs/README.md)                                       | Enables Emacs dependency management.                                                                       |
-| [environment](https://github.com/sorin-ionescu/prezto/tree/master/modules/environment/README.md)                           | Sets general shell options and defines environment variables.                                              |
-| [fasd](https://github.com/sorin-ionescu/prezto/tree/master/modules/fasd/README.md)                                         | Maintains a frequently used file and directory list for fast access.                                       |
-| [git](https://github.com/sorin-ionescu/prezto/tree/master/modules/git/README.md)                                           | Enhances the Git by providing aliases, functions and by exposing repository status information to prompts. |
-| [gnu-utility](https://github.com/sorin-ionescu/prezto/tree/master/modules/gnu-utility/README.md)                           | Provides for the interactive use of GNU utilities on non-GNU systems.                                      |
-| [gpg](https://github.com/sorin-ionescu/prezto/tree/master/modules/gpg/README.md)                                           | Provides for an easier use of GPG by setting up `gpg-agent`.                                               |
-| [haskell](https://github.com/sorin-ionescu/prezto/tree/master/modules/haskell/README.md)                                   | Enables local Haskell package installation.                                                                |
-| [helper](https://github.com/sorin-ionescu/prezto/tree/master/modules/helper/README.md)                                     | Provides helper functions for developing modules.                                                          |
-| [history-substring-search](https://github.com/sorin-ionescu/prezto/tree/master/modules/history-substring-search/README.md) | Integrates zsh-history-substring-search into Prezto.                                                       |
-| [history](https://github.com/sorin-ionescu/prezto/tree/master/modules/history/README.md)                                   | Sets history options and defines history aliases.                                                          |
-| [homebrew](https://github.com/sorin-ionescu/prezto/tree/master/modules/homebrew/README.md)                                 | Defines Homebrew aliases.                                                                                  |
-| [macports](https://github.com/sorin-ionescu/prezto/tree/master/modules/macports/README.md)                                 | Defines MacPorts aliases and adds MacPorts directories to path variables.                                  |
-| [node](https://github.com/sorin-ionescu/prezto/tree/master/modules/node/README.md)                                         | Provides utility functions for Node.js and loads `npm` completion.                                         |
-| [ocaml](https://github.com/sorin-ionescu/prezto/tree/master/modules/ocaml/README.md)                                       | Initializes OCaml package management.                                                                      |
-| [osx](https://github.com/sorin-ionescu/prezto/tree/master/modules/osx/README.md)                                           | Defines macOS aliases and functions.                                                                       |
-| [pacman](https://github.com/sorin-ionescu/prezto/tree/master/modules/pacman/README.md)                                     | Provides aliases and functions for the Pacman package manager and frontends.                               |
-| [perl](https://github.com/sorin-ionescu/prezto/tree/master/modules/perl/README.md)                                         | Enables local Perl module installation on macOS and defines aliases.                                       |
-| [prompt](https://github.com/sorin-ionescu/prezto/tree/master/modules/prompt/README.md)                                     | Loads prompt themes.                                                                                       |
-| [python](https://github.com/sorin-ionescu/prezto/tree/master/modules/python/README.md)                                     | Enables local Python and local Python package installation.                                                |
-| [rails](https://github.com/sorin-ionescu/prezto/tree/master/modules/rails/README.md)                                       | Defines Ruby on Rails aliases.                                                                             |
-| [rsync](https://github.com/sorin-ionescu/prezto/tree/master/modules/rsync/README.md)                                       | Defines `rsync` aliases.                                                                                   |
-| [ruby](https://github.com/sorin-ionescu/prezto/tree/master/modules/ruby/README.md)                                         | Configures Ruby local gem installation, loads version managers, and defines aliases.                       |
-| [screen](https://github.com/sorin-ionescu/prezto/tree/master/modules/screen/README.md)                                     | Defines GNU Screen aliases and provides for auto launching it at start-up.                                 |
-| [spectrum](https://github.com/sorin-ionescu/prezto/tree/master/modules/spectrum/README.md)                                 | Provides for easier use of 256 colors and effects.                                                         |
-| [ssh](https://github.com/sorin-ionescu/prezto/tree/master/modules/ssh/README.md)                                           | Provides for an easier use of SSH by setting up `ssh-agent`.                                               |
-| [syntax-highlighting](https://github.com/sorin-ionescu/prezto/tree/master/modules/syntax-highlighting/README.md)           | Integrates `zsh-syntax-highlighting` into Prezto.                                                          |
-| [terminal](https://github.com/sorin-ionescu/prezto/tree/master/modules/terminal/README.md)                                 | Sets terminal window and tab titles.                                                                       |
-| [tmux](https://github.com/sorin-ionescu/prezto/tree/master/modules/tmux/README.md)                                         | Defines `tmux` aliases and provides for auto launching it at start-up.                                     |
-| [utility](https://github.com/sorin-ionescu/prezto/tree/master/modules/utility/README.md)                                   | Defines general aliases and functions.                                                                     |
-| [wakeonlan](https://github.com/sorin-ionescu/prezto/tree/master/modules/wakeonlan/README.md)                               | This module provides a wrapper around the wakeonlan tool.                                                  |
-| [yum](https://github.com/sorin-ionescu/prezto/blob/master/modules/autosuggestions/README.md)                               | Defines yum aliases.                                                                                       |
+| モジュール名                                                                                                                     | 説明                                                                 |
+| -------------------------------------------------------------------------------------------------------------------------- |:------------------------------------------------------------------ |
+| [archive](https://github.com/sorin-ionescu/prezto/blob/master/modules/archive/README.md)                                   | アーカイブの一覧表示や抽出を行う機能を提供します。                                          |
+| [autosuggestions](https://github.com/sorin-ionescu/prezto/blob/master/modules/autosuggestions/README.md)                   | `zsh-autosuggestions` プラグインを Prezto に統合します。                        |
+| [command-not-found](https://github.com/sorin-ionescu/prezto/tree/master/modules/command-not-found/README.md)               | MacOS または Debian ベースのディストリビューションで、 `command-not-found` ツールをロードします。 |
+| [completion](https://github.com/sorin-ionescu/prezto/tree/master/modules/completion/README.md)                             | <kbd>TAB</kbd> 補完を設定し、 `zsh-completions`から追加の補完を提供します。             |
+| [directory](https://github.com/sorin-ionescu/prezto/tree/master/modules/directory/README.md)                               | ディレクトリのオプションを設定し、ディレクトリ・エイリアスを定義します。                               |
+| [dnf](https://github.com/sorin-ionescu/prezto/tree/master/modules/dnf/README.md)                                           | `dnf` エイリアスを定義します。                                                 |
+| [docker](https://github.com/sorin-ionescu/prezto/tree/master/modules/docker/README.md)                                     | `docker` エイリアスや関数を定義しています。                                         |
+| [dpkg](https://github.com/sorin-ionescu/prezto/tree/master/modules/dpkg/README.md)                                         | `dpkg` エイリアスや関数を定義しています。                                           |
+| [editor](https://github.com/sorin-ionescu/prezto/tree/master/modules/editor/README.md)                                     | キーバインディングを設定します。                                                   |
+| [emacs](https://github.com/sorin-ionescu/prezto/tree/master/modules/emacs/README.md)                                       | Emacsの依存関係管理を有効にします。                                               |
+| [environment](https://github.com/sorin-ionescu/prezto/tree/master/modules/environment/README.md)                           | 一般的なシェルオプションを設定し、環境変数を定義します。                                       |
+| [fasd](https://github.com/sorin-ionescu/prezto/tree/master/modules/fasd/README.md)                                         | 頻繁に使用するファイルやディレクトリのリストを保持し、高速なアクセスを実現します。                          |
+| [git](https://github.com/sorin-ionescu/prezto/tree/master/modules/git/README.md)                                           | 別名、関数、およびリポジトリー状況情報をプロンプトに表示することによって、 Git を拡張します。                  |
+| [gnu-utility](https://github.com/sorin-ionescu/prezto/tree/master/modules/gnu-utility/README.md)                           | GNU 以外のシステムでの GNU ユーティリティのインタラクティブな使用を可能にします。                      |
+| [gpg](https://github.com/sorin-ionescu/prezto/tree/master/modules/gpg/README.md)                                           | `gpg-agent`を設定することにより、GPGをより簡単に利用できるようにします。                        |
+| [haskell](https://github.com/sorin-ionescu/prezto/tree/master/modules/haskell/README.md)                                   | Haskell パッケージのローカルインストールを有効にします。                                   |
+| [helper](https://github.com/sorin-ionescu/prezto/tree/master/modules/helper/README.md)                                     | モジュール開発のためのヘルパー機能を提供します。                                           |
+| [history-substring-search](https://github.com/sorin-ionescu/prezto/tree/master/modules/history-substring-search/README.md) | Zsh-history-substring-searchをPreztoに統合します。                         |
+| [history](https://github.com/sorin-ionescu/prezto/tree/master/modules/history/README.md)                                   | ヒストリーのオプションを設定し、ヒストリーのエイリアスを定義します。                                 |
+| [homebrew](https://github.com/sorin-ionescu/prezto/tree/master/modules/homebrew/README.md)                                 | Homebrewのエイリアスを定義します。                                              |
+| [macports](https://github.com/sorin-ionescu/prezto/tree/master/modules/macports/README.md)                                 | MacPortsのエイリアスを定義し、MacPortsのディレクトリをpathに追加します。                     |
+| [node](https://github.com/sorin-ionescu/prezto/tree/master/modules/node/README.md)                                         | Node.js 用のユーティリティ関数を提供し、 `npm` 補完をロードします。                          |
+| [ocaml](https://github.com/sorin-ionescu/prezto/tree/master/modules/ocaml/README.md)                                       | OCaml パッケージ管理を初期化します。                                              |
+| [osx](https://github.com/sorin-ionescu/prezto/tree/master/modules/osx/README.md)                                           | MacOSのエイリアスや関数を定義しています。                                            |
+| [pacman](https://github.com/sorin-ionescu/prezto/tree/master/modules/pacman/README.md)                                     | Pacman パッケージマネージャとフロントエンドのためのエイリアスや関数を提供します。                       |
+| [perl](https://github.com/sorin-ionescu/prezto/tree/master/modules/perl/README.md)                                         | MacOSでのPerlモジュールのローカルインストールを可能にし、エイリアスを定義します。                      |
+| [prompt](https://github.com/sorin-ionescu/prezto/tree/master/modules/prompt/README.md)                                     | プロンプトのテーマを読み込みます。                                                  |
+| [python](https://github.com/sorin-ionescu/prezto/tree/master/modules/python/README.md)                                     | ローカルPythonおよびローカルPythonパッケージのインストールを有効にします。                        |
+| [rails](https://github.com/sorin-ionescu/prezto/tree/master/modules/rails/README.md)                                       | Ruby on Railsのエイリアスを定義します。                                         |
+| [rsync](https://github.com/sorin-ionescu/prezto/tree/master/modules/rsync/README.md)                                       | `rsync` エイリアスを定義します。                                               |
+| [ruby](https://github.com/sorin-ionescu/prezto/tree/master/modules/ruby/README.md)                                         | Rubyのローカルgemのインストール、バージョンマネージャのロード、エイリアスの定義などを設定します。               |
+| [screen](https://github.com/sorin-ionescu/prezto/tree/master/modules/screen/README.md)                                     | GNU Screen のエイリアスを定義し、起動時に自動起動する機能を提供します。                          |
+| [spectrum](https://github.com/sorin-ionescu/prezto/tree/master/modules/spectrum/README.md)                                 | 256 colorやエフェクトをより使いやすくするための機能を提供します。                              |
+| [ssh](https://github.com/sorin-ionescu/prezto/tree/master/modules/ssh/README.md)                                           | `ssh-agent`を設定することにより、SSH をより簡単に使用できるようにします。                       |
+| [syntax-highlighting](https://github.com/sorin-ionescu/prezto/tree/master/modules/syntax-highlighting/README.md)           | `zsh-syntax-highlighting` を Prezto に統合します。                         |
+| [terminal](https://github.com/sorin-ionescu/prezto/tree/master/modules/terminal/README.md)                                 | ターミナルウィンドウとタブのタイトルを設定します。                                          |
+| [tmux](https://github.com/sorin-ionescu/prezto/tree/master/modules/tmux/README.md)                                         | `tmux` エイリアスを定義し、起動時に自動起動する機能を提供します。                               |
+| [utility](https://github.com/sorin-ionescu/prezto/tree/master/modules/utility/README.md)                                   | 一般的なエイリアスや関数を定義します。                                                |
+| [wakeonlan](https://github.com/sorin-ionescu/prezto/tree/master/modules/wakeonlan/README.md)                               | このモジュールは、wakeonlanツールのラッパーを提供します。                                  |
+| [yum](https://github.com/sorin-ionescu/prezto/blob/master/modules/autosuggestions/README.md)                               | yum のエイリアスを定義します。                                                  |
 
-Use `zi ice svn` if multiple files require an entire subdirectory.
+複数のファイルがサブディレクトリ全体を必要とする場合は、 `zi ice svn` を使用します。
 
 - [docker](https://github.com/sorin-ionescu/prezto/tree/master/modules/docker/README.md)
 - [git](https://github.com/sorin-ionescu/prezto/tree/master/modules/git/README.md)
@@ -340,7 +340,7 @@ zi ice svn
 zi snippet PZTM::git
 ```
 
-Use `zi ice as"null"` no `*.plugin.zsh`, `init.zsh`, `*.zsh-theme*` files exist in module directory.
+`*.plugin.zsh`, `init.zsh`, `*.zsh-theme*` ファイルがモジュールディレクトリに存在しない場合 `zi ice as"null"`を使用してください。
 
 - [archive](https://github.com/sorin-ionescu/prezto/tree/master/modules/archive/README.md):
 
@@ -349,7 +349,7 @@ zi ice svn as"null"
 zi snippet PZTM::archive
 ```
 
-Use `zi ice atclone"git clone <repo> <location>"` if module have external module.
+モジュールが外部モジュールを使用している場合は、 `zi atclone"git clone <repo> <location>"` を使用します。
 
 - [completion](https://github.com/sorin-ionescu/prezto/tree/master/modules/completion/README.md):
 
@@ -359,18 +359,18 @@ zi ice svn blockf \
 zi snippet PZTM::completion
 ```
 
-Use `blockf` to prevent any unnecessary additions to `fpath`, as Zi manages `fpath`.
+Zi は `fpath`を管理しているので、 `fpath`への不必要な追加を防ぐには `blockf` を使用してください。
 
 :::tip
 
-What is `zstyle`?
+`zstyle`とは？
 
-- Official (zsh.sourceforge.net): [zsh/zutil](http://zsh.sourceforge.net/Doc/Release/Zsh-Modules.html#The-zsh_002fzutil-Module)
+- 公式 (zsh.sourceforge.net): [zsh/zutil](http://zsh.sourceforge.net/Doc/Release/Zsh-Modules.html#The-zsh_002fzutil-Module)
 - StackExchange: [What does `zstyle` do?][about-zstyle]
 
 :::
 
-Available
+利用可能
 
 ## Zgen
 
@@ -382,7 +382,7 @@ Available
 + zi snippet OMZL::<ANY OF THEM>
 ```
 
-### Load OMZ plugins
+### OMZプラグインの読み込み
 
 ```diff title="~/.zshrc" showLineNumbers
 - zgen oh-my-zsh <PATH>
@@ -398,7 +398,7 @@ Available
 + zi snippet PZTM::<module name>
 ```
 
-Load repositories as prezto plugins:
+リポジトリを prezto プラグインとして読み込む:
 
 ```diff title="~/.zshrc" showLineNumbers
 - zgen pmodule <reponame> <branch>
@@ -411,7 +411,7 @@ Load repositories as prezto plugins:
 
 :::info
 
-For the `location`: refer <Link to="/docs/guides/syntax/standard#src-pick-multisrc">src, pick, multisrc</Link> ice-modifier.
+`location`については、<Link to="/docs/guides/syntax/standard#src-pick-multisrc">src、pick、multisrc </Link> ice修飾子を参照してください。
 
 :::
 

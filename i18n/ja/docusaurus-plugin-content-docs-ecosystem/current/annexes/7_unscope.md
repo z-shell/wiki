@@ -2,7 +2,7 @@
 id: unscope
 title: "🌀 Unscope"
 image: /img/png/theme/z/320x320.png
-description: Annex - Unscope IDs documentation
+description: 別館 - アンスコープ IDのドキュメント
 keywords:
   - annex
   - zannex
@@ -15,32 +15,32 @@ keywords:
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link'; import Highlight from "@site/src/components/Highlight";
 
-An annex allows the installation of plugins without specifying the GitHub user name, as follows:
+この別館では、以下のようにGitHubのユーザー名を指定せずにプラグインをインストールすることができます。
 
-1. On the installation of a plugin without any slashes (/) in its name the annex will query the GitHub API searching for `*/{the-name}`, sorting on stars.
+1. プラグイン名にスラッシュ (/) を含まないプラグインをインストールすると、annex は GitHub API に照会して `*/{the-name}`を検索し、スターの数でソートするようになります。
 
-2. It first requires at least 10 forks on the candidates, then 2, then 0.
+2. まず候補にはフォークが10回以上必要で、なければ次に2回、そして0回となります。
 
-3. After finding the best result it sets it as the **full** remote-id of the plugin, storing the ID on disk for later automatic use.
+3. 最適な結果を見つけたら、それをプラグインの **full** remote-id として設定し、後で自動的に使用できるように ID をディスクに保存します。
 
-4. For security, for such GH-API request to be made a newly added (by this annex) ice: `ghapi` is required to be given.
+4. セキュリティのため，このようなGH-APIリクエストを行う際には，（本別館により）新たに追加されたice: `ghapi` を与える必要があります．
 
-5. Otherwise only the static database of mappings of short-plugin nicknames to the full scoped IDs will be searched. It contains many mappings, like, e.g.: `vi-reg → zsh-vi-more/evil-registers`, and some of the popular plugins, like, e.g.: `zsh-syntax-highlighting → zsh-users/zsh-syntax-highlighting` and more.
+5. そうでない場合は、プラグインのニックネームとフルスコープIDの静的マッピングデータベースのみが検索されます。 `vi-reg → zsh-vi-more/evil-registers`のような多くのマッピングと、例えば `zsh-syntax-highlighting → zsh-users/zsh-syntax-highlighting` などの有名なプラグインを含んでいます。
 
-## Static mappings
+## 静的マッピング
 
 :::info
 
-Fill [request](https://github.com/z-shell/z-a-unscope/issues/new/choose) to add new repositories with scoped IDs.
+スコープ付き ID を持つ新しいリポジトリを追加するには [リクエスト](https://github.com/z-shell/z-a-unscope/issues/new/choose) を埋めてください。
 
 :::
 
-Besides the GitHub-API querying, there's also a fixed, curated list of mappings of short names to the full GitHub IDs. The list currently consists of:
+GitHub-APIによる問い合わせの他に、ショートネームと完全なGitHub IDのマッピングの固定されたキュレーションリストがあります。 現在のリストは以下のように構成されています:
 
 <table spaces-before="0">
   <tr>
     <th align="center">
-      Short (Nick-) Name
+      略称(ニックネーム)
     </th>
     
     <th align="left">
@@ -899,7 +899,7 @@ Besides the GitHub-API querying, there's also a fixed, curated list of mappings 
   </tr>
 </table>
 
-## Install unscope {#install-unscope}
+## unscope をインストールする {#install-unscope}
 
 :::info Source
 
@@ -910,7 +910,7 @@ Besides the GitHub-API querying, there's also a fixed, curated list of mappings 
 <Tabs>
   <TabItem value="default" label="Default" default>
 
-Add the following snippet in the `.zshrc` file:
+`.zshrc` ファイルに以下のスニペットを追加します:
 
 ```shell
 zi light z-shell/z-a-unscope
@@ -919,4 +919,4 @@ zi light z-shell/z-a-unscope
 </TabItem>
 </Tabs>
 
-This will allow scoped IDs to be searched and resolved.
+これにより、スコープ ID の検索と解決が可能になります。

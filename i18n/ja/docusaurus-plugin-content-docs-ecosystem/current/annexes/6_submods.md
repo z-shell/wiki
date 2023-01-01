@@ -2,7 +2,7 @@
 id: submods
 title: "🌀 Submods"
 image: /img/png/theme/z/320x320.png
-description: Annex - Submods documentation.
+description: 別館 - Submodsのドキュメント
 keywords:
   - annex
   - zannex
@@ -13,22 +13,22 @@ keywords:
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link';
 
-An annex delivers the capability to clone additional submodules while installing a plugin or snippet. The submodules are then automatically updated on the `zi update …` command.
+この別館は、プラグインやスニペットをインストールする際に、追加のサブモジュールをクローンする機能を提供します。 その後、 `zi update …` コマンドでサブモジュールが自動的に更新されます。
 
-Synopsis:
+概要:
 
 ```shell
 submods'{user}/{plugin} -> {output directory}; …'
 ```
 
-An example command utilizing the annex and its ice-modifier to load `zsh-autosuggestions` plugin via [Prezto module](/docs/getting_started/migration#pzt-modules) `autosuggestions`.
+`zsh-autosuggestions` を [Prezto module](/docs/getting_started/migration#pzt-modules) `autosuggestions`経由で読み込むための、別館 とその ice-modifier を利用したコマンド例です。
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice svn submods'zsh-users/zsh-autosuggestions -> external'
 zi snippet PZT::modules/autosuggestions
 ```
 
-## Install submods {#install-submods}
+## submodsのインストール {#install-submods}
 
 :::info Source
 
@@ -39,7 +39,7 @@ zi snippet PZT::modules/autosuggestions
 <Tabs>
   <TabItem value="default" label="Default" default>
 
-Add the following snippet in the `.zshrc` file:
+`.zshrc` ファイルに以下のスニペットを追加します:
 
 ```shell
 zi light z-shell/z-a-submods
@@ -48,4 +48,4 @@ zi light z-shell/z-a-submods
 </TabItem>
 </Tabs>
 
-This will register the `submods'…'` ice-modifier.
+これにより、 `submods'…'` ice 修飾子が登録されます。

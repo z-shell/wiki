@@ -1,10 +1,10 @@
 ---
 id: intro
 slug: /
-title: '🎉 Introduction'
+title: '🎉 はじめに'
 sidebar_position: 1
 image: /img/png/theme/z/320x320.png
-description: Introduction to a Swiss Army Knife for Zsh, formerly known as zplugin, zinit.
+description: Zshのためのスイスアーミーナイフ（旧称：zplugin, zinit）の紹介。
 ---
 
 <!-- @format -->
@@ -16,53 +16,53 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Lin
 <Tabs>
   <TabItem value="gems" label="RubyGems">
 
-The [RubyGems](https://rubygems.org) and [$GEM_HOME](https://guides.rubygems.org/command-reference/#gem-environment) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex or installed by the [any-gem](https://github.com/z-shell/any-gem) package.
+[RubyGems](https://rubygems.org) と [$GEM_HOME](https://guides.rubygems.org/command-reference/#gem-environment) は、 [bin-gem-node](/ecosystem/annexes/bin-gem-node) 別館によって自動的に管理されるか、 [any-gem](https://github.com/z-shell/any-gem) パッケージによってインストールされます。
 
   </TabItem>
   <TabItem value="node" label="Node">
 
-The [Node](https://www.npmjs.com) modules and [$NODE_PATH](https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex or installed by the [any-node](https://github.com/z-shell/any-node) package.
+[Node](https://www.npmjs.com) モジュールと [$NODE_PATH](https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders) は [bin-gem-node](/ecosystem/annexes/bin-gem-node) 別館で自動的に管理されるか、 [any-node](https://github.com/z-shell/any-node) パッケージでインストールされます。
 
   </TabItem>
   <TabItem value="pip" label="Python">
 
-The [Python](https://python.org) modules, [$VIRTUALENV](https://docs.python.org/3/tutorial/venv.html) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex.
+[Python](https://python.org) モジュール、[$VIRTUALENV](https://docs.python.org/3/tutorial/venv.html) は [bin-gem-node](/ecosystem/annexes/bin-gem-node) 別館により自動的に管理されます。
 
   </TabItem>
   <TabItem value="rust" label="Rust">
 
-The [Rust](https://crates.io) packages are managed by the [rust](/ecosystem/annexes/rust) annex.
+[Rust](https://crates.io) パッケージは [rust](/ecosystem/annexes/rust) 別館によって管理されています。
 
   </TabItem>
   <TabItem value="github" label="GitHub" default>
 
-Install and control almost everything from GitHub: [Annexes](/ecosystem/category/-annexes), [Packages](/ecosystem/category/-packages), [Gallery of Invocations](/community/gallery/collection).
+[Annexes](/ecosystem/category/-annexes), [Packages](/ecosystem/category/-packages), [Gallery of Invocations](/community/gallery/collection): GitHubからほとんどすべてのものをインストールし、制御することができます。
 
   </TabItem>
 </Tabs>
 
-## <i class="fa-solid fa-spinner fa-spin-pulse"></i> Fast and feature-rich
+## <i class="fa-solid fa-spinner fa-spin-pulse"></i> 高速かつ豊富な機能
 
-- [Meta plugins][meta-plugins] allow installing groups of plugins via a single, friendly label.
-- [Packages](/ecosystem/category/-packages) offload the user from providing long and complex commands.
-- [Annexes](ecosystem/category/-annexes) allow extending the plugin manager with new features.
-- [Turbo][turbo-mode-zsh--53] mode yields **50-80%** faster Zsh startup.
+- [Meta plugins][meta-plugins] により、一つのラベル名からプラグインのグループを一括インストールすることができます。
+- [パッケージ](/ecosystem/category/-packages) により長くて複雑なコマンドの入力からユーザーを解放します。
+- [Annexes (別館)](ecosystem/category/-annexes) により 、プラグインマネージャ自体を新しい機能で拡張することができます。</a>
+- [Turbo][turbo-mode-zsh--53] モードでは、 Zsh の起動が **50-80%** 速くなります。
 
 ## <i className="fa-beat" class="fa-solid fa-heart fa-beat"></i> 端正で柔軟。
 
-- [Customize paths][customizing-paths], use [multiple prompts][multiple-prompts] or create [your own][non-github-local-plugins] plugins.
-- Supports [Oh My Zsh][oh-my-zsh-prezto] and [Prezto][oh-my-zsh-prezto] plugins and libraries. ([migration][]).
-- Does not use `$FPATH`, loading multiple plugins doesn't clutter `$FPATH` with the same number of entries, e.g: 10, 15, or more.
-- Code is immune to `KSH_ARRAYS` and other options typically causing compatibility problems.
-- Do not require `sudo`, and provide many workarounds e.g: setting so-called **shims** locally.
+- [pathのカスタマイズ][customizing-paths]、 [複数のプロンプトの使用][multiple-prompts] 、または独自の [][non-github-local-plugins] プラグインの作成ができます。
+- [Oh My Zsh][oh-my-zsh-prezto] と [Prezto][oh-my-zsh-prezto] のプラグインとライブラリに対応しています。 ([移行][]).
+- `$FPATH`を使用しません。複数のプラグインをロードしても、同じエントリ数（10、15、またはそれ以上）で `$FPATH` が乱雑になることはありません。
+- コードは、通常互換性の問題を引き起こす `KSH_ARRAYS` やその他のオプションの影響を受けません。
+- `sudo`を要求せず、多くの回避策を提供します。例えば、いわゆる **shims** をローカルに設定します。
 
-## <i className="fa-beat-fade" class="fa-solid fa-circle-info fa-beat-fade"></i> Familiarize and control
+## <i className="fa-beat-fade" class="fa-solid fa-circle-info fa-beat-fade"></i> 熟知し、コントロールする
 
-- [Visualize and manage][commands] elements of the plugin:
+- [プラグイン][commands] を可視化し、管理します。
   - **aliases**, **functions**, **bindkeys**, **zle widgets**, **completions**, **variables**.
-- Quickly [familiarize][reports-and-statistics] yourself with rich and easy-to-digest information.
-- [Load or unload][loading-and-unloading] plugins, use the ability to [manage][completions-management] completions.
-- Docker [playground][], test or propose configurations.
+- 豊かで簡単な情報で、すばやく [理解][reports-and-statistics] できます。
+- 補完の[管理][completions-management] を プラグインの [ロードまたはアンロード][loading-and-unloading] で行えます。
+- [Docker プレイグラウンド][]で構成をテストしたり提案できます。
 
 ## <i class="fa-solid fa-list-check"></i> 概要
 
@@ -85,12 +85,13 @@ Install and control almost everything from GitHub: [Annexes](/ecosystem/category
 [customizing-paths]: /docs/guides/customization#customizing-paths
 [loading-and-unloading]: /docs/guides/commands#loading-and-unloading
 [meta-plugins]: /search?q=meta+plugins
-[migration]: /docs/getting_started/migration
+[移行]: /docs/getting_started/migration
 [multiple-prompts]: /docs/guides/customization#multiple-prompts
+[non-github-local-plugins]: /docs/guides/customization#non-github-local-plugins
 [non-github-local-plugins]: /docs/guides/customization#non-github-local-plugins
 [oh-my-zsh-prezto]: /docs/getting_started/overview#oh-my-zsh-prezto
 [oh-my-zsh-prezto]: /docs/getting_started/overview#oh-my-zsh-prezto
 [reports-and-statistics]: /docs/guides/commands#reports-and-statistics
 [turbo-mode-zsh--53]: /docs/getting_started/overview#turbo-mode-zsh--53
 
-[playground]: https://github.com/z-shell/playground
+[Docker プレイグラウンド]: https://github.com/z-shell/playground
