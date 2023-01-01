@@ -2,7 +2,7 @@
 id: default-ice
 title: "🌀 Default Ice"
 image: /img/png/theme/z/320x320.png
-description: Annex - Default Ice documentation
+description: 別館 - デフォルト Iceのドキュメント
 keywords:
   - annex
   - zannex
@@ -13,15 +13,15 @@ keywords:
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link';
 
-An annex delivers the capability to set **default ices** for the next `zi` command, e.g:
+附属書は、次の `zi` コマンドのために **デフォルトのice** を設定する機能を提供します。例:
 
-set default-ices:
+デフォルトのiceの設定:
 
 ```shell
 zi default-ice lucid from"gh-r"
 ```
 
-this will download from GitHub releases (gh-r) and also use the lucid ice by default:
+これは GitHub リリース (gh-r) からダウンロードされ、デフォルトでは lucid ice も使用します。
 
 ```shell showLineNumbers
 zi wait for \
@@ -31,26 +31,26 @@ zi wait for \
 
 :::caution
 
-The `wait` ice cannot be made default by using this subcommand.
+このサブコマンドを使用して、 `wait` ice をデフォルトにすることはできません。
 
 :::
 
 ## `default-ice` {#default-ice}
 
-An annex provides a subcommand – `default-ice` which has the following synopsis:
+この別館では、以下のような構文を持つ、サブコマンド `default-ice` を提供します。
 
 ```shell showLineNumbers
 — default-ice [ -s | -c | -g | -t | -q | -h ]
 
- [ -s ] — Show currently set default ices
- [ -c ] — Reset default ices
- [ -g ] — Return current ices in REPLAY hash
- [ -t ] — Show statistics
- [ -q ] — Hide all messages
- [ -h ] — This message
+ [ -s ] - 現在設定されているデフォルトのiceを表示
+ [ -c ] - デフォルトのiceをリセット
+ [ -g ] - REPLAYハッシュに現在のiceを返す
+ [ -t ] - 統計情報を表示
+ [ -q ] - すべてのメッセージを隠す
+ [ -h ] - このメッセージを表示
 ```
 
-## Install default-ice
+## default-iceのインストール
 
 :::info Source
 
@@ -61,7 +61,7 @@ An annex provides a subcommand – `default-ice` which has the following synopsi
 <Tabs>
   <TabItem value="default" label="Default" default>
 
-Add the following snippet in the `.zshrc` file:
+`.zshrc` ファイルに以下のスニペットを追加します:
 
 ```shell
 zi light z-shell/z-a-default-ice
@@ -70,4 +70,4 @@ zi light z-shell/z-a-default-ice
   </TabItem>
 </Tabs>
 
-This will register the [default-ice](#default-ice) subcommand.
+これにより、 [default-ice](#default-ice) サブコマンドが登録されます。

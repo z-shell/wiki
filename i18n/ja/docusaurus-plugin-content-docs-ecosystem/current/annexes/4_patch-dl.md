@@ -2,7 +2,7 @@
 id: patch-dl
 title: "🌀 Patch DL"
 image: /img/png/theme/z/320x320.png
-description: Annex - Patch DL documentation
+description: 別館 - Patch DLのドキュメント
 keywords:
   - annex
   - zannex
@@ -13,7 +13,7 @@ keywords:
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link';
 
-An annex downloads files and applies patches and adds two ice-modifiers:
+この別館では、ファイルのダウンロードとパッチの適用をする、2つのice修飾子の追加を行います。
 
 1番目
 
@@ -27,7 +27,7 @@ zi ice dl'{URL} [-> {optional-output-file-name}]; …' …
 zi ice patch'{file-name-with-the-patch-to-apply}; …' …
 ```
 
-The annex will download the given `{URL}` under the path `{optional-output-file-name}` (if no file name given, then it is taken from last segment of the URL) in case of the `dl'…'` ice-modifier, and apply a patch given by the `{file-name-with-the-patch-to-apply}` in case of the `patch'…'` ice-modifier. You can use this functionality to download and apply patches.
+この別館は、 `dl'…'` ice修飾子を指定した場合、 `{URL}` を `{optional-output-file-name}` で指定されたパスにダウンロードします(ファイル名が指定されていない場合は、URLの最後のセグメントから取得されます)。 `patch...` を指定した場合は `{file-name-with-the-patch-to-apply}` によって与えられたパッチを適用します。 この機能を利用して、パッチのダウンロードや適用を行うことができます。
 
 例えば、 `fbterm`をインストールする場合、2つのパッチが必要です。1つは動作を修正するためのもの、もう1つはビルドを修正するためのものです。
 
@@ -56,7 +56,7 @@ zi load izmntuk/fbterm
 <Tabs>
   <TabItem value="default" label="Default" default>
 
-Add the following snippet in the `.zshrc` file:
+`.zshrc` ファイルに以下のスニペットを追加します:
 
 ```shell
 zi light z-shell/z-a-patch-dl
@@ -65,4 +65,4 @@ zi light z-shell/z-a-patch-dl
 </TabItem>
 </Tabs>
 
-This will register the `dl'…'` and `patch'…'` ice-modifiers.
+これにより、 `dl'…'` と `patch'…'` ice修飾子が登録されます。
