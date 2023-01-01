@@ -1,9 +1,9 @@
 ---
 id: overview
-title: "🌀 What can Annexes do?"
+title: "🌀 別館でできることは？"
 sidebar_position: 1
 image: /img/png/theme/z/320x320.png
-description: Annex Introduction
+description: 別館の紹介
 keywords:
   - annex
   - zannex
@@ -13,32 +13,32 @@ keywords:
 
 <!-- @format -->
 
-1. Add a new Zi subcommand (i.e. the [command][command] that’s placed after the function `zi …` when calling Zi).
+1. 新しい Zi サブコマンド（Zi を呼び出すときに関数 `zi …` の後に置かれる [コマンド][command] など）を追加します。
 
-2. Add new [ice-modifiers][ice-modifiers].
+2. 新しい [ice修飾子][ice-modifiers] を追加します。
 
-3. Register four types of hooks:
+3. 4種類のフックを登録します:
 
-   3.1. `atclone` hook – run after cloning any plugin or downloading any snippet.
+   3.1. `atclone` hook - 任意のプラグインのクローンやスニペットのダウンロード後に実行されます。
 
-   3.2. `atpull` hook – run after pulling new commits (i.e. updating) for any plugin/snippet.
+   3.2. `atpull` フック - 任意のプラグイン/スニペットの新しいコミットをプルした（つまり更新した）後に実行されます。
 
-   3.3. `atinit` hook – run before loading any plugin/snippet, after it has been set up (i.e. downloaded).
+   3.3. `atinit` フック - プラグイン/スニペットのセットアップ（ダウンロードなど）が完了し、ロードする前に実行されます。
 
-   3.4. `atload` hook – run after loading any plugin/snippet.
+   3.4. `atload` フック - 任意のプラグイン/スニペットをロードした後に実行されます。
 
-4. Register hooks for generating help text, shown by the `zi icemods` subcommand.
+4. `zi icemods` サブコマンドで表示されるヘルプテキストを生成するためのフックを登録します。
 
-## Recommended annexes
+## 推奨する別館
 
-### Common
+### 共通
 
 1. [z-a-bin-gem-node][bin-gem-node]
 2. [z-a-readurl][readurl]
 3. [z-a-patch-dl][patch-dl]
 4. [z-a-rust][rust]
 
-### Additional
+### その他
 
 1. [z-a-submods][submods]
 2. [z-a-unscope][unscope]
@@ -46,13 +46,13 @@ keywords:
 
 :::tip
 
-Use [meta-plugins](/ecosystem/annexes/meta-plugins) to install common annexes as a group:
+[メタプラグイン](/ecosystem/annexes/meta-plugins) を使用して、共通の別館をまとめてインストールします。
 
 ```shell
 zi light-mode for z-shell/z-a-meta-plugins @annexes
 ```
 
-To install common and additional annexes:
+共通およびその他の別館をインストールする場合:
 
 ```shell
 zi light-mode for z-shell/z-a-meta-plugins @annexes+rec
@@ -60,7 +60,7 @@ zi light-mode for z-shell/z-a-meta-plugins @annexes+rec
 
 :::
 
-## How to code them?
+## どのように使うのですか？
 
 Below is an example body of an `atclone` hook taken from [submods][submods] annex.
 

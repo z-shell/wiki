@@ -92,7 +92,7 @@ fi
   </TabItem>
   <TabItem value="repository" label="Repository">
 
-Clone repository using default or if set <Link to="/docs/guides/customization#customizing-paths">custom</Link> values:
+デフォルトまたは <Link to="/docs/guides/customization#customizing-paths">カスタム</Link> の値を使用してリポジトリをクローンします:
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
@@ -101,7 +101,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
   </TabItem>
   <TabItem value="minimal-annexes" label="Annex">
 
-Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link>:
+推奨する <Link to="/ecosystem/annexes/overview">別館</Link> と最小構成の設定を使用してインストール: 
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
@@ -110,7 +110,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
   </TabItem>
   <TabItem value="minimal-zunit" label="ZUnit">
 
-Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link> and setup <Link href="https://github.com/zdharma/zunit">zdharma/zunit</Link>:
+推奨する <Link to="/ecosystem/annexes/overview">別館</Link> と最小構成の設定を使用し、また <Link href="https://github.com/zdharma/zunit">zdharma/zunit</Link> をインストール:
 
 ```shell
 sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
@@ -168,13 +168,13 @@ autoload -Uz _zi
 
 ## <i class="fas fa-spinner fa-spin"></i> インストール後 {#post-install}
 
-新しくインストールした後は、 `exec zsh` でシェルをリロードし、 `zi self-update` で Zi をコンパイルすることをお勧めします。 `zi -h` を実行することで、利用可能な全コマンドを確認できます。 Increase Zi functionality, and performance, or get started by exploring the wiki.
+新しくインストールした後は、 `exec zsh` でシェルをリロードし、 `zi self-update` で Zi をコンパイルすることをお勧めします。 `zi -h` を実行することで、利用可能な全コマンドを確認できます。 Zi の機能性とパフォーマンスを向上させるか、Wiki を調べて始めましょう。
 
 何か問題があったり、助けが必要な場合は どの言語でも<Emoji symbol="🤦‍♂️" label="man-facepalming"/>、 [それについて話し合うか][discuss]、 [issueを作成][issue]してください。
 
 Zi の改善に役立ちます。 どうか、シェア、貢献、または [翻訳][translate] <Emoji symbol="🌐" label="globe-with-meridians"/>で私たちに協力してください <Emoji symbol="🥰" label="smiling-face-with-hearts"/> <Emoji symbol="🤓" label="nerd-face"/>.
 
-Let's glue everything together to create a toolchain that works for us <Emoji symbol="🚀" label="rocket"/>.
+すべてを組み合わせて、私たちのためのツールチェインを作りましょう <Emoji symbol="🚀" label="rocket"/>。
 
 ## <i class="fas fa-sync-alt fa-spin"></i> アイデアがありますか？
 
@@ -194,21 +194,21 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 
 ### <i class="fa-brands fa-docker"></i> DockerでのTurbo Zi
 
-If you create a Docker image that uses Zi, install Turbo-loaded plugins before the shell starts interactively, with the `@zi-scheduler` function in such a way, that it:
+Zi を使用する Docker イメージを作成する場合、シェルが対話的に起動する前に、 `@zi-scheduler` 関数で ターボロードされるプラグインをインストールする必要があります:
 
-- Install plugins without waiting for the prompt (i.e. it's script friendly).
-- Install all plugins instantly, without respecting the `wait` argument.
+- プロンプトを待たずにプラグインをインストールできる（つまり、スクリプトフレンドリー）。
+- `wait` 引数を無視し、すべてのプラグインを即座にインストールします。
 
-To accomplish this, use burst argument and call the `@zi-scheduler` function:
+これを実現するために、burst 引数を使用し、 `@zi-scheduler` 関数を呼び出します。
 
 ```docker
 RUN zsh -i -c -- '@zi-scheduler burst || true'
 ```
 
 > - 例: [Dockerfile][dockerfile]
-> - In action: [Playground][playground]
+> - 試す: [playground][playground]
 
-## <i class="fas fa-cog fa-pulse"></i> Zi Module: [zpmod][z-shell/zpmod] {#zi-module}
+## <i class="fas fa-cog fa-pulse"></i> Zi モジュール: [zpmod][z-shell/zpmod] {#zi-module}
 
 :::info
 
@@ -220,7 +220,7 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 <Tabs>
   <TabItem value="with-zi" label="With Zi" default>
 
-Usage:
+使い方を説明します。
 
 ```shell showLineNumbers
 zi module {build|info|help} [options]
@@ -228,9 +228,9 @@ zi module build [--clean]
 zi module info [--link]
 ```
 
-- To start using the Zi Zsh module run: `zi module build`. Append `--clean` to run `make distclean`.
-- To display the instructions on loading the module, run: `zi module info`.
-- To enable debug messages from the module set:
+- Zi Zsh モジュールを使い始めるには、次のコマンドを実行します:  `zi module build` `--clean` を追加すると `make distclean` が実行されます。
+- モジュールのロードに関する方法を表示するには、次を実行します: `zi module info`
+- モジュールからのデバッグメッセージを有効にするには:
 
 ```shell
 typeset -g ZI_MOD_DEBUG=1

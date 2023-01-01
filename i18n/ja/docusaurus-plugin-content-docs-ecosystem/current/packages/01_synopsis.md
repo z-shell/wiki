@@ -3,7 +3,7 @@ id: synopsis
 title: "📦 概要"
 sidebar_position: 1
 image: /img/png/theme/z/320x320.png
-description: Introduction to packages.
+description: パッケージの紹介
 keywords:
   - package
   - zpackage
@@ -13,17 +13,17 @@ keywords:
 
 <!-- @format -->
 
-The motivation for adding packages functionality:
+パッケージ機能を追加する動機
 
-1. Zi is a flexible and feature-rich plugin manager, however, users often feel overwhelmed by its configuration.
+1. Ziは柔軟で機能豊富なプラグインマネージャーですが、ユーザーはその設定に圧倒されることが多いようです。
 
-2. It has multiple package-manager-like features, such as:
+2. パッケージマネージャーに似た次のような機能が複数あります。
 
-   - get the plugin's Git repository OR release-package URL,
-   - get the list of the recommended [ice-modifiers][] for the plugin,
-     - there can be multiple lists of [ice-modifiers][],
-     - the ice-modifiers list is stored in profiles; there's at least one profile, default,
-     - the [ice-modifiers][] can be selectively overridden.
+   - プラグインのGitリポジトリまたはパッケージのリリースURLを指定できます。
+   - プラグインに推奨される [ice修飾子][] のリストを取得します。
+     - [ice-modifiers][]のリストが複数存在する場合があります。
+     - ice修飾子リストはプロファイルに保存されます。デフォルトでは少なくとも 1 つのプロファイルがあります。
+     - the [ice修飾子][] を選択的にオーバーライドすることができます。
    - automatically provide so-called shims (i.e.: forwarder scripts) for the binaries,
    - extend `$PATH` to expose the binaries,
    - it can run `Makefile` and more.
@@ -59,9 +59,9 @@ zi id-as=jekyll pack param='GEM → jekyll' for any-gem
 
 The binaries will be exposed without altering the PATH via shims. Shims are correctly removed when deleting a plugin with `zi delete …` The so-called packages are GitHub repositories holding a `package.json` file with the meta-data in them. This way you don't have to (but still can) specify ice-modifiers, which might be handy when the [ice-modifiers][] list is long and complex.
 
-## Introductory example
+## 導入例
 
-This way, instead of the following command used to install `fzf`:
+これにより、 `fzf` をインストールするために使用される以下のコマンドの代わりに、次のようになります。
 
 ```shell showLineNumbers
 zi lucid as=program pick="$ZPFX/bin/(fzf|fzf-tmux)" \
@@ -71,7 +71,7 @@ zi lucid as=program pick="$ZPFX/bin/(fzf|fzf-tmux)" \
     junegunn/fzf
 ```
 
-you only need:
+必要なもの:
 
 ```shell
 zi pack for fzf
@@ -84,7 +84,7 @@ to get the complete setup of the fuzzy finder, including:
 
 The installation is like with package-manager because you don't need to invoke Zi anymore once installed to use `fzf` (that's because `fzf` is just a binary program and not e.g.: a shell function). You can also update the package with `zi update fzf` – it'll cause the project to refresh and rebuild, like with a "normal" package manager such as `apt-get`. However, it'll be more like to `emerge` from Gentoo, because the installation will be from the source… unless… the user will pick up a binary installation by profile argument specified in the `pack'…'` ice.
 
-## Pros of using the Zi package for regular software installations
+## 通常のソフトウェアインストールにZiパッケージを使用する場合の長所
 
 Using Zi to install software where one could use a regular package manager has several advantages:
 
@@ -110,7 +110,7 @@ Using Zi to install software where one could use a regular package manager has s
 
 Thus, summing up 1. with 4., it might be nice/convenient too, for example, have the latest ECS CLI binary installed in the home directory, without using root access and always the latest, and – summing up with 2. and 3. – to, for example, have always the latest `README` downloaded by additional ice: `dl'https://raw.githubusercontent.com/aws/amazon-ecs-cli/master/README.md'` (and then to have the `README` converted into a man page by the `remark` Markdown processor or other via an `atclone''` ice, as the tool doesn't have any official man page).
 
-## Adding your package
+## パッケージの追加
 
 1. Contact the author to have the repository at the [Z-Shell][z-shell] organization or set the [ZI\[PKG_OWNER\]][modify-settings].
 
@@ -128,6 +128,7 @@ Thus, summing up 1. with 4., it might be nice/convenient too, for example, have 
 <!-- external -->
 
 [bin-gem-node]: /ecosystem/annexes/bin-gem-node
+[ice修飾子]: /docs/guides/syntax/ice-modifiers
 [ice-modifiers]: /docs/guides/syntax/ice-modifiers
 [modify-settings]: /docs/guides/customization#modify-settings
 
