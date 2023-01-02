@@ -28,7 +28,6 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         debug: true,
-        theme: {customCss: [require.resolve("./src/css/custom.css")]},
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           sidebarCollapsible: true,
@@ -59,6 +58,7 @@ const config = {
           },
         },
         sitemap: {changefreq: "weekly"},
+        theme: {customCss: [require.resolve("./src/css/custom.css")]},
       }),
     ],
   ],
