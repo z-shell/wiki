@@ -49,12 +49,14 @@ jobs:
       issues: write # for preactjs/compressed-size-action to create comments
       pull-requests: write # for preactjs/compressed-size-action to write a PR review
     steps:
-      - name: "⤵️  Check out code from GitHub"
-        uses: actions/checkout@v3
-      - name: "🏗  Initialize PNPM"
+      - name: "⤵️ Check out code from GitHub"
+        uses: actions/checkout@v3.2.0
+        with:
+          fetch-depth: 0
+      - name: "📦 Setup pnpm"
         uses: pnpm/action-setup@v2.2.4
-      - name: "🏗  Initialize Node"
-        uses: actions/setup-node@v3
+      - name: "⎔ Setup node"
+        uses: actions/setup-node@v3.5.1
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
@@ -76,12 +78,14 @@ jobs:
       matrix:
         node-version: [18]
     steps:
-      - name: "⤵️  Check out code from GitHub"
-        uses: actions/checkout@v3
-      - name: "🏗  Initialize PNPM"
+      - name: "⤵️ Check out code from GitHub"
+        uses: actions/checkout@v3.2.0
+        with:
+          fetch-depth: 0
+      - name: "📦 Setup pnpm"
         uses: pnpm/action-setup@v2.2.4
-      - name: "🏗  Initialize Node"
-        uses: actions/setup-node@v3
+      - name: "⎔ Setup node"
+        uses: actions/setup-node@v3.5.1
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"

@@ -1,5 +1,5 @@
 ---
-name: "🛳 Deploy Wiki"
+name: "🛳  Deploy Wiki"
 on:
   push:
     branches: [main]
@@ -8,7 +8,7 @@ on:
 env:
   URL: "https://wiki.zshell.dev"
   STYLES: ${{ secrets.FA_STYLES_KIT }}
-  
+
 permissions:
   contents: read
   deployments: write
@@ -18,57 +18,30 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  check:
-    name: 🔍 Checking  
-    timeout-minutes: 30  
-    runs-on: ubuntu-latest
-    steps:
-      - name: "⤵️ Check out code from GitHub"
-        uses: actions/checkout@v3.2.0
-        with:
-          fetch-depth: 0
-      - name: "📦 Setup pnpm"
-        uses: pnpm/action-setup@v2.2.4
-        with:
-          run_install: true        
-      - name: "⎔ Setup node"
-        uses: actions/setup-node@v3.5.1
-        with:
-          node-version: 18
-          cache: "pnpm"
-      - name: "🔍 Check"
-        run: pnpm check
-
   deploy:
-    name: 🛳 Deploying
-    needs: [check]
-    timeout-minutes: 30    
-    runs-on: ubuntu-latest    
-    if: github.ref == 'refs/heads/main'    
+    name: 🛳  Deploying
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     steps:
-      - name: "⤵️ Check out code from GitHub"
+      - name: "⤵️  Check out code from GitHub"
         uses: actions/checkout@v3.2.0
         with:
           fetch-depth: 0
       - name: "📦 Setup pnpm"
         uses: pnpm/action-setup@v2.2.4
-      - name: "⎔ Setup node"
+      - name: "⎔  Setup node"
         uses: actions/setup-node@v3.5.1
         with:
           node-version: 18
           cache: "pnpm"
-      - name: "🏗 Build"
+      - name: "🏗  Build"
         run: pnpm install --prod && pnpm run build
-      - name: "🚀 Publish"  
+      - name: "🚀 Publish"
         uses: cloudflare/pages-action@v1.3.0
-        id: publish
         with:
           projectName: "zsh"
-          directory: "build"        
+          directory: "build"
           apiToken: ${{ secrets.CF_PAGES_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-      - name: "✅ Pubished"
-        run: |
-          echo ${{ steps.publish.outputs.url }}
-          echo ${{ steps.publish.outputs.environment }}
