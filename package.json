@@ -85,15 +85,14 @@
       "last 1 safari version"
     ]
   },
+  "packageManager": "pnpm@7.21.0",
   "pnpm": {
     "overrides": {
       "trim@<0.0.3": ">=0.0.3",
       "got@<11.8.5": ">=11.8.5",
-      "minimatch@<3.0.5": ">=3.0.5",
       "json5@<2.2.2": ">=2.2.2"
     }
   },
-  "packageManager": "pnpm@7.21.0",
   "engines": {
     "node": ">=16.14"
   }
