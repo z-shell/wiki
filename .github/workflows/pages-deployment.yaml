@@ -1,5 +1,5 @@
 ---
-name: "🚀 Deploy Wiki"
+name: "🛳 Deploy Wiki"
 on:
   push:
     branches: [main]
@@ -8,36 +8,67 @@ on:
 env:
   URL: "https://wiki.zshell.dev"
   STYLES: ${{ secrets.FA_STYLES_KIT }}
+  
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 
 jobs:
-  deploy:
+  check:
+    name: 🔍 Checking  
+    timeout-minutes: 30  
     runs-on: ubuntu-latest
-    timeout-minutes: 30
-    permissions:
-      contents: read
-      deployments: write
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
-      cancel-in-progress: true
     steps:
-      - name: "⤵️  Check out code from GitHub"
-        uses: actions/checkout@v3
-      - name: "🏗  Initialize PNPM"
+      - name: "⤵️ Check out code from GitHub"
+        uses: actions/checkout@v3.2.0
+        with:
+          fetch-depth: 0
+      - name: "📦 Setup pnpm"
         uses: pnpm/action-setup@v2.2.4
-      - name: "🏗  Initialize Node"
-        uses: actions/setup-node@v3
+        with:
+          run_install: true        
+      - name: "⎔ Setup node"
+        uses: actions/setup-node@v3.5.1
         with:
           node-version: 18
           cache: "pnpm"
-          always-auth: true
-          check-latest: true
-      - name: "🏗  Build"
-        run: pnpm install --prod && pnpm run build
-      - name: "🚀 Publish"
-        uses: cloudflare/pages-action@v1.3.0
+      - name: "🔍 Check"
+        run: pnpm check
+
+  deploy:
+    name: 🛳 Deploying
+    needs: [check]
+    timeout-minutes: 30    
+    runs-on: ubuntu-latest    
+    if: github.ref == 'refs/heads/main'    
+    steps:
+      - name: "⤵️ Check out code from GitHub"
+        uses: actions/checkout@v3.2.0
         with:
+          fetch-depth: 0
+      - name: "📦 Setup pnpm"
+        uses: pnpm/action-setup@v2.2.4
+      - name: "⎔ Setup node"
+        uses: actions/setup-node@v3.5.1
+        with:
+          node-version: 18
+          cache: "pnpm"
+      - name: "🏗 Build"
+        run: pnpm install --prod && pnpm run build
+      - name: "🚀 Publish"  
+        uses: cloudflare/pages-action@v1.3.0
+        id: publish
+        with:
+          projectName: "zsh"
+          directory: "build"        
           apiToken: ${{ secrets.CF_PAGES_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          projectName: "zsh"
-          directory: "build"
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+      - name: "✅ Pubished"
+        run: |
+          echo ${{ steps.publish.outputs.url }}
+          echo ${{ steps.publish.outputs.environment }}
