@@ -13,12 +13,14 @@ on:
 jobs:
   check:
     if: github.event.schedule != '0 07 * * 5'
+    name: "⚡"
     uses: z-shell/.github/.github/workflows/trunk.yml@main
     with:
       node_version: "18"
       pnpm_arguments: "pnpm i"
   upload:
     if: github.event.schedule == '0 07 * * 5'
+    name: "🆙"
     uses: z-shell/.github/.github/workflows/trunk.yml@main
     secrets:
       trunk-token: ${{ secrets.TRUNK_TOKEN }}
