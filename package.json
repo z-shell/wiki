@@ -1,5 +1,5 @@
 {
-  "name": "z-shell-wiki",
+  "name": "@z-shell/wiki",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -46,7 +46,7 @@
     "react-spinners": "0.13.7"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20221111.1",
+    "@cloudflare/workers-types": "4.20221111.1",
     "@crowdin/cli": "3.9.1",
     "@docusaurus/eslint-plugin": "2.2.0",
     "@docusaurus/module-type-aliases": "2.2.0",

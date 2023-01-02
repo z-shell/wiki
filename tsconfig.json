@@ -4,7 +4,7 @@
     "allowJs": true,
     "esModuleInterop": true,
     "jsx": "react",
-    "lib": ["DOM"],
+    "lib": ["dom", "esnext"],
     "noEmit": true,
     "types": ["node", "@docusaurus/module-type-aliases", "@docusaurus/preset-classic"],
     "baseUrl": ".",

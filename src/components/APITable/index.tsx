@@ -1,6 +1,15 @@
 /** @format */
 
-import React, {type ComponentProps, type ReactElement, type ReactNode, isValidElement, useRef, useEffect} from "react";
+import React, {
+  type ComponentProps,
+  type ReactElement,
+  type ReactNode,
+  isValidElement,
+  useRef,
+  Children,
+  useEffect,
+  forwardRef,
+} from "react";
 import {useHistory} from "@docusaurus/router";
 import styles from "./styles.module.css";
 
@@ -13,7 +22,7 @@ interface Props {
 function getText(node: ReactElement): string {
   let curNode: ReactNode = node;
   while (isValidElement(curNode)) {
-    [curNode] = React.Children.toArray(curNode.props.children);
+    [curNode] = Children.toArray(curNode.props.children);
   }
   return curNode as string;
 }
@@ -44,7 +53,7 @@ function APITableRow(
   );
 }
 
-const APITableRowComp = React.forwardRef(APITableRow);
+const APITableRowComp = forwardRef(APITableRow);
 
 /*
  * Note: this is not a quite robust component since it makes a lot of
@@ -52,7 +61,7 @@ const APITableRowComp = React.forwardRef(APITableRow);
  * should be generally correct in the MDX context.
  */
 export default function APITable({children, name}: Props): JSX.Element {
-  const [thead, tbody] = React.Children.toArray(children.props.children) as [
+  const [thead, tbody] = Children.toArray(children.props.children) as [
     ReactElement<{children: ReactElement[]}>,
     ReactElement<{children: ReactElement[]}>
   ];
@@ -60,7 +69,7 @@ export default function APITable({children, name}: Props): JSX.Element {
   useEffect(() => {
     highlightedRow.current?.focus();
   }, [highlightedRow]);
-  const rows = React.Children.map(tbody.props.children, (row: ReactElement<ComponentProps<"tr">>) => (
+  const rows = Children.map(tbody.props.children, (row: ReactElement<ComponentProps<"tr">>) => (
     <APITableRowComp name={name} ref={highlightedRow}>
       {row}
     </APITableRowComp>
