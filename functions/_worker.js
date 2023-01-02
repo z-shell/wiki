@@ -1,9 +1,5 @@
-interface Env {
-  R2_STORE: R2Bucket;
-}
-
 export default {
-  async fetch(request: Request, env: Env, context: ExecutionContext) {
+  async fetch(request, env, context) {
     try {
       const url = new URL(request.url);
       const cacheKey = new Request(url.toString(), request);
