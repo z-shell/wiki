@@ -150,6 +150,10 @@
     "message": "パンくずリストのナビゲーション",
     "description": "The ARIA label for the breadcrumbs"
   },
+  "theme.docs.DocCard.categoryDescription": {
+    "message": "{count} 件",
+    "description": "The default description for a category card in the generated index about how many items this category includes"
+  },
   "theme.docs.paginator.navAriaLabel": {
     "message": "ドキュメントのナビゲーション",
     "description": "The ARIA label for the docs pagination"
@@ -162,10 +166,6 @@
     "message": "次へ",
     "description": "The label used to navigate to the next doc"
   },
-  "theme.docs.DocCard.categoryDescription": {
-    "message": "{count} 件",
-    "description": "The default description for a category card in the generated index about how many items this category includes"
-  },
   "theme.docs.tagDocListPageTitle.nDocsTagged": {
     "message": "このタグのドキュメント1件 | このタグのドキュメント {count} 件",
     "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
@@ -176,6 +176,10 @@
   },
   "theme.docs.versionBadge.label": {
     "message": "バージョン: {versionLabel}"
+  },
+  "theme.common.editThisPage": {
+    "message": "このページを編集",
+    "description": "The link label to edit the current page"
   },
   "theme.docs.versions.unreleasedVersionLabel": {
     "message": "これはリリース前の{siteTitle} {versionLabel}のドキュメントです。",
@@ -192,10 +196,6 @@
   "theme.docs.versions.latestVersionLinkLabel": {
     "message": "最新バージョン",
     "description": "The label used for the latest version suggestion link label"
-  },
-  "theme.common.editThisPage": {
-    "message": "このページを編集",
-    "description": "The link label to edit the current page"
   },
   "theme.common.headingLinkTitle": {
     "message": "見出しへの直接リンク",
@@ -249,10 +249,6 @@
     "message": "サイドバーのカテゴリー \"{label}\" を折りたたむ/開く",
     "description": "The ARIA label to toggle the collapsible sidebar category"
   },
-  "theme.blog.post.readingTime.plurals": {
-    "message": "約{readingTime}分",
-    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-  },
   "theme.navbar.mobileLanguageDropdown.label": {
     "message": "言語",
     "description": "The label for the mobile language switcher dropdown"
@@ -268,6 +264,10 @@
   "theme.blog.post.readMoreLabel": {
     "message": "{title} について詳しく見る",
     "description": "The ARIA label for the link to full blog posts from excerpts"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "約{readingTime}分",
+    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
   "theme.docs.sidebar.collapseButtonTitle": {
     "message": "サイドバーを隠す",
@@ -299,6 +299,38 @@
   },
   "theme.SearchBar.seeAll": {
     "message": "{count} 件の結果を見る"
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "{count}件のドキュメントが見つかりました",
+    "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "『{query}』の検索結果",
+    "description": "The search page title for non-empty query"
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "ドキュメントを検索",
+    "description": "The search page title for empty query"
+  },
+  "theme.SearchPage.inputPlaceholder": {
+    "message": "ここに検索するキーワードを入力してください",
+    "description": "The placeholder for search page input"
+  },
+  "theme.SearchPage.inputLabel": {
+    "message": "検索",
+    "description": "The ARIA label for search page input"
+  },
+  "theme.SearchPage.algoliaLabel": {
+    "message": "Algoliaで検索",
+    "description": "The ARIA label for Algolia mention"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "検索結果が見つかりませんでした",
+    "description": "The paragraph for empty search result"
+  },
+  "theme.SearchPage.fetchingNewResults": {
+    "message": "新しい検索結果を取得しています...",
+    "description": "The paragraph for fetching new search results"
   },
   "theme.SearchBar.label": {
     "message": "検索",
@@ -395,38 +427,6 @@
   "theme.SearchModal.placeholder": {
     "message": "ドキュメントを検索",
     "description": "The placeholder of the input of the DocSearch pop-up modal"
-  },
-  "theme.SearchPage.documentsFound.plurals": {
-    "message": "{count}件のドキュメントが見つかりました",
-    "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-  },
-  "theme.SearchPage.existingResultsTitle": {
-    "message": "『{query}』の検索結果",
-    "description": "The search page title for non-empty query"
-  },
-  "theme.SearchPage.emptyResultsTitle": {
-    "message": "ドキュメントを検索",
-    "description": "The search page title for empty query"
-  },
-  "theme.SearchPage.inputPlaceholder": {
-    "message": "ここに検索するキーワードを入力してください",
-    "description": "The placeholder for search page input"
-  },
-  "theme.SearchPage.inputLabel": {
-    "message": "検索",
-    "description": "The ARIA label for search page input"
-  },
-  "theme.SearchPage.algoliaLabel": {
-    "message": "Algoliaで検索",
-    "description": "The ARIA label for Algolia mention"
-  },
-  "theme.SearchPage.noResultsText": {
-    "message": "検索結果が見つかりませんでした",
-    "description": "The paragraph for empty search result"
-  },
-  "theme.SearchPage.fetchingNewResults": {
-    "message": "新しい検索結果を取得しています...",
-    "description": "The paragraph for fetching new search results"
   },
   "theme.IdealImageMessage.loading": {
     "message": "読み込み中…",
