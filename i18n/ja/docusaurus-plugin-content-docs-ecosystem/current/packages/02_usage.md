@@ -1,8 +1,8 @@
 ---
 id: usage
-title: "📦 Usage"
+title: "📦 使用方法"
 image: /img/png/theme/z/320x320.png
-description: Zi packages usage information.
+description: Ziパッケージの使用方法。
 keywords:
   - zpackage
   - packages
@@ -13,22 +13,22 @@ keywords:
 
 import Emoji from '@site/src/components/Emoji'; import APITable from '@site/src/components/APITable'; import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
-## Package repositories
+## パッケージ集
 
-For all the available packages use [GitHub search][github-search].
+利用可能なすべてのパッケージについては、 [GitHub検索][github-search]をご利用ください。
 
 ```mdx-code-block
 <APITable>
 ```
 
-|      Package Name      | 説明                                                                                                  |
+|         パッケージ名         | 説明                                                                                                  |
 |:----------------------:|:--------------------------------------------------------------------------------------------------- |
-|      [any-node][]      | The any Node module(s) locally in a newly created plugin directory.                                 |
-|      [any-gem][]       | The any Gem(s) locally in a newly created plugin directory.                                         |
-|        [apr][]         | The Apache Portable Runtime (APR) library.                                                          |
-|        [fzf][]         | The fzf command-line fuzzy finder.                                                                  |
-|        [fzy][]         | The fzy command-line fuzzy finder.                                                                  |
-|       [pyenv][]        | The pyenv Python virtual environment manager.                                                       |
+|      [any-node][]      | 新しく作成されたプラグインディレクトリに、任意のNodeモジュール（複数可）を配置します。                                                       |
+|      [any-gem][]       | 新しく作成されたプラグインディレクトリに、任意のGem（複数可）を配置します。                                                             |
+|        [apr][]         | Apache Portable Runtime (APR) ライブラリです。                                                              |
+|        [fzf][]         | コマンドラインファジーファインダーのfzf。                                                                              |
+|        [fzy][]         | コマンドラインファジーファインダーのfzy。                                                                              |
+|       [pyenv][]        | Pythonの仮想環境マネージャー pyenv。                                                                            |
 |       [remark][]       | The remark Markdown processor.                                                                      |
 |       [doctoc][]       | The doctoc Markdown processor.                                                                      |
 |     [ls_colors][]      | The LS_COLORS and setup a zsh-completion system color scheme.                                       |
@@ -36,11 +36,11 @@ For all the available packages use [GitHub search][github-search].
 |    [asciidoctor][]     | The asciidoctor Markdown processor.                                                                 |
 | [system-completions][] | Moves the stock Zsh completions under the control of Zi.                                            |
 |  [brew-completions][]  | The Homebrew Shell Completion under the control of Zsh & Zi.                                        |
-|      [ecs-cli][]       | The AWS ECS CLI.                                                                                    |
-|     [subversion][]     | The Subversion client.                                                                              |
-|   [github-issues][]    | The GitHub Issues client.                                                                           |
-| [github-issues-srv][]  | The GitHub Issues server.                                                                           |
-|    [firefox-dev][]     | The Firefox Developer Edition.                                                                      |
+|      [ecs-cli][]       | AWS ECS のCLI。                                                                                       |
+|     [subversion][]     | Subversionのクライアント。                                                                                  |
+|   [github-issues][]    | GitHub Issuesのクライアントです。                                                                             |
+| [github-issues-srv][]  | GitHub Issues サーバーです。                                                                               |
+|    [firefox-dev][]     | Firefox Developer Edition。                                                                          |
 |        [zsh][]         | The Zsh mirror of zsh-users.                                                                        |
 |         [nb][]         | Bookmarking, and archiving with linking, tagging, search, Git syncing, Pandoc conversion, and more. |
 |      [zsh-bin][]       | Package of statically-linked, hermetic, relocatable - romkatv/zsh-bin.                              |
@@ -49,9 +49,9 @@ For all the available packages use [GitHub search][github-search].
 </APITable>
 ```
 
-## Package profiles
+## パッケージの概要
 
-### Apache Portable Runtime (APR) library
+### Apache Portable Runtime (APR) ライブラリ
 
 <table>
   <tbody>
