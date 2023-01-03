@@ -442,7 +442,7 @@ The commands `zi update git-unique`, and `zi delete git-unique` will work as exp
 
 - `id-as'auto'`:
 
-There's a special value to the `id-as'…'` ice – `auto`. It causes the nickname to be automatically set to the last component of the plugin name or snippet URL. For example:
+There's a special value to the `id-as'…'` ice – `auto`. It causes the nickname to be automatically set to the last component of the plugin name or snippet URL. 例:
 
 ```shell showLineNumbers
 zi ice as"program" id-as"auto"

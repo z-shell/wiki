@@ -24,21 +24,21 @@ keywords:
      - [ice-modifiers][]のリストが複数存在する場合があります。
      - ice修飾子リストはプロファイルに保存されます。デフォルトでは少なくとも 1 つのプロファイルがあります。
      - the [ice修飾子][] を選択的にオーバーライドすることができます。
-   - automatically provide so-called shims (i.e.: forwarder scripts) for the binaries,
-   - extend `$PATH` to expose the binaries,
-   - it can run `Makefile` and more.
+   - バイナリに対していわゆるシム（転送スクリプト）を自動的に提供します。
+   - バイナリを公開するために `$PATH` を編集します。
+   - `Makefile` などを実行することができます。
 
-3. In general, Zi has many hooks which allow surprising things, however, their content often evolves to a gradually better one and it's hard to keep track of all the current versions.
+3. 一般に、Ziには驚くようなことを可能にするフックがたくさんありますが、その内容は徐々に良いものに進化していくことが多く、現在のバージョンをすべて把握することは困難です。
 
 :::info
 
-The [bin-gem-node][] annex is recommended, otherwise, some packages will fail to install due to missing functionality.
+[bin-gem-node][] 別館を推奨します。そうでない場合、一部のパッケージは機能が不足しているためインストールに失敗します。
 
 :::
 
-## The [any-gem][] and [any-node][] packages
+## [any-gem][] パッケージと [any-node][] パッケージ
 
-They allow the installation of any Gem(s) or Node module(s) locally in a newly created plugin directory. For example:
+これらは、新しく作成されたプラグインディレクトリに、任意のGem（複数可）やNodeモジュール（複数可）をローカルインストールすることを可能にします。 例:
 
 ```shell showLineNumbers
 zi pack param='GEM -> rails' for any-gem
@@ -49,7 +49,7 @@ If the installation is used in the `.zshrc` file then use `id-as'…'`, then Zi 
 
 :::note
 
-The Unicode arrow is allowed in Zi syntax as in the example below.
+Zi の構文では、以下の例のように Unicode 矢印を使用することができます。
 
 :::
 
@@ -57,7 +57,7 @@ The Unicode arrow is allowed in Zi syntax as in the example below.
 zi id-as=jekyll pack param='GEM → jekyll' for any-gem
 ```
 
-The binaries will be exposed without altering the PATH via shims. Shims are correctly removed when deleting a plugin with `zi delete …` The so-called packages are GitHub repositories holding a `package.json` file with the meta-data in them. This way you don't have to (but still can) specify ice-modifiers, which might be handy when the [ice-modifiers][] list is long and complex.
+バイナリは shims 経由で PATH を変更することなく公開されます。 `zi delete …` でプラグインを削除すると、shimsが正しく削除されます。実態としては、メタデータを含む `package.json` ファイルを保持する GitHub リポジトリです。 この方法では、ice修飾子を指定する必要がありません（もちろん可能です）。 [ice修飾子][] リストは長くて複雑なので便利かもしれません。
 
 ## 導入例
 
@@ -86,11 +86,11 @@ The installation is like with package-manager because you don't need to invoke Z
 
 ## 通常のソフトウェアインストールにZiパッケージを使用する場合の長所
 
-Using Zi to install software where one could use a regular package manager has several advantages:
+通常のパッケージマネージャでインストールできるソフトウェアをZiでインストールすることには、いくつかの利点があります。
 
-1. **Pro:** The Zi packages typically use the URLs to the official and _latest_ distributions of the software (e.g.: the [ecs-cli][] package, which uses the URL: `https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest` when installing on Linux).
+1. **長所:** Zi パッケージは通常、そのソフトウェアの_公式かつ最新の_ ディストリビューションの URL を使用します。 (例: [ecs-cli][] パッケージは、Linux にインストールする場合、URL: `https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest` を使用します。)
 
-2. **Pro:** You can influence the installation easily by specifying Zi ice-modifiers, e.g.:
+2. **長所:** Zi ice修飾子を指定することで、簡単にインストールに編集を加えることができます。
 
    ```shell
    zi pack=bgn atclone="cp fzy.1 $ZI[MAN_DIR]/man1" for fzy
@@ -98,7 +98,7 @@ Using Zi to install software where one could use a regular package manager has s
 
    to install also the man page for the `fzy` fuzzy finder (this omission in the package will be fixed soon).
 
-3. **Pro:** The installation is much more flexible than a normal package manager. Example available degrees of freedom:
+3. **長所:** 通常のパッケージマネージャと比較して、インストールが非常に柔軟です。 使用可能な自由度の例:
 
    - to install from Git or release-tarball, or a binary-release file,
    - to install via shims or via extending `$PATH`, or by copying to `$ZPFX/bin`,
@@ -116,9 +116,9 @@ Thus, summing up 1. with 4., it might be nice/convenient too, for example, have 
 
 2. Populate the `package.json` – I suggest grabbing the one for `fzf` or `doctoc` and doing a few substitutions like [doctoc][] → `your-project` and then simply filling the `default` profile in the `zi-ices` object – it is same as passing ice-modifiers to `zi ice …` but in JSON.
 
-3. The project name in the `package.json` should start with `zsh-`. The prefix will be skipped when specifying it with Zi.
+3. `package.json` のプロジェクト名は、 `zsh-` で開始する必要があります。 Zi で指定する場合、このプレフィックスはスキップされます。
 
-4. Commit and push.
+4. コミットしてプッシュする。
 
 <!-- end-of-file -->
 <!-- links -->
