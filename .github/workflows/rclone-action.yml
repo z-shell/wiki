@@ -29,11 +29,11 @@ jobs:
         uses: z-shell/.github/actions/rclone@v1.0.5
         with:
           config: ${{ secrets.R2_STORE }}
-          args: "sync ${{ env.img_local_path }} ${{ env.img_remote_path }}"
+          args: "copy ${{ env.img_local_path }} ${{ env.img_remote_path }}"
           debug: false
       - name: "⏫ Run rclone/r2-store/assets"
         uses: z-shell/.github/actions/rclone@v1.0.5
         with:
           config: ${{ secrets.R2_STORE }}
-          args: "sync ${{ env.assets_local_path }} ${{ env.assets_remote_path }}"
+          args: "copy ${{ env.assets_local_path }} ${{ env.assets_remote_path }}"
           debug: false
