@@ -90,5 +90,4 @@ zi light z-shell/zgdbm
 <!-- external -->
 
 [z-shell/zpmod]: https://github.com/z-shell/zpmod
-[zi]: https://github.com/z-shell/zi
 [z-shell/zgdbm]: https://github.com/z-shell/zgdbm
