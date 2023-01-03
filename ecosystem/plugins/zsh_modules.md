@@ -5,11 +5,7 @@ image: /img/png/theme/z/320x320.png
 description: Plugins & Modules Introduction
 toc_max_heading_level: 3
 keywords:
-  - plugins
-  - modules
-  - zmodules
   - zsh-modules
-  - zsh-plugins
 ---
 
 <!-- @format -->
@@ -24,20 +20,8 @@ Many plugin managers do not offer a compilation of plugins, the module is a solu
 
 ### Install zpmod
 
-:::note
-
-This script can be used with most plugin managers and [Zi][] is not required.
-
-:::
-
 <Tabs>
   <TabItem value="zi" label="Zi" default>
-
-:::tip
-
-[Zi][] users can build the module by issuing the following command instead of running the above `build.sh` script.
-
-:::
 
 ```shell
 zi module build
@@ -51,10 +35,10 @@ This command will compile the module and display instructions on what to add to 
 Install just the **standalone** binary which can be used with any other plugin manager.
 
 ```shell
-sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a zpmod
+sh <(curl -fsSL https://raw.githubusercontent.com/z-shell/zpmod/main/Scripts/install.sh)
 ```
 
-This script will display what to add to `~/.zshrc` (2 lines) and show usage instructions.
+This script will display instructions on what to add to `~/.zshrc`.
 
   </TabItem>
 </Tabs>
