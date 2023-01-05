@@ -18,7 +18,7 @@ export interface EmojiProps extends HTMLAttributes<HTMLSpanElement> {
 export default function Emoji(props: EmojiProps) {
   const {label, symbol, ...rest} = props;
   return (
-    <span aria-hidden={label ? undefined : true} aria-label={label || undefined} {...rest} role='img'>
+    <span aria-hidden={label != null ? undefined : true} aria-label={label ?? undefined} {...rest} role='img'>
       {symbol}
     </span>
   );

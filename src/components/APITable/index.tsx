@@ -32,7 +32,7 @@ function APITableRow(
   ref: React.ForwardedRef<HTMLTableRowElement>
 ) {
   const entryName = getText(children);
-  const id = name ? `${name}-${entryName}` : entryName;
+  const id = name != null ? `${name}-${entryName}` : entryName;
   const anchor = `#${id}`;
   const history = useHistory();
   return (

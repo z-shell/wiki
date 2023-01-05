@@ -1,6 +1,5 @@
 extends:
   - stylelint-config-standard
-  - stylelint-config-recommended
   - stylelint-config-recess-order
   - stylelint-config-prettier
 plugins:

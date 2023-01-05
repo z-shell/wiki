@@ -5,7 +5,7 @@ import Loadable from "@loadable/component";
 import Spinner from "@site/src/components/Spinner";
 import "asciinema-player/dist/bundle/asciinema-player.css";
 
-type PlayerConfig = {
+interface PlayerConfig {
   src: string;
   cols?: number;
   rows?: number;
@@ -21,16 +21,16 @@ type PlayerConfig = {
   terminalLineHeight?: number;
   terminalFontFamily?: string;
   terminalFontSize?: string;
-};
+}
 
 export default function Player(props: PlayerConfig): JSX.Element {
   const {src, ...options} = props;
   const element = useRef<HTMLDivElement>(null);
   const [player, setPlayer] = useState<typeof import("asciinema-player")>();
-  const showPlayer = player ? <div ref={element} /> : <Spinner />;
+  const showPlayer = player != null ? <div ref={element} /> : <Spinner />;
 
   useEffect(() => {
-    const library = Loadable(() => import("asciinema-player"));
+    const library = Loadable(async () => await import("asciinema-player"));
     library.load().then((module) => {
       setPlayer(module);
     });

@@ -1,31 +1,31 @@
 env:
   browser: true
-  commonjs: true
+  es2022: true
   node: true
 extends:
-  - eslint:recommended
+  - plugin:react/recommended
+  - standard-with-typescript
   - plugin:react-hooks/recommended
-  - airbnb
-  - plugin:@typescript-eslint/recommended
   - prettier
   - plugin:@docusaurus/recommended
 settings:
-  import/resolver:
+  "import/resolver":
     typescript: {}
     node:
       extensions: [".js", ".jsx", ".ts", ".tsx"]
-  parser: "@typescript-eslint/parser"
+parser: "@typescript-eslint/parser"
 parserOptions:
   ecmaVersion: latest
+  sourceType: module
   ecmaFeatures:
     jsx: true
-  sourceType: module
+  project:
+    - tsconfig.json
 plugins:
   - react-hooks
   - "@typescript-eslint"
   - "@docusaurus"
-rules:
-  {
+rules: {
     "semi": [2, "always"],
     "prefer-const": "error",
     "no-undef": 0,
@@ -49,8 +49,6 @@ rules:
     "prefer-destructuring": 1,
     "prefer-named-capture-group": 1,
     "prefer-template": 1,
-    "jsx-a11y/click-events-have-key-events": 1,
-    "jsx-a11y/no-noninteractive-element-interactions": 1,
     "react-hooks/rules-of-hooks": 2,
     "react-hooks/exhaustive-deps": 2,
     "react/jsx-filename-extension": [1, {extensions: [".js", ".jsx", ".ts", ".tsx"]}],
@@ -62,6 +60,7 @@ rules:
     "react/no-unstable-nested-components": [1, {allowAsProps: true}],
     "react/prefer-stateless-function": 1,
     "react/require-default-props": [2, {ignoreFunctionalComponents: true}],
+    "import/prefer-default-export": 0,
     "@docusaurus/string-literal-i18n-messages": 2,
     "@docusaurus/no-untranslated-text": [1, {ignoredStrings: ["·", "—", "×"]}],
     "import/extensions": 0,
@@ -90,6 +89,6 @@ rules:
           warnOnUnassignedImports: true,
         },
       ],
-    "import/prefer-default-export": 0,
-    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    #"@typescript-eslint/strict-boolean-expressions": 0, # <-- TODO
   }

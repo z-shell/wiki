@@ -20,15 +20,15 @@ export default function ImgShow({
   height?: string;
   width?: string;
 }): JSX.Element {
-  const Image = Loadable(() => import("@theme/IdealImage"));
+  const Image = Loadable(async () => await import("@theme/IdealImage"));
   return (
     <span className={styles.ImgClass}>
       <Image
         fallback={<Spinner />}
         alt={alt}
         img={img}
-        aria-hidden={label ? undefined : true}
-        aria-label={label || undefined}
+        aria-hidden={label != null ? undefined : true}
+        aria-label={label ?? undefined}
         role='img'
         {...rest}>
         {children}

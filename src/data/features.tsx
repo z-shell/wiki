@@ -5,11 +5,11 @@ const turbo = () => <i className='fa-6x fa-solid fa-forward' />;
 const stats = () => <i className='fa-8x fa-solid fa-ranking-star' />;
 const create = () => <i className=' fa-6x fa-solid fa-layer-group' />;
 
-export type FeatureItem = {
+export interface FeatureItem {
   title: string;
   image: () => JSX.Element;
   description: JSX.Element;
-};
+}
 
 const FEATURES: FeatureItem[] = [
   {

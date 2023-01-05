@@ -119,6 +119,6 @@ This will register the `dlink'…'` and `dlink0'…'` ice-modifiers and also the
 <!-- links -->
 <!-- external -->
 
-[open shift-link]: https://www.openshift.com/
+[open-shift-link]: https://www.openshift.com/
 [pulumi-link]: https://www.pulumi.com/
 [terraform-link]: http://releases.hashicorp.com/terraform

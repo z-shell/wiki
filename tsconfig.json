@@ -11,6 +11,7 @@
     "paths": {
       "@site/*": ["./*"]
     },
+    "strictNullChecks": true,
     "skipLibCheck": true
   },
   "exclude": ["functions/**/*"]
