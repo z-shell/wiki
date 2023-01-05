@@ -50,7 +50,7 @@ jobs:
       pull-requests: write # for preactjs/compressed-size-action to write a PR review
     steps:
       - name: "⤵️ Check out code from GitHub"
-        uses: actions/checkout@v3.2.0
+        uses: actions/checkout@v3.3.0
         with:
           fetch-depth: 0
       - name: "📦 Setup pnpm"
@@ -79,7 +79,7 @@ jobs:
         node-version: [18]
     steps:
       - name: "⤵️ Check out code from GitHub"
-        uses: actions/checkout@v3.2.0
+        uses: actions/checkout@v3.3.0
         with:
           fetch-depth: 0
       - name: "📦 Setup pnpm"
