@@ -3,7 +3,7 @@ slug: feature-rich-plugin-manager
 title: Fast and feature-rich plugin manager for Zsh
 authors: ss-o
 sidebar_position: 1
-hide_title: false
+hide_title: true
 hide_table_of_contents: true
 sidebar_label: Swiss Army Knife for Zsh
 description: Introduction to a Swiss Army Knife for Zsh - Unix shell
@@ -13,14 +13,17 @@ tags:
 image: /img/png/theme/z/320x320.png
 ---
 
-<!-- @format -->
-
 ## 🧙‍♂️ 🪄 [❮ ZI ❯](https://github.com/z-shell/zi) - A Swiss Army Knife for [Zsh](https://zsh.sourceforge.io/) - [Unix shell](https://en.wikipedia.org/wiki/Unix_shell)
 
-<div className="ScreenView">
-  <img className="ImageView" height="1024" width="768" src="/img/zsh/zsh1.png#gh-dark-mode-only" alt="Zsh Dark" />
-  <img className="ImageView" height="1024" width="768" src="/img/zsh/zsh2.png#gh-light-mode-only" alt="Zsh Light" />
-</div>
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
+
+<ThemedImage className="ImageView" alt="Zshell Logo"
+  sources={{
+    light: useBaseUrl('/img/zsh/artwork/png/color_horizontal_icon.png'),
+    dark: useBaseUrl('/img/zsh/artwork/png/white_horizontal_icon.png'),
+  }}
+/>
 
 Designed to glue everything together. 🔗
 
