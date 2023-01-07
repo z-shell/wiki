@@ -40,8 +40,6 @@ const config = {
           },
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          remarkPlugins: [],
-          rehypePlugins: [],
         },
         blog: {
           editUrl: ({locale, blogDirPath, blogPath}) => {
@@ -54,7 +52,7 @@ const config = {
           postsPerPage: "ALL",
           feedOptions: {
             type: "all",
-            copyright: `Copyright © ${new Date().getFullYear()} Z-Shell Community.`,
+            copyright: `Copyright © ${new Date().getFullYear()} Z-Shell Community`,
           },
         },
         sitemap: {changefreq: "weekly"},
