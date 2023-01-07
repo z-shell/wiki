@@ -3024,12 +3024,12 @@ packages:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
       '@types/eslint': 8.4.10
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
 
   /@types/eslint/8.4.10:
     resolution: {integrity: sha512-Sl/HOqN8NKPmhWo2VBEPm0nvHnu2LL3v9vKo8MEq0EtbJ4eVzGPl41VNPvn5E1i5poMk4/XD8UriLHpJvEP/Nw==}
     dependencies:
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
       '@types/json-schema': 7.0.11
 
   /@types/estree/0.0.39:
@@ -3038,6 +3038,9 @@ packages:
 
   /@types/estree/0.0.51:
     resolution: {integrity: sha512-CuPgU6f3eT/XgKKPqKd/gLZV1Xmvf1a2R5POBOGQa6uv82xpls89HU5zKeVoyR8XzHd1RGNOlQlvUe3CFkjWNQ==}
+
+  /@types/estree/1.0.0:
+    resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
 
   /@types/express-serve-static-core/4.17.32:
     resolution: {integrity: sha512-aI5h/VOkxOF2Z1saPy0Zsxs5avets/iaiAJYznQFm5By/pamU31xWKL//epiF4OfUA2qTOc9PV6tCUjhO8wlZA==}

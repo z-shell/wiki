@@ -1,23 +1,11 @@
 {
   "recommendations": [
-    "firefox-devtools.vscode-firefox-debug",
-    "gruntfuggly.todo-tree",
-    "sourcegraph.sourcegraph",
-    "davidanson.vscode-markdownlint",
     "editorconfig.editorconfig",
     "vivaxy.vscode-conventional-commits",
-    "mgmcdermott.vscode-language-babel",
-    "esbenp.prettier-vscode",
-    "stylelint.vscode-stylelint",
-    "dbaeumer.vscode-eslint",
     "crowdin.vscode-crowdin",
-    "wayou.vscode-todo-highlight",
-    "unifiedjs.vscode-mdx",
     "trunk.io",
     "tyriar.sort-lines",
-    "rvest.vs-code-prettier-eslint",
     "streetsidesoftware.code-spell-checker",
-    "znck.grammarly",
-    "eliostruyf.vscode-front-matter"
+    "znck.grammarly"
   ]
 }

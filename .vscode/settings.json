@@ -5,23 +5,6 @@
   "markdownlint.config": {
     "extends": ".trunk/config/.markdownlint.yaml"
   },
-  "conventionalCommits.scopes": [
-    "maintenance",
-    "library",
-    "feature",
-    "refactor",
-    "style",
-    "chore",
-    "revert",
-    "docs",
-    "deps",
-    "misc",
-    "build",
-    "perf",
-    "test",
-    "fix",
-    "ci"
-  ],
   "shellformat.useEditorConfig": true,
   "todo-tree.general.tags": ["BUG", "HACK", "FIXME", "TODO", "NOTE", "[ ]", "[x]"],
   "todo-tree.highlights.customHighlight": {
@@ -60,10 +43,6 @@
       "background": "#0077ff",
       "opacity": 0.1
     }
-  },
-  "eslint.options": {
-    "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"],
-    "eslint.validate": ["markdown", "mdx", "javascript", "javascriptreact", "typescript", "typescriptreact"]
   },
   "cSpell.enableFiletypes": [
     "editorconfig",
@@ -104,83 +83,5 @@
   "grammarly.config.suggestions.PassiveVoice": true,
   "grammarly.config.suggestions.StylisticFragments": true,
   "grammarly.config.suggestions.UnnecessaryEllipses": true,
-  "grammarly.startTextCheckInPausedState": true,
-  "eslint.packageManager": "pnpm",
-  "editor.quickSuggestions": {
-    "other": "inline"
-  },
-  "[markdown]": {},
-  "frontMatter.content.autoUpdateDate": false,
-  "frontMatter.preview.host": "http://localhost:3000",
-  "frontMatter.framework.startCommand": "pnpm start",
-  "frontMatter.taxonomy.contentTypes": [
-    {
-      "name": "default",
-      "pageBundle": false,
-      "fields": [
-        {
-          "title": "Title",
-          "name": "title",
-          "type": "string"
-        },
-        {
-          "title": "Description",
-          "name": "description",
-          "type": "string"
-        },
-        {
-          "title": "Publishing date",
-          "name": "date",
-          "type": "datetime",
-          "default": "{{now}}",
-          "isPublishDate": true
-        },
-        {
-          "title": "Content preview",
-          "name": "preview",
-          "type": "image"
-        },
-        {
-          "title": "Is in draft",
-          "name": "draft",
-          "type": "boolean"
-        },
-        {
-          "title": "Tags",
-          "name": "tags",
-          "type": "tags"
-        },
-        {
-          "title": "Categories",
-          "name": "categories",
-          "type": "categories"
-        },
-        {
-          "title": "id",
-          "name": "id",
-          "type": "string"
-        },
-        {
-          "title": "image",
-          "name": "image",
-          "type": "string"
-        },
-        {
-          "title": "keywords",
-          "name": "keywords",
-          "type": "choice",
-          "choices": ["prezto", "oh-my-zsh", "migration"]
-        },
-        {
-          "title": "sidebar_position",
-          "name": "sidebar_position",
-          "type": "datetime"
-        }
-      ]
-    }
-  ],
-  "frontMatter.content.publicFolder": "build",
-  "frontMatter.media.defaultSorting": "",
-  "frontMatter.taxonomy.alignFilename": false,
-  "frontMatter.telemetry.disable": true
+  "grammarly.startTextCheckInPausedState": true
 }
