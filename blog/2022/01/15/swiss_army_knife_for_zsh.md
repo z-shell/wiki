@@ -19,7 +19,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 
 <ThemedImage className="ImageView" alt="Zshell Logo"
-  sources={{
+sources={{
     light: useBaseUrl('/img/zsh/artwork/png/color_horizontal_icon.png'),
     dark: useBaseUrl('/img/zsh/artwork/png/white_horizontal_icon.png'),
   }}

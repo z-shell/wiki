@@ -77,8 +77,6 @@ const config = {
         },
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
-        remarkPlugins: [],
-        rehypePlugins: [],
       }),
     ],
     [
@@ -97,8 +95,6 @@ const config = {
         },
         showLastUpdateAuthor: false,
         showLastUpdateTime: true,
-        remarkPlugins: [],
-        rehypePlugins: [],
       }),
     ],
     [
@@ -117,7 +113,6 @@ const config = {
           {tagName: "link", rel: "icon", href: "img/logo.png"},
           {tagName: "link", rel: "manifest", href: "manifest.json"},
           {tagName: "link", rel: "browserconfig", href: "browserconfig.xml"},
-          {tagName: "link", rel: "preload", href: "/assets/fonts/jetbrainsmono-variable.css", as: "style"},
           /* Windows  */
           {tagName: "meta", name: "msapplication-TileColor", content: "#23b898"},
           {tagName: "meta", name: "msapplication-TileImage", content: "img/logo.png"},
@@ -194,25 +189,6 @@ const config = {
               },
             ],
           },
-          /** {
-            type: "dropdown",
-            position: "right",
-            label: "Feed",
-            items: [
-              {
-                label: "JSON",
-                href: "https://wiki.zshell.dev/blog/feed.json",
-              },
-              {
-                label: "RSS",
-                href: "https://wiki.zshell.dev/blog/rss.xml",
-              },
-              {
-                label: "Atom",
-                href: "https://wiki.zshell.dev/blog/atom.xml",
-              },
-            ],
-          }, */
           {
             href: "https://github.com/z-shell/zi",
             position: "right",
