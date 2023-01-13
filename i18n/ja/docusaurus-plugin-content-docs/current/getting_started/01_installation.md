@@ -20,20 +20,25 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Lin
   <TabItem value="instant-source" label="Instant" default>
 
 ```shell title="~/.zshrc"
-source <(curl -sL git.io/zi-loader); zzinit
+source <(curl -sL init.zshell.dev); zzinit
 ```
 
   </TabItem>
   <TabItem value="verified-source" label="Verified">
 
-Verify the sha256 [checksum][checksum] for a file: `lib/zsh/init.zsh`:
+:::caution
+
+This setup method requires manually verifying the sha256 [checksum][checksum-txt] for a file `lib/zsh/init.zsh` every time the content is changed in the repository.
+
+:::
 
 ```shell showLineNumbers title="~/.zshrc"
 local cs_ok='7fab1ecb8d2ffbdb4aa98dd1e51cebaeaa4d8137e1de11938f3e0df24af262bb'
-local cs=$(sha256sum <(curl -sL git.io/zi-loader) | awk '{print $1}')
-[[ $cs_ok == $cs ]] && { source <(curl -sL git.io/zi-loader); zzinit; } || {
-  print -P "%F{160}▓▒░ Houston, we have a problem, the %F{226}$cs%F{160} do not match\!%f%b"; exit 1
+local cs_get=$(sha256sum <(curl -sL init.zshell.dev) | awk '{print $1}')
+[[ $cs_ok == $cs_get ]] && { source <(curl -sL init.zshell.dev); zzinit; } || {
+  print -P "%F{160}▓▒░ Houston, we have a problem, the %F{226}$cs_get%F{160} do not match\!%f%b"; return 1
 }
+unset cs_ok cs_get
 ```
 
   </TabItem>
@@ -45,11 +50,11 @@ local cs=$(sha256sum <(curl -sL git.io/zi-loader) | awk '{print $1}')
 
 :::tip
 
-- ファイル: `lib/sh/install.sh` の sha256[checksum][checksum]を検証します
+- ファイル: `lib/sh/install.sh` の sha256[checksum][checksum-txt]を検証します
 - 必要であれば `-b <tag>` または `-b <branch>` を追加してください。 以下のように:
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
+sh -c "$(curl -fsSL get.zshell.dev)" -- -i skip -b main
 ```
 
 :::
@@ -60,20 +65,19 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
 最小構成で`.zshrc`に設定するには:
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" --
+sh -c "$(curl -fsSL get.zshell.dev)" --
 ```
 
   </TabItem>
   <TabItem value="minimal-loader" label="Loader">
 
-最小構成で[loader](#loader)に設定する場合:
+Install and include minimal configuration with [loader](#loader):
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a loader
+sh -c "$(curl -fsSL get.zshell.dev)" -- -a loader
 ```
 
-を実行します
-インストーラはloaderをダウンロードし、以下のスニペットを`.zshrc`に追加します
+The installer will download the loader and add the snippet below to the `.zshrc` file.
 
 ```shell showLineNumbers
 if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]]; then
@@ -87,7 +91,7 @@ fi
 
 :::
 
-次に、`exec zsh`でシェルを再読み込みします。 すべて完了です！
+Then reload the shell with: `exec zsh`. すべて完了です！
 
   </TabItem>
   <TabItem value="repository" label="Repository">
@@ -95,7 +99,7 @@ fi
 デフォルトまたは <Link to="/docs/guides/customization#customizing-paths">カスタム</Link> の値を使用してリポジトリをクローンします:
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
+sh -c "$(curl -fsSL get.zshell.dev)" -- -i skip
 ```
 
   </TabItem>
@@ -104,7 +108,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
 推奨する <Link to="/ecosystem/annexes/overview">別館</Link> と最小構成の設定を使用してインストール: 
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
+sh -c "$(curl -fsSL get.zshell.dev)" -- -a annex
 ```
 
   </TabItem>
@@ -113,7 +117,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
 推奨する <Link to="/ecosystem/annexes/overview">別館</Link> と最小構成の設定を使用し、また <Link href="https://github.com/zdharma/zunit">zdharma/zunit</Link> をインストール:
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
+sh -c "$(curl -fsSL get.zshell.dev)" -- -a zunit
 ```
 
   </TabItem>
@@ -168,7 +172,7 @@ autoload -Uz _zi
 
 ## <i class="fas fa-spinner fa-spin"></i> インストール後 {#post-install}
 
-新しくインストールした後は、 `exec zsh` でシェルをリロードし、 `zi self-update` で Zi をコンパイルすることをお勧めします。 `zi -h` を実行することで、利用可能な全コマンドを確認できます。 Zi の機能性とパフォーマンスを向上させるか、Wiki を調べて始めましょう。
+新しくインストールした後は、 `exec zsh -il` でシェルをリロードし、 `zi self-update` で Zi をコンパイルすることをお勧めします。 `zi -h` を実行することで、利用可能な全コマンドを確認できます。 Zi の機能性とパフォーマンスを向上させるか、Wiki を調べて始めましょう。
 
 何か問題があったり、助けが必要な場合は どの言語でも<Emoji symbol="🤦‍♂️" label="man-facepalming"/>、 [それについて話し合うか][discuss]、 [issueを作成][issue]してください。
 
@@ -181,7 +185,7 @@ Zi の改善に役立ちます。 どうか、シェア、貢献、または [�
 ### <i class="fa-solid fa-list-check"></i>&nbsp;<Link href="https://github.com/z-shell/playground">playgroundで提案・リクエストできます</Link>
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a ???
+sh -c "$(curl -fsSL get.zshell.dev)" -- -a ???
 ```
 
 ## <i class="fas fa-sync-alt fa-spin"></i>&nbsp;ウォーミングアップが必要ですか？
@@ -240,7 +244,7 @@ typeset -g ZI_MOD_DEBUG=1
   <TabItem value="standalone" label="Standalone">
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
+sh <(curl -sL src.zshell.dev/sh/install_zpmod.sh)
 ```
 
   </TabItem>
@@ -248,37 +252,36 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
 
 ## <i class="fas fa-sync-alt fa-spin"></i> 利用可能なリンク {#available-links}
 
-[ステータスページ][status] <Emoji symbol="✅" label="check-mark-button"/>
+[Status page][status] <Emoji symbol="✅" label="check-mark-button"/>
 
 ### <i class="fa-solid fa-gear"></i> インストーラー {#installer}
 
-| サービス                     | URL                                                                       |
-|:------------------------ | ------------------------------------------------------------------------- |
-| [リダイレクト][get.zshell.dev] | <https://get.zshell.dev>                                                  |
-| [IPFS][ipfs.io]          | <https://ipfs.zshell.dev/sh/install.sh>                                   |
-| [直接][direct-install]     | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
+| サービス       | URL                                                                       |
+|:---------- | ------------------------------------------------------------------------- |
+| リダイレクト     | <https://get.zshell.dev>                                                  |
+| R2         | <https://r2.zshell.dev/src/sh/install.sh>                                 |
+| Cloudflare | <https://src.zshell.dev/sh/install.sh>                                    |
+| IPFS       | <https://ipfs.zshell.dev/sh/install.sh>                                   |
+| GitHub RAW | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
 ### <i class="fa-brands fa-superpowers"></i> ローダー {#loader}
 
-| サービス                      | URL                                                                      |
-|:------------------------- | ------------------------------------------------------------------------ |
-| [リダイレクト][init.zshell.dev] | <https://init.zshell.dev>                                                |
-| [IPFS][ipfs.io]           | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
-| [直接][direct-init]         | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
+| サービス       | URL                                                                      |
+|:---------- | ------------------------------------------------------------------------ |
+| リダイレクト     | <https://init.zshell.dev>                                                |
+| R2         | <https://r2.zshell.dev/src/zsh/init.zsh>                                 |
+| Cloudflare | <https://src.zshell.dev/zsh/init.zsh>                                    |
+| IPFS       | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
+| GitHub RAW | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
 
 <!-- end-of-file -->
 <!-- links -->
 <!-- external -->
 
-[checksum]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt
+[checksum-txt]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt
 [completion-system]: https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Use-of-compinit
-[direct-init]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh
-[direct-install]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
 [discuss]: https://github.com/orgs/z-shell/discussions/new
 [dockerfile]: https://github.com/robobenklein/configs/blob/master/Dockerfile
-[get.zshell.dev]: https://get.zshell.dev
-[init.zshell.dev]: https://init.zshell.dev
-[ipfs.io]: https://ipfs.io
 [issue]: https://github.com/z-shell/zi/issues/new/choose
 [playground]: https://github.com/z-shell/playground
 [status]: https://status.zshell.dev

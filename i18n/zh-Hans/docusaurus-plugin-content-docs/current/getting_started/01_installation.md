@@ -20,36 +20,41 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Lin
   <TabItem value="instant-source" label="Instant" default>
 
 ```shell title="~/.zshrc"
-source <(curl -sL git.io/zi-loader); zzinit
+source <(curl -sL init.zshell.dev); zzinit
 ```
 
   </TabItem>
   <TabItem value="verified-source" label="Verified">
 
-验证文件的 sha256 [checksum][checksum]：`lib/zsh/init.zsh`:
+:::caution
+
+This setup method requires manually verifying the sha256 [checksum][checksum-txt] for a file `lib/zsh/init.zsh` every time the content is changed in the repository.
+
+:::
 
 ```shell showLineNumbers title="~/.zshrc"
 local cs_ok='7fab1ecb8d2ffbdb4aa98dd1e51cebaeaa4d8137e1de11938f3e0df24af262bb'
-local cs=$(sha256sum <(curl -sL git.io/zi-loader) | awk '{print $1}')
-[[ $cs_ok == $cs ]] && { source <(curl -sL git.io/zi-loader); zzinit; } || {
-  print -P "%F{160}▓▒░ Houston, we have a problem, the %F{226}$cs%F{160} do not match\!%f%b"; exit 1
+local cs_get=$(sha256sum <(curl -sL init.zshell.dev) | awk '{print $1}')
+[[ $cs_ok == $cs_get ]] && { source <(curl -sL init.zshell.dev); zzinit; } || {
+  print -P "%F{160}▓▒░ Houston, we have a problem, the %F{226}$cs_get%F{160} do not match\!%f%b"; return 1
 }
+unset cs_ok cs_get
 ```
 
   </TabItem>
 </Tabs>
 
-使用 `exec zsh` 重新加载 shell 并运行 `zi -h` 以获取使用信息。
+Reload the shell with `exec zsh -il` and run `zi -h` for usage information.
 
 ## <i class="fas fa-spinner fa-spin"></i> 自动设置 {#automated-setup}
 
 :::tip
 
-- 验证文件： `lib/sh/install.sh` 的 sha256 [校验和][checksum]
+- Verify the sha256 [checksum][checksum-txt] for file: `lib/sh/install.sh`
 - 如果需要，请添加 `-b <tag>` 或 `-b <branch>` ，例如：
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
+sh -c "$(curl -fsSL get.zshell.dev)" -- -i skip -b main
 ```
 
 :::
@@ -57,22 +62,22 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
 <Tabs>
   <TabItem value="minimal" label="Minimal" default>
 
-安装并向 `.zshrc` 添加最小配置：
+Install and include minimal configuration to the `.zshrc`:
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" --
+sh -c "$(curl -fsSL get.zshell.dev)" --
 ```
 
   </TabItem>
   <TabItem value="minimal-loader" label="Loader">
 
-使用 [loader](#loader) 安装并包含最小配置：
+Install and include minimal configuration with [loader](#loader):
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a loader
+sh -c "$(curl -fsSL get.zshell.dev)" -- -a loader
 ```
 
-安装程序将下载加载器并将下面的代码段添加到 `.zshrc` 文件中。
+The installer will download the loader and add the snippet below to the `.zshrc` file.
 
 ```shell showLineNumbers
 if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]]; then
@@ -86,33 +91,33 @@ The loader can be manually fetched from available [links](#loader) to any locati
 
 :::
 
-然后用 `exec zsh` 重新加载 shell。 全部完成了！
+Then reload the shell with: `exec zsh`. 全部完成了！
 
   </TabItem>
   <TabItem value="repository" label="Repository">
 
-使用默认值或如果设置 <Link to="/docs/guides/customization#customizing-paths">自定义</Link> 值克隆储存库。
+Clone repository using default or if set <Link to="/docs/guides/customization#customizing-paths">custom</Link> values:
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
+sh -c "$(curl -fsSL get.zshell.dev)" -- -i skip
 ```
 
   </TabItem>
   <TabItem value="minimal-annexes" label="Annex">
 
-使用最小化配置和推荐的 <Link to="/ecosystem/annexes/overview">附件</Link> 安装:
+Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link>:
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
+sh -c "$(curl -fsSL get.zshell.dev)" -- -a annex
 ```
 
   </TabItem>
   <TabItem value="minimal-zunit" label="ZUnit">
 
-使用最小化配置，安装推荐的 <Link to="/ecosystem/annexes/overview">附件</Link> ，并配置 <Link href="https://github.com/zdharma/zunit">zdharma/zunit</Link>:
+Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link> and setup <Link href="https://github.com/zdharma/zunit">zdharma/zunit</Link>:
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
+sh -c "$(curl -fsSL get.zshell.dev)" -- -a zunit
 ```
 
   </TabItem>
@@ -126,7 +131,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
 
 :::
 
-设置安装位置并创建目录：
+Set up the install location and create a directory:
 
 ```shell showLineNumbers
 typeset -Ag ZI
@@ -167,11 +172,11 @@ autoload -Uz _zi
 
 ## <i class="fas fa-spinner fa-spin"></i> 安装后操作 {#post-install}
 
-全新安装后，建议使用 `exec zsh` 重新加载 shell 并使用 `zi self-update` 编译 Zi。 运行 `zi -h` 以查看所有可用命令。 了解 Zi 功能和性能，或通过浏览 wiki 开始。
+After a fresh install, it is recommended to reload the shell with `exec zsh -il` and compile Zi with `zi self-update`. 运行 `zi -h` 以查看所有可用命令。 了解 Zi 功能和性能，或通过浏览 wiki 开始。
 
-如果您有任何问题或需要帮助 <Emoji symbol="🤦‍♂️" label="man-facepalming"/>，让我们在 [此处讨论][discuss] 或以任何语言打开一个 [问题][issue]。
+If you have any issue or need help <Emoji symbol="🤦‍♂️" label="man-facepalming"/>, lets [discuss][discuss] it or open an [issue][issue] in any language.
 
-它帮助我们改进并让 Zi 变得更好。 不要忘记帮助项目：分享、贡献或 [翻译][translate] <Emoji symbol="🌐" label="globe-with-meridians"/> <Emoji symbol="🥰" label="smiling-face-with-hearts"/> <Emoji symbol="🤓" label="nerd-face"/>。
+它帮助我们改进并让 Zi 变得更好。 Don't forget to help the project: share, contribute, or [translate][translate] <Emoji symbol="🌐" label="globe-with-meridians"/> <Emoji symbol="🥰" label="smiling-face-with-hearts"/> <Emoji symbol="🤓" label="nerd-face"/>.
 
 让我们一起抓住一切，创建一个为我们服务的工具链 <Emoji symbol="🚀" label="rocket"/>。
 
@@ -180,7 +185,7 @@ autoload -Uz _zi
 ### <i class="fa-solid fa-list-check"></i>&nbsp;在&nbsp;<Link href="https://github.com/z-shell/playground"> playground 建议或请求</Link>
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a ???
+sh -c "$(curl -fsSL get.zshell.dev)" -- -a ???
 ```
 
 ## <i class="fas fa-sync-alt fa-spin"></i>&nbsp;需要热身？
@@ -204,10 +209,10 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 RUN zsh -i -c -- '@zi-scheduler burst || true'
 ```
 
-> - 一个例子： [Dockerfile][dockerfile]
-> - 实际例子： [Playground][playground]
+> - An example: [Dockerfile][dockerfile]
+> - In action: [Playground][playground]
 
-## <i class="fas fa-cog fa-pulse"></i> Zi 模块： [zpmod][z-shell/zpmod] {#zi-module}
+## <i class="fas fa-cog fa-pulse"></i> Zi Module: [zpmod][z-shell/zpmod] {#zi-module}
 
 :::info
 
@@ -239,7 +244,7 @@ typeset -g ZI_MOD_DEBUG=1
   <TabItem value="standalone" label="Standalone">
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
+sh <(curl -sL src.zshell.dev/sh/install_zpmod.sh)
 ```
 
   </TabItem>
@@ -247,37 +252,36 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
 
 ## <i class="fas fa-sync-alt fa-spin"></i> 可用的链接 {#available-links}
 
-[状态页][status] <Emoji symbol="✅" label="check-mark-button"/>
+[Status page][status] <Emoji symbol="✅" label="check-mark-button"/>
 
 ### <i class="fa-solid fa-gear"></i> 安装器 {#installer}
 
-| 服务                           | URL                                                                       |
-|:---------------------------- | ------------------------------------------------------------------------- |
-| [带重定向][get.zshell.dev]       | <https://get.zshell.dev>                                                  |
-| [IPFS][ipfs.io]              | <https://ipfs.zshell.dev/sh/install.sh>                                   |
-| [不带重定向 （直链）][direct-install] | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
+| 服务         | URL                                                                       |
+|:---------- | ------------------------------------------------------------------------- |
+| Redirect   | <https://get.zshell.dev>                                                  |
+| R2         | <https://r2.zshell.dev/src/sh/install.sh>                                 |
+| Cloudflare | <https://src.zshell.dev/sh/install.sh>                                    |
+| IPFS       | <https://ipfs.zshell.dev/sh/install.sh>                                   |
+| GitHub RAW | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
 ### <i class="fa-brands fa-superpowers"></i> 加载器 {#loader}
 
-| 服务                        | URL                                                                      |
-|:------------------------- | ------------------------------------------------------------------------ |
-| [带重定向][init.zshell.dev]   | <https://init.zshell.dev>                                                |
-| [IPFS][ipfs.io]           | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
-| [不带重定向 （直链）][direct-init] | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
+| 服务         | URL                                                                      |
+|:---------- | ------------------------------------------------------------------------ |
+| Redirect   | <https://init.zshell.dev>                                                |
+| R2         | <https://r2.zshell.dev/src/zsh/init.zsh>                                 |
+| Cloudflare | <https://src.zshell.dev/zsh/init.zsh>                                    |
+| IPFS       | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
+| GitHub RAW | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
 
 <!-- end-of-file -->
 <!-- links -->
 <!-- external -->
 
-[checksum]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt
+[checksum-txt]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt
 [completion-system]: https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Use-of-compinit
-[direct-init]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh
-[direct-install]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
 [discuss]: https://github.com/orgs/z-shell/discussions/new
 [dockerfile]: https://github.com/robobenklein/configs/blob/master/Dockerfile
-[get.zshell.dev]: https://get.zshell.dev
-[init.zshell.dev]: https://init.zshell.dev
-[ipfs.io]: https://ipfs.io
 [issue]: https://github.com/z-shell/zi/issues/new/choose
 [playground]: https://github.com/z-shell/playground
 [status]: https://status.zshell.dev
