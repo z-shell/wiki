@@ -20,36 +20,41 @@ Add the following snippet in the `.zshrc` file:
   <TabItem value="instant-source" label="Instant" default>
 
 ```shell title="~/.zshrc"
-source <(curl -sL git.io/zi-loader); zzinit
+source <(curl -sL init.zshell.dev); zzinit
 ```
 
   </TabItem>
   <TabItem value="verified-source" label="Verified">
 
-Verify the sha256 [checksum][checksum] for a file: `lib/zsh/init.zsh`:
+:::caution
+
+This setup method requires manually verifying the sha256 [checksum][checksum-txt] for a file `lib/zsh/init.zsh` every time the content is changed in the repository.
+
+:::
 
 ```shell showLineNumbers title="~/.zshrc"
 local cs_ok='7fab1ecb8d2ffbdb4aa98dd1e51cebaeaa4d8137e1de11938f3e0df24af262bb'
-local cs=$(sha256sum <(curl -sL git.io/zi-loader) | awk '{print $1}')
-[[ $cs_ok == $cs ]] && { source <(curl -sL git.io/zi-loader); zzinit; } || {
-  print -P "%F{160}▓▒░ Houston, we have a problem, the %F{226}$cs%F{160} do not match\!%f%b"; exit 1
+local cs_get=$(sha256sum <(curl -sL init.zshell.dev) | awk '{print $1}')
+[[ $cs_ok == $cs_get ]] && { source <(curl -sL init.zshell.dev); zzinit; } || {
+  print -P "%F{160}▓▒░ Houston, we have a problem, the %F{226}$cs_get%F{160} do not match\!%f%b"; return 1
 }
+unset cs_ok cs_get
 ```
 
   </TabItem>
 </Tabs>
 
-Reload shell with `exec zsh` and run `zi -h` for usage information.
+Reload the shell with `exec zsh -il` and run `zi -h` for usage information.
 
 ## <i class="fas fa-spinner fa-spin"></i> Automated setup {#automated-setup}
 
 :::tip
 
-- Verify the sha256 [checksum][checksum] for file: `lib/sh/install.sh`
+- Verify the sha256 [checksum][checksum-txt] for file: `lib/sh/install.sh`
 - If required append `-b <tag>` or `-b <branch>` e.g:
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
+sh -c "$(curl -fsSL get.zshell.dev)" -- -i skip -b main
 ```
 
 :::
@@ -60,7 +65,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip -b main
 Install and include minimal configuration to the `.zshrc`:
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" --
+sh -c "$(curl -fsSL get.zshell.dev)" --
 ```
 
   </TabItem>
@@ -69,7 +74,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" --
 Install and include minimal configuration with [loader](#loader):
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a loader
+sh -c "$(curl -fsSL get.zshell.dev)" -- -a loader
 ```
 
 The installer will download the loader and add the snippet below to the `.zshrc` file.
@@ -86,7 +91,7 @@ The loader can be manually fetched from available [links](#loader) to any locati
 
 :::
 
-Then reload shell with: `exec zsh`. All done!
+Then reload the shell with: `exec zsh`. All done!
 
   </TabItem>
   <TabItem value="repository" label="Repository">
@@ -94,7 +99,7 @@ Then reload shell with: `exec zsh`. All done!
 Clone repository using default or if set <Link to="/docs/guides/customization#customizing-paths">custom</Link> values:
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
+sh -c "$(curl -fsSL get.zshell.dev)" -- -i skip
 ```
 
   </TabItem>
@@ -103,7 +108,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -i skip
 Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link>:
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
+sh -c "$(curl -fsSL get.zshell.dev)" -- -a annex
 ```
 
   </TabItem>
@@ -112,7 +117,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a annex
 Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link> and setup <Link href="https://github.com/zdharma/zunit">zdharma/zunit</Link>:
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
+sh -c "$(curl -fsSL get.zshell.dev)" -- -a zunit
 ```
 
   </TabItem>
@@ -126,7 +131,7 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zunit
 
 :::
 
-Set up install location and create a directory:
+Set up the install location and create a directory:
 
 ```shell showLineNumbers
 typeset -Ag ZI
@@ -167,7 +172,7 @@ autoload -Uz _zi
 
 ## <i class="fas fa-spinner fa-spin"></i> Post-install {#post-install}
 
-After a fresh install, recommended to reload the shell with `exec zsh` and compile Zi with `zi self-update`. Run `zi -h` to see all available commands. Increase Zi functionality, and performance, or get started by exploring the wiki.
+After a fresh install, it is recommended to reload the shell with `exec zsh -il` and compile Zi with `zi self-update`. Run `zi -h` to see all available commands. Increase Zi functionality, and performance, or get started by exploring the wiki.
 
 If you have any issue or need help <Emoji symbol="🤦‍♂️" label="man-facepalming"/>, lets [discuss][discuss] it or open an [issue][issue] in any language.
 
@@ -180,7 +185,7 @@ Let's glue everything together to create a toolchain that works for us <Emoji sy
 ### <i class="fa-solid fa-list-check"></i>&nbsp;Suggest or request at&nbsp;<Link href="https://github.com/z-shell/playground">playground</Link>
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a ???
+sh -c "$(curl -fsSL get.zshell.dev)" -- -a ???
 ```
 
 ## <i class="fas fa-sync-alt fa-spin"></i>&nbsp;Need warm-up?
@@ -239,7 +244,7 @@ typeset -g ZI_MOD_DEBUG=1
   <TabItem value="standalone" label="Standalone">
 
 ```shell
-sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
+sh <(curl -sL src.zshell.dev/sh/install_zpmod.sh)
 ```
 
   </TabItem>
@@ -251,33 +256,32 @@ sh -c "$(curl -fsSL git.io/get-zi)" -- -a zpmod
 
 ### <i class="fa-solid fa-gear"></i> Installer {#installer}
 
-| Service                    | URL                                                                       |
-| :------------------------- | ------------------------------------------------------------------------- |
-| [Redirect][get.zshell.dev] | <https://get.zshell.dev>                                                  |
-| [IPFS][ipfs.io]            | <https://ipfs.zshell.dev/sh/install.sh>                                   |
-| [Direct][direct-install]   | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
+| Service    | URL                                                                       |
+| :--------- | ------------------------------------------------------------------------- |
+| Redirect   | <https://get.zshell.dev>                                                  |
+| R2         | <https://r2.zshell.dev/src/sh/install.sh>                                 |
+| Cloudflare | <https://src.zshell.dev/sh/install.sh>                                    |
+| IPFS       | <https://ipfs.zshell.dev/sh/install.sh>                                   |
+| GitHub RAW | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
 ### <i class="fa-brands fa-superpowers"></i> Loader {#loader}
 
-| Service                     | URL                                                                      |
-| :-------------------------- | ------------------------------------------------------------------------ |
-| [Redirect][init.zshell.dev] | <https://init.zshell.dev>                                                |
-| [IPFS][ipfs.io]             | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
-| [Direct][direct-init]       | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
+| Service    | URL                                                                      |
+| :--------- | ------------------------------------------------------------------------ |
+| Redirect   | <https://init.zshell.dev>                                                |
+| R2         | <https://r2.zshell.dev/src/zsh/init.zsh>                                 |
+| Cloudflare | <https://src.zshell.dev/zsh/init.zsh>                                    |
+| IPFS       | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
+| GitHub RAW | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
 
 <!-- end-of-file -->
 <!-- links -->
 <!-- external -->
 
-[checksum]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt
+[checksum-txt]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt
 [completion-system]: https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Use-of-compinit
-[direct-init]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh
-[direct-install]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh
 [discuss]: https://github.com/orgs/z-shell/discussions/new
 [dockerfile]: https://github.com/robobenklein/configs/blob/master/Dockerfile
-[get.zshell.dev]: https://get.zshell.dev
-[init.zshell.dev]: https://init.zshell.dev
-[ipfs.io]: https://ipfs.io
 [issue]: https://github.com/z-shell/zi/issues/new/choose
 [playground]: https://github.com/z-shell/playground
 [status]: https://status.zshell.dev
