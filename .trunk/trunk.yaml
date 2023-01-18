@@ -21,10 +21,10 @@ lint:
     - stylelint@14.16.1
     - git-diff-check@SYSTEM
     - actionlint@1.6.22
-    - eslint@8.31.0
+    - eslint@8.32.0
     - gitleaks@8.15.2
     - markdownlint@0.33.0
-    - prettier@2.8.2
+    - prettier@2.8.3
     - shfmt@3.5.0
     - hadolint@2.12.0
   ignore:
