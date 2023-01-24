@@ -1,7 +1,7 @@
 /** @format */
 // @ts-check
 
-import React, {useState, CSSProperties} from "react";
+import React, {useState, type CSSProperties} from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const override: CSSProperties = {

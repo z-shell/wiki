@@ -8,7 +8,7 @@
  * @format
  */
 
-import React, {HTMLAttributes} from "react";
+import React, {type HTMLAttributes} from "react";
 
 export interface EmojiProps extends HTMLAttributes<HTMLSpanElement> {
   label?: string;
