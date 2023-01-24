@@ -305,7 +305,7 @@ zi ice wait'!0'
 zi load halfo/lambda-mod-zsh-theme
 ```
 
-This sets plugin `halfo/lambda-mod-zsh-theme` to be loaded `0` seconds after `.zshrc`. It will fire up after c.a. 1 ms of showing the basic prompt `READY >`.
+这设置了插件 `halfo/lambda-mod-zsh-theme` ，在 `.zshrc` 后推迟 `0` 秒加载 。 It will fire up after c.a. 1 ms of showing the basic prompt `READY >`.
 
 You probably won't load the prompt in such a way, however, it is a good example in which turbo mode can be observed. The exclamation mark causes Zi to reset the prompt after loading the plugin – commonly needed for themes. The same with Prezto prompts, with a longer delay:
 
