@@ -26,6 +26,7 @@ interface PlayerConfig {
 export default function Player(props: PlayerConfig): JSX.Element {
   const {src, ...options} = props;
   const element = useRef<HTMLDivElement>(null);
+  // eslint-disable-next-line @typescript-eslint/consistent-type-imports
   const [player, setPlayer] = useState<typeof import("asciinema-player")>();
   const showPlayer = player != null ? <div ref={element} /> : <Spinner />;
 
