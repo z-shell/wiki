@@ -24,7 +24,6 @@
     "prebuild": "test \"$CF_PAGES\" = 1 && npx pnpm install --prod || echo Install not required...",
     "clean": "pnpm exec rm -rf node_modules build pnpm-lock.yaml",
     "preinstall": "npx only-allow pnpm",
-    "postinstall": "pnpm audit",
     "upgrade": "pnpm upgrade -i -L",
     "check": "trunk check"
   },
@@ -46,8 +45,7 @@
     "react-spinners": "0.13.8"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "4.20221111.1",
-    "@crowdin/cli": "3.9.3",
+    "@crowdin/cli": "3.10.0",
     "@docusaurus/eslint-plugin": "2.2.0",
     "@docusaurus/module-type-aliases": "2.2.0",
     "@trunkio/launcher": "1.2.3",
@@ -86,14 +84,14 @@
     ]
   },
   "packageManager": "pnpm@7.25.1",
+  "engines": {
+    "node": ">=16.14"
+  },
   "pnpm": {
     "overrides": {
       "trim@<0.0.3": ">=0.0.3",
       "got@<11.8.5": ">=11.8.5",
-      "json5@<2.2.2": ">=2.2.2"
+      "ua-parser-js@<0.7.33": ">=0.7.33"
     }
-  },
-  "engines": {
-    "node": ">=16.14"
   }
 }
