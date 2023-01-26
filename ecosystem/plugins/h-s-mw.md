@@ -1,0 +1,216 @@
+---
+id: h-s-mw
+title: ⚙️ History search for multiple words
+image: /img/png/theme/z/320x320.png
+description: Search history for multiple keywords, entries that match all keywords will be found and syntax highlighted
+toc_max_heading_level: 3
+keywords:
+  - history-search-multi-word
+  - history-search
+---
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import ImgShow from '@site/src/components/ImgShow'; import APITable from '@site/src/components/APITable';
+
+## <i class="fa-brands fa-github"></i> [z-shell/h-s-mw](https://github.com/z-shell/h-s-mw)
+
+The plugin allows to search history for multiple keywords, <kbd><kbd>Ctrl</kbd>+<kbd>R</kbd></kbd> initiates the search and matched keywords will be found and highlighted.
+
+<ImgShow
+  img="/img/cast/gif/hsmw/hsmw-1.gif"
+  alt="History search for multiple words"
+/>
+
+## Install H-S-MW
+
+<Tabs>
+  <TabItem value="zi" label="Zi" default>
+
+Add the following to your `.zshrc` file:
+
+```shell title="~/.zshrc"
+zi light z-shell/H-S-MW
+```
+
+Reload the shell with `exec zsh` or open a new terminal.
+
+  </TabItem>
+  <TabItem value="zgen" label="Zgen">
+
+Add the following to your `.zshrc` file in the same place you're doing your other `zgen load` calls.
+
+```shell title="~/.zshrc"
+zgen load z-shell/H-S-MW
+```
+
+  </TabItem>
+  <TabItem value="oh-my-zsh" label="Oh-My-Zsh">
+
+Clone the repository:
+
+```shell showLineNumbers
+git clone https://github.com/z-shell/H-S-MW.git \
+  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/H-S-MW
+```
+
+And add `H-S-MW` to your plugin list:
+
+```shell title="~/.zshrc"
+plugins=(... H-S-MW)
+```
+
+  </TabItem>
+  <TabItem value="standalone" label="Standalone">
+
+Clone the repository:
+
+```shell showLineNumbers
+git clone https://github.com/z-shell/H-S-MW.git \
+  ~/some/path/to/hsmw
+```
+
+And add the following to your `.zshrc` file:
+
+```shell title="~/.zshrc"
+source ~/some/path/to/fsh/H-S-MW.plugin.zsh
+```
+
+  </TabItem>
+</Tabs>
+
+## Customizing
+
+### Context viewing
+
+Add `zstyle` to `~/.zshrc`: `zstyle :plugin:history-search-multi-word <value>`, where `<value>` is one of:
+
+```mdx-code-block
+<APITable>
+```
+
+| Value                                           | Description                                                                                                          |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| <samp>`reset-prompt-protect 1`</samp>           | See all occurrences of a command together with surrounding commands                                                  |
+| <samp>`page-size "8"`</samp>                    | Number of entries to show (default is $LINES/3)                                                                      |
+| <samp>`page-size "LINES/4"`</samp>              | Pages size relative to screen height                                                                                 |
+| <samp>`highlight-color "fg=yellow,bold"`</samp> | Color to highlight matched, searched text (default bg=17 on 256-color)                                               |
+| <samp>`synhl "yes"`</samp>                      | Whether to perform syntax highlighting (default true)                                                                |
+| <samp>`active "underline"`</samp>               | Effect on active history entry. Try `standout`, `bold`, `bg=blue` (default underline)                                |
+| <samp>`check-paths "yes"`</samp>                | Whether to check paths for existence and mark with magenta (default true)                                            |
+| <samp>`clear-on-cancel "no"`</samp>             | Whether pressing <kbd><kbd>Ctrl</kbd>+<kbd>c</kbd></kbd> or <kbd>ESC</kbd> should clearly enter query (default true) |
+
+```mdx-code-block
+</APITable>
+```
+
+Example:
+
+```shell showLineNumbers title="~/.zshrc"
+zstyle :plugin:history-search-multi-word reset-prompt-protect 1
+zstyle ":history-search-multi-word" page-size "8"
+```
+
+:::tip
+
+For a better experience adjust history using [options][zsh-options], for example:
+
+```shell showLineNumbers title="~/.zshrc"
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_all_dups   # remove older duplicate entries from the history
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_reduce_blanks     # remove superfluous blanks from history items
+setopt hist_save_no_dups      # do not write a duplicate event to the history file
+setopt inc_append_history     # allow multiple terminal sessions to append to one history
+setopt inc_append_history     # write to the history file immediately, not when the shell exits.
+setopt share_history          # share command history data
+```
+
+:::
+
+### Features
+
+<details>
+  <summary>Refreshing prompt</summary>
+
+Use `zle reset-prompt` in `sched` calls, in the presence of [z-shell/F-Sy-H][z-shell/f-sy-h], [zsh-users/zsh-syntax-highlighting][zsh-syntax-highlighting], [zsh-users/zsh-autosuggestions][zsh-autosuggestions], and other plugins that hook up into Z-Shell by overloading ZLE widgets.
+
+For example, to refresh the clock in prompt every second:
+
+```shell showLineNumbers
+PROMPT=%B%F{yellow}%D{%H:%M:%S}%B%b%f
+
+schedprompt() {
+  zle && zle reset-prompt
+  sched +1 schedprompt
+}
+
+zmodload -i zsh/sched
+schedprompt
+```
+
+The `reset-prompt-protect` `zstyle` needs to be set to 1 for correct cooperation with H-S-MW. Alternatively, you could use `zle .reset-prompt` (i.e. with the dot in front) to call the original, not an overloaded `reset-prompt` widget (created by [z-shell/F-Sy-H][z-shell/f-sy-h], [zsh-users/zsh-autosuggestions][zsh-autosuggestions], etc.).
+
+</details>
+
+<details>
+  <summary>Customizing syntax highlighting</summary>
+
+<ImgShow
+  img="/img/cast/gif/hsmw/hsmw-2.gif"
+  alt="History search for multiple words 2"
+/>
+
+Syntax highlighting is customized via the `HSMW_HIGHLIGHT_STYLES` associative array. It has keys like `reserved-word`, `alias`, `command`, `path`, etc. which are assigned with strings like `fg=blue,bold`, to configure how given elements are to be colored. The complete list of available keys is at the beginning of [hsmw-highlight][h-s-mw-lines].
+
+If you assign this array in `~/.zshrc` before or after loading `H-S-MW` you will change the defaults.
+
+#### Examples of customizing syntax highlighting
+
+Sets `path` key – paths that exist will be highlighted with background magenta, foreground white, bold:
+
+```shell showLineNumbers
+typeset -gA HSMW_HIGHLIGHT_STYLES
+HSMW_HIGHLIGHT_STYLES[path]="bg=magenta,fg=white,bold"
+```
+
+Enable coloring of options of the form "-o" and "--the option", with cyan:
+
+```shell showLineNumbers
+typeset -gA HSMW_HIGHLIGHT_STYLES
+HSMW_HIGHLIGHT_STYLES[single-hyphen-option]="fg=cyan"
+HSMW_HIGHLIGHT_STYLES[double-hyphen-option]="fg=cyan"
+```
+
+Use 256 colors to highlight command separators (like ";" or "&&"):
+
+```shell
+HSMW_HIGHLIGHT_STYLES[commandseparator]="fg=241,bg=17"
+```
+
+</details>
+
+<details>
+  <summary>Blacklisting paths</summary>
+
+Hash holding paths that shouldn't be grepped (globbed) – blacklist for slow disks, mounts, etc.:
+
+```shell showLineNumbers
+typeset -gA FAST_BLIST_PATTERNS
+FAST_BLIST_PATTERNS[/mount/nfs1/*]=1
+FAST_BLIST_PATTERNS[/mount/disk2/*]=1
+```
+
+</details>
+
+<!-- end-of-file -->
+<!-- links -->
+
+[z-shell/f-sy-h]: /ecosystem/plugins/f-sy-h
+
+<!-- external -->
+
+[zsh-autosuggestions]: https://github.com/zsh-users/zsh-autosuggestions
+[zsh-syntax-highlighting]: https://github.com/zsh-users/zsh-syntax-highlighting
+[h-s-mw-lines]: https://github.com/z-shell/H-S-MW/blob/main/functions/hsmw-highlight#L36-L65
+[zsh-options]: https://zsh.sourceforge.io/Doc/Release/Options.html

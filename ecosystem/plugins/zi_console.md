@@ -5,9 +5,7 @@ image: /img/png/theme/z/320x320.png
 description: A console based on the `zsh/zcurses` Zshell module.
 keywords:
   - console
-  - zplugin
   - zi-console
-  - zsh-plugin
 draft: false
 ---
 

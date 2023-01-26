@@ -5,8 +5,6 @@ image: /img/png/theme/z/320x320.png
 description: Allows to copy segments of commands in history, rearrange segments of the current command, and delete segments of the current command.
 keywords:
   - zsh-command-architect
-  - zsh-plugin
-  - zplugin
 ---
 
 <!-- @format -->

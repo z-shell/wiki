@@ -4,10 +4,7 @@ title: ⚙️ Select
 image: /img/png/theme/z/320x320.png
 description: A shell command that will display a selection list.
 keywords:
-  - zsh-plugin
   - zsh-select
-  - zplugin
-  - vim
 ---
 
 <!-- @format -->

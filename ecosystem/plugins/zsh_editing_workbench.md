@@ -4,11 +4,8 @@ title: ⚙️ Editing Workbench
 image: /img/png/theme/z/320x320.png
 description: Organized shortcuts for Zsh
 keywords:
-  - zsh-plugin
   - workbench
-  - organized
   - zsh-edit
-  - zplugin
 ---
 
 <!-- @format -->

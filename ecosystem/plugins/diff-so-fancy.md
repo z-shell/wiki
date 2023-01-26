@@ -1,0 +1,163 @@
+---
+id: diff-so-fancy
+title: ⚙️ Diff So Fancy
+image: /img/png/theme/z/320x320.png
+description: Git diffs human readable instead of machine readable.
+toc_max_heading_level: 3
+keywords:
+  - git
+  - diff-so-fancy
+---
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import ImgShow from '@site/src/components/ImgShow';
+
+## <i class="fa-brands fa-github"></i> [z-shell/zsh-diff-so-fancy][zsh-diff-so-fancy]
+
+The wrapper around [so-fancy/diff-so-fancy][so-fancy/diff-so-fancy] to use with Zsh helps to improve code quality and spot defects faster.
+
+The plugin adds subcommand `dsf` to `git`, and provides command `fancy-diff` to pipe the `diff` output to diff-so-fancy:
+
+- `git dsf` to see the diff output.
+- `fancy-diff <file1> <file2>` to pipe the `diff` output.
+- `diff-so-fancy -h` to see the help.
+
+<ImgShow
+  img="/img/gif/zsh-diff-so-fancy.gif"
+  alt="Zsh Diff So Fancy"
+/>
+
+## Install Diff-So-Fancy
+
+<Tabs>
+  <TabItem value="zi" label="Zi" default>
+
+Add the following to your `.zshrc` file:
+
+Using [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex (recommended):
+
+```shell showLineNumbers
+zi ice as'null' sbin'bin/*'
+zi light z-shell/zsh-diff-so-fancy
+```
+
+Standard installation:
+
+```shell showLineNumbers
+zi ice as'program' pick'bin/*'
+zi light z-shell/zsh-diff-so-fancy
+```
+
+This will add `diff-so-fancy`, `fancy-diff`, `git-dsf` to `$PATH` and automatically equip `git` with subcommand `dsf`.
+
+  </TabItem>
+  <TabItem value="zgen" label="Zgen">
+
+Add the following to your `.zshrc` file in the same place you're doing your other `zgen load` calls.
+
+```shell
+zgen load z-shell/zsh-diff-so-fancy
+```
+
+  </TabItem>
+  <TabItem value="oh-my-zsh" label="Oh-My-Zsh">
+
+Clone the Repository:
+
+```shell showLineNumbers
+git clone https://github.com/z-shell/z-shell/zsh-diff-so-fancy.git \
+  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-diff-so-fancy
+```
+
+And add `zsh-diff-so-fancy` to your plugin list:
+
+```shell title=".zshrc"
+plugins=(... zsh-diff-so-fancy)
+```
+
+  </TabItem>
+</Tabs>
+
+  <details>
+  <summary>Configuration</summary>
+
+```shell
+diff-so-fancy --colors
+```
+
+Configure git-diff to use diff-so-fancy and suggested colors:
+
+```shell
+diff-so-fancy --set-defaults
+```
+
+Use diff-so-fancy in patch mode (interoperable with `git add --patch`):
+
+```shell
+diff-so-fancy --patch
+```
+
+Configure `git` to use `diff-so-fancy` for _all_ diff operations:
+
+```shell
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFXS"
+```
+
+Configure git to use `diff-so-fancy` for `git add --patch`:
+
+```shell
+git config --global interactive.diffFilter "diff-so-fancy --patch"
+```
+
+</details>
+
+<details>
+<summary>Options</summary>
+
+### markEmptyLines
+
+Should the first block of an empty line be colored. (Default: true)
+
+```shell
+git config --bool --global diff-so-fancy.markEmptyLines false
+```
+
+### changeHunkIndicators
+
+Simplify git header chunks to a more human readable format. (Default: true)
+
+```shell
+git config --bool --global diff-so-fancy.changeHunkIndicators false
+```
+
+### stripLeadingSymbols
+
+Should the pesky `+` or `-` at line-start be removed. (Default: true)
+
+```shell
+git config --bool --global diff-so-fancy.stripLeadingSymbols false
+```
+
+### useUnicodeRuler
+
+By default, the separator for the file header uses Unicode line-drawing characters. If this is causing output errors on your terminal, set this to `false` to use ASCII characters instead. (Default: true)
+
+```shell
+git config --bool --global diff-so-fancy.useUnicodeRuler false
+```
+
+### rulerWidth
+
+By default, the separator for the file header spans the full width of the terminal. Use this setting to set the width of the file header manually.
+
+```shell
+git config --global diff-so-fancy.rulerWidth 47    # git log's commit header width
+```
+
+</details>
+
+<!-- end-of-file -->
+<!-- links -->
+<!-- external -->
+
+[zsh-diff-so-fancy]: https://github.com/z-shell/zsh-diff-so-fancy
+[so-fancy/diff-so-fancy]: https://github.com/so-fancy/diff-so-fancy

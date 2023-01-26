@@ -6,10 +6,7 @@ description: Feature-rich Syntax Highlighting for Zsh
 toc_max_heading_level: 3
 keywords:
   - feature-rich-syntax-highlighting
-  - fast-syntax-highlighting
   - syntax-highlighting
-  - zsh-plugin
-  - zplugin
 ---
 
 <!-- @format -->

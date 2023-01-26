@@ -5,9 +5,7 @@ image: /img/png/theme/z/320x320.png
 description: Provides a **unique number** that identifies a **running** Zshell session.
 keywords:
   - zsh-unique-id
-  - zsh-plugin
   - unique-id
-  - zplugin
 ---
 
 <!-- @format -->

@@ -4,9 +4,8 @@ title: ⚙️ Startify
 image: /img/png/theme/z/320x320.png
 description: Zsh Plugin Startify documentation.
 keywords:
-  - zsh-plugin
   - startify
-  - zplugin
+draft: true
 ---
 
 <!-- @format -->

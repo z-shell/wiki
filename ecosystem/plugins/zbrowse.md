@@ -5,9 +5,7 @@ image: /img/png/theme/z/320x320.png
 description: Check variables of a possible loop.
 keywords:
   - zbrowse
-  - zplugin
   - variable
-  - zsh-plugin
 ---
 
 <!-- @format -->

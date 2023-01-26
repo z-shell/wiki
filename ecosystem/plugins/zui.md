@@ -6,7 +6,6 @@ toc_max_heading_level: 3
 description: The Rapid Application Development textual user interface library for Zsh.
 keywords:
   - zui
-  - zsh-plugin
   - user-interface
 ---
 

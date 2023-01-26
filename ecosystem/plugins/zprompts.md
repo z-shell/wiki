@@ -4,7 +4,6 @@ title: ⚙️ ZPrompts
 image: /img/png/theme/z/320x320.png
 description: Zsh themes (prompts) that use original Zsh theming subsystem.
 keywords:
-  - zsh-plugin
   - zsh-prompt
   - zsh-theme
   - prompt

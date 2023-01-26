@@ -4,9 +4,7 @@ title: ⚙️ ZZComplete
 image: /img/png/theme/z/320x320.png
 description: Complete options from manual pages – press Ctrl-F to start the completer.
 keywords:
-  - zplugin
   - zzcomplete
-  - zsh-plugin
   - zsh-completion
 ---
 
