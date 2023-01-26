@@ -11,7 +11,7 @@ export default function HeroBanner(): JSX.Element {
   return (
     <div className={styles.hero} data-theme='dark'>
       <div className={styles.heroInner}>
-        <h1 className={clsx(styles.heroProjectTagline)}>
+        <div className={clsx(styles.heroProjectTagline)}>
           <img
             alt={translate({id: "zi.logo", message: "ZI logo"})}
             className={styles.heroLogo}
@@ -30,7 +30,7 @@ export default function HeroBanner(): JSX.Element {
               }),
             }}
           />
-        </h1>
+        </div>
         <div className={styles.indexCtas}>
           <Link className='button button--primary' to='/docs/getting_started/installation'>
             <Translate id='homepage.banner.button.1' description='The homepage get started button'>

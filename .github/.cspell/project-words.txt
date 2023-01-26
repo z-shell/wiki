@@ -342,6 +342,7 @@ Santangelo
 SAVEHIST
 sbin'argocd
 Schaefer
+schedprompt
 screencast
 sdkman
 searchbox

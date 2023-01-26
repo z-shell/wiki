@@ -196,12 +196,16 @@ html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
 table {
   display: table;
   width: 100%;
-  overflow-x: auto;
+  height: auto;
+  overflow: hidden;
+  color: var(--ifm-table-body-color);
   border-spacing: 0;
   border-collapse: collapse;
+  border-radius: var(--ifm-global-radius);
 }
 
 thead {
+  display: table-header-group;
   font-size: smaller;
   font-weight: bold;
   color: var(--ifm-table-header-color);
@@ -213,6 +217,7 @@ thead th:first-child {
 }
 
 tbody {
+  display: table-row-group;
   font-size: small;
   color: var(--ifm-table-body-color);
   background-color: var(--ifm-table-body-bg-color);

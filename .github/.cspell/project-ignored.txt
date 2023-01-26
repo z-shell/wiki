@@ -1,3 +1,4 @@
+BLIST
 bolditalic
 Callista
 csstree
@@ -9,5 +10,8 @@ Lldrt
 nakayama
 navbutton
 nosnippet
+RFXS
+sched
 starturl
+synhl
 unist

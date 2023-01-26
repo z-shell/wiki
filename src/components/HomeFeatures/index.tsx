@@ -14,7 +14,7 @@ function Feature({feature}: {feature: FeatureItem}) {
       <div className={clsx(styles.FeatureImg)}>
         <feature.image />
       </div>
-      <h2 className={clsx(styles.FeatureHeading)}>{feature.title}</h2>
+      <div className={clsx(styles.FeatureHeading)}>{feature.title}</div>
       <p className='padding-horiz--md'>{feature.description}</p>
     </div>
   );
@@ -38,7 +38,7 @@ function VideoContainer() {
     <div className='container'>
       <div className='row'>
         <div className='col'>
-          <h2 className={styles.VideoContainerHeading}>
+          <div className={styles.VideoContainerHeading}>
             <Emoji
               style={{
                 paddingRight: "0.5rem",
@@ -49,7 +49,7 @@ function VideoContainer() {
             <Translate id='homepage.video.heading.1' description='The homepage video container heading 1'>
               Fast and feature-rich
             </Translate>
-          </h2>
+          </div>
           <div className='video-container'>
             <Player src='https://asciinema.org/a/509113.cast' rows={34} cols={231} />
           </div>
