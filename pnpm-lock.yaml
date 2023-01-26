@@ -6,8 +6,8 @@ overrides:
   json5@<2.2.2: '>=2.2.2'
 
 specifiers:
-  '@cloudflare/workers-types': 4.20221111.1
-  '@crowdin/cli': 3.9.3
+  '@cloudflare/workers-types': 4.20230115.0
+  '@crowdin/cli': 3.10.0
   '@docusaurus/core': 2.2.0
   '@docusaurus/eslint-plugin': 2.2.0
   '@docusaurus/module-type-aliases': 2.2.0
@@ -66,8 +66,8 @@ dependencies:
   react-spinners: 0.13.8_sfoxds7t5ydpegc3knd667wn6m
 
 devDependencies:
-  '@cloudflare/workers-types': 4.20221111.1
-  '@crowdin/cli': 3.9.3
+  '@cloudflare/workers-types': 4.20230115.0
+  '@crowdin/cli': 3.10.0
   '@docusaurus/eslint-plugin': 2.2.0_7uibuqfxkfaozanbtbziikiqje
   '@docusaurus/module-type-aliases': 2.2.0_sfoxds7t5ydpegc3knd667wn6m
   '@trunkio/launcher': 1.2.3
@@ -1587,8 +1587,8 @@ packages:
     resolution: {integrity: sha512-Tbsj02wXCbqGmzdnXNk0SOF19ChhRU70BsroIi4Pm6Ehp56in6vch94mfbdQ17DozxkL3BAVjbZ4Qc1a0HFRAg==}
     dev: false
 
-  /@cloudflare/workers-types/4.20221111.1:
-    resolution: {integrity: sha512-BNV2wN8V6Zduvo7UzxcdjBbLQ906D2KhS804PDufLgx/sanGJCHVJMOIaLvS/b61JKtot1U7P/l1fjrjZ7/E3A==}
+  /@cloudflare/workers-types/4.20230115.0:
+    resolution: {integrity: sha512-GPJEiO8AFN+jUpA+DHJ1qdVmk4s/hq8JYKjOV/+U7avGquQbVnj905+Kg6uAEfrq16muwmRKl+XJGqsvlBlDNg==}
     dev: true
 
   /@colors/colors/1.5.0:
@@ -1598,8 +1598,8 @@ packages:
     dev: false
     optional: true
 
-  /@crowdin/cli/3.9.3:
-    resolution: {integrity: sha512-xZJXlcUdsqLCAcN1TADERo61YW0ilR1ttHx+e796ndsXcwYCKtA5fnDjJ94RMbIXtvi+2NAnO8i1R5OMf/a8SA==}
+  /@crowdin/cli/3.10.0:
+    resolution: {integrity: sha512-ez2nZ84jLe/WppZ5ggfZtC9rDUyCbsYengsmKVKeUYfx30lccuyAeQltAdxcwU4v3f58hTNAty0VvCx9zLPl0Q==}
     hasBin: true
     dependencies:
       command-exists-promise: 2.0.2

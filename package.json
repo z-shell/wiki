@@ -46,8 +46,8 @@
     "react-spinners": "0.13.8"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "4.20221111.1",
-    "@crowdin/cli": "3.9.3",
+    "@cloudflare/workers-types": "4.20230115.0",
+    "@crowdin/cli": "3.10.0",
     "@docusaurus/eslint-plugin": "2.2.0",
     "@docusaurus/module-type-aliases": "2.2.0",
     "@trunkio/launcher": "1.2.3",
