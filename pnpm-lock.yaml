@@ -15,7 +15,7 @@ specifiers:
   '@docusaurus/preset-classic': 2.2.0
   '@docusaurus/theme-mermaid': 2.2.0
   '@docusaurus/types': 2.2.0
-  '@loadable/component': 5.15.2
+  '@loadable/component': 5.15.3
   '@mdx-js/react': 1.6.22
   '@trunkio/launcher': 1.2.3
   '@types/node': 18.11.18
@@ -48,12 +48,12 @@ specifiers:
 
 dependencies:
   '@docusaurus/core': 2.2.0_t6cypl7cxk2arg266ozq3hxn3m
-  '@docusaurus/plugin-ideal-image': 2.2.0_jcwlzp2viufr6wjdvzskzzuumm
+  '@docusaurus/plugin-ideal-image': 2.2.0_72f5ylvv5qyncwuu36nsfplvaa
   '@docusaurus/plugin-pwa': 2.2.0_72f5ylvv5qyncwuu36nsfplvaa
-  '@docusaurus/preset-classic': 2.2.0_j75k5acldc3pec5ejsjgtf7p2q
+  '@docusaurus/preset-classic': 2.2.0_w2ng4dwcw5nax7k7hnuk67dydq
   '@docusaurus/theme-mermaid': 2.2.0_72f5ylvv5qyncwuu36nsfplvaa
   '@docusaurus/types': 2.2.0_biqbaboplfbrettd7655fr4n2y
-  '@loadable/component': 5.15.2_react@18.2.0
+  '@loadable/component': 5.15.3_react@18.2.0
   '@mdx-js/react': 1.6.22_react@18.2.0
   asciinema-player: 3.0.1
   clsx: 1.2.1
@@ -97,14 +97,13 @@ packages:
       '@algolia/autocomplete-shared': 1.7.4
     dev: false
 
-  /@algolia/autocomplete-preset-algolia/1.7.4_dk4ct527ug5whbfokpeal2wzha:
+  /@algolia/autocomplete-preset-algolia/1.7.4_algoliasearch@4.14.3:
     resolution: {integrity: sha512-s37hrvLEIfcmKY8VU9LsAXgm2yfmkdHT3DnA3SgHaY93yjZ2qL57wzb5QweVkYuEBZkT2PIREvRoLXC2sxTbpQ==}
     peerDependencies:
       '@algolia/client-search': '>= 4.9.1 < 6'
       algoliasearch: '>= 4.9.1 < 6'
     dependencies:
       '@algolia/autocomplete-shared': 1.7.4
-      '@algolia/client-search': 4.14.3
       algoliasearch: 4.14.3
     dev: false
 
@@ -1612,7 +1611,7 @@ packages:
     resolution: {integrity: sha512-dctFYiwbvDZkksMlsmc7pj6W6By/EjnVXJq5TEPd05MwQe+dcdHJgaIn1c8wfsucxHpIsdrUcgSkACHCq6aIhw==}
     dev: false
 
-  /@docsearch/react/3.3.2_y6lbs4o5th67cuzjdmtw5eqh7a:
+  /@docsearch/react/3.3.2_5ndqzdd6t4rivxsukjv3i3ak2q:
     resolution: {integrity: sha512-ugILab2TYKSh6IEHf6Z9xZbOovsYbsdfo60PBj+Bw+oMJ1MHJ7pBt1TTcmPki1hSgg8mysgKy2hDiVdPm7XWSQ==}
     peerDependencies:
       '@types/react': '>= 16.8.0 < 19.0.0'
@@ -1627,7 +1626,7 @@ packages:
         optional: true
     dependencies:
       '@algolia/autocomplete-core': 1.7.4
-      '@algolia/autocomplete-preset-algolia': 1.7.4_dk4ct527ug5whbfokpeal2wzha
+      '@algolia/autocomplete-preset-algolia': 1.7.4_algoliasearch@4.14.3
       '@docsearch/css': 3.3.2
       '@types/react': 18.0.27
       algoliasearch: 4.14.3
@@ -2057,7 +2056,7 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/plugin-ideal-image/2.2.0_jcwlzp2viufr6wjdvzskzzuumm:
+  /@docusaurus/plugin-ideal-image/2.2.0_72f5ylvv5qyncwuu36nsfplvaa:
     resolution: {integrity: sha512-1tnyPotxLEglt497nmccxWOpAA6ulMf4nc2k8tReEljmwHebefWV9wbK1RK/44Na8GiGb709/Zs+HHdNRied8w==}
     engines: {node: '>=16.14'}
     peerDependencies:
@@ -2074,7 +2073,7 @@ packages:
       '@docusaurus/theme-translations': 2.2.0
       '@docusaurus/types': 2.2.0_biqbaboplfbrettd7655fr4n2y
       '@docusaurus/utils-validation': 2.2.0_@docusaurus+types@2.2.0
-      '@endiliey/react-ideal-image': 0.0.11_dagfceefazatjjlgzboh6lbvbm
+      '@endiliey/react-ideal-image': 0.0.11_esvfex2ynkxqsriyym2jagidhu
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-waypoint: 10.3.0_react@18.2.0
@@ -2182,7 +2181,7 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/preset-classic/2.2.0_j75k5acldc3pec5ejsjgtf7p2q:
+  /@docusaurus/preset-classic/2.2.0_w2ng4dwcw5nax7k7hnuk67dydq:
     resolution: {integrity: sha512-yKIWPGNx7BT8v2wjFIWvYrS+nvN04W+UameSFf8lEiJk6pss0kL6SG2MRvyULiI3BDxH+tj6qe02ncpSPGwumg==}
     engines: {node: '>=16.14'}
     peerDependencies:
@@ -2199,7 +2198,7 @@ packages:
       '@docusaurus/plugin-sitemap': 2.2.0_72f5ylvv5qyncwuu36nsfplvaa
       '@docusaurus/theme-classic': 2.2.0_72f5ylvv5qyncwuu36nsfplvaa
       '@docusaurus/theme-common': 2.2.0_t6cypl7cxk2arg266ozq3hxn3m
-      '@docusaurus/theme-search-algolia': 2.2.0_q33yv6lgqaney22gf2bwn7ms4q
+      '@docusaurus/theme-search-algolia': 2.2.0_gjha3q7nsmvtujeozgkeml7y5y
       '@docusaurus/types': 2.2.0_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -2378,14 +2377,14 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/theme-search-algolia/2.2.0_q33yv6lgqaney22gf2bwn7ms4q:
+  /@docusaurus/theme-search-algolia/2.2.0_gjha3q7nsmvtujeozgkeml7y5y:
     resolution: {integrity: sha512-2h38B0tqlxgR2FZ9LpAkGrpDWVdXZ7vltfmTdX+4RsDs3A7khiNsmZB+x/x6sA4+G2V2CvrsPMlsYBy5X+cY1w==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
-      '@docsearch/react': 3.3.2_y6lbs4o5th67cuzjdmtw5eqh7a
+      '@docsearch/react': 3.3.2_5ndqzdd6t4rivxsukjv3i3ak2q
       '@docusaurus/core': 2.2.0_t6cypl7cxk2arg266ozq3hxn3m
       '@docusaurus/logger': 2.2.0
       '@docusaurus/plugin-content-docs': 2.2.0_72f5ylvv5qyncwuu36nsfplvaa
@@ -2518,7 +2517,7 @@ packages:
       - webpack-cli
     dev: false
 
-  /@endiliey/react-ideal-image/0.0.11_dagfceefazatjjlgzboh6lbvbm:
+  /@endiliey/react-ideal-image/0.0.11_esvfex2ynkxqsriyym2jagidhu:
     resolution: {integrity: sha512-QxMjt/Gvur/gLxSoCy7VIyGGGrGmDN+VHcXkN3R2ApoWX0EYUE+hMgPHSW/PV6VVebZ1Nd4t2UnGRBDihu16JQ==}
     engines: {node: '>= 8.9.0', npm: '> 3'}
     peerDependencies:
@@ -2526,7 +2525,6 @@ packages:
       react: '>=0.14.x'
       react-waypoint: '>=9.0.2'
     dependencies:
-      prop-types: 15.8.1
       react: 18.2.0
       react-waypoint: 10.3.0_react@18.2.0
     dev: false
@@ -2634,11 +2632,11 @@ packages:
     resolution: {integrity: sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==}
     dev: false
 
-  /@loadable/component/5.15.2_react@18.2.0:
-    resolution: {integrity: sha512-ryFAZOX5P2vFkUdzaAtTG88IGnr9qxSdvLRvJySXcUA4B4xVWurUNADu3AnKPksxOZajljqTrDEDcYjeL4lvLw==}
+  /@loadable/component/5.15.3_react@18.2.0:
+    resolution: {integrity: sha512-VOgYgCABn6+/7aGIpg7m0Ruj34tGetaJzt4bQ345FwEovDQZ+dua+NWLmuJKv8rWZyxOUSfoJkmGnzyDXH2BAQ==}
     engines: {node: '>=8'}
     peerDependencies:
-      react: '>=16.3.0'
+      react: ^16.3.0 || ^17.0.0 || ^18.0.0
     dependencies:
       '@babel/runtime': 7.20.13
       hoist-non-react-statics: 3.3.2
@@ -3495,10 +3493,8 @@ packages:
       indent-string: 4.0.0
     dev: false
 
-  /ajv-formats/2.1.1_ajv@8.12.0:
+  /ajv-formats/2.1.1:
     resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
-    peerDependencies:
-      ajv: ^8.0.0
     peerDependenciesMeta:
       ajv:
         optional: true
@@ -9139,7 +9135,7 @@ packages:
     dependencies:
       '@types/json-schema': 7.0.11
       ajv: 8.12.0
-      ajv-formats: 2.1.1_ajv@8.12.0
+      ajv-formats: 2.1.1
       ajv-keywords: 5.1.0_ajv@8.12.0
     dev: false
 
