@@ -27,7 +27,7 @@ specifiers:
   clsx: 1.2.1
   eslint: 8.32.0
   eslint-config-prettier: 8.6.0
-  eslint-config-standard-with-typescript: ^32.0.0
+  eslint-config-standard-with-typescript: ^33.0.0
   eslint-import-resolver-typescript: ^3.5.2
   eslint-plugin-import: 2.27.5
   eslint-plugin-n: ^15.0.0
@@ -49,12 +49,12 @@ specifiers:
 
 dependencies:
   '@docusaurus/core': 2.2.0_au2ippcelqoirfq4n3maoiprcm
-  '@docusaurus/plugin-ideal-image': 2.2.0_thcwfuu74qcombwm4s3w3xdqyi
+  '@docusaurus/plugin-ideal-image': 2.2.0_5hos2mpmowcfzjqbgntgxj6qwq
   '@docusaurus/plugin-pwa': 2.2.0_5hos2mpmowcfzjqbgntgxj6qwq
-  '@docusaurus/preset-classic': 2.2.0_26q3hvielcwqmytxpguya7iqte
+  '@docusaurus/preset-classic': 2.2.0_7kszhmrfwdhd3prfjq67gbiujy
   '@docusaurus/theme-mermaid': 2.2.0_5hos2mpmowcfzjqbgntgxj6qwq
   '@docusaurus/types': 2.2.0_sfoxds7t5ydpegc3knd667wn6m
-  '@loadable/babel-plugin': 5.13.2_@babel+core@7.20.12
+  '@loadable/babel-plugin': 5.13.2
   '@loadable/component': 5.15.2_react@17.0.2
   '@mdx-js/react': 1.6.22_react@17.0.2
   asciinema-player: 3.0.1
@@ -75,7 +75,7 @@ devDependencies:
   '@typescript-eslint/parser': 5.49.0_7uibuqfxkfaozanbtbziikiqje
   eslint: 8.32.0
   eslint-config-prettier: 8.6.0_eslint@8.32.0
-  eslint-config-standard-with-typescript: 32.0.0_3ozrqhxsq4rivumccwgffwbcbm
+  eslint-config-standard-with-typescript: 33.0.0_3ozrqhxsq4rivumccwgffwbcbm
   eslint-import-resolver-typescript: 3.5.3_ps7hf4l2dvbuxvtusmrfhmzsba
   eslint-plugin-import: 2.27.5_tto3jvfrcbe7ndbi56p7uxhaki
   eslint-plugin-n: 15.6.1_eslint@8.32.0
@@ -99,14 +99,13 @@ packages:
       '@algolia/autocomplete-shared': 1.7.4
     dev: false
 
-  /@algolia/autocomplete-preset-algolia/1.7.4_dk4ct527ug5whbfokpeal2wzha:
+  /@algolia/autocomplete-preset-algolia/1.7.4_algoliasearch@4.14.3:
     resolution: {integrity: sha512-s37hrvLEIfcmKY8VU9LsAXgm2yfmkdHT3DnA3SgHaY93yjZ2qL57wzb5QweVkYuEBZkT2PIREvRoLXC2sxTbpQ==}
     peerDependencies:
       '@algolia/client-search': '>= 4.9.1 < 6'
       algoliasearch: '>= 4.9.1 < 6'
     dependencies:
       '@algolia/autocomplete-shared': 1.7.4
-      '@algolia/client-search': 4.14.3
       algoliasearch: 4.14.3
     dev: false
 
@@ -788,6 +787,14 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.20.12
+      '@babel/helper-plugin-utils': 7.20.2
+    dev: false
+
+  /@babel/plugin-syntax-dynamic-import/7.8.3:
+    resolution: {integrity: sha512-5gdGbFon+PszYzqs83S3E5mpi7/y/8M9eC90MRTZfduQOYW76ig6SOSPNe41IG5LoP3FGBn2N0RjVDSQiS94kQ==}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    dependencies:
       '@babel/helper-plugin-utils': 7.20.2
     dev: false
 
@@ -1614,7 +1621,7 @@ packages:
     resolution: {integrity: sha512-dctFYiwbvDZkksMlsmc7pj6W6By/EjnVXJq5TEPd05MwQe+dcdHJgaIn1c8wfsucxHpIsdrUcgSkACHCq6aIhw==}
     dev: false
 
-  /@docsearch/react/3.3.2_ta3sob3lhbcxe2t3nq4xrzreie:
+  /@docsearch/react/3.3.2_zzo6hqewfjofql2ci6l6lnkzwi:
     resolution: {integrity: sha512-ugILab2TYKSh6IEHf6Z9xZbOovsYbsdfo60PBj+Bw+oMJ1MHJ7pBt1TTcmPki1hSgg8mysgKy2hDiVdPm7XWSQ==}
     peerDependencies:
       '@types/react': '>= 16.8.0 < 19.0.0'
@@ -1629,7 +1636,7 @@ packages:
         optional: true
     dependencies:
       '@algolia/autocomplete-core': 1.7.4
-      '@algolia/autocomplete-preset-algolia': 1.7.4_dk4ct527ug5whbfokpeal2wzha
+      '@algolia/autocomplete-preset-algolia': 1.7.4_algoliasearch@4.14.3
       '@docsearch/css': 3.3.2
       '@types/react': 18.0.27
       algoliasearch: 4.14.3
@@ -2059,7 +2066,7 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/plugin-ideal-image/2.2.0_thcwfuu74qcombwm4s3w3xdqyi:
+  /@docusaurus/plugin-ideal-image/2.2.0_5hos2mpmowcfzjqbgntgxj6qwq:
     resolution: {integrity: sha512-1tnyPotxLEglt497nmccxWOpAA6ulMf4nc2k8tReEljmwHebefWV9wbK1RK/44Na8GiGb709/Zs+HHdNRied8w==}
     engines: {node: '>=16.14'}
     peerDependencies:
@@ -2076,7 +2083,7 @@ packages:
       '@docusaurus/theme-translations': 2.2.0
       '@docusaurus/types': 2.2.0_sfoxds7t5ydpegc3knd667wn6m
       '@docusaurus/utils-validation': 2.2.0_@docusaurus+types@2.2.0
-      '@endiliey/react-ideal-image': 0.0.11_heenzz3sedzuyc4i7bmlcntetu
+      '@endiliey/react-ideal-image': 0.0.11_upu5otgfeontonxqxg6j7aqjz4
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-waypoint: 10.3.0_react@17.0.2
@@ -2184,7 +2191,7 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/preset-classic/2.2.0_26q3hvielcwqmytxpguya7iqte:
+  /@docusaurus/preset-classic/2.2.0_7kszhmrfwdhd3prfjq67gbiujy:
     resolution: {integrity: sha512-yKIWPGNx7BT8v2wjFIWvYrS+nvN04W+UameSFf8lEiJk6pss0kL6SG2MRvyULiI3BDxH+tj6qe02ncpSPGwumg==}
     engines: {node: '>=16.14'}
     peerDependencies:
@@ -2201,7 +2208,7 @@ packages:
       '@docusaurus/plugin-sitemap': 2.2.0_5hos2mpmowcfzjqbgntgxj6qwq
       '@docusaurus/theme-classic': 2.2.0_5hos2mpmowcfzjqbgntgxj6qwq
       '@docusaurus/theme-common': 2.2.0_au2ippcelqoirfq4n3maoiprcm
-      '@docusaurus/theme-search-algolia': 2.2.0_chw5afyrxi2kbco4y4ubcco4su
+      '@docusaurus/theme-search-algolia': 2.2.0_cpfewp3eegvxgmdiixtscyhg4m
       '@docusaurus/types': 2.2.0_sfoxds7t5ydpegc3knd667wn6m
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -2380,14 +2387,14 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/theme-search-algolia/2.2.0_chw5afyrxi2kbco4y4ubcco4su:
+  /@docusaurus/theme-search-algolia/2.2.0_cpfewp3eegvxgmdiixtscyhg4m:
     resolution: {integrity: sha512-2h38B0tqlxgR2FZ9LpAkGrpDWVdXZ7vltfmTdX+4RsDs3A7khiNsmZB+x/x6sA4+G2V2CvrsPMlsYBy5X+cY1w==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
-      '@docsearch/react': 3.3.2_ta3sob3lhbcxe2t3nq4xrzreie
+      '@docsearch/react': 3.3.2_zzo6hqewfjofql2ci6l6lnkzwi
       '@docusaurus/core': 2.2.0_au2ippcelqoirfq4n3maoiprcm
       '@docusaurus/logger': 2.2.0
       '@docusaurus/plugin-content-docs': 2.2.0_5hos2mpmowcfzjqbgntgxj6qwq
@@ -2520,7 +2527,7 @@ packages:
       - webpack-cli
     dev: false
 
-  /@endiliey/react-ideal-image/0.0.11_heenzz3sedzuyc4i7bmlcntetu:
+  /@endiliey/react-ideal-image/0.0.11_upu5otgfeontonxqxg6j7aqjz4:
     resolution: {integrity: sha512-QxMjt/Gvur/gLxSoCy7VIyGGGrGmDN+VHcXkN3R2ApoWX0EYUE+hMgPHSW/PV6VVebZ1Nd4t2UnGRBDihu16JQ==}
     engines: {node: '>= 8.9.0', npm: '> 3'}
     peerDependencies:
@@ -2528,7 +2535,6 @@ packages:
       react: '>=0.14.x'
       react-waypoint: '>=9.0.2'
     dependencies:
-      prop-types: 15.8.1
       react: 17.0.2
       react-waypoint: 10.3.0_react@17.0.2
     dev: false
@@ -2636,14 +2642,13 @@ packages:
     resolution: {integrity: sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==}
     dev: false
 
-  /@loadable/babel-plugin/5.13.2_@babel+core@7.20.12:
+  /@loadable/babel-plugin/5.13.2:
     resolution: {integrity: sha512-vSZUVeTH1S1sDbk8Tzft0plZSkN7W4zmVR5w/Bmy4UmvBiu9lin7ztrDpoUTUzxpoups+OJbTc/OosvN0aMXWg==}
     engines: {node: '>=8'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
-      '@babel/core': 7.20.12
-      '@babel/plugin-syntax-dynamic-import': 7.8.3_@babel+core@7.20.12
+      '@babel/plugin-syntax-dynamic-import': 7.8.3
     dev: false
 
   /@loadable/component/5.15.2_react@17.0.2:
@@ -3507,10 +3512,8 @@ packages:
       indent-string: 4.0.0
     dev: false
 
-  /ajv-formats/2.1.1_ajv@8.12.0:
+  /ajv-formats/2.1.1:
     resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
-    peerDependencies:
-      ajv: ^8.0.0
     peerDependenciesMeta:
       ajv:
         optional: true
@@ -5316,8 +5319,8 @@ packages:
       eslint: 8.32.0
     dev: true
 
-  /eslint-config-standard-with-typescript/32.0.0_3ozrqhxsq4rivumccwgffwbcbm:
-    resolution: {integrity: sha512-SyfzLvyBbPfxr2K/zNphtl5CGIS7FHH7v0TZrpmuyEXe+S1LFgt8hdJcWZHNxFckAGVQqrCxe/8+9T6n8x0gEA==}
+  /eslint-config-standard-with-typescript/33.0.0_3ozrqhxsq4rivumccwgffwbcbm:
+    resolution: {integrity: sha512-HOLmCMF91yYizfEms00jkmEoKvCCEIUOO6ArGZ9BNYL8yczF23fz/orsG6pN84f97cfo8c0kdREHzEO+uMA2zw==}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': ^5.0.0
       eslint: ^8.0.1
@@ -9154,7 +9157,7 @@ packages:
     dependencies:
       '@types/json-schema': 7.0.11
       ajv: 8.12.0
-      ajv-formats: 2.1.1_ajv@8.12.0
+      ajv-formats: 2.1.1
       ajv-keywords: 5.1.0_ajv@8.12.0
     dev: false
 
