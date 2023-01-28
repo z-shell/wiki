@@ -1,7 +1,7 @@
 ---
 id: overview
 title: '☑️ 一般概述'
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: Zi 使用概述
 ---
 
@@ -317,7 +317,7 @@ zi snippet PZT::modules/prompt
 Using `zsh-users/zsh-autosuggestions` without any drawbacks:
 
 ```shell showLineNumbers
-zi ice wait lucid atload'_zsh_autosuggest_start'
+zi ice wait lucid atload'!_zsh_autosuggest_start'
 zi light zsh-users/zsh-autosuggestions
 ```
 
@@ -333,14 +333,14 @@ Turbo 模式可以异步地加载，这在插件数量增加时作用重大。 �
 
 ```shell showLineNumbers
 zi ice wait
-zi load z-shell/history-search-multi-word
+zi load z-shell/H-S-MW
 ```
 
 2秒后加载：
 
 ```shell showLineNumbers
 zi ice wait'2'
-zi load z-shell/history-search-multi-word
+zi load z-shell/H-S-MW
 ```
 
 异步加载同样可用于 `light` 与 `snippet`：
@@ -356,7 +356,7 @@ Turbo 模式与 lucid 是最常用的组合，因为 Turbo 模式会打印加载
 
 ```shell showLineNumbers
 zi ice wait lucid
-zi load z-shell/history-search-multi-word
+zi load z-shell/H-S-MW
 ```
 
 ## 带有复杂命令行提示符的 Turbo 模式

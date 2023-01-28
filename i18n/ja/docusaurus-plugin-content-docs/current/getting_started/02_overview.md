@@ -1,7 +1,7 @@
 ---
 id: overview
 title: '☑️ 概要'
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: Zi の使用方法の概要
 ---
 
@@ -317,7 +317,7 @@ zi snippet PZT::modules/prompt
 `zsh-users/zsh-autosuggestions` を欠点なく使用する場合:
 
 ```shell showLineNumbers
-zi ice wait lucid atload'_zsh_autosuggest_start'
+zi ice wait lucid atload'!_zsh_autosuggest_start'
 zi light zsh-users/zsh-autosuggestions
 ```
 
@@ -333,14 +333,14 @@ zi light zsh-users/zsh-autosuggestions
 
 ```shell showLineNumbers
 zi ice wait
-zi load z-shell/history-search-multi-word
+zi load z-shell/H-S-MW
 ```
 
 2秒後に読み込みむ:
 
 ```shell showLineNumbers
 zi ice wait'2'
-zi load z-shell/history-search-multi-word
+zi load z-shell/H-S-MW
 ```
 
 また、 `light` と `snippet`でも使用することができます。
@@ -356,7 +356,7 @@ Turboとlucidが最もよく使われるオプションです。turboモード�
 
 ```shell showLineNumbers
 zi ice wait lucid
-zi load z-shell/history-search-multi-word
+zi load z-shell/H-S-MW
 ```
 
 ## 高度なプロンプトを使用したターボ・モード
