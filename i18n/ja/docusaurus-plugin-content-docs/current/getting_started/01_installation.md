@@ -252,7 +252,7 @@ sh <(curl -sL src.zshell.dev/sh/install_zpmod.sh)
 
 ## <i class="fas fa-sync-alt fa-spin"></i> 利用可能なリンク {#available-links}
 
-[Status page][status] <Emoji symbol="✅" label="check-mark-button"/>
+[ステータスページ][status] <Emoji symbol="✅" label="check-mark-button"/>
 
 ### <i class="fa-solid fa-gear"></i> インストーラー {#installer}
 
