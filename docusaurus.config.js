@@ -29,6 +29,7 @@ const config = {
       ({
         debug: true,
         docs: {
+          path: "docs",
           sidebarPath: require.resolve("./sidebars.js"),
           sidebarCollapsible: true,
           sidebarCollapsed: true,
@@ -162,7 +163,6 @@ const config = {
         appId: "FMPN8VE51Y",
         apiKey: "a3d13a1058ae9304a8c987ea67b08ce4",
         indexName: "zshell",
-        contextualSearch: true,
       },
       navbar: {
         hideOnScroll: true,

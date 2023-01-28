@@ -5,7 +5,6 @@ image: /img/png/theme/z/320x320.png
 description: Annex - Submods documentation.
 keywords:
   - annex
-  - zannex
   - submods
 ---
 
@@ -18,12 +17,12 @@ An annex delivers the capability to clone additional submodules while installing
 Synopsis:
 
 ```shell
-submods'{user}/{plugin} -> {output directory}; …'
+submods'{user}/{plugin} -> {output directory}; …`
 ```
 
 An example command utilizing the annex and its ice-modifier to load `zsh-autosuggestions` plugin via [Prezto module](/docs/getting_started/migration#pzt-modules) `autosuggestions`.
 
-```shell title="~/.zshrc" showLineNumbers
+```shell title='~/.zshrc' showLineNumbers
 zi ice svn submods'zsh-users/zsh-autosuggestions -> external'
 zi snippet PZT::modules/autosuggestions
 ```

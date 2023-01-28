@@ -12,11 +12,10 @@ export default function HeroBanner(): JSX.Element {
   return (
     <div className={styles.hero} data-theme='dark'>
       <div className={styles.heroInner}>
-        <Heading as='h1' className={clsx(styles.heroProjectTagline)}>
+        <Heading as='h1' className={styles.heroProjectTagline}>
           <img alt='Zi logo' className={styles.heroLogo} src={useBaseUrl("/img/logo.svg")} height='200' width='200' />
           <span
             className={styles.heroTitleTextHtml}
-            // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html: translate({
                 id: "homepage.hero.title",
@@ -27,12 +26,12 @@ export default function HeroBanner(): JSX.Element {
           />
         </Heading>
         <div className={styles.indexCtas}>
-          <Link className='button button--primary' to='/docs/getting_started/installation'>
+          <Link className={clsx("button button--primary")} to='/docs/getting_started/installation'>
             <Translate id='homepage.banner.button.1' description='The homepage get started button'>
               Get Started
             </Translate>
           </Link>
-          <Link className='button button--secondary' to='/community'>
+          <Link className={clsx("button button--secondary")} to='/community'>
             <Translate id='homepage.banner.button.2' description='The homepage community button'>
               Community
             </Translate>

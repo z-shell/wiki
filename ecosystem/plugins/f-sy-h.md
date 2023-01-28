@@ -84,8 +84,11 @@ Performance differences can be observed in this Asciinema recording, where a `10
 
 <Player
   src='https://asciinema.org/a/512971.cast'
-  rows={24}
-  cols={135}
+  rows={30}
+  cols={150}
+  terminalFontFamily="var(--ifm-font-family-monospace)"
+  terminalFontSize="var(--ifm-code-font-size)"
+  fit={false}
 />
 
 ## Syntax highlighting features
@@ -96,8 +99,11 @@ Switch themes via `fast-theme {theme-name}`.
 
 <Player
   src='https://asciinema.org/a/513093.cast'
-  rows={20}
-  cols={100}
+  rows={24}
+  cols={120}
+  terminalFontFamily="var(--ifm-font-family-monospace)"
+  terminalFontSize="var(--ifm-code-font-size)"
+  fit={false}
 />
 
 Run `fast-theme -t {theme-name}` option to obtain the snippet above.

@@ -13,7 +13,7 @@ declare module "asciinema-player" {
       idleTimeLimit?: number;
       theme?: string;
       poster?: string;
-      fit?: string;
+      fit?: boolean | string;
       terminalLineHeight?: number;
       terminalFontFamily?: string;
       terminalFontSize?: string;

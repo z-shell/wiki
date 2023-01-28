@@ -1,7 +1,6 @@
 // @ts-check
 
 import React, {useEffect, useRef, useState} from "react";
-import Loadable from "@loadable/component";
 import Spinner from "@site/src/components/Spinner";
 import "asciinema-player/dist/bundle/asciinema-player.css";
 
@@ -17,33 +16,30 @@ interface PlayerConfig {
   idleTimeLimit?: number;
   theme?: string;
   poster?: string;
-  fit?: string;
+  fit?: boolean | string;
   terminalLineHeight?: number;
   terminalFontFamily?: string;
   terminalFontSize?: string;
 }
 
 export default function Player(props: PlayerConfig): JSX.Element {
-  const {src, ...options} = props;
+  const {src, ...opts} = props;
   const element = useRef<HTMLDivElement>(null);
-  // eslint-disable-next-line @typescript-eslint/consistent-type-imports
   const [player, setPlayer] = useState<typeof import("asciinema-player")>();
-  const showPlayer = player != null ? <div ref={element} /> : <Spinner />;
 
   useEffect(() => {
-    const library = Loadable(async () => await import("asciinema-player"));
-    library.load().then((module) => {
+    void import("asciinema-player").then((module) => {
       setPlayer(module);
     });
   }, []);
 
   useEffect(() => {
     const currentRef = element.current;
-    const instance = player?.create(src, currentRef, options);
+    const instance = player?.create(src, currentRef, opts);
     return () => {
       instance?.dispose();
     };
-  }, [src, player, options]);
+  }, [src, opts, player]);
 
-  return showPlayer;
+  return player != null ? <div ref={element} /> : <Spinner />;
 }

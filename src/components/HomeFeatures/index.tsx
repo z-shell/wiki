@@ -12,13 +12,13 @@ import styles from "./styles.module.css";
 function Feature({feature}: {feature: FeatureItem}) {
   return (
     <div className={clsx("col col--4")}>
-      <div className={clsx(styles.FeatureImg)}>
+      <div className={styles.FeatureImg}>
         <feature.image />
       </div>
-      <Heading as='h2' className={clsx(styles.FeatureHeading)}>
+      <Heading as='h2' className={styles.FeatureHeading}>
         {feature.title}
       </Heading>
-      <p className='padding-horiz--md'>{feature.description}</p>
+      <p className={clsx("padding-horiz--md")}>{feature.description}</p>
     </div>
   );
 }
@@ -26,11 +26,10 @@ function Feature({feature}: {feature: FeatureItem}) {
 export default function HomeFeatures(): JSX.Element {
   return (
     <div className={styles.HomeFeatures}>
-      <div className='container text--center'>
-        <div className='row margin-bottom--lg'>
-          {Features.map((feature, idx) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <Feature key={idx} feature={feature} />
+      <div className={clsx("container text--center")}>
+        <div className={clsx("row margin-bottom--lg")}>
+          {Features.map((feature, index) => (
+            <Feature key={index} feature={feature} />
           ))}
         </div>
       </div>
@@ -38,14 +37,21 @@ export default function HomeFeatures(): JSX.Element {
         <div className='container'>
           <div className='row'>
             <div className='col'>
-              <Heading as='h2' className={clsx(styles.VideoContainerHeading)}>
+              <Heading as='h2' className={styles.VideoContainerHeading}>
                 <Emoji style={{paddingRight: "0.5rem"}} symbol='⚡' label='high-voltage' />
                 <Translate id='homepage.video.heading.1' description='The homepage video container heading 1'>
                   Fast and feature-rich
                 </Translate>
               </Heading>
               <div className='video-container'>
-                <Player src='https://asciinema.org/a/509113.cast' rows={34} cols={231} />
+                <Player
+                  src='https://asciinema.org/a/509113.cast'
+                  rows={34}
+                  cols={231}
+                  terminalFontFamily='var(--ifm-font-family-monospace)'
+                  terminalFontSize='var(--ifm-code-font-size)'
+                  fit={false}
+                />
               </div>
             </div>
           </div>

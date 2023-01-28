@@ -25,7 +25,8 @@ plugins:
   - react-hooks
   - "@typescript-eslint"
   - "@docusaurus"
-rules: {
+rules:
+  {
     "semi": [2, "always"],
     "prefer-const": "error",
     "no-undef": 0,
@@ -90,5 +91,5 @@ rules: {
         },
       ],
     "@typescript-eslint/explicit-function-return-type": 0,
-    #"@typescript-eslint/strict-boolean-expressions": 0, # <-- TODO
+    "@typescript-eslint/consistent-type-imports": [2, {"disallowTypeAnnotations": false}],
   }

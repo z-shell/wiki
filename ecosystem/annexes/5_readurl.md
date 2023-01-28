@@ -5,7 +5,6 @@ image: /img/png/theme/z/320x320.png
 description: Annex - Read URL documentation.
 keywords:
   - annex
-  - zannex
   - readurl
 ---
 
@@ -26,7 +25,7 @@ The part after the `|` has the same meaning as in the normal `as'…'` ice.
 
 :::
 
-Example:
+## Examples
 
 ```shell showLineNumbers
 zi id-as=fzf as='readurl|command' for \
@@ -38,7 +37,7 @@ The snippet is just an example. The same effect is obtained by loading as the `j
 
 As it can be seen, the `dlink'…'` can be a relative or an absolute path and also a full URL (i.e.: beginning with the `http://…` prefix).
 
-## Intermediate download page
+### Intermediate download page
 
 Sometimes, like it is in the case of the [terraform][terraform-link] command, the final download link isn't on the download page, but on a page, that's listed on it. In such a case use the `dlink0'…'` ice to provide the pattern for the additional, intermediate download page, e.g.:
 
@@ -49,7 +48,7 @@ zi id-as=terraform as='readurl|command' extract for \
     http://releases.hashicorp.com/terraform/
 ```
 
-## Skipping `dlink'…'` ice
+### Skipping `dlink'…'` ice
 
 Sometimes the URL of the download page differs from the URL of the archive in just a few `/`-sections. In such a case, it is possible to skip the `dlink'…'` ice by appending a `++`-separated fragment of the archive URL, like so:
 
@@ -65,11 +64,11 @@ zi as'readurl|command' extract for \
   http://domain.com/download-page/removed-section+++/archive.zip
 ```
 
-## Sorting the matched URLs / package versions
+### Sorting the matched URLs / package versions
 
 Sometimes the download page doesn't list the package versions from newest to oldest, but in some other order. In such case, it's possible to sort the URLs / package versions by prepending the chosen `dlink` ice (`dlink0'…'` or `dlink'…'`) with the exclamation mark (`dlink'!…'`, etc.). See the next section for an example:
 
-## Filtering the matched URLs
+### Filtering the matched URLs
 
 Sometimes some unwanted URLs match the `dlink'…'`/`dlink0'…'` regex/pattern. In such a case it's possible to filter them out by appending a filtering regex to the `dlink'…'` ice as: `dlink='the-main-regex~%the-unwanted-URLs-regex%'` (or the same for `dlink0'…'`). An example package that can benefit from this is the [Open Shift][open-shift-link] client, which doesn't sort the URLs from latest to the oldest – hence the exclamation mark (`!`) prepend – and it has special URLs like `stable-4.4` or `candidate-4.5` together with the regular version URLs (like `4.5.0-rc.1`):
 
@@ -82,7 +81,7 @@ zi id-as"ocp" as"readurl|command" for \
 
 The above snippet of Zsh code / Zi invocation will sort the URLs (`dlink0'!…'`) and then filter out the special ones from the results (via `…~%(stable|latest|fast|candidate).*%`), this way selecting the latest version of the Open Shift client.
 
-## Other Examples
+### Other examples
 
 [Pulumi][pulumi-link], a tool to create, deploy and manage modern cloud software.
 

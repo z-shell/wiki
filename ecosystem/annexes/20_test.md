@@ -7,7 +7,6 @@ image: /img/png/theme/z/320x320.png
 description: Annex - Test documentation
 keywords:
   - annex
-  - zannex
   - test
 draft: true
 ---
@@ -31,7 +30,8 @@ Simply load it like any other plugin to make it active:
 zi light z-shell/z-a-test
 ```
 
-## Configuration
+<details>
+  <summary>📖 <b>Configuration</b></summary>
 
 To run the tests in a verbose mode, issue:
 
@@ -45,3 +45,5 @@ To skip tests for a single plugin before installing or updating add the `notest`
 zi ice notest
 zi load …
 ```
+
+</details>

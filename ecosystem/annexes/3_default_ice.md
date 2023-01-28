@@ -5,7 +5,6 @@ image: /img/png/theme/z/320x320.png
 description: Annex - Default Ice documentation
 keywords:
   - annex
-  - zannex
   - default-ice
 ---
 
@@ -50,7 +49,7 @@ An annex provides a subcommand – `default-ice` which has the following synopsi
  [ -h ] — This message
 ```
 
-## Install default-ice
+## Install default-ice {#install-default-ice}
 
 :::info Source
 

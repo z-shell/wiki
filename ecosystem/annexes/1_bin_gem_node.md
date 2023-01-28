@@ -4,9 +4,8 @@ title: "🌀 Bin Gem Node"
 image: /img/png/theme/z/320x320.png
 description: Annex - Bin Gem Node documentation.
 keywords:
-  - zannex,
+  - annex,
   - bin-gem-node
-  - z-a-bin-gem-node
 ---
 
 <!-- @format -->
@@ -122,6 +121,9 @@ Creates the so-called `shim` known from `rbenv` – a wrapper script that forwar
       src='https://asciinema.org/a/513810.cast'
       rows={26}
       cols={184}
+      terminalFontFamily="var(--ifm-font-family-monospace)"
+      terminalFontSize="var(--ifm-code-font-size)"
+      fit={false}
     />
   </TabItem>
   <TabItem value="shortcuts" label="Shortcuts">
@@ -173,6 +175,9 @@ Creates a wrapper function of the name the same as the last segment of the path 
       src='https://asciinema.org/a/513297.cast'
       rows={18}
       cols={166}
+      terminalFontFamily="var(--ifm-font-family-monospace)"
+      terminalFontSize="var(--ifm-code-font-size)"
+      fit={false}
     />
   </TabItem>
   <TabItem value="shortcuts" label="Shortcuts">
@@ -215,6 +220,9 @@ Installs the gem of name `{gem-name}` with `$GEM_HOME` set to the plugin's or sn
       src='https://asciinema.org/a/513303.cast'
       rows={23}
       cols={140}
+      terminalFontFamily="var(--ifm-font-family-monospace)"
+      terminalFontSize="var(--ifm-code-font-size)"
+      fit={false}
     />
   </TabItem>
   <TabItem value="shortcuts" label="Shortcuts">
@@ -259,6 +267,9 @@ Installs the node module of name `{node-module}` inside the plugin's or snippet'
       src='https://asciinema.org/a/513774.cast'
       rows={18}
       cols={140}
+      terminalFontFamily="var(--ifm-font-family-monospace)"
+      terminalFontSize="var(--ifm-code-font-size)"
+      fit={false}
     />
   </TabItem>
   <TabItem value="shortcuts" label="Shortcuts">
@@ -305,6 +316,9 @@ Installs the node module of name `{pip-package}` inside the plugin's or snippet'
       src='https://asciinema.org/a/513793.cast'
       rows={26}
       cols={156}
+      terminalFontFamily="var(--ifm-font-family-monospace)"
+      terminalFontSize="var(--ifm-code-font-size)"
+      fit={false}
     />
   </TabItem>
   <TabItem value="shortcuts" label="Shortcuts">
@@ -351,6 +365,9 @@ Example:
       src='https://asciinema.org/a/513805.cast'
       rows={26}
       cols={140}
+      terminalFontFamily="var(--ifm-font-family-monospace)"
+      terminalFontSize="var(--ifm-code-font-size)"
+      fit={false}
     />
   </TabItem>
   <TabItem value="shortcuts" label="Shortcuts">
@@ -415,6 +432,9 @@ Creates a wrapper function that at each invocation sources the given file. The s
       src='https://asciinema.org/a/513308.cast'
       rows={26}
       cols={140}
+      terminalFontFamily="var(--ifm-font-family-monospace)"
+      terminalFontSize="var(--ifm-code-font-size)"
+      fit={false}
     />
   </TabItem>
   <TabItem value="shortcuts" label="Shortcuts">
@@ -481,7 +501,7 @@ The [sbin](#sbin-1) ice-modifier has an explicit Cygwin support – it creates a
 zi pack=bgn for firefox
 ```
 
-## Install bin-gem-node
+## Install bin-gem-node {#install-bin-gem-node}
 
 :::info Source
 

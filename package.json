@@ -33,7 +33,6 @@
     "@docusaurus/plugin-pwa": "2.2.0",
     "@docusaurus/preset-classic": "2.2.0",
     "@docusaurus/theme-mermaid": "2.2.0",
-    "@docusaurus/types": "2.2.0",
     "@loadable/component": "5.15.3",
     "@mdx-js/react": "1.6.22",
     "asciinema-player": "3.0.1",
@@ -45,6 +44,7 @@
   },
   "devDependencies": {
     "@crowdin/cli": "3.10.0",
+    "@docusaurus/types": "2.2.0",
     "@docusaurus/eslint-plugin": "2.2.0",
     "@docusaurus/module-type-aliases": "2.2.0",
     "@trunkio/launcher": "1.2.3",
@@ -89,8 +89,13 @@
   "pnpm": {
     "overrides": {
       "trim@<0.0.3": ">=0.0.3",
-      "got@<11.8.5": ">=11.8.5",
-      "ua-parser-js@<0.7.33": ">=0.7.33"
+      "got@<11.8.5": ">=11.8.5"
+    },
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "react": ">=17",
+        "react-dom": ">=17"
+      }
     }
   }
 }

@@ -5,7 +5,6 @@ image: /img/png/theme/z/320x320.png
 description: Annex - Unscope IDs documentation
 keywords:
   - annex
-  - zannex
   - unscope
 ---
 
@@ -13,7 +12,7 @@ keywords:
 
 <!-- TODO: Include image/video/code examples. -->
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link'; import Highlight from "@site/src/components/Highlight";
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link'; import Highlight from "@site/src/components/Highlight"; import APITable from '@site/src/components/APITable';
 
 An annex allows the installation of plugins without specifying the GitHub user name, as follows:
 
@@ -35,7 +34,11 @@ Fill [request](https://github.com/z-shell/z-a-unscope/issues/new/choose) to add 
 
 :::
 
-Besides the GitHub-API querying, there's also a fixed, curated list of mappings of short names to the full GitHub IDs. The list currently consists of:
+Besides the GitHub-API querying, there's also a fixed, curated list of mappings of short names to the full GitHub IDs:
+
+```mdx-code-block
+<APITable>
+```
 
 |                               Short (Nick-) Name                                | GitHub ID / scoped ID             |
 | :-----------------------------------------------------------------------------: | :-------------------------------- |
@@ -124,6 +127,10 @@ Besides the GitHub-API querying, there's also a fixed, curated list of mappings 
 |     <Highlight color="var(--ifm-color-info)"> zsh-completions </Highlight>      | zsh-users/zsh-completions         |
 |       <Highlight color="var(--ifm-color-info)"> completions </Highlight>        | zsh-users/zsh-completions         |
 |          <Highlight color="var(--ifm-color-info)"> comps </Highlight>           | zsh-users/zsh-completions         |
+
+```mdx-code-block
+</APITable>
+```
 
 ## Install unscope {#install-unscope}
 

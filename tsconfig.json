@@ -2,11 +2,16 @@
   "docs": "https://docusaurus.io/docs/typescript-support",
   "compilerOptions": {
     "allowJs": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "esModuleInterop": true,
+    "isolatedModules": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "jsx": "react",
     "lib": ["DOM"],
     "noEmit": true,
-    "types": ["node", "@docusaurus/module-type-aliases", "@docusaurus/preset-classic"],
+    "types": ["node", "react", "@docusaurus/module-type-aliases", "@docusaurus/preset-classic"],
     "baseUrl": ".",
     "paths": {
       "@site/*": ["./*"]
