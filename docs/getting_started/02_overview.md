@@ -1,7 +1,7 @@
 ---
 id: overview
 title: ☑️ General Overview
-image: /img/logo/320x320.png
+image: /img/png/theme/z/320x320.png
 description: General overview of Zi usage
 ---
 
@@ -319,7 +319,7 @@ zi snippet PZT::modules/prompt
 Using `zsh-users/zsh-autosuggestions` without any drawbacks:
 
 ```shell showLineNumbers
-zi ice wait lucid atload'_zsh_autosuggest_start'
+zi ice wait lucid atload'!_zsh_autosuggest_start'
 zi light zsh-users/zsh-autosuggestions
 ```
 
@@ -335,14 +335,14 @@ The `wait` is equivalent to `wait'0'`.
 
 ```shell showLineNumbers
 zi ice wait
-zi load z-shell/history-search-multi-word
+zi load z-shell/H-S-MW
 ```
 
 Load after 2 seconds:
 
 ```shell showLineNumbers
 zi ice wait'2'
-zi load z-shell/history-search-multi-word
+zi load z-shell/H-S-MW
 ```
 
 Also can be used in `light` and `snippet`:
@@ -358,7 +358,7 @@ Turbo and lucid are the most used options because turbo mode is verbose and may 
 
 ```shell showLineNumbers
 zi ice wait lucid
-zi load z-shell/history-search-multi-word
+zi load z-shell/H-S-MW
 ```
 
 ## Turbo mode with sophisticated prompts
