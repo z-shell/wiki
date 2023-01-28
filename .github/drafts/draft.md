@@ -20,6 +20,8 @@ last_update:
 draft: true
 ---
 
+<!-- https://docusaurus.io/docs/next/api/plugins/@docusaurus/plugin-content-docs#markdown-front-matter -->
+
 ### Details element example
 
 <details>

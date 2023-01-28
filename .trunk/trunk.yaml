@@ -1,6 +1,6 @@
 version: 0.1
 cli:
-  version: 1.3.2
+  version: 1.4.0
 repo:
   repo:
     host: github.com

@@ -5,20 +5,15 @@ import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import Translate, {translate} from "@docusaurus/Translate";
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import Heading from "@theme/Heading";
 import styles from "./styles.module.css";
 
 export default function HeroBanner(): JSX.Element {
   return (
     <div className={styles.hero} data-theme='dark'>
       <div className={styles.heroInner}>
-        <div className={clsx(styles.heroProjectTagline)}>
-          <img
-            alt={translate({id: "zi.logo", message: "ZI logo"})}
-            className={styles.heroLogo}
-            src={useBaseUrl("/img/logo.svg")}
-            height='200'
-            width='200'
-          />
+        <Heading as='h1' className={clsx(styles.heroProjectTagline)}>
+          <img alt='Zi logo' className={styles.heroLogo} src={useBaseUrl("/img/logo.svg")} height='200' width='200' />
           <span
             className={styles.heroTitleTextHtml}
             // eslint-disable-next-line react/no-danger
@@ -30,7 +25,7 @@ export default function HeroBanner(): JSX.Element {
               }),
             }}
           />
-        </div>
+        </Heading>
         <div className={styles.indexCtas}>
           <Link className='button button--primary' to='/docs/getting_started/installation'>
             <Translate id='homepage.banner.button.1' description='The homepage get started button'>

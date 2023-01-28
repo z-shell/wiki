@@ -23,9 +23,6 @@
     "message": "Oh-My-ZshとPreztoをサポートします。フレームワーク固有ではありません。プラグイン、ライブラリ、テーマを簡単に作成できます。",
     "description": "Description of third featured banner in homepage"
   },
-  "zi.logo": {
-    "message": "ZI logo"
-  },
   "homepage.hero.title": {
     "message": "A <b>Swiss Army</b> Knife for <b>Zsh</b> Unix <b>Shell</b>",
     "description": "Home page hero title, can contain simple html tags"
@@ -43,31 +40,31 @@
     "description": "The homepage video container heading 1"
   },
   "theme.ErrorPageContent.title": {
-    "message": "ページがクラッシュしました。",
+    "message": "エラーが発生しました",
     "description": "The title of the fallback page when the page crashed"
   },
   "theme.ErrorPageContent.tryAgain": {
-    "message": "やり直す",
-    "description": "The label of the button to try again rendering when the React error boundary captures an error"
+    "message": "もう一度試してください",
+    "description": "The label of the button to try again when the page crashed"
   },
   "theme.NotFound.title": {
     "message": "ページが見つかりません",
     "description": "The title of the 404 page"
   },
   "theme.NotFound.p1": {
-    "message": "お探しのページが見つかりませんでした。",
+    "message": "お探しのページが見つかりませんでした",
     "description": "The first paragraph of the 404 page"
   },
   "theme.NotFound.p2": {
-    "message": "このページにリンクしているサイトの所有者に連絡をしてリンクが壊れていることを伝えてください。",
+    "message": "このページにリンクしているサイトの所有者にリンクが壊れていることを伝えてください",
     "description": "The 2nd paragraph of the 404 page"
   },
   "theme.admonition.note": {
-    "message": "备注",
+    "message": "注記",
     "description": "The default label used for the Note admonition (:::note)"
   },
   "theme.admonition.tip": {
-    "message": "tip",
+    "message": "ヒント",
     "description": "The default label used for the Tip admonition (:::tip)"
   },
   "theme.admonition.danger": {
@@ -75,15 +72,15 @@
     "description": "The default label used for the Danger admonition (:::danger)"
   },
   "theme.admonition.info": {
-    "message": "info",
+    "message": "備考",
     "description": "The default label used for the Info admonition (:::info)"
   },
   "theme.admonition.caution": {
-    "message": "警告",
+    "message": "注意",
     "description": "The default label used for the Caution admonition (:::caution)"
   },
   "theme.BackToTopButton.buttonAriaLabel": {
-    "message": "ページトップへ戻る",
+    "message": "先頭へ戻る",
     "description": "The ARIA label for the back to top button"
   },
   "theme.blog.archive.title": {
@@ -123,7 +120,7 @@
     "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
   "theme.blog.tagTitle": {
-    "message": "「{tagName}」タグの記事が{nPosts}あります",
+    "message": "「{tagName}」タグの記事が{nPosts}件あります",
     "description": "The title of the page for a blog tag"
   },
   "theme.tags.tagsPageLink": {
@@ -131,7 +128,7 @@
     "description": "The label of the link targeting the tag list page"
   },
   "theme.colorToggle.ariaLabel": {
-    "message": "ダークモードとライトモードの切り替え(現在は {mode})",
+    "message": "ダークモードを切り替える(現在は{mode})",
     "description": "The ARIA label for the navbar color mode toggle"
   },
   "theme.colorToggle.ariaLabel.mode.dark": {
@@ -142,16 +139,12 @@
     "message": "ライトモード",
     "description": "The name for the light color mode"
   },
-  "theme.docs.breadcrumbs.home": {
-    "message": "ホームページ",
-    "description": "The ARIA label for the home page in the breadcrumbs"
-  },
   "theme.docs.breadcrumbs.navAriaLabel": {
     "message": "パンくずリストのナビゲーション",
     "description": "The ARIA label for the breadcrumbs"
   },
   "theme.docs.DocCard.categoryDescription": {
-    "message": "{count} 件",
+    "message": "{count}項目",
     "description": "The default description for a category card in the generated index about how many items this category includes"
   },
   "theme.docs.paginator.navAriaLabel": {
@@ -167,38 +160,38 @@
     "description": "The label used to navigate to the next doc"
   },
   "theme.docs.tagDocListPageTitle.nDocsTagged": {
-    "message": "このタグのドキュメント1件 | このタグのドキュメント {count} 件",
+    "message": "{count}記事",
     "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
   "theme.docs.tagDocListPageTitle": {
-    "message": "「{tagName}」が{nDocsTagged} あります",
+    "message": "「{tagName}」タグのついた{nDocsTagged}",
     "description": "The title of the page for a docs tag"
   },
   "theme.docs.versionBadge.label": {
     "message": "バージョン: {versionLabel}"
   },
-  "theme.common.editThisPage": {
-    "message": "このページを編集",
-    "description": "The link label to edit the current page"
-  },
   "theme.docs.versions.unreleasedVersionLabel": {
-    "message": "これはリリース前の{siteTitle} {versionLabel}のドキュメントです。",
+    "message": "これはリリース前のバージョン{versionLabel}の{siteTitle}のドキュメントです。",
     "description": "The label used to tell the user that he's browsing an unreleased doc version"
   },
   "theme.docs.versions.unmaintainedVersionLabel": {
-    "message": "これは{siteTitle} {versionLabel}のドキュメントで現在はアクティブにメンテナンスされていません。",
+    "message": "これはバージョン{versionLabel}の{siteTitle}のドキュメントで現在はメンテナンスされていません",
     "description": "The label used to tell the user that he's browsing an unmaintained doc version"
   },
   "theme.docs.versions.latestVersionSuggestionLabel": {
-    "message": "最新のドキュメントは{latestVersionLink} ({versionLabel}) を見てください。",
+    "message": "最新のドキュメントは{latestVersionLink} ({versionLabel}) を見てください",
     "description": "The label used to tell the user to check the latest version"
   },
   "theme.docs.versions.latestVersionLinkLabel": {
     "message": "最新バージョン",
     "description": "The label used for the latest version suggestion link label"
   },
+  "theme.common.editThisPage": {
+    "message": "このページを編集",
+    "description": "The link label to edit the current page"
+  },
   "theme.common.headingLinkTitle": {
-    "message": "見出しへの直接リンク",
+    "message": "{heading} への直接リンク",
     "description": "Title for link to heading"
   },
   "theme.lastUpdated.atDate": {
@@ -214,7 +207,7 @@
     "description": "The sentence used to display when a page has been last updated, and by who"
   },
   "theme.navbar.mobileVersionsDropdown.label": {
-    "message": "バージョン",
+    "message": "他のバージョン",
     "description": "The label for the navbar versions dropdown on mobile view"
   },
   "theme.tags.tagsListLabel": {
@@ -226,7 +219,7 @@
     "description": "The ARIA label for close button of announcement bar"
   },
   "theme.blog.sidebar.navAriaLabel": {
-    "message": "最近のブログ記事",
+    "message": "最近のブログ記事のナビゲーション",
     "description": "The ARIA label for recent posts in the blog sidebar"
   },
   "theme.CodeBlock.copied": {
@@ -246,15 +239,15 @@
     "description": "The title attribute for toggle word wrapping button of code block lines"
   },
   "theme.DocSidebarItem.toggleCollapsedCategoryAriaLabel": {
-    "message": "サイドバーのカテゴリー \"{label}\" を折りたたむ/開く",
+    "message": "サイドバーのカテゴリー「{label}」を開く・閉じる",
     "description": "The ARIA label to toggle the collapsible sidebar category"
   },
   "theme.navbar.mobileLanguageDropdown.label": {
-    "message": "言語",
+    "message": "他の言語",
     "description": "The label for the mobile language switcher dropdown"
   },
   "theme.TOCCollapsible.toggleButtonLabel": {
-    "message": "目次",
+    "message": "このページの見出し",
     "description": "The label used by the button on the collapsible TOC component"
   },
   "theme.blog.post.readMore": {
@@ -262,12 +255,16 @@
     "description": "The label used in blog post item excerpts to link to full blog posts"
   },
   "theme.blog.post.readMoreLabel": {
-    "message": "{title} について詳しく見る",
+    "message": "{title}についてもっと見る",
     "description": "The ARIA label for the link to full blog posts from excerpts"
   },
   "theme.blog.post.readingTime.plurals": {
     "message": "約{readingTime}分",
     "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.docs.breadcrumbs.home": {
+    "message": "ホームページ",
+    "description": "The ARIA label for the home page in the breadcrumbs"
   },
   "theme.docs.sidebar.collapseButtonTitle": {
     "message": "サイドバーを隠す",
@@ -277,16 +274,12 @@
     "message": "サイドバーを隠す",
     "description": "The title attribute for collapse button of doc sidebar"
   },
-  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
-    "message": "ナビゲーションバーを閉じる",
-    "description": "The ARIA label for close button of mobile sidebar"
-  },
   "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
     "message": "← メインメニューに戻る",
     "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
   },
   "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
-    "message": "ナビゲーションバーの切り替え",
+    "message": "Toggle navigation bar",
     "description": "The ARIA label for hamburger menu button of mobile navigation"
   },
   "theme.docs.sidebar.expandButtonTitle": {
@@ -298,7 +291,7 @@
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
   },
   "theme.SearchBar.seeAll": {
-    "message": "{count} 件の結果を見る"
+    "message": "検索結果{count}件をすべて見る"
   },
   "theme.SearchPage.documentsFound.plurals": {
     "message": "{count}件のドキュメントが見つかりました",
@@ -313,7 +306,7 @@
     "description": "The search page title for empty query"
   },
   "theme.SearchPage.inputPlaceholder": {
-    "message": "ここに検索するキーワードを入力してください",
+    "message": "検索するキーワードを入力してください",
     "description": "The placeholder for search page input"
   },
   "theme.SearchPage.inputLabel": {
@@ -429,27 +422,27 @@
     "description": "The placeholder of the input of the DocSearch pop-up modal"
   },
   "theme.IdealImageMessage.loading": {
-    "message": "読み込み中…",
+    "message": "読み込み中...",
     "description": "When the full-scale image is loading"
   },
   "theme.IdealImageMessage.load": {
-    "message": "クリックして{sizeMessage} を読み込む",
+    "message": "クリックして読み込む{sizeMessage}",
     "description": "To prompt users to load the full image. sizeMessage is a parenthesized size figure."
   },
   "theme.IdealImageMessage.offline": {
-    "message": "お使いのブラウザはオフラインです。画像が読み込まれません",
+    "message": "オフライン中は画像は読み込まれません",
     "description": "When the user is viewing an offline document"
   },
   "theme.IdealImageMessage.404error": {
-    "message": "404. 画像が見つかりません",
+    "message": "画像が存在しません",
     "description": "When the image is not found"
   },
   "theme.IdealImageMessage.error": {
-    "message": "エラー クリックで再読み込み",
+    "message": "画像の読み込みに失敗しました",
     "description": "When the image fails to load for unknown error"
   },
   "theme.PwaReloadPopup.info": {
-    "message": "新しいバージョンが取得可能",
+    "message": "新しいバージョンがあります",
     "description": "The text for PWA reload popup"
   },
   "theme.PwaReloadPopup.refreshButtonText": {
@@ -476,12 +469,8 @@
     "message": "Docs sidebar",
     "description": "The ARIA label for the sidebar navigation"
   },
-  "theme.unlistedContent.title": {
-    "message": "Unlisted page",
-    "description": "The unlisted content banner title"
-  },
-  "theme.unlistedContent.message": {
-    "message": "This page is unlisted. Search engines will not index it, and only users having a direct link can access it.",
-    "description": "The unlisted content banner message"
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
+    "message": "Close navigation bar",
+    "description": "The ARIA label for close button of mobile sidebar"
   }
 }
