@@ -23,9 +23,6 @@
     "message": "Oh-My-ZshとPreztoをサポートします。フレームワーク固有ではありません。プラグイン、ライブラリ、テーマを簡単に作成できます。",
     "description": "Description of third featured banner in homepage"
   },
-  "zi.logo": {
-    "message": "ZI logo"
-  },
   "homepage.hero.title": {
     "message": "A <b>Swiss Army</b> Knife for <b>Zsh</b> Unix <b>Shell</b>",
     "description": "Home page hero title, can contain simple html tags"
@@ -48,7 +45,7 @@
   },
   "theme.ErrorPageContent.tryAgain": {
     "message": "やり直す",
-    "description": "The label of the button to try again rendering when the React error boundary captures an error"
+    "description": "The label of the button to try again when the page crashed"
   },
   "theme.NotFound.title": {
     "message": "ページが見つかりません",
@@ -142,10 +139,6 @@
     "message": "ライトモード",
     "description": "The name for the light color mode"
   },
-  "theme.docs.breadcrumbs.home": {
-    "message": "ホームページ",
-    "description": "The ARIA label for the home page in the breadcrumbs"
-  },
   "theme.docs.breadcrumbs.navAriaLabel": {
     "message": "パンくずリストのナビゲーション",
     "description": "The ARIA label for the breadcrumbs"
@@ -177,10 +170,6 @@
   "theme.docs.versionBadge.label": {
     "message": "バージョン: {versionLabel}"
   },
-  "theme.common.editThisPage": {
-    "message": "このページを編集",
-    "description": "The link label to edit the current page"
-  },
   "theme.docs.versions.unreleasedVersionLabel": {
     "message": "これはリリース前の{siteTitle} {versionLabel}のドキュメントです。",
     "description": "The label used to tell the user that he's browsing an unreleased doc version"
@@ -197,8 +186,12 @@
     "message": "最新バージョン",
     "description": "The label used for the latest version suggestion link label"
   },
+  "theme.common.editThisPage": {
+    "message": "このページを編集",
+    "description": "The link label to edit the current page"
+  },
   "theme.common.headingLinkTitle": {
-    "message": "見出しへの直接リンク",
+    "message": "Direct link to {heading}",
     "description": "Title for link to heading"
   },
   "theme.lastUpdated.atDate": {
@@ -249,6 +242,10 @@
     "message": "サイドバーのカテゴリー \"{label}\" を折りたたむ/開く",
     "description": "The ARIA label to toggle the collapsible sidebar category"
   },
+  "theme.NavBar.navAriaLabel": {
+    "message": "Main",
+    "description": "The ARIA label for the main navigation"
+  },
   "theme.navbar.mobileLanguageDropdown.label": {
     "message": "言語",
     "description": "The label for the mobile language switcher dropdown"
@@ -269,6 +266,10 @@
     "message": "約{readingTime}分",
     "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
+  "theme.docs.breadcrumbs.home": {
+    "message": "ホームページ",
+    "description": "The ARIA label for the home page in the breadcrumbs"
+  },
   "theme.docs.sidebar.collapseButtonTitle": {
     "message": "サイドバーを隠す",
     "description": "The title attribute for collapse button of doc sidebar"
@@ -276,6 +277,10 @@
   "theme.docs.sidebar.collapseButtonAriaLabel": {
     "message": "サイドバーを隠す",
     "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "message": "Docs sidebar",
+    "description": "The ARIA label for the sidebar navigation"
   },
   "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
     "message": "ナビゲーションバーを閉じる",
@@ -467,21 +472,5 @@
   "theme.tags.tagsPageTitle": {
     "message": "タグ",
     "description": "The title of the tag list page"
-  },
-  "theme.NavBar.navAriaLabel": {
-    "message": "Main",
-    "description": "The ARIA label for the main navigation"
-  },
-  "theme.docs.sidebar.navAriaLabel": {
-    "message": "Docs sidebar",
-    "description": "The ARIA label for the sidebar navigation"
-  },
-  "theme.unlistedContent.title": {
-    "message": "Unlisted page",
-    "description": "The unlisted content banner title"
-  },
-  "theme.unlistedContent.message": {
-    "message": "This page is unlisted. Search engines will not index it, and only users having a direct link can access it.",
-    "description": "The unlisted content banner message"
   }
 }
