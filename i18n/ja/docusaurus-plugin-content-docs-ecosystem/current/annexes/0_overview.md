@@ -6,8 +6,6 @@ image: /img/png/theme/z/320x320.png
 description: 別館の紹介
 keywords:
   - annex
-  - zannex
-  - synopsis
   - overview
 ---
 
@@ -106,7 +104,7 @@ The recommended method of creating a hook is to place its body into a file that 
 
 `@zi-register-annex`:
 
-```shell
+```shell showLineNumbers
 @zi-register-annex myproject hook:atclone \
   →za-myproject-atclone-handler \
   →za-myproject-atclone-help-handler \
@@ -115,7 +113,7 @@ The recommended method of creating a hook is to place its body into a file that 
 
 The general syntax of the API call is:
 
-```shell
+```shell showLineNumbers
 @zi-register-annex {project-name} \
   {hook: \
   {name-of-the-handler-function} \

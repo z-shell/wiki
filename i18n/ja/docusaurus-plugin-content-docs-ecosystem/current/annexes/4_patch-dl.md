@@ -5,13 +5,12 @@ image: /img/png/theme/z/320x320.png
 description: 別館 - Patch DLのドキュメント
 keywords:
   - annex
-  - zannex
   - patch-dl
 ---
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link'; import ImgShow from '@site/src/components/ImgShow';
 
 この別館では、ファイルのダウンロードとパッチの適用をする、2つのice修飾子の追加を行います。
 
@@ -43,9 +42,9 @@ zi load izmntuk/fbterm
 
 このコマンドを実行すると、次のようになります。
 
-![fbtermの例](https://raw.githubusercontent.com/z-shell/z-a-patch-dl/main/docs/images/fbterm-ex.png#center)
+<ImgShow img="/img/png/content/annex/patch-dl/fbterm-ex.png" alt="fbterm" />
 
-## patch-dlのインストール
+## patch-dlのインストール {#install-patch-dl}
 
 :::info Source
 

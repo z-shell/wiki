@@ -7,7 +7,6 @@ image: /img/png/theme/z/320x320.png
 description: 別館 - テスト用ドキュメント
 keywords:
   - annex
-  - zannex
   - test
 draft: true
 ---
@@ -26,7 +25,8 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Lin
 zi light z-shell/z-a-test
 ```
 
-## 構成
+<details>
+  <summary>📖 <b>Configuration</b></summary>
 
 テストを冗長モードで実行するには、次のようにします。
 
@@ -40,3 +40,5 @@ zstyle :zi:annex:test quiet 0
 zi ice notest
 zi load …
 ```
+
+</details>

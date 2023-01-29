@@ -5,7 +5,6 @@ image: /img/png/theme/z/320x320.png
 description: 別館 - Submodsのドキュメント
 keywords:
   - annex
-  - zannex
   - submods
 ---
 
@@ -18,12 +17,12 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Lin
 概要:
 
 ```shell
-submods'{user}/{plugin} -> {output directory}; …'
+submods'{user}/{plugin} -> {output directory}; …`
 ```
 
 `zsh-autosuggestions` を [Prezto module](/docs/getting_started/migration#pzt-modules) `autosuggestions`経由で読み込むための、別館 とその ice-modifier を利用したコマンド例です。
 
-```shell title="~/.zshrc" showLineNumbers
+```shell title='~/.zshrc' showLineNumbers
 zi ice svn submods'zsh-users/zsh-autosuggestions -> external'
 zi snippet PZT::modules/autosuggestions
 ```

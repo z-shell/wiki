@@ -5,9 +5,7 @@ image: /img/png/theme/z/320x320.png
 description: Annex meta-plugins documentation
 keywords:
   - annex
-  - zsh-plugins
   - meta-plugins
-  - optimized-zsh-plugins
 ---
 
 <!-- @format -->
@@ -77,7 +75,7 @@ zi light-mode for @annexes \
 </APITable>
 ```
 
-## Summary of the meta-plugins
+### Summary of the meta-plugins
 
 It consumes time to:
 
@@ -115,7 +113,7 @@ Other unique benefits of the meta-plugins annex:
 </APITable>
 ```
 
-## Install meta-plugins
+## Install meta-plugins {#install-meta-plugins}
 
 :::info Source
 

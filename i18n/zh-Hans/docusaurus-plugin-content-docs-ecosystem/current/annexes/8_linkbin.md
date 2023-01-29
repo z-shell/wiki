@@ -5,9 +5,7 @@ image: /img/png/theme/z/320x320.png
 description: Annex - Link Bin documentation.
 keywords:
   - annex
-  - zannex
   - linkbin
-  - link-binary
 ---
 
 <!-- @format -->

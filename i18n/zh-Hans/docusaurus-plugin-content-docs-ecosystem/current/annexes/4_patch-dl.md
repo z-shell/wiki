@@ -5,13 +5,12 @@ image: /img/png/theme/z/320x320.png
 description: Annex - Patch DL documentation
 keywords:
   - annex
-  - zannex
   - patch-dl
 ---
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link'; import ImgShow from '@site/src/components/ImgShow';
 
 An annex downloads files and applies patches and adds two ice-modifiers:
 
@@ -43,9 +42,9 @@ zi load izmntuk/fbterm
 
 This command will result in:
 
-![fbterm example](https://raw.githubusercontent.com/z-shell/z-a-patch-dl/main/docs/images/fbterm-ex.png#center)
+<ImgShow img="/img/png/content/annex/patch-dl/fbterm-ex.png" alt="fbterm" />
 
-## Install patch-dl
+## Install patch-dl {#install-patch-dl}
 
 :::info Source
 

@@ -5,7 +5,6 @@ image: /img/png/theme/z/320x320.png
 description: Annex - Rust documentation.
 keywords:
   - annex
-  - zannex
   - rust
 ---
 
