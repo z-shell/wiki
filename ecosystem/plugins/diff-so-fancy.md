@@ -13,7 +13,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Img
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zsh-diff-so-fancy][zsh-diff-so-fancy]
 
-The wrapper around [so-fancy/diff-so-fancy][so-fancy/diff-so-fancy] to use with Zsh helps to improve code quality and spot defects faster.
+The wrapper around [so-fancy/diff-so-fancy][diff-so-fancy] to use with Zsh helps to improve code quality and spot defects faster.
 
 The plugin adds subcommand `dsf` to `git`, and provides command `fancy-diff` to pipe the `diff` output to diff-so-fancy:
 
@@ -21,10 +21,7 @@ The plugin adds subcommand `dsf` to `git`, and provides command `fancy-diff` to 
 - `fancy-diff <file1> <file2>` to pipe the `diff` output.
 - `diff-so-fancy -h` to see the help.
 
-<ImgShow
-  img="/img/gif/zsh-diff-so-fancy.gif"
-  alt="Zsh Diff So Fancy"
-/>
+<ImgShow img="/img/cast/gif/dsf/zsh-diff-so-fancy.gif alt="Zsh Diff So Fancy" />
 
 ## Install Diff-So-Fancy
 
@@ -160,4 +157,4 @@ git config --global diff-so-fancy.rulerWidth 47    # git log's commit header wid
 <!-- external -->
 
 [zsh-diff-so-fancy]: https://github.com/z-shell/zsh-diff-so-fancy
-[so-fancy/diff-so-fancy]: https://github.com/so-fancy/diff-so-fancy
+[diff-so-fancy]: https://github.com/so-fancy/diff-so-fancy
