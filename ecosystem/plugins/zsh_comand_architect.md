@@ -32,7 +32,7 @@ The Zsh Command Architect allows to copy segments of commands in history, rearra
 | <kbd>/</kbd>                                                                                | Start incremental search                                                          |
 | <kbd>Esc</kbd>                                                                              | Exit incremental search, clearing filter                                          |
 | <kbd><</kbd>,<kbd>></kbd>, <kbd>{</kbd>,<kbd>}</kbd>                                        | Horizontal scroll                                                                 |
-| </kbd><kbd>Ctrl</kbd>+<kbd>L</kbd></kbd>                                                    | Redraw of whole display                                                           |
+| <kbd><kbd>Ctrl</kbd>+<kbd>L</kbd></kbd>                                                     | Redraw of whole display                                                           |
 | <kbd><kbd>Ctrl</kbd>+<kbd>O</kbd></kbd>, <kbd>o</kbd>                                       | Enter uniq mode (no duplicate lines)                                              |
 | <kbd><kbd>Ctrl</kbd>+<kbd>W</kbd></kbd>                                                     | (in incremental search) - delete whole word                                       |
 | <kbd><kbd>Ctrl</kbd>+<kbd>K</kbd></kbd>                                                     | (in incremental search) - delete whole line                                       |
