@@ -15,29 +15,29 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import API
 
 The Zsh Command Architect allows to copy segments of commands in history, rearrange segments of the current command, and delete segments of the current command. This way user glues commands from parts without using a mouse. Advanced history search (multi-word, without duplicate lines) allows to quickly find the parts.
 
-## Command architect keybindings
+## Keybindings
 
 ```mdx-code-block
 <APITable>
 ```
 
-| Key(s)                                                               | Description                                                                                               |
-| -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| <kbd>Ctrl-T</kbd>                                                    | Start Zsh Command Architect (Z shell binding)                                                             |
-| <kbd>Enter</kbd>                                                     | Delete selected segment (when in the command window) or add selected segment (when in the history window) |
-| <kbd>[</kbd> or <kbd>]</kbd>                                         | Move active segment (when in the command window)                                                          |
-| <kbd>Shift-left</kbd> or <kbd>Shift-right</kbd>                      | Move active segment (when in command window)                                                              |
-| <kbd>Tab</kbd>                                                       | Switch between the two available windows                                                                  |
-| <kbd>g</kbd>, <kbd>G</kbd>                                           | Beginning and end of the list                                                                             |
-| <kbd>/</kbd>                                                         | Start incremental search                                                                                  |
-| <kbd>Esc</kbd>                                                       | Exit incremental search, clearing filter                                                                  |
-| <kbd>&lt;</kbd>,<kbd>&gt;</kbd>, <kbd>&#123;</kbd>,<kbd>&#125;</kbd> | Horizontal scroll                                                                                         |
-| <kbd>Ctrl-L</kbd>                                                    | Redraw the whole display                                                                                  |
-| <kbd>Ctrl-O</kbd>, <kbd>o</kbd>                                      | Enter unique mode (no duplicate lines)                                                                    |
-| <kbd>Ctrl-W</kbd> (in incremental search)                            | Delete whole word                                                                                         |
-| <kbd>Ctrl-K</kbd> (in incremental search)                            | Delete whole line                                                                                         |
-| <kbd>Ctrl-D</kbd>, <kbd>Ctrl-U</kbd>                                 | Half page up or down                                                                                      |
-| <kbd>Ctrl-P</kbd>, <kbd>Ctrl-N</kbd>                                 | Previous and next (also done with vim's j,k)                                                              |
+| Key(s)                                                                                      | Description                                                                       |
+| ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| <kbd><kbd>Ctrl</kbd>+<kbd>T</kbd></kbd>                                                     | Start Zsh Command Architect (Zshell binding)                                      |
+| <kbd>Enter</kbd>                                                                            | Delete selected segment (command window) or add selected segment (history window) |
+| <kbd>[</kbd> or <kbd>]</kbd>                                                                | Move active segment (when in command window)                                      |
+| <kbd><kbd>Shift</kbd>+<kbd>left</kbd></kbd> or <kbd><kbd>Shift</kbd>+<kbd>right</kbd></kbd> | Move active segment (when in command window)                                      |
+| <kbd>Tab</kbd>                                                                              | Switch between the two available windows                                          |
+| <kbd>g</kbd>, <kbd>G</kbd>                                                                  | Beginning and end of the list                                                     |
+| <kbd>/</kbd>                                                                                | Start incremental search                                                          |
+| <kbd>Esc</kbd>                                                                              | Exit incremental search, clearing filter                                          |
+| <kbd><</kbd>,<kbd>></kbd>, <kbd>{</kbd>,<kbd>}</kbd>                                        | Horizontal scroll                                                                 |
+| </kbd><kbd>Ctrl</kbd>+<kbd>L</kbd></kbd>                                                    | Redraw of whole display                                                           |
+| <kbd><kbd>Ctrl</kbd>+<kbd>O</kbd></kbd>, <kbd>o</kbd>                                       | Enter uniq mode (no duplicate lines)                                              |
+| <kbd><kbd>Ctrl</kbd>+<kbd>W</kbd></kbd>                                                     | (in incremental search) - delete whole word                                       |
+| <kbd><kbd>Ctrl</kbd>+<kbd>K</kbd></kbd>                                                     | (in incremental search) - delete whole line                                       |
+| <kbd><kbd>Ctrl</kbd>+<kbd>D</kbd></kbd>, <kbd><kbd>Ctrl</kbd>+<kbd>U</kbd></kbd>            | Half page up or down                                                              |
+| <kbd><kbd>Ctrl</kbd>+<kbd>P</kbd></kbd>, <kbd><kbd>Ctrl</kbd>+<kbd>N</kbd></kbd>            | Previous and next (also done with vim's <kbd>j</kbd>,<kbd>k</kbd>)                |
 
 ```mdx-code-block
 </APITable>
@@ -106,25 +106,30 @@ After installing and reloading the shell give `ZCA` a quick try with <kbd>Ctrl-T
 
 `ZCA` is fastest with `Zsh` before `5.0.6` and starting from `5.2`
 
-## Fixing tmux, screen, and Linux vt
+<details>
+<summary>Fixing tmux, screen and linux vt</summary>
 
-If `TERM=screen-256color` (often a case for `tmux` and `screen` sessions) then `ncv` terminfo capability will have `2`nd bit set.
-
-This in general means that underlining won't work. To fix this by creating your own `ncv=0`-equipped terminfo file, run:
+If `TERM=screen-256color` (often a case for `tmux` and `screen` sessions) then
+`ncv` terminfo capability will have `2`nd bit set. This in general means that
+underline won't work. To fix this by creating your own `ncv=0`-equipped
+terminfo file, run:
 
 ```shell
 { infocmp -x screen-256color; printf '\t%s\n' 'ncv@,'; } > /tmp/t && tic -x /tmp/t
 ```
 
-A file will be created in the directory `~/.terminfo` and will be automatically used, `tmux` and `screen` will work.
-
-Similar is for Linux virtual terminal:
+A file will be created in directory `~/.terminfo` and will be automatically
+used, `tmux` and `screen` will work. Similar is for Linux virtual terminal:
 
 ```shell
 { infocmp -x linux; printf '\t%s\n' 'ncv@,'; } > /tmp/t && tic -x /tmp/t
 ```
 
-It will not display underline properly, but will instead highlight by a color, which is quite nice. The same will not work for FreeBSD's vt, `ZCA` will detect if that `vt` is used and will revert to highlighting elements via `reverse` mode.
+It will not display underline properly, but will instead highlight by a color,
+which is quite nice. The same will not work for FreeBSD's vt, `ZCA` will detect
+if that vt is used and will revert to highlighting elements via `reverse` mode.
+
+</details>
 
 <!-- end-of-file -->
 <!-- links -->
