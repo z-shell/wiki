@@ -5,7 +5,6 @@ image: /img/png/theme/z/320x320.png
 description: 別館 - アンスコープ IDのドキュメント
 keywords:
   - annex
-  - zannex
   - unscope
 ---
 
@@ -13,7 +12,7 @@ keywords:
 
 <!-- TODO: Include image/video/code examples. -->
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link'; import Highlight from "@site/src/components/Highlight";
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link'; import Highlight from "@site/src/components/Highlight"; import APITable from '@site/src/components/APITable';
 
 この別館では、以下のようにGitHubのユーザー名を指定せずにプラグインをインストールすることができます。
 
@@ -35,7 +34,11 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Lin
 
 :::
 
-GitHub-APIによる問い合わせの他に、ショートネームと完全なGitHub IDのマッピングの固定されたキュレーションリストがあります。 現在のリストは以下のように構成されています:
+Besides the GitHub-API querying, there's also a fixed, curated list of mappings of short names to the full GitHub IDs:
+
+```mdx-code-block
+<APITable>
+```
 
 <table spaces-before="0">
   <tr>
@@ -898,6 +901,10 @@ GitHub-APIによる問い合わせの他に、ショートネームと完全なG
     </td>
   </tr>
 </table>
+
+```mdx-code-block
+</APITable>
+```
 
 ## unscope をインストールする {#install-unscope}
 

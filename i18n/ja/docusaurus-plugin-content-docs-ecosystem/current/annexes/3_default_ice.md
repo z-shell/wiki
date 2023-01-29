@@ -5,7 +5,6 @@ image: /img/png/theme/z/320x320.png
 description: 別館 - デフォルト Iceのドキュメント
 keywords:
   - annex
-  - zannex
   - default-ice
 ---
 
@@ -50,7 +49,7 @@ zi wait for \
  [ -h ] - このメッセージを表示
 ```
 
-## default-iceのインストール
+## default-iceのインストール {#install-default-ice}
 
 :::info Source
 
