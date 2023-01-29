@@ -2,7 +2,7 @@
 id: diff-so-fancy
 title: ⚙️ Diff So Fancy
 image: /img/png/theme/z/320x320.png
-description: Git diffs human readable instead of machine readable.
+description: Git diffs human-readable instead of machine-readable.
 toc_max_heading_level: 3
 keywords:
   - git
@@ -15,7 +15,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Img
 
 The wrapper around [so-fancy/diff-so-fancy][diff-so-fancy] to use with Zsh helps to improve code quality and spot defects faster.
 
-The plugin adds subcommand `dsf` to `git`, and provides command `fancy-diff` to pipe the `diff` output to diff-so-fancy:
+The plugin adds the subcommand `dsf` to `git`, and provides the command `fancy-diff` to pipe the `diff` output to diff-so-fancy:
 
 - `git dsf` to see the diff output.
 - `fancy-diff <file1> <file2>` to pipe the `diff` output.
@@ -23,7 +23,7 @@ The plugin adds subcommand `dsf` to `git`, and provides command `fancy-diff` to 
 
 <ImgShow img="/img/cast/gif/dsf/zsh-diff-so-fancy.gif" alt="Zsh Diff So Fancy" />
 
-## Install Diff-So-Fancy
+### Install Diff-So-Fancy
 
 <Tabs>
   <TabItem value="zi" label="Zi" default>
@@ -44,7 +44,7 @@ zi ice as'program' pick'bin/*'
 zi light z-shell/zsh-diff-so-fancy
 ```
 
-This will add `diff-so-fancy`, `fancy-diff`, `git-dsf` to `$PATH` and automatically equip `git` with subcommand `dsf`.
+This will add `diff-so-fancy`, `fancy-diff`, and `git-dsf` to `$PATH` and automatically equip `git` with the subcommand `dsf`.
 
   </TabItem>
   <TabItem value="zgen" label="Zgen">
@@ -110,31 +110,31 @@ git config --global interactive.diffFilter "diff-so-fancy --patch"
 <details>
 <summary>Options</summary>
 
-### markEmptyLines
+#### markEmptyLines
 
-Should the first block of an empty line be colored. (Default: true)
+Should the first block of an empty line be colored? (Default: true)
 
 ```shell
 git config --bool --global diff-so-fancy.markEmptyLines false
 ```
 
-### changeHunkIndicators
+#### changeHunkIndicators
 
-Simplify git header chunks to a more human readable format. (Default: true)
+Simplify git header chunks to a more human-readable format. (Default: true)
 
 ```shell
 git config --bool --global diff-so-fancy.changeHunkIndicators false
 ```
 
-### stripLeadingSymbols
+#### stripLeadingSymbols
 
-Should the pesky `+` or `-` at line-start be removed. (Default: true)
+Should the pesky `+` or `-` at the line start be removed? (Default: true)
 
 ```shell
 git config --bool --global diff-so-fancy.stripLeadingSymbols false
 ```
 
-### useUnicodeRuler
+#### useUnicodeRuler
 
 By default, the separator for the file header uses Unicode line-drawing characters. If this is causing output errors on your terminal, set this to `false` to use ASCII characters instead. (Default: true)
 
@@ -142,7 +142,7 @@ By default, the separator for the file header uses Unicode line-drawing characte
 git config --bool --global diff-so-fancy.useUnicodeRuler false
 ```
 
-### rulerWidth
+#### rulerWidth
 
 By default, the separator for the file header spans the full width of the terminal. Use this setting to set the width of the file header manually.
 
