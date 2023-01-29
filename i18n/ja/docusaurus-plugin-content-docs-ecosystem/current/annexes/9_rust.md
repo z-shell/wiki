@@ -2,7 +2,7 @@
 id: rust
 title: "🌀 Rust"
 image: /img/png/theme/z/320x320.png
-description: Annex - Rust documentation.
+description: An annex installs rust and cargo packages.
 keywords:
   - annex
   - rust
@@ -10,9 +10,47 @@ keywords:
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link'; import Player from '@site/src/components/Player'; import Shortcuts from '@site/src/components/Markdown/\_player_shortcuts.mdx';
 
-An annex installs rust and cargo packages locally inside the plugin or snippet directories. The crate can create so-called _shims_ – scripts that are exposed to the standard `$PATH`.
+An annex installs rust and cargo packages locally inside the plugin or snippet directories.
+
+<Tabs className="player-tabs">
+  <TabItem value="sbin-player" label="Player" default>
+    <Player
+      src='https://asciinema.org/a/555417.cast'
+      rows={27}
+      cols={130}
+      terminalFontFamily="var(--ifm-font-family-monospace)"
+      terminalFontSize="var(--ifm-code-font-size)"
+      fit={false}
+      speed={3}
+    />
+  </TabItem>
+  <TabItem value="shortcuts" label="Shortcuts">
+    <Shortcuts />
+  </TabItem>
+</Tabs>
+
+## Usage of the annex
+
+The Zi annex provides ice-modifiers `rustup` and `cargo'…'`.
+
+The first one installs rust inside the plugin's folder using the official `rustup` installer and the second one has the following syntax:
+
+```shell
+cargo'[{name-of-the-binary-or-path} <-] [[!][c|n|e|o]:]{crate-name} [-> {shim-script-name}]'`
+```
+
+| Flag | 説明                                                                                               |
+| ---- | ------------------------------------------------------------------------------------------------ |
+| `N`  | redirect both standard output and error to `/dev/null`                                           |
+| `E`  | redirect standard error to `/dev/null`                                                           |
+| `O`  | redirect standard output to `/dev/null`                                                          |
+| `c`  | change the current directory to the plugin's or snippet's directory before executing the command |
+
+As the examples showed, the name of the binary to run and the shim name are by default equal to the name of the crate. Specifying `{binary-name} <- …` and/or `… -> {shim-name}` allows to override them.
+
+The crate can create so-called _shims_ – scripts that are exposed to the standard `$PATH`. The shim script is a wrapper around the binary that is installed by the crate. The shim script is created in the plugin's or snippet's directory and is named after the crate. The shim script is a shell script that sets up the environment variables and then runs the binary.
 
 Example of the _shim_ script:
 
@@ -32,15 +70,8 @@ lsd "$@"
 
 As it can be seen shim ultimately provides the binary to the command line.
 
-## Usage of the annex
-
-The Zi annex provides ice-modifiers `rustup` and `cargo'…'`.
-
-The first one installs rust inside the plugin's folder using the official `rustup` installer and the second one has the following syntax:
-
-`cargo'[{name-of-the-binary-or-path} <-] [[!][c|n|e|o]:]{crate-name} [-> {shim-script-name}]'`
-
-### Use case examples
+<details>
+  <summary>Use case examples</summary>
 
 Set up rust and the `lsd` crate with a shim `lsd` exposing the binary:
 
@@ -85,7 +116,7 @@ zi ice id-as"rust" wait"0" lucid rustup as"command" pick"bin/rustc" atload="expo
 zi load z-shell/0
 ```
 
-A little more complex rustup configuration that uses [bin-gem-node][bin-gem-node] annex and installs the cargo completion provided with rustup, using the [for][for] syntax:
+A little more complex rustup configuration that uses [bin-gem-node][annex-bin-gem-node] annex and installs the cargo completion provided with rustup, using the [for][for-syntax] syntax:
 
 ```shell showLineNumbers
 zi id-as=rust wait=1 as=null sbin="bin/*" lucid rustup \
@@ -94,14 +125,7 @@ zi id-as=rust wait=1 as=null sbin="bin/*" lucid rustup \
 z-shell/0
 ```
 
-Flags:
-
-- `N` – redirect both standard output and error to `/dev/null`
-- `E` – redirect standard error to `/dev/null`
-- `O` – redirect standard output to `/dev/null`
-- `c` – change the current directory to the plugin's or snippet's directory before executing the command
-
-As the examples showed, the name of the binary to run and the shim name are by default equal to the name of the crate. Specifying `{binary-name} <- …` and/or `… -> {shim-name}` allows to override them.
+</details>
 
 ## Install rust {#install-rust}
 
@@ -128,5 +152,5 @@ This will register the `rustup` and `cargo'…'` ice-modifiers.
 <!-- end-of-file -->
 <!-- links -->
 
-[bin-gem-node]: /ecosystem/annexes/bin-gem-node
-[for]: /docs/guides/syntax/for
+[annex-bin-gem-node]: /ecosystem/annexes/bin-gem-node
+[for-syntax]: /docs/guides/syntax/for
