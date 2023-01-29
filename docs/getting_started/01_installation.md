@@ -212,43 +212,12 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 > - An example: [Dockerfile][dockerfile]
 > - In action: [Playground][playground]
 
-## <i class="fas fa-cog fa-pulse"></i> Zi Module: [zpmod][z-shell/zpmod] {#zi-module}
+## <i class="fas fa-cog fa-pulse"></i> Zi Module: zpmod {#zi-module}
 
-:::info
+The module transparently and automatically compiles sourced scripts and lists of all sourced files with the time the sourcing took in milliseconds on the left.
 
-- Required Zsh version: >= v5.8.0
-- <i className="fa-brands fa-github"></i>&nbsp;<Link href="https://github.com/z-shell/zpmod">z-shell/zpmod</Link>
-
-:::
-
-<Tabs>
-  <TabItem value="with-zi" label="With Zi" default>
-
-Usage:
-
-```shell showLineNumbers
-zi module {build|info|help} [options]
-zi module build [--clean]
-zi module info [--link]
-```
-
-- To start using the Zi Zsh module run: `zi module build`. Append `--clean` to run `make distclean`.
-- To display the instructions on loading the module, run: `zi module info`.
-- To enable debug messages from the module set:
-
-```shell
-typeset -g ZI_MOD_DEBUG=1
-```
-
-</TabItem>
-  <TabItem value="standalone" label="Standalone">
-
-```shell
-sh <(curl -sL src.zshell.dev/sh/install_zpmod.sh)
-```
-
-  </TabItem>
-</Tabs>
+- [⚙️ Plugins: zsh-modules/zpmod][zpmod-page]
+- [📦 Repository][z-shell/zpmod]
 
 ## <i class="fas fa-sync-alt fa-spin"></i> Available links {#available-links}
 
@@ -262,6 +231,7 @@ sh <(curl -sL src.zshell.dev/sh/install_zpmod.sh)
 | R2         | <https://r2.zshell.dev/src/sh/install.sh>                                 |
 | Cloudflare | <https://src.zshell.dev/sh/install.sh>                                    |
 | IPFS       | <https://ipfs.zshell.dev/sh/install.sh>                                   |
+| Git.io     | <https://git.io/get-zi>                                                   |
 | GitHub RAW | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
 ### <i class="fa-brands fa-superpowers"></i> Loader {#loader}
@@ -272,10 +242,14 @@ sh <(curl -sL src.zshell.dev/sh/install_zpmod.sh)
 | R2         | <https://r2.zshell.dev/src/zsh/init.zsh>                                 |
 | Cloudflare | <https://src.zshell.dev/zsh/init.zsh>                                    |
 | IPFS       | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
+| Git.io     | <https://git.io/zi-loader>                                               |
 | GitHub RAW | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
 
 <!-- end-of-file -->
 <!-- links -->
+
+[zpmod-page]: /ecosystem/plugins/zsh-modules#-z-shellzpmod
+
 <!-- external -->
 
 [checksum-txt]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt

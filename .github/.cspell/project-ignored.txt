@@ -12,6 +12,7 @@ navbutton
 nosnippet
 RFXS
 sched
+shellzpmod
 starturl
 synhl
 unist

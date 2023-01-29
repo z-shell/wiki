@@ -10,21 +10,63 @@ keywords:
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Emoji from '@site/src/components/Emoji';
 
-## <i class="fa-brands fa-github"></i> [z-shell/zpmod][]
+## <i class="fa-brands fa-github"></i> [z-shell/zpmod][zpmod-repo]
 
-The module is a binary Zsh module, think about the `zmodload` Zsh command, it's that topic, which transparently and automatically **compiles sourced scripts**.
+:::info
 
-Many plugin managers do not offer a compilation of plugins, the module is a solution to this. Even if a plugin manager does compile the plugin's main script (like Zi does).
+- Required Zsh version: >= v5.8.1
+
+[![🍎 Build (MacOS)](https://github.com/z-shell/zpmod/actions/workflows/test-macos.yml/badge.svg)](https://github.com/z-shell/zpmod/actions/workflows/test-macos.yml) [![🐧 Build (Linux)](https://github.com/z-shell/zpmod/actions/workflows/test-linux.yml/badge.svg)](https://github.com/z-shell/zpmod/actions/workflows/test-linux.yml)
+
+:::
+
+The module is a binary Zsh module transparently and automatically **compiles sourced scripts** and **measures the time of each script sourcing**.
+
+### Measuring Time of sources
+
+```shell
+zpmod <source-study> [options]
+```
+
+> Option -l shows full paths to the files.
+
+Issue `zpmod source-study` after loading the module at top of `~/.zshrc` to see a list of files loaded via `source` or `.` builtins, with a duration that each loading lasted, in milliseconds. The module tracks all calls to those builtins and measures the time each call took. This can be used e.g. profile loading of plugins, regardless of the plugin manager used.
+
+This feature allows profiling the shell startup. Also, no script can pass through that check and you will obtain a complete list of all loaded scripts, like if Zshell itself was investigating this.
+
+**The list can be surprising** <Emoji symbol="😵‍💫" label="face-with-spiral-eyes"/>
+
+### Extending Zi reports
+
+```shell
+zpmod <report-append> [options]
+```
+
+Used by zpmod internally to speed up loading plugins with tracking (reporting). It extends the given field {plugin-ID} in `$ZI_REPORTS` hash, with the given string {new-report-body}.
+
+### Debugging
+
+To enable debug messages from the module set:
+
+```shell
+typeset -g ZI_MOD_DEBUG=1
+```
 
 ### Install zpmod
 
 <Tabs>
   <TabItem value="zi" label="Zi" default>
 
-```shell
-zi module build
+- To start using the module run: `zi module -B`, append `--clean` to run `make distclean`.
+- To display the instructions on loading the module, run: `zi module -I`.
+
+```shell showLineNumbers
+zi module [-B|--build[--clean]] [-I|--info] [-r|--reset] [-h|--help] [options]
+zi module -B [--clean]  # Build the module, append --clean to run distclean.
+zi module -I            # Display instructions on loading the module.
+zi module -r            # Check timestamps and rebuild the module if needed.
 ```
 
 This command will compile the module and display instructions on what to add to `~/.zshrc`.
@@ -42,24 +84,6 @@ This script will display instructions on what to add to `~/.zshrc`.
 
   </TabItem>
 </Tabs>
-
-#### Measuring Time of sources
-
-Besides the compilation feature, the module also measures **duration** of each script sourcing.
-
-Issue `zpmod source-study` after loading the module at top of `~/.zshrc` to see a list of all sourced files with the time the sourcing took in milliseconds on the left.
-
-This feature allows profiling the shell startup. Also, no script can pass through that check and you will obtain a complete list of all loaded scripts, like if Zshell itself was investigating this.
-
-**The list can be surprising.**
-
-#### Debugging
-
-To enable debug messages from the module set:
-
-```shell
-typeset -g ZI_MOD_DEBUG=1
-```
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zgdbm][]
 
@@ -89,5 +113,5 @@ zi light z-shell/zgdbm
 <!-- links -->
 <!-- external -->
 
-[z-shell/zpmod]: https://github.com/z-shell/zpmod
+[zpmod-repo]: https://github.com/z-shell/zpmod
 [z-shell/zgdbm]: https://github.com/z-shell/zgdbm
