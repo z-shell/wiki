@@ -5,16 +5,15 @@ image: /img/png/theme/z/320x320.png
 description: Annex - Eval documentation.
 keywords:
   - annex
-  - zannex
   - eval
-draft: true
+draft: false
 ---
 
 <!-- @format -->
 
 <!-- TODO: Add image/video/code examples -->
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link'; import Highlight from "@site/src/components/Highlight";
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link';
 
 The output of a slow initialization command is redirected to a file located within the plugin or snippets directory and sourced while loading. The next time the plugin or snippet is loaded, this file will be sourced skipping the need to run the initialization command.
 
