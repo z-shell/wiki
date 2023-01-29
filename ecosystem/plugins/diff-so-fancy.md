@@ -21,7 +21,7 @@ The plugin adds subcommand `dsf` to `git`, and provides command `fancy-diff` to 
 - `fancy-diff <file1> <file2>` to pipe the `diff` output.
 - `diff-so-fancy -h` to see the help.
 
-<ImgShow img="/img/cast/gif/dsf/zsh-diff-so-fancy.gif alt="Zsh Diff So Fancy" />
+<ImgShow img="/img/cast/gif/dsf/zsh-diff-so-fancy.gif" alt="Zsh Diff So Fancy" />
 
 ## Install Diff-So-Fancy
 
