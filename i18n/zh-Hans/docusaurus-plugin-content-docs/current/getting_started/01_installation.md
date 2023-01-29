@@ -50,7 +50,7 @@ unset cs_ok cs_get
 
 :::tip
 
-- 验证文件： `lib/sh/install.sh` 的 sha256 [校验和][checksum-txt]
+- Verify the sha256 [checksum][checksum-txt] for file: `lib/sh/install.sh`
 - 如果需要，请添加 `-b <tag>` 或 `-b <branch>` ，例如：
 
 ```shell
@@ -139,7 +139,7 @@ typeset -gx ZI[HOME_DIR]="${HOME}/.zi" ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
 command mkdir -p "$ZI[BIN_DIR]"
 ```
 
-出于安全原因，运行函数 `compaudit` 来检查 [完成系统][completion-system] 是否会使用不属于 `root` 或 `当前用户`的文件，抑或是位于可以被 `所有用户` 或 `组可写`目录中的文件。
+For security reasons run function `compaudit` to check if the [completion system][completion-system] would use files owned by `root` or by the current `user`, or files in directories that are `world` or `group-writable`.
 
 如果失败，则将当前用户设置为目录的所有者，然后删除 group/others 的写入权限，并克隆存储库：
 
@@ -174,9 +174,9 @@ autoload -Uz _zi
 
 全新安装后，建议使用 `exec zsh` 重新加载 shell 并使用 `zi self-update` 编译 Zi。 运行 `zi -h` 以查看所有可用命令。 了解 Zi 功能和性能，或通过浏览 wiki 开始。
 
-如果您有任何问题或需要帮助 <Emoji symbol="🤦‍♂️" label="man-facepalming"/>，让我们在 [此处讨论][discuss] 或以任何语言打开一个 [问题][issue]。
+If you have any issue or need help <Emoji symbol="🤦‍♂️" label="man-facepalming"/>, lets [discuss][discuss] it or open an [issue][issue] in any language.
 
-它帮助我们改进并让 Zi 变得更好。 不要忘记帮助项目：分享、贡献或 [翻译][translate] <Emoji symbol="🌐" label="globe-with-meridians"/> <Emoji symbol="🥰" label="smiling-face-with-hearts"/> <Emoji symbol="🤓" label="nerd-face"/>。
+它帮助我们改进并让 Zi 变得更好。 Don't forget to help the project: share, contribute, or [translate][translate] <Emoji symbol="🌐" label="globe-with-meridians"/> <Emoji symbol="🥰" label="smiling-face-with-hearts"/> <Emoji symbol="🤓" label="nerd-face"/>.
 
 让我们一起抓住一切，创建一个为我们服务的工具链 <Emoji symbol="🚀" label="rocket"/>。
 
@@ -209,50 +209,19 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 RUN zsh -i -c -- '@zi-scheduler burst || true'
 ```
 
-> - 一个例子： [Dockerfile][dockerfile]
-> - 实际例子： [Playground][playground]
+> - An example: [Dockerfile][dockerfile]
+> - In action: [Playground][playground]
 
-## <i class="fas fa-cog fa-pulse"></i> Zi 模块： [zpmod][z-shell/zpmod] {#zi-module}
+## <i class="fas fa-cog fa-pulse"></i> Zi Module: zpmod {#zi-module}
 
-:::info
+The module transparently and automatically compiles sourced scripts and lists of all sourced files with the time the sourcing took in milliseconds on the left.
 
-- 所需的 Zsh 版本： >= v5.8.0
-- <i className="fa-brands fa-github"></i>&nbsp;<Link href="https://github.com/z-shell/zpmod">z-shell/zpmod</Link>
-
-:::
-
-<Tabs>
-  <TabItem value="with-zi" label="With Zi" default>
-
-用法：
-
-```shell showLineNumbers
-zi module {build|info|help} [options]
-zi module build [--clean]
-zi module info [--link]
-```
-
-- 要开始使用 Zi Zsh 模块，请运行：`zi module build`。 附加 `--clean` 以运行 `make distclean`。
-- 要加载模块的时候显示模块说明，请运行：`zi module info`。
-- 要启用来自模块集的调试消息：
-
-```shell
-typeset -g ZI_MOD_DEBUG=1
-```
-
-</TabItem>
-  <TabItem value="standalone" label="Standalone">
-
-```shell
-sh <(curl -sL src.zshell.dev/sh/install_zpmod.sh)
-```
-
-  </TabItem>
-</Tabs>
+- [⚙️ Plugins: zsh-modules/zpmod][zpmod-page]
+- [📦 Repository][z-shell/zpmod]
 
 ## <i class="fas fa-sync-alt fa-spin"></i> 可用的链接 {#available-links}
 
-[状态页][status] <Emoji symbol="✅" label="check-mark-button"/>
+[Status page][status] <Emoji symbol="✅" label="check-mark-button"/>
 
 ### <i class="fa-solid fa-gear"></i> 安装器 {#installer}
 
@@ -262,6 +231,7 @@ sh <(curl -sL src.zshell.dev/sh/install_zpmod.sh)
 | R2         | <https://r2.zshell.dev/src/sh/install.sh>                                 |
 | Cloudflare | <https://src.zshell.dev/sh/install.sh>                                    |
 | IPFS       | <https://ipfs.zshell.dev/sh/install.sh>                                   |
+| Git.io     | <https://git.io/get-zi>                                                   |
 | GitHub RAW | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
 
 ### <i class="fa-brands fa-superpowers"></i> 加载器 {#loader}
@@ -272,11 +242,17 @@ sh <(curl -sL src.zshell.dev/sh/install_zpmod.sh)
 | R2         | <https://r2.zshell.dev/src/zsh/init.zsh>                                 |
 | Cloudflare | <https://src.zshell.dev/zsh/init.zsh>                                    |
 | IPFS       | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
+| Git.io     | <https://git.io/zi-loader>                                               |
 | GitHub RAW | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
 
 <!-- end-of-file -->
 <!-- links -->
+
+
+
 <!-- external -->
+
+[zpmod-page]: /ecosystem/plugins/zsh-modules#-z-shellzpmod
 
 [checksum-txt]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt
 [completion-system]: https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Use-of-compinit
