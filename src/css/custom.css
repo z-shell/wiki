@@ -192,20 +192,25 @@ html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
   text-align: right;
 }
 
+table kbd {
+  display: inline-block;
+  padding: 0.25rem 0.4rem;
+  font-size: 0.62rem;
+  font-weight: bold;
+}
+
 /* Table */
 table {
   display: table;
   width: 100%;
   height: auto;
-  overflow: hidden;
-  color: var(--ifm-table-body-color);
-  border-spacing: 0;
-  border-collapse: collapse;
+  overflow-x: auto;
+  background-color: var(--ifm-table-body-bg-color);
   border-radius: var(--ifm-global-radius);
+  box-shadow: 0 0 8px 0 inset var(--ifm-table-body-bg-color);
 }
 
 thead {
-  display: table-header-group;
   font-size: smaller;
   font-weight: bold;
   color: var(--ifm-table-header-color);
@@ -217,7 +222,6 @@ thead th:first-child {
 }
 
 tbody {
-  display: table-row-group;
   font-size: small;
   color: var(--ifm-table-body-color);
   background-color: var(--ifm-table-body-bg-color);
@@ -230,9 +234,10 @@ tbody tr:nth-child(even) {
 tbody tr:focus,
 tbody tr:hover {
   cursor: pointer;
+  background-color: var(--ifm-table-body-hover-bg-color);
   outline: none;
   box-shadow: 0 0 8px 0 inset var(--ifm-color-primary);
-  transition: box-shadow 0.4s;
+  transition: box-shadow 0.6s;
 }
 
 /* FontAwesome */
