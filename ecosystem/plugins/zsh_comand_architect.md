@@ -17,23 +17,23 @@ The Zsh Command Architect allows to copy segments of commands in history, rearra
 
 ## Keybindings
 
-| Key(s)                                                                                      | Description                                                                       |
-| ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>T</samp></kbd></kbd>                                                     | Start Zsh Command Architect (Zshell binding)                                      |
-| <kbd><samp>Enter</samp></kbd>                                                                            | Delete selected segment (command window) or add selected segment (history window) |
-| <kbd><samp>[</samp></kbd> or <kbd><samp>]</samp></kbd>                                                                | Move active segment (when in command window)                                      |
-| <kbd><kbd><samp>Shift</samp></kbd>+<kbd><samp>left</samp></kbd></kbd> or <kbd><kbd>Shift</kbd>+<kbd>right</kbd></kbd> | Move active segment (when in command window)                                      |
-| <kbd><samp>Tab</samp></kbd>                                                                              | Switch between the two available windows                                          |
-| <kbd><samp>g</samp></kbd>, <kbd><samp>G</samp></kbd>                                                                  | Beginning and end of the list                                                     |
-| <kbd><samp>/</samp></kbd>                                                                                | Start incremental search                                                          |
-| <kbd>Esc</kbd>                                                                              | Exit incremental search, clearing filter                                          |
-| <kbd><samp><</samp></kbd>,<kbd><samp>></samp></kbd>, <kbd><samp>{</samp></kbd>,<kbd><samp>}</samp></kbd>                                        | Horizontal scroll                                                                 |
-| <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>L</samp></kbd></kbd>                                                     | Redraw of whole display                                                           |
-| <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>O</samp></kbd></kbd>, <kbd>o</kbd>                                       | Enter uniq mode (no duplicate lines)                                              |
-| <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>W</samp></kbd></kbd>                                                     | (in incremental search) - delete whole word                                       |
-| <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>K</samp></kbd></kbd>                                                     | (in incremental search) - delete whole line                                       |
-| <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>D</samp></kbd></kbd>, <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>U</samp></kbd></kbd>            | Half page up or down                                                              |
-| <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>P</samp></kbd></kbd>, <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>N</samp></kbd></kbd>            | Previous and next (also done with vim's <kbd>j</kbd>,<kbd>k</kbd>)                |
+| Key(s)                                                                                                                               | Description                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
+| <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>T</samp></kbd></kbd>                                                                    | Start Zsh Command Architect (Zshell binding)                                      |
+| <kbd><samp>Enter</samp></kbd>                                                                                                        | Delete selected segment (command window) or add selected segment (history window) |
+| <kbd><samp>[</samp></kbd> or <kbd><samp>]</samp></kbd>                                                                               | Move active segment (when in command window)                                      |
+| <kbd><kbd><samp>Shift</samp></kbd>+<kbd><samp>left</samp></kbd></kbd> or <kbd><kbd>Shift</kbd>+<kbd>right</kbd></kbd>                | Move active segment (when in command window)                                      |
+| <kbd><samp>Tab</samp></kbd>                                                                                                          | Switch between the two available windows                                          |
+| <kbd><samp>g</samp></kbd>, <kbd><samp>G</samp></kbd>                                                                                 | Beginning and end of the list                                                     |
+| <kbd><samp>/</samp></kbd>                                                                                                            | Start incremental search                                                          |
+| <kbd>Esc</kbd>                                                                                                                       | Exit incremental search, clearing filter                                          |
+| <kbd><samp><</samp></kbd>,<kbd><samp>></samp></kbd>, <kbd><samp>{</samp></kbd>,<kbd><samp>}</samp></kbd>                             | Horizontal scroll                                                                 |
+| <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>L</samp></kbd></kbd>                                                                    | Redraw of whole display                                                           |
+| <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>O</samp></kbd></kbd>, <kbd>o</kbd>                                                      | Enter uniq mode (no duplicate lines)                                              |
+| <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>W</samp></kbd></kbd>                                                                    | (in incremental search) - delete whole word                                       |
+| <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>K</samp></kbd></kbd>                                                                    | (in incremental search) - delete whole line                                       |
+| <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>D</samp></kbd></kbd>, <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>U</samp></kbd></kbd> | Half page up or down                                                              |
+| <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>P</samp></kbd></kbd>, <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>N</samp></kbd></kbd> | Previous and next (also done with vim's <kbd>j</kbd>,<kbd>k</kbd>)                |
 
 ## Install Zsh Command Architect
 
