@@ -16,7 +16,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Hig
 
 This plugin provides a **unique number** that identifies a **running** Z shell session, in its shell variable `$ZUID_ID`. Besides this unique number, also a unique _codename_ is provided, in the shell variable `$ZUID_CODENAME`. Once you load this plugin, the two parameters will be set, and their values will not be available to other Zshell sessions (being thus _unique_). `$ZUID_ID` is a progressing number starting from `1`. `$ZUID_CODENAME` is chosen from a list of predefined codenames, see the default list below. An example use case is to hold logs in files `.../mylog-${ZUID_CODENAME}.log` so that two different Z shells will not write to the same file at the same time.
 
-Default codenames are:
+Default code names are:
 
 - <Highlight color="var(--ifm-color-info)">atlantis</Highlight> (for `ZUID_ID` == `1`)
 - <Highlight color="var(--ifm-color-info)">echelon</Highlight> (for `ZUID_ID` == `2`)

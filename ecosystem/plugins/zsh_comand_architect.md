@@ -9,17 +9,13 @@ keywords:
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import APITable from '@site/src/components/APITable';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zsh-cmd-architect][zsh-cmd-architect]
 
 The Zsh Command Architect allows to copy segments of commands in history, rearrange segments of the current command, and delete segments of the current command. This way user glues commands from parts without using a mouse. Advanced history search (multi-word, without duplicate lines) allows to quickly find the parts.
 
 ## Keybindings
-
-```mdx-code-block
-<APITable>
-```
 
 | Key(s)                                                                                      | Description                                                                       |
 | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
@@ -38,10 +34,6 @@ The Zsh Command Architect allows to copy segments of commands in history, rearra
 | <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>K</samp></kbd></kbd>                                                     | (in incremental search) - delete whole line                                       |
 | <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>D</samp></kbd></kbd>, <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>U</samp></kbd></kbd>            | Half page up or down                                                              |
 | <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>P</samp></kbd></kbd>, <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>N</samp></kbd></kbd>            | Previous and next (also done with vim's <kbd>j</kbd>,<kbd>k</kbd>)                |
-
-```mdx-code-block
-</APITable>
-```
 
 ## Install Zsh Command Architect
 

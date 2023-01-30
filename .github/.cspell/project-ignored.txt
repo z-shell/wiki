@@ -5,6 +5,8 @@ csstree
 debianpackage
 Farzat
 jetbrainsmono
+keysym
+konsolerc
 ldrt
 Lldrt
 nakayama

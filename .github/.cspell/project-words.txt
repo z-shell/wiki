@@ -419,6 +419,7 @@ wakeonlan
 webfonts
 wght
 widgetname
+WORDCHARS
 Xresources
 Xterms
 xtrace
