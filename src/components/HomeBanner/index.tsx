@@ -1,7 +1,6 @@
 // @ts-check
 
 import React from "react";
-import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import Translate, {translate} from "@docusaurus/Translate";
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -26,12 +25,12 @@ export default function HeroBanner(): JSX.Element {
           />
         </Heading>
         <div className={styles.indexCtas}>
-          <Link className={clsx("button button--primary")} to='/docs/getting_started/installation'>
+          <Link className='button button--primary' to='/docs/getting_started/installation'>
             <Translate id='homepage.banner.button.1' description='The homepage get started button'>
               Get Started
             </Translate>
           </Link>
-          <Link className={clsx("button button--secondary")} to='/community'>
+          <Link className='button button--secondary' to='/community'>
             <Translate id='homepage.banner.button.2' description='The homepage community button'>
               Community
             </Translate>

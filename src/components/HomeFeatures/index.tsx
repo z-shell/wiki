@@ -6,7 +6,8 @@ import Translate from "@docusaurus/Translate";
 import Heading from "@theme/Heading";
 import Player from "@site/src/components/Player";
 import Emoji from "@site/src/components/Emoji";
-import Features, {type FeatureItem} from "@site/src/data/features";
+import type {FeatureItem} from "@site/src/data/features";
+import Features from "@site/src/data/features";
 import styles from "./styles.module.css";
 
 function Feature({title, icon, description, className}: FeatureItem) {
@@ -23,7 +24,7 @@ function Feature({title, icon, description, className}: FeatureItem) {
 
 export default function HomeFeatures(): JSX.Element {
   return (
-    <div className={styles.HomeFeatures}>
+    <section className={styles.HomeFeatures}>
       <div className='container text--center'>
         <div className='row margin-bottom--lg'>
           {Features.map(({title, icon, description}) => (
@@ -61,6 +62,6 @@ export default function HomeFeatures(): JSX.Element {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
