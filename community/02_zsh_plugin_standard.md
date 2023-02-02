@@ -278,11 +278,11 @@ The above paragraphs of the standard spec each constitute a capability, a featur
 
 - `i` – … the `zsh_loaded_plugins` activity indicator,
 
-- `bP` – … the `ZPFX` global parameter,
+- `b` – … the `ZPFX` global parameter,
 
 - `s` – … the `PMSPEC` global parameter itself (i.e.: should be always present).
 
-The plugin managers with the `$ZPFX` global parameter capability should also acquire `*b*` as they expose the `bin/` directory by creating shims or symbolic links and the missing capability would cause the plugin to expose directories which are not required and pollute the `$PATH`. The contents of the parameter describing a fully-compliant plugin manager should be: `0fbuUpiPs`.
+The contents of the parameter describing a fully-compliant plugin manager should be: `0fbuUpiPs`.
 
 The plugin can then verify the support by:
 
