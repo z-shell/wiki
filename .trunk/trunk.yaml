@@ -10,7 +10,7 @@ plugins:
   sources:
     - id: trunk
       uri: https://github.com/trunk-io/plugins
-      ref: v0.0.8
+      ref: v0.0.9
       import_to_global: true
 lint:
   disabled:

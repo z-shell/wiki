@@ -9,16 +9,14 @@ import Emoji from "@site/src/components/Emoji";
 import Features, {type FeatureItem} from "@site/src/data/features";
 import styles from "./styles.module.css";
 
-function Feature({feature}: {feature: FeatureItem}) {
+function Feature({title, icon, description, className}: FeatureItem) {
   return (
-    <div className={clsx("col col--4")}>
-      <div className={styles.FeatureImg}>
-        <feature.image />
-      </div>
+    <div className={clsx("col", className)}>
+      <div className={styles.FeatureIcon}>{icon}</div>
       <Heading as='h2' className={styles.FeatureHeading}>
-        {feature.title}
+        {title}
       </Heading>
-      <p className={clsx("padding-horiz--md")}>{feature.description}</p>
+      <p className='padding-horiz--md'>{description}</p>
     </div>
   );
 }
@@ -26,10 +24,16 @@ function Feature({feature}: {feature: FeatureItem}) {
 export default function HomeFeatures(): JSX.Element {
   return (
     <div className={styles.HomeFeatures}>
-      <div className={clsx("container text--center")}>
-        <div className={clsx("row margin-bottom--lg")}>
-          {Features.map((feature, index) => (
-            <Feature key={index} feature={feature} />
+      <div className='container text--center'>
+        <div className='row margin-bottom--lg'>
+          {Features.map(({title, icon, description}) => (
+            <Feature
+              key={title}
+              title={title}
+              icon={icon}
+              description={description}
+              className={clsx("col--4", styles.Feature)}
+            />
           ))}
         </div>
       </div>

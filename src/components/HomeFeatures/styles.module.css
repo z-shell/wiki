@@ -1,17 +1,29 @@
 .HomeFeatures {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   padding: 2rem 0;
 }
 
+.Feature {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.FeatureIcon {
+  text-align: center;
+}
+
 .VideoContainer {
-  display: flex;
+  position: relative;
+  width: 100%;
+  height: auto;
 }
 
 .VideoContainerHeading {
   text-align: left;
-}
-
-.FeatureImg {
-  padding: 2rem 0;
 }
 
 .FeatureHeading {
@@ -22,17 +34,9 @@
   .HomeFeatures {
     padding: 1rem 0;
   }
-
-  .FeatureImg {
-    padding: 1rem 0;
-  }
 }
 
 @media only screen and (max-width: 700px) {
-  .HomeFeatures {
-    padding: 0;
-  }
-
   .VideoContainer {
     display: none;
   }

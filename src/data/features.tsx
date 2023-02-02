@@ -28,8 +28,9 @@ const create = () => (
 
 export interface FeatureItem {
   title: string;
-  image: () => JSX.Element;
+  icon: JSX.Element;
   description: JSX.Element;
+  className?: string;
 }
 
 const FEATURES: FeatureItem[] = [
@@ -39,7 +40,7 @@ const FEATURES: FeatureItem[] = [
       message: "Zsh Startup 50-80% Faster",
       description: "Title of feature 1 (left) on the home page",
     }),
-    image: turbo,
+    icon: turbo(),
     description: (
       <Translate id='home.feature1' description='Description of first featured banner in homepage'>
         Instant prompt postponing plugins loading to a moment when the processing of .zshrc file is finished.
@@ -52,7 +53,7 @@ const FEATURES: FeatureItem[] = [
       message: "Focus on What Matters",
       description: "Title of feature 2 (middle) on the home page",
     }),
-    image: stats,
+    icon: stats(),
     description: (
       <Translate id='home.feature2' description='Description of second featured banner in homepage'>
         Statistics about the plugins, describing what functions, bindkeys, completions, and other elements a plugin has
@@ -66,7 +67,7 @@ const FEATURES: FeatureItem[] = [
       message: "Wide Range of Features",
       description: "Title of feature 3 (right) on the home page",
     }),
-    image: create,
+    icon: create(),
     description: (
       <Translate id='home.feature3' description='Description of third featured banner in homepage'>
         Supports Oh-My-Zsh and Prezto - not framework-specific. Produce your plugins, libraries, and themes

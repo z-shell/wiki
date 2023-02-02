@@ -251,6 +251,12 @@ tbody tr:hover {
   --fa-beat-fade-scale: 1.075;
 }
 
+.video-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
 /* Github Link */
 
 .header-github-link:hover {
