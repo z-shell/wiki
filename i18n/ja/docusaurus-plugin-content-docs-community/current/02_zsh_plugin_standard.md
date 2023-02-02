@@ -282,7 +282,7 @@ The above paragraphs of the standard spec each constitute a capability, a featur
 
 - `s` – … the `PMSPEC` global parameter itself (i.e.: should be always present).
 
-The contents of the parameter describing a fully-compliant plugin manager should be: `0fbuUpiPs`.
+The contents of the parameter describing a fully-compliant plugin manager should be: `0fuUpiPs`.
 
 The plugin can then verify the support by:
 

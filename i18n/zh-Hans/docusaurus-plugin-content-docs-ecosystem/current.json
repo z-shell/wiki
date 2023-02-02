@@ -11,8 +11,8 @@
     "message": "📦 软件包",
     "description": "The label for category 📦 Packages in sidebar SideBar"
   },
-  "sidebar.SideBar.category.⚙️ Plugins & Modules": {
-    "message": "⚙️ 插件和模块",
-    "description": "The label for category ⚙️ Plugins & Modules in sidebar SideBar"
+  "sidebar.SideBar.category.⚙️ Plugins": {
+    "message": "⚙️ Plugins",
+    "description": "The label for category ⚙️ Plugins in sidebar SideBar"
   }
 }
