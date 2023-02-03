@@ -51,10 +51,10 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Lin
 ## <i className="fa-beat" class="fa-solid fa-heart fa-beat"></i> 端正で柔軟。
 
 - [pathのカスタマイズ][customizing-paths]、 [複数のプロンプトの使用][multiple-prompts] 、または独自の [][non-github-local-plugins] プラグインの作成ができます。
-- [Oh My Zsh][oh-my-zsh-prezto] と [Prezto][oh-my-zsh-prezto] のプラグインとライブラリに対応しています。 ([移行][]).
-- `$FPATH`を使用しません。複数のプラグインをロードしても、同じエントリ数（10、15、またはそれ以上）で `$FPATH` が乱雑になることはありません。
-- コードは、通常互換性の問題を引き起こす `KSH_ARRAYS` やその他のオプションの影響を受けません。
-- `sudo`を要求せず、多くの回避策を提供します。例えば、いわゆる **shims** をローカルに設定します。
+- [Oh My Zsh][oh-my-zsh-prezto] と [Prezto][oh-my-zsh-prezto] のプラグインとライブラリに対応しています。 ([migration][help-migrate]).
+- Does not use <kbd>$FPATH</kbd>, loading multiple plugins doesn't clutter <kbd>$FPATH</kbd> with the same number of entries, e.g: 10, 15, or more.
+- Code is immune to <kbd>KSH_ARRAYS</kbd> and other options typically causing compatibility problems.
+- Do not require <kbd>root</kbd> access, and provide many workarounds e.g: setting so-called **shims** locally.
 
 ## <i className="fa-beat-fade" class="fa-solid fa-circle-info fa-beat-fade"></i> 熟知し、コントロールする
 
@@ -62,7 +62,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Lin
   - **aliases**, **functions**, **bindkeys**, **zle widgets**, **completions**, **variables**.
 - 豊かで簡単な情報で、すばやく [理解][reports-and-statistics] できます。
 - 補完の[管理][completions-management] を プラグインの [ロードまたはアンロード][loading-and-unloading] で行えます。
-- [Docker プレイグラウンド][]で構成をテストしたり提案できます。
+- Docker [playground][configs-playground], test or propose configurations.
 
 ## <i class="fa-solid fa-list-check"></i> 概要
 
@@ -85,7 +85,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Lin
 [customizing-paths]: /docs/guides/customization#customizing-paths
 [loading-and-unloading]: /docs/guides/commands#loading-and-unloading
 [meta-plugins]: /search?q=meta+plugins
-[移行]: /docs/getting_started/migration
+[help-migrate]: /docs/getting_started/migration
 [multiple-prompts]: /docs/guides/customization#multiple-prompts
 [non-github-local-plugins]: /docs/guides/customization#non-github-local-plugins
 [non-github-local-plugins]: /docs/guides/customization#non-github-local-plugins
@@ -94,4 +94,4 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Lin
 [reports-and-statistics]: /docs/guides/commands#reports-and-statistics
 [turbo-mode-zsh--53]: /docs/getting_started/overview#turbo-mode-zsh--53
 
-[Docker プレイグラウンド]: https://github.com/z-shell/playground
+[configs-playground]: https://github.com/z-shell/playground
