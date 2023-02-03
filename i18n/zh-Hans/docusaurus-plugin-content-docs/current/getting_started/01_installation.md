@@ -14,7 +14,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Lin
 
 ## <i class="fas fa-spinner fa-spin"></i> 快速开始 {#quick-setup}
 
-将以下内容添加到 `.zshrc` 文件中：
+Place the following snippet to the <kbd>.zshrc</kbd> file:
 
 <Tabs>
   <TabItem value="instant-source" label="Instant" default>
@@ -28,7 +28,7 @@ source <(curl -sL init.zshell.dev); zzinit
 
 :::caution
 
-这种设置方法需要在版本库中每次改变内容时，手动验证文件 `lib/zsh/init.zsh` 的sha256 [checksum][checksum-txt]。
+This setup method requires manually verifying the sha256 [checksum][checksum-txt] for a file <kbd>lib/zsh/init.zsh</kbd> every time the content is changed in the repository.
 
 :::
 
@@ -44,14 +44,14 @@ unset cs_ok cs_get
   </TabItem>
 </Tabs>
 
-使用 `exec zsh -il` 重新加载 shell 并运行 `zi -h` 以获取使用信息。
+Reload the shell with <kbd>exec zsh -il</kbd> and run <kbd>zi -h</kbd> for usage information.
 
 ## <i class="fas fa-spinner fa-spin"></i> 自动设置 {#automated-setup}
 
 :::tip
 
-- Verify the sha256 [checksum][checksum-txt] for file: `lib/sh/install.sh`
-- 如果需要，请添加 `-b <tag>` 或 `-b <branch>` ，例如：
+- Verify the sha256 [checksum][checksum-txt] for file: <kbd>lib/sh/install.sh</kbd>
+- If required append <kbd>`-b <tag>`</kbd> or <kbd>`-b <branch>`</kbd> e.g:
 
 ```shell
 sh -c "$(curl -fsSL get.zshell.dev)" -- -i skip -b main
@@ -62,7 +62,7 @@ sh -c "$(curl -fsSL get.zshell.dev)" -- -i skip -b main
 <Tabs>
   <TabItem value="minimal" label="Minimal" default>
 
-安装并向 `.zshrc` 添加最小配置：
+Install and include minimal configuration to the <kbd>.zshrc</kbd>:
 
 ```shell
 sh -c "$(curl -fsSL get.zshell.dev)" --
@@ -71,13 +71,13 @@ sh -c "$(curl -fsSL get.zshell.dev)" --
   </TabItem>
   <TabItem value="minimal-loader" label="Loader">
 
-使用 [loader](#loader) 安装并包含最小配置：
+Install and include minimal configuration with [loader](#loader):
 
 ```shell
 sh -c "$(curl -fsSL get.zshell.dev)" -- -a loader
 ```
 
-安装程序将下载加载器并将下面的代码段添加到 `.zshrc` 文件中。
+The installer will download the loader and add the snippet below to the <kbd>.zshrc</kbd> file.
 
 ```shell showLineNumbers
 if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]]; then
@@ -87,7 +87,7 @@ fi
 
 :::tip
 
-装载器可以从可用的 [links](#loader) 手动获取到系统的任何位置，并从 `.zshrc` 或如 [quick-setup](#quick-setup)中获取来源。
+The loader can be manually fetched from available [links](#loader) to any location on the system, and sourced from <kbd>.zshrc</kbd> or as shown in the [quick-setup](#quick-setup).
 
 :::
 
@@ -139,7 +139,7 @@ typeset -gx ZI[HOME_DIR]="${HOME}/.zi" ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
 command mkdir -p "$ZI[BIN_DIR]"
 ```
 
-For security reasons run function `compaudit` to check if the [completion system][completion-system] would use files owned by `root` or by the current `user`, or files in directories that are `world` or `group-writable`.
+For security reasons run function <kbd>compaudit</kbd> to check if the [completion system][completion-system] would use files owned by <kbd>root</kbd> or by the current <kbd>user</kbd>, or files in directories that are <kbd>world</kbd> or <kbd>group-writable</kbd>.
 
 如果失败，则将当前用户设置为目录的所有者，然后删除 group/others 的写入权限，并克隆存储库：
 
@@ -149,7 +149,7 @@ compaudit | xargs chmod -R go-w "$ZI[HOME_DIR]"
 command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
 ```
 
-要启用 Zi，请从先前设置的目录中 source `zi.zsh` ，将以下代码段放入 `.zshrc` 文件中：
+To enable Zi, source the <kbd>zi.zsh</kbd> from the previously set up directory placing the following snippet in the <kbd>.zshrc</kbd> file:
 
 ```shell title="~/.zshrc" showLineNumbers
 typeset -A ZI
@@ -172,13 +172,18 @@ autoload -Uz _zi
 
 ## <i class="fas fa-spinner fa-spin"></i> 安装后操作 {#post-install}
 
-全新安装后，建议使用 `exec zsh` 重新加载 shell 并使用 `zi self-update` 编译 Zi。 运行 `zi -h` 以查看所有可用命令。 了解 Zi 功能和性能，或通过浏览 wiki 开始。
+After a fresh install, it is recommended to reload the shell and recompile Zi with:
 
-If you have any issue or need help <Emoji symbol="🤦‍♂️" label="man-facepalming"/>, lets [discuss][discuss] it or open an [issue][issue] in any language.
+- <kbd>exec zsh -il</kbd>
+- <kbd>zi self-update</kbd>
 
-它帮助我们改进并让 Zi 变得更好。 Don't forget to help the project: share, contribute, or [translate][translate] <Emoji symbol="🌐" label="globe-with-meridians"/> <Emoji symbol="🥰" label="smiling-face-with-hearts"/> <Emoji symbol="🤓" label="nerd-face"/>.
+Run <kbd>zi -h</kbd> for available commands or [explore][collection-page] wiki to [extend][ecosystem-page], [customize][customization-page] and [create][zsh-plugin-standard] <Emoji symbol="👍" label="thumbs-up"/> <Emoji symbol="🎉" label="party-popper"/>.
 
-让我们一起抓住一切，创建一个为我们服务的工具链 <Emoji symbol="🚀" label="rocket"/>。
+If you have any issue or need help <Emoji symbol="🤦‍♂️" label="man-facepalming"/>, lets [discuss][discuss] it or open an [issue][issue] on GitHub.
+
+It helps us to improve and make Zi better. Don't forget to help the project: share, contribute, or [translate][translate] <Emoji symbol="🌐" label="globe-with-meridians"/> <Emoji symbol="🥰" label="smiling-face-with-hearts"/> <Emoji symbol="🤓" label="nerd-face"/>.
+
+Let's glue a toolchain that works for us <Emoji symbol="🚀" label="rocket"/>.
 
 ## <i class="fas fa-sync-alt fa-spin"></i> 有想法？
 
@@ -198,12 +203,12 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 
 ### <i class="fa-brands fa-docker"></i> Docker 中的 Turbo Zi
 
-如果您创建使用 Zi 的 Docker 映像，请在 shell 开始交互之前安装 Turbo-loaded 插件，以这样的方式使用 `@zi-scheduler` 函数：
+If you create a Docker image that uses Zi, install Turbo-loaded plugins before the shell starts interactively, with the <kbd>@zi-scheduler</kbd> function in such a way, that it:
 
-- 无需等待提示即可安装插件（即，对脚本友好）。
-- 立即安装所有插件，无需考虑 `wait` 参数。
+- Install plugins without waiting for the prompt (i.e. it's script friendly).
+- Install all plugins instantly, without respecting the <kbd>wait</kbd> argument.
 
-为此，请使用 burst 参数并调用 `@zi-scheduler` 函数：
+To accomplish this, use burst argument and call the <kbd>@zi-scheduler</kbd> function:
 
 ```docker
 RUN zsh -i -c -- '@zi-scheduler burst || true'
@@ -216,8 +221,8 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 
 The module transparently and automatically compiles sourced scripts and lists of all sourced files with the time the sourcing took in milliseconds on the left.
 
-- [⚙️ Plugins: zsh-modules/zpmod][zpmod-page]
-- [📦 Repository][z-shell/zpmod]
+- [⚙️ Wiki: zpmod][zpmod-page]
+- [📦 Source: zpmod][z-shell/zpmod]
 
 ## <i class="fas fa-sync-alt fa-spin"></i> 可用的链接 {#available-links}
 
@@ -253,6 +258,10 @@ The module transparently and automatically compiles sourced scripts and lists of
 <!-- external -->
 
 [zpmod-page]: /ecosystem/plugins/zsh-modules#-z-shellzpmod
+[customization-page]: /docs/guides/customization
+[ecosystem-page]: /ecosystem
+[collection-page]: /community/category/-collection
+[zsh-plugin-standard]: /community/zsh_plugin_standard
 
 [checksum-txt]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt
 [completion-system]: https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Use-of-compinit
