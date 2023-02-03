@@ -51,10 +51,10 @@ Install and control almost everything from GitHub: [Annexes](/ecosystem/category
 ## <i className="fa-beat" class="fa-solid fa-heart fa-beat"></i> Neat and flexible
 
 - [Customize paths][customizing-paths], use [multiple prompts][multiple-prompts] or create [your own][non-github-local-plugins] plugins.
-- Supports [Oh My Zsh][oh-my-zsh-prezto] and [Prezto][oh-my-zsh-prezto] plugins and libraries. ([migration][]).
-- Does not use `$FPATH`, loading multiple plugins doesn't clutter `$FPATH` with the same number of entries, e.g: 10, 15, or more.
-- Code is immune to `KSH_ARRAYS` and other options typically causing compatibility problems.
-- Do not require `sudo`, and provide many workarounds e.g: setting so-called **shims** locally.
+- Supports [Oh My Zsh][oh-my-zsh-prezto] and [Prezto][oh-my-zsh-prezto] plugins and libraries. ([migration][help-migrate]).
+- Does not use <kbd>$FPATH</kbd>, loading multiple plugins doesn't clutter <kbd>$FPATH</kbd> with the same number of entries, e.g: 10, 15, or more.
+- Code is immune to <kbd>KSH_ARRAYS</kbd> and other options typically causing compatibility problems.
+- Do not require <kbd>root</kbd> access, and provide many workarounds e.g: setting so-called **shims** locally.
 
 ## <i className="fa-beat-fade" class="fa-solid fa-circle-info fa-beat-fade"></i> Familiarize and control
 
@@ -62,7 +62,7 @@ Install and control almost everything from GitHub: [Annexes](/ecosystem/category
   - **aliases**, **functions**, **bindkeys**, **zle widgets**, **completions**, **variables**.
 - Quickly [familiarize][reports-and-statistics] yourself with rich and easy-to-digest information.
 - [Load or unload][loading-and-unloading] plugins, use the ability to [manage][completions-management] completions.
-- Docker [playground][], test or propose configurations.
+- Docker [playground][configs-playground], test or propose configurations.
 
 ## <i class="fa-solid fa-list-check"></i> Summary
 
@@ -81,7 +81,7 @@ Install and control almost everything from GitHub: [Annexes](/ecosystem/category
 [customizing-paths]: /docs/guides/customization#customizing-paths
 [loading-and-unloading]: /docs/guides/commands#loading-and-unloading
 [meta-plugins]: /search?q=meta+plugins
-[migration]: /docs/getting_started/migration
+[help-migrate]: /docs/getting_started/migration
 [multiple-prompts]: /docs/guides/customization#multiple-prompts
 [non-github-local-plugins]: /docs/guides/customization#non-github-local-plugins
 [oh-my-zsh-prezto]: /docs/getting_started/overview#oh-my-zsh-prezto
@@ -90,4 +90,4 @@ Install and control almost everything from GitHub: [Annexes](/ecosystem/category
 
 <!-- external -->
 
-[playground]: https://github.com/z-shell/playground
+[configs-playground]: https://github.com/z-shell/playground
