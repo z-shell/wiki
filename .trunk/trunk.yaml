@@ -10,7 +10,7 @@ plugins:
   sources:
     - id: trunk
       uri: https://github.com/trunk-io/plugins
-      ref: v0.0.9
+      ref: v0.0.10
       import_to_global: true
 lint:
   disabled:
@@ -24,7 +24,7 @@ lint:
     - eslint@8.33.0
     - gitleaks@8.15.3
     - markdownlint@0.33.0
-    - prettier@2.8.3
+    - prettier@2.8.4
     - shfmt@3.5.0
     - hadolint@2.12.0
   ignore:
