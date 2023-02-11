@@ -49,7 +49,7 @@
     "@docusaurus/types": "2.3.1",
     "@trunkio/launcher": "1.2.3",
     "@types/node": "18.13.0",
-    "@types/react": "18.0.27",
+    "@types/react": "18.0.28",
     "@typescript-eslint/eslint-plugin": "5.51.0",
     "@typescript-eslint/parser": "5.51.0",
     "eslint": "8.34.0",
