@@ -1,7 +1,7 @@
 // @ts-check
 const url = process.env.URL ?? "https://wiki.zshell.dev";
 const baseUrl = process.env.BASE_URL ?? "/";
-const styles = process.env.STYLES ?? "https://r2.zshell.dev/fa/6.2.1/js/all.min.js";
+const styles = process.env.STYLES ?? "https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@6.x/js/all.js";
 /* const math = require("remark-math"); */
 /* const katex = require("rehype-katex"); */
 
