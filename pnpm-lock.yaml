@@ -9791,7 +9791,7 @@ packages:
     resolution: {integrity: sha512-3VLzcNjspKuUcZJz6MsIrwf3cQfR1HPXf+skZ11ayvhTQscgmwRz6gVgiqxkbz6TLGMkkVsqP7UkVdBqznkMcQ==}
     engines: {node: '>=7'}
     peerDependencies:
-      stylelint: '>=8.0.0'
+      stylelint: '>=8.0.0 || >=14'
     dependencies:
       color: 3.2.1
       style-search: 0.1.0
@@ -9803,7 +9803,7 @@ packages:
     engines: {node: '>= 12'}
     hasBin: true
     peerDependencies:
-      stylelint: '>= 11.x < 15'
+      stylelint: '>= 11.x < 15 || >=14'
     dependencies:
       stylelint: 15.2.0
     dev: true
@@ -9811,7 +9811,7 @@ packages:
   /stylelint-config-recess-order/4.0.0_stylelint@15.2.0:
     resolution: {integrity: sha512-sOb+OofMryBR91CbzgV2FavpONqiIeAE7cfrgyUHqePblWBKsYzoUuWThI5EjPRA7KKeovm6ykr7twWYLeafPQ==}
     peerDependencies:
-      stylelint: '>=15'
+      stylelint: '>=15 || >=14'
     dependencies:
       stylelint: 15.2.0
       stylelint-order: 6.0.2_stylelint@15.2.0
@@ -9820,7 +9820,7 @@ packages:
   /stylelint-config-recommended/10.0.1_stylelint@15.2.0:
     resolution: {integrity: sha512-TQ4xQ48tW4QSlODcti7pgSRqBZcUaBzuh0jPpfiMhwJKBPkqzTIAU+IrSWL/7BgXlOM90DjB7YaNgFpx8QWhuA==}
     peerDependencies:
-      stylelint: ^15.0.0
+      stylelint: ^15.0.0 || >=14
     dependencies:
       stylelint: 15.2.0
     dev: true
@@ -9828,7 +9828,7 @@ packages:
   /stylelint-config-standard/30.0.1_stylelint@15.2.0:
     resolution: {integrity: sha512-NbeHOmpRQhjZh5XB1B/S4MLRWvz4xxAxeDBjzl0tY2xEcayNhLbaRGF0ZQzq+DQZLCcPpOHeS2Ru1ydbkhkmLg==}
     peerDependencies:
-      stylelint: ^15.0.0
+      stylelint: ^15.0.0 || >=14
     dependencies:
       stylelint: 15.2.0
       stylelint-config-recommended: 10.0.1_stylelint@15.2.0
@@ -9838,7 +9838,7 @@ packages:
     resolution: {integrity: sha512-FKUMEz/iicwkOsY+ohstjlD9dj3qFdAVcw/oVwBDJwToUpwAh/GkvV5FXUd60DoAzn19s1TPsvUuGPbzDo0ZMw==}
     engines: {node: ^12.20.0 || ^14.13.0 || >=15.0.0, npm: '>=7.0.0'}
     peerDependencies:
-      stylelint: '>=7.0.0 <15.0.0'
+      stylelint: '>=7.0.0 <15.0.0 || >=14'
     dependencies:
       css-tree: 2.3.1
       stylelint: 15.2.0
@@ -9847,7 +9847,7 @@ packages:
   /stylelint-order/6.0.2_stylelint@15.2.0:
     resolution: {integrity: sha512-yuac0BE6toHd27wUPvYVVQicAJthKFIv1HPQFH3Q0dExiO3Z6Uam7geoO0tUd5Z9ddsATYK++1qWNDX4RxMH5Q==}
     peerDependencies:
-      stylelint: ^14.0.0 || ^15.0.0
+      stylelint: ^14.0.0 || ^15.0.0 || >=14
     dependencies:
       postcss: 8.4.21
       postcss-sorting: 8.0.1_postcss@8.4.21
