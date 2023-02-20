@@ -14,7 +14,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Lin
 
 ## <i class="fas fa-spinner fa-spin"></i> 快速开始 {#quick-setup}
 
-Place the following snippet to the <kbd>.zshrc</kbd> file:
+将以下内容添加到 <kbd>.zshrc</kbd> 文件中：
 
 <Tabs>
   <TabItem value="instant-source" label="Instant" default>
@@ -28,7 +28,7 @@ source <(curl -sL init.zshell.dev); zzinit
 
 :::caution
 
-This setup method requires manually verifying the sha256 [checksum][checksum-txt] for a file <kbd>lib/zsh/init.zsh</kbd> every time the content is changed in the repository.
+这种设置方法需要在版本库中每次改变内容时，手动验证文件 <kbd>lib/zsh/init.zsh</kbd> 的sha256 [checksum][checksum-txt]。
 
 :::
 
