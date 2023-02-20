@@ -19,6 +19,7 @@ export default function Player(props: {src: string} & PlayerOptions): JSX.Elemen
   useEffect(() => {
     const currentRef = element.current;
     const instance = player?.create(src, currentRef, opts);
+
     return () => {
       instance?.dispose();
     };
