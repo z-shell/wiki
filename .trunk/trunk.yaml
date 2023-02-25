@@ -1,6 +1,6 @@
 version: 0.1
 cli:
-  version: 1.5.0
+  version: 1.5.1
 repo:
   repo:
     host: github.com
@@ -10,7 +10,7 @@ plugins:
   sources:
     - id: trunk
       uri: https://github.com/trunk-io/plugins
-      ref: v0.0.11
+      ref: v0.0.12
       import_to_global: true
 lint:
   disabled:

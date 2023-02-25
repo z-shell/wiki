@@ -8,7 +8,7 @@ on:
 
 jobs:
   lock:
-    if: github.repository.owner == 'z-shell'  
+    if: ${{ github.repository_owner == 'z-shell' }}
     name: 🔐 Lock closed issues and PRs
     runs-on: ubuntu-latest
     permissions:
