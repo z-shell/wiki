@@ -21,7 +21,7 @@ specifiers:
   '@types/react': 18.0.28
   '@typescript-eslint/eslint-plugin': 5.54.0
   '@typescript-eslint/parser': 5.54.0
-  asciinema-player: 3.1.1
+  asciinema-player: 3.1.2
   clsx: 1.2.1
   eslint: 8.35.0
   eslint-config-prettier: 8.6.0
@@ -47,13 +47,13 @@ specifiers:
 
 dependencies:
   '@docusaurus/core': 2.3.1_fyjmm7q7kfzcqcqc6qscfq7gsy
-  '@docusaurus/plugin-ideal-image': 2.3.1_trdesgnp3uvo4krsdqigtacx5m
+  '@docusaurus/plugin-ideal-image': 2.3.1_a5ainwq6j6e77vl54wahuheooy
   '@docusaurus/plugin-pwa': 2.3.1_a5ainwq6j6e77vl54wahuheooy
-  '@docusaurus/preset-classic': 2.3.1_nm2v7iyg6bhkltwufeucdxqjee
+  '@docusaurus/preset-classic': 2.3.1_uwkcr5bxnundzrsf5dv5ljpvxe
   '@docusaurus/theme-mermaid': 2.3.1_a5ainwq6j6e77vl54wahuheooy
   '@loadable/component': 5.15.3_react@18.2.0
   '@mdx-js/react': 1.6.22_react@18.2.0
-  asciinema-player: 3.1.1
+  asciinema-player: 3.1.2
   clsx: 1.2.1
   prism-react-renderer: 1.3.5_react@18.2.0
   react: 18.2.0
@@ -96,14 +96,13 @@ packages:
       '@algolia/autocomplete-shared': 1.7.4
     dev: false
 
-  /@algolia/autocomplete-preset-algolia/1.7.4_dk4ct527ug5whbfokpeal2wzha:
+  /@algolia/autocomplete-preset-algolia/1.7.4_algoliasearch@4.14.3:
     resolution: {integrity: sha512-s37hrvLEIfcmKY8VU9LsAXgm2yfmkdHT3DnA3SgHaY93yjZ2qL57wzb5QweVkYuEBZkT2PIREvRoLXC2sxTbpQ==}
     peerDependencies:
       '@algolia/client-search': '>= 4.9.1 < 6'
       algoliasearch: '>= 4.9.1 < 6'
     dependencies:
       '@algolia/autocomplete-shared': 1.7.4
-      '@algolia/client-search': 4.14.3
       algoliasearch: 4.14.3
     dev: false
 
@@ -1646,7 +1645,7 @@ packages:
     resolution: {integrity: sha512-6SCwI7P8ao+se1TUsdZ7B4XzL+gqeQZnBc+2EONZlcVa0dVrk0NjETxozFKgMv0eEGH8QzP1fkN+A1rH61l4eg==}
     dev: false
 
-  /@docsearch/react/3.3.3_hf5ijsloe6gzee4vmv74rvas4u:
+  /@docsearch/react/3.3.3_zula6vjvt3wdocc4mwcxqa6nzi:
     resolution: {integrity: sha512-pLa0cxnl+G0FuIDuYlW+EBK6Rw2jwLw9B1RHIeS4N4s2VhsfJ/wzeCi3CWcs5yVfxLd5ZK50t//TMA5e79YT7Q==}
     peerDependencies:
       '@types/react': '>= 16.8.0 < 19.0.0'
@@ -1661,7 +1660,7 @@ packages:
         optional: true
     dependencies:
       '@algolia/autocomplete-core': 1.7.4
-      '@algolia/autocomplete-preset-algolia': 1.7.4_dk4ct527ug5whbfokpeal2wzha
+      '@algolia/autocomplete-preset-algolia': 1.7.4_algoliasearch@4.14.3
       '@docsearch/css': 3.3.3
       '@types/react': 18.0.28
       algoliasearch: 4.14.3
@@ -2122,7 +2121,7 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/plugin-ideal-image/2.3.1_trdesgnp3uvo4krsdqigtacx5m:
+  /@docusaurus/plugin-ideal-image/2.3.1_a5ainwq6j6e77vl54wahuheooy:
     resolution: {integrity: sha512-hN/TbpG8Hsct06RNRZz69iCpxsXzryq+5o/8r62sGwhTAmMCN8ms8an+ubRk4bub0y3Gvg7YUcwmmFf6kE2fJg==}
     engines: {node: '>=16.14'}
     peerDependencies:
@@ -2139,7 +2138,7 @@ packages:
       '@docusaurus/theme-translations': 2.3.1
       '@docusaurus/types': 2.3.1_biqbaboplfbrettd7655fr4n2y
       '@docusaurus/utils-validation': 2.3.1_@docusaurus+types@2.3.1
-      '@endiliey/react-ideal-image': 0.0.11_dagfceefazatjjlgzboh6lbvbm
+      '@endiliey/react-ideal-image': 0.0.11_esvfex2ynkxqsriyym2jagidhu
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-waypoint: 10.3.0_react@18.2.0
@@ -2247,7 +2246,7 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/preset-classic/2.3.1_nm2v7iyg6bhkltwufeucdxqjee:
+  /@docusaurus/preset-classic/2.3.1_uwkcr5bxnundzrsf5dv5ljpvxe:
     resolution: {integrity: sha512-OQ5W0AHyfdUk0IldwJ3BlnZ1EqoJuu2L2BMhqLbqwNWdkmzmSUvlFLH1Pe7CZSQgB2YUUC/DnmjbPKk/qQD0lQ==}
     engines: {node: '>=16.14'}
     peerDependencies:
@@ -2265,7 +2264,7 @@ packages:
       '@docusaurus/plugin-sitemap': 2.3.1_a5ainwq6j6e77vl54wahuheooy
       '@docusaurus/theme-classic': 2.3.1_a5ainwq6j6e77vl54wahuheooy
       '@docusaurus/theme-common': 2.3.1_fyjmm7q7kfzcqcqc6qscfq7gsy
-      '@docusaurus/theme-search-algolia': 2.3.1_spbay2zxn4fjkw2aggn7qc46aq
+      '@docusaurus/theme-search-algolia': 2.3.1_ecctyoeythwjiapjcx3x7l2hqi
       '@docusaurus/types': 2.3.1_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -2445,14 +2444,14 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/theme-search-algolia/2.3.1_spbay2zxn4fjkw2aggn7qc46aq:
+  /@docusaurus/theme-search-algolia/2.3.1_ecctyoeythwjiapjcx3x7l2hqi:
     resolution: {integrity: sha512-JdHaRqRuH1X++g5fEMLnq7OtULSGQdrs9AbhcWRQ428ZB8/HOiaN6mj3hzHvcD3DFgu7koIVtWPQnvnN7iwzHA==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0 || >=17
       react-dom: ^16.8.4 || ^17.0.0 || >=17
     dependencies:
-      '@docsearch/react': 3.3.3_hf5ijsloe6gzee4vmv74rvas4u
+      '@docsearch/react': 3.3.3_zula6vjvt3wdocc4mwcxqa6nzi
       '@docusaurus/core': 2.3.1_fyjmm7q7kfzcqcqc6qscfq7gsy
       '@docusaurus/logger': 2.3.1
       '@docusaurus/plugin-content-docs': 2.3.1_a5ainwq6j6e77vl54wahuheooy
@@ -2586,7 +2585,7 @@ packages:
       - webpack-cli
     dev: false
 
-  /@endiliey/react-ideal-image/0.0.11_dagfceefazatjjlgzboh6lbvbm:
+  /@endiliey/react-ideal-image/0.0.11_esvfex2ynkxqsriyym2jagidhu:
     resolution: {integrity: sha512-QxMjt/Gvur/gLxSoCy7VIyGGGrGmDN+VHcXkN3R2ApoWX0EYUE+hMgPHSW/PV6VVebZ1Nd4t2UnGRBDihu16JQ==}
     engines: {node: '>= 8.9.0', npm: '> 3'}
     peerDependencies:
@@ -2594,7 +2593,6 @@ packages:
       react: '>=0.14.x || >=17'
       react-waypoint: '>=9.0.2'
     dependencies:
-      prop-types: 15.8.1
       react: 18.2.0
       react-waypoint: 10.3.0_react@18.2.0
     dev: false
@@ -3569,10 +3567,8 @@ packages:
       indent-string: 4.0.0
     dev: false
 
-  /ajv-formats/2.1.1_ajv@8.12.0:
+  /ajv-formats/2.1.1:
     resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
-    peerDependencies:
-      ajv: ^8.0.0
     peerDependenciesMeta:
       ajv:
         optional: true
@@ -3761,8 +3757,8 @@ packages:
     resolution: {integrity: sha512-BSHWgDSAiKs50o2Re8ppvp3seVHXSRM44cdSsT9FfNEUUZLOGWVCsiWaRPWM1Znn+mqZ1OfVZ3z3DWEzSp7hRA==}
     dev: false
 
-  /asciinema-player/3.1.1:
-    resolution: {integrity: sha512-dEOV6eKS7no9cHDT7U2DhI6bcqqvBaxLgM3WvUnuVdFvj5BKIb4/5DDHmIeDk6ntByRRaGqu9KTUrh+MJ3Se8w==}
+  /asciinema-player/3.1.2:
+    resolution: {integrity: sha512-47RE1EFcRUXH8qGSbIf5fyz8nt4sYnDfi6rzWO4GPTeaZDkIr3V9el2C8rqkymjVOe9YI2oDu1Z1L7qMP3FBhQ==}
     dependencies:
       '@babel/runtime': 7.21.0
       solid-js: 1.6.11
@@ -9280,7 +9276,7 @@ packages:
     dependencies:
       '@types/json-schema': 7.0.11
       ajv: 8.12.0
-      ajv-formats: 2.1.1_ajv@8.12.0
+      ajv-formats: 2.1.1
       ajv-keywords: 5.1.0_ajv@8.12.0
     dev: false
 
