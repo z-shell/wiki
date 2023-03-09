@@ -38,7 +38,7 @@ jobs:
       - name: "🏗  Build"
         run: pnpm install --prod && pnpm run build
       - name: "🚀 Publish"
-        uses: cloudflare/pages-action@v1.3.0
+        uses: cloudflare/pages-action@v1.4.0
         with:
           projectName: "zsh"
           directory: "build"
