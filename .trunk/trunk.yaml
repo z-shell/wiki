@@ -1,6 +1,6 @@
 version: 0.1
 cli:
-  version: 1.5.1
+  version: 1.6.0
 repo:
   repo:
     host: github.com
@@ -46,7 +46,7 @@ lint:
 runtimes:
   enabled:
     - python@3.10.8
-    - go@1.19.4
+    - go@1.19.5
     - node@18.12.1
 actions:
   enabled:
