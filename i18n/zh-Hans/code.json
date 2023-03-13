@@ -474,7 +474,7 @@
     "description": "The title of the tag list page"
   },
   "theme.unlistedContent.title": {
-    "message": "Unlisted page",
+    "message": "未列出页面\n\n",
     "description": "The unlisted content banner title"
   },
   "theme.unlistedContent.message": {

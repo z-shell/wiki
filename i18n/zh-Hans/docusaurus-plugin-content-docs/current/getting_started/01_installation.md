@@ -50,7 +50,7 @@ Reload the shell with <kbd>exec zsh -il</kbd> and run <kbd>zi -h</kbd> for usage
 
 :::tip
 
-- Verify the sha256 [checksum][checksum-txt] for file: <kbd>lib/sh/install.sh</kbd>
+- 验证文件： <kbd>lib/sh/install.sh</kbd> 的 sha256 [校验和][checksum-txt]
 - If required append <kbd>`-b <tag>`</kbd> or <kbd>`-b <branch>`</kbd> e.g:
 
 ```shell
