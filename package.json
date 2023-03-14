@@ -43,12 +43,12 @@
     "react-spinners": "0.13.8"
   },
   "devDependencies": {
-    "@crowdin/cli": "3.10.0",
+    "@crowdin/cli": "3.10.1",
     "@docusaurus/eslint-plugin": "2.3.1",
     "@docusaurus/module-type-aliases": "2.3.1",
     "@docusaurus/types": "2.3.1",
     "@trunkio/launcher": "1.2.3",
-    "@types/node": "18.15.1",
+    "@types/node": "18.15.3",
     "@types/react": "18.0.28",
     "@typescript-eslint/eslint-plugin": "5.54.1",
     "@typescript-eslint/parser": "5.54.1",
