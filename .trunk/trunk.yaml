@@ -1,6 +1,6 @@
 version: 0.1
 cli:
-  version: 1.6.0
+  version: 1.6.1
 repo:
   repo:
     host: github.com
@@ -10,10 +10,11 @@ plugins:
   sources:
     - id: trunk
       uri: https://github.com/trunk-io/plugins
-      ref: v0.0.12
+      ref: v0.0.13
       import_to_global: true
 lint:
   disabled:
+    - yamllint
     - shellcheck
   enabled:
     - oxipng@8.0.0
@@ -21,8 +22,8 @@ lint:
     - stylelint@15.2.0
     - git-diff-check@SYSTEM
     - actionlint@1.6.23
-    - eslint@8.35.0
-    - gitleaks@8.16.0
+    - eslint@8.36.0
+    - gitleaks@8.16.1
     - markdownlint@0.33.0
     - prettier@2.8.4
     - shfmt@3.5.0
@@ -30,19 +31,19 @@ lint:
   ignore:
     - linters: [ALL]
       paths:
-        - "i18n/**"
-        - "build/**"
-        - "static/**"
-        - ".docusaurus/**"
+        - i18n/**
+        - build/**
+        - static/**
+        - .docusaurus/**
     - linters: [eslint]
       paths:
-        - ".trunk/config/*"
+        - .trunk/config/*
     - linters: [gitleaks]
       paths:
         - docusaurus.config.js
     - linters: [markdownlint]
       paths:
-        - "src/components/Markdown/*"
+        - src/components/Markdown/*
 runtimes:
   enabled:
     - python@3.10.8
