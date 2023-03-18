@@ -19,7 +19,7 @@ lint:
   enabled:
     - oxipng@8.0.0
     - svgo@3.0.2
-    - stylelint@15.2.0
+    - stylelint@15.3.0
     - git-diff-check@SYSTEM
     - actionlint@1.6.23
     - eslint@8.36.0
