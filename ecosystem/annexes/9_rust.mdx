@@ -10,23 +10,27 @@ keywords:
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import Link from '@docusaurus/Link'; import Player from '@site/src/components/Player'; import Shortcuts from '@site/src/components/Markdown/\_player_shortcuts.mdx';
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import Link from "@docusaurus/Link";
+import Player from "@site/src/components/Player";
+import Shortcuts from "@site/src/components/Markdown/_player_shortcuts.mdx";
 
 An annex installs rust and cargo packages locally inside the plugin or snippet directories.
 
-<Tabs className="player-tabs">
-  <TabItem value="sbin-player" label="Player" default>
+<Tabs className='player-tabs'>
+  <TabItem value='sbin-player' label='Player' default>
     <Player
       src='https://asciinema.org/a/555417.cast'
       rows={27}
       cols={130}
-      terminalFontFamily="var(--ifm-font-family-monospace)"
-      terminalFontSize="var(--ifm-code-font-size)"
+      terminalFontFamily='var(--ifm-font-family-monospace)'
+      terminalFontSize='var(--ifm-code-font-size)'
       fit={false}
       speed={3}
     />
   </TabItem>
-  <TabItem value="shortcuts" label="Shortcuts">
+  <TabItem value='shortcuts' label='Shortcuts'>
     <Shortcuts />
   </TabItem>
 </Tabs>
@@ -131,7 +135,9 @@ z-shell/0
 
 :::info Source
 
-- <Link className="github-link" href="https://github.com/z-shell/z-a-rust">z-shell/z-a-rust</Link>
+- <Link className='github-link' href='https://github.com/z-shell/z-a-rust'>
+    z-shell/z-a-rust
+  </Link>
 
 :::
 

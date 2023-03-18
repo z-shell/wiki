@@ -9,16 +9,16 @@ keywords:
   - history-search
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import ImgShow from '@site/src/components/ImgShow'; import APITable from '@site/src/components/APITable';
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import ImgShow from "@site/src/components/ImgShow";
+import APITable from "@site/src/components/APITable";
 
 ## <i class="fa-brands fa-github"></i> [z-shell/h-s-mw](https://github.com/z-shell/h-s-mw)
 
 The plugin allows to search history for multiple keywords, <kbd><kbd>Ctrl</kbd>+<kbd>R</kbd></kbd> initiates the search and matched keywords will be found and highlighted.
 
-<ImgShow
-  img="/img/cast/gif/hsmw/hsmw-1.gif"
-  alt="History search for multiple words"
-/>
+<ImgShow img='/img/cast/gif/hsmw/hsmw-1.gif' alt='History search for multiple words' />
 
 ## Install H-S-MW
 
@@ -156,10 +156,7 @@ The `reset-prompt-protect` `zstyle` needs to be set to 1 for correct cooperation
 <details>
   <summary>Customizing syntax highlighting</summary>
 
-<ImgShow
-  img="/img/cast/gif/hsmw/hsmw-2.gif"
-  alt="History search for multiple words 2"
-/>
+<ImgShow img='/img/cast/gif/hsmw/hsmw-2.gif' alt='History search for multiple words 2' />
 
 Syntax highlighting is customized via the `HSMW_HIGHLIGHT_STYLES` associative array. It has keys like `reserved-word`, `alias`, `command`, `path`, etc. which are assigned with strings like `fg=blue,bold`, to configure how given elements are to be colored. The complete list of available keys is at the beginning of [hsmw-highlight][h-s-mw-lines].
 

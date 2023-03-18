@@ -10,7 +10,12 @@ keywords:
 
 <!-- @format -->
 
-import Tabs from '@theme/Tabs'; import Link from '@docusaurus/Link'; import TabItem from '@theme/TabItem'; import Player from '@site/src/components/Player'; import APITable from '@site/src/components/APITable'; import Shortcuts from '@site/src/components/Markdown/\_player_shortcuts.mdx';
+import Tabs from "@theme/Tabs";
+import Link from "@docusaurus/Link";
+import TabItem from "@theme/TabItem";
+import Player from "@site/src/components/Player";
+import APITable from "@site/src/components/APITable";
+import Shortcuts from "@site/src/components/Markdown/_player_shortcuts.mdx";
 
 An annex provides the following functionality:
 
@@ -115,18 +120,18 @@ sbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-script}]; …'
 
 Creates the so-called `shim` known from `rbenv` – a wrapper script that forwards the call to the actual binary. The script is created always under the same, standard, and single `$PATH` entry: `$ZPFX/bin` (which is `~/.zi/polaris/bin` by default). The flags have the same meaning as with `fbin'…'` ice.
 
-<Tabs className="player-tabs">
-  <TabItem value="sbin-player" label="Player" default>
+<Tabs className='player-tabs'>
+  <TabItem value='sbin-player' label='Player' default>
     <Player
       src='https://asciinema.org/a/513810.cast'
       rows={26}
       cols={184}
-      terminalFontFamily="var(--ifm-font-family-monospace)"
-      terminalFontSize="var(--ifm-code-font-size)"
+      terminalFontFamily='var(--ifm-font-family-monospace)'
+      terminalFontSize='var(--ifm-code-font-size)'
       fit={false}
     />
   </TabItem>
-  <TabItem value="shortcuts" label="Shortcuts">
+  <TabItem value='shortcuts' label='Shortcuts'>
     <Shortcuts />
   </TabItem>
 </Tabs>
@@ -169,18 +174,18 @@ fbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-function}]; …'
 
 Creates a wrapper function of the name the same as the last segment of the path or as `{name-of-the-function}`.
 
-<Tabs className="player-tabs">
-  <TabItem value="fbin-player" label="Player" default>
+<Tabs className='player-tabs'>
+  <TabItem value='fbin-player' label='Player' default>
     <Player
       src='https://asciinema.org/a/513297.cast'
       rows={18}
       cols={166}
-      terminalFontFamily="var(--ifm-font-family-monospace)"
-      terminalFontSize="var(--ifm-code-font-size)"
+      terminalFontFamily='var(--ifm-font-family-monospace)'
+      terminalFontSize='var(--ifm-code-font-size)'
       fit={false}
     />
   </TabItem>
-  <TabItem value="shortcuts" label="Shortcuts">
+  <TabItem value='shortcuts' label='Shortcuts'>
     <Shortcuts />
   </TabItem>
 </Tabs>
@@ -214,18 +219,18 @@ gem'[{path-to-binary} <-] !{gem-name} [-> {name-of-the-function}]; …'
 
 Installs the gem of name `{gem-name}` with `$GEM_HOME` set to the plugin's or snippet's directory. In other words, the gem and its dependencies will be installed locally in that directory. In the second form, it also creates a wrapper function identical to the one created with `fbin'…'` ice.
 
-<Tabs className="player-tabs">
-  <TabItem value="gem-player" label="Player" default>
+<Tabs className='player-tabs'>
+  <TabItem value='gem-player' label='Player' default>
     <Player
       src='https://asciinema.org/a/513303.cast'
       rows={23}
       cols={140}
-      terminalFontFamily="var(--ifm-font-family-monospace)"
-      terminalFontSize="var(--ifm-code-font-size)"
+      terminalFontFamily='var(--ifm-font-family-monospace)'
+      terminalFontSize='var(--ifm-code-font-size)'
       fit={false}
     />
   </TabItem>
-  <TabItem value="shortcuts" label="Shortcuts">
+  <TabItem value='shortcuts' label='Shortcuts'>
     <Shortcuts />
   </TabItem>
 </Tabs>
@@ -261,18 +266,18 @@ node'[{path-to-binary} <-] !{node-module} [-> {name-of-the-function}]; …'
 
 Installs the node module of name `{node-module}` inside the plugin's or snippet's directory. In the second form, it also creates a wrapper function identical to the one created with `fbin'…'` ice.
 
-<Tabs className="player-tabs">
-  <TabItem value="node-player" label="Player" default>
+<Tabs className='player-tabs'>
+  <TabItem value='node-player' label='Player' default>
     <Player
       src='https://asciinema.org/a/513774.cast'
       rows={18}
       cols={140}
-      terminalFontFamily="var(--ifm-font-family-monospace)"
-      terminalFontSize="var(--ifm-code-font-size)"
+      terminalFontFamily='var(--ifm-font-family-monospace)'
+      terminalFontSize='var(--ifm-code-font-size)'
       fit={false}
     />
   </TabItem>
-  <TabItem value="shortcuts" label="Shortcuts">
+  <TabItem value='shortcuts' label='Shortcuts'>
     <Shortcuts />
   </TabItem>
 </Tabs>
@@ -310,18 +315,18 @@ pip'[{path-to-binary} <-] !{pip-package} [-> {name-of-the-function}]; …'
 
 Installs the node module of name `{pip-package}` inside the plugin's or snippet's directory. In the second form, it also creates a wrapper function identical to the one created with `fbin'…'` ice.
 
-<Tabs className="player-tabs">
-  <TabItem value="pip-player" label="Player" default>
+<Tabs className='player-tabs'>
+  <TabItem value='pip-player' label='Player' default>
     <Player
       src='https://asciinema.org/a/513793.cast'
       rows={26}
       cols={156}
-      terminalFontFamily="var(--ifm-font-family-monospace)"
-      terminalFontSize="var(--ifm-code-font-size)"
+      terminalFontFamily='var(--ifm-font-family-monospace)'
+      terminalFontSize='var(--ifm-code-font-size)'
       fit={false}
     />
   </TabItem>
-  <TabItem value="shortcuts" label="Shortcuts">
+  <TabItem value='shortcuts' label='Shortcuts'>
     <Shortcuts />
   </TabItem>
 </Tabs>
@@ -359,18 +364,18 @@ It wraps the given function with the ability to set `$GEM_HOME`, etc. – the me
 
 Example:
 
-<Tabs className="player-tabs">
-  <TabItem value="fmod-player" label="Player" default>
+<Tabs className='player-tabs'>
+  <TabItem value='fmod-player' label='Player' default>
     <Player
       src='https://asciinema.org/a/513805.cast'
       rows={26}
       cols={140}
-      terminalFontFamily="var(--ifm-font-family-monospace)"
-      terminalFontSize="var(--ifm-code-font-size)"
+      terminalFontFamily='var(--ifm-font-family-monospace)'
+      terminalFontSize='var(--ifm-code-font-size)'
       fit={false}
     />
   </TabItem>
-  <TabItem value="shortcuts" label="Shortcuts">
+  <TabItem value='shortcuts' label='Shortcuts'>
     <Shortcuts />
   </TabItem>
 </Tabs>
@@ -426,18 +431,18 @@ ferc'[{g|n|c|N|E|O}:]{path-to-script}[ -> {name-of-the-function}]; …'
 
 Creates a wrapper function that at each invocation sources the given file. The second ice, `FERC'…'` works the same with the single difference that it uses `eval "$(<{path-to-script})"` instead of `source "{path-to-script}"` to load the script.
 
-<Tabs className="player-tabs">
-  <TabItem value="fscr-ferc-player" label="Player" default>
+<Tabs className='player-tabs'>
+  <TabItem value='fscr-ferc-player' label='Player' default>
     <Player
       src='https://asciinema.org/a/513308.cast'
       rows={26}
       cols={140}
-      terminalFontFamily="var(--ifm-font-family-monospace)"
-      terminalFontSize="var(--ifm-code-font-size)"
+      terminalFontFamily='var(--ifm-font-family-monospace)'
+      terminalFontSize='var(--ifm-code-font-size)'
       fit={false}
     />
   </TabItem>
-  <TabItem value="shortcuts" label="Shortcuts">
+  <TabItem value='shortcuts' label='Shortcuts'>
     <Shortcuts />
   </TabItem>
 </Tabs>
@@ -505,7 +510,9 @@ zi pack=bgn for firefox
 
 :::info Source
 
-- <Link className="github-link" href="https://github.com/z-shell/z-a-bin-gem-node">z-shell/z-a-bin-gem-node</Link>
+- <Link className='github-link' href='https://github.com/z-shell/z-a-bin-gem-node'>
+    z-shell/z-a-bin-gem-node
+  </Link>
 
 :::
 
