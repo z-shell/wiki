@@ -46,9 +46,9 @@ specifiers:
 
 dependencies:
   '@docusaurus/core': 2.3.1_h6c3z7du3oqlk7cza6xg3yfste
-  '@docusaurus/plugin-ideal-image': 2.3.1_jkdn2jc3c2imn3rudiykwu5ao4
+  '@docusaurus/plugin-ideal-image': 2.3.1_3okg5sz67cj64fzm2duc7o3pe4
   '@docusaurus/plugin-pwa': 2.3.1_3okg5sz67cj64fzm2duc7o3pe4
-  '@docusaurus/preset-classic': 2.3.1_gz36ohxl2jeziznwi6bik7l4qe
+  '@docusaurus/preset-classic': 2.3.1_bspqkkbxkxndypqd5swcfjhx6u
   '@docusaurus/theme-mermaid': 2.3.1_3okg5sz67cj64fzm2duc7o3pe4
   '@loadable/component': 5.15.3_react@18.2.0
   '@mdx-js/react': 1.6.22_react@18.2.0
@@ -94,14 +94,13 @@ packages:
       '@algolia/autocomplete-shared': 1.7.4
     dev: false
 
-  /@algolia/autocomplete-preset-algolia/1.7.4_54vqn5ucj5r6a67cmv5tg3mbje:
+  /@algolia/autocomplete-preset-algolia/1.7.4_algoliasearch@4.15.0:
     resolution: {integrity: sha512-s37hrvLEIfcmKY8VU9LsAXgm2yfmkdHT3DnA3SgHaY93yjZ2qL57wzb5QweVkYuEBZkT2PIREvRoLXC2sxTbpQ==}
     peerDependencies:
       '@algolia/client-search': '>= 4.9.1 < 6'
       algoliasearch: '>= 4.9.1 < 6'
     dependencies:
       '@algolia/autocomplete-shared': 1.7.4
-      '@algolia/client-search': 4.15.0
       algoliasearch: 4.15.0
     dev: false
 
@@ -678,7 +677,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.12.9
-      '@babel/helper-plugin-utils': 7.10.4
+      '@babel/helper-plugin-utils': 7.20.2
       '@babel/plugin-syntax-object-rest-spread': 7.8.3_@babel+core@7.12.9
       '@babel/plugin-transform-parameters': 7.21.3_@babel+core@7.12.9
     dev: false
@@ -1645,7 +1644,7 @@ packages:
     resolution: {integrity: sha512-6SCwI7P8ao+se1TUsdZ7B4XzL+gqeQZnBc+2EONZlcVa0dVrk0NjETxozFKgMv0eEGH8QzP1fkN+A1rH61l4eg==}
     dev: false
 
-  /@docsearch/react/3.3.3_4jk4sx5gsa4z6dpons6mwt4w6q:
+  /@docsearch/react/3.3.3_zula6vjvt3wdocc4mwcxqa6nzi:
     resolution: {integrity: sha512-pLa0cxnl+G0FuIDuYlW+EBK6Rw2jwLw9B1RHIeS4N4s2VhsfJ/wzeCi3CWcs5yVfxLd5ZK50t//TMA5e79YT7Q==}
     peerDependencies:
       '@types/react': '>= 16.8.0 < 19.0.0'
@@ -1660,7 +1659,7 @@ packages:
         optional: true
     dependencies:
       '@algolia/autocomplete-core': 1.7.4
-      '@algolia/autocomplete-preset-algolia': 1.7.4_54vqn5ucj5r6a67cmv5tg3mbje
+      '@algolia/autocomplete-preset-algolia': 1.7.4_algoliasearch@4.15.0
       '@docsearch/css': 3.3.3
       '@types/react': 18.0.28
       algoliasearch: 4.15.0
@@ -2121,7 +2120,7 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/plugin-ideal-image/2.3.1_jkdn2jc3c2imn3rudiykwu5ao4:
+  /@docusaurus/plugin-ideal-image/2.3.1_3okg5sz67cj64fzm2duc7o3pe4:
     resolution: {integrity: sha512-hN/TbpG8Hsct06RNRZz69iCpxsXzryq+5o/8r62sGwhTAmMCN8ms8an+ubRk4bub0y3Gvg7YUcwmmFf6kE2fJg==}
     engines: {node: '>=16.14'}
     peerDependencies:
@@ -2138,7 +2137,7 @@ packages:
       '@docusaurus/theme-translations': 2.3.1
       '@docusaurus/types': 2.3.1_biqbaboplfbrettd7655fr4n2y
       '@docusaurus/utils-validation': 2.3.1_@docusaurus+types@2.3.1
-      '@endiliey/react-ideal-image': 0.0.11_dagfceefazatjjlgzboh6lbvbm
+      '@endiliey/react-ideal-image': 0.0.11_esvfex2ynkxqsriyym2jagidhu
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-waypoint: 10.3.0_react@18.2.0
@@ -2246,7 +2245,7 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/preset-classic/2.3.1_gz36ohxl2jeziznwi6bik7l4qe:
+  /@docusaurus/preset-classic/2.3.1_bspqkkbxkxndypqd5swcfjhx6u:
     resolution: {integrity: sha512-OQ5W0AHyfdUk0IldwJ3BlnZ1EqoJuu2L2BMhqLbqwNWdkmzmSUvlFLH1Pe7CZSQgB2YUUC/DnmjbPKk/qQD0lQ==}
     engines: {node: '>=16.14'}
     peerDependencies:
@@ -2264,7 +2263,7 @@ packages:
       '@docusaurus/plugin-sitemap': 2.3.1_3okg5sz67cj64fzm2duc7o3pe4
       '@docusaurus/theme-classic': 2.3.1_3okg5sz67cj64fzm2duc7o3pe4
       '@docusaurus/theme-common': 2.3.1_h6c3z7du3oqlk7cza6xg3yfste
-      '@docusaurus/theme-search-algolia': 2.3.1_sgwfyouljjcfqg3fuubmbgqhce
+      '@docusaurus/theme-search-algolia': 2.3.1_bihwbxq2k4anstgdafx5zy2ele
       '@docusaurus/types': 2.3.1_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -2444,14 +2443,14 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/theme-search-algolia/2.3.1_sgwfyouljjcfqg3fuubmbgqhce:
+  /@docusaurus/theme-search-algolia/2.3.1_bihwbxq2k4anstgdafx5zy2ele:
     resolution: {integrity: sha512-JdHaRqRuH1X++g5fEMLnq7OtULSGQdrs9AbhcWRQ428ZB8/HOiaN6mj3hzHvcD3DFgu7koIVtWPQnvnN7iwzHA==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0 || >=17
       react-dom: ^16.8.4 || ^17.0.0 || >=17
     dependencies:
-      '@docsearch/react': 3.3.3_4jk4sx5gsa4z6dpons6mwt4w6q
+      '@docsearch/react': 3.3.3_zula6vjvt3wdocc4mwcxqa6nzi
       '@docusaurus/core': 2.3.1_h6c3z7du3oqlk7cza6xg3yfste
       '@docusaurus/logger': 2.3.1
       '@docusaurus/plugin-content-docs': 2.3.1_3okg5sz67cj64fzm2duc7o3pe4
@@ -2585,7 +2584,7 @@ packages:
       - webpack-cli
     dev: false
 
-  /@endiliey/react-ideal-image/0.0.11_dagfceefazatjjlgzboh6lbvbm:
+  /@endiliey/react-ideal-image/0.0.11_esvfex2ynkxqsriyym2jagidhu:
     resolution: {integrity: sha512-QxMjt/Gvur/gLxSoCy7VIyGGGrGmDN+VHcXkN3R2ApoWX0EYUE+hMgPHSW/PV6VVebZ1Nd4t2UnGRBDihu16JQ==}
     engines: {node: '>= 8.9.0', npm: '> 3'}
     peerDependencies:
@@ -2593,7 +2592,6 @@ packages:
       react: '>=0.14.x || >=17'
       react-waypoint: '>=9.0.2'
     dependencies:
-      prop-types: 15.8.1
       react: 18.2.0
       react-waypoint: 10.3.0_react@18.2.0
     dev: false
@@ -3581,10 +3579,8 @@ packages:
       indent-string: 4.0.0
     dev: false
 
-  /ajv-formats/2.1.1_ajv@8.12.0:
+  /ajv-formats/2.1.1:
     resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
-    peerDependencies:
-      ajv: ^8.0.0
     peerDependenciesMeta:
       ajv:
         optional: true
@@ -9303,7 +9299,7 @@ packages:
     dependencies:
       '@types/json-schema': 7.0.11
       ajv: 8.12.0
-      ajv-formats: 2.1.1_ajv@8.12.0
+      ajv-formats: 2.1.1
       ajv-keywords: 5.1.0_ajv@8.12.0
     dev: false
 
