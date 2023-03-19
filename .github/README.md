@@ -75,7 +75,7 @@
 <h2 align="left">Security</h2>
 <p> - Z-Shell follows good practices of security, but 100% security cannot be assured.</p>
 <p> - Z-Shell is provided <bold>"as is"</bold> without any <bold>warranty</bold>. Use at your own risk. </p>
-<p> - For more information and to report security issues, please refer to our <a href="https://github.com/z-shell/zi/blob/main/docs/SECURITY.md">security documentation</a>.</p>
+<p> - For more information and to report security issues, please refer to our <a href="https://github.com/z-shell/.github/security">security documentation</a>.</p>
 <hr />
 <h2 align="left">Authors & contributors</h2>
 <p> Check the list of authors and contributors in this <a href="https://github.com/z-shell/zi/contributors">repository</a> and also all other repositories under <a href="https://github.com/z-shell">Z-Shell</a> organization. We will inlclude all showning the interest or dedicated their time to take a part.

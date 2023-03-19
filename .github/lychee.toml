@@ -29,7 +29,7 @@ max_cache_age = "1d"
 #max_retries = 2
 
 # Maximum number of concurrent link checks.
-#max_concurrency = 14
+max_concurrency = 5
 
 #############################  Requests  ############################
 
@@ -43,7 +43,7 @@ max_cache_age = "1d"
 #retry_wait_time = 2
 
 # Comma-separated list of accepted status codes for valid links.
-#accept = [200, 429]
+accept = [200, 429]
 
 # Proceed for server connections considered insecure (invalid TLS).
 insecure = false
@@ -75,20 +75,34 @@ method = "get"
 #############################  Exclusions  ##########################
 
 # Skip missing input files (default is to error if they don't exist).
-#skip_missing = false
+skip_missing = true
 
 # Check links inside `<code>` and `<pre>` blocks as well as Markdown code
 # blocks.
-#include_verbatim = false
+include_verbatim = true
 
 # Ignore case of paths when matching glob patterns.
-#glob_ignore_case = false
+glob_ignore_case = true
 
 # Exclude URLs and mail addresses from checking (supports regex).
-exclude = ['opencollective.com', 'ecma-international.org']
+exclude = [
+  'domain.com',
+  'opencollective.com',
+  'creativecommons.org',
+  'ecma-international.org',
+  '2373494c71cb6d1529344a2ed1a64b03',
+  'sdk/pulumi-%VERSION%',
+  '/zsh-users/zsh-completions/trunk/src',
+]
 
 # Exclude these filesystem paths from getting checked.
-exclude_path = ["i18n/", "build/", "node_modules/"]
+exclude_path = [
+  "i18n",
+  "build",
+  "node_modules",
+  ".trunk/plugins",
+  ".github/drafts",
+]
 
 # URLs to check (supports regex). Has preference over all excludes.
 #include = [ 'gist\.github\.com.*' ]
@@ -96,16 +110,16 @@ exclude_path = ["i18n/", "build/", "node_modules/"]
 # Exclude all private IPs from checking.
 # Equivalent to setting `exclude_private`, `exclude_link_local`, and
 # `exclude_loopback` to true.
-exclude_all_private = false
+exclude_all_private = true
 
 # Exclude private IP address ranges from checking.
-exclude_private = true
+#exclude_private = false
 
 # Exclude link-local IP address range from checking.
-exclude_link_local = false
+#exclude_link_local = false
 
 # Exclude loopback IP address range and localhost from checking.
-exclude_loopback = true
+#exclude_loopback = false
 
 # Exclude all mail addresses from checking.
-exclude_mail = false
+exclude_mail = true
