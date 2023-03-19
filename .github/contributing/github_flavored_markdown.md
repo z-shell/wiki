@@ -70,7 +70,7 @@ Inline quotes with `<q>` get curly quotation marks around them: <q>inline quote<
 
 ## `<ruby>`, `<rt>` and `<rp>`
 
-`<ruby>`, `<rt>` and `<rp>` can be used for [showing pronunciation of East Asian characters](http://html5doctor.com/ruby-rt-rp-element/).
+`<ruby>`, `<rt>` and `<rp>` can be used for [showing pronunciation of East Asian characters](https://html5doctor.com/ruby-rt-rp-element/).
 
 Example:
 
@@ -81,9 +81,9 @@ Example:
 
 ## `<div>`
 
-`<div>` is also allowed, along with the `itemscope` and `itemtype` attributes for [defining microdata](http://html5doctor.com/microdata/):
+`<div>` is also allowed, along with the `itemscope` and `itemtype` attributes for [defining microdata](https://html5doctor.com/microdata/):
 
-<div itemscope itemtype ="http://schema.org/Movie">
+<div itemscope itemtype ="https://schema.org/Movie">
   <h6 itemprop="name">Avatar</h6>
   <span>Director: <span itemprop="director">James Cameron</span> (born August 16, 1954)</span>
   <span itemprop="genre">Science fiction</span>
@@ -106,7 +106,7 @@ You can type emoji `:shortcode:`'s like `:shipit:` into the Markdown source and 
 
 ## References
 
-- [GitHub's HTML sanitization code](https://github.com/jch/html-pipeline/blob/master/lib/html/pipeline/sanitization_filter.rb#L44-L106)
+- [GitHub's HTML sanitization code](https://github.com/gjtorikian/html-pipeline/blob/main/lib/html_pipeline/sanitization_filter.rb#L20-L81)
 - A [GitHub issue](https://github.com/github/markup/issues/245) about this
 
 ## Footnote

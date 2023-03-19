@@ -37,11 +37,7 @@ jobs:
         id: lychee
         uses: lycheeverse/lychee-action@a12cbb3a4921899299dcc58a6136bcdd0d1fbf1c
         with:
-          args: |
-            --config ./.github/lychee.toml -- \
-              './docs/**/*.md*' \
-              './community/**/*.md*' \
-              './ecosystem/**/*.md*'
+          args: "--config ./.github/lychee.toml -- '**/*.md*'"
           format: markdown
           output: ./.github/LINKS_REPORT.md
           fail: false
