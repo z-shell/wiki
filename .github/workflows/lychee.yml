@@ -48,8 +48,10 @@ jobs:
 
       - name: "🔖 Create Issue From File"
         if: env.lychee_exit_code != 0
+        id: lychee-report
         uses: peter-evans/create-issue-from-file@v4
         with:
           title: " 📢 Link Checker Report"
           content-filepath: ./.github/LINKS_REPORT.md
           labels: maintenance 📈
+          issue-number: 405
