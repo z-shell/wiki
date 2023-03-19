@@ -26,7 +26,7 @@ jobs:
   check-links:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.3.0
+      - uses: actions/checkout@v3.4.0
       - name: "📤 Restore cache"
         uses: actions/cache@v3
         with:
@@ -35,7 +35,7 @@ jobs:
           restore-keys: cache-lychee-
       - name: "📊 Lychee Link Checker"
         id: lychee
-        uses: lycheeverse/lychee-action@9ace499fe66cee282a29eaa628fdac2c72fa087f
+        uses: lycheeverse/lychee-action@a12cbb3a4921899299dcc58a6136bcdd0d1fbf1c
         with:
           args: |
             --config ./.github/lychee.toml -- \
