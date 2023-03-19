@@ -2,7 +2,7 @@
 
 # Maintainers
 
-This document lists the Maintainers of the Project. Maintainers may be added once approved by the existing maintainers as described in the [Governance document](./GOVERNANCE.md). By adding your name to this list you are agreeing to abide by the Project governance documents and to abide by all of the Organization's polices, including the [code of conduct](../org-docs/CODE-OF-CONDUCT.md), [trademark policy](../org-docs/TRADEMARKS.md), and [antitrust policy](../org-docs/TRADEMARKS.md). If you are participating because of your affiliation with another organization (designated below), you represent that you have the authority to bind that organization to these policies.
+This document lists the Maintainers of the Project. Maintainers may be added once approved by the existing maintainers as described in the [Governance document](https://github.com/z-shell/.github/tree/main/.github/GOVERNANCE.md). By adding your name to this list you are agreeing to abide by the Project governance documents and to abide by all of the Organization's polices, including the [code of conduct](https://github.com/z-shell/.github/tree/main/.github//CODE_OF_CONDUCT.md), [trademark policy](https://github.com/z-shell/.github/tree/main/.github//TRADEMARKS.md), and [antitrust policy](https://github.com/z-shell/.github/tree/main/.github//TRADEMARKS.md). If you are participating because of your affiliation with another organization (designated below), you represent that you have the authority to bind that organization to these policies.
 
 | **NAME**          | **Organization** |
 | ----------------- | ---------------- |

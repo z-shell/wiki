@@ -16,9 +16,9 @@ import TabItem from "@theme/TabItem";
 import Player from "@site/src/components/Player";
 import APITable from "@site/src/components/APITable";
 
-## <i class="fa-brands fa-github"></i> [z-shell/zi-console][]
+## <i class="fa-brands fa-github"></i> [z-shell/zi-console][z-shell-zi-console]
 
-A console for [Zi][] – based on the `zsh/zcurses` Zshell module allows the user to:
+A console for [Zi][z-shell-zi] – based on the `zsh/zcurses` Zshell module allows the user to:
 
 - View the currently loaded plugins in a colorful list, in one of 3 different display modes.
 - Unload and load plugins.
@@ -56,7 +56,7 @@ Start the console by <kbd>Ctrl-O</kbd> <kbd>Ctrl-J</kbd> keyboard shortcut, or b
 
 ## Install Zi Console
 
-> Prerequisites: [ZUI][z-shell/zui] library.
+> Prerequisites: [ZUI][z-shell-zui] library.
 
 <Tabs>
   <TabItem value="standard" label="Standard" default>
@@ -101,14 +101,14 @@ zi load zsh-users/zsh
 
 The command will build a custom `zsh` and install it under `$ZPFX` (`~/.zi/polaris` by default). The path `$ZPFX/bin` is already added to `$PATH` by Zi at the first position, so starting `zsh` will run the new Z shell.
 
-When on Gentoo, and possibly other systems, the `zsh` can still not have the ncurses library linked. To address this, utilize the [z-a-patch-dl][6] annex and automatically patch the source first:
+When on Gentoo, and possibly other systems, the `zsh` can still not have the ncurses library linked. To address this, utilize the [patch-dl][z-a-patch-dl] annex and automatically patch the source first:
 
 ```shell showLineNumbers
 zi light z-shell/z-a-patch-dl
 zi ice id-as"zsh" atclone"./.preconfig
     CFLAGS='-I/usr/include -I/usr/local/include -g -O2 -Wall' \
     LDFLAGS='-L/usr/lib -L/usr/local/lib' ./configure --prefix='$ZPFX'" \
-  dl"https://gist.githubusercontent.com/z-shell/2373494c71cb6d1529344a2ed1a64b03/raw -> curses.patch" \
+  dl"http://gist.githubusercontent.com/z-shell/2373494c71cb6d1529344a2ed1a64b03/raw -> curses.patch" \
   patch'curses.patch' atpull"%atclone" reset \
   run-atpull make"install" pick"/dev/null"
 zi load zsh-users/zsh
@@ -124,7 +124,7 @@ Then, to update, rebuild and reinstall the `zsh`, you can do `zi update zsh`. Th
 
 <!-- external -->
 
-[zi]: https://github.com/z-shell/zi
-[z-shell/zui]: https://github.com/z-shell/zui
-[6]: https://github.com/z-shell/z-a-patch-dl
-[z-shell/zi-console]: https://github.com/z-shell/zi-console
+[z-shell-zi]: https://github.com/z-shell/zi
+[z-shell-zui]: https://github.com/z-shell/zui
+[z-a-patch-dl]: https://github.com/z-shell/z-a-patch-dl
+[z-shell-zi-console]: https://github.com/z-shell/zi-console
