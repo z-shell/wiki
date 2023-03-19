@@ -10,13 +10,13 @@ on:
   push:
     branches: [main]
     paths:
-      - "**/*.md"
-      - "**/*.mdx"
-  pull_request:
+      - "**.md"
+      - "**.mdx"
+  pull_request_target:
     branches: [main]
     paths:
-      - "**/*.md"
-      - "**/*.mdx"
+      - "**.md"
+      - "**.mdx"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
