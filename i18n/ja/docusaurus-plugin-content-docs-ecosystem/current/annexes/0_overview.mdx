@@ -84,7 +84,7 @@ local type="$1" url="$2" id_as="$3" dir="$4" hook="$6" # type: snippet
 [[ -z ${ZI_ICE[submods]} ]] && return 0
 
 local -a mods parts
-local mod
+local mod from
 
 # (3) – process the submods'' ice
 mods=( ${(@s.;.)ZI_ICE[submods]} )
@@ -94,7 +94,8 @@ for mod in "${mods[@]}"; do
   parts=( "${parts[@]//((#s)[[:space:]]##|[[:space:]]##(#e))/}" )
 
   print "\nCloning submodule: ${parts[1]} to dir: ${parts[2]}"
-  parts[1]="https://github.com/${parts[1]}"
+  from="https://github.com"
+  parts[1]="${from}/${parts[1]}"
   # (5) – the use of the input argument: `$dir'
   command git -C "$dir" clone --progress "${parts[1]}" "${parts[2]}"
 done
