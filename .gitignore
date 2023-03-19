@@ -9,6 +9,7 @@ yarn.lock
 
 # Docusaurus cache and generated files
 .docusaurus
+.lycheecache
 
 # Generated files
 .cache-loader
