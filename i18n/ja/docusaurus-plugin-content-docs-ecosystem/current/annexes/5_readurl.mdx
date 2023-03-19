@@ -14,7 +14,7 @@ import Link from "@docusaurus/Link";
 
 An annex allows automatically downloading the newest version of a file to which the URL is hosted on a webpage. It works as follows:
 
-Invoke `snippet` (or simply pass the `http://…` address using the `for` syntax) on the web page that hosts the URL to the file to download, provide `dlink'…'` ice with the expected file-download URL replacing the version with the `%VERSION%` keyword, also provide `as'…'` ice with one of the following values:
+Invoke `snippet` (or simply pass the `https://…` address using the `for` syntax) on the web page that hosts the URL to the file to download, provide `dlink'…'` ice with the expected file-download URL replacing the version with the `%VERSION%` keyword, also provide `as'…'` ice with one of the following values:
 
 1.  `readurl`,
 2.  `readurl|command`,
@@ -37,7 +37,7 @@ zi id-as=fzf as='readurl|command' for \
 
 The snippet is just an example. The same effect is obtained by loading as the `junegunn/fzf` plugin with `from'gh-r'` ice.
 
-As it can be seen, the `dlink'…'` can be a relative or an absolute path and also a full URL (i.e.: beginning with the `http://…` prefix).
+As it can be seen, the `dlink'…'` can be a relative or an absolute path and also a full URL (i.e.: beginning with the `https://…` prefix).
 
 ### Intermediate download page
 
@@ -47,7 +47,7 @@ Sometimes, like it is in the case of the [terraform][terraform-link] command, th
 zi id-as=terraform as='readurl|command' extract for \
   dlink0='/terraform/%VERSION%/' \
   dlink='/terraform/%VERSION%/terraform_%VERSION%_linux_386.zip' \
-    http://releases.hashicorp.com/terraform/
+    https://releases.hashicorp.com/terraform/
 ```
 
 ### Skipping `dlink'…'` ice
@@ -128,4 +128,4 @@ This will register the `dlink'…'` and `dlink0'…'` ice-modifiers and also the
 
 [pulumi-link]: https://www.pulumi.com/
 
-[terraform-link]: http://releases.hashicorp.com/terraform
+[terraform-link]: https://releases.hashicorp.com/terraform
