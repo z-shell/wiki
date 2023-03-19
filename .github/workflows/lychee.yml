@@ -33,23 +33,27 @@ jobs:
           path: .lycheecache
           key: cache-lychee-${{ github.sha }}
           restore-keys: cache-lychee-
-
       - name: "📊 Lychee Link Checker"
         id: lychee
         uses: lycheeverse/lychee-action@9ace499fe66cee282a29eaa628fdac2c72fa087f
         with:
-          args: --config ./.github/lychee.toml -- './docs/**/*.md*' './community/**/*.md*' './ecosystem/**/*.md*'
+          args: |
+            --config ./.github/lychee.toml -- \
+              './docs/**/*.md*' \
+              './community/**/*.md*' \
+              './ecosystem/**/*.md*'
           format: markdown
           output: ./.github/LINKS_REPORT.md
           fail: false
           jobSummary: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: "🔖 Create Issue From File"
         if: env.lychee_exit_code != 0
+        id: lychee-report
         uses: peter-evans/create-issue-from-file@v4
         with:
           title: " 📢 Link Checker Report"
           content-filepath: ./.github/LINKS_REPORT.md
           labels: maintenance 📈
+          issue-number: 405
