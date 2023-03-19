@@ -17,6 +17,7 @@ lint:
     - yamllint
     - shellcheck
   enabled:
+    - taplo@0.7.0
     - oxipng@8.0.0
     - svgo@3.0.2
     - stylelint@15.3.0
