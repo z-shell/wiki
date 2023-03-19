@@ -1,4 +1,3 @@
-# @format
 ---
 name: 🔖 Pull Request Labeler
 on:
@@ -12,7 +11,7 @@ jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/labeler@v4
+      - name: 🚀 Run Labeler
+        uses: actions/labeler@v4.0.3
         with:
-          repo-token: "${{ secrets.GH_PAT }}"
-          sync-labels: true
+          sync-labels: false
