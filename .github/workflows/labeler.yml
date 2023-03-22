@@ -12,6 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🚀 Run Labeler
-        uses: actions/labeler@v4.0.3
+        uses: actions/labeler@4.1.0
         with:
           sync-labels: false
