@@ -1,6 +1,6 @@
 version: 0.1
 cli:
-  version: 1.6.1
+  version: 1.7.0
 repo:
   repo:
     host: github.com
@@ -26,7 +26,7 @@ lint:
     - stylelint@15.3.0
     - git-diff-check@SYSTEM
     - actionlint@1.6.23
-    - eslint@8.36.0
+    - eslint@8.37.0
     - gitleaks@8.16.1
     - markdownlint@0.33.0
     - prettier@2.8.7
