@@ -10,7 +10,7 @@ plugins:
   sources:
     - id: trunk
       uri: https://github.com/trunk-io/plugins
-      ref: v0.0.13
+      ref: v0.0.14
       import_to_global: true
 merge:
   required_statuses:
@@ -27,7 +27,7 @@ lint:
     - git-diff-check@SYSTEM
     - actionlint@1.6.23
     - eslint@8.37.0
-    - gitleaks@8.16.1
+    - gitleaks@8.16.2
     - markdownlint@0.33.0
     - prettier@2.8.7
     - shfmt@3.5.0

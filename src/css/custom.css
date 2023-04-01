@@ -313,19 +313,34 @@ html[data-theme="dark"] div[class^="announcementBar_"] {
   transition-duration: 1s !important;
 }
 
-@media screen and (min-width: 980px) {
+/* Extra large screens, TV */
+@media only screen and (width >= 1201px) {
+  header h1 {
+    font-size: 2.6rem !important;
+  }
+}
+
+/* Desktops, large screens */
+@media only screen and (1025px >= width >= 1200px) {
+  div[class^="announcementBar_"] {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
   header h1 {
     font-size: 2.4rem !important;
   }
 }
 
-@media only screen and (max-width: 960px) {
+/* Small screens, laptops */
+@media only screen and (769px >= width >= 1024px) {
   header h1 {
     font-size: 2.2rem !important;
   }
 }
 
-@media only screen and (max-width: 765px) {
+/* iPads, Tablets */
+@media only screen and (481px >= width >= 768px) {
   div[class^="announcementBar_"] {
     padding: 2px 24px;
     font-size: 14px;
@@ -349,7 +364,8 @@ html[data-theme="dark"] div[class^="announcementBar_"] {
   }
 }
 
-@media only screen and (max-width: 500px) {
+/* Mobile devices */
+@media only screen and (320px >= width >= 480px) {
   div[class^="announcementBar_"] {
     padding: 2px 12px;
   }

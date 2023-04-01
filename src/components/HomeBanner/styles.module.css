@@ -7,7 +7,7 @@
   text-align: right;
 }
 
-@media only screen and (max-width: 996px) {
+@media only screen and (width <= 900px) {
   .herobanner {
     padding: 1rem 0;
   }
@@ -112,7 +112,7 @@
   margin: 16px 24px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (width <= 700px) {
   .hero {
     padding-right: 2rem;
     padding-left: 2rem;
@@ -150,7 +150,7 @@
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (width <= 500px) {
   .heroProjectTagline {
     font-size: 1.8rem;
     text-align: center;

@@ -61,11 +61,11 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "stylelint": "^15.3.0",
+    "stylelint": "^15.4.0",
     "stylelint-color-format": "^1.1.0",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-recess-order": "^4.0.0",
-    "stylelint-config-standard": "^31.0.0",
+    "stylelint-config-standard": "^32.0.0",
     "stylelint-csstree-validator": "^2.1.0",
     "typescript": "5.0.3"
   },
