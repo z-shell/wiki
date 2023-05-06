@@ -1,6 +1,6 @@
 version: 0.1
 cli:
-  version: 1.7.0
+  version: 1.9.1
 repo:
   repo:
     host: github.com
@@ -10,7 +10,7 @@ plugins:
   sources:
     - id: trunk
       uri: https://github.com/trunk-io/plugins
-      ref: v0.0.14
+      ref: v0.0.17
       import_to_global: true
 merge:
   required_statuses:
@@ -20,17 +20,17 @@ lint:
     - yamllint
     - shellcheck
   enabled:
-    - renovate@35.28.0
+    - renovate@35.71.6
     - taplo@0.7.0
     - oxipng@8.0.0
     - svgo@3.0.2
-    - stylelint@15.3.0
+    - stylelint@15.6.1
     - git-diff-check@SYSTEM
-    - actionlint@1.6.23
-    - eslint@8.37.0
-    - gitleaks@8.16.2
-    - markdownlint@0.33.0
-    - prettier@2.8.7
+    - actionlint@1.6.24
+    - eslint@8.39.0
+    - gitleaks@8.16.3
+    - markdownlint@0.34.0
+    - prettier@2.8.8
     - shfmt@3.5.0
     - hadolint@2.12.0
   ignore:
