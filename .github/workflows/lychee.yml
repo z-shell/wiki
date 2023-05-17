@@ -35,7 +35,7 @@ jobs:
           restore-keys: cache-lychee-
       - name: "📊 Lychee Link Checker"
         id: lychee
-        uses: lycheeverse/lychee-action@697a9957e2e35c809d9816448f28a1423e1a6209
+        uses: lycheeverse/lychee-action@21b2b78c236322f7dcf5b8dbddaa6442f39c2f32
         with:
           args: "--config ./.github/lychee.toml -- '**/*.md*'"
           format: markdown
