@@ -28,7 +28,7 @@
     "check": "trunk check"
   },
   "dependencies": {
-    "@docusaurus/core": "2.4.0",
+    "@docusaurus/core": "2.4.1",
     "@docusaurus/plugin-ideal-image": "2.4.0",
     "@docusaurus/plugin-pwa": "2.4.0",
     "@docusaurus/preset-classic": "2.4.0",
