@@ -30,7 +30,7 @@
   "dependencies": {
     "@docusaurus/core": "2.4.0",
     "@docusaurus/plugin-ideal-image": "2.4.0",
-    "@docusaurus/plugin-pwa": "2.4.0",
+    "@docusaurus/plugin-pwa": "2.4.1",
     "@docusaurus/preset-classic": "2.4.0",
     "@docusaurus/theme-mermaid": "2.4.0",
     "@loadable/component": "5.15.3",
