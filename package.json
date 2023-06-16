@@ -21,7 +21,6 @@
     "crowdin:sync": "docusaurus write-translations && crowdin upload && crowdin download",
     "crowdin:check": "crowdin lint && crowdin status",
     "crowdin:upload": "pnpm crowdin upload sources --delete-obsolete",
-    "prebuild": "test \"$CF_PAGES\" = 1 && npx pnpm install --prod || echo Install not required...",
     "clean": "pnpm exec rm -rf node_modules build pnpm-lock.yaml",
     "preinstall": "npx only-allow pnpm",
     "upgrade": "pnpm upgrade -i -L",
