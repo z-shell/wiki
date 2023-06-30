@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🚀 Run Labeler
-        uses: actions/labeler@4.1.0
+        uses: actions/labeler@v4.2.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           sync-labels: false
