@@ -11,14 +11,20 @@ on:
   workflow_dispatch: {}
   merge_group: {}
 
+permissions: read-all
+
 jobs:
   check:
+    permissions:
+      pull-requests: write
+      contents: write
+      deployments: write
     if: github.event.schedule != '0 07 * * 5'
     name: "⚡"
     uses: z-shell/.github/.github/workflows/trunk.yml@main
     with:
-      node_version: "18"
-      pnpm_arguments: "pnpm i"
+      node_version: "lts/*"
+      pnpm_arguments: "pnpm i --no-frozen-lockfile"
   upload:
     if: github.event.schedule == '0 07 * * 5'
     name: "🆙"
@@ -26,5 +32,5 @@ jobs:
     secrets:
       trunk-token: ${{ secrets.TRUNK_TOKEN }}
     with:
-      node_version: "18"
-      pnpm_arguments: "pnpm i && pnpm run build"
+      node_version: "lts/*"
+      pnpm_arguments: "pnpm i --no-frozen-lockfile && pnpm run build"
