@@ -17,14 +17,14 @@ merge:
     - Trunk Check
 lint:
   disabled:
+    - trivy
+    - checkov
+    - osv-scanner
     - renovate
     - yamllint
     - shellcheck
   enabled:
-    - checkov@2.3.324
-    - osv-scanner@1.3.6
     - terrascan@1.18.1
-    - trivy@0.43.1
     - trufflehog@3.44.0
     - taplo@0.7.0
     - oxipng@8.0.0

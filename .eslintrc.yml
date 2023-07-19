@@ -23,7 +23,6 @@ parserOptions:
     - tsconfig.json
 plugins:
   - react-hooks
-  - "@typescript-eslint"
   - "@docusaurus"
 rules:
   {
