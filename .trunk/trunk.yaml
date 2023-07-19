@@ -1,6 +1,6 @@
 version: 0.1
 cli:
-  version: 1.10.0
+  version: 1.12.3
 repo:
   repo:
     host: github.com
@@ -10,28 +10,33 @@ plugins:
   sources:
     - id: trunk
       uri: https://github.com/trunk-io/plugins
-      ref: v0.0.17
+      ref: v0.0.22
       import_to_global: true
 merge:
   required_statuses:
     - Trunk Check
 lint:
   disabled:
+    - trivy
+    - checkov
+    - osv-scanner
     - renovate
     - yamllint
     - shellcheck
   enabled:
+    - terrascan@1.18.1
+    - trufflehog@3.44.0
     - taplo@0.7.0
     - oxipng@8.0.0
     - svgo@3.0.2
-    - stylelint@15.7.0
+    - stylelint@15.10.2
     - git-diff-check@SYSTEM
     - actionlint@1.6.25
-    - eslint@8.42.0
+    - eslint@8.45.0
     - gitleaks@8.17.0
-    - markdownlint@0.34.0
-    - prettier@2.8.8
-    - shfmt@3.5.0
+    - markdownlint@0.35.0
+    - prettier@3.0.0
+    - shfmt@3.6.0
     - hadolint@2.12.0
   ignore:
     - linters: [ALL]

@@ -29,7 +29,7 @@ function getText(node: ReactElement): string {
 
 function APITableRow(
   {name, children}: {name: string | undefined; children: ReactElement<ComponentProps<"tr">>},
-  ref: React.ForwardedRef<HTMLTableRowElement>
+  ref: React.ForwardedRef<HTMLTableRowElement>,
 ) {
   const entryName = getText(children);
   const id = name != null ? `${name}-${entryName}` : entryName;
@@ -63,7 +63,7 @@ const APITableRowComp = forwardRef(APITableRow);
 export default function APITable({children, name}: Props): JSX.Element {
   const [thead, tbody] = Children.toArray(children.props.children) as [
     ReactElement<{children: ReactElement[]}>,
-    ReactElement<{children: ReactElement[]}>
+    ReactElement<{children: ReactElement[]}>,
   ];
   const highlightedRow = useRef<HTMLTableRowElement>(null);
   useEffect(() => {
