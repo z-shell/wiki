@@ -616,6 +616,16 @@ zi for as'null' depth'3' nocompletions sbin'bin/brew' \
     @homebrew/brew
 ```
 
+### GH-R: [dbrgn/tealdeer](https://github.com/dbrgn/tealdeer)
+
+```shell showLineNumbers
+zi wait lucid as'program' from'gh-r' for \
+  mv'tealdeer* -> tealdeer' \
+  sbin'**/tealdeer -> tldr' \
+  pick'$ZPFX/bin/tldr' \
+  @dbrgn/tealdeer
+```
+
 ### RA: Rust compiler environment + completions
 
 ```shell showLineNumbers
