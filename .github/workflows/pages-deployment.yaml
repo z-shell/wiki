@@ -31,7 +31,7 @@ jobs:
       - name: "📦 Setup pnpm"
         uses: pnpm/action-setup@v2.4.0
       - name: "⎔  Setup node"
-        uses: actions/setup-node@v3.7.0
+        uses: actions/setup-node@v3.8.1
         with:
           node-version: 18
           cache: "pnpm"
