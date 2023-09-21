@@ -635,6 +635,16 @@ zi wait lucid as'program' from'gh-r' for \
   @koalaman/shellcheck
 ```
 
+### GH-R: [hadolint/hadolint](https://github.com/hadolint/hadolint)
+
+```shell showLineNumbers
+zi wait lucid as'program' from'gh-r' for \
+  mv'hadolint* -> hadolint' \
+  sbin'hadolint -> hadolint' \
+  pick'$ZPFX/bin/hadolint' \
+  @hadolint/hadolint
+```
+
 ### RA: Rust compiler environment + completions
 
 ```shell showLineNumbers
