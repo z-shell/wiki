@@ -32,8 +32,8 @@ dependencies:
     specifier: 1.6.22
     version: 1.6.22(react@18.2.0)
   asciinema-player:
-    specifier: 3.5.0
-    version: 3.5.0
+    specifier: 3.6.1
+    version: 3.6.1
   clsx:
     specifier: 2.0.0
     version: 2.0.0
@@ -4204,8 +4204,8 @@ packages:
     resolution: {integrity: sha512-BSHWgDSAiKs50o2Re8ppvp3seVHXSRM44cdSsT9FfNEUUZLOGWVCsiWaRPWM1Znn+mqZ1OfVZ3z3DWEzSp7hRA==}
     dev: false
 
-  /asciinema-player@3.5.0:
-    resolution: {integrity: sha512-o4B2AscBuCZo4+JB9TBGrfZ7GQL99wsbm08WwmuNJTPd1lyLQJq8wgacnBsdvb2sC0K875ScYr8T5XmfeH/6dg==}
+  /asciinema-player@3.6.1:
+    resolution: {integrity: sha512-FfTABH/N6pjG74A6cCfsrirTSM4UAOLMzcFXb0zS34T5czvg3CyUy2TAqa3WEs5owUFHcuN1Y2y8o0n2yjeMvQ==}
     dependencies:
       '@babel/runtime': 7.22.6
       solid-js: 1.7.8
