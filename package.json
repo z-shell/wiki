@@ -44,8 +44,8 @@
   "devDependencies": {
     "@crowdin/cli": "^3.13.0",
     "@docusaurus/eslint-plugin": "^2.4.1",
-    "@docusaurus/module-type-aliases": "2.4.1",
-    "@docusaurus/types": "2.4.1",
+    "@docusaurus/module-type-aliases": "2.4.3",
+    "@docusaurus/types": "2.4.3",
     "@trunkio/launcher": "^1.2.7",
     "@types/node": "^20.5.0",
     "@types/react": "^18.2.20",
