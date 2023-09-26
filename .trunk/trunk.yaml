@@ -1,6 +1,6 @@
 version: 0.1
 cli:
-  version: 1.13.0
+  version: 1.16.0
 repo:
   repo:
     host: github.com
@@ -10,13 +10,14 @@ plugins:
   sources:
     - id: trunk
       uri: https://github.com/trunk-io/plugins
-      ref: v1.1.1
+      ref: v1.2.3
       import_to_global: true
 merge:
   required_statuses:
     - Trunk Check
 lint:
   disabled:
+    - trufflehog
     - trivy
     - checkov
     - osv-scanner
@@ -25,17 +26,16 @@ lint:
     - shellcheck
   enabled:
     - terrascan@1.18.3
-    - trufflehog@3.48.0
     - taplo@0.8.1
     - oxipng@8.0.0
     - svgo@3.0.2
-    - stylelint@15.10.2
+    - stylelint@15.10.3
     - git-diff-check@SYSTEM
-    - actionlint@1.6.25
-    - eslint@8.47.0
-    - gitleaks@8.17.0
-    - markdownlint@0.35.0
-    - prettier@3.0.2
+    - actionlint@1.6.26
+    - eslint@8.50.0
+    - gitleaks@8.18.0
+    - markdownlint@0.37.0
+    - prettier@3.0.3
     - shfmt@3.6.0
     - hadolint@2.12.0
   ignore:
@@ -57,7 +57,7 @@ lint:
 runtimes:
   enabled:
     - python@3.10.8
-    - go@1.19.5
+    - go@1.21.0
     - node@18.12.1
 actions:
   enabled:
