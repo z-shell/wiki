@@ -1,0 +1,24 @@
+---
+name: "⭕ Trunk [upgrade]"
+on:
+  schedule:
+    - cron: 0 8 * * 1-5
+  workflow_dispatch: {}
+
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions: read-all
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # For trunk to create PRs
+      pull-requests: write # For trunk to create PRs
+    steps:
+      - name: ✅ Checkout
+        uses: actions/checkout@v4
+      - name: ✨ Trunk Upgrade
+        uses: trunk-io/trunk-action/upgrade@740a20b4985182510386c410a456811891983be1
