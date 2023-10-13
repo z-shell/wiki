@@ -17,7 +17,7 @@ jobs:
     name: "⚡"
     uses: z-shell/.github/.github/workflows/trunk.yml@main
     with:
-      node_version: "--lts"
+      node_version: "lts/*"
       pnpm_arguments: "pnpm i"
   upload:
     if: github.event.schedule == '0 07 * * 5'
@@ -26,5 +26,5 @@ jobs:
     secrets:
       trunk-token: ${{ secrets.TRUNK_TOKEN }}
     with:
-      node_version: "--lts"
+      node_version: "lts/*"
       pnpm_arguments: "pnpm i && pnpm run build"
