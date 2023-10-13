@@ -31,8 +31,8 @@ dependencies:
     specifier: 1.6.22
     version: 1.6.22(react@18.2.0)
   asciinema-player:
-    specifier: 3.6.1
-    version: 3.6.1
+    specifier: 3.6.2
+    version: 3.6.2
   clsx:
     specifier: 2.0.0
     version: 2.0.0
@@ -625,7 +625,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.12.9
-      '@babel/helper-plugin-utils': 7.10.4
+      '@babel/helper-plugin-utils': 7.22.5
       '@babel/plugin-syntax-object-rest-spread': 7.8.3(@babel/core@7.12.9)
       '@babel/plugin-transform-parameters': 7.22.15(@babel/core@7.12.9)
     dev: false
@@ -2694,14 +2694,9 @@ packages:
       eslint: 8.50.0
       eslint-visitor-keys: 3.4.3
 
-  /@eslint-community/regexpp@4.8.1:
-    resolution: {integrity: sha512-PWiOzLIUAjN/w5K17PoF4n6sKBw0gqLHPhywmYHP4t1VFQQVYeb1yWsJwnMVEMl3tUHME7X/SJPZLmtG7XBDxQ==}
-    engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
-
   /@eslint-community/regexpp@4.8.2:
     resolution: {integrity: sha512-0MGxAVt1m/ZK+LTJp/j0qF7Hz97D9O/FH9Ms3ltnyIdDD57cbb1ACIQTkbHvNXtWDv5TPq7w5Kq56+cNukbo7g==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
-    dev: true
 
   /@eslint/eslintrc@2.1.2:
     resolution: {integrity: sha512-+wvgpDsrB1YqAMdEUCcnTlpfVBH7Vqn6A/NT3D8WVXFIaKMlErPIZT3oCIAVCOtarRpMtelZLqJeU3t7WY6X6g==}
@@ -3343,10 +3338,6 @@ packages:
   /@types/scheduler@0.16.3:
     resolution: {integrity: sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==}
 
-  /@types/semver@7.5.2:
-    resolution: {integrity: sha512-7aqorHYgdNO4DM36stTiGO3DvKoex9TQRwsJU6vMaFGyqpBA1MNZkz+PG3gaNUPpTAOYhT1WR7M1JyA3fbS9Cw==}
-    dev: true
-
   /@types/semver@7.5.3:
     resolution: {integrity: sha512-OxepLK9EuNEIPxWNME+C6WwbRAOOI2o2BaQEGzz5Lu2e4Z5eDnEo+/aVEDMIXywoJitJ7xWd641wrGLZdtwRyw==}
     dev: true
@@ -3548,7 +3539,7 @@ packages:
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.50.0)
       '@types/json-schema': 7.0.13
-      '@types/semver': 7.5.2
+      '@types/semver': 7.5.3
       '@typescript-eslint/scope-manager': 5.62.0
       '@typescript-eslint/types': 5.62.0
       '@typescript-eslint/typescript-estree': 5.62.0(typescript@5.2.2)
@@ -3958,8 +3949,8 @@ packages:
     resolution: {integrity: sha512-BSHWgDSAiKs50o2Re8ppvp3seVHXSRM44cdSsT9FfNEUUZLOGWVCsiWaRPWM1Znn+mqZ1OfVZ3z3DWEzSp7hRA==}
     dev: false
 
-  /asciinema-player@3.6.1:
-    resolution: {integrity: sha512-FfTABH/N6pjG74A6cCfsrirTSM4UAOLMzcFXb0zS34T5czvg3CyUy2TAqa3WEs5owUFHcuN1Y2y8o0n2yjeMvQ==}
+  /asciinema-player@3.6.2:
+    resolution: {integrity: sha512-698O3/Vm2+V6uFlc6oYma67IZByQsiNpduhEGhuqrxBmKpIYpgouLNNJ3R8DrRPTNNMISHfnLgvAp1x8ChgrTw==}
     dependencies:
       '@babel/runtime': 7.22.15
       solid-js: 1.7.12
@@ -5790,7 +5781,7 @@ packages:
       eslint: '>=8'
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.50.0)
-      '@eslint-community/regexpp': 4.8.1
+      '@eslint-community/regexpp': 4.8.2
       eslint: 8.50.0
     dev: true
 
@@ -5914,7 +5905,7 @@ packages:
     hasBin: true
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.50.0)
-      '@eslint-community/regexpp': 4.8.1
+      '@eslint-community/regexpp': 4.8.2
       '@eslint/eslintrc': 2.1.2
       '@eslint/js': 8.50.0
       '@humanwhocodes/config-array': 0.11.11
