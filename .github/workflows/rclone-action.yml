@@ -28,13 +28,13 @@ jobs:
       - name: "⤵️ Check out code from GitHub"
         uses: actions/checkout@v4
       - name: "⏫ Run rclone/r2-store/img"
-        uses: z-shell/.github/actions/rclone@5a24925e0cf2131910829d7763b3acbaf9bb0c3a
+        uses: z-shell/.github/actions/rclone@main
         with:
           config: ${{ secrets.R2_STORE }}
           args: "copy ${{ env.img_local_path }} ${{ env.img_remote_path }}"
           debug: false
       - name: "⏫ Run rclone/r2-store/assets"
-        uses: z-shell/.github/actions/rclone@5a24925e0cf2131910829d7763b3acbaf9bb0c3a
+        uses: z-shell/.github/actions/rclone@main
         with:
           config: ${{ secrets.R2_STORE }}
           args: "copy ${{ env.assets_local_path }} ${{ env.assets_remote_path }}"
