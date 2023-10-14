@@ -12,11 +12,13 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions: read-all
+
 jobs:
   sync:
     if: github.repository == 'z-shell/wiki'
     runs-on: ubuntu-latest
-    environment: R2
+    environment: R2      
     env:
       img_local_path: "static/img"
       img_remote_path: "r2store:r2-store/img"
@@ -26,13 +28,13 @@ jobs:
       - name: "⤵️ Check out code from GitHub"
         uses: actions/checkout@v4
       - name: "⏫ Run rclone/r2-store/img"
-        uses: z-shell/.github/actions/rclone@v1.0.8
+        uses: z-shell/.github/actions/rclone@5a24925e0cf2131910829d7763b3acbaf9bb0c3a
         with:
           config: ${{ secrets.R2_STORE }}
           args: "copy ${{ env.img_local_path }} ${{ env.img_remote_path }}"
           debug: false
       - name: "⏫ Run rclone/r2-store/assets"
-        uses: z-shell/.github/actions/rclone@v1.0.8
+        uses: z-shell/.github/actions/rclone@5a24925e0cf2131910829d7763b3acbaf9bb0c3a
         with:
           config: ${{ secrets.R2_STORE }}
           args: "copy ${{ env.assets_local_path }} ${{ env.assets_remote_path }}"
