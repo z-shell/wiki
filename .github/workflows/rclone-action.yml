@@ -18,7 +18,7 @@ jobs:
   sync:
     if: github.repository == 'z-shell/wiki'
     runs-on: ubuntu-latest
-    environment: R2      
+    environment: R2
     env:
       img_local_path: "static/img"
       img_remote_path: "r2store:r2-store/img"
