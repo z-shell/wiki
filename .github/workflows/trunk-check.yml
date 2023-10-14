@@ -1,5 +1,5 @@
 ---
-name: "⭕ Trunk"
+name: "⭕ Trunk [check]"
 on:
   push:
     branches: [main]
