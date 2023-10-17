@@ -43,11 +43,11 @@ fi
 
 :::
 
-Install fonts for powerlevel10k. It has to match your system settings as this is an example of how flexible Zi is and can install anything in a preferred way.
+Install nerd fonts for powerlevel10k. It has to match your system settings as this is an example of how flexible Zi is and can install anything in a preferred way.
 
 The following snippet placed in the `.zshrc` file will:
 
-- check if conditions are met to proceed with the install
+- check if the script runs on a Linux OS and if the specified font directory exists. You may have to adapt the fonts directory for your system (e.g. `${HOME}/.local/share/fonts`).
 - download, extract, clean not required files, and move fonts to the required directory.
 - update font cache.
 
@@ -58,7 +58,7 @@ When running: `zi update` will:
 
 ```shell
 zi ice if"[[ -d ${HOME}/.fonts/ttf ]] && [[ $OSTYPE = linux* ]]" \
-  id-as"meslo" from"gh-r" bpick"Meslo.zip" extract nocompile depth"1" \
+  id-as"meslo" from"gh-r" bpick"Meslo.tar.xz" extract nocompile depth"1" \
   atclone="rm -f *Windows*; mv -vf *.ttf ${HOME}/.fonts/ttf/; fc-cache -v -f" atpull"%atclone"
 zi light ryanoasis/nerd-fonts
 ```
