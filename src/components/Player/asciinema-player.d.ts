@@ -16,5 +16,7 @@ declare module "asciinema-player" {
     terminalLineHeight?: number;
     terminalFontFamily?: string;
     terminalFontSize?: string;
+    controls?: boolean | string;
+    markers?: array;
   }
 }
