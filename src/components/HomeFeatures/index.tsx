@@ -56,6 +56,7 @@ export default function HomeFeatures(): JSX.Element {
                   terminalFontFamily='var(--ifm-font-family-monospace)'
                   terminalFontSize='var(--ifm-code-font-size)'
                   fit={false}
+                  controls={false}
                 />
               </div>
             </div>
