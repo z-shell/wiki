@@ -32,7 +32,7 @@ lint:
     - stylelint@15.11.0
     - git-diff-check@SYSTEM
     - actionlint@1.6.26
-    - eslint@8.51.0
+    - eslint@8.52.0
     - gitleaks@8.18.0
     - markdownlint@0.37.0
     - prettier@3.0.3
