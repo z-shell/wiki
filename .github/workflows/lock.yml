@@ -17,7 +17,7 @@ jobs:
     concurrency:
       group: ci-${{ github.workflow }}-${{ github.head_ref || github.run_id }}
     steps:
-      - uses: dessant/lock-threads@v4
+      - uses: dessant/lock-threads@v5
         with:
           github-token: ${{ secrets.ORG_TOKEN }}
           issue-inactive-days: "30"
