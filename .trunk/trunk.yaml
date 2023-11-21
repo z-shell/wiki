@@ -10,7 +10,7 @@ plugins:
   sources:
     - id: trunk
       uri: https://github.com/trunk-io/plugins
-      ref: v1.2.6
+      ref: v1.3.0
       import_to_global: true
 merge:
   required_statuses:
@@ -28,12 +28,12 @@ lint:
     - terrascan@1.18.3
     - taplo@0.8.1
     - oxipng@9.0.0
-    - svgo@3.0.3
+    - svgo@3.0.4
     - stylelint@15.11.0
     - git-diff-check@SYSTEM
     - actionlint@1.6.26
-    - eslint@8.53.0
-    - gitleaks@8.18.0
+    - eslint@8.54.0
+    - gitleaks@8.18.1
     - markdownlint@0.37.0
     - prettier@3.1.0
     - shfmt@3.6.0
