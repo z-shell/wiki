@@ -1,6 +1,6 @@
 version: 0.1
 cli:
-  version: 1.17.1
+  version: 1.17.2
 repo:
   repo:
     host: github.com
@@ -28,14 +28,14 @@ lint:
     - terrascan@1.18.3
     - taplo@0.8.1
     - oxipng@9.0.0
-    - svgo@3.0.2
+    - svgo@3.0.3
     - stylelint@15.11.0
     - git-diff-check@SYSTEM
     - actionlint@1.6.26
-    - eslint@8.52.0
+    - eslint@8.53.0
     - gitleaks@8.18.0
     - markdownlint@0.37.0
-    - prettier@3.0.3
+    - prettier@3.1.0
     - shfmt@3.6.0
     - hadolint@2.12.0
   ignore:
