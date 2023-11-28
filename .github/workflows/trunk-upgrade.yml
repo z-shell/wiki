@@ -21,4 +21,4 @@ jobs:
       - name: ✅ Checkout
         uses: actions/checkout@v4
       - name: ✨ Trunk Upgrade
-        uses: trunk-io/trunk-action/upgrade@cf57c926b78958033bf9be80b9b92a286f15b246
+        uses: trunk-io/trunk-action/upgrade@c4b725db6be710c994ff4d175efefddb3cf86b59
