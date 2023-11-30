@@ -153,10 +153,6 @@ Following commands are passed to `zi …` to obtain described effects.
 
 ## Loading and unloading
 
-```mdx-code-block
-<APITable>
-```
-
 |       Command        | Description                                                                                       |
 | :------------------: | ------------------------------------------------------------------------------------------------- |
 |     `load` `'…'`     | Load plugin, can also receive absolute local path.                                                |
@@ -164,15 +160,7 @@ Following commands are passed to `zi …` to obtain described effects.
 | `unload` `-q` `'…'`  | Unload plugin loaded with `zi load …`. `-q` – quiet.                                              |
 | `snippet` `-f` `URL` | Source local (full path) or remote file (URL). `-f` – don't use cache (force re-download). [^2]   |
 
-```mdx-code-block
-</APITable>
-```
-
 ## Completions management
-
-```mdx-code-block
-<APITable>
-```
 
 |                   Command                    | Description                                                                                                                             |
 | :------------------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -188,15 +176,7 @@ Following commands are passed to `zi …` to obtain described effects.
 |               `cdreplay` `-q`                | Replay compdefs (to be done after compinit). `-q` – quiet.                                                                              |
 |                `cdclear` `-q`                | Clear compdef replay list. `-q` – quiet.                                                                                                |
 
-```mdx-code-block
-</APITable>
-```
-
 ## Tracking of the active session
-
-```mdx-code-block
-<APITable>
-```
 
 |     Command      | Description                                           |
 | :--------------: | ----------------------------------------------------- |
@@ -206,15 +186,7 @@ Following commands are passed to `zi …` to obtain described effects.
 |    `dreport`     | Report what was going on in the session.              |
 |     `dclear`     | Clear report of what was going on in the session.     |
 
-```mdx-code-block
-</APITable>
-```
-
 ## Reports and statistics
-
-```mdx-code-block
-<APITable>
-```
 
 |             Command             | Description                                                                                                                                                |
 | :-----------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -228,15 +200,7 @@ Following commands are passed to `zi …` to obtain described effects.
 |     `recently` `time-spec`      | Show plugins that changed recently, the argument is e.g. 1 month 2 days.                                                                                   |
 |           `bindkeys`            | Lists bindkeys set up by each plugin.                                                                                                                      |
 
-```mdx-code-block
-</APITable>
-```
-
 ## Compiling
-
-```mdx-code-block
-<APITable>
-```
 
 |          Command          | Description                                                             |
 | :-----------------------: | ----------------------------------------------------------------------- |
@@ -244,15 +208,7 @@ Following commands are passed to `zi …` to obtain described effects.
 | `uncompile` `'…'` `--all` | Remove compiled version of the plugin. `--all` – do it for all plugins. |
 |        `compiled`         | List plugins that are compiled.                                         |
 
-```mdx-code-block
-</APITable>
-```
-
 ## Other commands
-
-```mdx-code-block
-<APITable>
-```
 
 |                         Command                          | Description                                                                                                                                                |
 | :------------------------------------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -262,7 +218,7 @@ Following commands are passed to `zi …` to obtain described effects.
 |           `delete` `'…'` or `--clean` `--all`            | Remove plugin or snippet from disk (good to forget wrongly passed ice-modifiers) `--all` – delete plugins and snippets that are not loaded with `--clean`. |
 |                         `cd '…'`                         | Jump into the plugin's directory. Also support snippets if fed with URL.                                                                                   |
 |                        `edit '…'`                        | Edit plugin's file with set \$EDITOR.                                                                                                                      |
-|                       `glance '…'`                       | Look at plugin's source (pygmentize, {,source-}highlight).                                                                                                 |
+|                       `glance '…'`                       | Look at plugin's source (pygmentize, source-highlight).                                                                                                    |
 |                       `stress '…'`                       | Test plugin for compatibility with a set of options.                                                                                                       |
 |                      `changes '…'`                       | View plugin's git log.                                                                                                                                     |
 |                       `create '…'`                       | Create plugin (also together with GitHub repository).                                                                                                      |
@@ -273,31 +229,19 @@ Following commands are passed to `zi …` to obtain described effects.
 | `add-fpath` `fpath` `-f` `--front` `'…'` `sub-directory` | Adds given plugin (not yet snippet) directory to `$fpath`. If the second argument is given, it is appended to the directory path. [^3]                     |
 |             `run` `-l` `plugin` `{command}`              | Runs the given command in the given plugin's directory. [^4]                                                                                               |
 
-```mdx-code-block
-</APITable>
-```
-
 ## Help & manual
-
-```mdx-code-block
-<APITable>
-```
 
 |  Command   | Description        |
 | :--------: | ------------------ |
 | `-h, help` | Usage information. |
 |   `man`    | Manual.            |
 
-```mdx-code-block
-</APITable>
-```
-
 ## Commands available using <kbd>^TAB</kbd> <Link to="/docs/getting_started/installation#enable-completions">completion</Link>
 
 <ZiTabCompletion />
 
 <!-- end-of-file -->
-<!--footnotes-->
+<!-- footnotes -->
 
 [^1]: There's also `light-mode` ice which can be used to induce the no-investigating (i.e.: _light_) loading, regardless of the command used.
 [^2]: The URL can use the following shorthands: `PZT::` (Prezto), `PZTM::` (Prezto module), `OMZ::` (Oh-My-Zsh), `OMZP::` (OMZ plugin), `OMZL::` (OMZ library), `OMZT::` (OMZ theme), e.g.: `PZTM::environment`, `OMZP::git`, etc.

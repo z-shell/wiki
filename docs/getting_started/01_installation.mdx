@@ -8,12 +8,9 @@ keywords:
   - install
 ---
 
-<!-- @format -->
-
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import Link from "@docusaurus/Link";
-import Emoji from "@site/src/components/Emoji";
 
 ## <i class="fas fa-spinner fa-spin"></i> Quick setup {#quick-setup}
 
@@ -54,7 +51,7 @@ Reload the shell with <kbd>exec zsh -il</kbd> and run <kbd>zi -h</kbd> for usage
 :::tip
 
 - Verify the sha256 [checksum][checksum-txt] for file: <kbd>lib/sh/install.sh</kbd>
-- If required append <kbd>`-b <tag>`</kbd> or <kbd>`-b <branch>`</kbd> e.g:
+- If required append <kbd>-b \<tag></kbd> or <kbd>-b \<branch></kbd> e.g:
 
 ```shell
 sh -c "$(curl -fsSL get.zshell.dev)" -- -i skip -b main
@@ -184,7 +181,7 @@ Run <kbd>zi -h</kbd> for available commands or [explore][collection-page] wiki t
 
 If you have any issue or need help <Emoji symbol="🤦‍♂️" label="man-facepalming"/>, lets [discuss][discuss] it or open an [issue][issue] on GitHub.
 
-It helps us to improve and make Zi better. Don't forget to help the project: share, contribute, or [translate][translate] <Emoji symbol="🌐" label="globe-with-meridians"/> <Emoji symbol="🥰" label="smiling-face-with-hearts"/> <Emoji symbol="🤓" label="nerd-face"/>.
+It helps us to improve and make Zi better. Don't forget to help the project: share, contribute, or [translate][help-translate] <Emoji symbol="🌐" label="globe-with-meridians"/> <Emoji symbol="🥰" label="smiling-face-with-hearts"/> <Emoji symbol="🤓" label="nerd-face"/>.
 
 Let's glue a toolchain that works for us <Emoji symbol="🚀" label="rocket"/>.
 
@@ -233,25 +230,21 @@ The module transparently and automatically compiles sourced scripts and lists of
 
 ### <i class="fa-solid fa-gear"></i> Installer {#installer}
 
-| Service    | URL                                                                       |
-| :--------- | ------------------------------------------------------------------------- |
-| Redirect   | <https://get.zshell.dev>                                                  |
-| R2         | <https://r2.zshell.dev/src/sh/install.sh>                                 |
-| Cloudflare | <https://src.zshell.dev/sh/install.sh>                                    |
-| IPFS       | <https://ipfs.zshell.dev/sh/install.sh>                                   |
-| Git.io     | <https://git.io/get-zi>                                                   |
-| GitHub RAW | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh> |
+| Service    | URL                                                                     |
+| :--------- | ----------------------------------------------------------------------- |
+| Redirect   | https://get.zshell.dev                                                  |
+| Cloudflare | https://src.zshell.dev/sh/install.sh                                    |
+| Git.io     | https://git.io/get-zi                                                   |
+| GitHub RAW | https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh |
 
 ### <i class="fa-brands fa-superpowers"></i> Loader {#loader}
 
-| Service    | URL                                                                      |
-| :--------- | ------------------------------------------------------------------------ |
-| Redirect   | <https://init.zshell.dev>                                                |
-| R2         | <https://r2.zshell.dev/src/zsh/init.zsh>                                 |
-| Cloudflare | <https://src.zshell.dev/zsh/init.zsh>                                    |
-| IPFS       | <https://ipfs.zshell.dev/zsh/init.zsh>                                   |
-| Git.io     | <https://git.io/zi-loader>                                               |
-| GitHub RAW | <https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh> |
+| Service    | URL                                                                    |
+| :--------- | ---------------------------------------------------------------------- |
+| Redirect   | https://init.zshell.dev                                                |
+| Cloudflare | https://src.zshell.dev/zsh/init.zsh                                    |
+| Git.io     | https://git.io/zi-loader                                               |
+| GitHub RAW | https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh |
 
 <!-- end-of-file -->
 <!-- links -->
@@ -271,5 +264,5 @@ The module transparently and automatically compiles sourced scripts and lists of
 [issue]: https://github.com/z-shell/zi/issues/new/choose
 [playground]: https://github.com/z-shell/playground
 [status]: https://status.zshell.dev
-[translate]: https://digitalclouds.crowdin.com/z-shell
+[help-translate]: https://digitalclouds.crowdin.com/z-shell
 [z-shell/zpmod]: https://github.com/z-shell/zpmod

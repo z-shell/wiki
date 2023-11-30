@@ -1,6 +1,5 @@
 // @ts-check
 
-import React from "react";
 import Link from "@docusaurus/Link";
 import Translate, {translate} from "@docusaurus/Translate";
 import useBaseUrl from "@docusaurus/useBaseUrl";

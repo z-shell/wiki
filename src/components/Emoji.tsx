@@ -4,21 +4,20 @@
  * Emoji component:
  * Emoji symbol="🐑" label="sheep"/>
  * Emoji symbol="🐑"/>
- *
- * @format
  */
 
 import React, {type HTMLAttributes} from "react";
 
-export interface EmojiProps extends HTMLAttributes<HTMLSpanElement> {
+export type EmojiProps = HTMLAttributes<HTMLSpanElement> & {
   label?: string;
+  style?: string;
   symbol: string;
-}
+};
 
-export default function Emoji(props: EmojiProps) {
+export default function Emoji(props: EmojiProps): JSX.Element {
   const {label, symbol, ...rest} = props;
   return (
-    <span aria-hidden={label != null ? undefined : true} aria-label={label ?? undefined} {...rest} role='img'>
+    <span aria-hidden={label != null ? undefined : true} aria-label={label ?? undefined} {...rest}>
       {symbol}
     </span>
   );

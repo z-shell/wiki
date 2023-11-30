@@ -14,11 +14,13 @@ body:
       label: Environment
       description: >
         Please describe your environment in as much detail as possible. Otherwise, we may not be able to reproduce the issue.
+
       placeholder: >
         Example:
           print "Device: $VENDOR | $OSTYPE | $CPUTYPE"
           print "Shell: $SHELL | $ZSH_ARGZERO | $ZSH_PATCHLEVEL"
           print "Zi: $(git -C $ZI[BIN_DIR] rev-parse HEAD)"
+
     validations:
       required: true
   - type: textarea

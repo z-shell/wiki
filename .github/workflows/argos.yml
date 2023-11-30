@@ -1,0 +1,38 @@
+---
+name: "📊 Argos CI"
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions: read-all
+
+jobs:
+  take-screenshots:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "⤵️ Check out code from GitHub"
+        uses: actions/checkout@v4
+      - name: "📦 Setup pnpm"
+        uses: pnpm/action-setup@v2.4.0
+      - name: "⎔ Setup node"
+        uses: actions/setup-node@v4.0.0
+        with:
+          node-version: current
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm i
+
+      - name: Install Playwright browsers
+        run: pnpm playwright install --with-deps chromium
+
+      - name: Build the website
+        run: pnpm build:en
+
+      - name: Take screenshots with Playwright
+        run: pnpm playwright test
+
+      - name: Upload screenshots to Argos
+        run: pnpm argos upload ./screenshots

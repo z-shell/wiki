@@ -5,34 +5,27 @@ import Loadable from "@loadable/component";
 import Spinner from "@site/src/components/Spinner";
 import styles from "./styles.module.css";
 
-export default function ImgShow({
-  img,
-  alt,
-  label,
-  children,
-  ...rest
-}: {
+export type ImgProps = {
   img: string;
   alt: string;
   label?: string;
-  children: ReactNode;
-  className?: string;
-  height?: string;
-  width?: string;
-}): JSX.Element {
-  const Image = Loadable(async () => await import("@theme/IdealImage"));
+  children?: ReactNode;
+};
+
+export default function ImgShow(props: ImgProps): JSX.Element {
+  const {img, alt, label, children, ...rest} = props;
+  const Image = Loadable(() => import("@theme/IdealImage"));
   return (
-    <span className={styles.ImgClass}>
-      <Image
-        fallback={<Spinner />}
-        alt={alt}
-        img={img}
-        aria-hidden={label != null ? undefined : true}
-        aria-label={label ?? undefined}
-        role='img'
-        {...rest}>
-        {children}
-      </Image>
-    </span>
+    <Image
+      fallback={<Spinner />}
+      alt={alt}
+      img={img}
+      className={styles.ImgClass}
+      aria-hidden={label != null ? undefined : true}
+      aria-label={label ?? undefined}
+      role='img'
+      {...rest}>
+      {children}
+    </Image>
   );
 }
