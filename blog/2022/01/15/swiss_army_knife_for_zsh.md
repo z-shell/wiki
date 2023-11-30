@@ -15,15 +15,12 @@ image: /img/png/theme/z/320x320.png
 
 ## 🧙‍♂️ 🪄 [❮ ZI ❯](https://github.com/z-shell/zi) - A Swiss Army Knife for [Zsh](https://zsh.sourceforge.io/) - [Unix shell](https://en.wikipedia.org/wiki/Unix_shell)
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl'; import ThemedImage from '@theme/ThemedImage';
 
-<ThemedImage className="ImageView" alt="Zshell Logo"
-sources={{
+<ThemedImage className="ImageView" alt="Zshell Logo" sources={{
     light: useBaseUrl('/img/zsh/artwork/png/color_horizontal_icon.png'),
     dark: useBaseUrl('/img/zsh/artwork/png/white_horizontal_icon.png'),
-  }}
-/>
+  }} />
 
 Designed to glue everything together. 🔗
 

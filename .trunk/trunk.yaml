@@ -11,12 +11,12 @@ plugins:
     - id: trunk
       uri: https://github.com/trunk-io/plugins
       ref: v1.3.0
-      import_to_global: true
 merge:
   required_statuses:
     - Trunk Check
 lint:
   disabled:
+    - terrascan
     - trufflehog
     - trivy
     - checkov
@@ -25,7 +25,7 @@ lint:
     - yamllint
     - shellcheck
   enabled:
-    - terrascan@1.18.3
+    - sort-package-json@2.6.0
     - taplo@0.8.1
     - oxipng@9.0.0
     - svgo@3.0.4
@@ -50,7 +50,7 @@ lint:
         - .trunk/config/*
     - linters: [gitleaks]
       paths:
-        - docusaurus.config.js
+        - docusaurus.config.ts
     - linters: [markdownlint]
       paths:
         - src/components/Markdown/*

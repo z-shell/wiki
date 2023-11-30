@@ -1,18 +1,16 @@
 env:
   browser: true
-  es2022: true
+  es2024: true
   node: true
 extends:
-  - plugin:react/recommended
-  - standard-with-typescript
+  - eslint:recommended
   - plugin:react-hooks/recommended
+  - plugin:@typescript-eslint/recommended
   - prettier
   - plugin:@docusaurus/recommended
-settings:
-  "import/resolver":
-    typescript: {}
-    node:
-      extensions: [".js", ".jsx", ".ts", ".tsx"]
+globals:
+  JSX: true
+reportUnusedDisableDirectives: true
 parser: "@typescript-eslint/parser"
 parserOptions:
   ecmaVersion: latest
@@ -21,9 +19,18 @@ parserOptions:
     jsx: true
   project:
     - tsconfig.json
+settings:
+  "import/resolver":
+    typescript:
+      alwaysTryTypes: true
+    node:
+      extensions: [".js", ".jsx", ".ts", ".tsx"]
+  "import/parsers":
+    "@typescript-eslint/parser": [".ts", ".tsx"]
 plugins:
+  - import
   - react-hooks
-  - "@docusaurus"
+  - "@typescript-eslint"
 rules:
   {
     "semi": [2, "always"],
@@ -49,22 +56,8 @@ rules:
     "prefer-destructuring": 1,
     "prefer-named-capture-group": 1,
     "prefer-template": 1,
-    "react-hooks/rules-of-hooks": 2,
-    "react-hooks/exhaustive-deps": 2,
-    "react/jsx-filename-extension": [1, {extensions: [".js", ".jsx", ".ts", ".tsx"]}],
-    "react/function-component-definition":
-      [2, {namedComponents: "function-declaration", unnamedComponents: "arrow-function"}],
-    "react/jsx-props-no-spreading": 0,
-    "react/jsx-key": [2, {checkFragmentShorthand: true}],
-    "react/jsx-no-useless-fragment": [1, {allowExpressions: true}],
-    "react/no-unstable-nested-components": [1, {allowAsProps: true}],
-    "react/prefer-stateless-function": 1,
-    "react/require-default-props": [2, {ignoreFunctionalComponents: true}],
-    "import/prefer-default-export": 0,
-    "@docusaurus/string-literal-i18n-messages": 2,
-    "@docusaurus/no-untranslated-text": [1, {ignoredStrings: ["·", "—", "×"]}],
     "import/extensions": 0,
-    "import/no-unresolved": [2, {"ignore": ["^@theme", "^@docusaurus", "^@site"]}],
+    "import/no-unresolved": [2, {ignore: ["^@theme", "^@docusaurus", "^@generated", "^@site", "^@testing-utils"]}],
     "import/order":
       [
         1,
@@ -79,6 +72,8 @@ rules:
                 position: "after",
               },
               {pattern: "react", group: "builtin", position: "before"},
+              {pattern: "react-dom", group: "builtin", position: "before"},
+              {pattern: "react-dom/**", group: "builtin", position: "before"},
               {pattern: "clsx", group: "external", position: "before"},
               {pattern: "@theme/**", group: "internal"},
               {pattern: "@site/**", group: "internal"},
@@ -89,6 +84,5 @@ rules:
           warnOnUnassignedImports: true,
         },
       ],
-    "@typescript-eslint/explicit-function-return-type": 0,
-    "@typescript-eslint/consistent-type-imports": [2, {"disallowTypeAnnotations": false}],
+    "import/prefer-default-export": 0,
   }

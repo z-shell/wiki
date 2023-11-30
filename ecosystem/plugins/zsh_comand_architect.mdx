@@ -28,7 +28,7 @@ The Zsh Command Architect allows to copy segments of commands in history, rearra
 | <kbd><samp>g</samp></kbd>, <kbd><samp>G</samp></kbd>                                                                                 | Beginning and end of the list                                                     |
 | <kbd><samp>/</samp></kbd>                                                                                                            | Start incremental search                                                          |
 | <kbd>Esc</kbd>                                                                                                                       | Exit incremental search, clearing filter                                          |
-| <kbd><samp><</samp></kbd>,<kbd><samp>></samp></kbd>, <kbd><samp>{</samp></kbd>,<kbd><samp>}</samp></kbd>                             | Horizontal scroll                                                                 |
+| <kbd><samp>\<</samp></kbd>,<kbd><samp>></samp></kbd>, <kbd><samp>\{</samp></kbd>,<kbd><samp>}</samp></kbd>                           | Horizontal scroll                                                                 |
 | <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>L</samp></kbd></kbd>                                                                    | Redraw of whole display                                                           |
 | <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>O</samp></kbd></kbd>, <kbd>o</kbd>                                                      | Enter uniq mode (no duplicate lines)                                              |
 | <kbd><kbd><samp>Ctrl</samp></kbd>+<kbd><samp>W</samp></kbd></kbd>                                                                    | (in incremental search) - delete whole word                                       |
@@ -102,25 +102,19 @@ After installing and reloading the shell give `ZCA` a quick try with <kbd>Ctrl-T
 <details>
 <summary>Fixing tmux, screen and linux vt</summary>
 
-If `TERM=screen-256color` (often a case for `tmux` and `screen` sessions) then
-`ncv` terminfo capability will have `2`nd bit set. This in general means that
-underline won't work. To fix this by creating your own `ncv=0`-equipped
-terminfo file, run:
+If `TERM=screen-256color` (often a case for `tmux` and `screen` sessions) then `ncv` terminfo capability will have `2`nd bit set. This in general means that underline won't work. To fix this by creating your own `ncv=0`-equipped terminfo file, run:
 
 ```shell
 { infocmp -x screen-256color; printf '\t%s\n' 'ncv@,'; } > /tmp/t && tic -x /tmp/t
 ```
 
-A file will be created in directory `~/.terminfo` and will be automatically
-used, `tmux` and `screen` will work. Similar is for Linux virtual terminal:
+A file will be created in directory `~/.terminfo` and will be automatically used, `tmux` and `screen` will work. Similar is for Linux virtual terminal:
 
 ```shell
 { infocmp -x linux; printf '\t%s\n' 'ncv@,'; } > /tmp/t && tic -x /tmp/t
 ```
 
-It will not display underline properly, but will instead highlight by a color,
-which is quite nice. The same will not work for FreeBSD's vt, `ZCA` will detect
-if that vt is used and will revert to highlighting elements via `reverse` mode.
+It will not display underline properly, but will instead highlight by a color, which is quite nice. The same will not work for FreeBSD's vt, `ZCA` will detect if that vt is used and will revert to highlighting elements via `reverse` mode.
 
 </details>
 

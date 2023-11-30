@@ -27,10 +27,6 @@
     "message": "Community",
     "description": "The label of footer link with label=Community linking to /community"
   },
-  "link.item.label.Guides": {
-    "message": "Guides",
-    "description": "The label of footer link with label=Guides linking to /docs/category/-guides"
-  },
   "link.item.label.Discussions": {
     "message": "Discussions",
     "description": "The label of footer link with label=Discussions linking to https://discussions.zshell.dev"
@@ -42,14 +38,6 @@
   "link.item.label.Matrix": {
     "message": "Matrix",
     "description": "The label of footer link with label=Matrix linking to https://matrix.to/#/#zshell:matrix.org"
-  },
-  "link.item.label.Gitter": {
-    "message": "Gitter",
-    "description": "The label of footer link with label=Gitter linking to https://gitter.im/z-shell/zi"
-  },
-  "link.item.label.Zsh News": {
-    "message": "Zsh News",
-    "description": "The label of footer link with label=Zsh News linking to https://zsh.sourceforge.io/News/"
   },
   "link.item.label.Zsh Manual": {
     "message": "Zsh Manual",
