@@ -1,7 +1,6 @@
-/** @format */
 // @ts-check
 
-import React, {useState, type CSSProperties} from "react";
+import React, {useState, CSSProperties} from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const override: CSSProperties = {
@@ -15,7 +14,15 @@ export default function Spinner(): JSX.Element {
   const [color] = useState("#00ffcc");
   return (
     <div className='sweet-loading'>
-      <ClipLoader size={220} color={color} loading={loading} speedMultiplier={0.8} cssOverride={override} />
+      <ClipLoader
+        size={200}
+        color={color}
+        loading={loading}
+        speedMultiplier={0.8}
+        cssOverride={override}
+        aria-label='Loading Spinner'
+        data-testid='loader'
+      />
     </div>
   );
 }

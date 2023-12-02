@@ -9,7 +9,7 @@ import type {Options as IdealImageOptions} from "@docusaurus/plugin-ideal-image"
 
 const url = process.env.URL ?? "https://wiki.zshell.dev";
 const baseUrl = process.env.BASE_URL ?? "/";
-const styles = process.env.STYLES ?? "https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@6.x/free/js/all.js";
+const styles = process.env.STYLES ?? "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/js/all.min.js";
 
 export default async function createConfigAsync() {
   return {
@@ -29,7 +29,7 @@ export default async function createConfigAsync() {
     i18n: {defaultLocale: "en", locales: ["en", "ja", "zh-Hans"]},
     themes: ["@docusaurus/theme-mermaid"],
     markdown: {format: "detect", mermaid: false},
-    scripts: [{src: styles, crossorigin: "anonymous"}],
+    scripts: [{src: styles, crossorigin: "anonymous", defer: true}],
     plugins: [
       [
         "content-docs",
