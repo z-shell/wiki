@@ -28,8 +28,8 @@ export default async function createConfigAsync() {
     favicon: "/img/favicon.ico",
     i18n: {defaultLocale: "en", locales: ["en", "ja", "zh-Hans"]},
     themes: ["@docusaurus/theme-mermaid"],
-    markdown: {mermaid: false},
-    scripts: [{src: styles, crossorigin: "anonymous", async: true}],
+    markdown: {format: "detect", mermaid: false},
+    scripts: [{src: styles, crossorigin: "anonymous"}],
     plugins: [
       [
         "content-docs",
@@ -119,7 +119,7 @@ export default async function createConfigAsync() {
             },
             showLastUpdateAuthor: true,
             showLastUpdateTime: true,
-          },
+          } satisfies DocsOptions,
           blog: {
             path: "blog",
             editUrl: ({locale, blogDirPath, blogPath}) => {
