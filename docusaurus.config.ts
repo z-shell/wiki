@@ -29,7 +29,7 @@ export default async function createConfigAsync() {
     i18n: {defaultLocale: "en", locales: ["en", "ja", "zh-Hans"]},
     themes: ["@docusaurus/theme-mermaid"],
     markdown: {format: "detect", mermaid: false},
-    scripts: [{src: styles, crossorigin: "anonymous", defer: true}],
+    scripts: [{src: styles, crossorigin: "anonymous"}],
     plugins: [
       [
         "content-docs",

@@ -28,7 +28,7 @@ lint:
     - sort-package-json@2.6.0
     - taplo@0.8.1
     - oxipng@9.0.0
-    - svgo@3.0.4
+    - svgo@3.0.5
     - stylelint@15.11.0
     - git-diff-check@SYSTEM
     - actionlint@1.6.26
