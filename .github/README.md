@@ -1,44 +1,43 @@
-<!-- @format -->
-
 <!-- markdownlint-disable MD041 -->
-<table style="width:100%;height:auto">
-<tr align="justify" margin-left="auto" margin-right="auto"><td align="center">
-  <h2>
-  <a title="❮ Zi ❯" target="_self" href="https://github.com/z-shell/wiki">
-  <img style="width:60;height:60px"
-    src="https://raw.githubusercontent.com/z-shell/zi/main/docs/images/logo.svg"
-    alt="Logo" /></a>❮ Zi ❯
-  </h2>
-<h3>
-  <a href="https://discussions.zshell.dev/">《❔》Ask a Question </a>
-  <a href="https://wiki.zshell.dev/search/">《💡》Search Wiki </a>
-  <a href="https://github.com/z-shell/community/issues/new?assignees=&labels=%F0%9F%91%A5+member&template=membership.yml&title=team%3A+">《💜》Join </a>
-  <a href="https://translate.zshell.dev/">《🌐》Localize </a>
-</h3>
-
-  </tr>
-<tr>
-<td align="center">
-  <a title="Crowdin" target="_self" href="https://translate.zshell.dev/">
-    <img align="center" src="https://badges.crowdin.net/e/f108c12713ee8526ac878d5671ad6e29/localized.svg" />
-  </a>
-  <a title="Releases" target="_self" href="https://github.com/z-shell/wiki/releases">
-    <img align="center" src="https://img.shields.io/github/tag/z-shell/wiki.svg" alt="Version" />
-  </a>
-  <a title="License GPL-3.0" target="_self" href="https://www.gnu.org/licenses/gpl-3.0">
-    <img align="center" src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="Project License" />
-  </a>
-  <a title="VIM" target="_self" href="https://github.com/z-shell/zi-vim-syntax">
-    <img align="center" src="https://img.shields.io/badge/--019733?logo=vim" alt="VIM" />
-  </a>
-  <a title="wiki" target="_self" href="https://open.vscode.dev/z-shell/wiki">
-    <img
-      align="center"
-      src="https://img.shields.io/badge/--007ACC?logo=visual%20studio%20code&logoColor=ffffff"
-      alt="Visual Studio Code"
-    />
-  </a>
-</td>
+<table>
+  <tr align="justify" margin-left="auto" margin-right="auto">
+    <td>
+      <h2 align="center">
+        <p>
+          <a href="https://github.com/z-shell/zi">
+            <img src="https://raw.githubusercontent.com/z-shell/zi/main/docs/images/logo.svg" width="60" height="60" alt="Logo" />
+          ❮ Zi ❯</a>
+        </p>
+      </h2>
+    <h4>
+    <p align="center">
+      <a href="https://discussions.zshell.dev/">《❔》Ask a Question </a>
+      <a href="https://wiki.zshell.dev/search/">《💡》Search Wiki </a>
+      <a href="https://github.com/z-shell/community/issues/new?assignees=&labels=%F0%9F%91%A5+member&template=membership.yml&title=team%3A+">《💜》Join </a>
+      <a href="https://translate.zshell.dev/">《🌐》Localize </a>
+    </p>
+  </h4>
+</tr>
+<tr align="justify" margin-left="auto" margin-right="auto">
+  <td align="center">
+    <p align="center">
+      <a title="Crowdin" target="_self" href="https://translate.zshell.dev/">
+        <img align="center" src="https://badges.crowdin.net/e/f108c12713ee8526ac878d5671ad6e29/localized.svg" />
+      </a>
+      <a title="Releases" target="_self" href="https://github.com/z-shell/wiki/releases">
+        <img align="center" src="https://img.shields.io/github/tag/z-shell/wiki.svg" alt="Version" />
+      </a>
+      <a title="License GPL-3.0" target="_self" href="https://www.gnu.org/licenses/gpl-3.0">
+        <img align="center" src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="Project License" />
+      </a>
+      <a title="VIM" target="_self" href="https://github.com/z-shell/zi-vim-syntax">
+        <img align="center" src="https://img.shields.io/badge/--019733?logo=vim" alt="VIM" />
+      </a>
+      <a title="wiki" target="_self" href="https://open.vscode.dev/z-shell/wiki">
+        <img align="center" src="https://img.shields.io/badge/--007ACC?logo=visual%20studio%20code&logoColor=ffffff alt="Visual Studio Code" />
+      </a>
+    </p>
+  </td>
 </tr>
 <tr>
   <td align="center">
@@ -81,7 +80,10 @@
 <p> Check the list of authors and contributors in this <a href="https://github.com/z-shell/zi/contributors">repository</a> and also all other repositories under <a href="https://github.com/z-shell">Z-Shell</a> organization. We will inlclude all showning the interest or dedicated their time to take a part.
 </p>
 </td>
-</tr><tr><td align="center">
+</tr>
+<!-- 
+<tr>
+  <td align="center">
   <h2 align="left">Credits</h2>
   <a href="https://trunk.io" rel="nofollow">
     <img
@@ -117,4 +119,6 @@
       alt="Cloudflare"
     />
     </a>
-  </td></tr></table>
+  </td></tr>
+  -->
+  </table>
