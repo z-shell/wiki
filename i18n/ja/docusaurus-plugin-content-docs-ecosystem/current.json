@@ -1,0 +1,18 @@
+{
+  "version.label": {
+    "message": "次へ",
+    "description": "The label for version current"
+  },
+  "sidebar.SideBar.category.🌀 Annexes": {
+    "message": "🌀 別館",
+    "description": "The label for category 🌀 Annexes in sidebar SideBar"
+  },
+  "sidebar.SideBar.category.📦 Packages": {
+    "message": "📦 パッケージ",
+    "description": "The label for category 📦 Packages in sidebar SideBar"
+  },
+  "sidebar.SideBar.category.⚙️ Plugins": {
+    "message": "⚙️ Plugins",
+    "description": "The label for category ⚙️ Plugins in sidebar SideBar"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "version.label": {
+    "message": "下一页",
+    "description": "The label for version current"
+  },
+  "sidebar.SideBar.category.🚀 Getting Started": {
+    "message": "🚀 开始使用",
+    "description": "The label for category 🚀 Getting Started in sidebar SideBar"
+  },
+  "sidebar.SideBar.category.💡 Guides": {
+    "message": "💡指南",
+    "description": "The label for category 💡 Guides in sidebar SideBar"
+  },
+  "sidebar.SideBar.category.✍️ Syntax": {
+    "message": "✍️ 语法",
+    "description": "The label for category ✍️ Syntax in sidebar SideBar"
+  }
+}

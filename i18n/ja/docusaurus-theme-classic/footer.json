@@ -1,0 +1,66 @@
+{
+  "link.title.Knowledge Base": {
+    "message": "知識",
+    "description": "The title of the footer links column with title=Knowledge Base in the footer"
+  },
+  "link.title.Community": {
+    "message": "コミュニティ",
+    "description": "The title of the footer links column with title=Community in the footer"
+  },
+  "link.title.More": {
+    "message": "もっと見る",
+    "description": "The title of the footer links column with title=More in the footer"
+  },
+  "link.title.Legal": {
+    "message": "法的事項",
+    "description": "The title of the footer links column with title=Legal in the footer"
+  },
+  "link.item.label.Introduction": {
+    "message": "はじめに",
+    "description": "The label of footer link with label=Introduction linking to /docs"
+  },
+  "link.item.label.Ecosystem": {
+    "message": "エコシステム",
+    "description": "The label of footer link with label=Ecosystem linking to /ecosystem"
+  },
+  "link.item.label.Community": {
+    "message": "コミュニティ",
+    "description": "The label of footer link with label=Community linking to /community"
+  },
+  "link.item.label.Discussions": {
+    "message": "議論",
+    "description": "The label of footer link with label=Discussions linking to https://discussions.zshell.dev"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/orgs/z-shell"
+  },
+  "link.item.label.Matrix": {
+    "message": "Matrix",
+    "description": "The label of footer link with label=Matrix linking to https://matrix.to/#/#zshell:matrix.org"
+  },
+  "link.item.label.Zsh Manual": {
+    "message": "Zsh マニュアル",
+    "description": "The label of footer link with label=Zsh Manual linking to https://zsh.sourceforge.io/Doc/Release/zsh_toc.html"
+  },
+  "link.item.label.Localization": {
+    "message": "翻訳",
+    "description": "The label of footer link with label=Localization linking to https://translate.zshell.dev"
+  },
+  "link.item.label.Uptime Status": {
+    "message": "稼働状況",
+    "description": "The label of footer link with label=Uptime Status linking to https://status.zshell.dev"
+  },
+  "link.item.label.Privacy Policy": {
+    "message": "プライバシーポリシー",
+    "description": "The label of footer link with label=Privacy Policy linking to legal/PRIVACY"
+  },
+  "link.item.label.Code of Conduct": {
+    "message": "行動規範",
+    "description": "The label of footer link with label=Code of Conduct linking to legal/CODE_OF_CONDUCT"
+  },
+  "copyright": {
+    "message": "著作権 © 2023 Z-Shell コミュニティ",
+    "description": "The footer copyright"
+  }
+}
