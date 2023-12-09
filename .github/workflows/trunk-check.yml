@@ -16,6 +16,9 @@ jobs:
     if: github.event.schedule != '0 07 * * 5'
     name: "⚡"
     uses: z-shell/.github/.github/workflows/trunk.yml@main
+    with:
+      node_version: "lts/*"
+      pnpm_arguments: "pnpm i && pnpm run build"
   upload:
     if: github.event.schedule == '0 07 * * 5'
     name: "🆙"
