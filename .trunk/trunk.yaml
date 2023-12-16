@@ -1,6 +1,6 @@
 version: 0.1
 cli:
-  version: 1.18.0
+  version: 1.18.1
 repo:
   repo:
     host: github.com
@@ -10,7 +10,7 @@ plugins:
   sources:
     - id: trunk
       uri: https://github.com/trunk-io/plugins
-      ref: v1.3.0
+      ref: v1.4.0
 merge:
   required_statuses:
     - Trunk Check
