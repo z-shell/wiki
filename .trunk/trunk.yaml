@@ -56,9 +56,9 @@ lint:
         - src/components/Markdown/*
 runtimes:
   enabled:
-    - python@3.10.8
-    - go@1.21.0
-    - node@18.12.1
+    - python@3.11.0
+    - go@1.21.5
+    - node@20.10.0
 actions:
   enabled:
     - trunk-upgrade-available
