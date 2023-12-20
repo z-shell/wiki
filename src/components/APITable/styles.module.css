@@ -10,8 +10,8 @@
 
 .apiTable tbody tr:focus,
 .apiTable tbody tr:hover {
-  cursor: pointer;
   outline: none;
   box-shadow: 0 0 8px 0 inset var(--ifm-color-primary);
+  cursor: pointer;
   transition: box-shadow 0.4s;
 }

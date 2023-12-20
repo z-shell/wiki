@@ -32,13 +32,13 @@
 
 .heroInner {
   max-width: 1100px;
-  padding: 0 4rem;
   margin: 0 auto;
+  padding: 0 4rem;
 }
 
 .heroProjectTagline {
-  font-size: 2.8rem;
   color: hsl(0deg 0% 100%);
+  font-size: 2.8rem;
 }
 
 .heroTitleTextHtml b {
@@ -47,9 +47,9 @@
 
 @keyframes jack-in-the-box {
   0% {
-    opacity: 0;
     transform: scale(0.1) rotate(180deg);
     transform-origin: center bottom;
+    opacity: 0;
   }
 
   50% {
@@ -61,8 +61,8 @@
   }
 
   100% {
-    opacity: 1;
     transform: scale(1);
+    opacity: 1;
   }
 }
 
@@ -70,8 +70,8 @@
   float: right;
   max-width: 100%;
   height: auto;
-  padding: 0 20px 20px;
   margin-top: 20px;
+  padding: 0 20px 20px;
   animation-name: jack-in-the-box;
   animation-duration: 4s;
 }
