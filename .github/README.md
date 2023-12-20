@@ -22,7 +22,7 @@
   <td align="center">
     <p align="center">
       <a title="Crowdin" target="_self" href="https://translate.zshell.dev/">
-        <img align="center" src="https://badges.crowdin.net/e/f108c12713ee8526ac878d5671ad6e29/localized.svg" />
+        <img align="center" src="https://badges.crowdin.net/e/f108c12713ee8526ac878d5671ad6e29/localized.svg" alt="Localized badge" />
       </a>
       <a title="Releases" target="_self" href="https://github.com/z-shell/wiki/releases">
         <img align="center" src="https://img.shields.io/github/tag/z-shell/wiki.svg" alt="Version" />
@@ -42,11 +42,11 @@
 <tr>
   <td align="center">
   <img
-    align="center" style="width:80%;height:auto"
+    align="center" width="80%" height="auto" alt="Follow Up Card"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/wiki_followup.svg"
   />
   <img
-    align="center" style="width:80%;height:auto"
+    align="center" width="80%" height="auto" alt="Metrics Card"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/metrics.svg"
   />
   </td>
@@ -55,11 +55,11 @@
 <td align="center">
 <a title="Zi Wiki" target="_self" href="https://github.com/z-shell/wiki">
   <img
-    align="center" style="width:80%;height:auto"
+    align="center" width="80%" height="auto" alt="Pagespeed Card"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/pagespeed/detailed.svg"
   /><hr />
 </a>
-<p align="center"><a href="https://asciinema.org/a/459358" target="_blank"><img align="center" style="width:100%;height:100%" src="https://asciinema.org/a/459358.svg" /></a><p>
+<p align="center"><a href="https://asciinema.org/a/459358" target="_blank"><img align="center" width="100%" height="auto" src="https://asciinema.org/a/459358.svg" alt="Asciinema Preview" /></a><p>
   </td>
 </tr>
 <tr><td align="left">
