@@ -1,6 +1,6 @@
 extends:
   - stylelint-config-standard
-  - stylelint-config-rational-order
+  - stylelint-config-css-modules
 plugins:
   - stylelint-color-format
 rules:
