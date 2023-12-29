@@ -1,0 +1,9 @@
+name: Trunk Check setup
+description: Set up dependencies for Trunk Check
+
+runs:
+  using: composite
+  steps:
+    - name: Install dependencies
+      shell: bash
+      run: pnpm i
