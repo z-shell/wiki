@@ -38,7 +38,7 @@ keywords:
 
     3.4. software package containing any type of command line artifacts – when used with advanced plugin managers that have hooks, can run Makefiles, and add directories to `$PATH`.
 
-Below follow the proposed enhancements and codifications of the definition of a "Zsh the plugin" and the actions of plugin managers – the proposed standardization.
+Below are the proposed enhancements and codifications of the definition of a "Zsh the plugin" and the actions of plugin managers – the proposed standardization.
 
 Zshプラグインの書き方に関する情報を網羅しています。
 
@@ -67,7 +67,7 @@ Then `${0:h}` to get the plugin’s directory.
 
 3.  Use `$0` if it doesn’t contain the path to the Zsh binary,
 
-    3.1. plugin manager will still be able to set `$0`, although more difficultly, requires `unsetopt function_argzero` before sourcing plugin script, and `0=…​` assignment after sourcing plugin script.
+    3.1. plugin manager will still be able to set `$0`, although more difficult, requires `unsetopt function_argzero` before sourcing the plugin script, and `0=…​` assignment after sourcing the plugin script.
 
     3.2. `unsetopt function_argzero` will be detected (it causes `$0` not to contain a plugin-script path, but the path to Zsh binary, if not overwritten by a `0=…​` assignment),
 
@@ -75,11 +75,11 @@ Then `${0:h}` to get the plugin’s directory.
 
 4.  Use the `%N` prompt expansion flag, which always gives the absolute path to the script,
 
-    4.1. plugin manager cannot alter this (no advanced loading of the plugin is possible), but simple plugin-file sourcing (without a plugin manager) will be saved from breaking caused by the mentioned `*_argzero` [options][], so this is a very good last-resort fallback.
+    4.1. plugin manager cannot alter this (no advanced loading of the plugin is possible), but simple plugin-file sourcing (without a plugin manager) will be saved from breaking caused by the mentioned `*_argzero` [options][zsh-options], so this is a very good last-resort fallback.
 
 5.  Finally, in the second line, it will ensure that `$0` contains an absolute path by prepending it with `$PWD` if necessary.
 
-The goal is flexibility, with essential motivation to support `eval "$(<plugin)"` and definitely solve `setopt no_function_argzero` and `setopt posix_argzero` cases.
+The goal is flexibility, with essential motivation to support `eval "$(<plugin)"` and solve `setopt no_function_argzero` and `setopt posix_argzero` cases.
 
 A plugin manager will be even able to convert a plugin to a function, but the performance differences of this are yet unclear.
 
@@ -89,7 +89,7 @@ The last, 5th point also allows using the `$0` handling in scripts (i.e. runnabl
 
 The assignment uses quoting to make it resilient to the combination of the `GLOB_SUBST` and `GLOB_ASSIGN` options. It’s a standard snippet of code, so it has to be always working.
 
-When you’ll set e.g.: the `zsh` emulation in a function, you in general don’t have to quote assignments.
+When you set e.g.: the `zsh` emulation in a function, you in general don’t have to quote assignments.
 
 ### **STATUS:** [ zero-handling ]
 
@@ -107,7 +107,7 @@ if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}/functions]} ]]
 fi
 ```
 
-or, via use of the `PMSPEC` [parameter](#pmspec):
+or, via the use of the `PMSPEC` [parameter](#pmspec):
 
 ```shell showLineNumbers
 if [[ $PMSPEC != *f* ]]; then
@@ -156,7 +156,7 @@ If a plugin is named e.g. `kalc` (and is available via `any-user/kalc` plugin-ID
 
 A plugin manager can implement its tracking of changes made by a plugin so this is in general optional. However, to properly unload e.g. a prompt, dedicated tracking (easy to do for the plugin creator) can provide better, predictable results. Any special, uncommon effects of loading a plugin are possible to undo only by a dedicated function.
 
-However, an interesting compromise approach is available – to withdraw only the special effects of loading a plugin via the dedicated, plugin-provided function and leave the rest to the plugin manager. The value of such an approach is that maintaining such function (if it is to withdraw **all** plugin side-effects) can be a daunting task requiring constant monitoring of it during the plugin development process.
+However, an interesting compromise approach is available – to withdraw only the special effects of loading a plugin via the dedicated, plugin-provided function and leave the rest to the plugin manager. The value of such an approach is that maintaining such function (if it is to withdraw **all** plugin side-effects) can be a daunting task requiring constant monitoring during the plugin development process.
 
 Note that the unload function should contain `unfunction $0` (or better `unfunction kalc_plugin_unload` etc., for compatibility with the `*_argzero` options), to also delete the function itself.
 
@@ -238,7 +238,7 @@ This will allow the user to reliably source the plugin without using a plugin ma
 
 Plugin managers may export the parameter `$ZPFX` which should contain a path to a directory dedicated to user-land software, i.e. for directories `$ZPFX/bin`, `$ZPFX/lib`, `$ZPFX/share`, etc. The suggested name of the directory is `polaris` (e.g.: Zi uses this name and places this directory at `~/.zi/polaris` by default).
 
-Users can then configure hooks to invoke e.g. `make PREFIX=$ZPFX install` at clone & update the plugin to install software like e.g. [tj/git-extras][]. This is the developing role of Zsh plugin managers as package managers, where `.zshrc` has a similar role to Chef or Puppet configuration and allows to **declare** system state, and have the same state on different accounts/machines.
+Users can then configure hooks to invoke e.g. `make PREFIX=$ZPFX install` at clone & update the plugin to install software like e.g. [tj/git-extras][]. This is the developing role of Zsh plugin managers as package managers, where `.zshrc` has a similar role to Chef or Puppet configuration and allows to **declare** system state and have the same state on different accounts/machines.
 
 No-narration facts-list related to `$ZPFX`:
 
@@ -282,7 +282,7 @@ The above paragraphs of the standard spec each constitute a capability, a featur
 
 -   `s` – … the `PMSPEC` global parameter itself (i.e.: should be always present).
 
-The contents of the parameter describing a fully-compliant plugin manager should be: `0fuUpiPs`.
+The contents of the parameter describing a fully compliant plugin manager should be: `0fuUpiPs`.
 
 The plugin can then verify the support by:
 
@@ -308,25 +308,25 @@ Zsh ships with the function `add-zsh-hook`. It has the following invocation synt
 add-zsh-hook [ -L | -dD ] [ -Uzk ] hook function
 ```
 
-The command installs a `function` as one of the supported zsh `hook` entries. which are one of: `chpwd`, `periodic`, `precmd`, `preexec`, `zshaddhistory`, `zshexit`, `zsh_directory_name`. For their meaning refer to the [Zsh documentation: #Hook-Functions][hook-functions].
+The command installs a `function` as one of the supported zsh `hook` entries: `chpwd`, `periodic`, `precmd`, `preexec`, `zshaddhistory`, `zshexit`, and `zsh_directory_name`. For their meaning refer to the [Zsh documentation: #Hook-Functions][hook-functions].
 
 ## Use of `add-zle-hook-widget` to install Zle Hooks
 
-The zle editor is the part of the Zsh that is responsible for receiving the text from the user. It can be said that it’s based on widgets, which are nothing more than Zsh functions that are allowed to be run in Zle context, i.e. from the Zle editor (plus a few minor differences, like e.g.: the `$WIDGET` parameter that’s automatically set by the Zle editor).
+The Zle editor is the part of the Zsh that is responsible for receiving the text from the user. It can be said that it’s based on widgets, which are nothing more than Zsh functions that are allowed to be run in Zle context, i.e. from the Zle editor (plus a few minor differences, like e.g.: the `$WIDGET` parameter that’s automatically set by the Zle editor).
 
 The syntax of the call is:
 
 ```shell
-add-zle-hook-widget [ -L | -dD ] [ -Uzk ] hook widgetname
+add-zle-hook-widget [ -L | -dD ] [ -Uzk ] hook widget_name
 ```
 
-The call resembles the syntax of the `add-zsh-hook` function. The only difference is that it takes a `widgetname`, not a function name and that the `hook` is one of: `isearch-exit`, `isearch-update`, `line-pre-redraw`, `line-init`, `line-finish`, `history-line-set`, or `keymap-select`. Their meaning is explained in the [Zsh documentation: #Special-Widgets][special-widgets].
+The call resembles the syntax of the `add-zsh-hook` function. The only difference is that it takes a `widget_name`, not a function name, and that the `hook` is one of: `isearch-exit`, `isearch-update`, `line-pre-redraw`, `line-init`, `line-finish`, `history-line-set`, or `keymap-select`. Their meaning is explained in the [Zsh documentation: #Special-Widgets][special-widgets].
 
 The use of this function is recommended because it allows the installation **multiple** hooks per each `hook` entry. Before introducing the `add-zle-hook-widget` function the "normal" way to install a hook was to define a widget with the name of one of the special widgets. Now, after the function has been introduced in Zsh `5.3` it should be used instead.
 
 ## 一般的なパラメーターの命名
 
-There’s a convention already present in the Zsh world – to name array variables lowercase and scalars uppercase. It’s being followed by e.g.: the Zsh manual and the Z shell itself (e.g.: `REPLY` scalar and `reply` array, etc.).
+There’s a convention already present in the Zsh world – to name array variables in lowercase and scalars uppercase. It’s being followed by e.g.: the Zsh manual and the Z shell itself (e.g.: `REPLY` scalar and `reply` array, etc.).
 
 The requirement for the scalars to be uppercase should be, in my opinion, kept only for the global parameters. e.g.: it’s fine to name local parameters inside a function lowercase even when they are scalars, not only arrays.
 
@@ -349,7 +349,7 @@ Plugins[MY_PLUGIN_REPO_DIR]="${0:h}"
 
 This way all the data of all plugins will be kept in a single parameter, available for easy examination and overview (via e.g.: `varied Plugins`), and also not polluting the namespace.
 
-## Standard recommended [options][]
+## Standard recommended [options][zsh-options]
 
 The following code snippet is recommended to be included at the beginning of each of the main functions provided by the plugin:
 
@@ -358,7 +358,15 @@ builtin emulate -L zsh ${=${options[xtrace]:#off}:+-o xtrace}
 builtin setopt extended_glob warn_create_global typeset_silent no_short_loops rc_quotes no_auto_pushd
 ```
 
-It resets all the options to their default state according to the `zsh` emulation mode, with the use of the `local_options` option – so the options will be restored to their previous state when leaving the function. It then alters the emulation by `7` different options:
+The `emulate -LR zsh` can be used to emulate a clean Zsh shell environment that is local to the function it's called from. The `-L` and `-R` are emulation mode switches:
+
+-   `-L`: This flag makes the emulation local to the function it's called from. This means that the emulation will not affect the shell environment outside of the function.
+
+-   `-R`: This flag resets all options to their default values as if the shell had just been started. This is useful when you want to ensure a clean, predictable environment.
+
+> Reference: [zsh shell builtin commands][builtin-commands]
+
+The emulation is altered with the following options:
 
 -   `${=${options[xtrace]:#off}:+-o xtrace}` – `xtrace` prints commands and their arguments as they are executed, this specific variable calls `xtrace` when needed, e.g.: when already active at the entry to the function.
 
@@ -370,7 +378,7 @@ It resets all the options to their default state according to the `zsh` emulatio
 
 -   `no_short_loops` – disables the short-loops syntax; this is done because when the syntax is enabled it limits the parser’s ability to detect errors (see this [zsh-workers post][] for the details),
 
--   `rc_quotes` – adds useful ability to insert apostrophes into an apostrophe-quoted string, by use of `''` inside it, e.g.: `'a string’s example'` will yield the string `a string’s example`,
+-   `rc_quotes` – adds the useful ability to insert apostrophes into an apostrophe-quoted string, by use of `''` inside it, e.g.: `'a string’s example'` will yield the string \`a string’s example,
 
 -   `no_auto_pushd` - disables the automatic push of the directory passed to `cd` builtin onto the directory stack; this is useful because otherwise, the internal directory changes done by the plugin will pollute the global directory stack.
 
@@ -405,7 +413,7 @@ However, when adopted, the proposition will solve the following issues:
 
 3.  It would allow quickly discriminate between function types – e.g.: seeing the `:` prefix informs the user that it’s a hook-type function while seeing the `@` prefix informs the user that it’s an API-like function, etc.
 
-4.  It also provides an improvement during programming, by allowing to quickly limit the number of completions offered by the editor, e.g.: for Vim’s <kbd>Ctrl-P</kbd> completing, when entering <kbd>+Ctrl-P</kbd>, then only a subset of the functions are being completed (see below for the type of the functions). **Note:** the editor has to be configured so that it accepts such special characters as part of keywords, for Vim it’s: `:set isk+=@-@,.,+,/,:` for all of the proposed prefixes.
+4.  It also provides an improvement during programming, by allowing to quickly limit the number of completions offered by the editor, e.g.: for Vim’s <kbd>Ctrl-P</kbd> completing, when entering <kbd>+Ctrl-P</kbd>, then only a subset of the functions are being completed (see below for the type of the functions). **Note:** The editor has to be configured so that it accepts such special characters as part of keywords, for Vim it’s: `:set isk+=@-@,.,+,/,:` for all of the proposed prefixes.
 
 ## The Proposed function-name prefixes
 
@@ -431,9 +439,9 @@ The proposition of the standard prefixes is as follows:
 
 3.  `+`: for output functions, i.e.: for functions that print to the standard output and error or a log, etc. Example function name: `+prompt_zinc_output_segment`.
 
-4.  `/`: for debugging functions, i.e: for functions that output debugs messages to the screen or a log or e.g.: gather some debug data. **Note:** the slash makes it impossible for such functions to be auto-loaded via the `autoload` mechanism. It is somewhat risky to assume, that this will never be needed for the functions, however, the limited number of available ASCII characters justifies such allocation. Example function name: `/prompt_zinc_dmsg`.
+4.  `/`: for debugging functions, i.e.: for functions that output debug messages to the screen or a log or e.g.: gather some debug data. **Note:** The slash makes it impossible for such functions to be auto-loaded via the `autoload` mechanism. It is somewhat risky to assume, that this will never be needed for the functions, however, the limited number of available ASCII characters justifies such allocation. Example function name: `/prompt_zinc_dmsg`.
 
-5.  `@`: for API-like functions, i.e: for functions that are on a boundary to a subsystem and expose their functionality through a well-defined, generally fixed interface. For example, this plugin standard [defines](#update-register-call) the function `@zsh-plugin-run-on-update`, which is exposing a plugin manager’s functionality in a well-defined way.
+5.  `@`: for API-like functions, i.e.: for functions that are on a boundary to a subsystem and expose their functionality through a well-defined, generally fixed interface. For example, this plugin standard [defines](#update-register-call) the function `@zsh-plugin-run-on-update`, which exposes a plugin manager’s functionality in a well-defined way.
 
 ## Example code utilizing the prefixes
 
@@ -471,7 +479,7 @@ Replace the `prj*` prefix with your project name, e.g.: `rustef` for a `rust`-re
 
 ## Preventing parameter pollution
 
-When writing a plugin one often needs to keep a state during the Zsh session. To do this it is natural to use global parameters. However, when the number of the parameters grows one might want to limit it.
+When writing a plugin one often needs to keep a state during the Zsh session. To do this it is natural to use global parameters. However, when the number of parameters grows one might want to limit it.
 
 With the following method, only a single global parameter per plugin can be sufficient:
 
@@ -529,4 +537,6 @@ Following the [Standard Plugins Hash](#standard-plugins-hash) section, the plugi
 
 [hook-functions]: https://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions
 
-[options]: https://zsh.sourceforge.io/Doc/Release/Options.html
+[zsh-options]: https://zsh.sourceforge.io/Doc/Release/Options.html
+
+[builtin-commands]: https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html
