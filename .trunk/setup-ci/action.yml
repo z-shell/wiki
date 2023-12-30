@@ -6,4 +6,6 @@ runs:
   steps:
     - name: Install dependencies
       shell: bash
-      run: pnpm i
+      run: |
+        npm i -g pnpm
+        pnpm install
