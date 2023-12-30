@@ -4,8 +4,15 @@ description: Set up dependencies for Trunk Check
 runs:
   using: composite
   steps:
-    - name: Install dependencies
+    - name: 📦 Setup pnpm
+      uses: pnpm/action-setup@v2.4.0
+    - name: ⎔ Setup node
+      uses: actions/setup-node@v4.0.1
+      with:
+        node-version: 'lts/*'
+        cache: "pnpm"
+    - name: 🏗 Prepare
       shell: bash
       run: |
-        npm i -g pnpm
-        pnpm install
+        pnpm i
+        pnpm build:en
