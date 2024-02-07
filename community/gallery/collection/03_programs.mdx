@@ -587,6 +587,19 @@ zi light-mode for id-as'pnpm' from'gh-r' bpick'*-linux-x64' as'program' \
     pnpm/pnpm
 ```
 
+### GH-R: [volta-cli/volta][https://github.com/volta-cli/volta]
+
+```shell showLineNumbers
+zi light cowboyd/zsh-volta
+# completions: 
+# OMZP::volta uses ZSH_CACHE_DIR to search for the completions directory
+# usually completions are located at $HOME/.zi/completions
+zi wait'0b' lucid for \
+  blockf has'volta' \
+  atinit"ZSH_CACHE_DIR=$HOME/.zi" \
+  OMZP::volta
+```
+
 ### GH-R: [yarnpkg/yarn][]
 
 ```shell showLineNumbers
