@@ -15,7 +15,7 @@ keywords:
 
 import APITable from "@site/src/components/APITable";
 
-`for` 语法是最受欢迎、更简洁和更优化的。 单个命令的工作原理与 [标准语法][standard-syntax] 调用相同。
+The `for` syntax is the most popular, more concise, and more optimized. The single command will work the same as the [standard syntax][standard-syntax] invocation.
 
 It allows providing common/default ice-modifiers for a <b>set of plugins</b> or to source <b>multiple files</b> with the ices: [src, pick, multisrc][src-pick-multisrc].
 
@@ -46,7 +46,7 @@ zi wait"3" lucid for as"null" \
   make"PREFIX=$ZPFX" tj/git-extras
 ```
 
-上述单一命令安装了 6 个插件（[git extension][2] 包），其中包括所有插件通用的基础 ices`as "null" wait "3" lucid` 和 6 个插件专用的附加ice-modifiers。
+The above single command installs 6 plugins ([git extension][2] packages), with the base ices `as"null" wait"3" lucid` that are common to all of the plugins and 6 plugin-specific add-on ice-modifiers.
 
 Load a few useful binary packages from the [GitHub releases][1], utils:
 

@@ -1,8 +1,8 @@
 ---
 id: migration
-title: ♻️ 迁移
+title: ♻️ Migration
 image: /img/png/theme/z/320x320.png
-description: 迁移指南
+description: Migration Guide
 keywords:
   - prezto
   - oh-my-zsh
@@ -12,7 +12,7 @@ import Link from "@docusaurus/Link";
 
 ## Oh-My-Zsh
 
-### OMZ 简洁语法
+### OMZ shorthand syntax
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet <URL>        # Raw syntax with URL
@@ -22,25 +22,25 @@ zi snippet OMZT::<PATH> # Shorthand OMZ::themes   (http://github.com/ohmyzsh/ohm
 zi snippet OMZP::<PATH> # Shorthand OMZ::plugins  (http://github.com/ohmyzsh/ohmyzsh/raw/master/plugins)
 ```
 
-### OMZ 内置库
+### OMZ library
 
-以下是从 OMZ 内置库中导入 [clipboard][omz/clipboard] 和 [termsupport][omz/termsupport] 的示例。
+Importing the [clipboard][omz/clipboard] and [termsupport][omz/termsupport] from the OMZ library example:
 
-原始语法：
+Raw syntax:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh
 ```
 
-OMZ 简写法：
+OMZ shorthand syntax:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZ::lib/clipboard.zsh
 zi snippet OMZ::lib/termsupport.zsh
 ```
 
-OMZL 简写法：
+OMZL shorthand syntax:
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZL::clipboard.zsh
@@ -159,7 +159,7 @@ However, Zi doesn't support the `ZSH_THEME` variable natively.
 
 To use **themes** created for OMZ requires loading shown below as it would be the same as OMZ does in the background.
 
-> 有些主题可能需要额外的配置，它可以从主题配置文件中确定。
+> Some themes may require additional configuration it can be determined from the theme configuration file.
 
 -   Load `git` library
 -   Load the `git` plugin
@@ -379,23 +379,23 @@ Available
 ```diff title="~/.zshrc" showLineNumbers
 - zgen oh-my-zsh
 
-+ zi snippet OMZL::<任何项目>
++ zi snippet OMZL::<ANY OF THEM>
 ```
 
-### 加载 OMZ 插件
+### Load OMZ plugins
 
 ```diff title="~/.zshrc" showLineNumbers
-- zgen oh-my-zsh <路径>
+- zgen oh-my-zsh <PATH>
 
-+ zi snippet OMZP::<路径>
++ zi snippet OMZP::<PATH>
 ```
 
 ### Load Prezto modules
 
 ```diff title="~/.zshrc" showLineNumbers
-- zgen prezto <模块名称>
+- zgen prezto <module name>
 
-+ zi snippet PZTM::<模块名称>
++ zi snippet PZTM::<module name>
 ```
 
 Load repositories as prezto plugins:
@@ -422,7 +422,7 @@ For the `location`: refer <Link to="/docs/guides/syntax/standard#src-pick-multis
 + zi load <repo>
 ```
 
-## Zplug 基础知识
+## Zplug Basics
 
 ```diff title="~/.zshrc" showLineNumbers
 - zplug <repo/plugin>, tag1:<option1>, tag2:<option2>

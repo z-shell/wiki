@@ -1,10 +1,10 @@
 ---
 id: standard
-title: 🔀 標準の構文
+title: 🔀 Standard Syntax
 sidebar_position: 1
 toc_max_heading_level: 3
 image: /img/png/theme/z/320x320.png
-description: 基本的な構文のドキュメントです。
+description: The fundamental syntax documentation.
 keywords:
   - syntax
   - standard
@@ -19,14 +19,14 @@ import APITable from "@site/src/components/APITable";
 
 ## <i class="fas fa-circle-info"></i> Introduction
 
-Ziは、構造化された文・式に対して2つの構文タイプを提供します。
+Zi provides two syntax types for structured statements or expressions:
 
--   標準構文
+-   Standard syntax
 -   The ["For"][for-syntax] syntax
 
-どちらの構文を使うかはユーザー次第ですが、両方の構文に慣れることを強くお勧めします。 In this example, we will use an empty repository [z-shell/0](https://github.com/z-shell/0) to practice the basics of the standard syntax.
+It is up to the user which syntax to use, but it is highly recommended to familiarize yourself with both of them. In this example, we will use an empty repository [z-shell/0](https://github.com/z-shell/0) to practice the basics of the standard syntax.
 
--   ターミナルで以下のコマンドを実行します。
+-   Execute the following command in your terminal:
 
 ```shell
 zi load z-shell/0
@@ -34,30 +34,30 @@ zi load z-shell/0
 
 Successfully installed the Zsh plugin which usually contains all the setup instructions as described in the [Zsh plugin standard](https://wiki.zshell.dev/community/zsh_plugin_standard).
 
-スニペットは、再利用可能なソースコード、マシンコード、またはテキストの一部を含む単一のファイルで、ファイルへのフルパスまたはURLが必要です。
+A snippet is a single file with a portion of reusable source code, machine code, or text and requires a full path or URL to the file.
 
-> -   ターミナルで以下のコマンドを実行します。
+> -   Execute the following command in your terminal:
 
 ```shell
 zi snippet https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/snippets/welcome.zsh
 ```
 
-成功しました！ しかし、必ずしもとても簡単でシンプルであるとは限りません。時には、特定の時間や条件であることを指定したいこともあります。 This can be achieved using [ice-modifiers][ice-mods].
+Success! But not always everything is so easy and simple, also sometimes we want certain things to happen at certain times or conditions. This can be achieved using [ice-modifiers][ice-mods].
 
-上の行には ice 修飾子が含まれており、下の行でプラグインを読み込んでいます。
+The top line contains ice-modifiers, and the bottom line is the plugin.
 
-> -   ターミナルで以下のコマンドを実行します。
+> -   Execute the following commands in your terminal:
 
 ```shell showLineNumbers
 zi ice id-as'zsh/plugin' atinit'print "Hello World!"'
 zi load z-shell/0
 ```
 
-This registered the plugin under the [plugin ID](#id-as) `zsh/plugin` instead of `z-shell/0`. This will work as expected e.g. `zi update zsh/plugin`, `zi remove zsh/plugin`, etc. プラグインをロードする前に「Hello World!」が表示されます。
+This registered the plugin under the [plugin ID](#id-as) `zsh/plugin` instead of `z-shell/0`. This will work as expected e.g. `zi update zsh/plugin`, `zi remove zsh/plugin`, etc. The "Hello World!" printed before loading the plugin
 
-Ice-modifierを増やしてもう一度インストールしましょう。
+Let's install again with more ice-modifiers.
 
-> -   ターミナルで以下のコマンドを実行します。
+> -   Execute the following commands in your terminal:
 
 ```shell showLineNumbers
 zi ice id-as'final/countdown' \
@@ -69,7 +69,7 @@ zi load z-shell/0
 
 ## <i class="fas fa-arrow-down-short-wide"></i> Order of execution {#order-of-execution}
 
-関連する ice-modifier の実行順序は次のとおりです。
+The order of execution of related ice-modifiers is as follows:
 
 ```shell showLineNumbers
   atinit'' →
@@ -109,14 +109,14 @@ zi ice id-as:colon atload:"print Hello World"
 zi load z-shell/0
 ```
 
-そして、上記の全てと併せて、GNU 構文も同様に利用できます。
+And also – in conjunction with all of the above – the GNU syntax:
 
 ```shell showLineNumbers
 zi ice id-as=GNU --atload="print Hello World"
 zi load z-shell/0
 ```
 
-代わりの構文はVimのようなエディタのハイライトを利用し、文字列とiceの表現を別の色にすることができます。 However, with [zi-vim-syntax][] the syntax definition can be superseded with the highlighting specifically for Zi. syntax definition can be superseded with the highlighting specifically for Zi.
+The syntax alternatives can utilize the highlighting of editors like Vim – and have the strings and ice expressions colorized with a distinct color. However, with [zi-vim-syntax][] the syntax definition can be superseded with the highlighting specifically for Zi. syntax definition can be superseded with the highlighting specifically for Zi.
 
 ### <i class="fa-solid fa-circle-nodes"></i> Utilizing "make" {#utilizing-make}
 
@@ -163,10 +163,10 @@ zi light vim/vim
 <APITable>
 ```
 
-| 構文                 | 説明                                                                                        |
+| Syntax             | Description                                                                               |
 | ------------------ | :---------------------------------------------------------------------------------------- |
 | `as'program'`      | Add file selected by `pick'…'` to `$PATH`, and do not source it.                          |
-| `atclone'…'`       | ダウンロード後、任意のコマンドを実行する。                                                                     |
+| `atclone'…'`       | Execute code after downloading.                                                           |
 | `atpull'%atclone'` | Execute the same code `atclone'…'` is given, but after successful update.                 |
 | `make`             | Run `make` after `atclone'…'` and `atpull'…'` (note: `make'!'` will execute before them). |
 | `pick'src/vim'`    | Set the executable flag on `src/vim`, hint that `src/` should be added to `$PATH`.        |
@@ -187,7 +187,7 @@ zi light vim/vim
 <APITable>
 ```
 
-| 構文                 | 説明                                                                                           |
+| Syntax             | Description                                                                                  |
 | ------------------ | :------------------------------------------------------------------------------------------- |
 | `as'program'`      | As above.                                                                                    |
 | `atclone'…'`       | As above **plus** pass `--prefix=$ZPFX` to `./configure`, to set the installation directory. |
@@ -214,7 +214,7 @@ zi light trapd00r/LS_COLORS
 <APITable>
 ```
 
-| 構文                 | 説明                                                                                          |
+| Syntax             | Description                                                                                 |
 | ------------------ | :------------------------------------------------------------------------------------------ |
 | `atclone'…'`       | Generate shell script, passing it to `eval`. More: [^1]                                     |
 | `atpull'%atclone'` | Do the same at any update of the plugin. More: [^2]                                         |
@@ -259,7 +259,7 @@ zi as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
 <APITable>
 ```
 
-| 構文                 | 説明                                                                                                                             |
+| Syntax             | Description                                                                                                                    |
 | ------------------ | :----------------------------------------------------------------------------------------------------------------------------- |
 | `make'!'`          | Compile `direnv`, the exclamation mark means: run the `make` first, before `atclone'…'` and `atpull'…'` hooks.                 |
 | `atclone'…'`       | As soon as the plugin is installed generate the registration code and save it to `zhook.zsh`, instead of passing it to `eval`. |
@@ -285,7 +285,7 @@ zi from"gh-r" as"program" mv"direnv* -> direnv" \
 <APITable>
 ```
 
-| 構文                        | 説明                                                                         |
+| Syntax                    | Description                                                                |
 | ------------------------- | :------------------------------------------------------------------------- |
 | `from'gh-r'`              | Install from `direnv` from GitHub Github releases.                         |
 | `mv'direnv* -> direnv'`   | After installation, rename `direnv.linux-386` or similar file to `direnv`. |
@@ -357,13 +357,13 @@ zi ice from"user@github.com"
 zi load user/fsh-auto-themes
 ```
 
-現在のプリセット：
+Current preset:
 
 ```mdx-code-block
 <APITable>
 ```
 
-| Ice name   | ドメイン名/URL                            |
+| Ice name   | Domain name / URL                    |
 | ---------- | :----------------------------------- |
 | ge         | gitee.com                            |
 | gitee      | gitee.com                            |
@@ -443,7 +443,7 @@ The commands `zi update git-unique`, and `zi delete git-unique` will work as exp
 
 -   `id-as'auto'`:
 
-There's a special value to the `id-as'…'` ice – `auto`. It causes the nickname to be automatically set to the last component of the plugin name or snippet URL. 例:
+There's a special value to the `id-as'…'` ice – `auto`. It causes the nickname to be automatically set to the last component of the plugin name or snippet URL. For example:
 
 ```shell showLineNumbers
 zi ice as"program" id-as"auto"
@@ -475,7 +475,7 @@ Turbo mode, i.e. the `wait'…'` is ice that implements it - needs Zsh >= 5.3.
 :::
 
 ```shell showLineNumbers
-zi ice wait'0' # もしくは単に zi ice wait
+zi ice wait'0' # or just: zi ice wait
 zi light wfxr/forgit
 ```
 
@@ -530,7 +530,7 @@ zi ice pick'powerless.zsh' src'utilities.zsh'
 zi light martinrotter/powerless
 ```
 
-|    構文     | 説明                                                                                                         |
+|  Syntax   | Description                                                                                                |
 | :-------: | :--------------------------------------------------------------------------------------------------------- |
 | `pick'…'` | Provide the main file to the source - like `*.sh`, otherwise alphabetically first matched file is sourced. |
 | `src'…'`  | Provide a second file to the source - not a pattern - plain file name.                                     |
@@ -545,7 +545,7 @@ zi ice svn pick'completion.zsh' \
 zi snippet OMZ::lib
 ```
 
-|    構文       | 説明                                                                                                                                 |
+|  Syntax     | Description                                                                                                                        |
 | :---------: | :--------------------------------------------------------------------------------------------------------------------------------- |
 |   `svn`     | Use Subversion to clone `OMZ::lib` (the whole Oh-My-Zsh `lib/` directory). More [^3].                                              |
 | `atload'…'` | Code isn't tracked and cannot be unloaded. The `atload'…'` is executed after loading main files `pick'…'` and `src'…'`. More [^4]. |
@@ -616,7 +616,7 @@ zi ice multisrc'(functions|misc|completion).zsh'
 zi snippet OMZ::lib
 ```
 
-書き込みが可能：
+it's possible to write:
 
 ```shell showLineNumbers
 zi for \
@@ -641,7 +641,7 @@ There are four code-receiving ice-modifiers: `atclone'…'`, `atpull'…'`, `ati
 
 Their role is to **receive a portion of Zsh code and execute it in specific moments of the plugin life-cycle**.
 
-|     構文       | Execution moment                                                |
+|   Syntax     | Execution moment                                                |
 | :----------: | :-------------------------------------------------------------- |
 | `atclone'…'` | **after cloning** the associated plugin or snippet to the disk. |
 | `atpull'…'`  | **after updating** the associated plugin or snippet.            |
