@@ -1,8 +1,8 @@
 ---
 id: default-ice
-title: 🌀デフォルト ice
+title: 🌀 Default Ice
 image: /img/png/theme/z/320x320.png
-description: 別館 - デフォルト Iceのドキュメント
+description: Annex - Default Ice documentation
 keywords:
   - annex
   - default-ice
@@ -16,13 +16,13 @@ import Link from "@docusaurus/Link";
 
 An annex delivers the capability to set **default ices** for the next `zi` command, e.g:
 
-デフォルトのiceの設定:
+set default-ices:
 
 ```shell
 zi default-ice lucid from"gh-r"
 ```
 
-これは GitHub リリース (gh-r) からダウンロードされ、デフォルトでは lucid ice も使用します。
+this will download from GitHub releases (gh-r) and also use the lucid ice by default:
 
 ```shell showLineNumbers
 zi wait for \
@@ -43,12 +43,12 @@ An annex provides a subcommand – `default-ice` which has the following synopsi
 ```shell showLineNumbers
 — default-ice [ -s | -c | -g | -t | -q | -h ]
 
- [ -s ] - 現在設定されているデフォルトのiceを表示
- [ -c ] - デフォルトのiceをリセット
- [ -g ] - REPLAYハッシュに現在のiceを返す
- [ -t ] - 統計情報を表示
- [ -q ] - すべてのメッセージを隠す
- [ -h ] - このメッセージを表示
+ [ -s ] — Show currently set default ices
+ [ -c ] — Reset default ices
+ [ -g ] — Return current ices in REPLAY hash
+ [ -t ] — Show statistics
+ [ -q ] — Hide all messages
+ [ -h ] — This message
 ```
 
 ## Install default-ice {#install-default-ice}

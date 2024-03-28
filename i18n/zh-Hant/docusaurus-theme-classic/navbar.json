@@ -1,0 +1,22 @@
+{
+  "title": {
+    "message": "Z-Shell",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "A Swiss Army Knife for Zsh Unix shell",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Docs": {
+    "message": "Docs",
+    "description": "Navbar item with label Docs"
+  },
+  "item.label.Ecosystem": {
+    "message": "Ecosystem",
+    "description": "Navbar item with label Ecosystem"
+  },
+  "item.label.Community": {
+    "message": "Community",
+    "description": "Navbar item with label Community"
+  }
+}
