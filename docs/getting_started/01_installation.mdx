@@ -33,12 +33,41 @@ This setup method requires manually verifying the sha256 [checksum][checksum-txt
 :::
 
 ```shell showLineNumbers title="~/.zshrc"
-local cs_ok='7fab1ecb8d2ffbdb4aa98dd1e51cebaeaa4d8137e1de11938f3e0df24af262bb'
-local cs_get=$(sha256sum <(curl -sL init.zshell.dev) | awk '{print $1}')
-[[ $cs_ok == $cs_get ]] && { source <(curl -sL init.zshell.dev); zzinit; } || {
-  print -P "%F{160}▓▒░ Houston, we have a problem, the %F{226}$cs_get%F{160} do not match\!%f%b"; return 1
+local cs_ok='23a563e80249a866c7cba3ac44eaedb1ca38f20c35690fb764a7cb75e95d38be'
+local temp_file="/tmp/init_zshell_temp"
+local curl_fail=false
+
+fallback() {
+  if [[ -s $temp_file ]]; then
+    rm $temp_file
+  fi
+  typeset -Ag ZI
+  typeset -x ZI[HOME_DIR]="${HOME}/.zi" 
+  typeset -x ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
+  source "${ZI[BIN_DIR]}/zi.zsh"
 }
-unset cs_ok cs_get
+
+if [[ ! -s $temp_file ]]; then
+    curl -sL https://init.zshell.dev -o $temp_file || {
+        print -P "%F{160}▓▒░ Houston, we have a problem. Could not download zi-init, falling back to local copy\!%f%b";
+        curl_fail=true
+    }
+fi
+
+if [ $curl_fail = false ]; then
+    local cs_get=$(sha256sum $temp_file | awk '{print $1}')
+    if [[ $cs_ok == $cs_get ]]; then
+        source $temp_file; zzinit;
+    else
+        print -P "%F{160}▓▒░ Houston, we have a problem. The sha256sum %F{226}$cs_get%F{160} does not match, falling back to local copy\!%f%b";
+        rm $temp_file
+        fallback
+    fi
+else
+  fallback
+fi
+
+unset cs_ok cs_get temp_file curl_fail
 ```
 
   </TabItem>
