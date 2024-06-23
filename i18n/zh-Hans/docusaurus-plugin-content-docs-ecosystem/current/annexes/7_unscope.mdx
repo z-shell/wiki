@@ -20,15 +20,15 @@ import APITable from "@site/src/components/APITable";
 
 An annex allows the installation of plugins without specifying the GitHub user name, as follows:
 
-1.  On the installation of a plugin without any slashes (/) in its name the annex will query the GitHub API searching for `*/{the-name}`, sorting on stars.
+1. On the installation of a plugin without any slashes (/) in its name the annex will query the GitHub API searching for `*/{the-name}`, sorting on stars.
 
-2.  It first requires at least 10 forks on the candidates, then 2, then 0.
+2. It first requires at least 10 forks on the candidates, then 2, then 0.
 
-3.  After finding the best result it sets it as the **full** remote-id of the plugin, storing the ID on disk for later automatic use.
+3. After finding the best result it sets it as the **full** remote-id of the plugin, storing the ID on disk for later automatic use.
 
-4.  For security, for such GH-API request to be made a newly added (by this annex) ice: `ghapi` is required to be given.
+4. For security, for such GH-API request to be made a newly added (by this annex) ice: `ghapi` is required to be given.
 
-5.  Otherwise only the static database of mappings of short-plugin nicknames to the full scoped IDs will be searched. It contains many mappings, like, e.g.: `vi-reg → zsh-vi-more/evil-registers`, and some of the popular plugins, like, e.g.: `zsh-syntax-highlighting → zsh-users/zsh-syntax-highlighting` and more.
+5. Otherwise only the static database of mappings of short-plugin nicknames to the full scoped IDs will be searched. It contains many mappings, like, e.g.: `vi-reg → zsh-vi-more/evil-registers`, and some of the popular plugins, like, e.g.: `zsh-syntax-highlighting → zsh-users/zsh-syntax-highlighting` and more.
 
 ## Static mappings
 
@@ -44,7 +44,7 @@ Besides the GitHub-API querying, there's also a fixed, curated list of mappings 
 <APITable>
 ```
 
-|                Short (Nick-) Name                                               | GitHub ID / scoped ID             |
+|       Short (Nick-) Name                                     | GitHub ID / scoped ID             |
 | :-----------------------------------------------------------------------------: | :-------------------------------- |
 |           <Highlight color="var(--ifm-color-info)"> null </Highlight>           | z-shell/null                      |
 |        <Highlight color="var(--ifm-color-info)"> z-a-readurl </Highlight>       | z-shell/z-a-readurl               |
@@ -140,9 +140,9 @@ Besides the GitHub-API querying, there's also a fixed, curated list of mappings 
 
 :::info Source
 
--   <Link className='github-link' href='https://github.com/z-shell/z-a-unscope'>
-      z-shell/z-a-unscope
-    </Link>
+- <Link className='github-link' href='https://github.com/z-shell/z-a-unscope'>
+    z-shell/z-a-unscope
+  </Link>
 
 :::
 

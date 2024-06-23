@@ -12,46 +12,12 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import Link from "@docusaurus/Link";
 
-## <i class="fas fa-spinner fa-spin"></i> 快速安装 {#quick-setup}
-
-将以下内容添加到 <kbd>.zshrc</kbd> 文件中：
-
-<Tabs>
-  <TabItem value="instant-source" label="Instant" default>
-
-```shell title="~/.zshrc"
-source <(curl -sL init.zshell.dev); zzinit
-```
-
-</TabItem>
-  <TabItem value="verified-source" label="Verified">
-
-:::caution
-
-这种安装方法需要在版本库中每次更改内容时，手动验证 <kbd>lib/zsh/init.zsh</kbd> 文件的 sha256 [checksum][checksum-txt]。
-
-:::
-
-```shell showLineNumbers title="~/.zshrc"
-local cs_ok='7fab1ecb8d2ffbdb4aa98dd1e51cebaeaa4d8137e1de11938f3e0df24af262bb'
-local cs_get=$(sha256sum <(curl -sL init.zshell.dev) | awk '{print $1}')
-[[ $cs_ok == $cs_get ]] && { source <(curl -sL init.zshell.dev); zzinit; } || {
-  print -P "%F{160}▓▒░ Houston, we have a problem, the %F{226}$cs_get%F{160} do not match\!%f%b"; return 1
-}
-unset cs_ok cs_get
-```
-
-</TabItem>
-</Tabs>
-
-使用 <kbd>exec zsh -il</kbd> 重新加载 shell，然后运行 <kbd>zi -h</kbd> 获取使用说明。
-
 ## <i class="fas fa-spinner fa-spin"></i> 自动安装 {#automated-setup}
 
 :::tip
 
--   校验 <kbd>lib/sh/install.sh</kbd> 文件的 sha256 [checksum][checksum-txt]
--   If required append <kbd>-b \<tag></kbd> or <kbd>-b \<branch></kbd> e.g:
+- 校验 <kbd>lib/sh/install.sh</kbd> 文件的 sha256 [checksum][checksum-txt]
+- If required append <kbd>-b \<tag></kbd> or <kbd>-b \<branch></kbd> e.g:
 
 ```shell
 sh -c "$(curl -fsSL get.zshell.dev)" -- -i skip -b main
@@ -127,7 +93,7 @@ sh -c "$(curl -fsSL get.zshell.dev)" -- -a zunit
 
 :::tip 相关指引
 
--   [🏗 配置管理](/docs/guides/customization#customizing-paths)
+- [🏗 配置管理](/docs/guides/customization#customizing-paths)
 
 :::
 
@@ -135,7 +101,8 @@ sh -c "$(curl -fsSL get.zshell.dev)" -- -a zunit
 
 ```shell showLineNumbers
 typeset -Ag ZI
-typeset -gx ZI[HOME_DIR]="${HOME}/.zi" ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
+typeset -gx ZI[HOME_DIR]="${HOME}/.zi"
+typeset -gx ZI[BIN_DIR]="${HOME}/.zi/bin"
 command mkdir -p "$ZI[BIN_DIR]"
 ```
 
@@ -174,8 +141,8 @@ autoload -Uz _zi
 
 全新安装后，建议使用以下命令重新加载 shell 并重新编译 Zi：
 
--   <kbd>exec zsh -il</kbd>
--   <kbd>zi self-update</kbd>
+- <kbd>exec zsh -il</kbd>
+- <kbd>zi self-update</kbd>
 
 运行 <kbd>zi -h</kbd> 获取可用命令或 [探索][collection-page] wiki 去 [扩展][ecosystem-page], [自定义][customization-page] 和 [创建插件][zsh-plugin-standard] <Emoji symbol="👍" label="thumbs-up"/> <Emoji symbol="🎉" label="party-popper"/>。
 
@@ -205,8 +172,8 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 
 如果您创建使用 Zi 的 Docker 映像，请在 shell 开始交互之前安装 Turbo-loaded 插件，以 <kbd>@zi-scheduler</kbd> 这样的方式使用函数：
 
--   无需等待提示即可安装插件（i.e，对脚本友好）。
--   立即安装所有插件，无需考虑 <kbd>wait</kbd> 参数。
+- 无需等待提示即可安装插件（i.e，对脚本友好）。
+- 立即安装所有插件，无需考虑 <kbd>wait</kbd> 参数。
 
 为此，请使用 burst 参数并调用 <kbd>@zi-scheduler</kbd> 函数：
 
@@ -214,15 +181,15 @@ docker run --rm -it ghcr.io/z-shell/zd:latest
 RUN zsh -i -c -- '@zi-scheduler burst || true'
 ```
 
-> -   示例： [Dockerfile][dockerfile]
-> -   实操： [Playground][playground]
+> - 示例： [Dockerfile][dockerfile]
+> - 实操： [Playground][playground]
 
 ## <i class="fas fa-cog fa-pulse"></i> Zi 模块：zpmod {#zi-module}
 
 该模块以透明方式自动编译源脚本，并列出所有源文件，在左侧标明 `source` 耗时（以毫秒为单位）。
 
--   [⚙️ Wiki: zpmod][zpmod-page]
--   [📦 Source: zpmod][z-shell/zpmod]
+- [⚙️ Wiki: zpmod][zpmod-page]
+- [📦 Source: zpmod][z-shell/zpmod]
 
 ## <i class="fas fa-sync-alt fa-spin"></i> 可用链接 {#available-links}
 
@@ -251,31 +218,19 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 <!-- links -->
 
 [zpmod-page]: /ecosystem/plugins/zsh-modules#-z-shellzpmod
-
 [customization-page]: /docs/guides/customization
-
 [ecosystem-page]: /ecosystem
-
 [collection-page]: /community/category/-collection
-
 [zsh-plugin-standard]: /community/zsh_plugin_standard
 
 <!-- external -->
 
 [checksum-txt]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt
-
 [completion-system]: https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Use-of-compinit
-
 [discuss]: https://github.com/orgs/z-shell/discussions/new
-
 [dockerfile]: https://github.com/robobenklein/configs/blob/master/Dockerfile
-
 [issue]: https://github.com/z-shell/zi/issues/new/choose
-
 [playground]: https://github.com/z-shell/playground
-
 [status]: https://status.zshell.dev
-
 [help-translate]: https://digitalclouds.crowdin.com/z-shell
-
 [z-shell/zpmod]: https://github.com/z-shell/zpmod
