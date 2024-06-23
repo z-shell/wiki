@@ -9,7 +9,7 @@ runs:
     - name: ⎔ Setup node
       uses: actions/setup-node@v4.0.1
       with:
-        node-version: 'lts/*'
+        node-version: "lts/*"
         cache: "pnpm"
     - name: 🏗 Prepare
       shell: bash

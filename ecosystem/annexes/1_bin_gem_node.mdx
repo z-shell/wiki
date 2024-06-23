@@ -29,9 +29,9 @@ An annex provides the following functionality:
 5. Create the so-called `shims` known from [rbenv][rbenv/rbenv] – the same feature as the first item of this enumeration – of running a program without adding anything to `$PATH` with all of the above features, however through an automatic **script** created in `$ZPFX/bin`, not a **function** (the first item uses a function-based mechanism),
 6. Automatic updates of Ruby gems and Node modules during regular plugin and snippet updates with `zi update …`.
 
-The [sbin](#sbin-1) ice-modifier that creates forwarder-scripts instead of forwarder-functions created by the [fbin](#fbin-1) ice-modifier turned out to be the proper, best method for exposing binary programs and scripts. This way there is no need to add anything to `$PATH` – `z-a-bin-gem-node` will automatically create a function that will wrap the binary and provide it on the command line as if it was being placed in the `$PATH`.
+The [sbin](#sbin-1) ice-modifier that creates forwarder-scripts instead of forwarder-functions created by the [fbin](#fbin-2) ice-modifier turned out to be the proper, best method for exposing binary programs and scripts. This way there is no need to add anything to `$PATH` – `z-a-bin-gem-node` will automatically create a function that will wrap the binary and provide it on the command line as if it was being placed in the `$PATH`.
 
-As previously mentioned, the function can automatically export `$GEM_HOME`, `$NODE_PATH`, `$VIRTUALENV` shell variables and also automatically cd into the plugin or snippet directory right before executing the binary and then cd back to the original directory after the execution is finished. As previously mentioned, instead of the function an automatically created script – the so-called `shim` – can be used for the same purpose and with the same functionality, so that the command is accessible practically fully normally – not only in the live Zsh session, only within which the functions created by [fbin](#fbin-1) exist, but also from any Zsh script.
+As previously mentioned, the function can automatically export `$GEM_HOME`, `$NODE_PATH`, `$VIRTUALENV` shell variables and also automatically cd into the plugin or snippet directory right before executing the binary and then cd back to the original directory after the execution is finished. As previously mentioned, instead of the function an automatically created script – the so-called `shim` – can be used for the same purpose and with the same functionality, so that the command is accessible practically fully normally – not only in the live Zsh session, only within which the functions created by [fbin](#fbin-2) exist, but also from any Zsh script.
 
 Suppose that we want to install the `junegunn/fzf` plugin from GitHub Releases, which contains only a single file – the `fzf` binary for the selected architecture. It is possible to do it in the standard way – by adding the plugin's directory to the `$PATH`.
 
@@ -81,7 +81,7 @@ Running the script will forward the call to the program accessed through an embe
 | [pip](#pip-5)   | Installs and updates python packages into a `virtualenv` + creates functions for binaries of the packages. |
 | [fmod](#fmod-6) | Creates wrapping functions for other functions.                                                            |
 | [fsrc](#fsrc-7) | Creates functions that source given scripts.                                                               |
-| [ferc](#ferc-8) | The same as [fsrc](#fscr-7), but using an alternate script-loading method.                                 |
+| [ferc](#ferc-8) | The same as [fsrc](#fsrc-7), but using an alternate script-loading method.                                 |
 
 ```mdx-code-block
 </APITable>
@@ -417,7 +417,7 @@ README.md
 
 :::
 
-## `FSCR'…'` {#fscr-7}
+## `FSRC'…'` {#fsrc-7}
 
 ```shell
 fsrc'[{g|n|c|N|E|O}:]{path-to-script}[ -> {name-of-the-function}]; …'
@@ -432,7 +432,7 @@ ferc'[{g|n|c|N|E|O}:]{path-to-script}[ -> {name-of-the-function}]; …'
 Creates a wrapper function that at each invocation sources the given file. The second ice, `FERC'…'` works the same with the single difference that it uses `eval "$(<{path-to-script})"` instead of `source "{path-to-script}"` to load the script.
 
 <Tabs className='player-tabs'>
-  <TabItem value='fscr-ferc-player' label='Player' default>
+  <TabItem value='fsrc-ferc-player' label='Player' default>
     <Player
       src='https://asciinema.org/a/513308.cast'
       rows={26}

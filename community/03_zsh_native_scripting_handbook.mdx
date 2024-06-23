@@ -134,7 +134,7 @@ local needle="?" required_preceding='[[:space:]]#'
 [[ "$(svn status)" = *((#s)|$nl)${~required_preceding}${needle}* ]] && echo found
 ```
 
-It does a single fork (called` svn` status). The `${~variable}` means (the`~` init): "the variable is holding a pattern, interpret it". All in all, instead of regular expressions we were using patterns (globs) (see [this section](#built-in-regular-expressions-engine)).
+It does a single fork (called` svn` status). The `${~variable}` means (the`~` init): "the variable is holding a pattern, interpret it". All in all, instead of regular expressions we were using patterns (globs) (see [this section](#using-built-in-regular-expressions-engine)).
 
 ### Pattern matching in AND-fashion
 
