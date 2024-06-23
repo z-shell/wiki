@@ -1,22 +1,22 @@
 {
   "version.label": {
-    "message": "下一页",
+    "message": "下一頁",
     "description": "The label for version current"
   },
   "sidebar.SideBar.category.📖 Zsh User's Guide": {
-    "message": "📖 Zsh 用户指南",
+    "message": "📖 Zsh User's Guide",
     "description": "The label for category 📖 Zsh User's Guide in sidebar SideBar"
   },
   "sidebar.SideBar.category.🎯 Roadmap": {
-    "message": "🎯 开发路线图",
+    "message": "🎯 Roadmap",
     "description": "The label for category 🎯 Roadmap in sidebar SideBar"
   },
   "sidebar.SideBar.category.✨ Gallery of Invocations": {
-    "message": "✨ 调用库",
+    "message": "✨ Gallery of Invocations",
     "description": "The label for category ✨ Gallery of Invocations in sidebar SideBar"
   },
   "sidebar.SideBar.category.✨ Collection": {
-    "message": "✨ 集合",
+    "message": "✨ Collection",
     "description": "The label for category ✨ Collection in sidebar SideBar"
   }
 }
