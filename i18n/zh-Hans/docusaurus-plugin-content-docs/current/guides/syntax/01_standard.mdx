@@ -19,45 +19,45 @@ import APITable from "@site/src/components/APITable";
 
 ## <i class="fas fa-circle-info"></i> Introduction
 
-Zi provides two syntax types for structured statements or expressions:
+Zi 为结构化语句或表达式提供了两种语法类型：
 
 -   Standard syntax
 -   The ["For"][for-syntax] syntax
 
-It is up to the user which syntax to use, but it is highly recommended to familiarize yourself with both of them. In this example, we will use an empty repository [z-shell/0](https://github.com/z-shell/0) to practice the basics of the standard syntax.
+用户可以自行决定使用哪种语法，但强烈建议熟悉这两种语法。 在本例中，我们将使用一个空存储库 [z-shell/0](https://github.com/z-shell/0) 来练习标准语法的基础知识。
 
--   Execute the following command in your terminal:
+-   在终端中执行下列命令：
 
 ```shell
 zi load z-shell/0
 ```
 
-Successfully installed the Zsh plugin which usually contains all the setup instructions as described in the [Zsh plugin standard](https://wiki.zshell.dev/community/zsh_plugin_standard).
+成功安装 Zsh 插件，该插件通常包含 [Zsh 插件标准](https://wiki.zshell.dev/community/zsh_plugin_standard) 中描述的所有设置说明。
 
-A snippet is a single file with a portion of reusable source code, machine code, or text and requires a full path or URL to the file.
+代码片段是一个带有可重用源代码一部分的单一文件。 机器代码或文本，需要文件的完整路径或 URL。
 
-> -   Execute the following command in your terminal:
+> -   在终端中执行下列命令：
 
 ```shell
 zi snippet https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/snippets/welcome.zsh
 ```
 
-Success! But not always everything is so easy and simple, also sometimes we want certain things to happen at certain times or conditions. This can be achieved using [ice-modifiers][ice-mods].
+Success! 但并不总是一切都那么容易和简单，有时我们也希望某些事情在特定的时间或条件下发生。 This can be achieved using [ice-modifiers][ice-mods].
 
-The top line contains ice-modifiers, and the bottom line is the plugin.
+顶部行包含 ice - modifiers ，而底部行是插件。
 
-> -   Execute the following commands in your terminal:
+> -   在终端中执行下列命令：
 
 ```shell showLineNumbers
 zi ice id-as'zsh/plugin' atinit'print "Hello World!"'
 zi load z-shell/0
 ```
 
-This registered the plugin under the [plugin ID](#id-as) `zsh/plugin` instead of `z-shell/0`. This will work as expected e.g. `zi update zsh/plugin`, `zi remove zsh/plugin`, etc. The "Hello World!" printed before loading the plugin
+这将在 [插件 ID](#id-as)`zsh/plugin`，而不是 `z-shell/0` 下注册插件。 这将按预期工作，例如， `zi update zsh/plugin`， ` zi remove zsh/plugin`，等等。 The "Hello World!" printed before loading the plugin
 
-Let's install again with more ice-modifiers.
+请使用更多的 ice - modifiers 重新安装。
 
-> -   Execute the following commands in your terminal:
+> -   在终端中执行下列命令：
 
 ```shell showLineNumbers
 zi ice id-as'final/countdown' \
