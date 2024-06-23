@@ -12,40 +12,6 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import Link from "@docusaurus/Link";
 
-## <i class="fas fa-spinner fa-spin"></i> Quick setup {#quick-setup}
-
-Place the following snippet to the <kbd>.zshrc</kbd> file:
-
-<Tabs>
-  <TabItem value="instant-source" label="Instant" default>
-
-```shell title="~/.zshrc"
-source <(curl -sL init.zshell.dev); zzinit
-```
-
-  </TabItem>
-  <TabItem value="verified-source" label="Verified">
-
-:::caution
-
-This setup method requires manually verifying the sha256 [checksum][checksum-txt] for a file <kbd>lib/zsh/init.zsh</kbd> every time the content is changed in the repository.
-
-:::
-
-```shell showLineNumbers title="~/.zshrc"
-local cs_ok='7fab1ecb8d2ffbdb4aa98dd1e51cebaeaa4d8137e1de11938f3e0df24af262bb'
-local cs_get=$(sha256sum <(curl -sL init.zshell.dev) | awk '{print $1}')
-[[ $cs_ok == $cs_get ]] && { source <(curl -sL init.zshell.dev); zzinit; } || {
-  print -P "%F{160}▓▒░ Houston, we have a problem, the %F{226}$cs_get%F{160} do not match\!%f%b"; return 1
-}
-unset cs_ok cs_get
-```
-
-  </TabItem>
-</Tabs>
-
-Reload the shell with <kbd>exec zsh -il</kbd> and run <kbd>zi -h</kbd> for usage information.
-
 ## <i class="fas fa-spinner fa-spin"></i> Automated setup {#automated-setup}
 
 :::tip
@@ -135,7 +101,8 @@ Set up the install location and create a directory:
 
 ```shell showLineNumbers
 typeset -Ag ZI
-typeset -gx ZI[HOME_DIR]="${HOME}/.zi" ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
+typeset -gx ZI[HOME_DIR]="${HOME}/.zi"
+typeset -gx ZI[BIN_DIR]="${HOME}/.zi/bin"
 command mkdir -p "$ZI[BIN_DIR]"
 ```
 
