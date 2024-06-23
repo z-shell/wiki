@@ -19,7 +19,7 @@ The <strong>ice</strong> is something that melts in a drink, though in Zi syntax
 
 :::
 
-An ice-modifiers are [passed][alternate-syntax] to `zi ice …` to obtain described effects, additionally can be added with [annexes][12]. To see all available ice-modifiers run `zi icemods`.
+An ice-modifiers are [passed][zi-syntax] to `zi ice …` to obtain described effects, additionally can be added with [annexes][12]. To see all available ice-modifiers run `zi icemods`.
 
 いくつかのice 修飾子はハイライト表示されており、クリックすると該当するWikiページに移動し、詳しい説明が表示されます。 特に明記されていない限り、与えられたiceはプラグインとスニペットの両方で機能すると考えていただいて結構です。
 
@@ -186,14 +186,23 @@ An ice-modifiers are [passed][alternate-syntax] to `zi ice …` to obtain descri
 <!-- footnotes -->
 
 [^1]: This pattern will alphabetically match and choose the first file e.g: `zi ice pick"*.plugin.zsh"; zi load …`.
+
 [^2]: Example: `multisrc'misc.zsh grep.zsh'` and also using brace-expansion syntax: `multisrc'{misc,grep}.zsh'` also supports patterns.
+
 [^3]: For `wait'[[ … ]]'`, `wait'(( … ))'`, loading is done when given condition is meet. For `wait'!…'`, the prompt is reset after load. Zsh can start 80% (i.e.: 5x) faster thanks to postponed loading. **Fact:** when `wait` is used without a value, it works as `wait'0'`.
+
 [^4]: It will load once, the condition can be still true, but will not trigger the second load, unless the plugin is unloaded earlier, see `unload`. E.g.: `load'[[ $PWD = */github* ]]'`.
+
 [^5]: It will unload once, then only if loaded again e.g: `unload'[[ $PWD != */github* ]]'`.
+
 [^6]: Example: `zi ice if'[[ -n "$commands[otool]" ]]'; zi load …` or `zi ice if'[[ $OSTYPE = darwin* ]]'; zi load …`.
+
 [^7]: To use the option, precede the ice content with `!` to automatically forward the call afterward, to a command of the same name as the function. Can obtain multiple functions to create – separate with `;`.
+
 [^8]: The third possible value is `as"null"` – a shorthand for `pick"/dev/null" nocompletions` – i.e.: it disables the default script-file sourcing and also the installation of completions.
+
 [^9]: In summary, `wrap` allows to extend the investigating beyond the moment of loading of a plugin. An example use is to `wrap` a precmd function of a prompt (like `_p9k_precmd()` of powerlevel10k) or other plugins that _postpones its initialization till the first prompt_ (like e.g.: zsh-autosuggestions). **Does not work with snippets.**
+
 [^10]: If it has no value, then it works in the _auto_ mode – it automatically extracts all files of known archive extensions IF they aren't located deeper than in a sub-directory (this is to prevent extraction of some helper archive files, typically located somewhere deeper in the tree). If no such files will be found, then it extracts all found files of known **type** – the type is being read by the `file` Unix command. If not empty, then takes the names of the files to extract. Refer to the Wiki page for further information.
 
 <!-- end-of-file -->
@@ -204,12 +213,12 @@ An ice-modifiers are [passed][alternate-syntax] to `zi ice …` to obtain descri
 [9]: /docs/guides/syntax/standard#wrap
 [10]: /docs/guides/syntax/standard#extract
 [12]: /ecosystem/annexes/overview
-[alternate-syntax]: /docs/guides/syntax/standard#the-alternative-syntaxes
+[zi-syntax]: /docs/category/%EF%B8%8F-syntax
 [1]: /docs/guides/syntax/standard#src-pick-multisrc
 [2]: /docs/guides/syntax/standard#wait
 [3]: /docs/guides/customization#multiple-prompts
 [4]: /docs/guides/syntax/standard#atclone-atpull-atinit-atload
-[5]: /docs/guides/syntax/standard#the-make-syntax
+[5]: /docs/guides/syntax/standard#utilizing-make
 [6]: /docs/guides/syntax/standard#id-as
 
 <!-- external -->
