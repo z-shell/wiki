@@ -55,12 +55,12 @@ Example `zprof` report:
 
 The first column is the time in milliseconds:
 
--   It denotes the amount of time spent in a function in total
--   For example, `--zi-shadow-autoload` consumed 10.71 ms of the execution time
+- It denotes the amount of time spent in a function in total
+- For example, `--zi-shadow-autoload` consumed 10.71 ms of the execution time
 
 The fourth column is also a time in milliseconds, but it denotes the amount of time spent on executing only of function's **own code**, it doesn't count the time spent in **descendant functions** that is called from the function:
 
--   For example, `--zi-shadow-autoload` spent 8.71 ms on executing only its code
+- For example, `--zi-shadow-autoload` spent 8.71 ms on executing only its code
 
 The table is sorted in the **self-time** column.
 

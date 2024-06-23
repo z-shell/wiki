@@ -59,8 +59,8 @@ zi for as"null" wait"2" lucid from"gh-r" \
 
 :::note
 
--   `sbin'…'` is an [ice][3] added by the [bin-gem-node][4] [annex][5], it provides the command to the command line without altering `$PATH`.
--   If the name of the command is the same as the name of the plugin, the ice contents can be skipped.
+- `sbin'…'` is an [ice][3] added by the [bin-gem-node][4] [annex][5], it provides the command to the command line without altering `$PATH`.
+- If the name of the command is the same as the name of the plugin, the ice contents can be skipped.
 
 :::
 
@@ -97,16 +97,16 @@ zi wait lucid light-mode for \
 <APITable>
 ```
 
-| Syntax       | Description                                                                                  |
-| ------------ | :------------------------------------------------------------------------------------------- |
+| Syntax       | Description                                                                                                                        |
+| ------------ | :--------------------------------------------------------------------------------------------------------------------------------- |
 | `wait`       | Load 0 seconds (about 5 ms exactly) after prompt ([turbo mode][6]).                          |
-| `lucid`      | Silence the under-prompt messages ("`Loaded {name of the plugin}`").                         |
-| `light-mode` | Load the plugin in `light` mode. [^1].                                                       |
-| `atpull'…'`  | Execute after updating the plugin – the command in the ice will install any new completions. |
-| `atinit'…'`  | Execute code before loading plugin.                                                          |
-| `atload'…'`  | Execute code after loading the plugin.                                                       |
-| `zicompinit` | Equals to `autoload compinit; compinit`.                                                     |
-| `zicdreplay` | Execute `compdef …` calls by plugins. More below [^2].                                       |
+| `lucid`      | Silence the under-prompt messages ("`Loaded {name of the plugin}`").                                            |
+| `light-mode` | Load the plugin in `light` mode. [^1].                                                                                             |
+| `atpull'…'`  | Execute after updating the plugin – the command in the ice will install any new completions.                                       |
+| `atinit'…'`  | Execute code before loading plugin.                                                                                                |
+| `atload'…'`  | Execute code after loading the plugin.                                                                                             |
+| `zicompinit` | Equals to `autoload compinit; compinit`.                                                                                           |
+| `zicdreplay` | Execute `compdef …` calls by plugins. More below [^2].                                                                             |
 
 ```mdx-code-block
 </APITable>
@@ -181,9 +181,9 @@ zi wait lucid for \
 
 **E, F, G** - Some plugins:
 
-1.  syntax-highlighting, loaded possibly early for a better user experience).
-2.  example functional plugin.
-3.  docker completion.
+1. syntax-highlighting, loaded possibly early for a better user experience).
+2. example functional plugin.
+3. docker completion.
 
 :::
 
@@ -240,27 +240,17 @@ However, in practice, you just have to ensure that such plugin is loaded after p
 <!-- links -->
 
 [1]: /search/?q=GH-R
-
 [2]: /search/?q=git+ext
-
 [3]: /search/?q=ice
-
 [4]: /search/?q=bin+gem+node
-
 [5]: /search/?q=annex
-
 [6]: /search/?q=turbo+mode
-
 [7]: /search/?q=oh+my+zsh
-
 [8]: /search/?q=snippets
-
 [standard-syntax]: /docs/guides/syntax/standard
-
 [src-pick-multisrc]: /docs/guides/syntax/standard#src-pick-multisrc
 
 <!-- external -->
 
 [11]: https://github.com/z-shell/F-Sy-H
-
 [12]: https://github.com/zsh-users/zsh-syntax-highlighting

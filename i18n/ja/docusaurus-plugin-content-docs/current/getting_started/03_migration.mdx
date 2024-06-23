@@ -115,9 +115,9 @@ zi is-snippet wait lucid for \
 
 Use `zi ice svn` if multiple files require an entire subdirectory.
 
--   [gitfast][omz/gitfast]
--   [osx][omz/osx]
--   [history-substring-search][omz/history-substring-search]
+- [gitfast][omz/gitfast]
+- [osx][omz/osx]
+- [history-substring-search][omz/history-substring-search]
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice svn
@@ -132,9 +132,9 @@ zi snippet OMZP::history-substring-search
 
 Use `zi ice as"completion"` to directly add single file completion snippets.
 
--   [docker][omz/docker]
--   [fd][omz/fd]
--   [ag][omz/ag]
+- [docker][omz/docker]
+- [fd][omz/fd]
+- [ag][omz/ag]
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice as"completion"
@@ -161,10 +161,10 @@ To use **themes** created for OMZ requires loading shown below as it would be th
 
 > テーマによっては、追加の設定が必要な場合があります。それは、テーマ設定ファイルから判断できます。
 
--   Load `git` library
--   Load the `git` plugin
--   ライブラリの依存関係を読み込む
--   Enable `setopt prompt_subst`
+- Load `git` library
+- Load the `git` plugin
+- ライブラリの依存関係を読み込む
+- Enable `setopt prompt_subst`
 
 上記のうち1つでも欠けていたり、順番が違っていたりすると、以下のようにテーマが壊れます。
 
@@ -181,9 +181,9 @@ If the `Git` library is not loaded or loaded in the wrong order, then it may app
 
 テーマで問題が発生した場合、OMZサポートライブラリを読み込む必要があります。
 
--   If your theme isn't colored when it should, you will want to load `theme-and-appearance.zsh`
+- If your theme isn't colored when it should, you will want to load `theme-and-appearance.zsh`
 
--   次のようなエラーメッセージが表示された場合:
+- 次のようなエラーメッセージが表示された場合:
 
 ```shell showLineNumbers
 zsh: command not found: ruby_prompt_info
@@ -329,8 +329,8 @@ Preztoモジュール:
 
 Use `zi ice svn` if multiple files require an entire subdirectory.
 
--   [docker](https://github.com/sorin-ionescu/prezto/tree/master/modules/docker/README.md)
--   [git](https://github.com/sorin-ionescu/prezto/tree/master/modules/git/README.md)
+- [docker](https://github.com/sorin-ionescu/prezto/tree/master/modules/docker/README.md)
+- [git](https://github.com/sorin-ionescu/prezto/tree/master/modules/git/README.md)
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice svn
@@ -342,7 +342,7 @@ zi snippet PZTM::git
 
 Use `zi ice as"null"` no `*.plugin.zsh`, `init.zsh`, `*.zsh-theme*` files exist in module directory.
 
--   [archive](https://github.com/sorin-ionescu/prezto/tree/master/modules/archive/README.md):
+- [archive](https://github.com/sorin-ionescu/prezto/tree/master/modules/archive/README.md):
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice svn as"null"
@@ -351,7 +351,7 @@ zi snippet PZTM::archive
 
 Use `zi ice atclone"git clone <repo> <location>"` if module have external module.
 
--   [completion](https://github.com/sorin-ionescu/prezto/tree/master/modules/completion/README.md):
+- [completion](https://github.com/sorin-ionescu/prezto/tree/master/modules/completion/README.md):
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice svn blockf \
@@ -365,8 +365,8 @@ Use `blockf` to prevent any unnecessary additions to `fpath`, as Zi manages `fpa
 
 What is `zstyle`?
 
--   Official (zsh.sourceforge.net): [zsh/zutil](https://zsh.sourceforge.net/Doc/Release/Zsh-Modules.html#The-zsh_002fzutil-Module)
--   StackExchange: [What does `zstyle` do?][about-zstyle]
+- Official (zsh.sourceforge.net): [zsh/zutil](https://zsh.sourceforge.net/Doc/Release/Zsh-Modules.html#The-zsh_002fzutil-Module)
+- StackExchange: [What does `zstyle` do?][about-zstyle]
 
 :::
 
@@ -433,21 +433,21 @@ For the `location`: refer <Link to="/docs/guides/syntax/standard#src-pick-multis
 
 ### タグの比較
 
--   `as` => `as`
--   `use` => `pick`, `src`, `multisrc`
--   `ignore` => None
--   `from` => `from`
--   `at` => `ver`
--   `rename-to` => `mv`, `cp`
--   `dir` => Selection(`pick`, …) with rename
--   `if` => `if`
--   `hook-build` => `atclone`, `atpull`
--   `hook-load` => `atload`
--   `frozen` => None
--   `on` => None
--   `defer` => `wait`
--   `lazy` => `autoload`
--   `depth` => `depth`
+- `as` => `as`
+- `use` => `pick`, `src`, `multisrc`
+- `ignore` => None
+- `from` => `from`
+- `at` => `ver`
+- `rename-to` => `mv`, `cp`
+- `dir` => Selection(`pick`, …) with rename
+- `if` => `if`
+- `hook-build` => `atclone`, `atpull`
+- `hook-load` => `atload`
+- `frozen` => None
+- `on` => None
+- `defer` => `wait`
+- `lazy` => `autoload`
+- `depth` => `depth`
 
 <!-- end-of-file -->
 
@@ -456,21 +456,12 @@ For the `location`: refer <Link to="/docs/guides/syntax/standard#src-pick-multis
 <!-- external -->
 
 [about-zstyle]: https://unix.stackexchange.com/questions/214657/what-does-zstyle-do
-
 [nicosantangelo/alpharized]: https://github.com/nicosantangelo/Alpharized
-
 [omz/ag]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ag
-
 [omz/clipboard]: https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
-
 [omz/docker]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
-
 [omz/fd]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fd
-
 [omz/gitfast]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/gitfast
-
 [omz/history-substring-search]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/history-substring-search
-
 [omz/osx]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/macos
-
 [omz/termsupport]: https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh

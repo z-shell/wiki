@@ -21,12 +21,12 @@ import APITable from "@site/src/components/APITable";
 
 Ziは、構造化された文・式に対して2つの構文タイプを提供します。
 
--   標準構文
--   The ["For"][for-syntax] syntax
+- 標準構文
+- The ["For"][for-syntax] syntax
 
 どちらの構文を使うかはユーザー次第ですが、両方の構文に慣れることを強くお勧めします。 In this example, we will use an empty repository [z-shell/0](https://github.com/z-shell/0) to practice the basics of the standard syntax.
 
--   ターミナルで以下のコマンドを実行します。
+- ターミナルで以下のコマンドを実行します。
 
 ```shell
 zi load z-shell/0
@@ -36,7 +36,7 @@ Successfully installed the Zsh plugin which usually contains all the setup instr
 
 スニペットは、再利用可能なソースコード、マシンコード、またはテキストの一部を含む単一のファイルで、ファイルへのフルパスまたはURLが必要です。
 
-> -   ターミナルで以下のコマンドを実行します。
+> - ターミナルで以下のコマンドを実行します。
 
 ```shell
 zi snippet https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/snippets/welcome.zsh
@@ -46,7 +46,7 @@ zi snippet https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/snippet
 
 上の行には ice 修飾子が含まれており、下の行でプラグインを読み込んでいます。
 
-> -   ターミナルで以下のコマンドを実行します。
+> - ターミナルで以下のコマンドを実行します。
 
 ```shell showLineNumbers
 zi ice id-as'zsh/plugin' atinit'print "Hello World!"'
@@ -57,7 +57,7 @@ This registered the plugin under the [plugin ID](#id-as) `zsh/plugin` instead of
 
 Ice-modifierを増やしてもう一度インストールしましょう。
 
-> -   ターミナルで以下のコマンドを実行します。
+> - ターミナルで以下のコマンドを実行します。
 
 ```shell showLineNumbers
 zi ice id-as'final/countdown' \
@@ -88,10 +88,10 @@ zi load z-shell/0
 
 ### <i class="fa-solid fa-list"></i> A few remarks {#a-few-remarks}
 
--   The syntax automatically detects if the object is a snippet or a plugin, by checking if the object is an URL, i.e.: if it starts with `http*://` or `OMZ::`, etc.
--   To load a local-file snippet (which will be treated as a local-directory plugin by default) use the `is-snippet` ice,
--   To load a plugin in `light` mode use the `light-mode` ice.
--   If the plugin name collides with an ice name, precede the plugin name with `@`, e.g.: `@sharkdp/fd` (collides with the `sh` ice, ZI will take the plugin name as `sh"arkdp/fd"`), see the next section for an example.
+- The syntax automatically detects if the object is a snippet or a plugin, by checking if the object is an URL, i.e.: if it starts with `http*://` or `OMZ::`, etc.
+- To load a local-file snippet (which will be treated as a local-directory plugin by default) use the `is-snippet` ice,
+- To load a plugin in `light` mode use the `light-mode` ice.
+- If the plugin name collides with an ice name, precede the plugin name with `@`, e.g.: `@sharkdp/fd` (collides with the `sh` ice, ZI will take the plugin name as `sh"arkdp/fd"`), see the next section for an example.
 
 ### <i class="fa-solid fa-list"></i> Syntax alternatives {#syntax-alternatives}
 
@@ -143,13 +143,13 @@ zi light tj/git-extras
 
 The `Makefile` of the project above has only 2 tasks:
 
-1.  Install the target.
-2.  Build scripts that are required for installation.
+1. Install the target.
+2. Build scripts that are required for installation.
 
 The `Makefile` with 2 tasks, can use:
 
-1.  `make"all install PREFIX=…"`,
-2.  `pick'…'` will `chmod +x` all matching files and add `$ZPFX/bin/` to `$PATH`.
+1. `make"all install PREFIX=…"`,
+2. `pick'…'` will `chmod +x` all matching files and add `$ZPFX/bin/` to `$PATH`.
 
 ### <i class="fa-solid fa-arrows-to-dot"></i> Compiling programs {#compiling-programs}
 
@@ -163,13 +163,13 @@ zi light vim/vim
 <APITable>
 ```
 
-| 構文                 | 説明                                                                                        |
-| ------------------ | :---------------------------------------------------------------------------------------- |
-| `as'program'`      | Add file selected by `pick'…'` to `$PATH`, and do not source it.                          |
-| `atclone'…'`       | ダウンロード後、任意のコマンドを実行する。                                                                     |
-| `atpull'%atclone'` | Execute the same code `atclone'…'` is given, but after successful update.                 |
+| 構文                 | 説明                                                                                                           |
+| ------------------ | :----------------------------------------------------------------------------------------------------------- |
+| `as'program'`      | Add file selected by `pick'…'` to `$PATH`, and do not source it.                                             |
+| `atclone'…'`       | ダウンロード後、任意のコマンドを実行する。                                                                                        |
+| `atpull'%atclone'` | Execute the same code `atclone'…'` is given, but after successful update.                                    |
 | `make`             | Run `make` after `atclone'…'` and `atpull'…'` (note: `make'!'` will execute before them). |
-| `pick'src/vim'`    | Set the executable flag on `src/vim`, hint that `src/` should be added to `$PATH`.        |
+| `pick'src/vim'`    | Set the executable flag on `src/vim`, hint that `src/` should be added to `$PATH`.                           |
 
 ```mdx-code-block
 </APITable>
@@ -238,8 +238,8 @@ zi ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
 zi light direnv/direnv
 ```
 
--   `make'!'` – execute `make` before `atclone'…'` and before `atpull'…'` (see `make` above),
--   `src'zhook.zsh'` – source file `zhook.zsh`.
+- `make'!'` – execute `make` before `atclone'…'` and before `atpull'…'` (see `make` above),
+- `src'zhook.zsh'` – source file `zhook.zsh`.
 
 In general, `direnv` works by hooking up to Zsh. The code that does this is provided by the program `direnv` (built by `make'…'`).
 
@@ -305,11 +305,11 @@ Automatic mode:
 
 It is active if the ice is empty (or contains only flags). It works as follows:
 
-1.  At first, a recursive search for files of known [file extensions](#supported-file-formats) located not deeper than in a sub-directory is being performed. All such found files are then extracted.
-    -   The directory-level limit is to skip extraction of some helper archive files, which are typically located somewhere deeper in the directory tree.
-2.  **If** no such files will be found, then a recursive search for files of known archive **types** will be performed. This is done by running the `file` Unix command on each file in the plugin or snippet directory and then grepping the output for strings like `Zip`, `bzip2`, etc. All such discovered files are then extracted.
-    -   The directory-level requirement is imposed during this stage. The files located deeper than in a sub-directory are omitted.
-3.  If no archive files will be discovered then no action is being performed and also no warning message is being printed.
+1. At first, a recursive search for files of known [file extensions](#supported-file-formats) located not deeper than in a sub-directory is being performed. All such found files are then extracted.
+   - The directory-level limit is to skip extraction of some helper archive files, which are typically located somewhere deeper in the directory tree.
+2. **If** no such files will be found, then a recursive search for files of known archive **types** will be performed. This is done by running the `file` Unix command on each file in the plugin or snippet directory and then grepping the output for strings like `Zip`, `bzip2`, etc. All such discovered files are then extracted.
+   - The directory-level requirement is imposed during this stage. The files located deeper than in a sub-directory are omitted.
+3. If no archive files will be discovered then no action is being performed and also no warning message is being printed.
 
 Fixed mode:
 
@@ -325,10 +325,10 @@ Flags:
 
 The value of the ice can begin with two special characters:
 
-1.  Exclamation mark (`!`), i.e.: `extract='!…'` – it'll cause the files to be moved one directory level up upon unpacking,
-2.  Two exclamation marks (`!!`), i.e.: `extract='!!…'` – it'll cause the files to be moved two directory-level up upon unpacking,
-3.  Dash (`-`), i.e.: `extract'-…'` – it'll prevent removal of the archive after unpacking.
-    -   This flag allows comparing timestamps with the server in case of snippet-downloaded file – it will prevent unnecessary downloads during `zi update`, as the timestamp of the archive file on the disk will be first compared with the HTTP last-modification time header.
+1. Exclamation mark (`!`), i.e.: `extract='!…'` – it'll cause the files to be moved one directory level up upon unpacking,
+2. Two exclamation marks (`!!`), i.e.: `extract='!!…'` – it'll cause the files to be moved two directory-level up upon unpacking,
+3. Dash (`-`), i.e.: `extract'-…'` – it'll prevent removal of the archive after unpacking.
+   - This flag allows comparing timestamps with the server in case of snippet-downloaded file – it will prevent unnecessary downloads during `zi update`, as the timestamp of the archive file on the disk will be first compared with the HTTP last-modification time header.
 
 The flags can be combined in any order: `extract'!-'`.
 
@@ -338,11 +338,11 @@ Sometimes a more uncommon unpacking operation is needed. In such a case you can 
 
 It recognizes the following options:
 
-1.  `--auto` – runs the automatic extraction.
-2.  `--move` – performs the one-directory-level-up move of the files after unpacking.
-3.  `--move2` – performs the two-directory-level-up move of the files after unpacking.
-4.  `--norm` - prevents the archive file removal.
-5.  And also one option specific only to the function: `--nobkp`, which prevents clearing the plugin's directory before the extraction. – All files besides the archive are being moved into the `._backup` directory after extraction is done. - `extract` ice also skips creating the backup **if** more than one archive is found or given as the argument.
+1. `--auto` – runs the automatic extraction.
+2. `--move` – performs the one-directory-level-up move of the files after unpacking.
+3. `--move2` – performs the two-directory-level-up move of the files after unpacking.
+4. `--norm` - prevents the archive file removal.
+5. And also one option specific only to the function: `--nobkp`, which prevents clearing the plugin's directory before the extraction. – All files besides the archive are being moved into the `._backup` directory after extraction is done. - `extract` ice also skips creating the backup **if** more than one archive is found or given as the argument.
 
 ### <i class="fas fa-circle-info"></i> Supported file formats {#supported-file-formats}
 
@@ -441,7 +441,7 @@ zi snippet https://github.com/Osse/git-scripts/blob/master/git-unique
 
 The commands `zi update git-unique`, and `zi delete git-unique` will work as expected and e.g. `zi times` will show the _nickname_-ID `git-unique` instead of the long URL.
 
--   `id-as'auto'`:
+- `id-as'auto'`:
 
 There's a special value to the `id-as'…'` ice – `auto`. It causes the nickname to be automatically set to the last component of the plugin name or snippet URL. 例:
 
@@ -457,7 +457,7 @@ zi ice wait lucid id-as"auto"
 zi load hlissner/zsh-autopair
 ```
 
--   empty `id-as'…'`:
+- empty `id-as'…'`:
 
 An empty `id-as'…'` will work the same as `id-as'auto'` as if id-as'zsh-autopair' was passed, e.g:
 
@@ -479,22 +479,22 @@ zi ice wait'0' # もしくは単に zi ice wait
 zi light wfxr/forgit
 ```
 
--   waits for prompt,
--   instantly ("0" seconds) after prompt loads given plugin.
+- waits for prompt,
+- instantly ("0" seconds) after prompt loads given plugin.
 
 ```shell showLineNumbers
 zi ice wait'[[ -n ${ZLAST_COMMANDS[(r)cras*]} ]]'
 zi light z-shell/zi-crasis
 ```
 
--   screencast that presents the feature:
+- screencast that presents the feature:
 
 <ImgShow height='390.78' width='970' img='/img/cast/svg/crasis_01.svg' alt='Crasis example screencast' />
 
--   `$ZLAST_COMMANDS` is an array built by [F-Sy-H][z-shell-f-sy-h], it contains commands currently entered at prompt,
--   `(r)` searches for an element that matches a given pattern (`cras*`) and returns it,
--   `-n` means: not-empty, so it will be true when users enter "cras",
--   after 1 second or less, Zi will detect that the `wait'…'` condition is true, and load the plugin, which provides command _crasis_,
+- `$ZLAST_COMMANDS` is an array built by [F-Sy-H][z-shell-f-sy-h], it contains commands currently entered at prompt,
+- `(r)` searches for an element that matches a given pattern (`cras*`) and returns it,
+- `-n` means: not-empty, so it will be true when users enter "cras",
+- after 1 second or less, Zi will detect that the `wait'…'` condition is true, and load the plugin, which provides command _crasis_,
 
 ```shell showLineNumbers
 zi ice wait'[[ $PWD = */github || $PWD = */github/* ]]'
@@ -545,10 +545,10 @@ zi ice svn pick'completion.zsh' \
 zi snippet OMZ::lib
 ```
 
-|    構文       | 説明                                                                                                                                 |
-| :---------: | :--------------------------------------------------------------------------------------------------------------------------------- |
+|    構文       | 説明                                                                                                                                                    |
+| :---------: | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
 |   `svn`     | Use Subversion to clone `OMZ::lib` (the whole Oh-My-Zsh `lib/` directory). More [^3].                                              |
-| `atload'…'` | Code isn't tracked and cannot be unloaded. The `atload'…'` is executed after loading main files `pick'…'` and `src'…'`. More [^4]. |
+| `atload'…'` | Code isn't tracked and cannot be unloaded. The `atload'…'` is executed after loading main files `pick'…'` and `src'…'`. More [^4].                    |
 
 ### The `multisrc'…'` ice {#the-multisrc-ice}
 
@@ -771,31 +771,19 @@ As it can be seen, the creation of four additional Zle-widgets has been recorded
 <!-- links -->
 
 [for-syntax]: /docs/guides/syntax/for
-
 [ice-mods]: /docs/guides/syntax/ice-modifiers
-
 [exclamation]: /search?q=exclamation+mark
-
 [zpfx]: /docs/guides/customization#$ZPFX
-
 [multiple-prompts]: /docs/guides/customization#multiple-prompts
 
 <!-- external -->
 
 [trapd00r-ls_colors]: https://github.com/trapd00r/LS_COLORS
-
 [ogham-exa]: https://github.com/ogham/exa
-
 [direnv-direnv]: https://github.com/direnv/direnv
-
 [gh-releases]: https://github.com/direnv/direnv/releases/
-
 [zi-vim-syntax]: https://github.com/z-shell/zi-vim-syntax
-
 [docker-compose]: https://github.com/docker/compose
-
 [z-shell-f-sy-h]: https://github.com/z-shell/F-Sy-H
-
 [hook-functions]: https://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions
-
 [romkatv-powerlevel10k]: https://github.com/romkatv/powerlevel10k

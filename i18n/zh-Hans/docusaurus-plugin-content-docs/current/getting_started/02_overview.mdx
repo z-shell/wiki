@@ -10,10 +10,10 @@ import Link from "@docusaurus/Link";
 
 此概览包括以下内容：
 
-1.  [Oh-My-Zsh & Prezto](/search?q=Oh+My+Zsh+%26+Prezto)
-2.  [Completions](/search?q=completions)
-3.  [Turbo mode](/search?q=turbo+mode)
-4.  [Ice modifiers](/search?q=ice+modifiers)
+1. [Oh-My-Zsh & Prezto](/search?q=Oh+My+Zsh+%26+Prezto)
+2. [Completions](/search?q=completions)
+3. [Turbo mode](/search?q=turbo+mode)
+4. [Ice modifiers](/search?q=ice+modifiers)
 
 ## 加载插件和片段
 
@@ -420,7 +420,7 @@ Two prompts, each active in different directories. This technique can be used to
 
 :::note
 
--   The difference with `wait` is that `load` / `unload` are constantly active, not only till the first activation. Note that for the unloading of a plugin to work the plugin needs to be loaded with tracking, so `zi load …` and not `zi light …`.
+- The difference with `wait` is that `load` / `unload` are constantly active, not only till the first activation. Note that for the unloading of a plugin to work the plugin needs to be loaded with tracking, so `zi load …` and not `zi light …`.
 
 Tracking causes a slight slowdown, however, this doesn’t influence Zsh startup time when using turbo mode.
 
@@ -454,10 +454,10 @@ zi light sindresorhus/pure
 
 Load starship theme:
 
-> -   pick `starship` binary as a command, from the GitHub release.
-> -   setup `starship` using `atclone` and create `init.zsh` and `completion`.
-> -   the `atpull'…'` behavior same as `atclone'…'` and but is used when running `zi update`.
-> -   `src` will source `init.zsh`.
+> - pick `starship` binary as a command, from the GitHub release.
+> - setup `starship` using `atclone` and create `init.zsh` and `completion`.
+> - the `atpull'…'` behavior same as `atclone'…'` and but is used when running `zi update`.
+> - `src` will source `init.zsh`.
 
 ```shell {2} {3} title="~/.zshrc" showLineNumbers
 zi ice as"command" from"gh-r" \
@@ -506,5 +506,4 @@ Additional examples: [collection](/community/gallery/collection).
 <!-- links -->
 
 [1]: /search?q=ice+modifiers
-
 [12]: /community/zsh_plugin_standard#use-of-add-zsh-hook-to-install-hooks

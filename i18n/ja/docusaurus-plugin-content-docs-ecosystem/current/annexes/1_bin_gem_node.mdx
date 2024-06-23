@@ -19,15 +19,15 @@ import Shortcuts from "@site/src/components/Markdown/_player_shortcuts.mdx";
 
 An annex provides the following functionality:
 
-1.  Run programs and scripts without adding anything to `$PATH`,
-2.  Install: [Ruby Gems][rubygems], [Node][node], and [Python][python] modules, with automatically set:
-    -   [$GEM_HOME][gem-home]
-    -   [$NODE_PATH][node-path]
-    -   [$VIRTUALENV][virtualenv]
-3.  Run programs, scripts, and functions with automatic `cd` into the plugin or snippet directory, plus also with automatic standard output & standard error redirecting.
-4.  Source scripts through an automatically created function with the above `$GEM_HOME`, `$NODE_PATH`, `$VIRTUALENV`, and `cd` features available,
-5.  Create the so-called `shims` known from [rbenv][rbenv/rbenv] – the same feature as the first item of this enumeration – of running a program without adding anything to `$PATH` with all of the above features, however through an automatic **script** created in `$ZPFX/bin`, not a **function** (the first item uses a function-based mechanism),
-6.  Automatic updates of Ruby gems and Node modules during regular plugin and snippet updates with `zi update …`.
+1. Run programs and scripts without adding anything to `$PATH`,
+2. Install: [Ruby Gems][rubygems], [Node][node], and [Python][python] modules, with automatically set:
+   - [$GEM_HOME][gem-home]
+   - [$NODE_PATH][node-path]
+   - [$VIRTUALENV][virtualenv]
+3. Run programs, scripts, and functions with automatic `cd` into the plugin or snippet directory, plus also with automatic standard output & standard error redirecting.
+4. Source scripts through an automatically created function with the above `$GEM_HOME`, `$NODE_PATH`, `$VIRTUALENV`, and `cd` features available,
+5. Create the so-called `shims` known from [rbenv][rbenv/rbenv] – the same feature as the first item of this enumeration – of running a program without adding anything to `$PATH` with all of the above features, however through an automatic **script** created in `$ZPFX/bin`, not a **function** (the first item uses a function-based mechanism),
+6. Automatic updates of Ruby gems and Node modules during regular plugin and snippet updates with `zi update …`.
 
 The [sbin](#sbin-1) ice-modifier that creates forwarder-scripts instead of forwarder-functions created by the [fbin](#fbin-1) ice-modifier turned out to be the proper, best method for exposing binary programs and scripts. This way there is no need to add anything to `$PATH` – `z-a-bin-gem-node` will automatically create a function that will wrap the binary and provide it on the command line as if it was being placed in the `$PATH`.
 
@@ -109,8 +109,8 @@ Function wrappers for binaries, scripts, gems, node_modules, python packages, et
 
 View all currently registered:
 
--   ice-modifiers: `zi icemods`
--   subcommand: `zi subcmds`
+- ice-modifiers: `zi icemods`
+- subcommand: `zi subcmds`
 
 ## `SBIN'…'` {#sbin-1}
 
@@ -155,12 +155,12 @@ fzf "$@"
 
 :::note
 
--   as'program' (an alias: as'command') - used for the plugin to be added to $PATH when a plugin is not a file for sourcing.
+- as'program' (an alias: as'command') - used for the plugin to be added to $PATH when a plugin is not a file for sourcing.
 
 The [sbin](#sbin-1) ice-modifier can be empty, it will then try to create the shim for the trailing component of the [id-as][] ice, e.g.:
 
--   `id_as'exts/git-my'` → it'll check if a file `git-my` exists and if yes, will create the function `git-my`.
--   `paulirish/git-open` → it'll check if a file `git-open` exists and if yes, will create the function `git-open`.
+- `id_as'exts/git-my'` → it'll check if a file `git-my` exists and if yes, will create the function `git-my`.
+- `paulirish/git-open` → it'll check if a file `git-open` exists and if yes, will create the function `git-open`.
 
 The same trailing component would be set for the snippet URL, for any alphabetically first and executable file.
 
@@ -206,7 +206,7 @@ myfzf () {
 
 :::note
 
--   `nocompile` ice-modifier is used to skip file compilation when it is not required.
+- `nocompile` ice-modifier is used to skip file compilation when it is not required.
 
 :::
 
@@ -251,9 +251,9 @@ asciidoctor () {
 
 :::note
 
--   `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `asciidoctor` gem.
--   `id-as'asciidoctor'` - used to assign a name instead of the `z-shell/0`.
--   `nocompile` - used to skip file compilation when it is not required.
+- `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `asciidoctor` gem.
+- `id-as'asciidoctor'` - used to assign a name instead of the `z-shell/0`.
+- `nocompile` - used to skip file compilation when it is not required.
 
 :::
 
@@ -300,9 +300,9 @@ In this case, the name of the binary program provided by the node module is diff
 
 :::note
 
--   `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `remark` Node module.
--   `id-as'remark'` - used to assign a name instead of the `z-shell/0`.
--   `nocompile` - used to skip file compilation when it is not required.
+- `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `remark` Node module.
+- `id-as'remark'` - used to assign a name instead of the `z-shell/0`.
+- `nocompile` - used to skip file compilation when it is not required.
 
 :::
 
@@ -347,9 +347,9 @@ youtube-dl () {
 
 :::note
 
--   `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `youtube-dl` pip package.
--   `id-as'youtube-dl'` - used to assign a name instead of the `z-shell/0`.
--   `nocompile` - used to skip file compilation when it is not required.
+- `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `youtube-dl` pip package.
+- `id-as'youtube-dl'` - used to assign a name instead of the `z-shell/0`.
+- `nocompile` - used to skip file compilation when it is not required.
 
 :::
 
@@ -411,9 +411,9 @@ README.md
 
 :::note
 
--   `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `myfunc` function files.
--   `id-as'myfunc'` - used to assign a name instead of the `z-shell/0`.
--   `nocompile` - used to skip file compilation when it is not required.
+- `z-shell/0` - an empty repository to aid Zi's hooks, in this case, used to store the `myfunc` function files.
+- `id-as'myfunc'` - used to assign a name instead of the `z-shell/0`.
+- `nocompile` - used to skip file compilation when it is not required.
 
 :::
 
@@ -474,7 +474,7 @@ myscript () {
 
 :::note
 
--   `nocompile` ice-modifier is used to skip file compilation when it is not required.
+- `nocompile` ice-modifier is used to skip file compilation when it is not required.
 
 The ices can be empty as the trailing component will be assigned with [id-as][] ice-modifier the same way as described in the [sbin](#sbin-1).
 
@@ -490,13 +490,13 @@ Available flags are:
 zi shim-list [ -t | -i | -o | -s | -h ]
 ```
 
-| Flag               | 説明                                                                                       |
-| :----------------- | :--------------------------------------------------------------------------------------- |
-| `-t` `--this-dir`  | Instructs Zi to look for shims in the current directory instead of `$ZPFX/bin`.          |
+| Flag               | 説明                                                                                                          |
+| :----------------- | :---------------------------------------------------------------------------------------------------------- |
+| `-t` `--this-dir`  | Instructs Zi to look for shims in the current directory instead of `$ZPFX/bin`.                             |
 | `-i` `--from-ices` | Normally the code looks for the shim files by examining their contents (more info [^1]). |
-| `-o` `--one-line`  | Display the list of shim files without line breaks, in a single line, after spaces.      |
-| `-s` `--short`     | Don't show the plugin/snippet that the shim belongs to.                                  |
-| `-h` `--help`      | Shows usage information.                                                                 |
+| `-o` `--one-line`  | Display the list of shim files without line breaks, in a single line, after spaces.                         |
+| `-s` `--short`     | Don't show the plugin/snippet that the shim belongs to.                                                     |
+| `-h` `--help`      | Shows usage information.                                                                                    |
 
 ## Cygwin support {#cygwin-support}
 
@@ -510,9 +510,9 @@ zi pack=bgn for firefox
 
 :::info Source
 
--   <Link className='github-link' href='https://github.com/z-shell/z-a-bin-gem-node'>
-      z-shell/z-a-bin-gem-node
-    </Link>
+- <Link className='github-link' href='https://github.com/z-shell/z-a-bin-gem-node'>
+    z-shell/z-a-bin-gem-node
+  </Link>
 
 :::
 
@@ -548,21 +548,14 @@ This will register the [shim-list](#shim-list) subcommand and following ice-modi
 <!-- links -->
 
 [id-as]: /docs/guides/syntax/standard#id-as
-
 [unscope]: /ecosystem/annexes/unscope
 
 <!-- external -->
 
 [gem-home]: https://guides.rubygems.org/command-reference/#gem-environment
-
 [node-path]: https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders
-
 [node]: https://github.com/npm/cli
-
 [python]: https://python.org
-
 [rbenv/rbenv]: https://github.com/rbenv/rbenv
-
 [rubygems]: https://github.com/rubygems/rubygems
-
 [virtualenv]: https://docs.python.org/3/tutorial/venv.html

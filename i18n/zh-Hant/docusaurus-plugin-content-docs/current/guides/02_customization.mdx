@@ -18,7 +18,7 @@ import MultiplePromptsExample from "@site/src/components/Markdown/_multiple_prom
 
 :::info Related
 
--   [standard parameter naming][]
+- [standard parameter naming][]
 
 :::
 
@@ -63,11 +63,11 @@ source "${ZI[BIN_DIR]}/zi.zsh"
 <APITable>
 ```
 
-| Hash Field                       | Default     | Description                                                                                                                                                                                               |
-| -------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hash Field                       | Default     | Description                                                                                                                                                                                                                  |
+| -------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ZI[OPTIMIZE_OUT_DISK_ACCESSES]` | `undefined` | If set to `1`, will skip checking if a turbo-loaded object exists on the disk. This option can give a performance gain of about 10 ms out of 150 ms (e.g: Zsh will start up in 140 ms instead of 150 ms). |
 | `ZI[COMPINIT_OPTS]`              | `undefined` | Options for `compinit` call (e.g: done by `zicompinit`), commonly used with `-C` to speed up loading                                                                                                      |
-| `ZI[MUTE_WARNINGS]`              | `undefined` | If set to `1`, mutes some warnings, specifically the `plugin already registered` warning                                                                                                                  |
+| `ZI[MUTE_WARNINGS]`              | `undefined` | If set to `1`, mutes some warnings, specifically the `plugin already registered` warning                                                                                                                                     |
 | `ZI[PKG_OWNER]`                  | `z-shell`   | Owner of the [packages][] (`zi pack …`)                                                                                                                                                                   |
 
 ```mdx-code-block
@@ -84,9 +84,9 @@ If the username is not `_local`, then Zi will create a repository also on GitHub
 
 Several projects provide git extensions. Installing them with Zi has many benefits:
 
--   all files are under `$HOME` – no administrator rights are needed,
--   declarative setup (like Chef or Puppet) – copying `.zshrc` to a different account brings also git-related setup,
--   easy update by e.g: `zi update --all`.
+- all files are under `$HOME` – no administrator rights are needed,
+- declarative setup (like Chef or Puppet) – copying `.zshrc` to a different account brings also git-related setup,
+- easy update by e.g: `zi update --all`.
 
 Below is a configuration that adds multiple git extensions, loaded in Turbo mode, 1 second after prompt, with the use of the [bin-gem-node][z-shell/z-a-bin-gem-node] annex:
 
@@ -111,20 +111,20 @@ With [meta-plugins][z-shell/z-a-meta-plugins] consisting of:
 
 Annexes:
 
-1.  [z-shell/z-a-readurl][],
-2.  [z-shell/z-a-patch-dl][],
-3.  [z-shell/z-a-rust][],
-4.  [z-shell/z-a-bin-gem-node][].
+1. [z-shell/z-a-readurl][],
+2. [z-shell/z-a-patch-dl][],
+3. [z-shell/z-a-rust][],
+4. [z-shell/z-a-bin-gem-node][].
 
 Git tools:
 
-1.  [paulirish/git-open][],
-2.  [paulirish/git-recent][],
-3.  [davidosomething/git-my][],
-4.  [arzzen/git-quick-stats][],
-5.  [iwata/git-now][],
-6.  [tj/git-extras][],
-7.  [wfxr/forgit][].
+1. [paulirish/git-open][],
+2. [paulirish/git-recent][],
+3. [davidosomething/git-my][],
+4. [arzzen/git-quick-stats][],
+5. [iwata/git-now][],
+6. [tj/git-extras][],
+7. [wfxr/forgit][].
 
 just run:
 
@@ -291,41 +291,24 @@ To allow better unloading, conditions are checked every second, you can use cond
 <!-- links -->
 
 [global-parameter-with-prefix]: /community/zsh_plugin_standard#global-parameter-with-prefix
-
 [packages]: /ecosystem/packages/synopsis
-
 [standard parameter naming]: /community/zsh_plugin_standard#standard-parameter-naming
 
 <!-- external -->
 
 [arzzen/git-quick-stats]: https://github.com/arzzen/git-quick-stats
-
 [color-completion-using-zsh-modules-on]: https://linuxshellaccount.blogspot.com/2008/12/color-completion-using-zsh-modules-on.html
-
 [completion-system-configuration]: https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Completion-System-Configuration
-
 [davidosomething/git-my]: https://github.com/davidosomething/git-my
-
 [iwata/git-now]: https://github.com/iwata/git-now
-
 [paulirish/git-open]: https://github.com/paulirish/git-open
-
 [paulirish/git-recent]: https://github.com/paulirish/git-recent
-
 [tj/git-extras]: https://github.com/tj/git-extras
-
 [wfxr/forgit]: https://github.com/wfxr/forgit
-
 [what-does-zstyle-do]: https://unix.stackexchange.com/questions/214657/what-does-zstyle-do/239980
-
 [z-shell/z-a-bin-gem-node]: https://github.com/z-shell/z-a-bin-gem-node
-
 [z-shell/z-a-meta-plugins]: https://github.com/z-shell/z-a-meta-plugins
-
 [z-shell/z-a-patch-dl]: https://github.com/z-shell/z-a-patch-dl
-
 [z-shell/z-a-readurl]: https://github.com/z-shell/z-a-readurl
-
 [z-shell/z-a-rust]: https://github.com/z-shell/z-a-rust
-
 [zsh-options]: https://zsh.sourceforge.io/Doc/Release/Options.html
