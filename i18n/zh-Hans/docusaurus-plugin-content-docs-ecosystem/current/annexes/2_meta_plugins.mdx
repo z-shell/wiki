@@ -1,6 +1,6 @@
 ---
 id: meta-plugins
-title: 🌀 Meta Plugins
+title: 🌀 元插件组
 image: /img/png/theme/z/320x320.png
 description: Annex meta-plugins documentation
 keywords:
@@ -15,19 +15,19 @@ import TabItem from "@theme/TabItem";
 import Link from "@docusaurus/Link";
 import APITable from "@site/src/components/APITable";
 
-An annex has the curated, optimal [ice-modifiers][] lists automatically applied. For more details refer to [z-a-meta-plugins.plugin.zsh][] file.
+附件会自动应用经过优化的 [ice-modifiers][] 列表。 更多详情，请参阅 [z-a-meta-plugins.plugin.zsh][] 文件。
 
 :::tip
 
--   To create your group of plugins as meta-plugins propose them in a new [issue][issues/new]
--   Prefix `@` used to avoid syntax conflicts, e.g: `zi light @<meta-plugin-name>`
--   Before installing any plugin visit the original repository where available to verify that system is supported and meets other requirements
+-   要创建一组元插件组，请在新的 [issue][issues/new] 中提出。
+-   前缀 `@` 用于避免语法冲突，例如： `zi light @<meta-plugin-name>`
+-   在安装任何插件之前，请访问原始存储库，以验证该系统是否受支持并满足其他需求
 
 :::
 
-## Usage of meta-plugins
+## 元插件组的使用
 
-The following snippets are examples of how to install meta-plugins:
+以下片段是如何安装元插件组的示例：
 
 ```shell
 zi light @annexes
@@ -48,7 +48,7 @@ zi light-mode for @annexes \
   skip'vivid exa tig' @console-tools
 ```
 
-## Available meta-plugins
+## 可用的元插件组
 
 ```mdx-code-block
 <APITable>
@@ -78,21 +78,21 @@ zi light-mode for @annexes \
 </APITable>
 ```
 
-### Summary of the meta-plugins
+### 元插件组概述
 
 It consumes time to:
 
--   Constantly, over and over collect some new interesting plugins to install/load.
--   Over and over reconstruct the new findings on the new machines.
--   Constantly extend and tweak the ice list of each plugin, so that it's hard on the eyes, especially for an outsider.
+-   不断地、反复地收集一些新的有趣插件来安装/加载。
+-   一遍又一遍地在新机器上重建新发现。
+-   不断扩大和调整每个插件的ice list，使其不那么难以看懂，尤其是对于入门者而言。
 
 ```mdx-code-block
 <APITable>
 ```
 
-| Problem                                               | Solution                                                                                                                                                                                                                                                                               |
+| 问题                                                    | 解决方案                                                                                                                                                                                                                                                                                   |
 | :---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| (1) _finding new plugins_                             | The annex contains a curated, broad list of plugins, e.g.: all the console tools like `fd`, `fzf`, `exa`, `ripgrep`, etc.,                                                                                                                                                             |
+| (1) _寻找新插件_                                           | 该附件包含一个经过整理的、范围广泛的插件列表，例如：所有控制台工具，如 `fd`、`fzf`、`exa`、`ripgrep` 等、                                                                                                                                                                                                                      |
 | (2) _reconstructing the findings in new environments_ | It's easy to say and memorize e.g.: `zi for console-tools` – one label pulls a group of plugins and also the curated, optimal, default ice lists for each of them,                                                                                                                     |
 | (3) _constant increase of complexity of the commands_ | The provided, hopefully, best/optimal ices for each plugin are handled transparently and automatically; care is given to each ice list so that the plugin loads without any glitches (e.g.: without the "No files for compilation found." message and other, even such slight issues). |
 
@@ -116,7 +116,7 @@ Other unique benefits of the meta-plugins annex:
 </APITable>
 ```
 
-## Install meta-plugins {#install-meta-plugins}
+## 安装元插件组 {#install-meta-plugins}
 
 :::info Source
 

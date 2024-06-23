@@ -1,10 +1,10 @@
 ---
 id: test
-title: 🌀 Test
+title: 🌀 测试
 hide_title: false
 hide_table_of_contents: false
 image: /img/png/theme/z/320x320.png
-description: Annex - Test documentation
+description: 附件 - 测试文档
 keywords:
   - annex
   - test
@@ -18,7 +18,7 @@ import TabItem from "@theme/TabItem";
 import Link from "@docusaurus/Link";
 import ImgShow from "@site/src/components/ImgShow";
 
-An annex runs `zunit` and `make` tests if they are configured in the repository.
+如果在源代码仓库中配置了 `zunit` 和 `make` 测试，附件就会运行这些测试。
 
 <ImgShow
   width={1000}
@@ -27,22 +27,22 @@ An annex runs `zunit` and `make` tests if they are configured in the repository.
   alt='Annex - z-a-test preview'
 />
 
-Simply load it like any other plugin to make it active:
+只需要像任何其他插件一样加载它以使其激活：
 
 ```shell
 zi light z-shell/z-a-test
 ```
 
 <details>
-  <summary>📖 <b>Configuration</b></summary>
+  <summary>📖 <b>配置</b></summary>
 
-To run the tests in a verbose mode, issue:
+要以详细方式运行测试，请运行：
 
 ```shell
 zstyle :zi:annex:test quiet 0
 ```
 
-To skip tests for a single plugin before installing or updating add the `notest` ice-modifier:
+要在安装或更新前跳过单个插件的测试，请添加 `notest` ice 修饰符。
 
 ```shell showLineNumbers
 zi ice notest

@@ -12,7 +12,7 @@
     "description": "The label for category 📦 Packages in sidebar SideBar"
   },
   "sidebar.SideBar.category.⚙️ Plugins": {
-    "message": "⚙️ Plugins",
+    "message": "⚙️ 插件",
     "description": "The label for category ⚙️ Plugins in sidebar SideBar"
   }
 }

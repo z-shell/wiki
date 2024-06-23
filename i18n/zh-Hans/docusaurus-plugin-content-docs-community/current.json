@@ -8,7 +8,7 @@
     "description": "The label for category 📖 Zsh User's Guide in sidebar SideBar"
   },
   "sidebar.SideBar.category.🎯 Roadmap": {
-    "message": "🎯 Roadmap",
+    "message": "🎯 开发路线图",
     "description": "The label for category 🎯 Roadmap in sidebar SideBar"
   },
   "sidebar.SideBar.category.✨ Gallery of Invocations": {

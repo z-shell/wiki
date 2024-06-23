@@ -2,7 +2,7 @@
 id: migration
 title: ♻️ 迁移
 image: /img/png/theme/z/320x320.png
-description: Migration Guide
+description: 迁移指南
 keywords:
   - prezto
   - oh-my-zsh
@@ -12,7 +12,7 @@ import Link from "@docusaurus/Link";
 
 ## Oh-My-Zsh
 
-### OMZ shorthand syntax
+### OMZ 简洁语法
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet <URL>        # Raw syntax with URL
@@ -22,25 +22,25 @@ zi snippet OMZT::<PATH> # Shorthand OMZ::themes   (http://github.com/ohmyzsh/ohm
 zi snippet OMZP::<PATH> # Shorthand OMZ::plugins  (http://github.com/ohmyzsh/ohmyzsh/raw/master/plugins)
 ```
 
-### OMZ library
+### OMZ 内置库
 
-Importing the [clipboard][omz/clipboard] and [termsupport][omz/termsupport] from the OMZ library example:
+以下是从 OMZ 内置库中导入 [clipboard][omz/clipboard] 和 [termsupport][omz/termsupport] 的示例。
 
-Raw syntax:
+原始语法：
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh
 ```
 
-OMZ shorthand syntax:
+OMZ 简写法：
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZ::lib/clipboard.zsh
 zi snippet OMZ::lib/termsupport.zsh
 ```
 
-OMZL shorthand syntax:
+OMZL 简写法：
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet OMZL::clipboard.zsh
@@ -379,23 +379,23 @@ Available
 ```diff title="~/.zshrc" showLineNumbers
 - zgen oh-my-zsh
 
-+ zi snippet OMZL::<ANY OF THEM>
++ zi snippet OMZL::<任何项目>
 ```
 
 ### 加载 OMZ 插件
 
 ```diff title="~/.zshrc" showLineNumbers
-- zgen oh-my-zsh <PATH>
+- zgen oh-my-zsh <路径>
 
-+ zi snippet OMZP::<PATH>
++ zi snippet OMZP::<路径>
 ```
 
 ### Load Prezto modules
 
 ```diff title="~/.zshrc" showLineNumbers
-- zgen prezto <module name>
+- zgen prezto <模块名称>
 
-+ zi snippet PZTM::<module name>
++ zi snippet PZTM::<模块名称>
 ```
 
 Load repositories as prezto plugins:
