@@ -51,12 +51,6 @@ if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]]; then
 fi
 ```
 
-:::tip
-
-The loader can be manually fetched from available [links](#loader) to any location on the system, and sourced from <kbd>.zshrc</kbd> or as shown in the [quick-setup](#quick-setup).
-
-:::
-
 Then reload the shell with: `exec zsh`. すべて完了です！
 
 </TabItem>
@@ -97,7 +91,9 @@ sh -c "$(curl -fsSL get.zshell.dev)" -- -a zunit
 
 :::
 
-インストール先を設定し、ディレクトリを作成します。
+### <i class="fas fa-spinner fa-spin"></i> Prepare
+
+Set up the install location and create a directory:
 
 ```shell showLineNumbers
 typeset -Ag ZI
@@ -108,13 +104,15 @@ command mkdir -p "$ZI[BIN_DIR]"
 
 For security reasons run function <kbd>compaudit</kbd> to check if the [completion system][completion-system] would use files owned by <kbd>root</kbd> or by the current <kbd>user</kbd>, or files in directories that are <kbd>world</kbd> or <kbd>group-writable</kbd>.
 
-失敗した場合は、現在のユーザーをディレクトリのオーナーに設定し、グループ/その他の書き込み権限を削除して、リポジトリを複製します。
+If failed, then set the current user as the owner of directories, then remove group/others write permissions, and clone the repository:
 
 ```shell showLineNumbers
 compaudit | xargs chown -R "$(whoami)" "$ZI[HOME_DIR]"
 compaudit | xargs chmod -R go-w "$ZI[HOME_DIR]"
 command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
 ```
+
+### <i class="fas fa-spinner fa-spin"></i> Enable
 
 To enable Zi, source the <kbd>zi.zsh</kbd> from the previously set up directory placing the following snippet in the <kbd>.zshrc</kbd> file:
 
@@ -124,13 +122,15 @@ ZI[BIN_DIR]="${HOME}/.zi/bin"
 source "${ZI[BIN_DIR]}/zi.zsh"
 ```
 
+### <i class="fas fa-spinner fa-spin"></i> Completions {#enable-zi-completions}
+
+Enable Zi completions by placing the following snippet in the <kbd>.zshrc</kbd> file:
+
 :::caution
 
-以下の2行は、上の行の後、つまりZiを有効にした後に配置する必要があります。
+The snippet below must be placed after after enabling Zi.
 
 :::
-
-以下でZi補完を有効にします:
 
 ```shell title="~/.zshrc" showLineNumbers
 autoload -Uz _zi
@@ -188,7 +188,8 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 
 The module transparently and automatically compiles sourced scripts and lists of all sourced files with the time the sourcing took in milliseconds on the left.
 
-- [⚙️ Wiki: zpmod][zpmod-page]
+- [⚙️ Wiki: zpmod][zpmod-page]
+
 - [📦 Source: zpmod][z-shell/zpmod]
 
 ## <i class="fas fa-sync-alt fa-spin"></i> Available links {#available-links}
@@ -199,8 +200,6 @@ The module transparently and automatically compiles sourced scripts and lists of
 
 | サービス       | URL                                                                     |
 | :--------- | ----------------------------------------------------------------------- |
-| リダイレクト     | https://get.zshell.dev                                                  |
-| Cloudflare | https://src.zshell.dev/sh/install.sh                                    |
 | Git.io     | https://git.io/get-zi                                                   |
 | GitHub RAW | https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh |
 
@@ -208,8 +207,6 @@ The module transparently and automatically compiles sourced scripts and lists of
 
 | サービス       | URL                                                                    |
 | :--------- | ---------------------------------------------------------------------- |
-| リダイレクト     | https://init.zshell.dev                                                |
-| Cloudflare | https://src.zshell.dev/zsh/init.zsh                                    |
 | Git.io     | https://git.io/zi-loader                                               |
 | GitHub RAW | https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh |
 

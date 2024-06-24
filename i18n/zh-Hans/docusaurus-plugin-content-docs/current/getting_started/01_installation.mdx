@@ -51,12 +51,6 @@ if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]]; then
 fi
 ```
 
-:::tip
-
-`loader` 可以从 [links](#loader) 中选择可用链接手动下载到本地系统上的任何位置，并在 <kbd>.zshrc</kbd> 或如 [quick-setup](#quick-setup) 中所示进行 `source` 加载 `loader`。
-
-:::
-
 然后重新加载 shell 使用：`exec zsh`。 全部完成了！
 
 </TabItem>
@@ -97,7 +91,9 @@ sh -c "$(curl -fsSL get.zshell.dev)" -- -a zunit
 
 :::
 
-设置安装位置并创建目录：
+### <i class="fas fa-spinner fa-spin"></i> Prepare
+
+Set up the install location and create a directory:
 
 ```shell showLineNumbers
 typeset -Ag ZI
@@ -106,15 +102,17 @@ typeset -gx ZI[BIN_DIR]="${HOME}/.zi/bin"
 command mkdir -p "$ZI[BIN_DIR]"
 ```
 
-出于安全原因，运行函数 <kbd>compaudit</kbd> 以检查 [补全系统][completion-system] 是否会使用由<kbd>root</kbd> 或当前 <kbd>user</kbd> 所有的文件，或者位于 <kbd>world</kbd> 或 <kbd>group-writable</kbd> 目录中的文件。
+For security reasons run function <kbd>compaudit</kbd> to check if the [completion system][completion-system] would use files owned by <kbd>root</kbd> or by the current <kbd>user</kbd>, or files in directories that are <kbd>world</kbd> or <kbd>group-writable</kbd>.
 
-如果失败，则将当前用户设置为目录的所有者，然后删除 group/others 的写入权限，并克隆存储库：
+If failed, then set the current user as the owner of directories, then remove group/others write permissions, and clone the repository:
 
 ```shell showLineNumbers
 compaudit | xargs chown -R "$(whoami)" "$ZI[HOME_DIR]"
 compaudit | xargs chmod -R go-w "$ZI[HOME_DIR]"
 command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
 ```
+
+### <i class="fas fa-spinner fa-spin"></i> Enable
 
 要启用 Zi，将以下代码段放入 <kbd>.zshrc</kbd> 以加载先前安装目录中的 <kbd>zi.zsh</kbd> 文件：
 
@@ -124,13 +122,15 @@ ZI[BIN_DIR]="${HOME}/.zi/bin"
 source "${ZI[BIN_DIR]}/zi.zsh"
 ```
 
+### <i class="fas fa-spinner fa-spin"></i> Completions {#enable-zi-completions}
+
+Enable Zi completions by placing the following snippet in the <kbd>.zshrc</kbd> file:
+
 :::caution
 
-下面的两行必须放在上面的行之后，即在启用 Zi 之后。
+The snippet below must be placed after after enabling Zi.
 
 :::
-
-启用 Zi 补全：
 
 ```shell title="~/.zshrc" showLineNumbers
 autoload -Uz _zi
@@ -188,7 +188,8 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 
 该模块以透明方式自动编译源脚本，并列出所有源文件，在左侧标明 `source` 耗时（以毫秒为单位）。
 
-- [⚙️ Wiki: zpmod][zpmod-page]
+- [⚙️ Wiki: zpmod][zpmod-page]
+
 - [📦 Source: zpmod][z-shell/zpmod]
 
 ## <i class="fas fa-sync-alt fa-spin"></i> 可用链接 {#available-links}
@@ -199,8 +200,6 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 
 | 服务         | URL                                                                     |
 | :--------- | ----------------------------------------------------------------------- |
-| 带重定向       | https://get.zshell.dev                                                  |
-| Cloudflare | https://src.zshell.dev/sh/install.sh                                    |
 | Git.io     | https://git.io/get-zi                                                   |
 | GitHub RAW | https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh |
 
@@ -208,8 +207,6 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 
 | 服务         | URL                                                                    |
 | :--------- | ---------------------------------------------------------------------- |
-| 带重定向       | https://init.zshell.dev                                                |
-| Cloudflare | https://src.zshell.dev/zsh/init.zsh                                    |
 | Git.io     | https://git.io/zi-loader                                               |
 | GitHub RAW | https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh |
 

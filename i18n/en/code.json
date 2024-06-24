@@ -23,6 +23,10 @@
     "message": "Supports Oh-My-Zsh and Prezto - not framework-specific. Produce your plugins, libraries, and themes effortlessly.",
     "description": "Description of third featured banner in homepage"
   },
+  "homepage.video.heading.1": {
+    "message": "Fast and feature-rich",
+    "description": "The homepage video container heading 1"
+  },
   "homepage.hero.title": {
     "message": "A <b>Swiss Army</b> Knife for <b>Zsh</b> Unix <b>Shell</b>",
     "description": "Home page hero title, can contain simple html tags"
@@ -34,10 +38,6 @@
   "homepage.banner.button.2": {
     "message": "Community",
     "description": "The homepage community button"
-  },
-  "homepage.video.heading.1": {
-    "message": "Fast and feature-rich",
-    "description": "The homepage video container heading 1"
   },
   "theme.ErrorPageContent.title": {
     "message": "This page crashed.",

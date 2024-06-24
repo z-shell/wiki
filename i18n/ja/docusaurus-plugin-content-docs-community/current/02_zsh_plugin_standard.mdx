@@ -99,7 +99,7 @@ When you set e.g.: the `zsh` emulation in a function, you in general don’t hav
 
 > [ functions-directory ]
 
-Despite that, the current-standard plugins have their main directory added to `$fpath`, a more clean approach is being proposed: that the plugins use a subdirectory called `functions` to store their completions and autoload functions. This will allow a much cleaner design of plugins. The plugin manager should add such a directory to `$fpath`. The lack of support of the current plugin managers can be easily resolved via the [indicator](#indicator):
+Despite that, the current-standard plugins have their main directory added to `$fpath`, a more clean approach is being proposed: that the plugins use a subdirectory called `functions` to store their completions and autoload functions. This will allow a much cleaner design of plugins. The plugin manager should add such a directory to `$fpath`. The lack of support of the current plugin managers can be easily resolved via the [indicator](#activity-indicator):
 
 ```shell showLineNumbers
 if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}/functions]} ]]; then
@@ -107,7 +107,7 @@ if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}/functions]} ]]
 fi
 ```
 
-or, via the use of the `PMSPEC` [parameter](#pmspec):
+or, via the use of the `PMSPEC` [parameter](#global-parameter-with-capabilities):
 
 ```shell showLineNumbers
 if [[ $PMSPEC != *f* ]]; then
@@ -441,7 +441,7 @@ The proposition of the standard prefixes is as follows:
 
 4. `/`: for debugging functions, i.e.: for functions that output debug messages to the screen or a log or e.g.: gather some debug data. **Note:** The slash makes it impossible for such functions to be auto-loaded via the `autoload` mechanism. It is somewhat risky to assume, that this will never be needed for the functions, however, the limited number of available ASCII characters justifies such allocation. Example function name: `/prompt_zinc_dmsg`.
 
-5. `@`: for API-like functions, i.e.: for functions that are on a boundary to a subsystem and expose their functionality through a well-defined, generally fixed interface. For example, this plugin standard [defines](#update-register-call) the function `@zsh-plugin-run-on-update`, which exposes a plugin manager’s functionality in a well-defined way.
+5. `@`: for API-like functions, i.e.: for functions that are on a boundary to a subsystem and expose their functionality through a well-defined, generally fixed interface. For example, this plugin standard [defines](#run-on-update-call) the function `@zsh-plugin-run-on-update`, which exposes a plugin manager’s functionality in a well-defined way.
 
 ## Example code utilizing the prefixes
 

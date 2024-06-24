@@ -132,7 +132,7 @@ The `make'…'` ice could also be: `make"install PREFIX=$ZPFX"`, if "install" wo
 
 :::info
 
-[$ZPFX][zpfx] is provided by Zi, it is set to `~/.zi/polaris` by default. However, it can be changed by specifying the `$ZPFX=` target.
+[$ZPFX][global-parameter-with-prefix] is provided by Zi, it is set to `~/.zi/polaris` by default. However, it can be changed by specifying the `$ZPFX=` target.
 
 :::
 
@@ -175,7 +175,7 @@ zi light vim/vim
 </APITable>
 ```
 
-The same but with **installation** (`make install`) under [$ZPFX][zpfx] by default:
+The same but with **installation** (`make install`) under [$ZPFX][global-parameter-with-prefix] by default:
 
 ```shell showLineNumbers
 zi ice as'program' atclone'rm -f src/auto/config.cache; \
@@ -764,8 +764,11 @@ As it can be seen, the creation of four additional Zle-widgets has been recorded
 <!-- footnotes -->
 
 [^1]: Save it to a file. The `atclone'…'` is being run on the **installation** while the `atpull'…'` hook is being run on an **update** of the [**trapd00r/LS_COLORS**][trapd00r-ls_colors] plugin.
+
 [^2]: The `%atclone` is just a special string that denotes the `atclone'…'` hook and is copied onto the `atpull'…'` hook.
+
 [^3]: Note that `atload'…'` uses apostrophes, not double quotes, to put `$f` into the string, `atload'…'`'s code is automatically being run **within the snippet's or plugin's directory**.
+
 [^4]: Unless you load a plugin (not a snippet) with `zi load …` and prepend the value of the ice with an exclamation mark. Example: `atload'!local f; for …'`.
 
 <!-- links -->
@@ -773,7 +776,7 @@ As it can be seen, the creation of four additional Zle-widgets has been recorded
 [for-syntax]: /docs/guides/syntax/for
 [ice-mods]: /docs/guides/syntax/ice-modifiers
 [exclamation]: /search?q=exclamation+mark
-[zpfx]: /docs/guides/customization#$ZPFX
+[global-parameter-with-prefix]: /community/zsh_plugin_standard#global-parameter-with-prefix
 [multiple-prompts]: /docs/guides/customization#multiple-prompts
 
 <!-- external -->
