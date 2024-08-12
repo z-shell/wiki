@@ -170,6 +170,25 @@ zi ice from'gh-r' as'program' mv'vivid* vivid' sbin'**/vivid(.exe|) -> vivid'
 zi light @sharkdp/vivid
 ```
 
+### [sharkdp/numbat][]
+
+#### GH-R
+```shell showLineNumbers
+zi ice from'gh-r' as'program' mv'numbat* numbat' sbin'**/numbat(.exe|) numbat'
+zi light sharkdp/numbat
+```
+
+#### GH
+
+Advanced. Use if you care about [numbat modules](https://numbat.dev/doc/cli-installation.html#guidelines-for-package-maintainers).
+```shell showLineNumbers
+zi ice as'program' from'gh' \
+  atclone'export NUMBAT_SYSTEM_MODULE_PATH=$ZI[PLUGINS_DIR]/sharkdp---numbat/numbat/modules; cargo install -f --path numbat-cli;' \
+  atpull'%atclone' \
+  sbin'target/release/numbat numbat'
+zi light sharkdp/numbat
+```
+
 ### GH-R: [ogham/exa][]
 
 ```shell showLineNumbers
@@ -723,6 +742,7 @@ zi for as'program' nocompile'!' depth'1' \
 [sharkdp/hexyl]: https://github.com/sharkdp/hexyl
 [sharkdp/hyperfine]: https://github.com/sharkdp/hyperfine
 [sharkdp/vivid]: https://github.com/sharkdp/vivid
+[sharkdp/numbat]: https://github.com/sharkdp/numbat
 [smxi/inxi]: https://github.com/smxi/inxi
 [thelocehiliosan/yadm]: https://github.com/TheLocehiliosan/yadm
 [tj/git-extras]: https://github.com/tj/git-extras
