@@ -77,6 +77,13 @@ zi ice lucid wait as'completion' blockf has'alacritty'
 zi snippet https://github.com/alacritty/alacritty/blob/master/extra/completions/_alacritty
 ```
 
+### COMP: [ajeetdsouza/zoxide](https://github.com/ajeetdsouza/zoxide/blob/main/contrib/completions/_zoxide) {#comp-zoxide-completions}
+
+```shell showLineNumbers
+zi ice wait lucid as'completion' blockf has'zoxide'
+zi snippet https://github.com/ajeetdsouza/zoxide/blob/main/contrib/completions/_zoxide
+```
+
 ### COMP: [Aloxaf/fzf-tab][] {#comp-aloxaf-fzf-tab}
 
 ```shell showLineNumbers
@@ -106,6 +113,21 @@ zi snippet https://github.com/bugaevc/wl-clipboard/blob/master/completions/zsh/_
 ```shell showLineNumbers
 zi ice lucid wait as'completion' blockf has'rg' mv'rg.zsh -> _rg'
 zi snippet https://github.com/BurntSushi/ripgrep/blob/master/crates/core/flags/complete/rg.zsh
+```
+
+### COMP: [dandavison/delta](https://github.com/dandavison/delta)
+
+```shell showLineNumbers
+zi ice wait lucid as'completion' blockf has'delta' mv'completion.zsh -> _delta'
+zi snippet https://github.com/dandavison/delta/blob/main/etc/completion/completion.zsh
+```
+or
+```shell showLineNumbers
+zi ice as'program' from'gh-r' \
+  mv'delta* delta' \
+  atpull'%atclone' \
+  atclone'./delta/delta --generate-completion zsh > _delta'
+zi light dandavison/delta
 ```
 
 ### COMP: [dbrgn/tealdeer][dbrgn-tealdeer] {#comp-dbrgn-tealdeer}
@@ -213,13 +235,6 @@ zi ice lucid wait as'completion' blockf
 zi light zchee/zsh-completions
 ```
 
-### [ajeetdsouza/zoxide](https://github.com/ajeetdsouza/zoxide/blob/main/contrib/completions/_zoxide) {#comp-zoxide-completions}
-
-```shell showLineNumbers
-zi ice wait lucid as'completion' blockf has'zoxide'
-zi snippet https://github.com/ajeetdsouza/zoxide/blob/main/contrib/completions/_zoxide
-```
-
 ### COMP: [zsh-users/zsh-completions][] {#comp-zsh-users-zsh-completions}
 
 ```shell showLineNumbers
@@ -266,6 +281,7 @@ zi snippet "$XDG_CONFIG_HOME/broot/launcher/bash/br"
 [beetbox/beets]: https://github.com/beetbox/beets/blob/master/extra/_beet
 [bugaevc/wl-clipboard]: https://github.com/bugaevc/wl-clipboard/blob/master/completions/zsh/
 [burntsushi-ripgrep-rg]: https://github.com/BurntSushi/ripgrep/blob/master/complete/_rg
+[dandavison/delta]: https://github.com/dandavison/delta
 [dbrgn-tealdeer]: https://github.com/dbrgn/tealdeer/blob/main/completion/zsh_tealdeer
 [docker/cli]: https://github.com/docker/cli
 [flatpak/flatpak]: https://github.com/flatpak/flatpak/blob/master/completion/_flatpak
