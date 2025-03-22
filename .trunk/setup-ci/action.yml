@@ -5,9 +5,9 @@ runs:
   using: composite
   steps:
     - name: 📦 Setup pnpm
-      uses: pnpm/action-setup@v2.4.0
+      uses: pnpm/action-setup@v4
     - name: ⎔ Setup node
-      uses: actions/setup-node@v4.0.1
+      uses: actions/setup-node@v4
       with:
         node-version: "lts/*"
         cache: "pnpm"
