@@ -14,4 +14,4 @@ jobs:
       - name: "⤵️ Check out code from GitHub"
         uses: actions/checkout@v4
       - name: "🏗 Dependency Review"
-        uses: actions/dependency-review-action@v3
+        uses: actions/dependency-review-action@v4
