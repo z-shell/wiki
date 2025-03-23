@@ -19,6 +19,6 @@ jobs:
       pull-requests: write # For trunk to create PRs
     steps:
       - name: ✅ Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - name: ✨ Trunk Upgrade
-        uses: trunk-io/trunk-action/upgrade@v1
+        uses: trunk-io/trunk-action/upgrade@4d5ecc89b2691705fd08c747c78652d2fc806a94 # v1

@@ -19,12 +19,12 @@ jobs:
 
     steps:
       - name: ⤵️ Check out code from GitHub
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0 # otherwise, you will fail to push refs to dest repo
       - name: 🔁 Rebase
-        uses: z-shell/.github/actions/rebase@v1.0.8
+        uses: z-shell/.github/actions/rebase@91068ee88e8788deff439d6ee36b77329edeb98a # v1.0.8
         with:
           autosquash: ${{ contains(github.event.comment.body, '/autosquash') || contains(github.event.comment.body, '/rebase-autosquash') }}
         env:
