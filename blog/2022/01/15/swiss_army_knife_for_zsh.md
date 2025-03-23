@@ -26,6 +26,8 @@ Designed to glue everything together. 🔗
 
 [https://wiki.zshell.dev](https://wiki.zshell.dev) | [GitHub](https://github.com/z-shell/) | [Discussions](https://github.com/orgs/z-shell/discussions/) | [Localize](https://digitalclouds.crowdin.com/z-shell)
 
+<!-- truncate -->
+
 ### ⚡️ Fast and feature-rich
 
 ✴️ [🌀 Meta-plugins](/search?q=meta+plugins) installs a group of complex plugins via a simple label, curated and optimal settings which are automatically applied.
