@@ -23,6 +23,10 @@
     "message": "Oh-My-ZshとPreztoをサポートします。フレームワーク固有ではありません。プラグイン、ライブラリ、テーマを簡単に作成できます。",
     "description": "Description of third featured banner in homepage"
   },
+  "homepage.video.heading.1": {
+    "message": "高速かつ豊富な機能",
+    "description": "The homepage video container heading 1"
+  },
   "homepage.hero.title": {
     "message": "A <b>Swiss Army</b> Knife for <b>Zsh</b> Unix <b>Shell</b>",
     "description": "Home page hero title, can contain simple html tags"
@@ -34,10 +38,6 @@
   "homepage.banner.button.2": {
     "message": "コミュニティ",
     "description": "The homepage community button"
-  },
-  "homepage.video.heading.1": {
-    "message": "高速かつ豊富な機能",
-    "description": "The homepage video container heading 1"
   },
   "theme.ErrorPageContent.title": {
     "message": "ページがクラッシュしました。",
