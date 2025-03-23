@@ -25,20 +25,20 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - name: "⤵️  Check out code from GitHub"
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           fetch-depth: 0
       - name: "📦 Setup pnpm"
         uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       - name: "⎔  Setup node"
-        uses: actions/setup-node@v4.3.0
+        uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
         with:
           node-version: 18
           cache: "pnpm"
       - name: "🏗  Build"
         run: pnpm i --prod --frozen-lockfile && pnpm run build
       - name: "🚀 Publish"
-        uses: cloudflare/pages-action@v1.5.0
+        uses: cloudflare/pages-action@f0a1cd58cd66095dee69bfa18fa5efd1dde93bca # v1.5.0
         with:
           projectName: "zsh"
           directory: "build"
