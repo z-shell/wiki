@@ -23,6 +23,10 @@
     "message": "支持 Oh-My-Zsh 和 Prezto - 不特定于框架的。轻松制作您的插件、库和主题。",
     "description": "Description of third featured banner in homepage"
   },
+  "homepage.video.heading.1": {
+    "message": "快速且功能丰富",
+    "description": "The homepage video container heading 1"
+  },
   "homepage.hero.title": {
     "message": "<b>Zsh</b> Unix <b>Shell</b> 的 <b>瑞士军刀</b> ",
     "description": "Home page hero title, can contain simple html tags"
@@ -34,10 +38,6 @@
   "homepage.banner.button.2": {
     "message": "社区",
     "description": "The homepage community button"
-  },
-  "homepage.video.heading.1": {
-    "message": "快速且功能丰富",
-    "description": "The homepage video container heading 1"
   },
   "theme.ErrorPageContent.title": {
     "message": "页面已崩溃。",
