@@ -14,13 +14,13 @@ merge:
     - Trunk Check
 lint:
   disabled:
+    - yamllint
     - terrascan
     - trufflehog
     - trivy
     - checkov
     - osv-scanner
     - renovate
-    - yamllint
     - shellcheck
   enabled:
     - sort-package-json@3.0.0
