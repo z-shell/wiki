@@ -51,11 +51,11 @@ jobs:
         with:
           fetch-depth: 0
       - name: "📦 Setup pnpm"
-        uses: pnpm/action-setup@v2.4.0
+        uses: pnpm/action-setup@v4
       - name: "⎔ Setup node"
-        uses: actions/setup-node@v4.3.0
+        uses: actions/setup-node@v4
         with:
-          node-version: current
+          node-version: "lts/*"
           cache: "pnpm"
       - run: pnpm i --prod
       - uses: preactjs/compressed-size-action@v2
@@ -77,11 +77,11 @@ jobs:
         with:
           fetch-depth: 0
       - name: "📦 Setup pnpm"
-        uses: pnpm/action-setup@v2.4.0
+        uses: pnpm/action-setup@v4
       - name: "⎔ Setup node"
-        uses: actions/setup-node@v4.3.0
+        uses: actions/setup-node@v4
         with:
-          node-version: current
+          node-version: "lts/*"
           cache: "pnpm"
       - run: pnpm i --prod
       # Ensure build with a cold cache does not increase too much
