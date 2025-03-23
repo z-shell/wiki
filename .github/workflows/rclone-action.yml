@@ -26,7 +26,7 @@ jobs:
       assets_remote_path: "r2store:r2-store/assets"
     steps:
       - name: "⤵️ Check out code from GitHub"
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - name: "⏫ Run rclone/r2-store/img"
         uses: z-shell/.github/actions/rclone@main
         with:
