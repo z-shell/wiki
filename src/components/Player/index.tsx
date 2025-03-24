@@ -24,7 +24,7 @@ export type PlayerProps = {
   markers?: string;
 };
 
-export default function Player({src, ...opts}: PlayerProps): JSX.Element {
+export default function Player({src, ...opts}: PlayerProps): React.JSX.Element {
   const element = useRef<HTMLDivElement>(null);
   const [player, setPlayer] = useState<typeof import("asciinema-player")>();
 

@@ -12,7 +12,7 @@ export type ImgProps = {
   children?: ReactNode;
 };
 
-export default function ImgShow(props: ImgProps): JSX.Element {
+export default function ImgShow(props: ImgProps): React.JSX.Element {
   const {img, alt, label, children, ...rest} = props;
   const Image = Loadable(() => import("@theme/IdealImage"));
   return (

@@ -14,7 +14,7 @@ export type EmojiProps = HTMLAttributes<HTMLSpanElement> & {
   symbol: string;
 };
 
-export default function Emoji(props: EmojiProps): JSX.Element {
+export default function Emoji(props: EmojiProps): React.JSX.Element {
   const {label, symbol, ...rest} = props;
   return (
     <span aria-hidden={label != null ? undefined : true} aria-label={label ?? undefined} {...rest}>

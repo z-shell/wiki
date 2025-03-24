@@ -28,8 +28,8 @@ const create = () => (
 
 export interface FeatureItem {
   title: string;
-  icon: JSX.Element;
-  description: JSX.Element;
+  icon: React.JSX.Element;
+  description: React.JSX.Element;
   className?: string;
 }
 

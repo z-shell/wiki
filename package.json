@@ -55,24 +55,24 @@
     "@docusaurus/module-type-aliases": "3.7.0",
     "@docusaurus/tsconfig": "3.7.0",
     "@docusaurus/types": "3.7.0",
-    "@types/node": "22.13.11",
+    "@types/node": "22.13.13",
     "@typescript-eslint/eslint-plugin": "8.27.0",
     "@typescript-eslint/parser": "8.27.0",
-    "eslint": "9.5.0",
+    "eslint": "9.23.0",
     "eslint-config-prettier": "10.1.1",
     "eslint-import-resolver-typescript": "4.2.2",
-    "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-react": "7.34.3",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-react": "7.37.4",
     "eslint-plugin-react-hooks": "5.2.0",
     "stylelint": "16.16.0",
     "stylelint-color-format": "1.1.0",
     "stylelint-config-css-modules": "4.4.0",
     "stylelint-config-standard": "37.0.0",
-    "typescript": "5.5.4"
+    "typescript": "5.8.2"
   },
   "packageManager": "pnpm@10.6.5+sha512.cdf928fca20832cd59ec53826492b7dc25dc524d4370b6b4adbf65803d32efaa6c1c88147c0ae4e8d579a6c9eec715757b50d4fa35eea179d868eada4ed043af",
   "engines": {
-    "node": ">=22",
+    "node": ">=20",
     "pnpm": ">=10"
   },
   "pnpm": {

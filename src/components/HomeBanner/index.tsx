@@ -6,7 +6,7 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 import Heading from "@theme/Heading";
 import styles from "./styles.module.css";
 
-export default function HeroBanner(): JSX.Element {
+export default function HeroBanner(): React.JSX.Element {
   return (
     <div className={styles.hero} data-theme='dark'>
       <div className={styles.heroInner}>

@@ -9,7 +9,7 @@ const override: CSSProperties = {
   margin: "0 auto",
 };
 
-export default function Spinner(): JSX.Element {
+export default function Spinner(): React.JSX.Element {
   const [loading] = useState(true);
   const [color] = useState("#00ffcc");
   return (

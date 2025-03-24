@@ -21,7 +21,7 @@ function Feature({title, icon, description, className}: FeatureItem) {
   );
 }
 
-export default function HomeFeatures(): JSX.Element {
+export default function HomeFeatures(): React.JSX.Element {
   return (
     <section className={styles.HomeFeatures}>
       <div className='container text--center'>

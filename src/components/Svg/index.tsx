@@ -11,7 +11,7 @@ export type SvgIconProps = ComponentProps<"svg"> & {
   children: ReactNode; // Node passed into the SVG element.
 };
 
-export default function Svg(props: SvgIconProps): JSX.Element {
+export default function Svg(props: SvgIconProps): React.JSX.Element {
   const {svgClass, colorAttr, children, color = "inherit", size = "medium", viewBox = "0 0 24 24", ...rest} = props;
 
   return (
