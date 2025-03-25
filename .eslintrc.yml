@@ -1,6 +1,6 @@
 env:
   browser: true
-  es2024: true
+  commonjs: true
   node: true
 extends:
   - eslint:recommended
@@ -12,13 +12,13 @@ globals:
   JSX: true
 reportUnusedDisableDirectives: true
 parser: "@typescript-eslint/parser"
-parserOptions:
-  ecmaVersion: latest
-  sourceType: module
-  ecmaFeatures:
-    jsx: true
-  project:
-    - tsconfig.json
+#parserOptions:
+#  ecmaVersion: latest
+#  sourceType: module
+#  ecmaFeatures:
+#    jsx: true
+#  project:
+#    - tsconfig.json
 settings:
   "import/resolver":
     typescript:
@@ -31,6 +31,7 @@ plugins:
   - import
   - react-hooks
   - "@typescript-eslint"
+  - "@docusaurus"
 rules:
   {
     "semi": [2, "always"],

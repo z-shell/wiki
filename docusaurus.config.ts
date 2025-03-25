@@ -30,6 +30,16 @@ export default async function createConfigAsync() {
     themes: ["@docusaurus/theme-mermaid"],
     markdown: {format: "detect", mermaid: false},
     scripts: [{src: styles, crossorigin: "anonymous"}],
+    future: {
+      experimental_faster: {
+        swcJsLoader: true,
+        swcJsMinimizer: true,
+        swcHtmlMinimizer: false,
+        lightningCssMinimizer: true,
+        rspackBundler: false,
+        mdxCrossCompilerCache: true,
+      },
+    },
     plugins: [
       [
         "content-docs",
@@ -104,6 +114,12 @@ export default async function createConfigAsync() {
       [
         "classic",
         {
+          svgr: {
+            svgrConfig: {
+              svgo: true,
+              typescript: true,
+            },
+          },
           docs: {
             path: "docs",
             breadcrumbs: true,
@@ -115,7 +131,7 @@ export default async function createConfigAsync() {
               if (locale !== "en") {
                 return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
               }
-              return `https://github.com/z-shell/wiki/tree/main/${versionDocsDirPath}/${docPath}`;
+              return `https://github.com/z-shell/wiki/tr ee/main/${versionDocsDirPath}/${docPath}`;
             },
             showLastUpdateAuthor: true,
             showLastUpdateTime: true,
