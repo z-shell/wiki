@@ -83,7 +83,7 @@ jobs:
         with:
           node-version: "lts/*"
           cache: "pnpm"
-      - run: pnpm i --prod
+      - run: pnpm i --prod --no-frozen-lockfile
       # Ensure build with a cold cache does not increase too much
       - name: "Build (cold cache)"
         run: pnpm build:en
