@@ -57,9 +57,9 @@ jobs:
         with:
           node-version: "lts/*"
           cache: "pnpm"
-      - run: pnpm i --prod --no-frozen-lockfile
       - uses: preactjs/compressed-size-action@946a292cd35bd1088e0d7eb92b69d1a8d5b5d76a # v2
         with:
+          install-script: "pnpm i --prod --shamefully-hoist --fix-lockfile"
           build-script: "build:en"
           pattern: "{build/assets/js/*.js,build/assets/css/*.css,build/**/*.html,.docusaurus/globalData.json,build/blog/**/swiss-army-knife-for-zsh/*}"
           exclude: "{./build/manifest.json,./build/**/*.xml,**/*.map,**/node_modules/**,build/assets/**/*.ttf}"
@@ -83,7 +83,7 @@ jobs:
         with:
           node-version: "lts/*"
           cache: "pnpm"
-      - run: pnpm i --prod --no-frozen-lockfile
+      - run: pnpm i --prod --shamefully-hoist
       # Ensure build with a cold cache does not increase too much
       - name: "Build (cold cache)"
         run: pnpm build:en
