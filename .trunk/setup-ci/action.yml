@@ -14,5 +14,5 @@ runs:
     - name: 🏗 Prepare
       shell: bash
       run: |
-        pnpm i
+        pnpm install --no-frozen-lockfile --prod --shamefully-hoist --fix-lockfile
         pnpm build:en
