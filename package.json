@@ -35,7 +35,7 @@
     ]
   },
   "dependencies": {
-    "@docusaurus/core": "3.7.0",
+    "@docusaurus/core": "3.8.0",
     "@docusaurus/faster": "3.7.0",
     "@docusaurus/plugin-ideal-image": "3.7.0",
     "@docusaurus/plugin-pwa": "3.7.0",
