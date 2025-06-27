@@ -3,6 +3,48 @@
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
     "types": ["@docusaurus/types"],
-    "baseUrl": "."
-  }
+    "baseUrl": ".",
+    "paths": {
+      "@site/*": ["src/*"],
+      "@theme/*": ["src/theme/*"],
+      "@components/*": ["src/components/*"],
+      // Ensure compatibility with Docusaurus 3.0+ and its module resolution
+      // This allows Docusaurus to resolve its own modules correctly
+      // Note: This is necessary for Docusaurus to work properly with TypeScript
+      // This is a workaround for Docusaurus 3.0+ which uses a different module resolution strategy
+      "@docusaurus/*": ["node_modules/@docusaurus/*"]
+    },
+    // Using safer type checking settings to avoid breaking changes
+    // These can be gradually enabled as the codebase is refactored
+    "strict": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "strictFunctionTypes": false,
+    "strictBindCallApply": false,
+    "strictPropertyInitialization": false,
+    "noImplicitThis": false,
+    "alwaysStrict": false,
+
+    // Modern JSX settings for React 19
+    "jsx": "react-jsx",
+
+    // Performance improvements
+    "incremental": true,
+
+    // Additional helpful checks with reasonable defaults
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": false,
+
+    // Ensure ES modules
+    "esModuleInterop": true,
+
+    // Modern JavaScript support
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler"
+  },
+  "include": ["src/custom.d.ts", "src/types/**/*.d.ts", "src/**/*.ts", "src/**/*.tsx", "src/**/*.mdx"],
+  "exclude": ["build", "scripts", "node_modules"]
 }

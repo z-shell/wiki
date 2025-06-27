@@ -36,7 +36,7 @@ body:
     attributes:
       label: Have you read the Contributing Guidelines?
       options:
-        - label: I have read the [Contributing Guidelines](https://github.com/z-shell/zi/blob/main/docs/CONTRIBUTING.md).
+        - label: I have read the [Contributing Guidelines](https://wiki.zshell.dev/contributing).
           required: true
 
   - type: textarea

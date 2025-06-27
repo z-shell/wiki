@@ -1,6 +1,6 @@
 version: 0.1
 cli:
-  version: 1.22.15
+  version: 1.24.0
   shell_hooks:
     path_add:
       - "${workspace}/tools"
@@ -8,7 +8,7 @@ plugins:
   sources:
     - id: trunk
       uri: https://github.com/trunk-io/plugins
-      ref: v1.6.8
+      ref: v1.7.1
 merge:
   required_statuses:
     - Trunk Check
@@ -22,18 +22,18 @@ lint:
     - osv-scanner
     - renovate
     - shellcheck
+    - taplo
   enabled:
-    - sort-package-json@3.0.0
-    - taplo@0.9.3
+    - sort-package-json@3.3.1
     - oxipng@9.1.5
-    - svgo@3.3.2
-    - stylelint@16.19.1
+    - eslint@9.29.0
+    - svgo@4.0.0
+    - stylelint@16.21.0
     - git-diff-check@SYSTEM
     - actionlint@1.7.7
-    - eslint@8.57.0
-    - gitleaks@8.26.0
+    - gitleaks@8.27.2
+    - prettier@3.6.2
     - markdownlint@0.45.0
-    - prettier@3.5.3
     - shfmt@3.6.0
     - hadolint@2.12.1-beta
   ignore:
@@ -67,4 +67,4 @@ runtimes:
   enabled:
     - python@3.10.8
     - go@1.21.5
-    - node@20.10.0
+    - node@22.16.0

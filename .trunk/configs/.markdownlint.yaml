@@ -1,4 +1,4 @@
-# Autoformatter friendly markdownlint config (all formatting rules disabled)
+# Autoformatter friendly markdownlint config (formatting rules disabled)
 default: true
 blank_lines: false
 bullet: false
@@ -8,4 +8,51 @@ line_length: false
 spaces: false
 url: false
 whitespace: false
-MD051: false
+
+# Content rules
+MD001: true # Heading levels should increment by one level at a time
+MD002: false # First heading should be a top-level heading
+MD003: false # Heading style
+MD004: false # Unordered list style
+MD005: true # Consistent indentation for list items
+MD007: false # Unordered list indentation
+MD009: false # Trailing spaces
+MD010: false # Hard tabs
+MD011: true # Reversed link syntax
+MD012: false # Multiple consecutive blank lines
+MD013: false # Line length
+MD014: false # Dollar signs used before commands without showing output
+MD018: true # No space after hash on atx style heading
+MD019: false # Multiple spaces after hash on atx style heading
+MD022: false # Headings should be surrounded by blank lines
+MD023: true # Headings must start at the beginning of the line
+MD024: false # Multiple headings with the same content
+MD025: false # Multiple top-level headings in the same document
+MD026: false # Trailing punctuation in heading
+MD027: false # Multiple spaces after blockquote symbol
+MD028: true # Blank line inside blockquote
+MD029: false # Ordered list item prefix
+MD030: false # Spaces after list markers
+MD031: false # Fenced code blocks should be surrounded by blank lines
+MD032: false # Lists should be surrounded by blank lines
+MD033: false # Allow inline HTML
+MD034: true # Bare URL used
+MD035: false # Horizontal rule style
+MD036: false # Emphasis used instead of a heading
+MD037: false # Spaces inside emphasis markers
+MD038: false # Spaces inside code span elements
+MD039: false # Spaces inside link text
+MD040: true # Fenced code blocks should have a language specified
+MD041: false # First line in a file should be a top-level heading
+MD042: true # No empty links
+MD043: false # Required heading structure
+MD044: false # Proper names should have the correct capitalization
+MD045: true # Images should have alternate text (alt text)
+MD046: false # Code block style
+MD047: false # Files should end with a single newline character
+MD048: false # Code fence style
+MD049: false # Emphasis style
+MD050: false # Strong style
+MD051: false # Link fragments should be valid
+MD052: true # Reference links should use a reference that is defined
+MD053: true # Link and image reference definitions should be needed

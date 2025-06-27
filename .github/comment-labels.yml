@@ -1,5 +1,3 @@
-# @format
-
 comment:
   header: Hi, there.
   footer: "\n\n > This is an automated comment. Responding to the bot or mentioning it won't have any effect.\n\n"

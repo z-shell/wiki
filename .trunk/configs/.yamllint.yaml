@@ -8,3 +8,6 @@ rules:
   key-duplicates: {}
   octal-values:
     forbid-implicit-octal: true
+  document-start: disable # If you don't want to enforce --- at start
+  new-line-at-end-of-file: enable # Best practice
+  trailing-spaces: enable # Remove trailing whitespace

@@ -10,9 +10,6 @@ contact_links:
   - name: Matrix
     url: https://matrix.zshell.dev
     about: An open network for secure, decentralized communication
-  - name: Slack
-    url: https://join.slack.com/t/z-shell/shared_invite/zt-16twpopd2-p08ROUeT2aGZ5njJwysawA
-    about: Workspace to collaborate, ask and answer questions
   - name: Crowdin
     url: https://translate.zshell.dev
     about: Translation and localization management

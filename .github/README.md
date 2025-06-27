@@ -5,16 +5,16 @@
       <h2 align="center">
         <p>
           <a href="https://github.com/z-shell/zi">
-            <img src="https://raw.githubusercontent.com/z-shell/zi/main/docs/images/logo.svg" width="60" height="60" alt="Logo" />
+            <img src="https://raw.githubusercontent.com/z-shell/zi/main/docs/images/logo.png" width="60" height="60" alt="Logo" />
           ❮ Zi ❯</a>
         </p>
       </h2>
+      <p align="center"><strong>Z-Shell Documentation and Wiki - Comprehensive resources for Zi and the Z-Shell ecosystem</strong></p>
     <h4>
     <p align="center">
-      <a href="https://discussions.zshell.dev/">《❔》Ask a Question </a>
-      <a href="https://wiki.zshell.dev/search/">《💡》Search Wiki </a>
-      <a href="https://github.com/z-shell/community/issues/new?assignees=&labels=%F0%9F%91%A5+member&template=membership.yml&title=team%3A+">《💜》Join </a>
-      <a href="https://translate.zshell.dev/">《🌐》Localize </a>
+      <a href="https://discussions.zshell.dev/">❔ Ask a Question </a>
+      - <a href="https://wiki.zshell.dev/search/">💡 Search Wiki </a>
+      - <a href="https://translate.zshell.dev/">🌐 Localize </a>
     </p>
   </h4>
 </tr>
@@ -34,91 +34,94 @@
         <img align="center" src="https://img.shields.io/badge/--019733?logo=vim" alt="VIM" />
       </a>
       <a title="wiki" target="_self" href="https://open.vscode.dev/z-shell/wiki">
-        <img align="center" src="https://img.shields.io/badge/--007ACC?logo=visual%20studio%20code&logoColor=ffffff alt="Visual Studio Code" />
+        <img align="center" src="https://img.shields.io/badge/--007ACC?logo=visual%20studio%20code&logoColor=ffffff" alt="Visual Studio Code" />
       </a>
     </p>
   </td>
 </tr>
+</table>
+
+## 📋 About
+
+This repository hosts the comprehensive documentation for Z-Shell projects, serving as the central knowledge base for our ecosystem. The wiki covers:
+
+- **Zi Plugin Manager**: Documentation for our flagship plugin manager with Turbo Mode, completions, and more
+- **Z-Shell Framework**: Guides for the broader Z-Shell framework and its components
+- **Developer Resources**: API references, component documentation, and contributor guides
+- **User Tutorials**: Step-by-step instructions for various Z-Shell use cases and configurations
+- **Best Practices**: Recommended patterns and approaches for Zsh shell environments
+- **Component Library**: Documentation for our custom React component system used throughout the wiki
+
+Our documentation is designed to be accessible for both new users and experienced Zsh developers, with comprehensive examples and clear explanations.
+
+For the software itself, visit the [Zi Plugin Manager repository](https://github.com/z-shell/zi).
+
+## 📊 Project Metrics
+
+<table>
 <tr>
   <td align="center">
-  <img
-    align="center" width="80%" height="auto" alt="Follow Up Card"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/wiki_followup.svg"
-  />
   <img
     align="center" width="80%" height="auto" alt="Metrics Card"
     src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/metrics.svg"
   />
   </td>
 </tr>
-<tr>
-<td align="center">
-<a title="Zi Wiki" target="_self" href="https://github.com/z-shell/wiki">
-  <img
-    align="center" width="80%" height="auto" alt="Pagespeed Card"
-    src="https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/pagespeed/detailed.svg"
-  /><hr />
-</a>
-<p align="center"><a href="https://asciinema.org/a/459358" target="_blank"><img align="center" width="100%" height="auto" src="https://asciinema.org/a/459358.svg" alt="Asciinema Preview" /></a><p>
-  </td>
-</tr>
-<tr><td align="left">
-  <hr />
-<h2 align="left">Project assistance</h2>
-<p> If you want to say <b>thank you</b> or/and support the active development.</p>
-<p> - Add a <a href="https://github.com/z-shell/zi">GitHub Star</a> to the project, and follow <a href="https://github.com/z-shell">Z-Shell</a> organization. </p>
-<p> - Write interesting articles about the project on: <br />
-  <a href="https://dev.to/">Dev.to</a>, <a href="https://medium.com/">Medium.com</a>, <a href="https://news.ycombinator.com/news">Hacker News</a>, <a href="https://community.ops.io/zsh">Community.ops.io</a>, <a href="https://www.reddit.com/r/zsh/">Reddit</a>, <a href="https://twitter.com/zshell_zi">Twitter</a> or your blog. Let us know so can share your post, especially if it's in other languages or some interesting zshrc configurations </p>
-<p> Participate in the community by showing the <a href="https://github.com/z-shell/community/issues/new?assignees=&labels=%F0%9F%91%A5+member&template=membership.yml&title=team%3A+">interest</a> to the project, as it may bring us together, then great things may happen. If you would like to participate, but are not sure about what and how - do not hesitate to contact us so we can discuss the situation 👍. We've all been there, we all had to start from something - together is much easier, just need to do the first step 🚀. </p>
-<hr />
-<h2 align="left">Security</h2>
-<p> - Z-Shell follows good practices of security, but 100% security cannot be assured.</p>
-<p> - Z-Shell is provided <bold>"as is"</bold> without any <bold>warranty</bold>. Use at your own risk. </p>
-<p> - For more information and to report security issues, please refer to our <a href="https://github.com/z-shell/.github/security">security documentation</a>.</p>
-<hr />
-<h2 align="left">Authors & contributors</h2>
-<p> Check the list of authors and contributors in this <a href="https://github.com/z-shell/zi/contributors">repository</a> and also all other repositories under <a href="https://github.com/z-shell">Z-Shell</a> organization. We will inlclude all showning the interest or dedicated their time to take a part.
-</p>
-</td>
-</tr>
-<!-- 
-<tr>
-  <td align="center">
-  <h2 align="left">Credits</h2>
-  <a href="https://trunk.io" rel="nofollow">
-    <img
-      style="width: 140; height: 40px"
-      src="https://storage.googleapis.com/digital-space/img/brand/trunk/trunk-white.svg"
-      alt="Trunk"
-    />
-  </a>
-  <a
-    href="https://crowdin.com/?utm_source=badge&utm_medium=referral&utm_campaign=badge-add-on"
-    rel="nofollow"
-  >
-    <img
-      style="width: 140px; height: 40px"
-      src="https://storage.googleapis.com/digital-space/img/brand/crowdin/localization-at-dark-rounded%402x.png"
-      alt="Crowdin | Agile localization for tech companies"
-    />
-  </a>
-  <a
-    href="https://www.digitalocean.com/?refcode=090bdb63f800&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"
-    rel="nofollow"
-  >
-    <img
-      style="width: 140px; height: 40px"
-      src="https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg"
-      alt="DigitalOcean Referral Badge"
-    />
-  </a>
-  <a href="https://cloudflare.com" rel="nofollow">
-    <img
-      style="width: 140px; height: 40px"
-      src="https://storage.googleapis.com/digital-space/img/brand/cloudflare/cf-logo-v-rgb.png"
-      alt="Cloudflare"
-    />
-    </a>
-  </td></tr>
-  -->
-  </table>
+</table>
+
+## 🤝 Project Assistance
+
+We appreciate community support for active development. Here are ways you can contribute:
+
+- **GitHub Engagement**: Star the [Z-Shell/Zi repository](https://github.com/z-shell/zi) and follow the [Z-Shell organization](https://github.com/z-shell) for updates
+- **Content Creation**: Write articles, tutorials, or create videos about Zi on platforms like:
+  [Dev.to](https://dev.to/), [Medium](https://medium.com/), [Hacker News](https://news.ycombinator.com/news), [Reddit r/zsh](https://www.reddit.com/r/zsh/), or [Twitter](https://twitter.com/zshell_zi)
+
+  _We actively promote community content, especially multilingual resources and unique Zsh configurations_
+
+- **Feedback & Testing**: Report bugs, suggest features, and test new releases
+- **Community Participation**: Join our [community](https://github.com/z-shell/community/issues/new?assignees=&labels=%F0%9F%91%A5+member&template=membership.yml&title=team%3A+) and participate in discussions to help shape the future of the project
+
+## 🔒 Security
+
+The Z-Shell organization takes security seriously and follows industry best practices:
+
+- **Security Protocols**: We implement secure coding practices and regularly review dependencies for vulnerabilities
+- **Responsible Disclosure**: Security issues should be reported according to our [vulnerability disclosure policy](https://github.com/z-shell/.github/security)
+- **Third-Party Integration**: We carefully evaluate all external dependencies and maintain a minimal trust footprint
+- **Update Policy**: Security patches are prioritized and released promptly
+
+Z-Shell projects are provided **"as is"** without warranty under the terms of the GPL-3.0 license. Users should evaluate the security implications of any code they integrate into their systems.
+
+## 🛠️ Contributing
+
+The Z-Shell organization welcomes contributions from developers of all experience levels. We follow established best practices and maintain a structured development workflow:
+
+### Contribution Areas
+
+- **Documentation**: Improve our [wiki](https://wiki.zshell.dev/contributing) with clear examples, tutorials, and guides
+- **Component Development**: Enhance our [React component system](https://wiki.zshell.dev/contributing/component-examples) with new features or improvements
+- **Testing & QA**: Help test changes across different environments and configurations
+- **Localization**: Translate documentation into [additional languages](https://translate.zshell.dev/)
+- **Design**: Improve visual elements, user experience, and accessibility
+
+### Development Process
+
+1. **Getting Started**: Read our [Contributing Guide](https://wiki.zshell.dev/contributing) for project setup instructions
+2. **Workflow**: Fork the repository, create a branch, implement changes, and submit a pull request
+3. **Code Review**: All submissions undergo peer review before merging
+4. **Issue Tracking**: Browse [existing issues](https://github.com/z-shell/wiki/issues) or create new ones for bugs and feature requests
+
+Our wiki is built with [Docusaurus](https://docusaurus.io/) using TypeScript, React, and our custom component system. All contributions should adhere to established code style guidelines and follow semantic versioning principles.
+
+## ✍️ Authors & Contributors
+
+Z-Shell is a community-driven project maintained by a dedicated team of contributors:
+
+- **Core Team**: Experienced maintainers who review code, guide development, and ensure project quality
+- **Regular Contributors**: Developers who consistently contribute improvements and fixes
+- **Community Contributors**: Everyone who has submitted code, documentation, or translations
+
+View the complete list of contributors in our [primary repository](https://github.com/z-shell/zi/contributors) and across the [Z-Shell organization](https://github.com/z-shell). We recognize all forms of contribution, from code and documentation to community support and feedback.
+
+Interested in joining our documentation team? We especially welcome contributors with technical writing experience, multilingual capabilities, or expertise in Zsh.
