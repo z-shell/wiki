@@ -1,0 +1,85 @@
+---
+title: Type System
+description: Understanding the type system in the Z-Shell Wiki
+---
+
+The Z-Shell Wiki uses TypeScript to provide type safety and improve developer experience. This document explains how the type system is organized and how to use it effectively.
+
+## Type Organization
+
+The type system is organized into the following structure:
+
+```tree
+src/
+  types/
+    index.ts                  # Central export point for all types
+    components/
+      ui.ts                   # Component prop types
+      component-modules.d.ts  # Component module declarations
+    global/
+      files.d.ts              # File/asset module declarations
+    modules/
+      asciinema-player.d.ts   # Third-party module types
+      docusaurus.d.ts         # Docusaurus-specific types
+      hooks.d.ts              # Hook-related types
+  components/
+    types.ts                  # Re-exports from types/ (for backward compatibility)
+```
+
+## How to Use Types
+
+### Importing Component Types
+
+When creating or modifying components, import types from the central types module:
+
+```tsx
+// Recommended: Using relative imports
+import type {ComponentProps} from "../../types";
+
+// Alternative: Using absolute imports (may have resolution issues in some environments)
+// import type { ComponentProps } from "@site/types";
+```
+
+### Defining New Types
+
+When creating new component types:
+
+1. Add the type definition to `src/types/components/ui.ts`
+2. Export it from `src/types/index.ts` (this happens automatically)
+3. Use it in your component
+
+```tsx
+// In src/types/components/ui.ts
+export interface MyComponentProps {
+  // Type definition here
+}
+
+// In your component
+import type {MyComponentProps} from "../../types";
+
+export default function MyComponent(props: MyComponentProps) {
+  // Component implementation
+}
+```
+
+### Type Declaration Files
+
+Type declaration files (`.d.ts`) are used for declaring module types and ambient declarations. These files are referenced in `src/custom.d.ts` and don't need to be imported directly.
+
+## Best Practices
+
+1. **Use Type Annotations**: Always add type annotations to function parameters and return values.
+2. **Document Types**: Add JSDoc comments to type definitions explaining their purpose and usage.
+3. **Centralize Types**: Define all component prop types in `src/types/components/ui.ts`, including shared types like `FeatureItem` for feature lists.
+4. **Avoid Duplicates**: Don't define the same type in multiple places.
+5. **Maintain Backward Compatibility**: Use re-exports when refactoring to maintain backward compatibility.
+6. **Run Type Checks**: Regularly run `npx tsc --noEmit` to catch type errors.
+
+## Future Improvements
+
+As the codebase evolves, consider these improvements to the type system:
+
+1. **Increase Type Strictness**: Gradually enable strict type checking options in `tsconfig.json`.
+2. **Add Type Tests**: Consider adding tests to ensure type definitions are accurate.
+3. **Type Coverage**: Use tools to measure and improve type coverage.
+4. **Standardize Imports**: Consider standardizing on absolute or relative imports for better consistency.

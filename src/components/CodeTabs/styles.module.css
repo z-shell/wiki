@@ -1,0 +1,54 @@
+.codeTabs {
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-color);
+}
+
+.tabList {
+  display: flex;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-color-emphasis-100);
+  overflow-x: auto;
+}
+
+.tabItem {
+  padding: 0.75rem 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+  transition:
+    color 0.2s,
+    background-color 0.2s;
+}
+
+.tabItem:hover {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+.tabItemActive {
+  color: var(--ifm-color-primary);
+  border-bottom: 2px solid var(--ifm-color-primary);
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+.tabContent {
+  overflow: auto;
+}
+
+/* Remove margin from code blocks inside tabs */
+.tabContent > pre {
+  margin: 0;
+}
+
+/* Support for dark mode */
+html[data-theme="dark"] .tabList {
+  background: var(--ifm-color-emphasis-200);
+}
+
+html[data-theme="dark"] .tabItemActive {
+  background-color: var(--ifm-color-emphasis-300);
+}

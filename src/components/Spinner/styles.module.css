@@ -1,0 +1,80 @@
+.spinner {
+  display: inline-block;
+  position: relative;
+}
+
+.spinnerDot {
+  border-radius: 50%;
+  animation: spinner-animation 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  box-sizing: border-box;
+}
+
+.small {
+  width: 16px;
+  height: 16px;
+}
+
+.small .spinnerDot {
+  width: 16px;
+  height: 16px;
+}
+
+.medium {
+  width: 24px;
+  height: 24px;
+}
+
+.medium .spinnerDot {
+  width: 24px;
+  height: 24px;
+}
+
+.large {
+  width: 32px;
+  height: 32px;
+}
+
+.large .spinnerDot {
+  width: 32px;
+  height: 32px;
+}
+
+.primary {
+  color: var(--ifm-color-primary);
+}
+
+.success {
+  color: var(--ifm-color-success);
+}
+
+.warning {
+  color: var(--ifm-color-warning);
+}
+
+.danger {
+  color: var(--ifm-color-danger);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+@keyframes spinner-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

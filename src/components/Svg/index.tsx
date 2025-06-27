@@ -1,26 +1,35 @@
-import React, {type ReactNode, type ComponentProps} from "react";
+import React from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
+import type {SvgProps} from "../../types/components/ui";
 
-export type SvgIconProps = ComponentProps<"svg"> & {
-  viewBox?: string;
-  size?: "inherit" | "small" | "medium" | "large";
-  color?: "inherit" | "primary" | "secondary" | "success" | "error" | "warning";
-  svgClass?: string; // Class attribute on the child
-  colorAttr?: string; // Applies a color attribute to the SVG element.
-  children: ReactNode; // Node passed into the SVG element.
-};
-
-export default function Svg(props: SvgIconProps): React.JSX.Element {
-  const {svgClass, colorAttr, children, color = "inherit", size = "medium", viewBox = "0 0 24 24", ...rest} = props;
+/**
+ * SVG icon component with customizable size and color
+ */
+export default function Svg({
+  svgClass,
+  colorAttr,
+  children,
+  color = "inherit",
+  size = "medium",
+  viewBox = "0 0 24 24",
+  title,
+  className,
+  ...rest
+}: SvgProps): React.JSX.Element {
+  const titleId = title ? `svg-title-${title.replace(/\s+/g, "-").toLowerCase()}` : undefined;
 
   return (
     <svg
       viewBox={viewBox}
       color={colorAttr}
-      aria-hidden
-      className={clsx(styles.svgIcon, styles[color], styles[size], svgClass)}
+      aria-hidden={title ? undefined : true}
+      aria-labelledby={titleId}
+      role={title ? "img" : undefined}
+      className={clsx(styles.svgIcon, styles[color], styles[size], svgClass, className)}
+      data-testid='svg'
       {...rest}>
+      {title && <title id={titleId}>{title}</title>}
       {children}
     </svg>
   );

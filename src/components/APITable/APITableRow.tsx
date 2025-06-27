@@ -1,27 +1,7 @@
-import React, {
-  type ComponentProps,
-  type ReactElement,
-  type ReactNode,
-  isValidElement,
-  useRef,
-  useEffect,
-  memo,
-  Children,
-  cloneElement,
-} from "react";
+import React, {type ReactElement, type ReactNode, isValidElement, memo, Children} from "react";
 import useBrokenLinks from "@docusaurus/useBrokenLinks";
 import {useHistory} from "@docusaurus/router";
-import type {APITableProps} from "../../types";
-
-/**
- * Props for the APITableRow component
- */
-interface APITableRowProps {
-  /** Optional namespace to prefix row IDs */
-  name: string | undefined;
-  /** The table row to render */
-  children: ReactElement<ComponentProps<"tr">>;
-}
+import type {APITableRowProps} from "../../types";
 
 /**
  * Extracts all text content from a React node.
@@ -100,61 +80,11 @@ const APITableRow = memo(
         ref={history.location.hash === anchor ? ref : undefined}
         onClick={handleClick}
         onKeyDown={handleKeyDown}
-        aria-label={`API entry: ${entryName}`}>
+        className={history.location.hash === anchor ? "theme-api-table-row-active" : undefined}>
         {children.props.children}
       </tr>
     );
   }),
 );
 
-// Add display name for better debugging
-APITableRow.displayName = "APITableRow";
-
-/**
- * Enhanced table component for API documentation
- * Adds interactive navigation to table rows
- */
-export default function APITable({children, name}: APITableProps): ReactElement {
-  const activeRow = useRef<HTMLTableRowElement>(null);
-  const history = useHistory();
-
-  // Accept a <table> or wrap children in a <table>
-  let table: ReactElement<{children?: ReactNode}>;
-  if (isValidElement(children) && children.type === "table") {
-    table = children as ReactElement<{children?: ReactNode}>;
-  } else if (Array.isArray(children) || isValidElement(children)) {
-    table = <table>{children}</table>;
-  } else {
-    // Defensive: invalid children
-    return null;
-  }
-
-  const tableChildren = Children.toArray(table.props.children);
-  const tbodyEl = tableChildren.find(
-    (child): child is ReactElement<ComponentProps<"tbody">> => isValidElement(child) && child.type === "tbody",
-  );
-
-  if (!tbodyEl) {
-    return table;
-  }
-
-  const rows = Children.map(tbodyEl.props.children, (row) => {
-    if (!isValidElement(row)) return row;
-    return (
-      <APITableRow name={name} ref={activeRow}>
-        {row}
-      </APITableRow>
-    );
-  });
-
-  const newTbody = cloneElement(tbodyEl, {children: rows});
-  const newTable = cloneElement(table, table.props, newTbody);
-
-  useEffect(() => {
-    if (history.location.hash && activeRow.current) {
-      activeRow.current.scrollIntoView({block: "center"});
-    }
-  }, [history.location.hash]);
-
-  return newTable;
-}
+export default APITableRow;

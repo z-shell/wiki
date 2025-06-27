@@ -1,74 +1,169 @@
-/* @import url("/assets/fonts/jetbrainsmono.css"); */
+/**
+ * Z-Shell Wiki Custom CSS
+ *
+ * This file contains custom styling for the Z-Shell Wiki built with Docusaurus.
+ * It defines the color system, typography, component styles, and responsive design.
+ */
 
-/* @import url("/assets/fonts/hack-subset.css"); */
-
+/**
+ * Font imports
+ * ------------
+ * We use JetBrains Mono as our primary font and Hack for monospace code blocks
+ */
 @import url("/assets/fonts/hack.css");
 @import url("/assets/fonts/jetbrainsmono-variable.css");
 
+/**
+ * Color System & Theme Variables
+ * ------------------------------
+ * Using HSL colors for better maintainability and readability
+ * HSL format allows for more intuitive color adjustments:
+ * - Hue: Color type (0-360 degrees)
+ * - Saturation: Color intensity (0-100%)
+ * - Lightness: Brightness level (0-100%)
+ */
 :root {
-  transition-duration: 1s !important;
+  /* Base transition for theme switching */
+  --transition-duration: 1s;
 
+  /*
+   * Typography
+   * Font families and sizes
+   */
   --ifm-font-family: "JetBrains Mono", "Hack", monospace;
   --ifm-font-family-base: "JetBrains Mono", monospace;
   --ifm-font-family-monospace: "Hack", monospace;
-  --site-primary-hue-saturation: 168 70%;
-  --site-primary-hue-saturation-light: 167 60%;
-  --ifm-color-primary: hsl(var(--site-primary-hue-saturation) 30%);
-  --ifm-color-primary-dark: hsl(var(--site-primary-hue-saturation) 26%);
-  --ifm-color-primary-darker: hsl(var(--site-primary-hue-saturation) 23%);
-  --ifm-color-primary-darkest: hsl(var(--site-primary-hue-saturation) 17%);
-  --ifm-color-primary-light: hsl(var(--site-primary-hue-saturation-light) 39%);
-  --ifm-color-primary-lighter: hsl(var(--site-primary-hue-saturation-light) 47%);
-  --ifm-color-primary-lightest: hsl(var(--site-primary-hue-saturation-light) 58%);
-  --site-color-favorite-background: hsl(210deg 29% 97%);
-  --site-color-tooltip-background: hsl(200deg 3% 21%);
-  --site-color-feedback-background: hsl(0deg 0% 100%);
-  --site-color-tooltip: hsl(0deg 0% 100%);
+  --ifm-code-font-size: 90%;
+
+  /**
+   * Primary Color System
+   * We define base HSL values for consistent theming
+   * This makes it easy to change the entire color scheme
+   */
+  --site-primary-hue: 168deg;
+  --site-primary-saturation: 70%;
+  /* Slightly different hue for lighter shades for better harmony */
+  --site-primary-light-hue: 167deg;
+  --site-primary-light-saturation: 60%;
+
+  /* Primary color and variations */
+  --ifm-color-primary: hsl(var(--site-primary-hue) var(--site-primary-saturation) 30%);
+  --ifm-color-primary-dark: hsl(var(--site-primary-hue) var(--site-primary-saturation) 26%);
+  --ifm-color-primary-darker: hsl(var(--site-primary-hue) var(--site-primary-saturation) 23%);
+  --ifm-color-primary-darkest: hsl(var(--site-primary-hue) var(--site-primary-saturation) 17%);
+  --ifm-color-primary-light: hsl(var(--site-primary-light-hue) var(--site-primary-light-saturation) 39%);
+  --ifm-color-primary-lighter: hsl(var(--site-primary-light-hue) var(--site-primary-light-saturation) 47%);
+  --ifm-color-primary-lightest: hsl(var(--site-primary-light-hue) var(--site-primary-light-saturation) 58%);
+
+  /**
+   * Background and Surface Colors
+   * Light theme background is white with a subtle off-white for surface elements
+   */
+  --ifm-background-color: hsl(0deg 0% 100%);
+  --ifm-background-surface-color: hsl(210deg 29% 97%);
+
+  /**
+   * UI Component Colors
+   * Colors for specific UI elements
+   */
+  --site-tooltip-background: hsl(200deg 3% 21%);
+  --site-tooltip-color: hsl(0deg 0% 100%);
+  --site-feedback-background: hsl(0deg 0% 100%);
+
+  /* Active state colors */
   --ifm-breadcrumb-color-active: var(--ifm-color-primary-darker) !important;
   --ifm-menu-color-active: var(--ifm-color-primary-darker) !important;
-  --ifm-code-font-size: 90%;
-  --ifm-background-surface-color: hsl(210deg 29% 97%);
-  --ifm-background-color: hsl(0deg 0% 100%);
-  --ifm-navbar-background-color: var(--ifm-background-surface-color);
-  --docusaurus-highlighted-code-line-bg: hsl(0deg 0% 0% / 15%);
-  --docusaurus-announcement-bar-height: auto !important;
-}
 
-html[data-theme="dark"] {
-  --ifm-background-color: hsl(216deg 28% 7%);
-  --ifm-background-surface-color: hsl(210deg 12% 16%);
-  --site-color-checkbox-checked-bg: hsl(167deg 56% 73% / 10%);
+  /* Navbar specific */
+  --ifm-navbar-background-color: var(--ifm-background-surface-color);
+
+  /* Code highlighting */
   --docusaurus-highlighted-code-line-bg: hsl(0deg 0% 100% / 15%);
 
-  transition-duration: 1s !important;
+  /**
+   * ZI Syntax Highlighting
+   * Custom styles for Zi-specific keywords in code blocks
+   */
+  .token.zi-command {
+    color: hsl(204deg 86% 53%); /* A distinct blue for commands */
+  }
+
+  .token.zi-ice {
+    color: hsl(48deg 100% 67%); /* A bright yellow for ice modifiers */
+  }
+
+  /* Apply transitions for theme switching */
+  transition-duration: var(--transition-duration) !important;
 }
 
+/**
+ * Dark Theme Overrides
+ * --------------------
+ * All dark theme color adjustments in a single place for better maintainability
+ * Using [data-theme="dark"] selector as per Docusaurus best practices
+ */
 [data-theme="dark"] {
-  --ifm-color-primary: hsl(var(--site-primary-hue-saturation) 45%);
-  --ifm-color-primary-dark: hsl(var(--site-primary-hue-saturation) 41%);
-  --ifm-color-primary-darker: hsl(var(--site-primary-hue-saturation) 38%);
-  --ifm-color-primary-darkest: hsl(var(--site-primary-hue-saturation) 32%);
-  --ifm-color-primary-light: hsl(var(--site-primary-hue-saturation-light) 54%);
-  --ifm-color-primary-lighter: hsl(var(--site-primary-hue-saturation-light) 62%);
-  --ifm-color-primary-lightest: hsl(var(--site-primary-hue-saturation-light) 73%);
+  /**
+   * Dark Theme Background and Surface Colors
+   * Dark background with slightly lighter surface for contrast
+   */
+  --ifm-background-color: hsl(216deg 28% 7%);
+  --ifm-background-surface-color: hsl(210deg 12% 16%);
+
+  /**
+   * Dark Theme Primary Colors
+   * Increased lightness for better visibility in dark mode
+   */
+  --ifm-color-primary: hsl(var(--site-primary-hue) var(--site-primary-saturation) 45%);
+  --ifm-color-primary-dark: hsl(var(--site-primary-hue) var(--site-primary-saturation) 41%);
+  --ifm-color-primary-darker: hsl(var(--site-primary-hue) var(--site-primary-saturation) 38%);
+  --ifm-color-primary-darkest: hsl(var(--site-primary-hue) var(--site-primary-saturation) 32%);
+  --ifm-color-primary-light: hsl(var(--site-primary-light-hue) var(--site-primary-light-saturation) 54%);
+  --ifm-color-primary-lighter: hsl(var(--site-primary-light-hue) var(--site-primary-light-saturation) 62%);
+  --ifm-color-primary-lightest: hsl(var(--site-primary-light-hue) var(--site-primary-light-saturation) 73%);
+
+  /**
+   * Dark Theme UI Component Colors
+   */
+  --site-checkbox-checked-bg: hsl(167deg 56% 73% / 10%);
+  --docusaurus-highlighted-code-line-bg: hsl(0deg 0% 100% / 15%);
+
+  /* Apply transitions for theme switching */
+  transition-duration: var(--transition-duration) !important;
 }
 
+/**
+ * Component-Specific Styles
+ * -------------------------
+ */
+
+/**
+ * Code and Error Highlighting
+ * Styles for code blocks and error highlighting
+ */
 .code-block-error-line {
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
-  background-color: hsl(0deg 100% 50% / 12.5%);
-  border-left: 3px solid hsl(0deg 100% 50% / 50.2%);
+  background-color: hsl(0deg 100% 50% / 12.5%); /* Semi-transparent red */
+  border-left: 3px solid hsl(0deg 100% 50% / 50%); /* More visible red border */
 }
 
+/**
+ * Navbar Styles - Dark Variant
+ * These override the default navbar styling in dark mode
+ */
 .navbar--dark {
   --ifm-navbar-background-color: hsl(215deg 21% 11%);
   --ifm-navbar-link-hover-color: var(--ifm-color-primary);
-  --ifm-menu-color-background-active: rgb(255 255 255 / 5%);
+  --ifm-menu-color-background-active: hsl(0deg 0% 100% / 5%);
   --ifm-navbar-search-input-color: var(--ifm-color-white);
 }
 
-/* Footer style */
+/**
+ * Footer Styles
+ * Custom styling for the footer component
+ */
 .footer--dark {
   --ifm-footer-background-color: hsl(215deg 21% 11%);
   --ifm-footer-color: var(--ifm-footer-link-color);
@@ -90,9 +185,15 @@ html[data-theme="dark"] {
   padding-bottom: 1rem;
 }
 
+/**
+ * DocSearch Customization
+ * -----------------------
+ * Styling for Algolia DocSearch with light/dark theme support
+ */
 [data-theme="light"] .DocSearch {
+  /* Light theme search styling */
   --docsearch-muted-color: var(--ifm-color-emphasis-700);
-  --docsearch-container-background: rgb(94 100 112 / 70%);
+  --docsearch-container-background: hsl(214deg 9% 40% / 70%);
   --docsearch-modal-background: var(--ifm-color-secondary-lighter);
   --docsearch-searchbox-background: var(--ifm-color-secondary);
   --docsearch-searchbox-focus-background: var(--ifm-color-white);
@@ -103,15 +204,16 @@ html[data-theme="dark"] {
 }
 
 [data-theme="dark"] .DocSearch {
+  /* Dark theme search styling */
   --docsearch-text-color: var(--ifm-font-color-base);
   --docsearch-muted-color: var(--ifm-color-secondary-darkest);
-  --docsearch-container-background: rgb(47 55 69 / 70%);
+  --docsearch-container-background: hsl(214deg 19% 23% / 70%);
   --docsearch-modal-background: var(--ifm-background-color);
   --docsearch-searchbox-background: var(--ifm-background-color);
   --docsearch-searchbox-focus-background: var(--ifm-color-black);
   --docsearch-hit-color: var(--ifm-font-color-base);
   --docsearch-hit-active-color: var(--ifm-color-white);
-  --docsearch-hit-background: hsl(210deg 12% 16%);
+  --docsearch-hit-background: var(--ifm-background-surface-color);
   --docsearch-footer-background: var(--ifm-background-surface-color);
   --docsearch-key-gradient: linear-gradient(
     -26.5deg,
@@ -120,7 +222,12 @@ html[data-theme="dark"] {
   );
 }
 
+/**
+ * Accessibility Utilities
+ * -----------------------
+ */
 .screen-reader-only {
+  /* Hide content visually but keep it accessible to screen readers */
   position: absolute;
   width: 1px;
   height: 1px;
@@ -133,6 +240,11 @@ html[data-theme="dark"] {
   clip-path: polygon(0 0, 0 0, 0 0);
 }
 
+/**
+ * GitHub Dark/Light Mode Image Handling
+ * -------------------------------------
+ * Control image visibility based on theme
+ */
 html[data-theme="light"] img[src$="#gh-dark-mode-only"],
 html[data-theme="dark"] img[src$="#gh-light-mode-only"] {
   display: none;
@@ -143,6 +255,15 @@ html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
   display: none;
 }
 
+/**
+ * Component UI Elements
+ * ---------------------
+ */
+
+/**
+ * Tab Styling
+ * Custom styling for tab components
+ */
 .player-tabs .tabs__item {
   margin-right: 0.2rem;
   padding: 0.7rem;
@@ -156,11 +277,14 @@ html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
   transition: border-bottom 1s ease-in-out;
 }
 
-/* Image styles */
+/**
+ * Image Components
+ * Various layout options for images
+ */
 .IceLogo {
   display: block;
   float: right;
-  width: 150px;
+  max-width: 50px;
   height: auto;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
@@ -192,14 +316,11 @@ html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
   text-align: right;
 }
 
-table kbd {
-  display: inline-block;
-  padding: 0.25rem 0.4rem;
-  font-weight: bold;
-  font-size: 0.62rem;
-}
-
-/* Table */
+/**
+ * Table Styling
+ * -------------
+ * Enhances tables with better styling and accessibility
+ */
 table {
   display: table;
   width: 100%;
@@ -240,8 +361,26 @@ tbody tr:hover {
   transition: box-shadow 0.6s;
 }
 
-/* FontAwesome */
+/**
+ * Keyboard Styling
+ * ----------------
+ */
+table kbd {
+  display: inline-block;
+  padding: 0.25rem 0.4rem;
+  font-weight: bold;
+  font-size: 0.62rem;
+}
 
+/**
+ * Icon and Animation Utilities
+ * ----------------------------
+ */
+
+/**
+ * FontAwesome Animation Customization
+ * Customize animation speeds and properties
+ */
 .fa-beat {
   --fa-animation-duration: 3s;
 }
@@ -251,14 +390,20 @@ tbody tr:hover {
   --fa-beat-fade-scale: 1.075;
 }
 
+/**
+ * Video Container
+ * Responsive container for video content
+ */
 .video-container {
   position: relative;
   width: 100%;
   margin: 0 auto;
 }
 
-/* Github Link */
-
+/**
+ * GitHub Link
+ * Styling for the GitHub icon in the navbar
+ */
 .header-github-link:hover {
   opacity: 0.5;
 }
@@ -269,15 +414,19 @@ tbody tr:hover {
   height: 1.4em;
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
     no-repeat;
-  content: "";
 }
 
+/* Dark theme version of the GitHub icon */
 [data-theme="dark"] .header-github-link::before {
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='white' d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
     no-repeat;
 }
 
-/* Announcement banner */
+/**
+ * Announcement Banner
+ * ------------------
+ * Styles for the site-wide announcement banner
+ */
 div[class^="announcementBar_"] {
   font-weight: bold;
   font-size: 16px;
@@ -293,62 +442,78 @@ div[class^="announcementBar_"] a:hover {
   text-decoration: underline !important;
 }
 
+/* Light theme announcement bar */
+html[data-theme="light"] div[class^="announcementBar_"] {
+  color: hsl(0deg 0% 0%);
+  background: var(--ifm-background-surface-color);
+  transition-duration: var(--transition-duration) !important;
+}
+
 html[data-theme="light"] div[class^="announcementBar_"] a:hover {
   color: var(--ifm-color-black) !important;
+}
+
+/* Dark theme announcement bar */
+html[data-theme="dark"] div[class^="announcementBar_"] {
+  color: hsl(0deg 0% 100%);
+  background: var(--ifm-background-surface-color);
+  transition-duration: var(--transition-duration) !important;
 }
 
 html[data-theme="dark"] div[class^="announcementBar_"] a:hover {
   color: var(--ifm-color-white) !important;
 }
 
-html[data-theme="light"] div[class^="announcementBar_"] {
-  color: hsl(0deg 0% 0%);
-  background: hsl(210deg 29% 97%);
-  transition-duration: 1s !important;
+/**
+ * Hero Banner Title
+ * Specific styling for the main page title
+ */
+.hero__title {
+  font-size: 2.6rem !important;
 }
 
-html[data-theme="dark"] div[class^="announcementBar_"] {
-  color: hsl(0deg 0% 100%);
-  background: hsl(210deg 12% 16%);
-  transition-duration: 1s !important;
-}
+/**
+ * Responsive Design
+ * -----------------
+ * Media queries for responsive layout and styling
+ */
 
-/* Extra large screens, TV */
-@media only screen and (width >= 1201px) {
-  header h1 {
+/* Extra large screens, TV (1201px and above) */
+@media (width >= 1201px) {
+  .hero__title {
     font-size: 2.6rem !important;
   }
 }
 
-/* Desktops, large screens */
-@media only screen and (1025px >= width >= 1200px) {
+/* Desktops, large screens (1025px - 1200px) */
+@media (1025px <= width <= 1200px) {
+  .hero__title {
+    font-size: 2.4rem !important;
+  }
+
   div[class^="announcementBar_"] {
     font-size: 16px;
     line-height: 20px;
   }
-
-  header h1 {
-    font-size: 2.4rem !important;
-  }
 }
 
-/* Small screens, laptops */
-@media only screen and (769px >= width >= 1024px) {
-  header h1 {
+/* Small screens, laptops (769px - 1024px) */
+@media (769px <= width <= 1024px) {
+  .hero__title {
     font-size: 2.2rem !important;
   }
 }
 
-/* iPads, Tablets */
-@media only screen and (481px >= width >= 768px) {
+/* iPads, Tablets (481px - 768px) */
+@media (481px <= width <= 768px) {
+  .hero__title {
+    font-size: 2rem !important;
+  }
+
   div[class^="announcementBar_"] {
     padding: 2px 24px;
     font-size: 14px;
     line-height: 18px;
-  }
-
-  header h1 {
-    font-size: 2rem !important;
   }
 
   table {
@@ -364,17 +529,40 @@ html[data-theme="dark"] div[class^="announcementBar_"] {
   }
 }
 
-/* Mobile devices */
-@media only screen and (320px >= width >= 480px) {
-  div[class^="announcementBar_"] {
-    padding: 2px 12px;
+/* Mobile devices (320px - 480px) */
+@media (320px <= width <= 480px) {
+  .hero__title {
+    font-size: 1.8rem !important;
   }
 
-  header h1 {
-    font-size: 1.8rem !important;
+  div[class^="announcementBar_"] {
+    padding: 2px 12px;
   }
 
   .IceLogo {
     max-width: 110px;
   }
+}
+
+.heading-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: 2.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.heading-with-icon h2 {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.heading-with-icon :global(svg),
+.heading-with-icon :global(i) {
+  font-size: 1.3em;
+  margin-left: 0.3em;
+  vertical-align: middle;
 }

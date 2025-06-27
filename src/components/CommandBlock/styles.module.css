@@ -1,0 +1,55 @@
+.commandBlock {
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--ifm-color-emphasis-200);
+  padding: 0.5rem 1rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8rem;
+}
+
+.language {
+  color: var(--ifm-color-emphasis-700);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.copyButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--ifm-color-primary);
+  font-weight: 500;
+  transition: color 0.2s;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.copyButton:hover {
+  background: var(--ifm-color-emphasis-300);
+}
+
+.pre {
+  margin: 0;
+  padding: 1rem;
+  background: var(--ifm-code-background);
+  overflow-x: auto;
+}
+
+.code {
+  font-family: var(--ifm-font-family-monospace);
+  white-space: pre;
+}
+
+.prompt {
+  color: var(--ifm-color-primary);
+  user-select: none;
+}

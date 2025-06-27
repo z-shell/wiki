@@ -1,23 +1,12 @@
-// @ts-check
-
-import React, {type ReactNode} from "react";
-import Loadable from "@loadable/component";
-import Spinner from "@site/src/components/Spinner";
+import React from "react";
+import Image from "@theme/IdealImage";
 import styles from "./styles.module.css";
-
-export type ImgProps = {
-  img: string;
-  alt: string;
-  label?: string;
-  children?: ReactNode;
-};
+import type {ImgProps} from "../../types";
 
 export default function ImgShow(props: ImgProps): React.JSX.Element {
   const {img, alt, label, children, ...rest} = props;
-  const Image = Loadable(() => import("@theme/IdealImage"));
   return (
     <Image
-      fallback={<Spinner />}
       alt={alt}
       img={img}
       className={styles.ImgClass}

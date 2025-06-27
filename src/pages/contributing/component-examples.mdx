@@ -1,0 +1,725 @@
+---
+title: Component Examples
+description: Examples of all custom components available for documentation
+---
+
+## Custom Component Examples
+
+This page demonstrates all the custom components available for use in the Z-Shell documentation. You can use these components to enhance your documentation with interactive and visually appealing elements.
+
+<Tip title='Quick Reference'>
+  All components shown on this page are globally available in MDX files without needing to import them. They are
+  registered in `src/theme/MDXComponents.tsx` and can be used directly in any MDX file.
+</Tip>
+
+<Note title='Component Organization'>
+  For a complete overview of all components by category, see the auto-generated [Component Exports
+  Reference](https://github.com/z-shell/wiki/blob/main/.github/barrel-exports.md). This document is updated
+  automatically whenever the component structure changes.
+</Note>
+
+## Adding a New Component to This Guide
+
+When you create a new component for the Z-Shell documentation, please add it to this guide following this template:
+
+````mdx
+## Your Component Name
+
+Brief description of what the component does and when to use it.
+
+<YourComponent prop1='value' prop2={true}>
+  Example content
+</YourComponent>
+
+```jsx
+<YourComponent prop1='value' prop2={true}>
+  Example content
+</YourComponent>
+```
+````
+
+### Props
+
+| Prop       | Type        | Default  | Description                    |
+| ---------- | ----------- | -------- | ------------------------------ |
+| `prop1`    | `string`    | Required | Description of what prop1 does |
+| `prop2`    | `boolean`   | `false`  | Description of what prop2 does |
+| `children` | `ReactNode` | Required | Content to be rendered         |
+
+This standardized format helps maintain consistent documentation for all components.
+
+### No Import Required
+
+You can use any of these components directly in your MDX files **without imports**:
+
+```mdx
+# My Documentation
+
+<CommandBlock>zi load z-shell/zsh-diff-so-fancy</CommandBlock>
+
+<Note>This is important information you should be aware of.</Note>
+```
+
+## Command Block
+
+The `CommandBlock` component displays shell commands with proper formatting and a copy button.
+
+<CommandBlock>zi load z-shell/zsh-diff-so-fancy</CommandBlock>
+
+```jsx
+<CommandBlock>zi load z-shell/zsh-diff-so-fancy</CommandBlock>
+```
+
+You can customize the prompt and language:
+
+<CommandBlock prompt='%' language='bash'>
+  zi ice wait lucid zi load z-shell/zsh-diff-so-fancy
+</CommandBlock>
+
+```jsx
+<CommandBlock prompt='%' language='bash'>
+  zi ice wait lucid zi load z-shell/zsh-diff-so-fancy
+</CommandBlock>
+```
+
+## Callouts
+
+Callout components highlight important information in different styles.
+
+### Note
+
+<Note>This is important information you should be aware of when using Z-Shell.</Note>
+
+```jsx
+<Note>This is important information you should be aware of when using Z-Shell.</Note>
+```
+
+### Tip
+
+<Tip title='Pro Tip'>You can use tab completion with zi commands to speed up your workflow.</Tip>
+
+```jsx
+<Tip title='Pro Tip'>You can use tab completion with zi commands to speed up your workflow.</Tip>
+```
+
+### Warning
+
+<Warning>Be careful when running these commands with sudo as they might modify system files.</Warning>
+
+```jsx
+<Warning>Be careful when running these commands with sudo as they might modify system files.</Warning>
+```
+
+## Terminal Output
+
+The `TerminalOutput` component displays command output with proper formatting.
+
+<TerminalOutput>Loading plugin zsh-diff-so-fancy... ✓ zi: Loaded 3 plugins</TerminalOutput>
+
+```jsx
+<TerminalOutput>Loading plugin zsh-diff-so-fancy... ✓ zi: Loaded 3 plugins</TerminalOutput>
+```
+
+You can customize the title:
+
+<TerminalOutput title='Command Result'>zi compinit ▓▒░ Initializing completion system (compinit) ...</TerminalOutput>
+
+```jsx
+<TerminalOutput title='Command Result'>zi compinit ▓▒░ Initializing completion system (compinit) ...</TerminalOutput>
+```
+
+## Code Tabs
+
+The `CodeTabs` and `TabItem` components show code examples in multiple languages or configurations.
+
+<CodeTabs>
+  <TabItem value="zsh" label="Zsh" default>
+
+```zsh
+# Load Zi
+source ~/.zi/bin/zi.zsh
+
+# Load a plugin
+zi ice wait lucid
+zi load z-shell/zsh-diff-so-fancy
+```
+
+  </TabItem>
+  <TabItem value="bash" label="Bash">
+
+```bash
+# Bash equivalent
+git clone https://github.com/z-shell/zsh-diff-so-fancy
+source ./zsh-diff-so-fancy/diff-so-fancy.plugin.zsh
+```
+
+  </TabItem>
+</CodeTabs>
+
+The code for the above tabs (when writing your documentation):
+
+```jsx
+<CodeTabs>
+  <TabItem value='zsh' label='Zsh' default>
+    // Your zsh code goes here
+  </TabItem>
+  <TabItem value='bash' label='Bash'>
+    // Your bash code goes here
+  </TabItem>
+</CodeTabs>
+```
+
+## Version Badge
+
+The `VersionBadge` component indicates version compatibility.
+
+<VersionBadge version='v1.0+' /> Feature available in version 1.0 and above.
+
+<VersionBadge version='v2.0+' type='success' /> New in version 2.0 and above.
+
+<VersionBadge version='Deprecated' type='warning' /> This feature is deprecated.
+
+<VersionBadge version='Removed in v3.0' type='danger' /> This feature was removed in version 3.0.
+
+```jsx
+<VersionBadge version="v1.0+" /> Feature available in version 1.0 and above.
+
+<VersionBadge version="v2.0+" type="success" /> New in version 2.0 and above.
+
+<VersionBadge version="Deprecated" type="warning" /> This feature is deprecated.
+
+<VersionBadge version="Removed in v3.0" type="danger" /> This feature was removed in version 3.0.
+```
+
+## Highlight
+
+The `Highlight` component emphasizes text by adding a colorful background highlight.
+
+<Highlight>This text will be highlighted with the primary color</Highlight>
+
+```jsx
+<Highlight>This text will be highlighted with the primary color</Highlight>
+```
+
+You can also specify a custom color:
+
+<Highlight color='success'>Success highlight</Highlight>
+<Highlight color='warning'>Warning highlight</Highlight>
+<Highlight color='danger'>Danger highlight</Highlight>
+<Highlight color='info'>Info highlight</Highlight>
+
+```jsx
+<Highlight color="success">Success highlight</Highlight>
+<Highlight color="warning">Warning highlight</Highlight>
+<Highlight color="danger">Danger highlight</Highlight>
+<Highlight color="info">Info highlight</Highlight>
+```
+
+## Spinner
+
+The `Spinner` component displays an animated loading indicator.
+
+<Spinner /> Loading content...
+
+```jsx
+<Spinner /> Loading content...
+```
+
+You can customize the size and color:
+
+<Spinner size='small' color='primary' /> Small primary spinner
+<Spinner size='medium' color='success' /> Medium success spinner
+<Spinner size='large' color='warning' /> Large warning spinner
+
+```jsx
+<Spinner size="small" color="primary" /> Small primary spinner
+<Spinner size="medium" color="success" /> Medium success spinner
+<Spinner size="large" color="warning" /> Large warning spinner
+```
+
+## Emoji
+
+The `Emoji` component ensures consistent emoji rendering across different platforms.
+
+I <Emoji name="heart" /> Z-Shell! <Emoji name="rocket" /> <Emoji name="zap" /> <Emoji name="sparkles" />
+
+```jsx
+I <Emoji name="heart" /> Z-Shell! <Emoji name="rocket" /> <Emoji name="zap" /> <Emoji name="sparkles" />
+```
+
+Common emojis:
+
+- <Emoji name='check' /> - Completed task
+- <Emoji name='warning' /> - Warning
+- <Emoji name='x' /> - Error or failed
+- <Emoji name='lightbulb' /> - Idea
+- <Emoji name='memo' /> - Note
+
+```jsx
+- <Emoji name="check" /> - Completed task
+- <Emoji name="warning" /> - Warning
+- <Emoji name="x" /> - Error or failed
+- <Emoji name="lightbulb" /> - Idea
+- <Emoji name="memo" /> - Note
+```
+
+## Icon
+
+The `Icon` component displays vector icons from popular icon sets.
+
+<Icon name='github' /> GitHub
+<Icon name='terminal' /> Terminal
+<Icon name='code' /> Code
+<Icon name='book' /> Documentation
+
+```jsx
+<Icon name="github" /> GitHub
+<Icon name="terminal" /> Terminal
+<Icon name="code" /> Code
+<Icon name="book" /> Documentation
+```
+
+You can customize the size and color:
+
+<Icon name='star' size='small' color='primary' />
+<Icon name='star' size='medium' color='success' />
+<Icon name='star' size='large' color='warning' />
+
+```jsx
+<Icon name="star" size="small" color="primary" />
+<Icon name="star" size="medium" color="success" />
+<Icon name="star" size="large" color="warning" />
+```
+
+## Svg
+
+The `Svg` component allows you to use inline SVG graphics with customizable properties.
+
+<Svg viewBox='0 0 24 24' size='medium' color='primary'>
+  <path d='M12 2L1 21h22L12 2z' />
+</Svg>
+
+```jsx
+<Svg viewBox='0 0 24 24' size='medium' color='primary'>
+  <path d='M12 2L1 21h22L12 2z' />
+</Svg>
+```
+
+Available properties:
+
+- `viewBox`: SVG viewBox attribute (default: "0 0 24 24")
+- `size`: Size of the SVG icon ("small", "medium", "large", "inherit")
+- `color`: Color of the SVG icon ("primary", "secondary", "success", "error", "warning", "inherit")
+- `svgClass`: Class applied to the SVG element
+- `colorAttr`: Applies a color attribute to the SVG element
+- `children`: Content of the SVG element (required)
+- `title`: Optional title for accessibility
+- `className`: Additional class name
+
+You can add a title for accessibility:
+
+<Svg viewBox='0 0 24 24' size='medium' title='Triangle shape'>
+  <path d='M12 2L1 21h22L12 2z' />
+</Svg>
+
+```jsx
+<Svg viewBox='0 0 24 24' size='medium' title='Triangle shape'>
+  <path d='M12 2L1 21h22L12 2z' />
+</Svg>
+```
+
+### SvgExternal
+
+The `SvgExternal` component allows you to embed externally hosted SVG files, particularly useful for dynamic SVGs like GitHub metrics or charts that are updated automatically.
+
+```jsx
+<SvgExternal url='https://example.com/chart.svg' alt='Activity chart' height='300px' />
+```
+
+You can also wrap it in a link:
+
+```jsx
+<Link href='https://github.com/orgs/z-shell'>
+  <SvgExternal
+    url='https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/metrics.svg'
+    alt='Z-Shell Metrics'
+    height='300px'
+  />
+</Link>
+```
+
+Available properties:
+
+- `url`: The external URL of the SVG file (required)
+- `alt`: Alt text for accessibility (required)
+- `height`: Height of the SVG container (default: "auto")
+- `width`: Width of the SVG container (default: "100%")
+- `title`: Optional title for improved accessibility
+- `href`: Optional URL to make the SVG clickable
+- `className`: Optional additional CSS class
+- `style`: Optional inline styles
+
+### LinkRef
+
+The `LinkRef` component allows you to reference common links from a centralized registry, making link management easier and more consistent across the documentation.
+
+```jsx
+<LinkRef to='commands'>View Commands</LinkRef>
+```
+
+Links open in a new tab automatically if they are external:
+
+```jsx
+<LinkRef to='configs-playground'>Try the playground</LinkRef>
+```
+
+You can customize the link text:
+
+```jsx
+<LinkRef to='multiple-prompts'>Learn about using multiple prompts</LinkRef>
+```
+
+You can customize the link styling with different variants:
+
+```jsx
+<LinkRef to="commands" variant="default">Regular link</LinkRef>
+<LinkRef to="configs-playground" variant="button">Button-style link</LinkRef>
+<LinkRef to="multiple-prompts" variant="subtle">Subtle link</LinkRef>
+```
+
+Available properties:
+
+- `to`: Reference key to a predefined link in the registry (required)
+- `children`: Text to display for the link (defaults to the key name)
+- `newTab`: Whether the link should open in a new tab (defaults to true for external links)
+- `variant`: Visual style of the link ("default", "button", or "subtle")
+- `className`: Optional additional CSS class
+- `title`: Optional title/tooltip for the link
+- `id`: Optional ID for the link element
+
+## Player
+
+The `Player` component allows you to embed terminal recordings (asciinema casts) or videos in your documentation.
+
+```jsx
+<Player src='/path/to/recording.cast' autoPlay={false} loop={true} controls={true} />
+```
+
+### Terminal Recordings
+
+Terminal recordings are a great way to demonstrate interactive shell sessions:
+
+```jsx
+<Player
+  src='/assets/demos/zi-demo.cast'
+  cols={100}
+  rows={24}
+  autoPlay={false}
+  loop={false}
+  speed={1.5}
+  idleTimeLimit={3}
+  theme='monokai'
+/>
+```
+
+### Usage Tips
+
+- Use terminal recordings to demonstrate interactive features
+- Keep recordings short and focused on specific tasks
+- Use `speed` to adjust playback speed (1.0 is normal speed)
+- Set `idleTimeLimit` to skip periods of inactivity
+- Use `loop` for short, repeating demonstrations
+- Add `controls` to allow users to pause/play the recording
+
+For more information on using the Player component with asciinema recordings, see the [asciinema documentation](https://asciinema.org/docs/usage).
+
+## Combined Examples
+
+You can combine these components for more complex documentation:
+
+<Note>
+  To install a plugin with Zi, use the following command:
+
+<CommandBlock>zi load z-shell/zsh-diff-so-fancy</CommandBlock>
+
+The output will look like:
+
+<TerminalOutput>Loading plugin zsh-diff-so-fancy... ✓ zi: Loaded plugin</TerminalOutput>
+
+  <VersionBadge version="v1.0+" type="success" /> Available since version 1.0
+</Note>
+
+```jsx
+<Note>
+  To install a plugin with Zi, use the following command:
+  <CommandBlock>zi load z-shell/zsh-diff-so-fancy</CommandBlock>
+  The output will look like:
+  <TerminalOutput>Loading plugin zsh-diff-so-fancy... ✓ zi: Loaded plugin</TerminalOutput>
+  <VersionBadge version='v1.0+' type='success' /> Available since version 1.0
+</Note>
+```
+
+## Advanced Component Combinations
+
+You can combine multiple components to create rich, interactive documentation. Here are some advanced examples:
+
+### Documentation with Version Information
+
+<Note>
+  <h4><VersionBadge version="v2.0+" type="success" /> Enhanced Ice Modifiers</h4>
+
+The following ice modifiers were introduced in version 2.0:
+
+<CommandBlock>zi ice wait'0' lucid depth'1' atload'zicompinit' zi load z-shell/F-Sy-H</CommandBlock>
+
+  <Tip>
+    Use <Highlight>depth'1'</Highlight> to speed up cloning by limiting Git history.
+  </Tip>
+</Note>
+
+```jsx
+<Note>
+  <h4>
+    <VersionBadge version='v2.0+' type='success' /> Enhanced Ice Modifiers
+  </h4>
+  The following ice modifiers were introduced in version 2.0:
+  <CommandBlock>zi ice wait'0' lucid depth'1' atload'zicompinit' zi load z-shell/F-Sy-H</CommandBlock>
+  <Tip>
+    Use <Highlight>depth'1'</Highlight> to speed up cloning by limiting Git history.
+  </Tip>
+</Note>
+```
+
+### Multi-platform Instructions
+
+<CodeTabs>
+  <TabItem value="linux" label="Linux" default>
+    <CommandBlock prompt="$">
+    wget -O- https://raw.githubusercontent.com/z-shell/zi-installer/main/install.sh | bash
+    </CommandBlock>
+
+    <Note>
+      <Icon name="linux" /> This will install Zi in <code>~/.zi</code> directory
+    </Note>
+
+  </TabItem>
+  <TabItem value="macos" label="macOS">
+    <CommandBlock prompt="$">
+    brew install z-shell/tap/zi
+    </CommandBlock>
+
+    <Note>
+      <Icon name="apple" /> You'll need Homebrew installed
+    </Note>
+
+  </TabItem>
+  <TabItem value="windows" label="Windows">
+    <CommandBlock prompt=">">
+    wsl -d Ubuntu-20.04 bash -c "$(curl -fsSL https://raw.githubusercontent.com/z-shell/zi-installer/main/install.sh)"
+    </CommandBlock>
+
+    <Warning>
+      <Icon name="windows" /> Requires Windows Subsystem for Linux
+    </Warning>
+
+  </TabItem>
+</CodeTabs>
+
+### Progressive Disclosure Pattern
+
+<details>
+  <summary><b>Click to see advanced configuration</b></summary>
+  <div>
+    <p>Here's an example of a more complex configuration:</p>
+
+    <CommandBlock>
+    zi ice depth'1' lucid atinit'zicompinit' wait'0'
+    zi light z-shell/F-Sy-H
+
+    zi ice depth'1' wait'1' atload'_zsh_autosuggest_start' lucid
+    zi light zsh-users/zsh-autosuggestions
+
+    zi ice depth'1' wait'1' lucid
+    zi light z-shell/zsh-diff-so-fancy
+    </CommandBlock>
+
+    <TerminalOutput title="Output">
+    ▓▒░ ZI initialized. Terminal is 256 color.
+    ▓▒░ Setting theme: clean
+    ▓▒░ Loaded 3 plugins in 0.11 seconds
+    </TerminalOutput>
+
+  </div>
+</details>
+
+### Interactive Feature Matrix
+
+| Feature          | Basic                  | Premium <VersionBadge version="+" type="success" /> | Enterprise <VersionBadge version="+" type="warning" /> |
+| ---------------- | ---------------------- | --------------------------------------------------- | ------------------------------------------------------ |
+| Plugin loading   | <Emoji name="check" /> | <Emoji name="check" />                              | <Emoji name="check" />                                 |
+| Turbo mode       | <Emoji name="x" />     | <Emoji name="check" />                              | <Emoji name="check" />                                 |
+| Multi annexes    | <Emoji name="x" />     | <Emoji name="x" />                                  | <Emoji name="check" />                                 |
+| Priority support | <Emoji name="x" />     | <Emoji name="x" />                                  | <Emoji name="check" />                                 |
+
+## Component Design Philosophy
+
+Our custom components are designed with these principles in mind:
+
+1. **Consistency**: Components provide a consistent visual language across documentation
+2. **Clarity**: Each component has a clear purpose and enhances understanding
+3. **Accessibility**: Components are designed to be accessible to all users
+4. **Interactivity**: Where appropriate, components provide interactive features
+5. **Flexibility**: Components can be combined and customized for different scenarios
+6. **Simplicity**: Components are globally available without imports
+7. **Type Safety**: All components have proper TypeScript definitions
+8. **Maintainability**: Centralized component registration in MDXComponents.tsx
+
+### Benefits for Documentation Authors
+
+- **Reduced Boilerplate**: No need for import statements in MDX files
+- **Discoverability**: All components are documented in one place
+- **Consistent Styling**: Components match the site's design system
+- **Better User Experience**: Enhanced interactivity and readability
+- **Optimized Performance**: Components are optimized for production
+- **Easier Contributions**: New contributors can focus on content, not implementation details
+
+## Best Practices
+
+When using these components in your documentation:
+
+- Choose the appropriate component for the content you're presenting
+- Don't overuse decorative components
+- Maintain a consistent style throughout the document
+- Test your documentation in both light and dark themes
+- Consider internationalization implications
+- **No imports needed** - all components are globally available
+
+### Quick Reference of Available Components
+
+Here's a quick reference of all available components:
+
+| Component Category    | Components                                                      |
+| --------------------- | --------------------------------------------------------------- |
+| **Text Formatting**   | `<Highlight>`, `<Emoji>`                                        |
+| **Code Display**      | `<CommandBlock>`, `<TerminalOutput>`, `<CodeTabs>`, `<TabItem>` |
+| **Information**       | `<Note>`, `<Tip>`, `<Warning>`                                  |
+| **Visual Elements**   | `<Spinner>`, `<Icon>`, `<Svg>`, `<SvgExternal>`, `<ImgShow>`    |
+| **Navigation**        | `<LinkRef>`                                                     |
+| **Interactive**       | `<Player>`                                                      |
+| **API Documentation** | `<APITable>`, `<VersionBadge>`                                  |
+
+For a full guide on documentation best practices, see the [Contributing Guide](/contributing).
+
+## APITable
+
+The `APITable` component enhances tables with API documentation features like row ID anchors, clickable section headers, and automatic link validation.
+
+<APITable>
+
+| Method | Description | Parameters | | ------ | ----------- | ---------- | | `load` | Loads a plugin | `plugin_name`:
+String - The name of the plugin to load | | `ice` | Sets plugin options | `option`: String - Option name
+
+<br />
+`value`: Any - Option value | | `compile` | Compiles plugin source | None |
+
+</APITable>
+
+```jsx
+<APITable>
+  | Method | Description | Parameters | | ------ | ----------- | ---------- | | `load` | Loads a plugin | `plugin_name`:
+  String - The name of the plugin to load | | `ice` | Sets plugin options | `option`: String - Option name
+  <br />
+  `value`: Any - Option value | | `compile` | Compiles plugin source | None |
+</APITable>
+```
+
+### APITable Features
+
+- **Automatic Row IDs**: Generates link anchors for each row
+- **Clickable Headers**: Headers can be clicked to navigate to sections
+- **Link Validation**: Checks and highlights broken links
+- **Responsive**: Maintains readability on mobile devices
+
+Use APITable when documenting command APIs, configuration options, or parameter references.
+
+## ImgShow
+
+The `ImgShow` component displays optimized responsive images with proper accessibility attributes.
+
+<ImgShow img='/img/logo.svg' alt='Z-Shell Logo' label='Z-Shell Logo' width={300} />
+
+```jsx
+<ImgShow img='/img/logo.svg' alt='Z-Shell Logo' label='Z-Shell Logo' width={300} />
+```
+
+### ImgShow Features
+
+- **Optimized Loading**: Lazy loads images for better performance
+- **Responsive**: Automatically resizes based on device width
+- **Accessibility**: Properly sets alt text and ARIA attributes
+- **Optional Caption**: Can display an image label/caption
+
+Use ImgShow when you need to display images in documentation, especially when:
+
+- The image needs to be responsive
+- You want to ensure proper accessibility
+- You need lazy loading for performance
+- You want to add a caption or label
+
+## Custom React Hooks
+
+While not technically components, our custom React hooks are important parts of the codebase that can be used in your custom components. These hooks encapsulate reusable logic across components.
+
+### useAsync
+
+This hook simplifies handling asynchronous operations with loading states, error handling, and results.
+
+```tsx
+import {useAsync} from "@site/src/hooks";
+
+// Define an async function
+const fetchData = async (endpoint: string) => {
+  const response = await fetch(`https://api.example.com/${endpoint}`);
+  if (!response.ok) {
+    throw new Error(`API error: ${response.status}`);
+  }
+  return response.json();
+};
+
+// Use the hook in your component
+function DataComponent() {
+  const {status, data, error, execute: fetchUserData} = useAsync(fetchData);
+
+  useEffect(() => {
+    fetchUserData("users/123");
+  }, [fetchUserData]);
+
+  if (status === "pending") {
+    return <Spinner />;
+  }
+
+  if (status === "error") {
+    return <div>Error: {error?.message}</div>;
+  }
+
+  if (status === "success") {
+    return <div>Data: {JSON.stringify(data)}</div>;
+  }
+
+  return <button onClick={() => fetchUserData("users/123")}>Load Data</button>;
+}
+```
+
+#### Hook Parameters
+
+- `asyncFunction`: The async function to execute
+- `immediate` (optional): Whether to execute immediately (default: `false`)
+- `dependencies` (optional): Array of dependencies that trigger re-execution
+
+#### Return Value
+
+- `status`: Current status (`'idle'`, `'pending'`, `'success'`, or `'error'`)
+- `data`: Result data (or `null` if not loaded)
+- `error`: Error object (or `null` if no error)
+- `execute`: Function to trigger the async operation
+- `reset`: Function to reset to the idle state

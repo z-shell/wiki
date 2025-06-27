@@ -1,0 +1,107 @@
+---
+title: Component Standardization
+description: Guide for creating and standardizing components in the Z-Shell Wiki.
+---
+
+## Component Standardization Guide
+
+This guide outlines the standards for creating, typing, and exporting components in the Z-Shell Wiki. Following these standards ensures consistency, maintainability, and type safety across the project.
+
+### 1. Directory Structure
+
+All components must reside in their own directory within `/src/components`. The main component file should be named `index.tsx`.
+
+```tree
+/src/components/
+└── MyComponent/
+    └── index.tsx
+```
+
+### 2. Typing Component Props
+
+All component prop types must be defined in the centralized type definition file at `/src/types/components/ui.ts`.
+
+- **Define Prop Types**: Add a new type definition for your component's props.
+- **Export the Type**: Ensure the new type is exported from the file.
+
+Example from `/src/types/components/ui.ts`:
+
+```typescript
+// ...
+
+export type MyComponentProps = {
+  title: string;
+  children: React.ReactNode;
+};
+
+// ...
+```
+
+### 3. Component Implementation
+
+In your component's `index.tsx` file, import the prop types from the centralized type file and use them to type your component.
+
+Example from `/src/components/MyComponent/index.tsx`:
+
+```tsx
+import React from "react";
+import type {MyComponentProps} from "../../types";
+
+export default function MyComponent({title, children}: MyComponentProps): JSX.Element {
+  return (
+    <div>
+      <h2>{title}</h2>
+      <div>{children}</div>
+    </div>
+  );
+}
+```
+
+### 4. Barrel File Exports
+
+To make components easily importable, export them from the barrel file at `/src/components/index.ts`.
+
+Example from `/src/components/index.ts`:
+
+```typescript
+// ...
+export {default as MyComponent} from "./MyComponent";
+// ...
+```
+
+### 5. Global MDX Registration
+
+To make a component available globally in all MDX files without needing to be imported, register it in `/src/theme/MDXComponents.tsx`.
+
+- **Import the Component**: Import your new component from the barrel file.
+- **Add to MDXComponents**: Add the component to the `MDXComponents` object.
+
+Example from `/src/theme/MDXComponents.tsx`:
+
+```tsx
+import {
+  // ...
+  MyComponent,
+} from "@site/src/components";
+import type {MDXComponentsObject} from "../types";
+
+export default {
+  // ...
+  MyComponent,
+  // ...
+} as MDXComponentsObject;
+```
+
+By following these steps, you ensure that new components are well-structured, type-safe, and seamlessly integrated into the project.
+
+### 6. Using Docusaurus Components and Hooks
+
+When creating components, leverage Docusaurus's built-in components and hooks to ensure consistency and take advantage of its features.
+
+- **`<Link />`**: Use the `<Link />` component from `@docusaurus/Link` for all internal and external links. It automatically handles base URLs, preloading, and external link attributes.
+- **`<Head />`**: Use the `<Head />` component from `@docusaurus/Head` to manage the document head for SEO and metadata.
+- **`useDocusaurusContext()`**: Use the `useDocusaurusContext()` hook to access site configuration and metadata.
+- **`useBaseUrl()`**: Use the `useBaseUrl()` hook to prepend the site's base URL to asset paths.
+- **`useBrokenLinks()`**: Use the `useBrokenLinks()` hook to collect and report broken links and anchors in custom components.
+
+For more information, refer to the [Docusaurus Client API documentation](https://docusaurus.io/docs/docusaurus-core).

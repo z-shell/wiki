@@ -1,0 +1,28 @@
+/** @format */
+
+.svgExternal {
+  display: block;
+  min-height: 200px;
+  margin: 1rem 0;
+  border-radius: var(--ifm-global-radius);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.svgExternal:hover {
+  transform: scale(1.01);
+  box-shadow: var(--ifm-global-shadow-md);
+}
+
+/* Hide the title visually but keep it accessible for screen readers */
+:global(.sr-only) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

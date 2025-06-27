@@ -1,0 +1,234 @@
+---
+id: frontmatter
+title: "📝 Front Matter Guidelines"
+description: "Guidelines for using front matter in Z-Shell Wiki documentation"
+image: /img/png/theme/z/320x320.png
+sidebar_position: 3
+keywords:
+  - frontmatter
+  - metadata
+  - documentation
+  - guidelines
+  - mdx
+toc_min_heading_level: 2
+toc_max_heading_level: 4
+---
+
+# Front Matter Guidelines
+
+When creating or editing documentation pages for the Z-Shell Wiki, it's important to include proper front matter at the top of each MDX file. Front matter is metadata contained between triple-dashed lines (`---`) at the very beginning of the file.
+
+## Required Front Matter Fields
+
+Every documentation page should include these essential front matter fields:
+
+```mdx
+---
+id: unique-identifier
+title: "📝 Your Page Title"
+description: "A concise description of what this page covers"
+image: /img/png/theme/z/320x320.png
+sidebar_position: 1
+keywords:
+  - relevant
+  - search
+  - terms
+---
+```
+
+### Field Explanations
+
+| Field              | Description                                                                           | Example                                       |
+| ------------------ | ------------------------------------------------------------------------------------- | --------------------------------------------- |
+| `id`               | A unique identifier for the document. Should be lowercase with hyphens as separators. | `installation`, `plugin-standard`             |
+| `title`            | The title displayed at the top of the page and in navigation. Can include emojis.     | `"⚡️ Installation"`, `"🔌 Plugin Standard"`  |
+| `description`      | A brief description (1-2 sentences) used for SEO and previews.                        | `"Guide to installing Zi on various systems"` |
+| `image`            | The image used for social media previews.                                             | `/img/png/theme/z/320x320.png`                |
+| `sidebar_position` | Controls the position in the sidebar (lower numbers appear higher).                   | `1`, `2`, `10`                                |
+| `keywords`         | Search terms that help users find the document.                                       | `["install", "setup", "configuration"]`       |
+
+## Optional Front Matter Fields
+
+These fields can be included when needed:
+
+```mdx
+---
+slug: /custom-path
+toc_min_heading_level: 2
+toc_max_heading_level: 4
+hide_title: false
+hide_table_of_contents: false
+pagination_next: next-doc-id
+pagination_prev: previous-doc-id
+tags:
+  - tutorial
+  - advanced
+---
+```
+
+### Field Explanations
+
+| Field                    | Description                                       | Default   | Example                    |
+| ------------------------ | ------------------------------------------------- | --------- | -------------------------- |
+| `slug`                   | Customizes the URL path.                          | File path | `/getting-started`, `/`    |
+| `toc_min_heading_level`  | The minimum heading level to show in TOC.         | `2`       | `2` (starts at h2)         |
+| `toc_max_heading_level`  | The maximum heading level to show in TOC.         | `3`       | `4` (includes h4)          |
+| `hide_title`             | Whether to hide the title at the top of the page. | `false`   | `true`                     |
+| `hide_table_of_contents` | Whether to hide the TOC sidebar.                  | `false`   | `true`                     |
+| `pagination_next`        | The ID of the next doc in pagination.             | Auto      | `installation`             |
+| `pagination_prev`        | The ID of the previous doc in pagination.         | Auto      | `overview`                 |
+| `tags`                   | Categories or labels that describe the content.   | None      | `["tutorial", "advanced"]` |
+
+## Best Practices
+
+### Use Emojis in Titles
+
+Emojis help make your documentation more engaging and visually scannable. Use them consistently at the beginning of titles to indicate document types:
+
+- ⚡️ for installation/setup
+- 🔧 for configuration
+- 📚 for guides
+- 🧩 for plugins
+- 🌐 for ecosystem
+- 👥 for community
+- ⚙️ for technical details
+
+### Write Effective Descriptions
+
+Descriptions should:
+
+- Be 1-2 sentences (50-160 characters)
+- Clearly explain the page's purpose
+- Include relevant keywords naturally
+- Avoid repetition of the title
+- **Never be left empty** - an empty description negatively impacts SEO and accessibility
+- Use multiline format with `>-` for longer descriptions:
+
+```mdx
+description: >-
+This is a longer description that spans
+multiple lines in the front matter.
+It will be rendered as a single paragraph.
+```
+
+### Choose Relevant Keywords
+
+Keywords should:
+
+- Include variations of important terms
+- Cover both technical and plain-language terms
+- Be specific to the content of the page
+- Include 3-8 keywords per page
+
+### Set Appropriate Sidebar Positions
+
+- Use the `sidebar_position` property to control ordering
+- Lower numbers appear higher in the sidebar
+- Consider using a numbering scheme:
+  - 1-10: Getting started pages
+  - 11-50: Core concepts
+  - 51-100: Advanced topics
+  - 101+: Reference materials
+
+## Examples
+
+### Section Index Page
+
+```mdx
+---
+id: getting-started
+title: "🚀 Getting Started"
+description: "Get up and running with Z-Shell quickly"
+image: /img/png/theme/z/320x320.png
+sidebar_position: 1
+keywords:
+  - beginner
+  - setup
+  - introduction
+  - install
+slug: /
+---
+```
+
+### Feature Documentation
+
+```mdx
+---
+id: ice-modifiers
+title: "❄️ Ice Modifiers"
+description: "Configure Zi's behavior with ice modifiers"
+image: /img/png/theme/z/320x320.png
+sidebar_position: 3
+keywords:
+  - ice
+  - modifiers
+  - configuration
+  - options
+toc_min_heading_level: 2
+toc_max_heading_level: 4
+---
+```
+
+### Tutorial Page
+
+```mdx
+---
+id: plugin-creation
+title: "🔌 Creating Plugins"
+description: "Learn how to create your own Zi plugins"
+image: /img/png/theme/z/320x320.png
+sidebar_position: 20
+keywords:
+  - plugin
+  - development
+  - tutorial
+  - create
+tags:
+  - tutorial
+  - advanced
+---
+```
+
+## Automatic Front Matter Enhancement
+
+We have scripts that can automatically enhance front matter across all documentation files:
+
+```bash
+# Add missing fields and set sensible defaults
+node scripts/enhance-frontmatter.js
+
+# Fix empty descriptions
+node scripts/fix-empty-descriptions.js
+```
+
+These scripts will:
+
+1. Add missing required fields
+2. Set sensible defaults
+3. Preserve existing values
+4. Ensure consistent formatting
+5. Generate descriptions for pages with empty descriptions
+
+Run these scripts before submitting a PR to ensure your documentation has proper front matter.
+
+## Validating Front Matter
+
+Before submitting changes, check your front matter for these common issues:
+
+1. **Empty descriptions**: Never leave the description field empty
+2. **Missing keywords**: Include at least 3-5 relevant keywords
+3. **Improper formatting**: Ensure proper YAML syntax, especially for multiline fields
+4. **Inconsistent image paths**: Use consistent image paths, preferably `/img/png/theme/z/320x320.png` for section pages
+5. **Missing TOC settings**: Include appropriate table of contents settings
+
+You can validate your front matter with:
+
+```bash
+# List files with empty descriptions
+grep -r "description: ''" --include="*.mdx" ./docs ./community ./ecosystem
+
+# List files with missing or incomplete front matter
+grep -L "^---" --include="*.mdx" ./docs ./community ./ecosystem
+```
+
+Feel free to run these scripts before submitting a PR to ensure your documentation has proper front matter.

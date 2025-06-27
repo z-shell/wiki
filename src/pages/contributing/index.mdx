@@ -1,0 +1,544 @@
+---
+title: Contributing to Z-Shell Wiki
+description: Guide for contributors to the Z-Shell Wiki project
+slug: /contributing
+hide_table_of_contents: false
+---
+
+## Contributing to Z-Shell Wiki
+
+Thank you for your interest in contributing to the Z-Shell Wiki! This section contains resources to help you contribute effectively to our documentation.
+
+## Contribution Guidelines
+
+All contributions—manual or automated—must follow the guidelines described in files at `src/pages/contributing`.
+
+- If a particular guideline is missing, contributors and Copilot Spaces are expected to propose and implement new guidelines to address the gap.
+- This ensures the repository remains consistent and up-to-date with best practices.
+
+Please review and update files at `src/pages/contributing` regularly.
+
+## Why Contribute?
+
+The Z-Shell Wiki is a community-driven project that aims to provide high-quality documentation for Z-Shell and its ecosystem. By contributing, you can:
+
+- Help others learn and use Z-Shell more effectively
+- Improve documentation for features you use
+- Learn more about Z-Shell yourself
+- Become a recognized contributor to an open-source project
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (version 22 or higher)
+- pnpm
+- Git
+
+### Setting Up the Development Environment
+
+1. Fork the [Z-Shell Wiki repository](https://github.com/z-shell/wiki)
+2. Clone your fork:
+
+   <CommandBlock>git clone https://github.com/YOUR-USERNAME/wiki.git cd wiki</CommandBlock>
+
+3. Install dependencies:
+
+   <CommandBlock>pnpm install</CommandBlock>
+
+4. Start the development server:
+
+   <CommandBlock>pnpm start</CommandBlock>
+
+5. Make your changes
+6. Submit a pull request
+
+## Documentation Structure
+
+Our documentation is organized into several main sections:
+
+- `/docs` - Core Zi documentation
+- `/community` - Community resources and guides all about Z-Shell
+- `/ecosystem` - Information about the Zi ecosystem
+- `/blog` - Blog posts
+
+Each section follows a similar structure with Markdown (MDX) files organized in directories.
+
+## Contributing Resources
+
+To help you create high-quality documentation, we offer these guides:
+
+- [GitHub Flavored Markdown](/contributing/github_flavored_markdown) - Comprehensive guide to Markdown syntax and features supported on GitHub and in this wiki
+- [Front Matter Guidelines](/contributing/frontmatter) - Guidelines for using front matter metadata in documentation files
+- [Type System](/contributing/type-system) - An overview of the project's type system and how to use it.
+- [Component Standardization](/contributing/component-standardization) - A guide for creating and standardizing components.
+- [Component Examples](/contributing/component-examples) - Examples of all custom components available for use in the Z-Shell documentation
+
+## Writing Documentation
+
+We use MDX (Markdown + JSX) for our documentation, which allows us to use React components within Markdown files.
+
+### Basic Markdown
+
+Standard Markdown syntax works as expected:
+
+```md
+# Heading 1
+
+## Heading 2
+
+**Bold text** and _italic text_
+
+[Link text](https://example.com)
+
+- List item 1
+- List item 2
+```
+
+### Custom Components Overview
+
+We've created several custom components to enhance our documentation. These components are **globally available** in all MDX files without requiring imports.
+
+<Tip title='Component Documentation'>
+  For complete details, visual examples, and usage guidelines for all components, visit our [Component
+  Examples](/contributing/component-examples) page.
+</Tip>
+
+Here's a quick overview of available component categories:
+
+- **Content Formatting** - `CommandBlock`, `TerminalOutput`, `CodeTabs`
+- **Information Callouts** - `Note`, `Tip`, `Warning`
+- **Visual Elements** - `Highlight`, `Emoji`, `Icon`, `ImgShow`, `Spinner`
+- **Interactive Elements** - `Player` (terminal recordings)
+- **API Documentation** - `APITable`, `VersionBadge`
+
+## Using Components Without Imports
+
+All custom components are globally available without requiring imports. This is possible because they're registered in `src/theme/MDXComponents.tsx`.
+
+Instead of:
+
+```mdx
+import {Note, CommandBlock} from "@site/src/components";
+
+# My Documentation
+
+<Note>Important information</Note>
+
+<CommandBlock>zi load some-plugin</CommandBlock>
+```
+
+You can simply write:
+
+```mdx
+# My Documentation
+
+<Note>Important information</Note>
+
+<CommandBlock>zi load some-plugin</CommandBlock>
+```
+
+This makes documentation files cleaner and easier to write, especially for non-technical contributors.
+
+## Component Development
+
+If you're creating or modifying components for the Z-Shell Wiki, follow these guidelines to ensure consistency and maintainability.
+
+### Component Architecture
+
+Our component architecture follows these principles:
+
+1. **Component Structure**: Each component should be in its own directory with an `index.tsx` file
+2. **Typed Props**: All component props should be typed in `src/components/types.ts`
+3. **Barrel File**: All components should be exported from the central barrel file at `src/components/index.ts`
+4. **MDX Registration**: Components that should be available in MDX files need to be registered in `src/theme/MDXComponents.tsx`
+
+### Creating a New Component
+
+Follow these steps to create a new component:
+
+1. **Create the component directory and files**:
+
+   ```tree
+   src/components/
+   └── YourComponent/
+       ├── index.tsx         # Main component file
+       └── styles.module.css  # Optional styling (if needed)
+   ```
+
+2. **Define the component with TypeScript**:
+
+   ```tsx
+   // src/components/YourComponent/index.tsx
+   import React from "react";
+   import {YourComponentProps} from "../types";
+
+   export default function YourComponent({prop1, prop2, children}: YourComponentProps): JSX.Element {
+     return <div className='your-component'>{children}</div>;
+   }
+   ```
+
+3. **Add prop types to the central types file**:
+
+   ```tsx
+   // src/components/types.ts
+   // Add to the existing file - don't replace content
+
+   export interface YourComponentProps {
+     /** Description of prop1 */
+     prop1: string;
+     /** Description of prop2 */
+     prop2?: boolean;
+     /** Children elements */
+     children: React.ReactNode;
+   }
+   ```
+
+4. **Add the component to the barrel file**:
+
+   ```tsx
+   // src/components/index.ts
+   // Add to the appropriate section - don't replace content
+
+   // Find the appropriate category section and add your export
+   export {default as YourComponent} from "./YourComponent";
+   ```
+
+5. **Register the component in MDXComponents (if needed for MDX)**:
+
+   ```tsx
+   // src/theme/MDXComponents.tsx
+   // Add to the appropriate section - don't replace content
+
+   // In the imports section:
+   import YourComponent from "../components/YourComponent";
+   // Or if it works with the barrel file:
+   // import { YourComponent } from "@site/src/components";
+
+   // In the export object:
+   export default {
+     ...MDXComponents,
+     // Add your component to the appropriate section
+     YourComponent,
+   };
+   ```
+
+6. **Document the component**:
+
+   Add an example of your component to the [Component Examples](/contributing/component-examples) page.
+
+### Component Barrel File Organization
+
+The barrel file (`src/components/index.ts`) organizes exports by component category:
+
+1. **UI Components**: Basic UI elements (Highlight, Emoji, Icon, etc.)
+2. **Interactive Components**: Components with user interaction (LinkRef, CommandBlock, etc.)
+3. **Documentation Components**: Components specific to documentation (CodeTabs, APITable, etc.)
+
+When adding a new component, place it in the appropriate section. The organization helps maintain a clean structure and makes it easier to understand the component library.
+
+<Tip title='Component Reference'>
+  For a complete overview of all available components and their organization, see the auto-generated [Component Exports
+  Reference](https://github.com/z-shell/wiki/blob/main/.github/barrel-exports.md) file. This document lists all
+  components by category and includes their file paths.
+</Tip>
+
+```tsx
+// Example of proper barrel file organization
+// src/components/index.ts
+
+// ===== UI Components =====
+export {default as Highlight} from "./Highlight";
+// Other UI components...
+
+// ===== Interactive Components =====
+export {default as LinkRef} from "./LinkRef";
+// Other interactive components...
+
+// ===== Documentation Components =====
+export {default as CodeTabs, TabItem} from "./CodeTabs";
+// Other documentation components...
+```
+
+### Direct vs Barrel Imports in MDXComponents
+
+Some components may have path resolution issues when imported through the barrel file in `MDXComponents.tsx`. For these components, use direct imports:
+
+```tsx
+// Reliable barrel imports
+import {Highlight, Spinner} from "@site/src/components";
+
+// Direct imports for components with potential path issues
+import LinkRef from "../components/LinkRef";
+```
+
+## Documentation Best Practices
+
+When contributing to our documentation, consider these best practices:
+
+### Markdown Formatting Guidelines
+
+1. Use a maximum line length of 120 characters for Markdown files
+2. Use a consistent heading structure (don't skip levels)
+3. Use backticks for inline code snippets: `` `code` ``
+4. For code blocks, specify the language for proper syntax highlighting
+5. Use sentence case for headings
+6. Include a blank line before and after headings, lists, and code blocks
+
+### Code Style Guidelines
+
+For TypeScript/JavaScript code in the project:
+
+1. We use ESLint with our custom configuration (see `.eslintrc.config.js`)
+2. Follow the [TypeScript style guide](https://google.github.io/styleguide/tsguide.html) with these specifics:
+   - Use 2 spaces for indentation
+   - Use semicolons at the end of statements
+   - Use single quotes for strings
+   - Always use explicit types for function parameters and return values
+   - Prefer interfaces over type aliases for object types
+   - Use PascalCase for component names, interfaces, and types
+   - Use camelCase for variables, functions, and methods
+3. All components must have proper TypeScript prop types defined in `src/types`
+4. Export all components through the barrel file (`src/components/index.ts`)
+5. Run `npx tsc --noEmit` to check for type errors before committing
+
+### Writing Style
+
+- Write in a clear, conversational tone
+- Use active voice when possible
+- Break complex topics into digestible sections
+- Start with simple concepts before introducing complex ones
+- Use numbered lists for sequential steps
+- Use bullet points for related but non-sequential items
+
+### Example-Driven Documentation
+
+The most effective documentation includes plenty of examples. When documenting a feature:
+
+1. Start with a basic example
+2. Explain how it works
+3. Show variations and options
+4. Include edge cases or common pitfalls
+
+### Component Selection
+
+Choose the right component for your content:
+
+- `CommandBlock` for commands users need to execute
+- `TerminalOutput` for showing command results
+- `Note`, `Tip`, and `Warning` to highlight important information
+- `CodeTabs` when showing alternatives (e.g., Zsh vs Bash implementations)
+- `APITable` for command references, option tables, and API documentation
+
+Visit the [Component Examples](/contributing/component-examples) page for detailed guidance on choosing and using components.
+
+### Custom React Hooks
+
+We use custom React hooks to encapsulate reusable stateful logic. When creating or modifying hooks:
+
+1. **File Location**: Place all hooks in the `/src/hooks` directory
+2. **Naming Convention**: Use the format `use[HookName]` (e.g., `useAsync`, `useLocalStorage`)
+3. **TypeScript**: Use generics and specific types (avoid `any` where possible)
+4. **Documentation**: Include comprehensive JSDoc comments with:
+   - Description of what the hook does
+   - Parameter descriptions
+   - Return value details
+   - Usage examples with TypeScript types
+5. **Export**: Export the hook from the barrel file (`/src/hooks/index.ts`)
+
+Example hook structure:
+
+```tsx
+/**
+ * Hook for managing state that persists in localStorage
+ *
+ * @param key The localStorage key to store the value under
+ * @param initialValue The initial value if none exists in localStorage
+ * @returns A stateful value and a function to update it
+ */
+export function useLocalStorage<T>(key: string, initialValue: T): [T, (value: T) => void] {
+  // Implementation
+}
+```
+
+When consuming hooks in components:
+
+- Import from the barrel file: `import { useAsync } from '@site/src/hooks'`
+- Follow the React Hooks rules (only call at top level, only call from React functions)
+- Include proper type parameters when using generic hooks
+
+### Creating Terminal Recordings
+
+Terminal recordings are a powerful way to demonstrate interactive features. You can create them using [asciinema](https://asciinema.org/):
+
+1. Install asciinema:
+
+<CommandBlock>
+
+# On Linux
+
+sudo apt install asciinema
+
+# On macOS
+
+brew install asciinema
+
+</CommandBlock>
+
+2. Record a terminal session:
+
+   <CommandBlock>asciinema rec my-recording.cast</CommandBlock>
+
+3. Perform your demonstration (keep it focused and concise)
+
+4. Exit the recording with `Ctrl+D` or type `exit`
+
+5. Place the recording file in the `/static/assets/demos/` directory
+
+6. Add it to your documentation using the `Player` component (see [Component Examples](/contributing/component-examples) for details)
+
+## Creating New Components
+
+If you're developing a new component for the documentation, follow these steps to ensure consistency and maintainability:
+
+1. **Create the component directory**:
+   - Add a new directory under `/src/components` with the component name (PascalCase)
+   - Create an `index.tsx` file for the component implementation
+   - Add a `styles.module.css` file if the component needs styling
+
+2. **Define types centrally**:
+   - Add the component's props interface to `/src/components/types.ts`
+   - Use descriptive names and follow the `[ComponentName]Props` pattern
+   - Document each prop with JSDoc comments
+
+3. **Implement the component**:
+   - Import the props interface from the types file
+   - Add comprehensive JSDoc comments with examples
+   - Follow accessibility best practices
+   - Include data-testid attributes for testing
+
+4. **Export the component**:
+   - Add the component to the barrel file (`/src/components/index.ts`)
+   - Follow the established categorization pattern:
+     ```typescript
+     // Common components
+     export {default as MyComponent} from "./MyComponent";
+     ```
+   - This makes it available through a single import path
+
+5. **Register for global usage**:
+   - Add the component to `/src/theme/MDXComponents.tsx`
+   - For components with complex dependencies, use direct imports:
+
+     ```tsx
+     // For components with complex dependencies
+     import MyComponent from "../components/MyComponent";
+
+     // For simpler components, you can use the barrel file
+     import {OtherComponent} from "@site/src/components";
+     ```
+
+   - This makes it available in MDX files without imports
+
+6. **Add CSS modules**:
+   - Use CSS modules for component styling
+   - Follow BEM-like naming conventions
+   - Use Docusaurus theme variables for consistency
+
+7. **Document the component**:
+   - Add detailed documentation to `/src/pages/contributing/component-examples.mdx`
+   - Include basic and advanced examples
+   - Document all props and their usage
+   - Show common patterns and edge cases
+
+8. **Test the component**:
+   - Verify it works in both light and dark themes
+   - Check its behavior at different screen sizes
+   - Ensure it follows accessibility guidelines
+
+This ensures the component is properly typed, accessible throughout the documentation, and well-documented for other contributors.
+
+### Barrel File Organization
+
+The barrel file (`/src/components/index.ts`) is organized into logical categories to make it easier to find and manage components:
+
+```typescript
+// Common components (basic UI elements)
+export {default as Highlight} from "./Highlight";
+export {default as Spinner} from "./Spinner";
+
+// Layout components (for page structure)
+export {default as SvgExternal} from "./SvgExternal";
+export {default as ImgShow} from "./ImgShow";
+
+// Interactive components (user interaction)
+export {default as LinkRef} from "./LinkRef";
+export {default as CommandBlock} from "./CommandBlock";
+
+// Documentation components (specific to technical documentation)
+export {default as APITable} from "./APITable";
+export {Note, Tip, Warning} from "./Callouts";
+```
+
+When adding a new component:
+
+1. Determine which category it belongs to
+2. Add it in alphabetical order within its category
+3. If it exports multiple items, use named exports
+
+For components with dependencies on external files (like `LinkRef` depends on `linkRegistry.ts`), you may need to import them directly in `MDXComponents.tsx` to avoid path resolution issues.
+
+### Component Implementation Example
+
+Here's a simplified example of a well-structured component:
+
+````tsx
+// src/components/MyComponent/index.tsx
+import React from "react";
+import clsx from "clsx";
+import styles from "./styles.module.css";
+import type {MyComponentProps} from "../types";
+
+/**
+ * MyComponent provides a standardized way to display XYZ
+ *
+ * @example
+ * ```jsx
+ * <MyComponent value="example">
+ *   Content goes here
+ * </MyComponent>
+ * ```
+ */
+export default function MyComponent({value, children, className, ...rest}: MyComponentProps): React.JSX.Element {
+  return (
+    <div className={clsx(styles.container, className)} data-testid='my-component' {...rest}>
+      <span className={styles.value}>{value}</span>
+      <div className={styles.content}>{children}</div>
+    </div>
+  );
+}
+````
+
+```ts
+// src/components/types.ts (append to existing types)
+export interface MyComponentProps {
+  /** Primary value to display */
+  value: string;
+  /** Content to render inside the component */
+  children: React.ReactNode;
+  /** Additional class name for custom styling */
+  className?: string;
+}
+```
+
+## Additional Resources
+
+- [Z-Shell Wiki GitHub Repository](https://github.com/z-shell/wiki)
+- [Z-Shell Wiki Documentation](https://wiki.zshell.dev/)
+- [Z-Shell Zi Plugin Manager GitHub Repository](https://github.com/z-shell/zi)
+- [Z-Shell Zi Plugin Manager Issues](https://github.com/z-shell/zi/issues)
+- [Z-Shell Zi Plugin Manager Discussions](https://github.com/z-shell/zi/discussions)
+
+## Conclusion
+
+We appreciate your interest in contributing to the Z-Shell Wiki! Your contributions help improve the documentation and make it easier for others to learn and use Z-Shell effectively. If you have any questions or need assistance, feel free to reach out in our community channels or open an issue on GitHub.
