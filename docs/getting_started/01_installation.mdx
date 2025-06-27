@@ -1,18 +1,21 @@
 ---
 id: installation
 title: ⚡️ Installation
-sidebar_position: 1
-image: /img/png/theme/z/320x320.png
 description: Installation Guide
+image: /img/png/theme/z/320x320.png
+sidebar_position: 1
 keywords:
   - install
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+hide_table_of_contents: false
 ---
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import Link from "@docusaurus/Link";
 
-## <i class="fas fa-spinner fa-spin"></i> Automated setup {#automated-setup}
+## <Icon name="spinner" className="fa-spin" /> Automated setup
 
 :::tip
 
@@ -35,9 +38,9 @@ sh -c "$(curl -fsSL get.zshell.dev)" --
 ```
 
   </TabItem>
-  <TabItem value="minimal-loader" label="Loader">
+  <TabItem value="minimal-loader" label="Loader" id="loader">
 
-Install and include minimal configuration with [loader](#loader):
+Install and include minimal configuration with Zi initialization loader:
 
 ```shell
 sh -c "$(curl -fsSL get.zshell.dev)" -- -a loader
@@ -83,7 +86,7 @@ sh -c "$(curl -fsSL get.zshell.dev)" -- -a zunit
   </TabItem>
   </Tabs>
 
-## <i class="fas fa-spinner fa-spin"></i> Manual Setup {#manual-setup}
+## <Icon name="spinner" className="fa-spin" /> Manual Setup
 
 :::tip Related
 
@@ -91,7 +94,7 @@ sh -c "$(curl -fsSL get.zshell.dev)" -- -a zunit
 
 :::
 
-### <i class="fas fa-spinner fa-spin"></i> Prepare
+### <Icon name="spinner" className="fa-spin" /> Prepare
 
 Set up the install location and create a directory:
 
@@ -112,7 +115,7 @@ compaudit | xargs chmod -R go-w "$ZI[HOME_DIR]"
 command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
 ```
 
-### <i class="fas fa-spinner fa-spin"></i> Enable
+### <Icon name="spinner" className="fa-spin" /> Enable
 
 To enable Zi, source the <kbd>zi.zsh</kbd> from the previously set up directory placing the following snippet in the <kbd>.zshrc</kbd> file:
 
@@ -122,7 +125,7 @@ ZI[BIN_DIR]="${HOME}/.zi/bin"
 source "${ZI[BIN_DIR]}/zi.zsh"
 ```
 
-### <i class="fas fa-spinner fa-spin"></i> Completions {#enable-zi-completions}
+### <Icon name="spinner" className="fa-spin" /> Completions {#enable-zi-completions}
 
 Enable Zi completions by placing the following snippet in the <kbd>.zshrc</kbd> file:
 
@@ -137,7 +140,7 @@ autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 ```
 
-## <i class="fas fa-spinner fa-spin"></i> Post-install {#post-install}
+## <Icon name="spinner" className="fa-spin" /> Post-install
 
 After a fresh install, it is recommended to reload the shell and recompile Zi with:
 
@@ -152,23 +155,23 @@ It helps us to improve and make Zi better. Don't forget to help the project: sha
 
 Let's glue a toolchain that works for us <Emoji symbol="🚀" label="rocket"/>.
 
-## <i class="fas fa-sync-alt fa-spin"></i> Have ideas?
+## <Icon name="sync-alt" className="fa-spin" /> Have ideas?
 
-### <i class="fa-solid fa-list-check"></i>&nbsp;Suggest or request at&nbsp;<Link href="https://github.com/z-shell/playground">playground</Link>
+### <Icon name="list-check" />&nbsp;Suggest or request at&nbsp;<Link href="https://github.com/z-shell/playground">playground</Link>
 
 ```shell
 sh -c "$(curl -fsSL get.zshell.dev)" -- -a ???
 ```
 
-## <i class="fas fa-sync-alt fa-spin"></i>&nbsp;Need warm-up?
+## <Icon name="sync-alt" className="fa-spin" />&nbsp;Need warm-up?
 
-### <i class="fa-brands fa-docker"></i>&nbsp;<Link href="https://github.com/z-shell/zd/pkgs/container/zd">Docker Alpine</Link>
+### <Icon name="docker" style="brands" />&nbsp;<Link href="https://github.com/z-shell/zd/pkgs/container/zd">Docker Alpine</Link>
 
 ```shell
 docker run --rm -it ghcr.io/z-shell/zd:latest
 ```
 
-### <i class="fa-brands fa-docker"></i> Turbo Zi in Docker
+### <Icon name="docker" style="brands" /> Turbo Zi in Docker
 
 If you create a Docker image that uses Zi, install Turbo-loaded plugins before the shell starts interactively, with the <kbd>@zi-scheduler</kbd> function in such a way, that it:
 
@@ -184,34 +187,34 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 > - An example: [Dockerfile][dockerfile]
 > - In action: [Playground][playground]
 
-## <i class="fas fa-cog fa-pulse"></i> Zi Module: zpmod {#zi-module}
+## <Icon name="cog" className="fa-pulse" /> Zi Module: zpmod
 
 The module transparently and automatically compiles sourced scripts and lists of all sourced files with the time the sourcing took in milliseconds on the left.
 
-- [⚙️ Wiki: zpmod][zpmod-page]
+- [⚙️ Wiki: zpmod][zpmod-page]
 
 - [📦 Source: zpmod][z-shell/zpmod]
 
-## <i class="fas fa-sync-alt fa-spin"></i> Available links {#available-links}
+## <Icon name="sync-alt" className="fa-spin" /> Available links
 
 [Status page][status] <Emoji symbol="✅" label="check-mark-button"/>
 
-### <i class="fa-solid fa-gear"></i> Installer {#installer}
+### <Icon name="gear" /> Installer
 
-| Service    | URL                                                                     |
-| :--------- | ----------------------------------------------------------------------- |
-| Git.io     | https://git.io/get-zi                                                   |
-| GitHub RAW | https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh |
+| Service    | URL                                                                                                                                                |
+| :--------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Git.io     | [https://git.io/get-zi](https://git.io/get-zi)                                                                                                     |
+| GitHub RAW | [https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh](https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh) |
 
-### <i class="fa-brands fa-superpowers"></i> Loader {#loader}
+### <Icon name="superpowers" style="brands" /> Loader
 
-| Service    | URL                                                                    |
-| :--------- | ---------------------------------------------------------------------- |
-| Git.io     | https://git.io/zi-loader                                               |
-| GitHub RAW | https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh |
+| Service    | URL                                                                                                                                              |
+| :--------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Git.io     | [https://git.io/zi-loader](https://git.io/zi-loader)                                                                                             |
+| GitHub RAW | [https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh](https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh) |
 
-<!-- end-of-file -->
-<!-- links -->
+{/* end-of-file */}
+{/* links */}
 
 [zpmod-page]: /ecosystem/plugins/zsh-modules#-z-shellzpmod
 [customization-page]: /docs/guides/customization
@@ -219,7 +222,7 @@ The module transparently and automatically compiles sourced scripts and lists of
 [collection-page]: /community/category/-collection
 [zsh-plugin-standard]: /community/zsh_plugin_standard
 
-<!-- external -->
+{/* external */}
 
 [checksum-txt]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt
 [completion-system]: https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Use-of-compinit

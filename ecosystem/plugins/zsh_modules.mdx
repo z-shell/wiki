@@ -1,36 +1,34 @@
 ---
 id: zsh-modules
 title: ⚙️ Modules
-image: /img/png/theme/z/320x320.png
 description: Plugins & Modules Introduction
-toc_max_heading_level: 3
+image: /img/png/theme/z/320x320.png
+sidebar_position: 999
 keywords:
   - zsh-modules
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+hide_table_of_contents: false
 ---
-
-<!-- @format -->
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
-import Emoji from "@site/src/components/Emoji";
 
 ## <i class="fa-brands fa-github"></i> [z-shell/zpmod][zpmod-repo]
 
-:::info
+<Note title="Requirements">
 
 - Required Zsh version: >= v5.8.1
 
 [![🍎 Build (MacOS)](https://github.com/z-shell/zpmod/actions/workflows/test-macos.yml/badge.svg)](https://github.com/z-shell/zpmod/actions/workflows/test-macos.yml) [![🐧 Build (Linux)](https://github.com/z-shell/zpmod/actions/workflows/test-linux.yml/badge.svg)](https://github.com/z-shell/zpmod/actions/workflows/test-linux.yml)
 
-:::
+</Note>
 
 The module is a binary Zsh module transparently and automatically **compiles sourced scripts** and **measures the time of each script sourcing**.
 
 ### Measuring Time of sources
 
-```shell
-zpmod <source-study> [options]
-```
+<CommandBlock>zpmod source-study [options]</CommandBlock>
 
 > Option -l shows full paths to the files.
 
@@ -42,9 +40,7 @@ This feature allows profiling the shell startup. Also, no script can pass throug
 
 ### Extending Zi reports
 
-```shell
-zpmod <report-append> [options]
-```
+<CommandBlock>zpmod report-append [options]</CommandBlock>
 
 Used by zpmod internally to speed up loading plugins with tracking (reporting). It extends the given field \{plugin-ID} in `$ZI_REPORTS` hash, with the given string \{new-report-body}.
 
@@ -107,13 +103,11 @@ zstyle ":plugin:zgdbm" ldflags "-L/usr/local/lib"       # Additional library dir
 
 ### Install zgdbm
 
-```shell
-zi light z-shell/zgdbm
-```
+<CommandBlock>zi light z-shell/zgdbm</CommandBlock>
 
-<!-- end-of-file -->
-<!-- links -->
-<!-- external -->
+{/* end-of-file */}
+{/* links */}
+{/* external */}
 
 [zpmod-repo]: https://github.com/z-shell/zpmod
 [z-shell/zgdbm]: https://github.com/z-shell/zgdbm

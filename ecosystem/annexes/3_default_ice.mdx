@@ -1,14 +1,18 @@
 ---
 id: default-ice
-title: "🌀 Default Ice"
-image: /img/png/theme/z/320x320.png
+title: "\U0001F300 Default Ice"
 description: Annex - Default Ice documentation
+image: /img/png/theme/z/320x320.png
+sidebar_position: 3
 keywords:
   - annex
   - default-ice
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+hide_table_of_contents: false
 ---
 
-<!-- @format -->
+{/* @format */}
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
@@ -18,59 +22,48 @@ An annex delivers the capability to set **default ices** for the next `zi` comma
 
 set default-ices:
 
-```shell
-zi default-ice lucid from"gh-r"
-```
+<CommandBlock>zi default-ice lucid from"gh-r"</CommandBlock>
 
 this will download from GitHub releases (gh-r) and also use the lucid ice by default:
 
-```shell showLineNumbers
-zi wait for \
-  sbin        junegunn/fzf-bin \
-  sbin"**/pk" peco/peco
-```
+<CommandBlock>zi wait for \ sbin junegunn/fzf-bin \ sbin"**/pk" peco/peco</CommandBlock>
 
-:::caution
+<Warning>The `wait` ice cannot be made default by using this subcommand.</Warning>
 
-The `wait` ice cannot be made default by using this subcommand.
-
-:::
-
-## `default-ice` {#default-ice}
+## Default Ice
 
 An annex provides a subcommand – `default-ice` which has the following synopsis:
 
-```shell showLineNumbers
+<CommandBlock>
 — default-ice [ -s | -c | -g | -t | -q | -h ]
 
- [ -s ] — Show currently set default ices
- [ -c ] — Reset default ices
- [ -g ] — Return current ices in REPLAY hash
- [ -t ] — Show statistics
- [ -q ] — Hide all messages
- [ -h ] — This message
-```
+[ -s ] — Show currently set default ices
+[ -c ] — Reset default ices
+[ -g ] — Return current ices in REPLAY hash
+[ -t ] — Show statistics
+[ -q ] — Hide all messages
+[ -h ] — This message
 
-## Install default-ice {#install-default-ice}
+</CommandBlock>
 
-:::info Source
+## Install Default Ice
+
+<Note title="Source">
 
 - <Link className='github-link' href='https://github.com/z-shell/z-a-default-ice'>
     z-shell/z-a-default-ice
   </Link>
 
-:::
+</Note>
 
 <Tabs>
   <TabItem value="default" label="Default" default>
 
 Add the following snippet in the `.zshrc` file:
 
-```shell
-zi light z-shell/z-a-default-ice
-```
+<CommandBlock>zi light z-shell/z-a-default-ice</CommandBlock>
 
   </TabItem>
 </Tabs>
 
-This will register the [default-ice](#default-ice) subcommand.
+This will register the Default Ice subcommand.

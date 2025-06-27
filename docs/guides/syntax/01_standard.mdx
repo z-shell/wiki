@@ -1,23 +1,20 @@
 ---
 id: standard
-title: "🔀 Standard Syntax"
-sidebar_position: 1
-toc_max_heading_level: 3
-image: /img/png/theme/z/320x320.png
+title: "\U0001F500 Standard Syntax"
 description: The fundamental syntax documentation.
+image: /img/png/theme/z/320x320.png
+sidebar_position: 1
 keywords:
   - syntax
   - standard
   - how-to-use
   - fundamental
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+hide_table_of_contents: false
 ---
 
-<!-- @format -->
-
-import ImgShow from "@site/src/components/ImgShow";
-import APITable from "@site/src/components/APITable";
-
-## <i class="fas fa-circle-info"></i> Introduction
+## <Icon icon="fas fa-circle-info"></Icon> Introduction
 
 Zi provides two syntax types for structured statements or expressions:
 
@@ -67,7 +64,7 @@ zi ice id-as'final/countdown' \
 zi load z-shell/0
 ```
 
-## <i class="fas fa-arrow-down-short-wide"></i> Order of execution {#order-of-execution}
+## <Icon icon="fas fa-arrow-down-short-wide"></Icon> Order of execution {#order-of-execution}
 
 The order of execution of related ice-modifiers is as follows:
 
@@ -86,14 +83,14 @@ The order of execution of related ice-modifiers is as follows:
                       atload''
 ```
 
-### <i class="fa-solid fa-list"></i> A few remarks {#a-few-remarks}
+### <Icon icon="fa-solid fa-list"></Icon> A few remarks {#a-few-remarks}
 
 - The syntax automatically detects if the object is a snippet or a plugin, by checking if the object is an URL, i.e.: if it starts with `http*://` or `OMZ::`, etc.
 - To load a local-file snippet (which will be treated as a local-directory plugin by default) use the `is-snippet` ice,
 - To load a plugin in `light` mode use the `light-mode` ice.
 - If the plugin name collides with an ice name, precede the plugin name with `@`, e.g.: `@sharkdp/fd` (collides with the `sh` ice, ZI will take the plugin name as `sh"arkdp/fd"`), see the next section for an example.
 
-### <i class="fa-solid fa-list"></i> Syntax alternatives {#syntax-alternatives}
+### <Icon icon="fa-solid fa-list"></Icon> Syntax alternatives {#syntax-alternatives}
 
 Zi supports alternatives such as the equal (`=`) syntax:
 
@@ -118,7 +115,7 @@ zi load z-shell/0
 
 The syntax alternatives can utilize the highlighting of editors like Vim – and have the strings and ice expressions colorized with a distinct color. However, with [zi-vim-syntax][] the syntax definition can be superseded with the highlighting specifically for Zi. syntax definition can be superseded with the highlighting specifically for Zi.
 
-### <i class="fa-solid fa-circle-nodes"></i> Utilizing "make" {#utilizing-make}
+### <Icon icon="fa-solid fa-circle-nodes"></Icon> Utilizing "make" {#utilizing-make}
 
 Vim repository on GitHub – a typical source code that needs compilation, Zi can manage the run of `./configure` and other `make` stuff. Ice-modifier `pick` adds the binary program to `$PATH`. You could also install the package under the path $ZPFX.
 
@@ -151,7 +148,7 @@ The `Makefile` with 2 tasks, can use:
 1. `make"all install PREFIX=…"`,
 2. `pick'…'` will `chmod +x` all matching files and add `$ZPFX/bin/` to `$PATH`.
 
-### <i class="fa-solid fa-arrows-to-dot"></i> Compiling programs {#compiling-programs}
+### <Icon icon="fa-solid fa-arrows-to-dot"></Icon> Compiling programs {#compiling-programs}
 
 ```shell showLineNumbers
 zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
@@ -167,7 +164,7 @@ zi light vim/vim
 | ------------------ | :---------------------------------------------------------------------------------------- |
 | `as'program'`      | Add file selected by `pick'…'` to `$PATH`, and do not source it.                          |
 | `atclone'…'`       | Execute code after downloading.                                                           |
-| `atpull'%atclone'` | Execute the same code `atclone'…'` is given, but after successful update.                 |
+| `atpull'%atclone'` | Execute the same code `atclone'…' is given, but after successful update.                  |
 | `make`             | Run `make` after `atclone'…'` and `atpull'…'` (note: `make'!'` will execute before them). |
 | `pick'src/vim'`    | Set the executable flag on `src/vim`, hint that `src/` should be added to `$PATH`.        |
 
@@ -199,7 +196,7 @@ zi light vim/vim
 </APITable>
 ```
 
-### <i class="fa-solid fa-palette"></i> LS_COLORS {#ls_colors}
+### <Icon icon="fa-solid fa-palette"></Icon> LS_COLORS {#ls_colors}
 
 A repository [trapd00r/LS_COLORS][trapd00r-ls_colors] provides a file with color definitions for GNU `ls` command, and also for [ogham/exa][ogham-exa]. Typically one does `eval $( dircolors -b $HOME/LS_COLORS)` to process this file and set the environment for `ls`. This means `dircolors` is run by every shell startup. It costs much time to create a fork and program, i.e., the `dircolors` binary needs to be loaded to obtain and process the color definitions. The following invocation solves this problem:
 
@@ -228,7 +225,7 @@ zi light trapd00r/LS_COLORS
 
 This way, except for the plugin installation and update, `dircolors` isn't run, just normal sourcing is done. The everyday sourced file, i.e. `clrs.zsh`, is being compiled to speed up the loading.
 
-### <i class="fa-solid fa-folder-tree"></i> Direnv {#direnv}
+### <Icon icon="fa-solid fa-folder-tree"></Icon> Direnv {#direnv}
 
 The project [direnv/direnv][direnv-direnv] registers itself in the Z shell to modify the environment on directory change. This registration is most often done by `eval "$(direnv hook zsh)"` added to `.zshrc`.
 
@@ -245,7 +242,7 @@ In general, `direnv` works by hooking up to Zsh. The code that does this is prov
 
 Above `atclone'…'` puts this code into file `zhook.zsh`, `src''` sources it. This way `direnv hook zsh` is executed only on clone and update, and Zsh starts faster.
 
-#### <i class="fa-solid fa-wand-magic-sparkles"></i> Glance at the 'for' syntax {#glance-at-the-for-syntax}
+#### <Icon icon="fa-solid fa-wand-magic-sparkles"></Icon> Glance at the 'for' syntax {#glance-at-the-for-syntax}
 
 The drawback of this standard procedure is that the `direnv` binary is run on every shell startup and significantly slows it down. Zi allows to solve this in the following way:
 
@@ -759,8 +756,7 @@ Summary of `wrap'…'`:
 
 As it can be seen, the creation of four additional Zle-widgets has been recorded - `Zle -N …` lines. They will be properly deleted/restored on the plugin unload with `MYPROMPT=3` as an example and the shell state will be clean, ready to load a new prompt.
 
-<!-- end-of-file -->
-<!-- footnotes -->
+{/* footnotes */}
 
 [^1]: Save it to a file. The `atclone'…'` is being run on the **installation** while the `atpull'…'` hook is being run on an **update** of the [**trapd00r/LS_COLORS**][trapd00r-ls_colors] plugin.
 

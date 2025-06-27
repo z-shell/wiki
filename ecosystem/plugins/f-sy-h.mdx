@@ -1,20 +1,19 @@
 ---
 id: f-sy-h
 title: ⚙️ Feature-rich syntax highlighting
-image: /img/png/theme/z/320x320.png
 description: Feature-rich Syntax Highlighting for Zsh
-toc_max_heading_level: 3
+image: /img/png/theme/z/320x320.png
+sidebar_position: 999
 keywords:
   - feature-rich-syntax-highlighting
   - syntax-highlighting
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+hide_table_of_contents: false
 ---
-
-<!-- @format -->
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
-import ImgShow from "@site/src/components/ImgShow";
-import Player from "@site/src/components/Player";
 import ChromaFunctionExample from "@site/src/components/Markdown/_chroma_function_example.mdx";
 
 ## <i class="fa-brands fa-github"></i> [z-shell/f-sy-h][]
@@ -26,13 +25,13 @@ import ChromaFunctionExample from "@site/src/components/Markdown/_chroma_functio
 
 Add the following to your `.zshrc` file.
 
-```shell
+```zsh
 zi light z-shell/F-Sy-H
 ```
 
 Load the plugin in [turbo mode][turbo-mode]:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi wait lucid for \
   atinit"ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
     z-shell/F-Sy-H \
@@ -47,7 +46,7 @@ zi wait lucid for \
 
 Add the following to your `.zshrc` file in the same place you're doing your other `zgen load` calls in.
 
-```shell
+```zsh
 zgen load z-shell/F-Sy-H
 ```
 
@@ -56,7 +55,7 @@ zgen load z-shell/F-Sy-H
 
 Clone the Repository:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 git clone https://github.com/z-shell/F-Sy-H.git \
   ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/F-Sy-H
 ```
@@ -68,14 +67,14 @@ And add `F-Sy-H` to your plugin list.
 
 Clone the Repository.
 
-```shell
+```zsh
 git clone https://github.com/z-shell/F-Sy-H.git \
   ~/some/path/to/fsh
 ```
 
 And add the following to your `.zshrc` file.
 
-```shell
+```zsh
 source ~/some/path/to/fsh/F-Sy-H.plugin.zsh
 ```
 
@@ -359,7 +358,7 @@ This document explains to create a detailed highlighting for a **specific progra
 
 So example invocation could look like this:
 
-```shell
+```zsh
 →chroma/-example.ch 1 "grep" "$_start_pos" "$_end_pos"
 ```
 

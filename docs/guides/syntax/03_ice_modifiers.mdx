@@ -1,21 +1,26 @@
 ---
 id: ice-modifiers
-title: 🧊 Ice Modifiers
-sidebar_position: 4
-image: /img/png/theme/z/320x320.png
+title: "\U0001F9CA Ice Modifiers"
 description: Ice Modifiers Documentation
+image: /img/png/theme/z/320x320.png
+sidebar_position: 4
+keywords:
+  - docs
+  - syntax
+toc_min_heading_level: 2
+toc_max_heading_level: 3
 slug: ice-modifiers
+hide_table_of_contents: false
 ---
 
 import Image from "@theme/IdealImage";
 import ZIceImg from "/img/png/theme/ice_180x170.png";
-import APITable from "@site/src/components/APITable";
 
 :::info FAQ: What is ice?
 
 <Image className='IceLogo' img={ZIceImg} alt='What is ice' />
 
-The <strong>ice</strong> is something that melts in a drink, though in Zi syntax, it means adding an <strong>ice-modifier</strong> that's temporary because it disappears – which means that the <strong>ice-modifier</strong> will last only for the next Zi command.
+The **ice** is something that melts in a drink, though in Zi syntax, it means adding an **ice-modifier** that's temporary because it disappears – which means that the **ice-modifier** will last only for the next Zi command.
 
 :::
 
@@ -23,7 +28,7 @@ An ice-modifiers are [passed][zi-syntax] to `zi ice …` to obtain described eff
 
 Some ice-modifiers are highlighted and clicking on them will take you to the appropriate Wiki page for an extended explanation. You may safely assume that given ice works with both plugins and snippets unless explicitly stated otherwise.
 
-## <i class="fa-solid fa-list"></i> Ice effects {#ice-effects}
+## <Icon icon="fa-solid fa-list" /> Ice effects
 
 ```mdx-code-block
 <APITable>
@@ -51,7 +56,7 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 </APITable>
 ```
 
-## <i class="fa-solid fa-list"></i> Cloning options {#cloning-options}
+## <Icon icon="fa-solid fa-list" /> Cloning options
 
 ```mdx-code-block
 <APITable>
@@ -72,7 +77,7 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 </APITable>
 ```
 
-## <i class="fa-solid fa-list"></i> Selection of files (source '…') {#selection-of-files-source}
+## <Icon icon="fa-solid fa-list" /> Selection of files (source '…')
 
 ```mdx-code-block
 <APITable>
@@ -88,7 +93,7 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 </APITable>
 ```
 
-## <i class="fa-solid fa-list"></i> Conditional loading {#conditional-loading}
+## <Icon icon="fa-solid fa-list" /> Conditional loading
 
 ```mdx-code-block
 <APITable>
@@ -109,7 +114,7 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 </APITable>
 ```
 
-## <i class="fa-solid fa-list"></i> Plugin output {#plugin-output}
+## <Icon icon="fa-solid fa-list" /> Plugin output
 
 ```mdx-code-block
 <APITable>
@@ -125,7 +130,7 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 </APITable>
 ```
 
-## <i class="fa-solid fa-list"></i> Completions {#completions}
+## <Icon icon="fa-solid fa-list" /> Completions {#completions}
 
 ```mdx-code-block
 <APITable>
@@ -140,7 +145,7 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 </APITable>
 ```
 
-## <i class="fa-solid fa-list"></i> Command execution after cloning, updating or loading {#command-execution-after-cloning-updating-or-loading}
+## <Icon icon="fa-solid fa-list" /> Command execution after cloning, updating or loading
 
 ```mdx-code-block
 <APITable>
@@ -164,7 +169,7 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 </APITable>
 ```
 
-## <i class="fa-solid fa-list"></i> Sticky-Emulation Of other shells {#sticky-emulation-of-other-shells}
+## <Icon icon="fa-solid fa-list" /> Sticky-Emulation Of other shells
 
 ```mdx-code-block
 <APITable>
@@ -181,20 +186,20 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 </APITable>
 ```
 
-<!-- end-of-file -->
-<!-- footnotes -->
+{/* end-of-file */}
+{/* footnotes */}
 
 [^1]: This pattern will alphabetically match and choose the first file e.g: `zi ice pick"*.plugin.zsh"; zi load …`.
 
 [^2]: Example: `multisrc'misc.zsh grep.zsh'` and also using brace-expansion syntax: `multisrc'{misc,grep}.zsh'` also supports patterns.
 
-[^3]: For `wait'[[ … ]]'`, `wait'(( … ))'`, loading is done when given condition is meet. For `wait'!…'`, the prompt is reset after load. Zsh can start 80% (i.e.: 5x) faster thanks to postponed loading. **Fact:** when `wait` is used without a value, it works as `wait'0'`.
+[^3]: For `wait'[[ … ]]'`, `wait'(( … ))'`, loading is done when given condition is meet. For `wait'!...',` the prompt is reset after load. Zsh can start 80% (i.e.: 5x) faster thanks to postponed loading. **Fact:** when `wait` is used without a value, it works as `wait'0'`.
 
 [^4]: It will load once, the condition can be still true, but will not trigger the second load, unless the plugin is unloaded earlier, see `unload`. E.g.: `load'[[ $PWD = */github* ]]'`.
 
 [^5]: It will unload once, then only if loaded again e.g: `unload'[[ $PWD != */github* ]]'`.
 
-[^6]: Example: `zi ice if'[[ -n "$commands[otool]" ]]'; zi load …` or `zi ice if'[[ $OSTYPE = darwin* ]]'; zi load …`.
+[^6]: Example: `zi ice if'[[ -n "$commands[otool]" ]]'` or `zi ice if'[[ $OSTYPE = darwin* ]]'`.
 
 [^7]: To use the option, precede the ice content with `!` to automatically forward the call afterward, to a command of the same name as the function. Can obtain multiple functions to create – separate with `;`.
 
@@ -204,14 +209,14 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 
 [^10]: If it has no value, then it works in the _auto_ mode – it automatically extracts all files of known archive extensions IF they aren't located deeper than in a sub-directory (this is to prevent extraction of some helper archive files, typically located somewhere deeper in the tree). If no such files will be found, then it extracts all found files of known **type** – the type is being read by the `file` Unix command. If not empty, then takes the names of the files to extract. Refer to the Wiki page for further information.
 
-<!-- end-of-file -->
-<!-- links -->
+{/* end-of-file */}
+{/* links */}
 
 [8]: /docs/guides/syntax/bindkey
 [9]: /docs/guides/syntax/standard#wrap
 [10]: /docs/guides/syntax/standard#extract
 [12]: /ecosystem/annexes/overview
-[zi-syntax]: /docs/category/%EF%B8%8F-syntax
+[zi-syntax]: /docs/category/️-syntax
 [1]: /docs/guides/syntax/standard#src-pick-multisrc
 [2]: /docs/guides/syntax/standard#wait
 [3]: /docs/guides/customization#multiple-prompts
@@ -219,6 +224,6 @@ Some ice-modifiers are highlighted and clicking on them will take you to the app
 [5]: /docs/guides/syntax/standard#utilizing-make
 [6]: /docs/guides/syntax/standard#id-as
 
-<!-- external -->
+{/* external */}
 
 [7]: https://github.com/search?q=topic%3Azservice+org%3Az-shell&type=Repositories

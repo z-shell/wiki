@@ -1,23 +1,24 @@
 ---
 id: for
-title: '✨ The "For" Syntax'
-sidebar_position: 2
-image: /img/png/theme/z/320x320.png
+title: ✨ The "For" Syntax
 description: The "For" Syntax documentation
+image: /img/png/theme/z/320x320.png
+sidebar_position: 2
 keywords:
   - for
   - syntax
   - how-to-use
   - the-for-syntax
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+hide_table_of_contents: false
 ---
 
-<!-- @format -->
-
-import APITable from "@site/src/components/APITable";
+{/* @format */}
 
 The `for` syntax is the most popular, more concise, and more optimized. The single command will work the same as the [standard syntax][standard-syntax] invocation.
 
-It allows providing common/default ice-modifiers for a <b>set of plugins</b> or to source <b>multiple files</b> with the ices: [src, pick, multisrc][src-pick-multisrc].
+It allows providing common/default ice-modifiers for a **set of plugins** or to source **multiple files** with the ices: [src, pick, multisrc][src-pick-multisrc].
 
 :::tip
 
@@ -112,9 +113,17 @@ zi wait lucid light-mode for \
 </APITable>
 ```
 
-## <i class="fa-solid fa-list"></i> Oh-My-Zsh, [turbo][6] Oh-My-Zsh and the The "For" syntax
+{/* Adding header with explicit ID */}
 
-### <i class="fa-solid fa-forward-step"></i> Without [turbo mode][6] and The "For"
+<h2 id='oh-my-zsh-turbo-and-for-syntax'>
+  <Icon icon='fa-solid fa-list' /> Oh-My-Zsh, [turbo][6] Oh-My-Zsh and the The "For" syntax
+</h2>
+
+{/* Adding header with explicit ID */}
+
+<h3 id='without-turbo-mode-and-for'>
+  <Icon icon='fa-solid fa-forward-step' /> Without [turbo mode][6] and The "For"
+</h3>
 
 ```shell showLineNumbers
 # A.
@@ -142,7 +151,11 @@ zi ice atinit"zicompinit; zicdreplay"
 zi light z-shell/F-Sy-H
 ```
 
-### <i class="fa-solid fa-forward-fast"></i> With [turbo mode][6] and The "For"
+{/* Adding header with explicit ID */}
+
+<h3 id='with-turbo-mode-and-for'>
+  <Icon icon='fa-solid fa-forward-fast' /> With [turbo mode][6] and The "For"
+</h3>
 
 ```shell showLineNumbers
 # A.
@@ -191,7 +204,7 @@ The above setup loads everything after the prompt, because of the preceding `wai
 
 Try both setups on the daily basis to notice the difference. The features of Zi can do much more than this simple example.
 
-### `zi-turbo '…' for …` {#zi-turbo--for-}
+### `zi-turbo '…' for …`
 
 The `zi-turbo` is a function to simplify `wait`:
 
@@ -222,7 +235,11 @@ zi-turbo '1a' for \
   MichaelAquilina/zsh-you-should-use
 ```
 
-## <i class="fa-solid fa-book-bookmark"></i> Summary
+{/* Adding header with explicit ID */}
+
+<h2 id='summary'>
+  <Icon icon='fa-solid fa-book-bookmark' /> Summary
+</h2>
 
 In general, [turbo mode][6] can be optionally enabled only for a subset of plugins or for all plugins.
 
@@ -230,14 +247,14 @@ Syntax-highlighting plugins, like [F-Sy-H][11] or [zsh-syntax-highlighting][12],
 
 However, in practice, you just have to ensure that such plugin is loaded after plugins that are issuing `compdef` – which means completions that aren't using the underscore-starting function file; the completion initialization still has to be performed before the syntax-highlighting plugin, hence the `atinit'…'` ice, which will load `compinit` right before loading the plugin, the syntax-highlighting and suggestions plugins are loaded early for a better user experience.
 
-<!-- end-of-file -->
-<!-- footnotes -->
+{/* end-of-file */}
+{/* footnotes */}
 
 [^1]: Then the tracking of plugin, activity report gathering, accessible via the `zi report {plugin-name}` subcommand) is being disabled. Note that for turbo mode, the performance gains are almost `0`, so in this mode, you can load all plugins with the tracking and the `light-mode` ice can be removed from the command.
 
 [^2]: They were recorded and `compinit` can be called later. `compinit` provides the `compdef` function, so it must be run before issuing the taken-over `compdef`s with `zicdreplay`.
 
-<!-- links -->
+{/* links */}
 
 [1]: /search/?q=GH-R
 [2]: /search/?q=git+ext
@@ -250,7 +267,7 @@ However, in practice, you just have to ensure that such plugin is loaded after p
 [standard-syntax]: /docs/guides/syntax/standard
 [src-pick-multisrc]: /docs/guides/syntax/standard#src-pick-multisrc
 
-<!-- external -->
+{/* external */}
 
 [11]: https://github.com/z-shell/F-Sy-H
 [12]: https://github.com/zsh-users/zsh-syntax-highlighting

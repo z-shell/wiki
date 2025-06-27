@@ -1,116 +1,108 @@
 ---
 id: intro
-slug: /
-title: 🎉 Introduction
-sidebar_position: 1
+title: "\U0001F389 Introduction"
+description: "Introduction to a Swiss Army Knife for Zsh, formerly known as zplugin, zinit."
 image: /img/png/theme/z/320x320.png
-description: Introduction to a Swiss Army Knife for Zsh, formerly known as zplugin, zinit.
+sidebar_position: 1
+keywords:
+  - docs
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+slug: /
+hide_table_of_contents: false
 ---
 
-import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
-import Link from "@docusaurus/Link";
-import Image from "@theme/IdealImage";
-import ImgShow from "@site/src/components/ImgShow";
+import Tabs from "@theme/Tabs";
 import ZGitImg from "@site/static/img/png/theme/branch_box.png";
 
-<Image alt='Z-Shell' width='100%' height='auto' img={ZGitImg} />
+<ImgShow alt='Z-Shell' width='100%' height='auto' img={ZGitImg} />
 
 <Tabs>
   <TabItem value="gems" label="RubyGems">
 
-The [RubyGems](https://rubygems.org) and [$GEM_HOME](https://guides.rubygems.org/command-reference/#gem-environment) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex or installed by the [any-gem](https://github.com/z-shell/any-gem) package.
+The <LinkRef to="rubygems">RubyGems</LinkRef> and [$GEM_HOME](https://guides.rubygems.org/command-reference/#gem-environment) are automatically managed by the <LinkRef to="bin-gem-node">bin-gem-node</LinkRef> annex or installed by the [any-gem](https://github.com/z-shell/any-gem) package.
 
   </TabItem>
   <TabItem value="node" label="Node">
 
-The [Node](https://www.npmjs.com) modules and [$NODE_PATH](https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex or installed by the [any-node](https://github.com/z-shell/any-node) package.
+The <LinkRef to="npm">Node</LinkRef> modules and [$NODE_PATH](https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders) are automatically managed by the <LinkRef to="bin-gem-node">bin-gem-node</LinkRef> annex or installed by the [any-node](https://github.com/z-shell/any-node) package.
 
   </TabItem>
   <TabItem value="pip" label="Python">
 
-The [Python](https://python.org) modules, [$VIRTUALENV](https://docs.python.org/3/tutorial/venv.html) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex.
+The <LinkRef to="python">Python</LinkRef> modules, [$VIRTUALENV](https://docs.python.org/3/tutorial/venv.html) are automatically managed by the <LinkRef to="bin-gem-node">bin-gem-node</LinkRef> annex.
 
   </TabItem>
   <TabItem value="rust" label="Rust">
 
-The [Rust](https://crates.io) packages are managed by the [rust](/ecosystem/annexes/rust) annex.
+The <LinkRef to="crates-io">Rust</LinkRef> packages are managed by the <LinkRef to="rust-annex">rust</LinkRef> annex.
 
   </TabItem>
   <TabItem value="github" label="GitHub" default>
 
-Install and control almost everything from GitHub: [Annexes](/ecosystem/category/-annexes), [Packages](/ecosystem/category/-packages), [Gallery of Invocations](/community/gallery/collection).
+Install and control almost everything from GitHub: <LinkRef to="annexes">Annexes</LinkRef>, <LinkRef to="packages">Packages</LinkRef>, <LinkRef to="gallery">Gallery of Invocations</LinkRef>.
 
   </TabItem>
 </Tabs>
 
-## <i class="fa-solid fa-spinner fa-spin-pulse"></i> Fast and feature-rich
+## <span style={{display: "inline-flex", alignItems: "center", gap: "0.5em"}}><Icon name="spinner" spin /> Fast and feature-rich</span>
 
-- [Meta plugins][meta-plugins] allow installing groups of plugins via a single, friendly label.
+- <LinkRef to='meta-plugins'>Meta plugins</LinkRef> allow installing groups of plugins via a single, friendly label.
 - [Packages](/ecosystem/category/-packages) offload the user from providing long and complex commands.
 - [Annexes](ecosystem/category/-annexes) allow extending the plugin manager with new features.
-- [Turbo][turbo-mode-zsh--53] mode yields **50-80%** faster Zsh startup.
+- <LinkRef to='turbo-mode-zsh--53'>Turbo</LinkRef> mode yields **50-80%** faster Zsh startup.
 
-## <i class="fa-beat fa-solid fa-heart"></i> Neat and flexible
+## <span style={{display: "inline-flex", alignItems: "center", gap: "0.5em"}}><Icon name="heart" className="fa-beat" /> Neat and flexible</span>
 
-- [Customize paths][customizing-paths], use [multiple prompts][multiple-prompts] or create [your own][non-github-local-plugins] plugins.
-- Supports [Oh My Zsh][oh-my-zsh-prezto] and [Prezto][oh-my-zsh-prezto] plugins and libraries. ([migration][help-migrate]).
+- <LinkRef to='customizing-paths'>Customize paths</LinkRef>, use
+  <LinkRef to='multiple-prompts'>multiple prompts</LinkRef> or create
+  <LinkRef to='non-github-local-plugins'>your own</LinkRef> plugins.
+- Supports <LinkRef to="oh-my-zsh-prezto">Oh My Zsh</LinkRef> and <LinkRef to="oh-my-zsh-prezto">Prezto</LinkRef> plugins and libraries. (<LinkRef to="help-migrate">migration</LinkRef>).
 - Does not use <kbd>$FPATH</kbd>, loading multiple plugins doesn't clutter <kbd>$FPATH</kbd> with the same number of entries, e.g: 10, 15, or more.
 - Code is immune to <kbd>KSH_ARRAYS</kbd> and other options typically causing compatibility problems.
 - Do not require <kbd>root</kbd> access, and provide many workarounds e.g: setting so-called **shims** locally.
 
-## <i class="fa-solid fa-circle-info fa-beat-fade"></i> Familiarize and control
+## <span style={{display: "inline-flex", alignItems: "center", gap: "0.5em"}}><Icon name="circle-info" className="fa-beat-fade" /> Familiarize and control</span>
 
-- [Visualize and manage][commands] elements of the plugin:
-  - **aliases**, **functions**, **bindkeys**, **zle widgets**, **completions**, **variables**.
-- Quickly [familiarize][reports-and-statistics] yourself with rich and easy-to-digest information.
-- [Load or unload][loading-and-unloading] plugins, use the ability to [manage][completions-management] completions.
-- Docker [playground][configs-playground], test or propose configurations.
+- <LinkRef to='commands'>Visualize and manage</LinkRef> elements of the plugin: - **aliases**, **functions**,
+  **bindkeys**, **zle widgets**, **completions**, **variables**.
+- Quickly <LinkRef to="reports-and-statistics">familiarize</LinkRef> yourself with rich and easy-to-digest information.
+- <LinkRef to='loading-and-unloading'>Load or unload</LinkRef> plugins, use the ability to
+  <LinkRef to='completions-management'>manage</LinkRef> completions.
+- <LinkRef to='configs-playground'>Docker playground</LinkRef>, test or propose configurations.
 
-## <i class="fa-solid fa-list-check"></i> Summary
+## <span style={{display: "inline-flex", alignItems: "center", gap: "0.5em"}}><Icon name="list-check" /> Summary</span>
 
-<Link href='https://github.com/orgs/z-shell'>
-  <ImgShow
+<LinkRef to='z-shell-org'>
+  <SvgExternal
     alt='Z-Shell Metrics'
     width='100%'
-    height='auto'
-    img='https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/metrics.svg'
+    height='300px'
+    url='https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/metrics.svg'
+    className='svgExternal'
   />
-  <ImgShow
+  <SvgExternal
     alt='Z-Shell Repositories'
     width='100%'
-    height='auto'
-    img='https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/repositories_metrics.svg'
+    height='300px'
+    url='https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/repositories_metrics.svg'
+    className='svgExternal'
   />
-  <ImgShow
+  <SvgExternal
     alt='Z-Shell FollowUp'
     width='100%'
-    height='auto'
-    img='https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg'
+    height='300px'
+    url='https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/followup/followup.svg'
+    className='svgExternal'
   />
-  <ImgShow
+  <SvgExternal
     alt='Z-Shell Stargazers'
     width='100%'
-    height='auto'
-    img='https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/stargazers/worldmap.svg'
+    height='400px'
+    url='https://raw.githubusercontent.com/z-shell/.github/main/metrics/plugin/stargazers/worldmap.svg'
+    className='svgExternal'
   />
-</Link>
+</LinkRef>
 
-<!-- end-of-file -->
-<!-- links -->
-
-[commands]: /docs/guides/commands
-[completions-management]: /docs/guides/commands#completions-management
-[customizing-paths]: /docs/guides/customization#customizing-paths
-[loading-and-unloading]: /docs/guides/commands#loading-and-unloading
-[meta-plugins]: /search?q=meta+plugins
-[help-migrate]: /docs/getting_started/migration
-[multiple-prompts]: /docs/guides/customization#multiple-prompts
-[non-github-local-plugins]: /docs/guides/customization#non-github-local-plugins
-[oh-my-zsh-prezto]: /docs/getting_started/overview#oh-my-zsh-prezto
-[reports-and-statistics]: /docs/guides/commands#reports-and-statistics
-[turbo-mode-zsh--53]: /docs/getting_started/overview#turbo-mode-zsh--53
-
-<!-- external -->
-
-[configs-playground]: https://github.com/z-shell/playground
+{/* end-of-file */}

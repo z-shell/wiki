@@ -1,19 +1,22 @@
 ---
 id: commands
-title: 🛠 Commands
-sidebar_position: 1
-image: /img/png/theme/z/320x320.png
+title: "\U0001F6E0 Commands"
 description: Zi subcommands and functionality
+image: /img/png/theme/z/320x320.png
+sidebar_position: 1
+keywords:
+  - docs
+  - guides
+toc_min_heading_level: 2
+toc_max_heading_level: 3
 slug: commands
+hide_table_of_contents: false
 ---
 
-<!-- @format -->
-
 import Link from "@docusaurus/Link";
-import APITable from "@site/src/components/APITable";
 import ZiTabCompletion from "@site/src/components/Markdown/_zi_tab_completion.mdx";
 
-## Updates {#updates-upgrades}
+## <span className="heading-with-icon"><Icon name="download" /> Updates</span> {#updates-upgrades}
 
 To update and recompile Zi run `zi self-update` in the command line. To update all plugins and snippets, issue `zi update`. To update all in parallel (up to 40 at the time) `zi update -p 40` If you wish to update only a single plugin/snippet instead issue `zi update <plugin-name>`. A list of commits will be shown if any.
 
@@ -60,7 +63,7 @@ Increase the number of jobs in a concurrent set to 40
 zi update --parallel 40
 ```
 
-## Compinit
+## <span className="heading-with-icon"><Icon name="cog" /> Compinit</span>
 
 :::note
 
@@ -151,7 +154,7 @@ The `cdreplay` is important if you use plugins like `OMZP::kubectl` or `asdf-vm/
 
 Following commands are passed to `zi …` to obtain described effects.
 
-## Loading and unloading
+## <span className="heading-with-icon"><Icon name="terminal" /> Loading and unloading</span> {#loading-and-unloading}
 
 |       Command        | Description                                                                                       |
 | :------------------: | ------------------------------------------------------------------------------------------------- |
@@ -160,7 +163,7 @@ Following commands are passed to `zi …` to obtain described effects.
 | `unload` `-q` `'…'`  | Unload plugin loaded with `zi load …`. `-q` – quiet.                                              |
 | `snippet` `-f` `URL` | Source local (full path) or remote file (URL). `-f` – don't use cache (force re-download). [^2]   |
 
-## Completions management
+## <span className="heading-with-icon"><Icon name="book" /> Completions management</span> {#completions-management}
 
 |                   Command                    | Description                                                                                                                             |
 | :------------------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -176,7 +179,7 @@ Following commands are passed to `zi …` to obtain described effects.
 |               `cdreplay` `-q`                | Replay compdefs (to be done after compinit). `-q` – quiet.                                                                              |
 |                `cdclear` `-q`                | Clear compdef replay list. `-q` – quiet.                                                                                                |
 
-## Tracking of the active session
+## <span className="heading-with-icon"><Icon name="tools" /> Tracking of the active session</span> {#tracking-of-the-active-session}
 
 |     Command      | Description                                           |
 | :--------------: | ----------------------------------------------------- |
@@ -186,7 +189,7 @@ Following commands are passed to `zi …` to obtain described effects.
 |    `dreport`     | Report what was going on in the session.              |
 |     `dclear`     | Clear report of what was going on in the session.     |
 
-## Reports and statistics
+## <span className="heading-with-icon"><Icon name="list-check" /> Reports and statistics</span> {#reports-and-statistics}
 
 |             Command             | Description                                                                                                                                                |
 | :-----------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -200,7 +203,7 @@ Following commands are passed to `zi …` to obtain described effects.
 |     `recently` `time-spec`      | Show plugins that changed recently, the argument is e.g. 1 month 2 days.                                                                                   |
 |           `bindkeys`            | Lists bindkeys set up by each plugin.                                                                                                                      |
 
-## Compiling
+## <span className="heading-with-icon"><Icon name="wrench" /> Compiling</span>
 
 |          Command          | Description                                                             |
 | :-----------------------: | ----------------------------------------------------------------------- |
@@ -208,7 +211,7 @@ Following commands are passed to `zi …` to obtain described effects.
 | `uncompile` `'…'` `--all` | Remove compiled version of the plugin. `--all` – do it for all plugins. |
 |        `compiled`         | List plugins that are compiled.                                         |
 
-## Other commands
+## <span className="heading-with-icon"><Icon name="question-circle" /> Other commands</span>
 
 |                         Command                          | Description                                                                                                                                                |
 | :------------------------------------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -229,14 +232,14 @@ Following commands are passed to `zi …` to obtain described effects.
 | `add-fpath` `fpath` `-f` `--front` `'…'` `sub-directory` | Adds given plugin (not yet snippet) directory to `$fpath`. If the second argument is given, it is appended to the directory path. [^3]                     |
 |             `run` `-l` `plugin` `{command}`              | Runs the given command in the given plugin's directory. [^4]                                                                                               |
 
-## Help & manual
+## <span className="heading-with-icon"><Icon name="book" /> Help & manual</span>
 
 |  Command   | Description        |
 | :--------: | ------------------ |
 | `-h, help` | Usage information. |
 |   `man`    | Manual.            |
 
-## Commands available using <kbd>^TAB</kbd> <Link to="/docs/getting_started/installation#enable-zi-completions">completion</Link>
+## <span className="heading-with-icon"><Icon name="terminal" /> Commands available using <kbd>^TAB</kbd> <Link to="/docs/getting_started/installation#enable-zi-completions">completion</Link></span>
 
 <ZiTabCompletion />
 

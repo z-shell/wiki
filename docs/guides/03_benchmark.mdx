@@ -1,19 +1,19 @@
 ---
 id: benchmark
-title: "⏲ Benchmarking"
-sidebar_position: 3
+title: ⏲ Benchmarking
+description: "Benchmarking, Profiling & Statistics"
 image: /img/png/theme/z/320x320.png
-description: Benchmarking, Profiling & Statistics
+sidebar_position: 3
 keywords:
   - statistics
   - benchmark
   - profiling
   - reporting
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+hide_table_of_contents: false
 ---
 
-<!-- @format -->
-
-import APITable from "@site/src/components/APITable";
 import ReportZprofExample from "@site/src/components/Markdown/_report_zprof_example.mdx";
 
 :::info
@@ -22,7 +22,7 @@ Run `zi analytics` to see the available commands for statistics and reporting.
 
 :::
 
-## <i class="fa-solid fa-gauge-high"></i> Profile plugins
+## <Icon name="gauge-high" /> Profile plugins
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice atinit'zmodload zsh/zprof' \
@@ -64,7 +64,7 @@ The fourth column is also a time in milliseconds, but it denotes the amount of t
 
 The table is sorted in the **self-time** column.
 
-## <i class="fas fa-spinner fa-spin"></i> Profile `.zshrc` startup
+## <Icon name="spinner" className="fa-spin" /> Profile `.zshrc` startup
 
 ### Method 1
 
@@ -97,8 +97,6 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
   exec 2>&3 3>&-; zprof > ~/zshprofile$(date +'%s')
 fi
 ```
-
-The next time your `.zshrc` is sourced it will generate 2 files in the `$HOME` directory.
 
 ### Method 2
 
