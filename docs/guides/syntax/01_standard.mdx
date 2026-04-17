@@ -12,12 +12,12 @@ keywords:
   - fundamental
 ---
 
-<!-- @format -->
+{/* @format */}
 
 import ImgShow from "@site/src/components/ImgShow";
 import APITable from "@site/src/components/APITable";
 
-## <i class="fas fa-circle-info"></i> Introduction
+## <i class="fas fa-circle-info"></i> Introduction {/* #i-classfas-fa-circle-infoi-introduction */}
 
 Zi provides two syntax types for structured statements or expressions:
 
@@ -67,7 +67,7 @@ zi ice id-as'final/countdown' \
 zi load z-shell/0
 ```
 
-## <i class="fas fa-arrow-down-short-wide"></i> Order of execution {#order-of-execution}
+## <i class="fas fa-arrow-down-short-wide"></i> Order of execution {/* #order-of-execution */}
 
 The order of execution of related ice-modifiers is as follows:
 
@@ -86,14 +86,14 @@ The order of execution of related ice-modifiers is as follows:
                       atload''
 ```
 
-### <i class="fa-solid fa-list"></i> A few remarks {#a-few-remarks}
+### <i class="fa-solid fa-list"></i> A few remarks {/* #a-few-remarks */}
 
 - The syntax automatically detects if the object is a snippet or a plugin, by checking if the object is an URL, i.e.: if it starts with `http*://` or `OMZ::`, etc.
 - To load a local-file snippet (which will be treated as a local-directory plugin by default) use the `is-snippet` ice,
 - To load a plugin in `light` mode use the `light-mode` ice.
 - If the plugin name collides with an ice name, precede the plugin name with `@`, e.g.: `@sharkdp/fd` (collides with the `sh` ice, ZI will take the plugin name as `sh"arkdp/fd"`), see the next section for an example.
 
-### <i class="fa-solid fa-list"></i> Syntax alternatives {#syntax-alternatives}
+### <i class="fa-solid fa-list"></i> Syntax alternatives {/* #syntax-alternatives */}
 
 Zi supports alternatives such as the equal (`=`) syntax:
 
@@ -118,7 +118,7 @@ zi load z-shell/0
 
 The syntax alternatives can utilize the highlighting of editors like Vim – and have the strings and ice expressions colorized with a distinct color. However, with [zi-vim-syntax][] the syntax definition can be superseded with the highlighting specifically for Zi. syntax definition can be superseded with the highlighting specifically for Zi.
 
-### <i class="fa-solid fa-circle-nodes"></i> Utilizing "make" {#utilizing-make}
+### <i class="fa-solid fa-circle-nodes"></i> Utilizing "make" {/* #utilizing-make */}
 
 Vim repository on GitHub – a typical source code that needs compilation, Zi can manage the run of `./configure` and other `make` stuff. Ice-modifier `pick` adds the binary program to `$PATH`. You could also install the package under the path $ZPFX.
 
@@ -151,7 +151,7 @@ The `Makefile` with 2 tasks, can use:
 1. `make"all install PREFIX=…"`,
 2. `pick'…'` will `chmod +x` all matching files and add `$ZPFX/bin/` to `$PATH`.
 
-### <i class="fa-solid fa-arrows-to-dot"></i> Compiling programs {#compiling-programs}
+### <i class="fa-solid fa-arrows-to-dot"></i> Compiling programs {/* #compiling-programs */}
 
 ```shell showLineNumbers
 zi ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
@@ -199,7 +199,7 @@ zi light vim/vim
 </APITable>
 ```
 
-### <i class="fa-solid fa-palette"></i> LS_COLORS {#ls_colors}
+### <i class="fa-solid fa-palette"></i> LS_COLORS {/* #ls_colors */}
 
 A repository [trapd00r/LS_COLORS][trapd00r-ls_colors] provides a file with color definitions for GNU `ls` command, and also for [ogham/exa][ogham-exa]. Typically one does `eval $( dircolors -b $HOME/LS_COLORS)` to process this file and set the environment for `ls`. This means `dircolors` is run by every shell startup. It costs much time to create a fork and program, i.e., the `dircolors` binary needs to be loaded to obtain and process the color definitions. The following invocation solves this problem:
 
@@ -228,7 +228,7 @@ zi light trapd00r/LS_COLORS
 
 This way, except for the plugin installation and update, `dircolors` isn't run, just normal sourcing is done. The everyday sourced file, i.e. `clrs.zsh`, is being compiled to speed up the loading.
 
-### <i class="fa-solid fa-folder-tree"></i> Direnv {#direnv}
+### <i class="fa-solid fa-folder-tree"></i> Direnv {/* #direnv */}
 
 The project [direnv/direnv][direnv-direnv] registers itself in the Z shell to modify the environment on directory change. This registration is most often done by `eval "$(direnv hook zsh)"` added to `.zshrc`.
 
@@ -245,7 +245,7 @@ In general, `direnv` works by hooking up to Zsh. The code that does this is prov
 
 Above `atclone'…'` puts this code into file `zhook.zsh`, `src''` sources it. This way `direnv hook zsh` is executed only on clone and update, and Zsh starts faster.
 
-#### <i class="fa-solid fa-wand-magic-sparkles"></i> Glance at the 'for' syntax {#glance-at-the-for-syntax}
+#### <i class="fa-solid fa-wand-magic-sparkles"></i> Glance at the 'for' syntax {/* #glance-at-the-for-syntax */}
 
 The drawback of this standard procedure is that the `direnv` binary is run on every shell startup and significantly slows it down. Zi allows to solve this in the following way:
 
@@ -297,7 +297,7 @@ zi from"gh-r" as"program" mv"direnv* -> direnv" \
 </APITable>
 ```
 
-## <i class="fas fa-microchip"></i> `extract'…'` {#extract}
+## <i class="fas fa-microchip"></i> `extract'…'` {/* #extract */}
 
 A swiss-knife tool for unpacking all kinds of archives – the `extract'…'` ice. It works in two modes – automatic mode and fixed mode.
 
@@ -332,7 +332,7 @@ The value of the ice can begin with two special characters:
 
 The flags can be combined in any order: `extract'!-'`.
 
-## <i class="fas fa-gears"></i> `ziextract` {#ziextract}
+## <i class="fas fa-gears"></i> `ziextract` {/* #ziextract */}
 
 Sometimes a more uncommon unpacking operation is needed. In such a case you can directly use the function that implements the ice – it is called `ziextract`.
 
@@ -344,11 +344,11 @@ It recognizes the following options:
 4. `--norm` - prevents the archive file removal.
 5. And also one option specific only to the function: `--nobkp`, which prevents clearing the plugin's directory before the extraction. – All files besides the archive are being moved into the `._backup` directory after extraction is done. - `extract` ice also skips creating the backup **if** more than one archive is found or given as the argument.
 
-### <i class="fas fa-circle-info"></i> Supported file formats {#supported-file-formats}
+### <i class="fas fa-circle-info"></i> Supported file formats {/* #supported-file-formats */}
 
 Zip, rar, tar.gz, tar.bz2, tar.xz, tar.7z, tar, tgz, tbz2, gz, bz2, txz, xz, 7z, exe, deb, OS X (dmg).
 
-## <i class="fas fa-microchip"></i> `from'…'` {#from}
+## <i class="fas fa-microchip"></i> `from'…'` {/* #from */}
 
 To install and load a plugin whose repository is private - e.g: requires providing credentials to log in – use the `from'…'` ice in the following way:
 
@@ -395,7 +395,7 @@ In order to change the protocol, use the `proto'…'` ice.
 
 :::
 
-## <i class="fas fa-microchip"></i> `id-as'…'` {#id-as}
+## <i class="fas fa-microchip"></i> `id-as'…'` {/* #id-as */}
 
 Load a plugin or snippet with a nickname with the `id-as'…'` ice-modifier. For example, one could try to load [docker/compose][docker-compose] from GitHub binary releases:
 
@@ -466,7 +466,7 @@ zi ice wait lucid id-as
 zi load hlissner/zsh-autopair
 ```
 
-## <i class="fas fa-microchip"></i> `wait'…'` {#wait}
+## <i class="fas fa-microchip"></i> `wait'…'` {/* #wait */}
 
 :::note
 
@@ -521,7 +521,7 @@ As can be seen, the second plugin has been loaded first. That's because there ar
 
 In other words, instead of `wait'1'`, you can enter `wait'1a'`, `wait'1b'`, and `wait'1c'` – this **imposes the loading order** of the **commands** regardless of actual execution time.
 
-## <i class="fas fa-microchip"></i> `src'…'` `pick'…'` `multisrc'…'` {#src-pick-multisrc}
+## <i class="fas fa-microchip"></i> `src'…'` `pick'…'` `multisrc'…'` {/* #src-pick-multisrc */}
 
 Normally `src'…'` can be used to specify the additional file to the source:
 
@@ -535,7 +535,7 @@ zi light martinrotter/powerless
 | `pick'…'` | Provide the main file to the source - like `*.sh`, otherwise alphabetically first matched file is sourced. |
 | `src'…'`  | Provide a second file to the source - not a pattern - plain file name.                                     |
 
-### The `svn` ice {#the-svn-ice}
+### The `svn` ice {/* #the-svn-ice */}
 
 However, via `atload'…'` ice one can provide a simple loop to source more files:
 
@@ -550,7 +550,7 @@ zi snippet OMZ::lib
 |    `svn`    | Use Subversion to clone `OMZ::lib` (the whole Oh-My-Zsh `lib/` directory). More [^3].                                              |
 | `atload'…'` | Code isn't tracked and cannot be unloaded. The `atload'…'` is executed after loading main files `pick'…'` and `src'…'`. More [^4]. |
 
-### The `multisrc'…'` ice {#the-multisrc-ice}
+### The `multisrc'…'` ice {/* #the-multisrc-ice */}
 
 Loads **multiple** files enumerated with spaces as the separator (e.g. `multisrc'misc.zsh grep.zsh'`) and also using brace-expansion syntax (e.g. `multisrc'{misc,grep}.zsh')`. Example:
 
@@ -627,7 +627,7 @@ zi for \
 
 which is somewhat easier on the eyes.
 
-:::info Important Property
+:::info[Important Property]
 
 The multiple snippets loaded with the `for` syntax are being loaded _separately_, which means that they will not cause a longer keyboard blockage, which could have been noticeable – when loading in turbo mode.
 
@@ -635,7 +635,7 @@ The multiple snippets loaded with the `for` syntax are being loaded _separately_
 
 The Zi scheduler will distribute the work over time and will allow activation of the keyboard in between the snippets. The `multisrc'…'` way doesn't work this way – sourcing many files may cause a noticeable keyboard freeze (in turbo mode).
 
-## <i class="fas fa-microchip"></i> `atclone'…'` `atpull'…'` `atinit'…'` `atload'…'` {#atclone-atpull-atinit-atload}
+## <i class="fas fa-microchip"></i> `atclone'…'` `atpull'…'` `atinit'…'` `atload'…'` {/* #atclone-atpull-atinit-atload */}
 
 There are four code-receiving ice-modifiers: `atclone'…'`, `atpull'…'`, `atinit'…'`, `atload'…'`.
 
@@ -654,13 +654,13 @@ The `atpull'…'` ice recognizes a special value: `%atclone`, so the code looks:
 
 This is handy when the same tasks have to be performed on clone **and** on the update of plugin or snippet, like e.g.: in the [direnv example](#direnv).
 
-### `atload'!…'` with exclamation mark preceded
+### `atload'!…'` with exclamation mark preceded {/* #atload-with-exclamation-mark-preceded */}
 
 The [wrap'…'](#wrap) The ice-modifier allows the track and unload of plugins that defer their initialization to a function and run later after sourcing the plugin's script – When the function call, the plugin is then fully initialized.
 
 However, if the function is being called from the `atload'…'` ice, then the _exclamation mark_-preceded method can be used with `atload'…'` contents. The exclamation mark causes the effects of the execution of the code passed to `atload'…'` ice to be recorded.
 
-### Use case for `atload'…'`
+### Use case for `atload'…'` {/* #use-case-for-atload */}
 
 For example, in the following invocation:
 
@@ -699,7 +699,7 @@ zi ice load'![[ $MYPROMPT = 4 ]]' unload'![[ $MYPROMPT != 4 ]]' \
 zi load romkatv/powerlevel10k
 ```
 
-## <i class="fas fa-microchip"></i> `wrap'…'` {#wrap}
+## <i class="fas fa-microchip"></i> `wrap'…'` {/* #wrap */}
 
 The `wrap' …'` ice-modifier allows extending the tracking (e.g.: the gathering of the report and unloading data) of a plugin beyond the moment of sourcing its main file(s). It works by wrapping the given functions with a tracking-enabling and disabling snippet of code. This is useful especially with prompts, as they very often do their initialization in the first call to their `precmd` [hook][hook-functions] function.
 
@@ -709,7 +709,7 @@ For example, [romkatv/powerlevel10k][romkatv-powerlevel10k] works this way. The 
 zi ice wrap"func1;func2;…"
 ```
 
-### Use case for `wrap'…'` {#use-case-for-wrap}
+### Use case for `wrap'…'` {/* #use-case-for-wrap */}
 
 Therefore, to load and unload for the example powerlevel10k prompt in the fashion of [multiple prompts][multiple-prompts] article, the `precmd` function of the plugin – called `_p9k_precmd`, to get the name of the function do `echo $precmd_functions` after loading a theme, should be passed to `wrap'…'` ice.
 
@@ -759,8 +759,8 @@ Summary of `wrap'…'`:
 
 As it can be seen, the creation of four additional Zle-widgets has been recorded - `Zle -N …` lines. They will be properly deleted/restored on the plugin unload with `MYPROMPT=3` as an example and the shell state will be clean, ready to load a new prompt.
 
-<!-- end-of-file -->
-<!-- footnotes -->
+{/* end-of-file */}
+{/* footnotes */}
 
 [^1]: Save it to a file. The `atclone'…'` is being run on the **installation** while the `atpull'…'` hook is being run on an **update** of the [**trapd00r/LS_COLORS**][trapd00r-ls_colors] plugin.
 
@@ -770,7 +770,7 @@ As it can be seen, the creation of four additional Zle-widgets has been recorded
 
 [^4]: Unless you load a plugin (not a snippet) with `zi load …` and prepend the value of the ice with an exclamation mark. Example: `atload'!local f; for …'`.
 
-<!-- links -->
+{/* links */}
 
 [for-syntax]: /docs/guides/syntax/for
 [ice-mods]: /docs/guides/syntax/ice-modifiers
@@ -778,7 +778,7 @@ As it can be seen, the creation of four additional Zle-widgets has been recorded
 [global-parameter-with-prefix]: /community/zsh_plugin_standard#global-parameter-with-prefix
 [multiple-prompts]: /docs/guides/customization#multiple-prompts
 
-<!-- external -->
+{/* external */}
 
 [trapd00r-ls_colors]: https://github.com/trapd00r/LS_COLORS
 [ogham-exa]: https://github.com/ogham/exa

@@ -1,5 +1,4 @@
-// @ts-check
-
+import React from "react";
 import Link from "@docusaurus/Link";
 import Translate, {translate} from "@docusaurus/Translate";
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -41,6 +40,7 @@ export default function HeroBanner(): React.JSX.Element {
               width={230}
               height={30}
               title='GitHub Stars'
+              loading='lazy'
             />
             <iframe
               className={styles.indexCtasGitHubButton}
@@ -48,6 +48,7 @@ export default function HeroBanner(): React.JSX.Element {
               width={230}
               height={30}
               title='Follow on GitHub'
+              loading='lazy'
             />
           </span>
         </div>

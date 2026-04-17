@@ -1,5 +1,4 @@
-// @ts-check
-
+import React from "react";
 import clsx from "clsx";
 import Translate from "@docusaurus/Translate";
 import Heading from "@theme/Heading";

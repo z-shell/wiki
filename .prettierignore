@@ -1,0 +1,6 @@
+build/
+.docusaurus/
+node_modules/
+i18n/
+static/
+pnpm-lock.yaml

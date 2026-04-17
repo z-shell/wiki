@@ -1,6 +1,7 @@
 ---
 id: h-s-mw
 title: ⚙️ History search for multiple words
+sidebar_position: 3
 image: /img/png/theme/z/320x320.png
 description: Search history for multiple keywords, entries that match all keywords will be found and syntax highlighted
 toc_max_heading_level: 3
@@ -14,13 +15,13 @@ import TabItem from "@theme/TabItem";
 import ImgShow from "@site/src/components/ImgShow";
 import APITable from "@site/src/components/APITable";
 
-## <i class="fa-brands fa-github"></i> [z-shell/h-s-mw](https://github.com/z-shell/h-s-mw)
+## <i class="fa-brands fa-github"></i> [z-shell/h-s-mw](https://github.com/z-shell/h-s-mw) {/* #i-classfa-brands-fa-githubi-z-shellh-s-mw */}
 
 The plugin allows to search history for multiple keywords, <kbd><kbd>Ctrl</kbd>+<kbd>R</kbd></kbd> initiates the search and matched keywords will be found and highlighted.
 
 <ImgShow img='/img/cast/gif/hsmw/hsmw-1.gif' alt='History search for multiple words' />
 
-## Install H-S-MW
+## Install H-S-MW {/* #install-h-s-mw */}
 
 <Tabs>
   <TabItem value="zi" label="Zi" default>
@@ -77,9 +78,9 @@ source ~/some/path/to/fsh/H-S-MW.plugin.zsh
   </TabItem>
 </Tabs>
 
-## Customizing
+## Customizing {/* #customizing */}
 
-### Context viewing
+### Context viewing {/* #context-viewing */}
 
 Add `zstyle` to `~/.zshrc`: `zstyle :plugin:history-search-multi-word <value>`, where `<value>` is one of:
 
@@ -128,7 +129,7 @@ setopt share_history          # share command history data
 
 :::
 
-### Features
+### Features {/* #features */}
 
 <details>
   <summary>Refreshing prompt</summary>
@@ -162,7 +163,7 @@ Syntax highlighting is customized via the `HSMW_HIGHLIGHT_STYLES` associative ar
 
 If you assign this array in `~/.zshrc` before or after loading `H-S-MW` you will change the defaults.
 
-#### Examples of customizing syntax highlighting
+#### Examples of customizing syntax highlighting {/* #examples-of-customizing-syntax-highlighting */}
 
 Sets `path` key – paths that exist will be highlighted with background magenta, foreground white, bold:
 
@@ -200,12 +201,12 @@ FAST_BLIST_PATTERNS[/mount/disk2/*]=1
 
 </details>
 
-<!-- end-of-file -->
-<!-- links -->
+{/* end-of-file */}
+{/* links */}
 
 [z-shell/f-sy-h]: /ecosystem/plugins/f-sy-h
 
-<!-- external -->
+{/* external */}
 
 [zsh-autosuggestions]: https://github.com/zsh-users/zsh-autosuggestions
 [zsh-syntax-highlighting]: https://github.com/zsh-users/zsh-syntax-highlighting

@@ -9,7 +9,7 @@ import type {Options as IdealImageOptions} from "@docusaurus/plugin-ideal-image"
 
 const url = process.env.URL ?? "https://wiki.zshell.dev";
 const baseUrl = process.env.BASE_URL ?? "/";
-const styles = process.env.STYLES ?? "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/js/all.min.js";
+const styles = process.env.STYLES ?? "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/js/all.min.js";
 
 export default async function createConfigAsync() {
   return {
@@ -23,20 +23,32 @@ export default async function createConfigAsync() {
     organizationName: "z-shell",
     baseUrlIssueBanner: true,
     onBrokenLinks: "throw",
-    onBrokenMarkdownLinks: "warn",
     staticDirectories: ["static"],
     favicon: "/img/favicon.ico",
     i18n: {defaultLocale: "en", locales: ["en", "ja", "zh-Hans"]},
-    themes: ["@docusaurus/theme-mermaid"],
-    markdown: {format: "detect", mermaid: false},
+    markdown: {format: "detect", hooks: {onBrokenMarkdownLinks: "warn"}},
     scripts: [{src: styles, crossorigin: "anonymous"}],
+    storage: {
+      type: "localStorage",
+      namespace: true,
+    },
     future: {
-      experimental_faster: {
+      v4: {
+        removeLegacyPostBuildHeadAttribute: true,
+        useCssCascadeLayers: true,
+        siteStorageNamespacing: true,
+        fasterByDefault: true,
+        mdx1CompatDisabledByDefault: true,
+      },
+      experimental_vcs: "default-v2",
+      faster: {
         swcJsLoader: true,
         swcJsMinimizer: true,
         swcHtmlMinimizer: false,
         lightningCssMinimizer: true,
-        rspackBundler: false,
+        rspackBundler: true,
+        rspackPersistentCache: true,
+        ssgWorkerThreads: true,
         mdxCrossCompilerCache: true,
       },
     },
@@ -73,7 +85,7 @@ export default async function createConfigAsync() {
             }
             return `https://github.com/z-shell/wiki/tree/main/${versionDocsDirPath}/${docPath}`;
           },
-          showLastUpdateAuthor: false,
+          showLastUpdateAuthor: true,
           showLastUpdateTime: true,
         } satisfies DocsOptions,
       ],
@@ -131,7 +143,7 @@ export default async function createConfigAsync() {
               if (locale !== "en") {
                 return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
               }
-              return `https://github.com/z-shell/wiki/tr ee/main/${versionDocsDirPath}/${docPath}`;
+              return `https://github.com/z-shell/wiki/tree/main/${versionDocsDirPath}/${docPath}`;
             },
             showLastUpdateAuthor: true,
             showLastUpdateTime: true,

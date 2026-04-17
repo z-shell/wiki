@@ -1,6 +1,7 @@
 ---
 id: plugins
 title: "🔺 Plugins"
+sidebar_position: 6
 image: /img/png/theme/z/320x320.png
 description: The Collection of Plugins
 keywords:
@@ -8,7 +9,7 @@ keywords:
   - plugins
 ---
 
-<!-- @format -->
+{/* @format */}
 
 :::info
 
@@ -41,7 +42,7 @@ zi light …
 
 :::
 
-:::tip Create your own syntax style:
+:::tip[Create your own syntax style:]
 
 - The ver'main' - allows to select specific commit, version or branch.
 - It's optional and can be removed if not required.
@@ -66,7 +67,7 @@ zi0c() {
 
 :::
 
-:::tip Load:
+:::tip[Load:]
 
 ```shell showLineNumbers
 zi0a
@@ -81,9 +82,9 @@ zi light …
 
 :::
 
-## Without [for][4] syntax
+## Without [for][4] syntax {/* #without-for4-syntax */}
 
-### SC: [trapd00r/LS_COLORS](https://github.com/trapd00r/LS_COLORS)
+### SC: [trapd00r/LS_COLORS](https://github.com/trapd00r/LS_COLORS) {/* #sc-trapd00rls_colors */}
 
 ```shell showLineNumbers
 zi ice wait lucid reset \
@@ -95,70 +96,70 @@ zi ice wait lucid reset \
 zi light trapd00r/LS_COLORS
 ```
 
-### SC: [paoloantinori/hhighlighter](https://github.com/paoloantinori/hhighlighter)
+### SC: [paoloantinori/hhighlighter](https://github.com/paoloantinori/hhighlighter) {/* #sc-paoloantinorihhighlighter */}
 
 ```shell showLineNumbers
 zi ice wait lucid pick"h.sh"
 zi light paoloantinori/hhighlighter
 ```
 
-### SC: [wfxr/forgit](https://github.com/wfxr/forgit)
+### SC: [wfxr/forgit](https://github.com/wfxr/forgit) {/* #sc-wfxrforgit */}
 
 ```shell showLineNumbers
 zi ice wait lucid
 zi load wfxr/forgit
 ```
 
-### SC: [urbainvaes/fzf-marks](https://github.com/urbainvaes/fzf-marks)
+### SC: [urbainvaes/fzf-marks](https://github.com/urbainvaes/fzf-marks) {/* #sc-urbainvaesfzf-marks */}
 
 ```shell showLineNumbers
 zi ice wait lucid
 zi load urbainvaes/fzf-marks
 ```
 
-### SC: [hlissner/zsh-autopair](https://github.com/hlissner/zsh-autopair)
+### SC: [hlissner/zsh-autopair](https://github.com/hlissner/zsh-autopair) {/* #sc-hlissnerzsh-autopair */}
 
 ```shell showLineNumbers
 zi ice wait lucid pick'autopair.zsh'
 zi load hlissner/zsh-autopair
 ```
 
-### SC: [voronkovich/gitignore.plugin.zsh](https://github.com/voronkovich/gitignore.plugin.zsh)
+### SC: [voronkovich/gitignore.plugin.zsh](https://github.com/voronkovich/gitignore.plugin.zsh) {/* #sc-voronkovichgitignorepluginzsh */}
 
 ```shell showLineNumbers
 zi ice wait lucid
 zi load voronkovich/gitignore.plugin.zsh
 ```
 
-### SC: [xPMo/zsh-toggle-command-prefix](https://github.com/xPMo/zsh-toggle-command-prefix)
+### SC: [xPMo/zsh-toggle-command-prefix](https://github.com/xPMo/zsh-toggle-command-prefix) {/* #sc-xpmozsh-toggle-command-prefix */}
 
 ```shell showLineNumbers
 zi ice wait lucid
 zi light xPMo/zsh-toggle-command-prefix
 ```
 
-### SC: [leonjza/history-here](https://github.com/leonjza/history-here)
+### SC: [leonjza/history-here](https://github.com/leonjza/history-here) {/* #sc-leonjzahistory-here */}
 
 ```shell showLineNumbers
 zi ice wait lucid
 zi light leonjza/history-here
 ```
 
-### SC: [hkbakke/bash-insulter](https://github.com/hkbakke/bash-insulter)
+### SC: [hkbakke/bash-insulter](https://github.com/hkbakke/bash-insulter) {/* #sc-hkbakkebash-insulter */}
 
 ```shell showLineNumbers
 zi ice wait lucid pick'src/bash.command-not-found'
 zi light hkbakke/bash-insulter
 ```
 
-### SC: [leophys/zsh-plugin-fzf-finder](https://github.com/leophys/zsh-plugin-fzf-finder)
+### SC: [leophys/zsh-plugin-fzf-finder](https://github.com/leophys/zsh-plugin-fzf-finder) {/* #sc-leophyszsh-plugin-fzf-finder */}
 
 ```shell showLineNumbers
 zi ice wait lucid has'fzf' pick'fzf-finder.plugin.zsh'
 zi light leophys/zsh-plugin-fzf-finder
 ```
 
-### SC: [autosuggestions][1], [fast-syntax-highlighting][2]
+### SC: [autosuggestions][1], [fast-syntax-highlighting][2] {/* #sc-autosuggestions1-fast-syntax-highlighting2 */}
 
 ```shell showLineNumbers
 zi ice wait lucid atinit"ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay"
@@ -168,7 +169,7 @@ zi ice wait lucid atload"!_zsh_autosuggest_start"
 zi load zsh-users/zsh-autosuggestions
 ```
 
-### SC: [z-shell/zsh-github-issues](https://github.com/z-shell/zsh-github-issues)
+### SC: [z-shell/zsh-github-issues](https://github.com/z-shell/zsh-github-issues) {/* #sc-z-shellzsh-github-issues */}
 
 ```shell showLineNumbers
 zi ice lucid id-as"GitHub-notify" \
@@ -177,28 +178,28 @@ zi ice lucid id-as"GitHub-notify" \
 zi light z-shell/zsh-github-issues
 ```
 
-### SC: [zsh-shell/zsh-startify](https://github.com/z-shell/zsh-startify)
+### SC: [zsh-shell/zsh-startify](https://github.com/z-shell/zsh-startify) {/* #sc-zsh-shellzsh-startify */}
 
 ```shell showLineNumbers
 zi ice wait lucid atload"zsh-startify"
 zi load z-shell/zsh-startify
 ```
 
-### SC: [z-shell/declare-zsh](https://github.com/z-shell/declare-zsh)
+### SC: [z-shell/declare-zsh](https://github.com/z-shell/declare-zsh) {/* #sc-z-shelldeclare-zsh */}
 
 ```shell showLineNumbers
 zi ice wait lucid
 zi load z-shell/declare-zsh
 ```
 
-### SC: [z-shell/zsh-navigation-tools](https://github.com/z-shell/zsh-navigation-tools)
+### SC: [z-shell/zsh-navigation-tools](https://github.com/z-shell/zsh-navigation-tools) {/* #sc-z-shellzsh-navigation-tools */}
 
 ```shell showLineNumbers
 zi ice wait lucid
 zi load z-shell/zsh-navigation-tools
 ```
 
-### SC: [z-shell/H-S-MW](https://github.com/z-shell/H-S-MW) {#sc-z-shellh-s-mw}
+### SC: [z-shell/H-S-MW](https://github.com/z-shell/H-S-MW) {/* #sc-z-shellh-s-mw */}
 
 ```shell showLineNumbers
 zstyle ":history-search-multi-word" page-size "11"
@@ -206,7 +207,7 @@ zi ice wait lucid
 zi load z-shell/H-S-MW
 ```
 
-### SC: [z-shell/zui](https://github.com/z-shell/zui), [z-shell/zi-crasis](https://github.com/z-shell/zi-crasis)
+### SC: [z-shell/zui](https://github.com/z-shell/zui), [z-shell/zi-crasis](https://github.com/z-shell/zi-crasis) {/* #sc-z-shellzui-z-shellzi-crasis */}
 
 ```shell showLineNumbers
 zi ice wait lucid
@@ -216,7 +217,7 @@ zi ice wait"[[ -n ${ZLAST_COMMANDS[(r)cra*]} ]]" lucid
 zi load z-shell/zi-crasis
 ```
 
-### SC: [z-shell/zredis](https://github.com/z-shell/zredis)
+### SC: [z-shell/zredis](https://github.com/z-shell/zredis) {/* #sc-z-shellzredis */}
 
 ```shell showLineNumbers
 zstyle ":plugin:zredis" configure_opts "--without-tcsetpgrp"
@@ -226,9 +227,9 @@ zi ice wait lucid atload"ztie -d db/redis -a 127.0.0.1:4815/5 -zSL main rdhash"
 zi load z-shell/zredis
 ```
 
-## With [for][4] syntax
+## With [for][4] syntax {/* #with-for4-syntax */}
 
-### SC: [z-shell/zsh-eza](https://github.com/z-shell/zsh-eza)
+### SC: [z-shell/zsh-eza](https://github.com/z-shell/zsh-eza) {/* #sc-z-shellzsh-eza */}
 
 ```shell showLineNumbers
 zi wait lucid for \
@@ -236,21 +237,21 @@ zi wait lucid for \
     zplugin/zsh-eza
 ```
 
-### SC: [z-shell/zsh-zoxide](https://github.com/z-shell/zsh-zoxide)
+### SC: [z-shell/zsh-zoxide](https://github.com/z-shell/zsh-zoxide) {/* #sc-z-shellzsh-zoxide */}
 
 ```shell showLineNumbers
 zi has'zoxide' light-mode for \
   z-shell/zsh-zoxide
 ```
 
-### GH-R: [pemistahl/grex](https://github.com/pemistahl/grex)
+### GH-R: [pemistahl/grex](https://github.com/pemistahl/grex) {/* #gh-r-pemistahlgrex */}
 
 ```shell showLineNumbers
 zi wait lucid for as"command" from"gh-r" sbin"grex" \
   pemistahl/grex
 ```
 
-### GH-R: [ahmetb/kubectx](https://github.com/ahmetb/kubectx)
+### GH-R: [ahmetb/kubectx](https://github.com/ahmetb/kubectx) {/* #gh-r-ahmetbkubectx */}
 
 ```shell showLineNumbers
 zi wait lucid for as"command" from"gh-r" \
@@ -258,7 +259,7 @@ zi wait lucid for as"command" from"gh-r" \
     ahmetb/kubectx
 ```
 
-### B: [stedolan/jq](https://github.com/stedolan/jq)
+### B: [stedolan/jq](https://github.com/stedolan/jq) {/* #b-stedolanjq */}
 
 ```shell showLineNumbers
 zi wait lucid for if"(( ! ${+commands[jq]} ))" as"null" \
@@ -267,7 +268,7 @@ zi wait lucid for if"(( ! ${+commands[jq]} ))" as"null" \
     stedolan/jq
 ```
 
-### GH-R: [github/git-sizer](https://github.com/github/git-sizer)
+### GH-R: [github/git-sizer](https://github.com/github/git-sizer) {/* #gh-r-githubgit-sizer */}
 
 ```shell showLineNumbers
 zi wait lucid for \
@@ -275,8 +276,8 @@ zi wait lucid for \
     @github/git-sizer
 ```
 
-<!-- end-of-file -->
-<!-- links -->
+{/* end-of-file */}
+{/* links */}
 
 [3]: /docs/getting_started/overview#turbo-mode--lucid
 [4]: /docs/guides/syntax/for
@@ -286,7 +287,7 @@ zi wait lucid for \
 [8]: /docs/guides/customization#customizing-paths
 [9]: /ecosystem/annexes/bin-gem-node
 
-<!-- external -->
+{/* external */}
 
 [1]: https://github.com/zsh-users/zsh-autosuggestions
 [2]: https://github.com/z-shell/F-Sy-H

@@ -1,6 +1,4 @@
-// @ts-check
-
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useMemo, useRef, useState} from "react";
 import Spinner from "@site/src/components/Spinner";
 import "asciinema-player/dist/bundle/asciinema-player.css";
 
@@ -24,9 +22,32 @@ export type PlayerProps = {
   markers?: string;
 };
 
-export default function Player({src, ...opts}: PlayerProps): React.JSX.Element {
+export default function Player({
+  src,
+  cols,
+  rows,
+  autoPlay,
+  preload,
+  loop,
+  startAt,
+  speed,
+  idleTimeLimit,
+  theme,
+  poster,
+  fit,
+  terminalLineHeight,
+  terminalFontFamily,
+  terminalFontSize,
+  controls,
+  markers,
+}: PlayerProps): React.JSX.Element {
   const element = useRef<HTMLDivElement>(null);
   const [player, setPlayer] = useState<typeof import("asciinema-player")>();
+
+  const opts = useMemo(
+    () => ({cols, rows, autoPlay, preload, loop, startAt, speed, idleTimeLimit, theme, poster, fit, terminalLineHeight, terminalFontFamily, terminalFontSize, controls, markers}),
+    [cols, rows, autoPlay, preload, loop, startAt, speed, idleTimeLimit, theme, poster, fit, terminalLineHeight, terminalFontFamily, terminalFontSize, controls, markers],
+  );
 
   useEffect(() => {
     void import("asciinema-player").then((module) => {

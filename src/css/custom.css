@@ -6,7 +6,7 @@
 @import url("/assets/fonts/jetbrainsmono-variable.css");
 
 :root {
-  transition-duration: 1s !important;
+  transition-duration: 1s;
 
   --ifm-font-family: "JetBrains Mono", "Hack", monospace;
   --ifm-font-family-base: "JetBrains Mono", monospace;
@@ -24,26 +24,29 @@
   --site-color-tooltip-background: hsl(200deg 3% 21%);
   --site-color-feedback-background: hsl(0deg 0% 100%);
   --site-color-tooltip: hsl(0deg 0% 100%);
-  --ifm-breadcrumb-color-active: var(--ifm-color-primary-darker) !important;
-  --ifm-menu-color-active: var(--ifm-color-primary-darker) !important;
+  --site-color-navbar-dark: hsl(215deg 21% 11%);
+  --site-color-surface-dark: hsl(210deg 12% 16%);
+  --site-color-surface-elevated: hsl(210deg 12% 19%);
+  --site-color-error-highlight: hsl(0deg 100% 50% / 12.5%);
+  --site-color-error-border: hsl(0deg 100% 50% / 50.2%);
+  --site-color-overlay-light: rgb(94 100 112 / 70%);
+  --site-color-overlay-dark: rgb(47 55 69 / 70%);
+  --site-color-subtle-hover: rgb(255 255 255 / 5%);
+  --ifm-breadcrumb-color-active: var(--ifm-color-primary-darker);
+  --ifm-menu-color-active: var(--ifm-color-primary-darker);
   --ifm-code-font-size: 90%;
-  --ifm-background-surface-color: hsl(210deg 29% 97%);
+  --ifm-background-surface-color: var(--site-color-favorite-background);
   --ifm-background-color: hsl(0deg 0% 100%);
   --ifm-navbar-background-color: var(--ifm-background-surface-color);
   --docusaurus-highlighted-code-line-bg: hsl(0deg 0% 0% / 15%);
-  --docusaurus-announcement-bar-height: auto !important;
+  --docusaurus-announcement-bar-height: auto;
 }
 
-html[data-theme="dark"] {
+[data-theme="dark"] {
   --ifm-background-color: hsl(216deg 28% 7%);
   --ifm-background-surface-color: hsl(210deg 12% 16%);
   --site-color-checkbox-checked-bg: hsl(167deg 56% 73% / 10%);
   --docusaurus-highlighted-code-line-bg: hsl(0deg 0% 100% / 15%);
-
-  transition-duration: 1s !important;
-}
-
-[data-theme="dark"] {
   --ifm-color-primary: hsl(var(--site-primary-hue-saturation) 45%);
   --ifm-color-primary-dark: hsl(var(--site-primary-hue-saturation) 41%);
   --ifm-color-primary-darker: hsl(var(--site-primary-hue-saturation) 38%);
@@ -57,20 +60,20 @@ html[data-theme="dark"] {
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
-  background-color: hsl(0deg 100% 50% / 12.5%);
-  border-left: 3px solid hsl(0deg 100% 50% / 50.2%);
+  background-color: var(--site-color-error-highlight);
+  border-left: 3px solid var(--site-color-error-border);
 }
 
 .navbar--dark {
-  --ifm-navbar-background-color: hsl(215deg 21% 11%);
+  --ifm-navbar-background-color: var(--site-color-navbar-dark);
   --ifm-navbar-link-hover-color: var(--ifm-color-primary);
-  --ifm-menu-color-background-active: rgb(255 255 255 / 5%);
+  --ifm-menu-color-background-active: var(--site-color-subtle-hover);
   --ifm-navbar-search-input-color: var(--ifm-color-white);
 }
 
 /* Footer style */
 .footer--dark {
-  --ifm-footer-background-color: hsl(215deg 21% 11%);
+  --ifm-footer-background-color: var(--site-color-navbar-dark);
   --ifm-footer-color: var(--ifm-footer-link-color);
   --ifm-footer-link-color: var(--ifm-color-secondary);
   --ifm-footer-title-color: var(--ifm-color-white);
@@ -92,7 +95,7 @@ html[data-theme="dark"] {
 
 [data-theme="light"] .DocSearch {
   --docsearch-muted-color: var(--ifm-color-emphasis-700);
-  --docsearch-container-background: rgb(94 100 112 / 70%);
+  --docsearch-container-background: var(--site-color-overlay-light);
   --docsearch-modal-background: var(--ifm-color-secondary-lighter);
   --docsearch-searchbox-background: var(--ifm-color-secondary);
   --docsearch-searchbox-focus-background: var(--ifm-color-white);
@@ -105,13 +108,13 @@ html[data-theme="dark"] {
 [data-theme="dark"] .DocSearch {
   --docsearch-text-color: var(--ifm-font-color-base);
   --docsearch-muted-color: var(--ifm-color-secondary-darkest);
-  --docsearch-container-background: rgb(47 55 69 / 70%);
+  --docsearch-container-background: var(--site-color-overlay-dark);
   --docsearch-modal-background: var(--ifm-background-color);
   --docsearch-searchbox-background: var(--ifm-background-color);
   --docsearch-searchbox-focus-background: var(--ifm-color-black);
   --docsearch-hit-color: var(--ifm-font-color-base);
   --docsearch-hit-active-color: var(--ifm-color-white);
-  --docsearch-hit-background: hsl(210deg 12% 16%);
+  --docsearch-hit-background: var(--site-color-surface-dark);
   --docsearch-footer-background: var(--ifm-background-surface-color);
   --docsearch-key-gradient: linear-gradient(
     -26.5deg,
@@ -129,8 +132,7 @@ html[data-theme="dark"] {
   overflow: hidden;
   white-space: nowrap;
   border: 0;
-  clip: rect(0 0 0 0);
-  clip-path: polygon(0 0, 0 0, 0 0);
+  clip-path: inset(50%);
 }
 
 html[data-theme="light"] img[src$="#gh-dark-mode-only"],
@@ -159,10 +161,10 @@ html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
 /* Image styles */
 .IceLogo {
   display: block;
-  float: right;
   width: 150px;
   height: auto;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
+  margin-left: auto;
   padding: 0 var(--ifm-pre-padding);
 }
 
@@ -286,61 +288,65 @@ div[class^="announcementBar_"] {
 
 div[class^="announcementBar_"] a {
   display: inline-block;
-  color: var(--ifm-link-color) !important;
+  color: var(--ifm-link-color);
 }
 
 div[class^="announcementBar_"] a:hover {
-  text-decoration: underline !important;
+  text-decoration: underline;
 }
 
 html[data-theme="light"] div[class^="announcementBar_"] a:hover {
-  color: var(--ifm-color-black) !important;
+  color: var(--ifm-color-black);
 }
 
 html[data-theme="dark"] div[class^="announcementBar_"] a:hover {
-  color: var(--ifm-color-white) !important;
+  color: var(--ifm-color-white);
 }
 
 html[data-theme="light"] div[class^="announcementBar_"] {
-  color: hsl(0deg 0% 0%);
-  background: hsl(210deg 29% 97%);
-  transition-duration: 1s !important;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-background-surface-color);
 }
 
 html[data-theme="dark"] div[class^="announcementBar_"] {
-  color: hsl(0deg 0% 100%);
-  background: hsl(210deg 12% 16%);
-  transition-duration: 1s !important;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-background-surface-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    transition-duration: 0s;
+  }
 }
 
 /* Extra large screens, TV */
 @media only screen and (width >= 1201px) {
   header h1 {
-    font-size: 2.6rem !important;
+    font-size: 2.6rem;
   }
 }
 
 /* Desktops, large screens */
-@media only screen and (1025px >= width >= 1200px) {
+@media only screen and (1025px <= width <= 1200px) {
   div[class^="announcementBar_"] {
     font-size: 16px;
     line-height: 20px;
   }
 
   header h1 {
-    font-size: 2.4rem !important;
+    font-size: 2.4rem;
   }
 }
 
 /* Small screens, laptops */
-@media only screen and (769px >= width >= 1024px) {
+@media only screen and (769px <= width <= 1024px) {
   header h1 {
-    font-size: 2.2rem !important;
+    font-size: 2.2rem;
   }
 }
 
 /* iPads, Tablets */
-@media only screen and (481px >= width >= 768px) {
+@media only screen and (481px <= width <= 768px) {
   div[class^="announcementBar_"] {
     padding: 2px 24px;
     font-size: 14px;
@@ -348,7 +354,7 @@ html[data-theme="dark"] div[class^="announcementBar_"] {
   }
 
   header h1 {
-    font-size: 2rem !important;
+    font-size: 2rem;
   }
 
   table {
@@ -365,13 +371,13 @@ html[data-theme="dark"] div[class^="announcementBar_"] {
 }
 
 /* Mobile devices */
-@media only screen and (320px >= width >= 480px) {
+@media only screen and (320px <= width <= 480px) {
   div[class^="announcementBar_"] {
     padding: 2px 12px;
   }
 
   header h1 {
-    font-size: 1.8rem !important;
+    font-size: 1.8rem;
   }
 
   .IceLogo {

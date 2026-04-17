@@ -1,0 +1,6 @@
+.highlight {
+  border-radius: 0.2rem;
+  padding: 0 0.2rem;
+  font-weight: bold;
+  color: var(--ifm-font-color-base);
+}

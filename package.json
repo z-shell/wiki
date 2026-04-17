@@ -12,6 +12,10 @@
     "crowdin:upload": "pnpm crowdin upload sources --delete-obsolete",
     "deploy": "docusaurus deploy",
     "preinstall": "npx only-allow pnpm",
+    "lint": "eslint .",
+    "lint:css": "stylelint 'src/**/*.css'",
+    "lint:css:fix": "stylelint 'src/**/*.css' --fix",
+    "lint:fix": "eslint . --fix",
     "serve": "docusaurus serve",
     "start": "docusaurus start",
     "swizzle": "docusaurus swizzle",
@@ -35,44 +39,45 @@
     ]
   },
   "dependencies": {
-    "@docusaurus/core": "3.7.0",
-    "@docusaurus/faster": "3.7.0",
-    "@docusaurus/plugin-ideal-image": "3.7.0",
-    "@docusaurus/plugin-pwa": "3.7.0",
-    "@docusaurus/preset-classic": "3.7.0",
-    "@docusaurus/theme-mermaid": "3.7.0",
+    "@docusaurus/core": "3.10.0",
+    "@docusaurus/faster": "3.10.0",
+    "@docusaurus/plugin-ideal-image": "3.10.0",
+    "@docusaurus/plugin-pwa": "3.10.0",
+    "@docusaurus/preset-classic": "3.10.0",
     "@loadable/component": "5.16.7",
-    "@mdx-js/react": "3.1.0",
-    "asciinema-player": "3.9.0",
+    "@mdx-js/react": "3.1.1",
+    "asciinema-player": "3.15.1",
     "clsx": "2.1.1",
     "prism-react-renderer": "2.4.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
     "react-spinners": "0.17.0"
   },
   "devDependencies": {
-    "@crowdin/cli": "4.7.0",
-    "@docusaurus/eslint-plugin": "3.7.0",
-    "@docusaurus/module-type-aliases": "3.7.0",
-    "@docusaurus/tsconfig": "3.7.0",
-    "@docusaurus/types": "3.7.0",
-    "@types/node": "22.15.21",
-    "@typescript-eslint/eslint-plugin": "8.27.0",
-    "@typescript-eslint/parser": "8.27.0",
-    "eslint": "8.57.1",
-    "eslint-config-prettier": "10.1.1",
-    "eslint-config-standard": "17.1.0",
-    "eslint-import-resolver-typescript": "4.2.2",
-    "eslint-plugin-import": "2.31.0",
-    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-react": "7.37.4",
-    "eslint-plugin-react-hooks": "5.2.0",
-    "stylelint": "16.19.1",
+    "@crowdin/cli": "4.14.1",
+    "@docusaurus/eslint-plugin": "3.10.0",
+    "@docusaurus/module-type-aliases": "3.10.0",
+    "@docusaurus/tsconfig": "3.10.0",
+    "@docusaurus/types": "3.10.0",
+    "@eslint/compat": "^2.0.5",
+    "@eslint/js": "^10.0.1",
+    "@types/node": "25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^10.2.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import-x": "^4.16.2",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-mdx": "^3.7.0",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "globals": "^17.5.0",
+    "stylelint": "17.7.0",
     "stylelint-color-format": "1.1.0",
-    "stylelint-config-css-modules": "4.4.0",
-    "stylelint-config-standard": "38.0.0",
-    "typescript": "5.8.2"
+    "stylelint-config-css-modules": "4.6.0",
+    "stylelint-config-standard": "40.0.0",
+    "typescript": "6.0.2",
+    "typescript-eslint": "^8.58.1"
   },
   "packageManager": "pnpm@10.6.5+sha512.cdf928fca20832cd59ec53826492b7dc25dc524d4370b6b4adbf65803d32efaa6c1c88147c0ae4e8d579a6c9eec715757b50d4fa35eea179d868eada4ed043af",
   "engines": {
@@ -80,16 +85,16 @@
     "pnpm": ">=10"
   },
   "pnpm": {
-    "peerDependencyRules": {
-      "allowAny": [
-        "eslint"
-      ]
-    },
     "onlyBuiltDependencies": [
       "@swc/core",
       "core-js",
       "core-js-pure",
-      "sharp"
-    ]
+      "sharp",
+      "unrs-resolver"
+    ],
+    "overrides": {
+      "eslint>jiti": "^2.6.1",
+      "webpackbar": "^7.0.0"
+    }
   }
 }

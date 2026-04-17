@@ -11,7 +11,7 @@ keywords:
   - reporting
 ---
 
-<!-- @format -->
+{/* @format */}
 
 import APITable from "@site/src/components/APITable";
 import ReportZprofExample from "@site/src/components/Markdown/_report_zprof_example.mdx";
@@ -22,7 +22,7 @@ Run `zi analytics` to see the available commands for statistics and reporting.
 
 :::
 
-## <i class="fa-solid fa-gauge-high"></i> Profile plugins
+## <i class="fa-solid fa-gauge-high"></i> Profile plugins {/* #i-classfa-solid-fa-gauge-highi-profile-plugins */}
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice atinit'zmodload zsh/zprof' \
@@ -64,9 +64,9 @@ The fourth column is also a time in milliseconds, but it denotes the amount of t
 
 The table is sorted in the **self-time** column.
 
-## <i class="fas fa-spinner fa-spin"></i> Profile `.zshrc` startup
+## <i class="fas fa-spinner fa-spin"></i> Profile `.zshrc` startup {/* #i-classfas-fa-spinner-fa-spini-profile-zshrc-startup */}
 
-### Method 1
+### Method 1 {/* #method-1 */}
 
 > `PROFILE_STARTUP=true` to enable profiling.
 
@@ -83,7 +83,7 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
 fi
 ```
 
-:::info PS4 Prompt Expansion
+:::info[PS4 Prompt Expansion]
 
 Zsh Sourceforge docs: [Prompt Expansion][prompt-expansion]
 
@@ -100,7 +100,7 @@ fi
 
 The next time your `.zshrc` is sourced it will generate 2 files in the `$HOME` directory.
 
-### Method 2
+### Method 2 {/* #method-2 */}
 
 Store multiple values to a variable:
 

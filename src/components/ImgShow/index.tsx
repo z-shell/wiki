@@ -1,5 +1,3 @@
-// @ts-check
-
 import React, {type ReactNode} from "react";
 import Loadable from "@loadable/component";
 import Spinner from "@site/src/components/Spinner";
@@ -12,9 +10,10 @@ export type ImgProps = {
   children?: ReactNode;
 };
 
+const Image = Loadable(() => import("@theme/IdealImage"));
+
 export default function ImgShow(props: ImgProps): React.JSX.Element {
   const {img, alt, label, children, ...rest} = props;
-  const Image = Loadable(() => import("@theme/IdealImage"));
   return (
     <Image
       fallback={<Spinner />}

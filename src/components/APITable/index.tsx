@@ -3,10 +3,10 @@ import useBrokenLinks from "@docusaurus/useBrokenLinks";
 import {useHistory} from "@docusaurus/router";
 import styles from "./styles.module.css";
 
-interface Props {
+type Props = {
   readonly children: ReactElement<ComponentProps<"table">>;
   readonly name?: string;
-}
+};
 
 // ReactNode equivalent of HTMLElement#innerText
 function getRowName(node: ReactElement): string {
@@ -44,7 +44,8 @@ function APITableRow(
         }
       }}
       onKeyDown={(e: React.KeyboardEvent) => {
-        if (e.key === "Enter") {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
           history.push(anchor);
         }
       }}>
@@ -73,7 +74,7 @@ export default function APITable({children, name}: Props): ReactNode {
   const highlightedRow = useRef<HTMLTableRowElement>(null);
   useEffect(() => {
     highlightedRow.current?.focus();
-  }, [highlightedRow]);
+  }, []);
   const rows = React.Children.map(tbody.props.children, (row: ReactElement<ComponentProps<"tr">>) => (
     <APITableRowComp name={name} ref={highlightedRow}>
       {row}

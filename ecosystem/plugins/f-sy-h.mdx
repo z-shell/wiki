@@ -1,6 +1,7 @@
 ---
 id: f-sy-h
 title: ⚙️ Feature-rich syntax highlighting
+sidebar_position: 2
 image: /img/png/theme/z/320x320.png
 description: Feature-rich Syntax Highlighting for Zsh
 toc_max_heading_level: 3
@@ -9,7 +10,7 @@ keywords:
   - syntax-highlighting
 ---
 
-<!-- @format -->
+{/* @format */}
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
@@ -17,9 +18,9 @@ import ImgShow from "@site/src/components/ImgShow";
 import Player from "@site/src/components/Player";
 import ChromaFunctionExample from "@site/src/components/Markdown/_chroma_function_example.mdx";
 
-## <i class="fa-brands fa-github"></i> [z-shell/f-sy-h][]
+## <i class="fa-brands fa-github"></i> [z-shell/f-sy-h][] {/* #i-classfa-brands-fa-githubi-z-shellf-sy-h */}
 
-## Install F-Sy-H
+## Install F-Sy-H {/* #install-f-sy-h */}
 
 <Tabs>
   <TabItem value="zi" label="Zi" default>
@@ -82,7 +83,7 @@ source ~/some/path/to/fsh/F-Sy-H.plugin.zsh
   </TabItem>
 </Tabs>
 
-## Performance
+## Performance {/* #performance */}
 
 Performance differences can be observed in this Asciinema recording, where a `10 kB` function is being edited.
 
@@ -95,9 +96,9 @@ Performance differences can be observed in this Asciinema recording, where a `10
   fit={false}
 />
 
-## Syntax highlighting features
+## Syntax highlighting features {/* #syntax-highlighting-features */}
 
-### Themes
+### Themes {/* #themes */}
 
 Switch themes via `fast-theme {theme-name}`.
 
@@ -114,7 +115,7 @@ Run `fast-theme -t {theme-name}` option to obtain the snippet above.
 
 Run `fast-theme -l` to list available themes.
 
-#### Theme guide for F-Sy-H
+#### Theme guide for F-Sy-H {/* #theme-guide-for-f-sy-h */}
 
 To select a theme using `fast-theme`. F-Sy-H currently has 11 themes basic [INI files][ini-files] where each key is a _style_, they can be listed with `fast-theme -l`.
 
@@ -148,7 +149,7 @@ OPT:    = /opt/local/share/fsh/
 
 So for example, issue `fast-theme XDG:overlay` to load `~/.config/fsh/overlay.ini` as an overlay. The `.ini` extension is optional.
 
-#### Secondary theme
+#### Secondary theme {/* #secondary-theme */}
 
 Each theme has a key `secondary`, e.g. for theme `free`:
 
@@ -179,7 +180,7 @@ In the above screen-shot the interior of `$( ... )` uses different colors than t
 
 The first line doesn't use recursive highlighting, highlights the `eval` argument as a regular string. The second line switches the theme to `zdharma` and does full recursive highlighting of the eval argument.
 
-### Variables
+### Variables {/* #variables */}
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper image):
 
@@ -193,14 +194,14 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper image):
   alt='Syntax highlighting in string'
 />
 
-### Brackets
+### Brackets {/* #brackets */}
 
 <ImgShow
   img='https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/brackets.gif'
   alt='Syntax highlighting brackets'
 />
 
-### Conditions
+### Conditions {/* #conditions */}
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
@@ -209,7 +210,7 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
   alt='Syntax highlighting conditions'
 />
 
-### Strings
+### Strings {/* #strings */}
 
 Exact highlighting that recognizes quoting.
 
@@ -218,14 +219,14 @@ Exact highlighting that recognizes quoting.
   alt='Syntax highlighting strings'
 />
 
-#### here-strings
+#### here-strings {/* #here-strings */}
 
 <ImgShow
   img='https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/herestring.png'
   alt='Syntax highlighting here-strings'
 />
 
-### `exec` descriptor-variables
+### `exec` descriptor-variables {/* #exec-descriptor-variables */}
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
@@ -234,14 +235,14 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
   alt='Syntax highlighting exec'
 />
 
-### The for-loops and alternate syntax (brace `{`/`}` blocks)
+### The for-loops and alternate syntax (brace `{`/`}` blocks) {/* #the-for-loops-and-alternate-syntax-brace--blocks */}
 
 <ImgShow
   img='https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/for-loop-cmp.png'
   alt='Syntax highlighting loops'
 />
 
-### Function definitions
+### Function definitions {/* #function-definitions */}
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper 2 lines):
 
@@ -250,7 +251,7 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper 2 lines)
   alt='Syntax highlighting function'
 />
 
-### Recursive `eval` and `$( )` highlighting
+### Recursive `eval` and `$( )` highlighting {/* #recursive-eval-and---highlighting */}
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
@@ -259,88 +260,88 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
   alt='Syntax highlighting eval'
 />
 
-## Chroma functions
+## Chroma functions {/* #chroma-functions */}
 
-### Command specific highlighting
+### Command specific highlighting {/* #command-specific-highlighting */}
 
-#### Autoload
+#### Autoload {/* #autoload */}
 
 <ImgShow img='/img/cast/gif/fsh/fsh-autoload.gif' alt='Syntax highlighting autoload' />
 
-#### Awk
+#### Awk {/* #awk */}
 
 <ImgShow img='/img/cast/gif/fsh/fsh-awk.gif' alt='Syntax highlighting awk' />
 
-#### Docker
+#### Docker {/* #docker */}
 
 <ImgShow img='/img/cast/gif/fsh/fsh-docker.gif' alt='Syntax highlighting docker' />
 
-#### Git commit
+#### Git commit {/* #git-commit */}
 
 <ImgShow img='/img/cast/gif/fsh/fsh-git-commit.gif' alt='Syntax highlighting git commit' />
 
-#### Git checkout
+#### Git checkout {/* #git-checkout */}
 
 <ImgShow img='/img/cast/gif/fsh/fsh-git-checkout.gif' alt='Syntax highlighting git checkout' />
 
-#### Grep
+#### Grep {/* #grep */}
 
 <ImgShow img='/img/cast/gif/fsh/fsh-grep.gif' alt='Syntax highlighting grep' />
 
-#### Make
+#### Make {/* #make */}
 
 <ImgShow img='/img/cast/gif/fsh/fsh-make.gif' alt='Syntax highlighting make' />
 
-#### Perl
+#### Perl {/* #perl */}
 
 <ImgShow img='/img/cast/gif/fsh/fsh-perl.gif' alt='Syntax highlighting perl' />
 
-#### Sh
+#### Sh {/* #sh */}
 
 <ImgShow img='/img/cast/gif/fsh/fsh-sh-c.gif' alt='Syntax highlighting sh -c' />
 
 The [chromas][f-sy-h-chromas] are set in [fast-highlight#L174][fast-highlight-chromas].
 
-### Fpath highlighting
+### Fpath highlighting {/* #fpath-highlighting */}
 
 <ImgShow img='/img/cast/gif/fsh/fsh-fpath.gif' alt='Syntax highlighting fpath' />
 
-### Case highlighting
+### Case highlighting {/* #case-highlighting */}
 
 <ImgShow img='/img/cast/gif/fsh/fsh-case.gif' alt='Syntax highlighting case' />
 
-### Math highlighting
+### Math highlighting {/* #math-highlighting */}
 
 <ImgShow
   img='https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/math.gif'
   alt='Syntax highlighting math'
 />
 
-### Zcalc highlighting
+### Zcalc highlighting {/* #zcalc-highlighting */}
 
 <ImgShow
   img='https://raw.githubusercontent.com/z-shell/F-Sy-H/main/docs/images/zcalc.png'
   alt='Syntax highlighting zcalc'
 />
 
-### Custom Working Directory
+### Custom Working Directory {/* #custom-working-directory */}
 
 Set `$FAST_WORK_DIR` before loading the plugin to have e.g. processed theme files (ready to load, in Zsh format, not INI) kept under a specified location. This is handy if e.g. you install Fast-Syntax-Highlighting system-wide (e.g. from AUR on ArchLinux) and want to have a per-user theme setup.
 
 You can use "~" in the path, e.g. `FAST_WORK_DIR=~/.fsh` and also the `XDG:`, `LOCAL:`, `OPT:`, etc. short-hands, so e.g. `FAST_WORK_DIR=XDG` or `FAST_WORK_DIR=XDG:` is allowed (in this case it will be changed to `$HOME/.config/fsh` by default by F-Sy-H loader).
 
-### Chroma guide for F-Sy-H
+### Chroma guide for F-Sy-H {/* #chroma-guide-for-f-sy-h */}
 
 This document explains to create a detailed highlighting for a **specific program**.
 
-#### Keywords
+#### Keywords {/* #keywords */}
 
 - `chroma` - a shorthand for `chroma function` – the thing that colorizes selected commands, like `git`, `grep`, etc. invocations, see `chroma function` below,
 - `big loop` - main highlighting code, a loop over tokens, and at least 2 large structure constructs (big `if` and `case`); it is advanced, e.g. parses `case` statements, here-string, it constitutes 90% of the F-Sy-H project,
 - `chroma function` - a plugin function that is called when a specific command occurs (e.g. when a user enters `git` at the command line) suppressing activity of `big loop` (i.e. no standard highlighting unless requested),
 - `token` - the result of splitting the whole command line (i.e. `$BUFFER`, the Zle variable) into bits called tokens, which are words in general, separated by spaces on the command line.
 
-#### Overview of functioning
+#### Overview of functioning {/* #overview-of-functioning */}
 
 1. Big loop is working – token by token processes command line, changes states (e.g. enters state "inside case statement") and in the end decides on the color of the token currently processed.
 2. Big loop occurs a command that has a chroma, e.g. `git`.
@@ -350,7 +351,7 @@ This document explains to create a detailed highlighting for a **specific progra
 6. When processing of a single token is complete, the associated chroma returns 0 (shell-truth) to request no further processing by the big loop.
 7. It can also return 1 so that a single, current token will be passed into a big-loop for processing (to do a standard highlighting).
 
-#### Chroma function arguments
+#### Chroma function arguments {/* #chroma-function-arguments */}
 
 - `$1` - 0 or 1, denoting if it's the first call to the chroma, or the following one,
 - `$2` - the current token, also accessible by `$\__arg` from the upper scope - basically a private copy of `$__arg`; the token can be eg.: "grep",
@@ -365,16 +366,16 @@ So example invocation could look like this:
 
 Big-loop will be doing such calls for the user, after occurring a specific chroma-enabled command (like e.g. `awk`), and then until chroma will detect the end of this chroma-enabled command (end of the whole invocation, with arguments, etc.; in other words, when e.g. new line or `;`-character occurs, etc.).
 
-#### Example of chroma function
+#### Example of chroma function {/* #example-of-chroma-function */}
 
 <ChromaFunctionExample />
 
-<!-- end-of-file -->
-<!-- links -->
+{/* end-of-file */}
+{/* links */}
 
 [turbo-mode]: /docs/getting_started/overview#turbo-mode-zsh--53
 
-<!-- external -->
+{/* external */}
 
 [fast-highlight-chromas]: https://github.com/z-shell/F-Sy-H/blob/main/functions/fast-highlight#L174
 [z-shell/f-sy-h]: https://github.com/z-shell/F-Sy-H

@@ -1,6 +1,7 @@
 ---
 id: bin-gem-node
 title: "🌀 Bin Gem Node"
+sidebar_position: 2
 image: /img/png/theme/z/320x320.png
 description: Annex - Bin Gem Node documentation.
 keywords:
@@ -8,7 +9,7 @@ keywords:
   - bin-gem-node
 ---
 
-<!-- @format -->
+{/* @format */}
 
 import Tabs from "@theme/Tabs";
 import Link from "@docusaurus/Link";
@@ -112,7 +113,7 @@ View all currently registered:
 - ice-modifiers: `zi icemods`
 - subcommand: `zi subcmds`
 
-## `SBIN'…'` {#sbin-1}
+## `SBIN'…'` {/* #sbin-1 */}
 
 ```shell
 sbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-script}]; …'
@@ -166,7 +167,7 @@ The same trailing component would be set for the snippet URL, for any alphabetic
 
 :::
 
-## `FBIN'…'` {#fbin-2}
+## `FBIN'…'` {/* #fbin-2 */}
 
 ```shell
 fbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-function}]; …'
@@ -210,7 +211,7 @@ myfzf () {
 
 :::
 
-## `GEM'…'` {#gem-3}
+## `GEM'…'` {/* #gem-3 */}
 
 ```shell showLineNumbers
 gem'{gem-name}; …'
@@ -257,7 +258,7 @@ asciidoctor () {
 
 :::
 
-## `NODE'…'` {#node-4}
+## `NODE'…'` {/* #node-4 */}
 
 ```shell showLineNumbers
 node'{node-module}; …'
@@ -306,7 +307,7 @@ In this case, the name of the binary program provided by the node module is diff
 
 :::
 
-## `PIP'…'` {#pip-5}
+## `PIP'…'` {/* #pip-5 */}
 
 ```shell showLineNumbers
 pip'{pip-package}; …'
@@ -353,7 +354,7 @@ youtube-dl () {
 
 :::
 
-## `FMOD'…'` {#fmod-6}
+## `FMOD'…'` {/* #fmod-6 */}
 
 ```shell showLineNumbers
 fmod'[{g|n|c|N|E|O}:]{function-name}; …'
@@ -417,13 +418,13 @@ README.md
 
 :::
 
-## `FSRC'…'` {#fsrc-7}
+## `FSRC'…'` {/* #fsrc-7 */}
 
 ```shell
 fsrc'[{g|n|c|N|E|O}:]{path-to-script}[ -> {name-of-the-function}]; …'
 ```
 
-## `FERC'…'` {#ferc-8}
+## `FERC'…'` {/* #ferc-8 */}
 
 ```shell
 ferc'[{g|n|c|N|E|O}:]{path-to-script}[ -> {name-of-the-function}]; …'
@@ -480,7 +481,7 @@ The ices can be empty as the trailing component will be assigned with [id-as][] 
 
 :::
 
-## `shim-list` {#shim-list}
+## `shim-list` {/* #shim-list */}
 
 An annex provides a subcommand – `shim-list` for shims currently stored in `$ZPFX/bin` management:
 
@@ -498,7 +499,7 @@ zi shim-list [ -t | -i | -o | -s | -h ]
 | `-s` `--short`     | Don't show the plugin/snippet that the shim belongs to.                                  |
 | `-h` `--help`      | Shows usage information.                                                                 |
 
-## Cygwin support {#cygwin-support}
+## Cygwin support {/* #cygwin-support */}
 
 The [sbin](#sbin-1) ice-modifier has an explicit Cygwin support – it creates additional, **extra shim files** – Windows batch scripts that allow running the shielded applications from e.g.: Windows run dialog – if the `~/.zi/polaris/bin` directory is being added to the Windows `PATH` environment variable, for example (it is a good idea to do so, IMHO). The Windows shims have the same name as the standard ones (which are also being created, normally) plus the `.cmd` extension. You can test the feature by e.g.: installing Firefox from the Zi package via:
 
@@ -506,9 +507,9 @@ The [sbin](#sbin-1) ice-modifier has an explicit Cygwin support – it creates a
 zi pack=bgn for firefox
 ```
 
-## Install bin-gem-node {#install-bin-gem-node}
+## Install bin-gem-node {/* #install-bin-gem-node */}
 
-:::info Source
+:::info[Source]
 
 - <Link className='github-link' href='https://github.com/z-shell/z-a-bin-gem-node'>
     z-shell/z-a-bin-gem-node
@@ -539,17 +540,17 @@ zi light z-shell/z-a-unscope bgn
 
 This will register the [shim-list](#shim-list) subcommand and following ice-modifiers:
 
-<!-- end-of-file -->
-<!--footnotes-->
+{/* end-of-file */}
+{/*footnotes*/}
 
 [^1]: shims created by the `bin-gem-node` annex have a fixed structure, this option instructs Zi to show the list of shims that results from the [sbin](#sbin-1) ice-modifier of the loaded plugins. If a plugin for example has `sbin'git-open'`, means that such shim has already been created.
 
-<!-- links -->
+{/* links */}
 
 [id-as]: /docs/guides/syntax/standard#id-as
 [unscope]: /ecosystem/annexes/unscope
 
-<!-- external -->
+{/* external */}
 
 [gem-home]: https://guides.rubygems.org/command-reference/#gem-environment
 [node-path]: https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders

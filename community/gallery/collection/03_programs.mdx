@@ -1,6 +1,7 @@
 ---
 id: programs
 title: "🔺 Programs"
+sidebar_position: 3
 image: /img/png/theme/z/320x320.png
 description: The Collection of Programs
 keywords:
@@ -10,7 +11,7 @@ keywords:
   - zsh-favorites
 ---
 
-<!-- @format -->
+{/* @format */}
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
@@ -23,7 +24,7 @@ Do not hesitate to [report any issues][issues] you encounter.
 
 :::
 
-:::info Related
+:::info[Related]
 
 1. [Overview: as'program'][about-asprogram]
 2. [Turbo and lucid][turbo-and-lucid]
@@ -37,7 +38,7 @@ Do not hesitate to [report any issues][issues] you encounter.
 
 :::
 
-:::tip Secure with a specific version
+:::tip[Secure with a specific version]
 
 The `ver'…'` - allows to select a specific version, branch, or commit hash, also known as [permalink][].
 
@@ -53,7 +54,7 @@ zi wait lucid for \
 
 :::
 
-:::tip Style your syntax
+:::tip[Style your syntax]
 
 Command wrap example for cleaner or preferred syntax.
 
@@ -86,9 +87,9 @@ zi light …
 
 :::
 
-## Without [for][for-syntax] syntax
+## Without [for][for-syntax] syntax {/* #without-forfor-syntax-syntax */}
 
-### GH-R: [asciinema/agg][asciinema/agg] {#gh-r-asciinema-agg}
+### GH-R: [asciinema/agg][asciinema/agg] {/* #gh-r-asciinema-agg */}
 
 `agg` is a command-line tool for generating animated `GIF` files from [asciicast v2 files][asciicast-v2] produced by [asciinema terminal recorder](https://github.com/asciinema/asciinema).
 
@@ -114,77 +115,77 @@ zi light asciinema/agg
 </TabItem>
 </Tabs>
 
-### GH-R: [dandavison/delta][] {#dandavison-delta}
+### GH-R: [dandavison/delta][] {/* #dandavison-delta */}
 
 ```shell showLineNumbers
 zi ice wait lucid as'program' from'gh-r' sbin'**/delta -> delta'
 zi light dandavison/delta
 ```
 
-### GH-R: [denisidoro/navi][]
+### GH-R: [denisidoro/navi][] {/* #gh-r-denisidoronavi */}
 
 ```shell showLineNumbers
 zi ice lucid wait as'program' from"gh-r" has'fzf'
 zi light denisidoro/navi
 ```
 
-### GH-R: [junegunn/fzf][]
+### GH-R: [junegunn/fzf][] {/* #gh-r-junegunnfzf */}
 
 ```shell showLineNumbers
 zi ice from'gh-r' as'program'
 zi light junegunn/fzf
 ```
 
-### GH-R: [sharkdp/fd][]
+### GH-R: [sharkdp/fd][] {/* #gh-r-sharkdpfd */}
 
 ```shell showLineNumbers
 zi ice from'gh-r' as'program' mv'fd* fd' sbin'**/fd(.exe|) -> fd'
 zi light @sharkdp/fd
 ```
 
-### GH-R: [sharkdp/bat][]
+### GH-R: [sharkdp/bat][] {/* #gh-r-sharkdpbat */}
 
 ```shell showLineNumbers
 zi ice from'gh-r' as'program' mv'bat* bat' sbin'**/bat(.exe|) -> bat'
 zi light @sharkdp/bat
 ```
 
-### GH-R: [sharkdp/hexyl][]
+### GH-R: [sharkdp/hexyl][] {/* #gh-r-sharkdphexyl */}
 
 ```shell showLineNumbers
 zi ice from'gh-r' as'program' mv'hexyl* hexyl' sbin'**/hexyl(.exe|) -> hexyl'
 zi light @sharkdp/hexyl
 ```
 
-### GH-R: [sharkdp/hyperfine][]
+### GH-R: [sharkdp/hyperfine][] {/* #gh-r-sharkdphyperfine */}
 
 ```shell showLineNumbers
 zi ice from'gh-r' as'program' mv"hyperfine* hyperfine" sbin"**/hyperfine(.exe|) -> hyperfine"
 zi light @sharkdp/hyperfine
 ```
 
-### GH-R: [sharkdp/vivid][]
+### GH-R: [sharkdp/vivid][] {/* #gh-r-sharkdpvivid */}
 
 ```shell showLineNumbers
 zi ice from'gh-r' as'program' mv'vivid* vivid' sbin'**/vivid(.exe|) -> vivid'
 zi light @sharkdp/vivid
 ```
 
-### GH-R: [ogham/exa][]
+### GH-R: [ogham/exa][] {/* #gh-r-oghamexa */}
 
 ```shell showLineNumbers
 zi ice from'gh-r' as'program' sbin'**/exa -> exa' atclone'cp -vf completions/exa.zsh _exa'
 zi light ogham/exa
 ```
 
-### GH-R: [docker/compose][]
+### GH-R: [docker/compose][] {/* #gh-r-dockercompose */}
 
 ```shell showLineNumbers
 zi ice from"gh-r" as'program' mv'docker* -> docker-compose'
 zi light docker/compose
 ```
 
-### GH-R: [neovim/neovim][]
+### GH-R: [neovim/neovim][] {/* #gh-r-neovimneovim */}
 
 ```shell showLineNumbers
 zi ice as'program' from'gh-r' \
@@ -192,28 +193,28 @@ zi ice as'program' from'gh-r' \
 zi light neovim/neovim
 ```
 
-### GH-R: [direnv/direnv][]
+### GH-R: [direnv/direnv][] {/* #gh-r-direnvdirenv */}
 
 ```shell showLineNumbers
 zi ice as'program' from'gh-r' mv'direnv* -> direnv'
 zi light direnv/direnv
 ```
 
-### GH-R: [mvdan/sh][]
+### GH-R: [mvdan/sh][] {/* #gh-r-mvdansh */}
 
 ```shell showLineNumbers
 zi ice as'program' from'gh-r' mv'shfmt* -> shfmt'
 zi light mvdan/sh
 ```
 
-### GH-R: [b4b4r07/gotcha][]
+### GH-R: [b4b4r07/gotcha][] {/* #gh-r-b4b4r07gotcha */}
 
 ```shell showLineNumbers
 zi ice as'program' from'gh-r' mv'gotcha_* -> gotcha'
 zi light b4b4r07/gotcha
 ```
 
-### GH-R: [ajeetdsouza/zoxide][]
+### GH-R: [ajeetdsouza/zoxide][] {/* #gh-r-ajeetdsouzazoxide */}
 
 ```shell showLineNumbers
 zi ice as'program' from'gh-r' pick'zoxide' \
@@ -223,28 +224,28 @@ zi ice as'program' from'gh-r' pick'zoxide' \
 zi light ajeetdsouza/zoxide
 ```
 
-### SC: [zdharma/revolver][]
+### SC: [zdharma/revolver][] {/* #sc-zdharmarevolver */}
 
 ```shell showLineNumbers
 zi ice wait lucid as'program' pick'revolver'
 zi light zdharma/revolver
 ```
 
-### SC: [zdharma/zunit][]
+### SC: [zdharma/zunit][] {/* #sc-zdharmazunit */}
 
 ```shell showLineNumbers
 zi ice wait lucid as'program' pick'zunit' atclone'./build.zsh' atpull'%atclone'
 zi load zdharma/zunit
 ```
 
-### SC: [Osse/git-scripts/git-unique][]
+### SC: [Osse/git-scripts/git-unique][] {/* #sc-ossegit-scriptsgit-unique */}
 
 ```shell showLineNumbers
 zi ice as'program' id-as'git-unique' pick'git-unique'
 zi snippet https://github.com/Osse/git-scripts/blob/master/git-unique
 ```
 
-### SC: [mfaerevaag/wd][]
+### SC: [mfaerevaag/wd][] {/* #sc-mfaerevaagwd */}
 
 ```shell showLineNumbers
 zi ice wait lucid as'program' cp'wd.sh -> wd' \
@@ -252,28 +253,28 @@ zi ice wait lucid as'program' cp'wd.sh -> wd' \
 zi light mfaerevaag/wd
 ```
 
-### SC: [z-shell/zsh-diff-so-fancy][]
+### SC: [z-shell/zsh-diff-so-fancy][] {/* #sc-z-shellzsh-diff-so-fancy */}
 
 ```shell showLineNumbers
 zi ice wait lucid as'program' pick'bin/git-dsf'
 zi load z-shell/zsh-diff-so-fancy
 ```
 
-### SC: [obihann/archey-osx][]
+### SC: [obihann/archey-osx][] {/* #sc-obihannarchey-osx */}
 
 ```shell showLineNumbers
 zi ice wait lucid as'program' pick'bin/archey'
 zi light obihann/archey-osx
 ```
 
-### SC: [eth-p/bat-extras][]
+### SC: [eth-p/bat-extras][] {/* #sc-eth-pbat-extras */}
 
 ```shell showLineNumbers
 zi ice lucid wait as'program' has'bat' pick'src/*'
 zi light eth-p/bat-extras
 ```
 
-### SC: [paulirish/git-open][]
+### SC: [paulirish/git-open][] {/* #sc-paulirishgit-open */}
 
 ```shell showLineNumbers
 zi ice lucid wait as'program' has'git' \
@@ -281,14 +282,14 @@ zi ice lucid wait as'program' has'git' \
 zi light paulirish/git-open
 ```
 
-### SC: [LuRsT/hr][]
+### SC: [LuRsT/hr][] {/* #sc-lursthr */}
 
 ```shell showLineNumbers
 zi ice lucid wait as'program' atclone"cp hr.1 $ZI[MAN_DIR]/man1" atpull'%atclone'
 zi light LuRsT/hr
 ```
 
-### SC: [Seirdy/stpv][]
+### SC: [Seirdy/stpv][] {/* #sc-seirdystpv */}
 
 ```shell showLineNumbers
 zi ice lucid wait as'program' has'fzf' pick'fzfp'
@@ -305,14 +306,14 @@ zi ice lucid wait as'program' pick'stpv'
 zi light Seirdy/stpv
 ```
 
-### SC: [exiftool/exiftool][]
+### SC: [exiftool/exiftool][] {/* #sc-exiftoolexiftool */}
 
 ```shell showLineNumbers
 zi ice lucid wait as'program' has'perl' has'convert' pick'exiftool'
 zi light exiftool/exiftool
 ```
 
-### SC: [smxi/inxi][]
+### SC: [smxi/inxi][] {/* #sc-smxiinxi */}
 
 ```shell showLineNumbers
 zi ice if'[ -z "$SSH_CONNECTION" ]' lucid wait \
@@ -320,42 +321,42 @@ zi ice if'[ -z "$SSH_CONNECTION" ]' lucid wait \
 zi light smxi/inxi
 ```
 
-### SC: [dylanaraps/pash][]
+### SC: [dylanaraps/pash][] {/* #sc-dylanarapspash */}
 
 ```shell showLineNumbers
 zi ice lucid wait as'program' has'gpg'
 zi light dylanaraps/pash
 ```
 
-### SC: [hackerb9/lsix][]
+### SC: [hackerb9/lsix][] {/* #sc-hackerb9lsix */}
 
 ```shell showLineNumbers
 zi ice lucid wait as'program' has'mogrify'
 zi light hackerb9/lsix
 ```
 
-### SC: [denilsonsa/prettyping][]
+### SC: [denilsonsa/prettyping][] {/* #sc-denilsonsaprettyping */}
 
 ```shell showLineNumbers
 zi ice lucid wait as'program' pick'prettyping' has'ping'
 zi light denilsonsa/prettyping
 ```
 
-### SC: [greymd/tmux-xpanes][]
+### SC: [greymd/tmux-xpanes][] {/* #sc-greymdtmux-xpanes */}
 
 ```shell showLineNumbers
 zi ice lucid wait as'program' has'tmux' pick'bin/xpanes'
 zi light greymd/tmux-xpanes
 ```
 
-### SC: [DanielG/dxld-mullvad/am-i-mullvad.sh][]
+### SC: [DanielG/dxld-mullvad/am-i-mullvad.sh][] {/* #sc-danielgdxld-mullvadam-i-mullvadsh */}
 
 ```shell showLineNumbers
 zi ice lucid wait as'program' has'jq'
 zi snippet 'https://github.com/DanielG/dxld-mullvad/blob/master/am-i-mullvad.sh'
 ```
 
-### B: [abishekvashok/cmatrix][]
+### B: [abishekvashok/cmatrix][] {/* #b-abishekvashokcmatrix */}
 
 Standard syntax
 
@@ -373,14 +374,14 @@ zi for as'program' atclone"autoreconf -i; ./configure --prefix=$ZPFX" \
     abishekvashok/cmatrix
 ```
 
-### B: [tj/git-extras][]
+### B: [tj/git-extras][] {/* #b-tjgit-extras */}
 
 ```shell showLineNumbers
 zi ice wait lucid as'program' pick'$ZPFX/bin/git-*' make'PREFIX=$ZPFX' nocompile
 zi light tj/git-extras
 ```
 
-### B: [k4rthik/git-cal][]
+### B: [k4rthik/git-cal][] {/* #b-k4rthikgit-cal */}
 
 ```shell showLineNumbers
 zi ice wait lucid as'program' atclone'perl Makefile.PL PREFIX=$ZPFX' \
@@ -388,28 +389,28 @@ zi ice wait lucid as'program' atclone'perl Makefile.PL PREFIX=$ZPFX' \
 zi light k4rthik/git-cal
 ```
 
-### B: [aaronNG/reddio][]
+### B: [aaronNG/reddio][] {/* #b-aaronngreddio */}
 
 ```shell showLineNumbers
 zi ice lucid wait as'program' has'jq' pick'reddio' from'gitlab'
 zi light aaronNG/reddio
 ```
 
-### B: [TheLocehiliosan/yadm][]
+### B: [TheLocehiliosan/yadm][] {/* #b-thelocehiliosanyadm */}
 
 ```shell showLineNumbers
 zi ice lucid wait as'program' has'git' pick'yadm' atclone"cp yadm.1 $ZI[MAN_DIR]/man1" atpull'%atclone'
 zi light TheLocehiliosan/yadm
 ```
 
-### B: [sdushantha/farge][]
+### B: [sdushantha/farge][] {/* #b-sdushanthafarge */}
 
 ```shell showLineNumbers
 zi ice if'[[ -n "$WAYLAND_DISPLAY" ]]' lucid wait as'program' pick'farge'
 zi light 'sdushantha/farge'
 ```
 
-### B: [dylanaraps/neofetch][]
+### B: [dylanaraps/neofetch][] {/* #b-dylanarapsneofetch */}
 
 ```shell showLineNumbers
 zi ice lucid wait as'program' pick'neofetch' \
@@ -417,7 +418,7 @@ zi ice lucid wait as'program' pick'neofetch' \
 zi light dylanaraps/neofetch
 ```
 
-### B: [vim/vim][]
+### B: [vim/vim][] {/* #b-vimvim */}
 
 ```shell showLineNumbers
 zi ice as'program' atclone'rm -f src/auto/config.cache; ./configure' \
@@ -425,7 +426,7 @@ zi ice as'program' atclone'rm -f src/auto/config.cache; ./configure' \
 zi light vim/vim
 ```
 
-### B: [direnv/direnv][]
+### B: [direnv/direnv][] {/* #b-direnvdirenv */}
 
 ```shell showLineNumbers
 zi ice as'program' make'!' atclone'./direnv hook zsh > zhook.zsh' \
@@ -433,14 +434,14 @@ zi ice as'program' make'!' atclone'./direnv hook zsh > zhook.zsh' \
 zi light direnv/direnv
 ```
 
-### B: [mptre/yank][]
+### B: [mptre/yank][] {/* #b-mptreyank */}
 
 ```shell showLineNumbers
 zi ice as'program' pick'yank' make
 zi light mptre/yank
 ```
 
-### B: [pyenv/pyenv][]
+### B: [pyenv/pyenv][] {/* #b-pyenvpyenv */}
 
 ```shell showLineNumbers
 zi ice atclone'PYENV_ROOT="$PWD" ./libexec/pyenv init - > zpyenv.zsh' \
@@ -449,7 +450,7 @@ zi ice atclone'PYENV_ROOT="$PWD" ./libexec/pyenv init - > zpyenv.zsh' \
 zi light pyenv/pyenv
 ```
 
-### B: [sdkman/sdkman-cli][]
+### B: [sdkman/sdkman-cli][] {/* #b-sdkmansdkman-cli */}
 
 ```shell showLineNumbers
 zi ice as'program' pick'$ZPFX/sdkman/bin/sdk' id-as'sdkman' run-atpull nocompile \
@@ -459,7 +460,7 @@ zi ice as'program' pick'$ZPFX/sdkman/bin/sdk' id-as'sdkman' run-atpull nocompile
 zi light z-shell/0
 ```
 
-### B: [asciinema/asciinema][]
+### B: [asciinema/asciinema][] {/* #b-asciinemaasciinema */}
 
 ```shell showLineNumbers
 zi ice as"program" wait lucid atinit"export PYTHONPATH=$ZPFX/lib/python3.10/site-packages/" \
@@ -468,14 +469,14 @@ zi ice as"program" wait lucid atinit"export PYTHONPATH=$ZPFX/lib/python3.10/site
 zi load asciinema/asciinema
 ```
 
-### RA: Rust and [Peltoche/lsd][]
+### RA: Rust and [Peltoche/lsd][] {/* #ra-rust-and-peltochelsd */}
 
 ```shell showLineNumbers
 zi ice rustup cargo'!lsd' id-as'lsd' as'program' nocompile
 zi load z-shell/0
 ```
 
-### RA: Rust and [ogham/exa][]
+### RA: Rust and [ogham/exa][] {/* #ra-rust-and-oghamexa */}
 
 The `ls` shim exposing the `exa`` binary
 
@@ -491,7 +492,7 @@ zi ice rustup cargo'!E:exa' id-as'exa' as'program' nocompile
 zi load z-shell/0
 ```
 
-### RA: Rust and [ogham/exa][], [Peltoche/lsd][]
+### RA: Rust and [ogham/exa][], [Peltoche/lsd][] {/* #ra-rust-and-oghamexa-peltochelsd */}
 
 ```shell showLineNumbers
 zi ice rustup cargo'exa;lsd' nocompile
@@ -505,7 +506,7 @@ zi ice rustup cargo'exa;lsd' as'program' pick"bin/(exa|lsd)" nocompile
 zi load z-shell/0
 ```
 
-### RA: Rust compiler environment
+### RA: Rust compiler environment {/* #ra-rust-compiler-environment */}
 
 Install rust and make it available globally in the system:
 
@@ -515,9 +516,9 @@ zi ice id-as"rust" wait"0" lucid rustup as"program" pick"bin/rustc" \
 zi load z-shell/0
 ```
 
-## With [for][for-syntax] syntax
+## With [for][for-syntax] syntax {/* #with-forfor-syntax-syntax */}
 
-### GH-R: [argoproj/argo-cd](https://github.com/argoproj/argo-cd)
+### GH-R: [argoproj/argo-cd](https://github.com/argoproj/argo-cd) {/* #gh-r-argoprojargo-cd */}
 
 ```shell showLineNumbers
 zi light-mode for \
@@ -527,7 +528,7 @@ zi light-mode for \
     argoproj/argo-cd
 ```
 
-### GH-R: [junegunn/fzf][] + extras
+### GH-R: [junegunn/fzf][] + extras {/* #gh-r-junegunnfzf--extras */}
 
 ```shell showLineNumbers
 zi for atclone'mkdir -p $ZPFX/{bin,man/man1}' atpull'%atclone' from'gh-r' dl'
@@ -539,7 +540,7 @@ zi for atclone'mkdir -p $ZPFX/{bin,man/man1}' atpull'%atclone' from'gh-r' dl'
       junegunn/fzf
 ```
 
-### GH-R: [junegunn/fzf][], [sharkdp/fd][], [sharkdp/bat][], [ogham/exa][]
+### GH-R: [junegunn/fzf][], [sharkdp/fd][], [sharkdp/bat][], [ogham/exa][] {/* #gh-r-junegunnfzf-sharkdpfd-sharkdpbat-oghamexa */}
 
 ```shell showLineNumbers
 zi from"gh-r" as"null" for \
@@ -549,7 +550,7 @@ zi from"gh-r" as"null" for \
   sbin"**/exa -> exa" atclone"cp -vf completions/exa.zsh _exa" ogham/exa
 ```
 
-### SC: [zdharma/revolver][], [zdharma/zunit][]
+### SC: [zdharma/revolver][], [zdharma/zunit][] {/* #sc-zdharmarevolver-zdharmazunit */}
 
 ```shell showLineNumbers
 zi wait lucid for as'program' \
@@ -561,7 +562,7 @@ zi wait lucid for as'program' \
     @zdharma/zunit
 ```
 
-### SC: [tj/n](https://github.com/tj/n)
+### SC: [tj/n](https://github.com/tj/n) {/* #sc-tjn */}
 
 ```shell showLineNumbers
 zi light-mode for as'program' atinit'export N_PREFIX="$PWD/n"; \
@@ -569,7 +570,7 @@ zi light-mode for as'program' atinit'export N_PREFIX="$PWD/n"; \
   tj/n
 ```
 
-### GH-R: [pnpm/pnpm](https://github.com/pnpm/pnpm)
+### GH-R: [pnpm/pnpm](https://github.com/pnpm/pnpm) {/* #gh-r-pnpmpnpm */}
 
 :::tip
 
@@ -587,7 +588,7 @@ zi light-mode for id-as'pnpm' from'gh-r' bpick'*-linux-x64' as'program' \
     pnpm/pnpm
 ```
 
-### GH-R: [yarnpkg/yarn][]
+### GH-R: [yarnpkg/yarn][] {/* #gh-r-yarnpkgyarn */}
 
 ```shell showLineNumbers
 zi light-mode for from'gh-r' as'program' \
@@ -596,7 +597,7 @@ zi light-mode for from'gh-r' as'program' \
     yarnpkg/yarn
 ```
 
-### B: [jarun/nnn][]
+### B: [jarun/nnn][] {/* #b-jarunnnn */}
 
 ```shell showLineNumbers
 zi light-mode for pick'misc/quitcd/quitcd.zsh' as'program' nocompile \
@@ -604,7 +605,7 @@ zi light-mode for pick'misc/quitcd/quitcd.zsh' as'program' nocompile \
     jarun/nnn
 ```
 
-### SC: [homebrew/brew][homebrew/brew]
+### SC: [homebrew/brew][homebrew/brew] {/* #sc-homebrewbrewhomebrewbrew */}
 
 ```shell showLineNumbers
 zi for as'null' depth'3' nocompletions sbin'bin/brew' \
@@ -616,7 +617,7 @@ zi for as'null' depth'3' nocompletions sbin'bin/brew' \
     @homebrew/brew
 ```
 
-### GH-R: [dbrgn/tealdeer](https://github.com/dbrgn/tealdeer)
+### GH-R: [dbrgn/tealdeer](https://github.com/dbrgn/tealdeer) {/* #gh-r-dbrgntealdeer */}
 
 ```shell showLineNumbers
 zi wait lucid as'program' from'gh-r' for \
@@ -626,7 +627,7 @@ zi wait lucid as'program' from'gh-r' for \
   @dbrgn/tealdeer
 ```
 
-### GH-R: [koalaman/shellcheck](https://github.com/koalaman/shellcheck)
+### GH-R: [koalaman/shellcheck](https://github.com/koalaman/shellcheck) {/* #gh-r-koalamanshellcheck */}
 
 ```shell showLineNumbers
 zi wait lucid as'program' from'gh-r' for \
@@ -635,7 +636,7 @@ zi wait lucid as'program' from'gh-r' for \
   @koalaman/shellcheck
 ```
 
-### GH-R: [hadolint/hadolint](https://github.com/hadolint/hadolint)
+### GH-R: [hadolint/hadolint](https://github.com/hadolint/hadolint) {/* #gh-r-hadolinthadolint */}
 
 ```shell showLineNumbers
 zi wait lucid as'program' from'gh-r' for \
@@ -645,7 +646,7 @@ zi wait lucid as'program' from'gh-r' for \
   @hadolint/hadolint
 ```
 
-### RA: Rust compiler environment + completions
+### RA: Rust compiler environment + completions {/* #ra-rust-compiler-environment--completions */}
 
 ```shell showLineNumbers
 zi id-as"rust" wait=1 as=null sbin="bin/*" lucid rustup nocompile \
@@ -654,7 +655,7 @@ zi id-as"rust" wait=1 as=null sbin="bin/*" lucid rustup nocompile \
     z-shell/0
 ```
 
-### B: [ytdl-org/youtube-dl][ytdl-org/youtube-dl]
+### B: [ytdl-org/youtube-dl][ytdl-org/youtube-dl] {/* #b-ytdl-orgyoutube-dlytdl-orgyoutube-dl */}
 
 ```shell
 zi for as'program' nocompile'!' depth'1' \
@@ -663,8 +664,8 @@ zi for as'program' nocompile'!' depth'1' \
     ytdl-org/youtube-dl
 ```
 
-<!-- end-of-file -->
-<!-- links -->
+{/* end-of-file */}
+{/* links */}
 
 [about-asprogram]: /docs/getting_started/overview/#about-asprogram
 [compiling-programs]: /docs/guides/syntax/standard#compiling-programs
@@ -677,7 +678,7 @@ zi for as'program' nocompile'!' depth'1' \
 [turbo-and-lucid]: /docs/getting_started/overview#turbo-mode--lucid
 [bin-gem-node]: /ecosystem/annexes/bin-gem-node
 
-<!-- external-links -->
+{/* external-links */}
 
 [asciinema/agg]: https://github.com/asciinema/agg
 [asciicast-v2]: https://github.com/asciinema/asciinema/blob/master/doc/asciicast-v2.md

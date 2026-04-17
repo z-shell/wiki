@@ -4,45 +4,39 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.animation3 {
+.fa-base {
   display: inline-block;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
+}
+
+.animation3 {
+  composes: fa-base;
   --fa-animation-duration: 3s;
 }
 
 .animation5 {
-  display: inline-block;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
+  composes: fa-base;
   --fa-animation-duration: 5s;
 }
 
 .animation10 {
-  display: inline-block;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
+  composes: fa-base;
   --fa-animation-duration: 10s;
 }
 
 .animation15 {
-  display: inline-block;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
+  composes: fa-base;
   --fa-animation-duration: 15s;
 }
 
 .animation30 {
-  display: inline-block;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
+  composes: fa-base;
   --fa-animation-duration: 30s;
 }
 
 .bounce {
-  display: inline-block;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
+  composes: fa-base;
   --fa-bounce-start-scale-x: 1;
   --fa-bounce-start-scale-y: 1;
   --fa-bounce-jump-scale-x: 1;

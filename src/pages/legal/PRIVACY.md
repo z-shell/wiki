@@ -10,11 +10,11 @@ We use Your Personal data to provide and improve the Service. By using the Servi
 
 # Interpretation and Definitions
 
-## Interpretation
+## Interpretation {/* #interpretation */}
 
 The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.
 
-## Definitions
+## Definitions {/* #definitions */}
 
 For the purposes of this Privacy Policy:
 
@@ -42,15 +42,15 @@ For the purposes of this Privacy Policy:
 
 # Collecting and Using Your Personal Data
 
-## Types of Data Collected
+## Types of Data Collected {/* #types-of-data-collected */}
 
-### Personal Data
+### Personal Data {/* #personal-data */}
 
 While using Our Service, We may ask You to provide Us with certain personally identifiable information that can be used to contact or identify You. Personally identifiable information may include, but is not limited to:
 
 - Usage Data
 
-### Usage Data
+### Usage Data {/* #usage-data */}
 
 Usage Data is collected automatically when using the Service.
 
@@ -60,7 +60,7 @@ When You access the Service by or through a mobile device, We may collect certai
 
 We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.
 
-### Tracking Technologies and Cookies
+### Tracking Technologies and Cookies {/* #tracking-technologies-and-cookies */}
 
 We use Cookies and similar tracking technologies to track the activity on Our Service and store certain information. Tracking technologies used are beacons, tags, and scripts to collect and track information and to improve and analyze Our Service. The technologies We use may include:
 
@@ -98,7 +98,7 @@ We use both Session and Persistent Cookies for the purposes set out below:
 
 For more information about the cookies we use and your choices regarding cookies, please visit our Cookies Policy or the Cookies section of our Privacy Policy.
 
-## Use of Your Personal Data
+## Use of Your Personal Data {/* #use-of-your-personal-data */}
 
 The Company may use Personal Data for the following purposes:
 
@@ -127,13 +127,13 @@ We may share Your personal information in the following situations:
 - **With other users:** when You share personal information or otherwise interact in the public areas with other users, such information may be viewed by all users and may be publicly distributed outside.
 - **With Your consent**: We may disclose Your personal information for any other purpose with Your consent.
 
-## Retention of Your Personal Data
+## Retention of Your Personal Data {/* #retention-of-your-personal-data */}
 
 The Company will retain Your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use Your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.
 
 The Company will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period of time, except when this data is used to strengthen the security or to improve the functionality of Our Service, or We are legally obligated to retain this data for longer time periods.
 
-## Transfer of Your Personal Data
+## Transfer of Your Personal Data {/* #transfer-of-your-personal-data */}
 
 Your information, including Personal Data, is processed at the Company's operating offices and in any other places where the parties involved in the processing are located. It means that this information may be transferred to — and maintained on — computers located outside of Your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from Your jurisdiction.
 
@@ -141,17 +141,17 @@ Your consent to this Privacy Policy followed by Your submission of such informat
 
 The Company will take all steps reasonably necessary to ensure that Your data is treated securely and in accordance with this Privacy Policy and no transfer of Your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of Your data and other personal information.
 
-## Disclosure of Your Personal Data
+## Disclosure of Your Personal Data {/* #disclosure-of-your-personal-data */}
 
-### Business Transactions
+### Business Transactions {/* #business-transactions */}
 
 If the Company is involved in a merger, acquisition or asset sale, Your Personal Data may be transferred. We will provide notice before Your Personal Data is transferred and becomes subject to a different Privacy Policy.
 
-### Law enforcement
+### Law enforcement {/* #law-enforcement */}
 
 Under certain circumstances, the Company may be required to disclose Your Personal Data if required to do so by law or in response to valid requests by public authorities (e.g. a court or a government agency).
 
-### Other legal requirements
+### Other legal requirements {/* #other-legal-requirements */}
 
 The Company may disclose Your Personal Data in the good faith belief that such action is necessary to:
 
@@ -161,7 +161,7 @@ The Company may disclose Your Personal Data in the good faith belief that such a
 - Protect the personal safety of Users of the Service or the public
 - Protect against legal liability
 
-## Security of Your Personal Data
+## Security of Your Personal Data {/* #security-of-your-personal-data */}
 
 The security of Your Personal Data is important to Us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While We strive to use commercially acceptable means to protect Your Personal Data, We cannot guarantee its absolute security.
 

@@ -2,7 +2,8 @@
   "docs": "https://docusaurus.io/docs/typescript-support",
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "types": ["@docusaurus/types"],
-    "baseUrl": "."
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "types": ["@docusaurus/types"]
   }
 }
