@@ -21,7 +21,7 @@ Review only the files changed in the current working tree for consistency, perfo
 
 ### TypeScript & React (`src/**/*.{ts,tsx}`)
 
-Follow [frontend-components](.github/instructions/frontend-components.instructions.md):
+Follow [frontend-components](../instructions/frontend-components.instructions.md):
 
 - Prop types use `type` (not `interface`), extending the appropriate HTML element type.
 - One default function export per file with `React.JSX.Element` return type.
@@ -32,7 +32,7 @@ Follow [frontend-components](.github/instructions/frontend-components.instructio
 
 ### MDX Docs (`{docs,community,ecosystem}/**/*.mdx`)
 
-Follow [docs-authoring](.github/instructions/docs-authoring.instructions.md):
+Follow [docs-authoring](../instructions/docs-authoring.instructions.md):
 
 - Frontmatter must include: `id`, `title`, `sidebar_position`, `image`, `description`, `keywords`.
 - Imports immediately after frontmatter, only what is used.
@@ -48,7 +48,7 @@ Follow [docs-authoring](.github/instructions/docs-authoring.instructions.md):
 
 ### Performance
 
-- Heavy components lazy-loaded with `@loadable/component`.
+- Heavy components lazy-loaded with `React.lazy` and `Suspense`.
 - Images use `@theme/IdealImage` instead of bare `<img>`.
 
 ## Output Format

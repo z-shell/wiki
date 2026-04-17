@@ -13,7 +13,7 @@ tags:
 image: /img/png/theme/z/320x320.png
 ---
 
-## 🧙‍♂️ 🪄 [❮ ZI ❯](https://github.com/z-shell/zi) - A Swiss Army Knife for [Zsh](https://zsh.sourceforge.io/) - [Unix shell](https://en.wikipedia.org/wiki/Unix_shell) {/_ #️---zi----a-swiss-army-knife-for-zsh---unix-shell _/}
+## 🧙‍♂️ 🪄 [❮ ZI ❯](https://github.com/z-shell/zi) - A Swiss Army Knife for [Zsh](https://zsh.sourceforge.io/) - [Unix shell](https://en.wikipedia.org/wiki/Unix_shell)
 
 import useBaseUrl from '@docusaurus/useBaseUrl'; import ThemedImage from '@theme/ThemedImage';
 
@@ -28,7 +28,7 @@ Designed to glue everything together. 🔗
 
 <!-- truncate -->
 
-### ⚡️ Fast and feature-rich {/_ #️-fast-and-feature-rich _/}
+### ⚡️ Fast and feature-rich
 
 ✴️ [🌀 Meta-plugins](/search?q=meta+plugins) installs a group of complex plugins via a simple label, curated and optimal settings which are automatically applied.
 
@@ -42,7 +42,7 @@ Designed to glue everything together. 🔗
 
 > 🥵 Currently biggest issue is that it seems to be too complex for new users and recently made some adjustments which are now starting to provide the results.
 
-### ☑️ Neat and flexible {/_ #️-neat-and-flexible _/}
+### ☑️ Neat and flexible
 
 ✴️ [🏗️ Customize](/docs/guides/customization#customizing-paths) the paths, use [🥷 multiple prompts](/docs/guides/customization#multiple-prompts) in the same sessions by setting the triggers or create [🚩 your own](/docs/guides/customization#non-github-local-plugins) plugins to simplify or improve the routine.
 
@@ -56,7 +56,7 @@ Designed to glue everything together. 🔗
 
 > If there is something that is not supported yet, I am pretty confident that if there will be reasonable demand - it will be implemented. 🔨
 
-### 📈 Familiarize and control {/_ #-familiarize-and-control _/}
+### 📈 Familiarize and control
 
 ✴️ Quickly familiarize oneself with a new plugin and provides rich and easy-to-digest information that might be helpful on various occasions.
 

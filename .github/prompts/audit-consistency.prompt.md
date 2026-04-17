@@ -7,7 +7,7 @@ argument-hint: "File path, directory glob, or 'all' to scan the full project"
 Audit the specified files for consistency, performance, and style issues, then apply fixes directly.
 If no target is given, scan `src/`, `docs/`, `community/`, and `ecosystem/`.
 
-Follow the project's established conventions from [frontend-components](.github/instructions/frontend-components.instructions.md) and [docs-authoring](.github/instructions/docs-authoring.instructions.md).
+Follow the project's established conventions from [frontend-components](../instructions/frontend-components.instructions.md) and [docs-authoring](../instructions/docs-authoring.instructions.md).
 
 ## TypeScript & React Components (`src/**/*.{ts,tsx}`)
 
@@ -48,7 +48,7 @@ Remove unused imports.
 
 ## Performance
 
-- Heavy or optional components should be lazy-loaded with `@loadable/component`.
+- Heavy or optional components should be lazy-loaded with `React.lazy` and `Suspense`.
 - Images should use `@theme/IdealImage` instead of bare `<img>` tags.
 - Avoid importing large libraries at the top level when they are only needed in one branch.
 

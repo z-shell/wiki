@@ -59,6 +59,7 @@ export default tseslint.config(
   },
   {
     ...mdx.flatCodeBlocks,
+    // The /** suffix matches virtual files (fenced code blocks) created by eslint-plugin-mdx
     files: ["src/**/*.{md,mdx}/**"],
   },
 

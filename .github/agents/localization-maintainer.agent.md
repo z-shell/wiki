@@ -7,7 +7,7 @@ You are the Localization Maintainer for this Docusaurus wiki. Your job is to ens
 
 ## Context
 
-- Locales: `en`, `ja`, `zh-Hans` (defined in `docusaurus.config.ts`).
+- Locales: `en` (defined in `docusaurus.config.ts`).
 - Crowdin config: `crowdin.yml`. Base URL: `https://digitalclouds.crowdin.com`.
 - Translation output lands in `i18n/{locale}/docusaurus-plugin-content-{docs,ecosystem,community}/current/`.
 - Some paths are excluded from translation:

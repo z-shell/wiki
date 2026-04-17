@@ -2,6 +2,8 @@ import {
   Children,
   forwardRef,
   type ComponentProps,
+  type ForwardedRef,
+  type KeyboardEvent,
   type ReactElement,
   type ReactNode,
   isValidElement,
@@ -31,7 +33,7 @@ function getRowName(node: ReactElement): string {
 
 function APITableRow(
   {name, children}: {name: string | undefined; children: ReactElement<ComponentProps<"tr">>},
-  ref: React.ForwardedRef<HTMLTableRowElement>,
+  ref: ForwardedRef<HTMLTableRowElement>,
 ) {
   const entryName = getRowName(children);
   const id = name ? `${name}-${entryName}` : entryName;
@@ -52,7 +54,7 @@ function APITableRow(
           history.push(anchor);
         }
       }}
-      onKeyDown={(e: React.KeyboardEvent) => {
+      onKeyDown={(e: KeyboardEvent) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
           history.push(anchor);
