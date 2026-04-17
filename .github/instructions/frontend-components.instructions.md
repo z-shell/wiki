@@ -7,13 +7,13 @@ applyTo: "src/**/*.{ts,tsx}"
 
 ## Directory Layout
 
-| Path | Purpose |
-|------|---------|
+| Path              | Purpose                                                             |
+| ----------------- | ------------------------------------------------------------------- |
 | `src/components/` | Reusable React components (Emoji, Highlight, ImgShow, Player, etc.) |
-| `src/pages/` | Custom pages routed automatically by Docusaurus |
-| `src/theme/` | Swizzled Docusaurus theme overrides |
-| `src/css/` | Global styles (`custom.css`) |
-| `src/data/` | Static data files consumed by components |
+| `src/pages/`      | Custom pages routed automatically by Docusaurus                     |
+| `src/theme/`      | Swizzled Docusaurus theme overrides                                 |
+| `src/css/`        | Global styles (`custom.css`)                                        |
+| `src/data/`       | Static data files consumed by components                            |
 
 ## TypeScript Conventions
 

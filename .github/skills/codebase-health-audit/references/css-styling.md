@@ -36,10 +36,10 @@ import styles from "./styles.module.css";
 
 ## Global vs. Scoped
 
-| Location | Purpose |
-|----------|---------|
-| `src/css/custom.css` | Theme variable overrides, global resets, Docusaurus framework overrides |
-| `src/components/*/styles.module.css` | Component-specific styles |
+| Location                             | Purpose                                                                 |
+| ------------------------------------ | ----------------------------------------------------------------------- |
+| `src/css/custom.css`                 | Theme variable overrides, global resets, Docusaurus framework overrides |
+| `src/components/*/styles.module.css` | Component-specific styles                                               |
 
 - [ ] Global CSS only contains theme variables, font imports, and framework overrides
 - [ ] Component styles are self-contained in their module files

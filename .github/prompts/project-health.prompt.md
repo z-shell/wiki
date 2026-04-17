@@ -18,6 +18,7 @@ pnpm outdated
 ```
 
 For each outdated package:
+
 - **Docusaurus ecosystem** (`@docusaurus/*`): flag if more than one minor behind. Check the [Docusaurus changelog](https://docusaurus.io/changelog) for breaking changes.
 - **React**: confirm the version aligns with what the current Docusaurus release supports.
 - **Dev tooling** (`eslint`, `typescript`, `stylelint`, etc.): flag if a major version behind.
@@ -51,6 +52,7 @@ pnpm build:en
 ```
 
 For each failure:
+
 - Categorize as **error** (blocks build) or **warning** (quality issue).
 - For lint errors: auto-fix with `pnpm lint:fix` and `pnpm lint:css:fix`, then re-run to confirm.
 - For build errors: diagnose root cause (broken link, missing import, config issue) and fix directly.
@@ -86,7 +88,7 @@ Auto-fix: remove deprecated config keys. Flag major tooling upgrades for user re
 
 After all checks, produce a summary:
 
-```
+```text
 ## Project Health Report
 
 ### Status

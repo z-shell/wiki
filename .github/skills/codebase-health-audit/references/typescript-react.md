@@ -57,6 +57,7 @@ const HeavyComponent = Loadable(() => import("./HeavyComponent"));
 ```
 
 Apply when:
+
 - The component imports a large library (charts, editors, players)
 - The component is below the fold or conditionally rendered
 - The component is only used on specific pages

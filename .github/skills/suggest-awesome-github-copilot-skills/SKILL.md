@@ -1,6 +1,6 @@
 ---
 name: suggest-awesome-github-copilot-skills
-description: 'Suggest relevant GitHub Copilot skills from the awesome-copilot repository based on current repository context and chat history, avoiding duplicates with existing skills in this repository, and identifying outdated skills that need updates.'
+description: "Suggest relevant GitHub Copilot skills from the awesome-copilot repository based on current repository context and chat history, avoiding duplicates with existing skills in this repository, and identifying outdated skills that need updates."
 ---
 
 # Suggest Awesome GitHub Copilot Skills
@@ -35,6 +35,7 @@ Analyze current repository context and suggest relevant Agent Skills from the [G
 ## Context Analysis Criteria
 
 🔍 **Repository Patterns**:
+
 - Programming languages used (.cs, .js, .py, .ts, etc.)
 - Framework indicators (ASP.NET, React, Azure, Next.js, etc.)
 - Project types (web apps, APIs, libraries, tools, infrastructure)
@@ -42,6 +43,7 @@ Analyze current repository context and suggest relevant Agent Skills from the [G
 - Infrastructure and cloud providers (Azure, AWS, GCP)
 
 🗨️ **Chat History Context**:
+
 - Recent discussions and pain points
 - Feature requests or implementation needs
 - Code review patterns
@@ -52,11 +54,11 @@ Analyze current repository context and suggest relevant Agent Skills from the [G
 
 Display analysis results in structured table comparing awesome-copilot skills with existing repository skills:
 
-| Awesome-Copilot Skill | Description | Bundled Assets | Already Installed | Similar Local Skill | Suggestion Rationale |
-|-----------------------|-------------|----------------|-------------------|---------------------|---------------------|
-| [gh-cli](https://github.com/github/awesome-copilot/tree/main/skills/gh-cli) | GitHub CLI skill for managing repositories and workflows | None | ❌ No | None | Would enhance GitHub workflow automation capabilities |
-| [aspire](https://github.com/github/awesome-copilot/tree/main/skills/aspire) | Aspire skill for distributed application development | 9 reference files | ✅ Yes | aspire | Already covered by existing Aspire skill |
-| [terraform-azurerm-set-diff-analyzer](https://github.com/github/awesome-copilot/tree/main/skills/terraform-azurerm-set-diff-analyzer) | Analyze Terraform AzureRM provider changes | Reference files | ⚠️ Outdated | terraform-azurerm-set-diff-analyzer | Instructions updated with new validation patterns - Update recommended |
+| Awesome-Copilot Skill                                                                                                                 | Description                                              | Bundled Assets    | Already Installed | Similar Local Skill                 | Suggestion Rationale                                                   |
+| ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ----------------- | ----------------- | ----------------------------------- | ---------------------------------------------------------------------- |
+| [gh-cli](https://github.com/github/awesome-copilot/tree/main/skills/gh-cli)                                                           | GitHub CLI skill for managing repositories and workflows | None              | ❌ No             | None                                | Would enhance GitHub workflow automation capabilities                  |
+| [aspire](https://github.com/github/awesome-copilot/tree/main/skills/aspire)                                                           | Aspire skill for distributed application development     | 9 reference files | ✅ Yes            | aspire                              | Already covered by existing Aspire skill                               |
+| [terraform-azurerm-set-diff-analyzer](https://github.com/github/awesome-copilot/tree/main/skills/terraform-azurerm-set-diff-analyzer) | Analyze Terraform AzureRM provider changes               | Reference files   | ⚠️ Outdated       | terraform-azurerm-set-diff-analyzer | Instructions updated with new validation patterns - Update recommended |
 
 ## Local Skills Discovery Process
 
@@ -82,6 +84,7 @@ Display analysis results in structured table comparing awesome-copilot skills wi
 ## Skill Structure Requirements
 
 Based on the Agent Skills specification, each skill is a folder containing:
+
 - **`SKILL.md`**: Main instruction file with front matter (`name`, `description`) and detailed instructions
 - **Optional bundled assets**: Scripts, templates, reference data, and other files referenced from `SKILL.md`
 - **Folder naming**: Lowercase with hyphens (e.g., `azure-deployment-preflight`)
@@ -90,10 +93,11 @@ Based on the Agent Skills specification, each skill is a folder containing:
 ## Front Matter Structure
 
 Skills in awesome-copilot use this front matter format in `SKILL.md`:
+
 ```markdown
 ---
-name: 'skill-name'
-description: 'Brief description of what this skill provides and when to use it'
+name: "skill-name"
+description: "Brief description of what this skill provides and when to use it"
 ---
 ```
 
@@ -122,6 +126,7 @@ description: 'Brief description of what this skill provides and when to use it'
 ## Update Handling
 
 When outdated skills are identified:
+
 1. Include them in the output table with ⚠️ status
 2. Document specific differences in the "Suggestion Rationale" column
 3. Provide recommendation to update with key changes noted

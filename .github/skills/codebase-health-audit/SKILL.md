@@ -20,31 +20,33 @@ argument-hint: "File path, directory glob, or 'all' for full scan"
 
 Determine what to scan based on the user's input:
 
-| Input | Action |
-|-------|--------|
-| File path | Audit that single file |
-| Directory glob (`src/components/`) | Scan all matching files |
-| `all` or omitted | Scan `src/`, `docs/`, `community/`, `ecosystem/` |
-| `changed` | Use `get_changed_files` to scope to git changes only |
+| Input                              | Action                                               |
+| ---------------------------------- | ---------------------------------------------------- |
+| File path                          | Audit that single file                               |
+| Directory glob (`src/components/`) | Scan all matching files                              |
+| `all` or omitted                   | Scan `src/`, `docs/`, `community/`, `ecosystem/`     |
+| `changed`                          | Use `get_changed_files` to scope to git changes only |
 
 ### Phase 2 — Classify & Audit
 
 Route each file to the appropriate checklist:
 
-| File pattern | Checklist |
-|--------------|-----------|
-| `src/**/*.{ts,tsx}` | [TypeScript & React](./references/typescript-react.md) |
-| `{docs,community,ecosystem}/**/*.mdx` | [MDX Docs](./references/mdx-docs.md) |
-| `src/**/*.css` | [CSS & Styling](./references/css-styling.md) |
-| Other | Skip with note |
+| File pattern                          | Checklist                                              |
+| ------------------------------------- | ------------------------------------------------------ |
+| `src/**/*.{ts,tsx}`                   | [TypeScript & React](./references/typescript-react.md) |
+| `{docs,community,ecosystem}/**/*.mdx` | [MDX Docs](./references/mdx-docs.md)                   |
+| `src/**/*.css`                        | [CSS & Styling](./references/css-styling.md)           |
+| Other                                 | Skip with note                                         |
 
 Cross-cutting checks applied to all file types:
+
 - **Imports**: correct order, no unused imports (see [import ordering](./references/typescript-react.md#import-ordering))
 - **Performance**: lazy loading for heavy components, `@theme/IdealImage` for images
 
 ### Phase 3 — Fix
 
 For each issue found:
+
 1. State the file path and a one-line summary
 2. Apply the fix directly to the file
 3. Move to the next issue
@@ -66,7 +68,7 @@ If either command reports remaining issues, fix those too, then re-run.
 
 Summarize results:
 
-```
+```text
 ## Audit Summary
 - Files scanned: N
 - Issues found: N

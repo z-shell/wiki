@@ -54,7 +54,9 @@ Follow [docs-authoring](.github/instructions/docs-authoring.instructions.md):
 ## Output Format
 
 For each file:
-```
+
+```text
 **path/to/file.ext** — <one-line summary of issues>
 ```
+
 Then apply the fix. At the end, report lint results.
