@@ -21,7 +21,7 @@ export default function HomeFeatures(): React.JSX.Element {
   return (
     <section className={styles.HomeFeatures}>
       <div className="container text--center">
-        <div className="row margin-bottom--lg">
+        <div className={clsx("row", styles.featureRow)}>
           {Features.map(({title, icon, description}) => (
             <Feature
               key={title}
