@@ -13,25 +13,7 @@
 
 .Feature {
   position: relative;
-  padding: 2rem 1.5rem;
-  background: hsl(0deg 0% 100% / 4%);
-  backdrop-filter: blur(12px);
-  border: 1px solid hsl(0deg 0% 100% / 8%);
-  border-radius: 16px;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-:global([data-theme="light"]) .Feature {
-  background: hsl(0deg 0% 100% / 70%);
-  border-color: hsl(0deg 0% 0% / 6%);
-  box-shadow: 0 2px 12px hsl(0deg 0% 0% / 4%);
-}
-
-.Feature:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px hsl(168deg 70% 30% / 15%);
+  padding: 2rem 0;
 }
 
 .FeatureIcon {

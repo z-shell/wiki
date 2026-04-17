@@ -19,8 +19,8 @@ export default function Home(): React.JSX.Element {
       <main>
         <HomeWhyZi />
         <HomeShowcase />
-        <HomeFeatures />
         <HomeEcosystem />
+        <HomeFeatures />
         <HomeInstallCta />
         <HomeCommunity />
       </main>
