@@ -12,18 +12,19 @@ export default function HomeShowcase(): React.JSX.Element {
           <div>
             <Heading as="h2" className={styles.heading}>
               <Translate id="homepage.showcase.heading" description="Showcase section heading">
-                See It in Action
+                Install Plugins in Seconds
               </Translate>
             </Heading>
             <p className={styles.description}>
               <Translate id="homepage.showcase.desc" description="Showcase section description">
-                Watch Zi load plugins asynchronously in turbo mode. No waiting, no lag — just an instant, fully
-                configured prompt ready to use.
+                Watch Zi install and configure plugins with a single command. Turbo mode handles downloads, compilation,
+                and completions — all in the background.
               </Translate>
             </p>
             <p className={styles.subdesc}>
               <Translate id="homepage.showcase.subdesc" description="Showcase section sub-description">
-                The recording shows turbo-mode loading, completions management, and plugin orchestration in real time.
+                The recording shows a full plugin installation workflow — from fetching sources to setting up
+                completions and reports.
               </Translate>
             </p>
           </div>
