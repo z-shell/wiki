@@ -84,7 +84,7 @@ Report any new untranslated keys.
 
 Ensure no ESLint or Stylelint errors in changed source files:
 
-- TypeScript/JSX: checked by ESLint (`.eslintrc.yml`)
+- TypeScript/JSX: checked by ESLint (`eslint.config.ts`)
 - CSS: checked by Stylelint
 
 ## Output

@@ -53,4 +53,4 @@ export default function MyComponent(props: MyProps): React.JSX.Element {
 
 ## Linting
 
-ESLint with TypeScript parser, Prettier, and Docusaurus plugin rules are configured in `.eslintrc.yml`. The project enforces 2-space indentation (`.editorconfig`).
+ESLint with TypeScript parser, Prettier, and Docusaurus plugin rules are configured in `eslint.config.ts` (flat config). The project enforces 2-space indentation (`.editorconfig`).
