@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "@docusaurus/Link";
 import Translate, {translate} from "@docusaurus/Translate";
 import Heading from "@theme/Heading";
 import styles from "./styles.module.css";
@@ -39,13 +40,13 @@ const LINKS: CommunityLink[] = [
 
 function CommunityCard({icon, title, description, href}: CommunityLink): React.JSX.Element {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className={styles.card}>
+    <Link href={href} className={styles.card}>
       <i className={`${icon} ${styles.cardIcon}`} />
       <Heading as="h3" className={styles.cardTitle}>
         {title}
       </Heading>
       <p className={styles.cardDesc}>{description}</p>
-    </a>
+    </Link>
   );
 }
 
