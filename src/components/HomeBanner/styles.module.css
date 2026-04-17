@@ -20,8 +20,14 @@
 }
 
 .hero {
+  position: relative;
   padding: 4rem;
-  background-color: var(--site-color-surface-elevated);
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 15% 50%, hsl(168deg 70% 30% / 15%) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 20%, hsl(210deg 60% 40% / 10%) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 100%, hsl(168deg 50% 20% / 10%) 0%, transparent 50%),
+    var(--site-color-surface-elevated);
 }
 
 .heroInner {
@@ -67,8 +73,17 @@
   height: auto;
   margin-top: 20px;
   padding: 0 20px 20px;
+  filter: drop-shadow(0 0 40px hsl(168deg 70% 45% / 30%));
   animation-name: jack-in-the-box;
   animation-duration: 4s;
+}
+
+.heroSubtitle {
+  max-width: 600px;
+  margin: 0.5rem 0 0;
+  color: hsl(0deg 0% 100% / 65%);
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
 .indexCtasGitHubButtonWrapper {

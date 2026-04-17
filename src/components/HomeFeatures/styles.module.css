@@ -16,16 +16,6 @@
   text-align: center;
 }
 
-.VideoContainer {
-  position: relative;
-  width: 100%;
-  height: auto;
-}
-
-.VideoContainerHeading {
-  text-align: left;
-}
-
 .FeatureHeading {
   color: var(--ifm-color-primary);
 }
@@ -33,11 +23,5 @@
 @media only screen and (width <= 900px) {
   .HomeFeatures {
     padding: 1rem 0;
-  }
-}
-
-@media only screen and (width <= 700px) {
-  .VideoContainer {
-    display: none;
   }
 }

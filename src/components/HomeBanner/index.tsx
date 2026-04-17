@@ -22,6 +22,11 @@ export default function HeroBanner(): React.JSX.Element {
             }}
           />
         </Heading>
+        <p className={styles.heroSubtitle}>
+          <Translate id="homepage.hero.subtitle" description="Hero subtitle text">
+            The fastest and most flexible plugin manager for Zsh — turbo mode, packages, annexes, and more.
+          </Translate>
+        </p>
         <div className={styles.indexCtas}>
           <Link className="button button--primary" to="/docs/getting_started/installation">
             <Translate id="homepage.banner.button.1" description="The homepage get started button">
