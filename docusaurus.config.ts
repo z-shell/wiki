@@ -25,7 +25,7 @@ export default async function createConfigAsync() {
     onBrokenLinks: "throw",
     staticDirectories: ["static"],
     favicon: "/img/favicon.ico",
-    i18n: {defaultLocale: "en", locales: ["en", "ja", "zh-Hans"]},
+    i18n: {defaultLocale: "en", locales: ["en"]},
     markdown: {format: "detect", hooks: {onBrokenMarkdownLinks: "warn"}},
     scripts: [{src: styles, crossorigin: "anonymous"}],
     storage: {
