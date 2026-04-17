@@ -1,5 +1,4 @@
-import React, {type ReactNode} from "react";
-import Loadable from "@loadable/component";
+import React, {Suspense, lazy, type ReactNode} from "react";
 import Spinner from "@site/src/components/Spinner";
 import styles from "./styles.module.css";
 
@@ -10,21 +9,23 @@ export type ImgProps = {
   children?: ReactNode;
 };
 
-const Image = Loadable(() => import("@theme/IdealImage"));
+const Image = lazy(() => import("@theme/IdealImage"));
 
 export default function ImgShow(props: ImgProps): React.JSX.Element {
   const {img, alt, label, children, ...rest} = props;
   return (
-    <Image
-      fallback={<Spinner />}
-      alt={alt}
-      img={img}
-      className={styles.ImgClass}
-      aria-hidden={label != null ? undefined : true}
-      aria-label={label ?? undefined}
-      role='img'
-      {...rest}>
-      {children}
-    </Image>
+    <Suspense fallback={<Spinner />}>
+      <Image
+        alt={alt}
+        img={img}
+        className={styles.ImgClass}
+        aria-hidden={label != null ? undefined : true}
+        aria-label={label ?? undefined}
+        role="img"
+        {...rest}
+      >
+        {children}
+      </Image>
+    </Suspense>
   );
 }

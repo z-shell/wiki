@@ -1,24 +1,10 @@
-import React, {type CSSProperties} from "react";
-import ClipLoader from "react-spinners/ClipLoader";
-
-const override: CSSProperties = {
-  color: "var(--ifm-color-primary)",
-  display: "block",
-  margin: "0 auto",
-};
+import React from "react";
+import styles from "./Spinner.module.css";
 
 export default function Spinner(): React.JSX.Element {
   return (
-    <div className='sweet-loading'>
-      <ClipLoader
-        size={200}
-        color='var(--ifm-color-primary)'
-        loading
-        speedMultiplier={0.8}
-        cssOverride={override}
-        aria-label='Loading Spinner'
-        data-testid='loader'
-      />
+    <div className={styles.wrapper}>
+      <div className={styles.spinner} role="status" aria-label="Loading Spinner" data-testid="loader" />
     </div>
   );
 }

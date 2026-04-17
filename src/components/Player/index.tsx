@@ -45,8 +45,42 @@ export default function Player({
   const [player, setPlayer] = useState<typeof import("asciinema-player")>();
 
   const opts = useMemo(
-    () => ({cols, rows, autoPlay, preload, loop, startAt, speed, idleTimeLimit, theme, poster, fit, terminalLineHeight, terminalFontFamily, terminalFontSize, controls, markers}),
-    [cols, rows, autoPlay, preload, loop, startAt, speed, idleTimeLimit, theme, poster, fit, terminalLineHeight, terminalFontFamily, terminalFontSize, controls, markers],
+    () => ({
+      cols,
+      rows,
+      autoPlay,
+      preload,
+      loop,
+      startAt,
+      speed,
+      idleTimeLimit,
+      theme,
+      poster,
+      fit,
+      terminalLineHeight,
+      terminalFontFamily,
+      terminalFontSize,
+      controls,
+      markers,
+    }),
+    [
+      cols,
+      rows,
+      autoPlay,
+      preload,
+      loop,
+      startAt,
+      speed,
+      idleTimeLimit,
+      theme,
+      poster,
+      fit,
+      terminalLineHeight,
+      terminalFontFamily,
+      terminalFontSize,
+      controls,
+      markers,
+    ],
   );
 
   useEffect(() => {
