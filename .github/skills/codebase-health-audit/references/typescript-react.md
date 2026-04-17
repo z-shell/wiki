@@ -49,11 +49,20 @@ className={`${styles.base} ${active ? styles.active : ""}`}
 
 ## Lazy Loading
 
-Heavy or optional components should use `@loadable/component`:
+Heavy or optional components should use `React.lazy` with `Suspense`:
 
 ```tsx
-import Loadable from "@loadable/component";
-const HeavyComponent = Loadable(() => import("./HeavyComponent"));
+import React, {Suspense} from "react";
+
+const HeavyComponent = React.lazy(() => import("./HeavyComponent"));
+
+export default function MyPage(): React.JSX.Element {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <HeavyComponent />
+    </Suspense>
+  );
+}
 ```
 
 Apply when:
