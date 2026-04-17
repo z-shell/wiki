@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import Translate, {translate} from "@docusaurus/Translate";
 import Heading from "@theme/Heading";
@@ -35,7 +36,7 @@ const LINKS: CommunityLink[] = [
 function CommunityCard({icon, title, description, href}: CommunityLink): React.JSX.Element {
   return (
     <Link href={href} className={styles.card}>
-      <i className={`${icon} ${styles.cardIcon}`} />
+      <i className={clsx(icon, styles.cardIcon)} />
       <Heading as="h3" className={styles.cardTitle}>
         {title}
       </Heading>

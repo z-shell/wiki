@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "github": {
+      "type": "copilot",
+      "copilot_provider": "github"
+    }
+  }
+}

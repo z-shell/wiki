@@ -21,7 +21,7 @@ type Props = {
 function getRowName(node: ReactElement): string {
   let curNode: ReactNode = node;
   while (isValidElement(curNode)) {
-    [curNode] = Children.toArray(curNode.props.children);
+    [curNode] = Children.toArray((curNode.props as {children?: ReactNode}).children);
   }
   if (typeof curNode !== "string") {
     throw new Error(`Could not extract APITable row name from JSX tree:\n${JSON.stringify(node, null, 2)}`);
@@ -78,8 +78,8 @@ export default function APITable({children, name}: Props): ReactNode {
     );
   }
   const [thead, tbody] = Children.toArray(children.props.children) as [
-    ReactElement<{children: ReactElement[]}>,
-    ReactElement<{children: ReactElement[]}>,
+    ReactElement<{children: ReactElement<ComponentProps<"tr">>[]}>,
+    ReactElement<{children: ReactElement<ComponentProps<"tr">>[]}>,
   ];
   const highlightedRow = useRef<HTMLTableRowElement>(null);
   useEffect(() => {
