@@ -25,12 +25,6 @@ const LINKS: CommunityLink[] = [
     href: "https://discussions.zshell.dev",
   },
   {
-    icon: "fa-solid fa-message",
-    title: translate({id: "homepage.community.matrix.title", message: "Matrix"}),
-    description: translate({id: "homepage.community.matrix.desc", message: "Real-time chat with the community"}),
-    href: "https://matrix.to/#/#zshell:matrix.org",
-  },
-  {
     icon: "fa-solid fa-language",
     title: translate({id: "homepage.community.translate.title", message: "Translate"}),
     description: translate({id: "homepage.community.translate.desc", message: "Help translate the documentation"}),
