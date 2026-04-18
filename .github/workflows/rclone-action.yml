@@ -26,15 +26,15 @@ jobs:
       assets_remote_path: "r2store:r2-store/assets"
     steps:
       - name: "⤵️ Check out code from GitHub"
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
       - name: "⏫ Run rclone/r2-store/img"
-        uses: z-shell/.github/actions/rclone@main
+        uses: z-shell/.github/actions/rclone@3e21fd8ea5d818c5fc6149cac9357b1502260d5f # main
         with:
           config: ${{ secrets.R2_STORE }}
           args: "copy ${{ env.img_local_path }} ${{ env.img_remote_path }}"
           debug: false
       - name: "⏫ Run rclone/r2-store/assets"
-        uses: z-shell/.github/actions/rclone@main
+        uses: z-shell/.github/actions/rclone@3e21fd8ea5d818c5fc6149cac9357b1502260d5f # main
         with:
           config: ${{ secrets.R2_STORE }}
           args: "copy ${{ env.assets_local_path }} ${{ env.assets_remote_path }}"
