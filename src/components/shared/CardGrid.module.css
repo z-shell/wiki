@@ -8,7 +8,7 @@
 }
 
 .heading {
-  margin-bottom: 3rem;
+  margin-bottom: var(--space-2xl);
   color: transparent;
   font-size: 2.2rem;
   text-align: center;
@@ -48,13 +48,13 @@
   text-align: center;
   text-decoration: none;
   background: hsl(0deg 0% 100% / 4%);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(12px);
   border: 1px solid hsl(0deg 0% 100% / 8%);
   border-radius: var(--radius-lg);
   transition:
-    transform var(--duration-normal) ease,
-    box-shadow var(--duration-normal) ease,
-    border-color var(--duration-normal) ease;
+    transform var(--duration-normal) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out);
 }
 
 .card::before {
@@ -66,7 +66,7 @@
   background: linear-gradient(90deg, transparent 0%, var(--ifm-color-primary-light) 50%, transparent 100%);
   border-radius: 2px;
   opacity: 0.5;
-  transition: opacity var(--duration-normal) ease;
+  transition: opacity var(--duration-normal) var(--ease-out);
   content: "";
 }
 

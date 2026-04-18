@@ -12,8 +12,8 @@
   border: 1px solid var(--ifm-color-emphasis-300);
   text-decoration: none;
   transition:
-    background-color 0.15s,
-    border-color 0.15s;
+    background-color var(--duration-fast),
+    border-color var(--duration-fast);
 }
 
 .badge:hover {

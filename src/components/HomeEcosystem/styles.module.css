@@ -18,12 +18,12 @@
 
 .heading {
   composes: heading from "../shared/CardGrid.module.css";
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-md);
 }
 
 .subheading {
   max-width: 600px;
-  margin: 0 auto 3rem;
+  margin: 0 auto var(--space-2xl);
   color: var(--ifm-font-color-secondary);
   font-size: 1.05rem;
   text-align: center;
