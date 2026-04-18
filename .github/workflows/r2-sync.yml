@@ -1,0 +1,62 @@
+---
+name: "🔄 R2 Sync"
+on:
+  push:
+    branches: [main]
+    paths:
+      - "static/**"
+      - ".github/workflows/r2-sync.yml"
+  workflow_dispatch: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: read-all
+
+jobs:
+  sync:
+    if: github.repository == 'z-shell/wiki'
+    runs-on: ubuntu-latest
+    environment: R2
+    steps:
+      - name: "⤵️ Check out code from GitHub"
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - name: "⎔ Setup Node.js"
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "lts/*"
+      - name: "📦 Install wrangler"
+        run: npm install -g wrangler
+      - name: "⏫ Sync static assets to R2"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+        run: |
+          bucket="r2-store"
+          uploaded=0
+          failed=0
+          for dir in img assets; do
+            src="static/$dir"
+            [ -d "$src" ] || continue
+            echo "::group::Syncing $src → $bucket/$dir"
+            while IFS= read -r -d '' file; do
+              key="${file#static/}"
+              if wrangler r2 object put "$bucket/$key" --file="$file" > /dev/null 2>&1; then
+                echo "✓ $key"
+                uploaded=$((uploaded + 1))
+              else
+                echo "::warning::Failed to upload $key"
+                failed=$((failed + 1))
+              fi
+            done < <(find "$src" -type f -print0)
+            echo "::endgroup::"
+          done
+          {
+            echo "### R2 Sync Summary"
+            echo "- ✅ **Uploaded:** $uploaded"
+            echo "- ❌ **Failed:** $failed"
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ "$failed" -gt 0 ]; then
+            exit 1
+          fi
