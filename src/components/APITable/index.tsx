@@ -88,7 +88,7 @@ export default function APITable({children, name}: Props): ReactNode {
     highlightedRow.current?.focus();
   }, []);
   const rows = Children.map(tbody.props.children, (row: ReactElement<ComponentProps<"tr">>) => (
-    <APITableRowComp name={name} ref={highlightedRow}>
+    <APITableRowComp key={getRowName(row)} name={name} ref={highlightedRow}>
       {row}
     </APITableRowComp>
   ));
