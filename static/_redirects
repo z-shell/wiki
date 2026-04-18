@@ -1,0 +1,2 @@
+/img/*  https://r2.zshell.dev/img/:splat  200
+/assets/*  https://r2.zshell.dev/assets/:splat  200
