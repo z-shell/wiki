@@ -29,7 +29,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: "⤵️ Check out code from GitHub"
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
       - name: "🔗 Lychee Link Checker"
         uses: lycheeverse/lychee-action@8646ba30535128ac92d33dfc9133794bfdd9b411 # v2
         with:
