@@ -42,11 +42,14 @@ jobs:
             echo "::group::Syncing $src → $bucket/$dir"
             while IFS= read -r -d '' file; do
               key="${file#static/}"
-              if wrangler r2 object put "$bucket/$key" --file="$file" > /dev/null 2>&1; then
+              if output=$(wrangler r2 object put "$bucket/$key" --file="$file" 2>&1); then
                 echo "✓ $key"
                 uploaded=$((uploaded + 1))
               else
                 echo "::warning::Failed to upload $key"
+                echo "::group::Upload error for $key"
+                printf '%s\n' "$output"
+                echo "::endgroup::"
                 failed=$((failed + 1))
               fi
             done < <(find "$src" -type f -print0)
