@@ -56,7 +56,7 @@ export default function HomeCommunity(): React.JSX.Element {
         </Heading>
         <div className={styles.grid}>
           {LINKS.map((link) => (
-            <CommunityCard key={link.title} {...link} />
+            <CommunityCard key={link.href} {...link} />
           ))}
         </div>
       </div>

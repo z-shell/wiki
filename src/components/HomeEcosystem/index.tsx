@@ -96,7 +96,7 @@ export default function HomeEcosystem(): React.JSX.Element {
         </p>
         <div className={styles.grid}>
           {ITEMS.map((item) => (
-            <EcoCard key={item.title} {...item} />
+            <EcoCard key={item.link} {...item} />
           ))}
         </div>
       </div>

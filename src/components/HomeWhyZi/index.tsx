@@ -4,6 +4,7 @@ import Heading from "@theme/Heading";
 import styles from "./styles.module.css";
 
 type CardItem = {
+  id: string;
   icon: string;
   title: string;
   description: React.JSX.Element;
@@ -11,6 +12,7 @@ type CardItem = {
 
 const CARDS: CardItem[] = [
   {
+    id: "speed",
     icon: "⚡",
     title: translate({
       id: "homepage.whyzi.speed.title",
@@ -24,6 +26,7 @@ const CARDS: CardItem[] = [
     ),
   },
   {
+    id: "ecosystem",
     icon: "📦",
     title: translate({
       id: "homepage.whyzi.ecosystem.title",
@@ -37,6 +40,7 @@ const CARDS: CardItem[] = [
     ),
   },
   {
+    id: "flexible",
     icon: "🔧",
     title: translate({
       id: "homepage.whyzi.flexible.title",
@@ -74,7 +78,7 @@ export default function HomeWhyZi(): React.JSX.Element {
         </Heading>
         <div className={styles.grid}>
           {CARDS.map((card) => (
-            <Card key={card.title} {...card} />
+            <Card key={card.id} {...card} />
           ))}
         </div>
       </div>

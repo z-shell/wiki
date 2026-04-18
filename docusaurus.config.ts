@@ -239,39 +239,14 @@ export default async function createConfigAsync() {
                 to: "/docs",
               },
               {
-                label: "Ecosystem",
-                to: "/ecosystem",
-              },
-              {
-                label: "Community",
-                to: "/community",
-              },
-            ],
-          },
-          {
-            title: "Community",
-            items: [
-              {
-                label: "Discussions",
-                href: "https://discussions.zshell.dev",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/orgs/z-shell",
-              },
-              {
-                label: "Matrix",
-                href: "https://matrix.to/#/#zshell:matrix.org",
+                label: "Zsh Manual",
+                href: "https://zsh.sourceforge.io/Doc/Release/zsh_toc.html",
               },
             ],
           },
           {
             title: "More",
             items: [
-              {
-                label: "Zsh Manual",
-                href: "https://zsh.sourceforge.io/Doc/Release/zsh_toc.html",
-              },
               {
                 label: "Localization",
                 href: "https://translate.zshell.dev",
