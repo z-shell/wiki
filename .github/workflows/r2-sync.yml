@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: "lts/*"
       - name: "📦 Install wrangler"
-        run: npm install -g wrangler
+        run: npm install -g wrangler@4.13.2
       - name: "⏫ Sync static assets to R2"
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
