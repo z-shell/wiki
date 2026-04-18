@@ -112,11 +112,7 @@ export default function Player({
   }
 
   if (player == null) {
-    return (
-      <div role="status" aria-label="Loading terminal recording">
-        <Spinner />
-      </div>
-    );
+    return <Spinner ariaLabel="Loading terminal recording" />;
   }
 
   return <div ref={element} role="region" aria-label="Terminal recording" />;
