@@ -1,0 +1,40 @@
+/** @format */
+
+.section {
+  composes: section from "../shared/CardGrid.module.css";
+  background:
+    radial-gradient(ellipse at 80% 30%, hsl(168deg 70% 30% / 6%) 0%, transparent 45%),
+    radial-gradient(ellipse at 20% 70%, hsl(200deg 60% 40% / 5%) 0%, transparent 40%),
+    var(--ifm-background-surface-color);
+}
+
+:global([data-theme="light"]) .section {
+  background:
+    radial-gradient(ellipse at 80% 30%, hsl(168deg 70% 50% / 4%) 0%, transparent 45%),
+    radial-gradient(ellipse at 20% 70%, hsl(200deg 60% 50% / 3%) 0%, transparent 40%), hsl(210deg 20% 97%);
+}
+
+.heading {
+  composes: heading from "../shared/CardGrid.module.css";
+}
+
+.grid {
+  composes: grid from "../shared/CardGrid.module.css";
+}
+
+.card {
+  composes: card from "../shared/CardGrid.module.css";
+}
+
+.cardIcon {
+  composes: cardicon from "../shared/CardGrid.module.css";
+  color: var(--ifm-color-primary);
+}
+
+.cardTitle {
+  composes: cardtitle from "../shared/CardGrid.module.css";
+}
+
+.cardDesc {
+  composes: carddesc from "../shared/CardGrid.module.css";
+}

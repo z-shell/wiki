@@ -12,7 +12,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import Link from "@docusaurus/Link";
 
-## <i class="fas fa-spinner fa-spin"></i> Automated setup {#automated-setup}
+## <i class="fas fa-spinner fa-spin"></i> Automated setup {/* #automated-setup */}
 
 :::tip
 
@@ -83,15 +83,15 @@ sh -c "$(curl -fsSL get.zshell.dev)" -- -a zunit
   </TabItem>
   </Tabs>
 
-## <i class="fas fa-spinner fa-spin"></i> Manual Setup {#manual-setup}
+## <i class="fas fa-spinner fa-spin"></i> Manual Setup {/* #manual-setup */}
 
-:::tip Related
+:::tip[Related]
 
 - [🏗 Configuration management](/docs/guides/customization#customizing-paths)
 
 :::
 
-### <i class="fas fa-spinner fa-spin"></i> Prepare
+### <i class="fas fa-spinner fa-spin"></i> Prepare {/* #i-classfas-fa-spinner-fa-spini-prepare */}
 
 Set up the install location and create a directory:
 
@@ -112,7 +112,7 @@ compaudit | xargs chmod -R go-w "$ZI[HOME_DIR]"
 command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
 ```
 
-### <i class="fas fa-spinner fa-spin"></i> Enable
+### <i class="fas fa-spinner fa-spin"></i> Enable {/* #i-classfas-fa-spinner-fa-spini-enable */}
 
 To enable Zi, source the <kbd>zi.zsh</kbd> from the previously set up directory placing the following snippet in the <kbd>.zshrc</kbd> file:
 
@@ -122,7 +122,7 @@ ZI[BIN_DIR]="${HOME}/.zi/bin"
 source "${ZI[BIN_DIR]}/zi.zsh"
 ```
 
-### <i class="fas fa-spinner fa-spin"></i> Completions {#enable-zi-completions}
+### <i class="fas fa-spinner fa-spin"></i> Completions {/* #enable-zi-completions */}
 
 Enable Zi completions by placing the following snippet in the <kbd>.zshrc</kbd> file:
 
@@ -137,7 +137,7 @@ autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 ```
 
-## <i class="fas fa-spinner fa-spin"></i> Post-install {#post-install}
+## <i class="fas fa-spinner fa-spin"></i> Post-install {/* #post-install */}
 
 After a fresh install, it is recommended to reload the shell and recompile Zi with:
 
@@ -152,23 +152,23 @@ It helps us to improve and make Zi better. Don't forget to help the project: sha
 
 Let's glue a toolchain that works for us <Emoji symbol="🚀" label="rocket"/>.
 
-## <i class="fas fa-sync-alt fa-spin"></i> Have ideas?
+## <i class="fas fa-sync-alt fa-spin"></i> Have ideas? {/* #i-classfas-fa-sync-alt-fa-spini-have-ideas */}
 
-### <i class="fa-solid fa-list-check"></i>&nbsp;Suggest or request at&nbsp;<Link href="https://github.com/z-shell/playground">playground</Link>
+### <i class="fa-solid fa-list-check"></i>&nbsp;Suggest or request at&nbsp;<Link href="https://github.com/z-shell/playground">playground</Link> {/* #i-classfa-solid-fa-list-checkinbspsuggest-or-request-atnbsplink-hrefhttpsgithubcomz-shellplaygroundplaygroundlink */}
 
 ```shell
 sh -c "$(curl -fsSL get.zshell.dev)" -- -a ???
 ```
 
-## <i class="fas fa-sync-alt fa-spin"></i>&nbsp;Need warm-up?
+## <i class="fas fa-sync-alt fa-spin"></i>&nbsp;Need warm-up? {/* #i-classfas-fa-sync-alt-fa-spininbspneed-warm-up */}
 
-### <i class="fa-brands fa-docker"></i>&nbsp;<Link href="https://github.com/z-shell/zd/pkgs/container/zd">Docker Alpine</Link>
+### <i class="fa-brands fa-docker"></i>&nbsp;<Link href="https://github.com/z-shell/zd/pkgs/container/zd">Docker Alpine</Link> {/* #i-classfa-brands-fa-dockerinbsplink-hrefhttpsgithubcomz-shellzdpkgscontainerzddocker-alpinelink */}
 
 ```shell
 docker run --rm -it ghcr.io/z-shell/zd:latest
 ```
 
-### <i class="fa-brands fa-docker"></i> Turbo Zi in Docker
+### <i class="fa-brands fa-docker"></i> Turbo Zi in Docker {/* #i-classfa-brands-fa-dockeri-turbo-zi-in-docker */}
 
 If you create a Docker image that uses Zi, install Turbo-loaded plugins before the shell starts interactively, with the <kbd>@zi-scheduler</kbd> function in such a way, that it:
 
@@ -184,7 +184,7 @@ RUN zsh -i -c -- '@zi-scheduler burst || true'
 > - An example: [Dockerfile][dockerfile]
 > - In action: [Playground][playground]
 
-## <i class="fas fa-cog fa-pulse"></i> Zi Module: zpmod {#zi-module}
+## <i class="fas fa-cog fa-pulse"></i> Zi Module: zpmod {/* #zi-module */}
 
 The module transparently and automatically compiles sourced scripts and lists of all sourced files with the time the sourcing took in milliseconds on the left.
 
@@ -192,34 +192,34 @@ The module transparently and automatically compiles sourced scripts and lists of
 
 - [📦 Source: zpmod][z-shell/zpmod]
 
-## <i class="fas fa-sync-alt fa-spin"></i> Available links {#available-links}
+## <i class="fas fa-sync-alt fa-spin"></i> Available links {/* #available-links */}
 
 [Status page][status] <Emoji symbol="✅" label="check-mark-button"/>
 
-### <i class="fa-solid fa-gear"></i> Installer {#installer}
+### <i class="fa-solid fa-gear"></i> Installer {/* #installer */}
 
 | Service    | URL                                                                     |
 | :--------- | ----------------------------------------------------------------------- |
 | Git.io     | https://git.io/get-zi                                                   |
 | GitHub RAW | https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh |
 
-### <i class="fa-brands fa-superpowers"></i> Loader {#loader}
+### <i class="fa-brands fa-superpowers"></i> Loader {/* #loader */}
 
 | Service    | URL                                                                    |
 | :--------- | ---------------------------------------------------------------------- |
 | Git.io     | https://git.io/zi-loader                                               |
 | GitHub RAW | https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh |
 
-<!-- end-of-file -->
-<!-- links -->
+{/* end-of-file */}
+{/* links */}
 
-[zpmod-page]: /ecosystem/plugins/zsh-modules#-z-shellzpmod
+[zpmod-page]: /ecosystem/plugins/zsh-modules#i-classfa-brands-fa-githubi-z-shellzpmodzpmod-repo
 [customization-page]: /docs/guides/customization
 [ecosystem-page]: /ecosystem
 [collection-page]: /community/category/-collection
 [zsh-plugin-standard]: /community/zsh_plugin_standard
 
-<!-- external -->
+{/* external */}
 
 [checksum-txt]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt
 [completion-system]: https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Use-of-compinit

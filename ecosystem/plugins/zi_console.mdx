@@ -1,6 +1,7 @@
 ---
 id: zi-console
 title: ⚙️ Zi Console
+sidebar_position: 6
 image: /img/png/theme/z/320x320.png
 description: A console based on the `zsh/zcurses` Zshell module.
 keywords:
@@ -9,14 +10,14 @@ keywords:
 draft: false
 ---
 
-<!-- @format -->
+{/* @format */}
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import Player from "@site/src/components/Player";
 import APITable from "@site/src/components/APITable";
 
-## <i class="fa-brands fa-github"></i> [z-shell/zi-console][z-shell-zi-console]
+## <i class="fa-brands fa-github"></i> [z-shell/zi-console][z-shell-zi-console] {/* #i-classfa-brands-fa-githubi-z-shellzi-consolez-shell-zi-console */}
 
 A console for [Zi][z-shell-zi] – based on the `zsh/zcurses` Zshell module allows the user to:
 
@@ -24,7 +25,7 @@ A console for [Zi][z-shell-zi] – based on the `zsh/zcurses` Zshell module allo
 - Unload and load plugins.
 - Delete the plugins and snippets from the disk.
 
-## Zi Console keybindings
+## Zi Console keybindings {/* #zi-console-keybindings */}
 
 Start the console by <kbd>Ctrl-O</kbd> <kbd>Ctrl-J</kbd> keyboard shortcut, or by running `ziconsole` function in the shell.
 
@@ -50,11 +51,11 @@ Start the console by <kbd>Ctrl-O</kbd> <kbd>Ctrl-J</kbd> keyboard shortcut, or b
 </APITable>
 ```
 
-## Zi Console preview
+## Zi Console preview {/* #zi-console-preview */}
 
-<Player src='https://asciinema.org/a/512999.cast' rows={21} cols={125} preload />
+<Player src="https://asciinema.org/a/512999.cast" rows={21} cols={125} preload />
 
-## Install Zi Console
+## Install Zi Console {/* #install-zi-console */}
 
 > Prerequisites: [ZUI][z-shell-zui] library.
 
@@ -87,7 +88,7 @@ zmodload zsh/curses
 
 If the call will return an error, then the `zsh/curses` module isn't available.
 
-### Build the `zsh/curses` module
+### Build the `zsh/curses` module {/* #build-the-zshcurses-module */}
 
 You can build the `zsh/curses`-equipped Z shell with Zi by the following command:
 
@@ -116,13 +117,13 @@ zi load zsh-users/zsh
 
 Then, to update, rebuild and reinstall the `zsh`, you can do `zi update zsh`. The binary can be safely copied over `/bin/zsh` as it has paths to all needed directories built-in.
 
-<!-- end-of-file -->
-<!-- links -->
+{/* end-of-file */}
+{/* links */}
 
 [4]: /docs/getting_started/overview#turbo-mode-zsh--53
 [5]: /docs/guides/syntax/for
 
-<!-- external -->
+{/* external */}
 
 [z-shell-zi]: https://github.com/z-shell/zi
 [z-shell-zui]: https://github.com/z-shell/zui

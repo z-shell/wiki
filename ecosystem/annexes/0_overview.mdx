@@ -9,7 +9,7 @@ keywords:
   - overview
 ---
 
-<!-- @format -->
+{/* @format */}
 
 1. Add a new Zi subcommand (i.e. the [command][command] that’s placed after the function `zi …` when calling Zi).
 
@@ -27,16 +27,16 @@ keywords:
 
 4. Register hooks for generating help text, shown by the `zi icemods` subcommand.
 
-## Recommended annexes
+## Recommended annexes {/* #recommended-annexes */}
 
-### Common
+### Common {/* #common */}
 
 1. [z-a-bin-gem-node][bin-gem-node]
 2. [z-a-readurl][readurl]
 3. [z-a-patch-dl][patch-dl]
 4. [z-a-rust][rust]
 
-### Additional
+### Additional {/* #additional */}
 
 1. [z-a-submods][submods]
 2. [z-a-unscope][unscope]
@@ -58,7 +58,7 @@ zi light-mode for z-shell/z-a-meta-plugins @annexes+rec
 
 :::
 
-## How to code them?
+## How to code them? {/* #how-to-code-them */}
 
 Below is an example body of an `atclone` hook taken from [submods][submods] annex.
 
@@ -133,7 +133,7 @@ zi snippet PZT::modules/autosuggestions
 
 Check out the project which fully implements this idea, [z-a-submods][submods]. It e.g. also implements the `atpull` hook, i.e. supports the automatic update of the submodules. The `z-a-*` prefix is recommended for projects which indicate annexes.
 
-## Summary
+## Summary {/* #summary */}
 
 There are 2 or 3 subtypes for each of the hooks:
 
@@ -142,14 +142,14 @@ There are 2 or 3 subtypes for each of the hooks:
 3. `atclone` or `!atclone` – analogous to the `atinit` and `atload` cases.
 4. `atpull`, `!atpull`, or `%atpull` – the first two are being run **only when there are new commits to be downloaded** during the update. The `%` version is being **always** run, regardless of whether the update will pull any actual commits or not, and it is being run **after** the `atpull` ice-modifier.
 
-<!-- end-of-file  -->
-<!-- links -->
+{/* end-of-file */}
+{/* links */}
 
 [command]: /docs/guides/commands
 [ice-modifiers]: /docs/guides/syntax/ice-modifiers
 [the-proposed-function-name-prefixes]: /community/zsh_plugin_standard#the-proposed-function-name-prefixes
 
-<!-- external -->
+{/* external */}
 
 [bin-gem-node]: https://github.com/z-shell/z-a-bin-gem-node
 [patch-dl]: https://github.com/z-shell/z-a-patch-dl

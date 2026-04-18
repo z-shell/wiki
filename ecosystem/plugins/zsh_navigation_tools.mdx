@@ -1,21 +1,22 @@
 ---
 id: zsh-navigation-tools
 title: ⚙️ Navigation Tools
+sidebar_position: 11
 image: /img/png/theme/z/320x320.png
 description: Multi-word history searcher, `n-cd` – directory bookmark manager, `n-kill` – `htop` like kill utility, and more.
 keywords:
   - zsh-navigation-tools
 ---
 
-<!-- @format -->
+{/* @format */}
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import APITable from "@site/src/components/APITable";
 
-## <i class="fa-brands fa-github"></i> [z-shell/zsh-navigation-tools][]
+## <i class="fa-brands fa-github"></i> [z-shell/zsh-navigation-tools][] {/* #i-classfa-brands-fa-githubi-z-shellzsh-navigation-tools */}
 
-## Available tools
+## Available tools {/* #available-tools */}
 
 ```mdx-code-block
 <APITable>
@@ -77,7 +78,7 @@ Based on `n-list`, a tool generates a selectable curses-based list of elements t
 
 Feature highlights include incremental multi-word searching, approximate matching, ANSI coloring, themes, unique mode, horizontal scroll, grepping, advanced history management, and various integrations with `Zsh`.
 
-## Install Zsh Navigation Tools
+## Install Zsh Navigation Tools {/* #install-zsh-navigation-tools */}
 
 <Tabs>
   <TabItem value="zi" label="Zi" default>
@@ -164,7 +165,7 @@ After installing and reloading the shell give `ZNT` a quick try with `Ctrl-R` �
   </TabItem>
 </Tabs>
 
-## History Widget
+## History Widget {/* #history-widget */}
 
 To have `n-history` as the incremental searcher bound to `Ctrl-R` copy `znt-*` files into the `*/site-functions` dir (unless you do a single file install) and add:
 
@@ -183,7 +184,7 @@ zle -N znt-kill-widget
 bindkey "^Y" znt-kill-widget
 ```
 
-## Configuration
+## Configuration {/* #configuration */}
 
 `ZNT` has configuration files located in `~/.config/znt`. The files are:
 
@@ -248,7 +249,7 @@ If you used `ZNT` before `v2.1.12`, remove old configuration files `~/.config/zn
 
 If you used installer then run it again (after the removal of configuration files).
 
-## Programming
+## Programming {/* #programming */}
 
 The function `n-list` is used as follows:
 
@@ -289,7 +290,7 @@ Blue is the default color, it doesn't have to be set. See the `zshexpn` man page
 
 The alternative will work when in parenthesis, i.e. `(a|b)`. BTW by using this method you can colorize the output of the tools, via their config files (check out e.g. n-cd.conf, it is using this).
 
-## Performance
+## Performance {/* #performance */}
 
 `ZNT` is fastest with `Zsh` before `5.0.6` and starting from `5.2`
 
@@ -310,7 +311,7 @@ Be aware of [this][l35-l49]
 
 :::
 
-## Fixing tmux, screen, and Linux vt
+## Fixing tmux, screen, and Linux vt {/* #fixing-tmux-screen-and-linux-vt */}
 
 If `TERM=screen-256color` (often a case for `tmux` and `screen` sessions) then `ncv` terminfo capability will have `2`nd bit set. This in general means that the underline won't work. To fix this by creating your own `ncv=0`-equipped terminfo file, run:
 
@@ -326,9 +327,9 @@ A file will be created in the directory `~/.terminfo` and will be automatically 
 
 It will not display underline properly, but will instead highlight by a color, which is quite nice. The same will not work for FreeBSD's vt, `ZNT` will detect if that `vt` is used and will revert to highlighting elements via `reverse` mode.
 
-<!-- end-of-file -->
-<!-- links -->
-<!-- external -->
+{/* end-of-file */}
+{/* links */}
+{/* external */}
 
 [z-shell/zsh-navigation-tools]: https://github.com/z-shell/zsh-navigation-tools
 [2]: https://github.com/z-shell/zsh-navigation-tools/tree/main/.config/znt

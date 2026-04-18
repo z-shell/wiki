@@ -1,0 +1,53 @@
+/** @format */
+
+.section {
+  composes: section from "../shared/CardGrid.module.css";
+  background:
+    radial-gradient(ellipse at 50% 0%, hsl(168deg 70% 30% / 8%) 0%, transparent 50%),
+    radial-gradient(ellipse at 10% 70%, hsl(200deg 60% 40% / 5%) 0%, transparent 35%),
+    radial-gradient(ellipse at 90% 90%, hsl(168deg 50% 30% / 5%) 0%, transparent 35%);
+}
+
+:global([data-theme="light"]) .section {
+  background:
+    radial-gradient(ellipse at 50% 0%, hsl(168deg 70% 50% / 6%) 0%, transparent 50%),
+    radial-gradient(ellipse at 10% 70%, hsl(200deg 60% 50% / 3%) 0%, transparent 35%),
+    radial-gradient(ellipse at 90% 90%, hsl(168deg 50% 50% / 3%) 0%, transparent 35%),
+    var(--ifm-background-surface-color);
+}
+
+.heading {
+  composes: heading from "../shared/CardGrid.module.css";
+  margin-bottom: 1rem;
+}
+
+.subheading {
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  color: var(--ifm-font-color-secondary);
+  font-size: 1.05rem;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.grid {
+  composes: grid from "../shared/CardGrid.module.css";
+}
+
+.card {
+  composes: card from "../shared/CardGrid.module.css";
+}
+
+.cardEmoji {
+  composes: cardicon from "../shared/CardGrid.module.css";
+  display: block;
+  object-fit: contain;
+}
+
+.cardTitle {
+  composes: cardtitle from "../shared/CardGrid.module.css";
+}
+
+.cardDesc {
+  composes: carddesc from "../shared/CardGrid.module.css";
+}

@@ -14,7 +14,7 @@
 
 ```jsx
 import Highlight from "@site/src/components/Highlight";
-<Highlight color='var(--ifm-color-info)'>ice modifiers</Highlight>;
+<Highlight color="var(--ifm-color-info)">ice modifiers</Highlight>;
 ```
 
 ## <i class="fa-brands fa-superpowers"></i> [Annexes](/ecosystem/annexes/)

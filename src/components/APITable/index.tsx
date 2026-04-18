@@ -1,18 +1,29 @@
-import React, {type ComponentProps, type ReactElement, type ReactNode, isValidElement, useRef, useEffect} from "react";
+import {
+  Children,
+  forwardRef,
+  type ComponentProps,
+  type ForwardedRef,
+  type KeyboardEvent,
+  type ReactElement,
+  type ReactNode,
+  isValidElement,
+  useRef,
+  useEffect,
+} from "react";
 import useBrokenLinks from "@docusaurus/useBrokenLinks";
 import {useHistory} from "@docusaurus/router";
 import styles from "./styles.module.css";
 
-interface Props {
+type Props = {
   readonly children: ReactElement<ComponentProps<"table">>;
   readonly name?: string;
-}
+};
 
 // ReactNode equivalent of HTMLElement#innerText
 function getRowName(node: ReactElement): string {
   let curNode: ReactNode = node;
   while (isValidElement(curNode)) {
-    [curNode] = React.Children.toArray(curNode.props.children);
+    [curNode] = Children.toArray((curNode.props as {children?: ReactNode}).children);
   }
   if (typeof curNode !== "string") {
     throw new Error(`Could not extract APITable row name from JSX tree:\n${JSON.stringify(node, null, 2)}`);
@@ -22,7 +33,7 @@ function getRowName(node: ReactElement): string {
 
 function APITableRow(
   {name, children}: {name: string | undefined; children: ReactElement<ComponentProps<"tr">>},
-  ref: React.ForwardedRef<HTMLTableRowElement>,
+  ref: ForwardedRef<HTMLTableRowElement>,
 ) {
   const entryName = getRowName(children);
   const id = name ? `${name}-${entryName}` : entryName;
@@ -43,17 +54,19 @@ function APITableRow(
           history.push(anchor);
         }
       }}
-      onKeyDown={(e: React.KeyboardEvent) => {
-        if (e.key === "Enter") {
+      onKeyDown={(e: KeyboardEvent) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
           history.push(anchor);
         }
-      }}>
+      }}
+    >
       {children.props.children}
     </tr>
   );
 }
 
-const APITableRowComp = React.forwardRef(APITableRow);
+const APITableRowComp = forwardRef(APITableRow);
 
 /*
  * Note: this is not a quite robust component since it makes a lot of
@@ -66,16 +79,16 @@ export default function APITable({children, name}: Props): ReactNode {
       "Bad usage of APITable component.\nIt is probably that your Markdown table is malformed.\nMake sure to double-check you have the appropriate number of columns for each table row.",
     );
   }
-  const [thead, tbody] = React.Children.toArray(children.props.children) as [
-    ReactElement<{children: ReactElement[]}>,
-    ReactElement<{children: ReactElement[]}>,
+  const [thead, tbody] = Children.toArray(children.props.children) as [
+    ReactElement<{children: ReactElement<ComponentProps<"tr">>[]}>,
+    ReactElement<{children: ReactElement<ComponentProps<"tr">>[]}>,
   ];
   const highlightedRow = useRef<HTMLTableRowElement>(null);
   useEffect(() => {
     highlightedRow.current?.focus();
-  }, [highlightedRow]);
-  const rows = React.Children.map(tbody.props.children, (row: ReactElement<ComponentProps<"tr">>) => (
-    <APITableRowComp name={name} ref={highlightedRow}>
+  }, []);
+  const rows = Children.map(tbody.props.children, (row: ReactElement<ComponentProps<"tr">>) => (
+    <APITableRowComp key={getRowName(row)} name={name} ref={highlightedRow}>
       {row}
     </APITableRowComp>
   ));

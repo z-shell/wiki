@@ -1,0 +1,12 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "type": "command",
+        "command": "pnpm lint --quiet 2>&1 | tail -20; pnpm lint:css --quiet 2>&1 | tail -20",
+        "timeout": 30,
+        "toolNames": ["replace_string_in_file", "multi_replace_string_in_file", "create_file"]
+      }
+    ]
+  }
+}

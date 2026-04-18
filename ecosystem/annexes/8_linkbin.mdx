@@ -1,6 +1,7 @@
 ---
 id: linkbin
 title: "🌀 Link Bin"
+sidebar_position: 9
 image: /img/png/theme/z/320x320.png
 description: Annex - Link Bin documentation.
 keywords:
@@ -8,7 +9,7 @@ keywords:
   - linkbin
 ---
 
-<!-- @format -->
+{/* @format */}
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
@@ -20,7 +21,7 @@ The command can then be accessed normally – not only in the live Zsh session b
 
 It creates the `link` that calls the actual binary. The link is created always under the same, standard and single `$PATH` entry: `$ZPFX/bin`
 
-## Soft link
+## Soft link {/* #soft-link */}
 
 :::note
 
@@ -43,7 +44,7 @@ ls -l $ZPFX/bin/ | awk '{print $(NF-2),$(NF-1),$NF}'
 fzf --version
 ```
 
-## Hard link
+## Hard link {/* #hard-link */}
 
 :::note
 
@@ -66,7 +67,7 @@ ls -l $ZPFX/bin/ | awk '{print $(NF-2),$(NF-1),$NF}'
 myfzf --version
 ```
 
-## Auto nickname link
+## Auto nickname link {/* #auto-nickname-link */}
 
 If ice-modifier [id-as](/docs/guides/syntax/standard#id-as) is empty, then will try to create the link with a nickname as follows:
 
@@ -77,11 +78,11 @@ If ice-modifier [id-as](/docs/guides/syntax/standard#id-as) is empty, then will 
 
 The above also applies if just `!` were passed.
 
-## Install linkbin {#install-linkbin}
+## Install linkbin {/* #install-linkbin */}
 
-:::info Source
+:::info[Source]
 
-- <Link className='github-link' href='https://github.com/z-shell/z-a-linkbin'>
+- <Link className="github-link" href="https://github.com/z-shell/z-a-linkbin">
     z-shell/z-a-linkbin
   </Link>
 

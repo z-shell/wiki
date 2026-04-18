@@ -11,14 +11,13 @@ keywords:
   - packages-overview
 ---
 
-<!-- @format -->
+{/* @format */}
 
 The motivation for adding packages functionality:
 
 1. Zi is a flexible and feature-rich plugin manager, however, users often feel overwhelmed by its configuration.
 
 2. It has multiple package-manager-like features, such as:
-
    - get the plugin's Git repository OR release-package URL,
    - get the list of the recommended [ice-modifiers][] for the plugin,
      - there can be multiple lists of [ice-modifiers][],
@@ -36,7 +35,7 @@ The [bin-gem-node][] annex is recommended, otherwise, some packages will fail to
 
 :::
 
-## The [any-gem][] and [any-node][] packages
+## The [any-gem][] and [any-node][] packages {/* #the-any-gem-and-any-node-packages */}
 
 They allow the installation of any Gem(s) or Node module(s) locally in a newly created plugin directory. For example:
 
@@ -59,7 +58,7 @@ zi id-as=jekyll pack param='GEM → jekyll' for any-gem
 
 The binaries will be exposed without altering the PATH via shims. Shims are correctly removed when deleting a plugin with `zi delete …` The so-called packages are GitHub repositories holding a `package.json` file with the meta-data in them. This way you don't have to (but still can) specify ice-modifiers, which might be handy when the [ice-modifiers][] list is long and complex.
 
-## Introductory example
+## Introductory example {/* #introductory-example */}
 
 This way, instead of the following command used to install `fzf`:
 
@@ -84,7 +83,7 @@ to get the complete setup of the fuzzy finder, including:
 
 The installation is like with package-manager because you don't need to invoke Zi anymore once installed to use `fzf` (that's because `fzf` is just a binary program and not e.g.: a shell function). You can also update the package with `zi update fzf` – it'll cause the project to refresh and rebuild, like with a "normal" package manager such as `apt-get`. However, it'll be more like to `emerge` from Gentoo, because the installation will be from the source… unless… the user will pick up a binary installation by profile argument specified in the `pack'…'` ice.
 
-## Pros of using the Zi package for regular software installations
+## Pros of using the Zi package for regular software installations {/* #pros-of-using-the-zi-package-for-regular-software-installations */}
 
 Using Zi to install software where one could use a regular package manager has several advantages:
 
@@ -99,7 +98,6 @@ Using Zi to install software where one could use a regular package manager has s
    to install also the man page for the `fzy` fuzzy finder (this omission in the package will be fixed soon).
 
 3. **Pro:** The installation is much more flexible than a normal package manager. Example available degrees of freedom:
-
    - to install from Git or release-tarball, or a binary-release file,
    - to install via shims or via extending `$PATH`, or by copying to `$ZPFX/bin`,
    - to download files and apply patches to the source by using the `patch-dl` annex features.
@@ -110,7 +108,7 @@ Using Zi to install software where one could use a regular package manager has s
 
 Thus, summing up 1. with 4., it might be nice/convenient too, for example, have the latest ECS CLI binary installed in the home directory, without using root access and always the latest, and – summing up with 2. and 3. – to, for example, have always the latest `README` downloaded by additional ice: `dl'https://raw.githubusercontent.com/aws/amazon-ecs-cli/master/README.md'` (and then to have the `README` converted into a man page by the `remark` Markdown processor or other via an `atclone''` ice, as the tool doesn't have any official man page).
 
-## Adding your package
+## Adding your package {/* #adding-your-package */}
 
 1. Contact the author to have the repository at the [Z-Shell][z-shell] organization or set the [ZI\[PKG_OWNER\]][modify-settings].
 
@@ -120,14 +118,14 @@ Thus, summing up 1. with 4., it might be nice/convenient too, for example, have 
 
 4. Commit and push.
 
-<!-- end-of-file -->
-<!-- links -->
+{/* end-of-file */}
+{/* links */}
 
 [bin-gem-node]: /ecosystem/annexes/bin-gem-node
 [ice-modifiers]: /docs/guides/syntax/ice-modifiers
 [modify-settings]: /docs/guides/customization#modify-settings
 
-<!-- external -->
+{/* external */}
 
 [any-gem]: https://github.com/z-shell/any-gem
 [any-node]: https://github.com/z-shell/any-node

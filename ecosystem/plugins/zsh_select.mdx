@@ -1,19 +1,20 @@
 ---
 id: zsh-select
 title: ⚙️ Select
+sidebar_position: 12
 image: /img/png/theme/z/320x320.png
 description: A shell command that will display a selection list.
 keywords:
   - zsh-select
 ---
 
-<!-- @format -->
+{/* @format */}
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import Image from "@theme/IdealImage";
 
-## <i class="fa-brands fa-github"></i> [z-shell/zsh-select][]
+## <i class="fa-brands fa-github"></i> [z-shell/zsh-select][] {/* #i-classfa-brands-fa-githubi-z-shellzsh-select */}
 
 A shell command that will display a selection list. It is similar to `selecta`, but uses curses library to do display, and when compared to `fzf`, the main difference is approximate matching instead of fuzzy matching.
 
@@ -27,11 +28,11 @@ The file `zsh-select` can be copied to any `bin` directory. `Zsh` will serve as 
 
 Pressing <kbd>o</kbd> will make elements uniqe. To search again after pressing enter, press <kbd>/</kbd>. Approximate matching mode is activated by <kbd>Ctrl-F</kbd>.
 
-<div className='ScreenView'>
-  <Image img='/img/cast/gif/zsh/zsh-select.gif' className='ImageView' alt='Zsh Select Preview' />
+<div className="ScreenView">
+  <Image img="/img/cast/gif/zsh/zsh-select.gif" className="ImageView" alt="Zsh Select Preview" />
 </div>
 
-## Install Zsh Select
+## Install Zsh Select {/* #install-zsh-select */}
 
 The `zsh-select` will be available in interactive `Zsh` sessions only when using this method. Nevertheless, integration with `Vim` and other methods will work when `Zsh` is your main shell.
 
@@ -88,7 +89,7 @@ nnoremap <leader>f :call ZshSelectCommand("find * -type f 2>/dev/null", "", ":e"
   </TabItem>
 </Tabs>
 
-## Configuring
+## Configuring {/* #configuring */}
 
 There are a few environment variables that can be set to alter `zsh-select` behavior.
 
@@ -102,7 +103,7 @@ export ZSHSELECT_ACTIVE_TEXT="reverse"      # Mark current element with reversed
 export ZSHSELECT_START_IN_SEARCH_MODE="1"   # Starts Zsh Select with searching active. "0" will not invoke searching at the start.
 ```
 
-<!-- end-of-file -->
-<!-- links -->
+{/* end-of-file */}
+{/* links */}
 
 [z-shell/zsh-select]: https://github.com/z-shell/zsh-select

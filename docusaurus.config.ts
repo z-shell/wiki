@@ -9,7 +9,7 @@ import type {Options as IdealImageOptions} from "@docusaurus/plugin-ideal-image"
 
 const url = process.env.URL ?? "https://wiki.zshell.dev";
 const baseUrl = process.env.BASE_URL ?? "/";
-const styles = process.env.STYLES ?? "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/js/all.min.js";
+const styles = process.env.STYLES ?? "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/js/all.min.js";
 
 export default async function createConfigAsync() {
   return {
@@ -21,22 +21,34 @@ export default async function createConfigAsync() {
     tagline: "A Swiss Army Knife for Zsh Unix shell",
     projectName: "wiki",
     organizationName: "z-shell",
-    baseUrlIssueBanner: true,
+    baseUrlIssueBanner: false,
     onBrokenLinks: "throw",
-    onBrokenMarkdownLinks: "warn",
     staticDirectories: ["static"],
     favicon: "/img/favicon.ico",
-    i18n: {defaultLocale: "en", locales: ["en", "ja", "zh-Hans"]},
-    themes: ["@docusaurus/theme-mermaid"],
-    markdown: {format: "detect", mermaid: false},
+    i18n: {defaultLocale: "en", locales: ["en"]},
+    markdown: {format: "detect", hooks: {onBrokenMarkdownLinks: "warn"}},
     scripts: [{src: styles, crossorigin: "anonymous"}],
+    storage: {
+      type: "localStorage",
+      namespace: true,
+    },
     future: {
-      experimental_faster: {
+      v4: {
+        removeLegacyPostBuildHeadAttribute: true,
+        useCssCascadeLayers: true,
+        siteStorageNamespacing: true,
+        fasterByDefault: true,
+        mdx1CompatDisabledByDefault: true,
+      },
+      experimental_vcs: "default-v2",
+      faster: {
         swcJsLoader: true,
         swcJsMinimizer: true,
         swcHtmlMinimizer: false,
         lightningCssMinimizer: true,
-        rspackBundler: false,
+        rspackBundler: true,
+        rspackPersistentCache: true,
+        ssgWorkerThreads: true,
         mdxCrossCompilerCache: true,
       },
     },
@@ -73,7 +85,7 @@ export default async function createConfigAsync() {
             }
             return `https://github.com/z-shell/wiki/tree/main/${versionDocsDirPath}/${docPath}`;
           },
-          showLastUpdateAuthor: false,
+          showLastUpdateAuthor: true,
           showLastUpdateTime: true,
         } satisfies DocsOptions,
       ],
@@ -131,7 +143,7 @@ export default async function createConfigAsync() {
               if (locale !== "en") {
                 return `https://digitalclouds.crowdin.com/z-shell/${locale}`;
               }
-              return `https://github.com/z-shell/wiki/tr ee/main/${versionDocsDirPath}/${docPath}`;
+              return `https://github.com/z-shell/wiki/tree/main/${versionDocsDirPath}/${docPath}`;
             },
             showLastUpdateAuthor: true,
             showLastUpdateTime: true,
@@ -197,7 +209,7 @@ export default async function createConfigAsync() {
           {to: "ecosystem", position: "left", label: "Ecosystem"},
           {to: "community", position: "left", label: "Community"},
           /* { to: 'blog', position: 'left', label: 'Blog' }, */
-          {
+          /* {
             type: "localeDropdown",
             position: "right",
             dropdownItemsAfter: [
@@ -206,7 +218,7 @@ export default async function createConfigAsync() {
                 label: "Help Us Translate",
               },
             ],
-          },
+          }, */
           {
             href: "https://github.com/z-shell/zi",
             position: "right",
@@ -227,39 +239,14 @@ export default async function createConfigAsync() {
                 to: "/docs",
               },
               {
-                label: "Ecosystem",
-                to: "/ecosystem",
-              },
-              {
-                label: "Community",
-                to: "/community",
-              },
-            ],
-          },
-          {
-            title: "Community",
-            items: [
-              {
-                label: "Discussions",
-                href: "https://discussions.zshell.dev",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/orgs/z-shell",
-              },
-              {
-                label: "Matrix",
-                href: "https://matrix.to/#/#zshell:matrix.org",
+                label: "Zsh Manual",
+                href: "https://zsh.sourceforge.io/Doc/Release/zsh_toc.html",
               },
             ],
           },
           {
             title: "More",
             items: [
-              {
-                label: "Zsh Manual",
-                href: "https://zsh.sourceforge.io/Doc/Release/zsh_toc.html",
-              },
               {
                 label: "Localization",
                 href: "https://translate.zshell.dev",

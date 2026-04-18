@@ -1,6 +1,7 @@
 ---
 id: rust
 title: "🌀 Rust"
+sidebar_position: 10
 image: /img/png/theme/z/320x320.png
 description: An annex installs rust and cargo packages.
 keywords:
@@ -8,7 +9,7 @@ keywords:
   - rust
 ---
 
-<!-- @format -->
+{/* @format */}
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
@@ -18,24 +19,24 @@ import Shortcuts from "@site/src/components/Markdown/_player_shortcuts.mdx";
 
 An annex installs rust and cargo packages locally inside the plugin or snippet directories.
 
-<Tabs className='player-tabs'>
-  <TabItem value='sbin-player' label='Player' default>
+<Tabs className="player-tabs">
+  <TabItem value="sbin-player" label="Player" default>
     <Player
-      src='https://asciinema.org/a/555417.cast'
+      src="https://asciinema.org/a/555417.cast"
       rows={27}
       cols={130}
-      terminalFontFamily='var(--ifm-font-family-monospace)'
-      terminalFontSize='var(--ifm-code-font-size)'
+      terminalFontFamily="var(--ifm-font-family-monospace)"
+      terminalFontSize="var(--ifm-code-font-size)"
       fit={false}
       speed={3}
     />
   </TabItem>
-  <TabItem value='shortcuts' label='Shortcuts'>
+  <TabItem value="shortcuts" label="Shortcuts">
     <Shortcuts />
   </TabItem>
 </Tabs>
 
-## Usage of the annex
+## Usage of the annex {/* #usage-of-the-annex */}
 
 The Zi annex provides ice-modifiers `rustup` and `cargo'…'`.
 
@@ -131,11 +132,11 @@ z-shell/0
 
 </details>
 
-## Install rust {#install-rust}
+## Install rust {/* #install-rust */}
 
-:::info Source
+:::info[Source]
 
-- <Link className='github-link' href='https://github.com/z-shell/z-a-rust'>
+- <Link className="github-link" href="https://github.com/z-shell/z-a-rust">
     z-shell/z-a-rust
   </Link>
 
@@ -155,8 +156,8 @@ zi light z-shell/z-a-rust
 
 This will register the `rustup` and `cargo'…'` ice-modifiers.
 
-<!-- end-of-file -->
-<!-- links -->
+{/* end-of-file */}
+{/* links */}
 
 [annex-bin-gem-node]: /ecosystem/annexes/bin-gem-node
 [for-syntax]: /docs/guides/syntax/for

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="meta-bg" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#23c88a" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#50df8e" stop-opacity="0.06"/>
+    </linearGradient>
+    <linearGradient id="meta-block" x1="30" y1="30" x2="90" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#50df8e"/>
+      <stop offset="100%" stop-color="#23c88a"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="20" fill="url(#meta-bg)"/>
+  <!-- Stacked blocks representing grouped plugins -->
+  <!-- Back layer -->
+  <rect x="40" y="22" width="50" height="30" rx="6" fill="#7feca2" opacity="0.3" stroke="#7feca2" stroke-width="0.5"/>
+  <!-- Middle layer -->
+  <rect x="35" y="30" width="50" height="30" rx="6" fill="#5ae39c" opacity="0.5" stroke="#5ae39c" stroke-width="0.5"/>
+  <!-- Front layer (primary) -->
+  <rect x="30" y="38" width="50" height="30" rx="6" fill="url(#meta-block)" opacity="0.85"/>
+  <!-- Lines inside front block (represents config) -->
+  <line x1="38" y1="48" x2="58" y2="48" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  <line x1="38" y1="54" x2="72" y2="54" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+  <line x1="38" y1="60" x2="64" y2="60" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+  <!-- Label tag -->
+  <rect x="20" y="78" width="40" height="20" rx="10" fill="#23c88a" opacity="0.7"/>
+  <text x="40" y="92" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="9" font-weight="600" opacity="0.9">@label</text>
+  <!-- Arrow from label to stack -->
+  <path d="M60 88 L72 88 L72 72 L68 72" stroke="#50df8e" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+  <polygon points="68,70 72,64 76,70" fill="#50df8e" opacity="0.5"/>
+  <!-- Small dots representing multiple plugins -->
+  <circle cx="88" cy="84" r="4" fill="#23c88a" opacity="0.4"/>
+  <circle cx="98" cy="80" r="3" fill="#50df8e" opacity="0.3"/>
+  <circle cx="96" cy="92" r="3.5" fill="#7feca2" opacity="0.3"/>
+  <circle cx="106" cy="88" r="2.5" fill="#5ae39c" opacity="0.25"/>
+</svg>

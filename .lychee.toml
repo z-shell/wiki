@@ -1,0 +1,26 @@
+# Lychee link checker configuration
+# https://lychee.cli.rs/usage/config/
+
+# Skip these URLs (flaky, rate-limited, or require auth)
+exclude = [
+  # Social media (aggressive rate limiting)
+  "https://twitter\\.com/.*",
+  "https://x\\.com/.*",
+  # Crowdin (requires auth)
+  "https://digitalclouds\\.crowdin\\.com/.*",
+  # localhost references in docs
+  "http://localhost.*",
+  # Font Awesome kit (requires auth)
+  "https://kit\\.fontawesome\\.com/.*",
+]
+
+# Skip checking mail addresses
+exclude_mail = true
+
+# Exclude paths from being checked (binary/generated files)
+exclude_path = [
+  "node_modules",
+  "build",
+  "i18n",
+  ".docusaurus",
+]

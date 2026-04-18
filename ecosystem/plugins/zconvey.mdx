@@ -1,6 +1,7 @@
 ---
 id: zconvey
 title: ⚙️ ZConvey
+sidebar_position: 5
 image: /img/png/theme/z/320x320.png
 description: Zsh Plugin ZConvey documentation
 keywords:
@@ -9,20 +10,20 @@ keywords:
   - zsh-plugin
 ---
 
-<!-- @format -->
+{/* @format */}
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import ImgShow from "@site/src/components/ImgShow";
 import APITable from "@site/src/components/APITable";
 
-## <i class="fa-brands fa-github"></i> [z-shell/zconvey][]
+## <i class="fa-brands fa-github"></i> [z-shell/zconvey][] {/* #i-classfa-brands-fa-githubi-z-shellzconvey */}
 
 ZConvey integrates multiple Zsh sessions. They are given an `ID`, optionally a `NAME` (both unique), and can send commands to each other. Use this to switch all your Zshells to a given directory, via `zc-all cd $PWD`! Also, there's a `zc-bg-notify` **script** (not a function), that will show notification under the prompt of every active Zsh session. You can call this script from any program, Bash or GUI.
 
-<ImgShow img='/img/cast/gif/zsh/zconvey.gif' alt='ZConvey Preview' />
+<ImgShow img="/img/cast/gif/zsh/zconvey.gif" alt="ZConvey Preview" />
 
-## [Zstyles](/search?q=zstyle) for ZConvey
+## [Zstyles](/search?q=zstyle) for ZConvey {/* #zstyles-for-zconvey */}
 
 The values being set are the defaults. They must be set before loading the plugin.
 
@@ -45,7 +46,7 @@ The values being set are the defaults. They must be set before loading the plugi
 </APITable>
 ```
 
-## ZConvey commands
+## ZConvey commands {/* #zconvey-commands */}
 
 ```mdx-code-block
 <APITable>
@@ -68,7 +69,7 @@ The values being set are the defaults. They must be set before loading the plugi
 
 The main command is `zc` (yet it is rather rarely used, I'm always sending to all sessions with `zc-all`). It is used to execute commands on other sessions. `zc-ls` is the main tool to obtain overall information on sessions and `zc-take` is a nice rename tool to quickly name a few sessions. Keyboard shortcut <kbd>Ctrl-O</kbd> and <kbd>Ctrl-I</kbd> will show current session's `ID` and `NAME` in form of an on-screen logo.
 
-## Install zconvey
+## Install zconvey {/* #install-zconvey */}
 
 <Tabs>
   <TabItem value="zi" label="Zi" default>
@@ -107,8 +108,8 @@ source {where-zconvey-is}/zconvey.plugin.zsh
 
 The plugin integrates with my other plugin [z-shell/zsh-select][]. Install it with e.g. Zi to be able to use the `-a` option for the `zc` command.
 
-<!-- end-of-file -->
-<!-- links -->
+{/* end-of-file */}
+{/* links */}
 
 [z-shell/zconvey]: https://github.com/z-shell/zconvey
 [z-shell/zsh-select]: https://github.com/z-shell/zsh-select

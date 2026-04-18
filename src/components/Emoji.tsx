@@ -10,7 +10,6 @@ import React, {type HTMLAttributes} from "react";
 
 export type EmojiProps = HTMLAttributes<HTMLSpanElement> & {
   label?: string;
-  style?: string;
   symbol: string;
 };
 

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="annex-bg" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#23c88a" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#50df8e" stop-opacity="0.06"/>
+    </linearGradient>
+    <linearGradient id="annex-piece" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#50df8e"/>
+      <stop offset="100%" stop-color="#23c88a"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="20" fill="url(#annex-bg)"/>
+  <!-- Puzzle piece top-left -->
+  <path d="M28 36 L48 36 L48 40 C48 44,54 44,54 40 L54 36 L62 36 L62 56 L58 56 C54 56,54 62,58 62 L62 62 L62 70 L28 70 Z" fill="#23c88a" opacity="0.85"/>
+  <!-- Puzzle piece top-right -->
+  <path d="M62 36 L62 40 C62 44,68 44,68 40 L68 36 L92 36 L92 70 L82 70 L82 66 C82 62,76 62,76 66 L76 70 L62 70 L62 62 L58 62 C54 62,54 56,58 56 L62 56 Z" fill="#50df8e" opacity="0.8"/>
+  <!-- Puzzle piece bottom-left -->
+  <path d="M28 70 L48 70 L48 74 C48 78,54 78,54 74 L54 70 L62 70 L62 76 L58 76 C54 76,54 82,58 82 L62 82 L62 94 L28 94 Z" fill="#5ae39c" opacity="0.75"/>
+  <!-- Puzzle piece bottom-right (incoming / being placed) -->
+  <g opacity="0.65">
+    <path d="M64 72 L64 76 C64 80,70 80,70 76 L70 72 L94 72 L94 96 L84 96 L84 92 C84 88,78 88,78 92 L78 96 L64 96 L64 84 L60 84 C56 84,56 78,60 78 L64 78 Z" fill="#7feca2" stroke="#23c88a" stroke-width="0.5" stroke-dasharray="3 2"/>
+  </g>
+  <!-- Plus icon hint -->
+  <circle cx="98" cy="24" r="10" fill="#23c88a" opacity="0.2"/>
+  <line x1="94" y1="24" x2="102" y2="24" stroke="#23c88a" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="98" y1="20" x2="98" y2="28" stroke="#23c88a" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <!-- Arrow indicating attachment -->
+  <path d="M102 88 L108 82 L108 85 L114 85 L114 91 L108 91 L108 94 Z" fill="#50df8e" opacity="0.3" transform="rotate(180 108 88)"/>
+</svg>

@@ -1,6 +1,7 @@
 ---
 id: migration
 title: ♻️ Migration
+sidebar_position: 3
 image: /img/png/theme/z/320x320.png
 description: Migration Guide
 keywords:
@@ -10,9 +11,9 @@ keywords:
 
 import Link from "@docusaurus/Link";
 
-## Oh-My-Zsh
+## Oh-My-Zsh {/* #oh-my-zsh */}
 
-### OMZ shorthand syntax
+### OMZ shorthand syntax {/* #omz-shorthand-syntax */}
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet <URL>        # Raw syntax with URL
@@ -22,7 +23,7 @@ zi snippet OMZT::<PATH> # Shorthand OMZ::themes   (http://github.com/ohmyzsh/ohm
 zi snippet OMZP::<PATH> # Shorthand OMZ::plugins  (http://github.com/ohmyzsh/ohmyzsh/raw/master/plugins)
 ```
 
-### OMZ library
+### OMZ library {/* #omz-library */}
 
 Importing the [clipboard][omz/clipboard] and [termsupport][omz/termsupport] from the OMZ library example:
 
@@ -63,7 +64,7 @@ if (( $+commands[svn] )) {
 }
 ```
 
-### OMZ plugins
+### OMZ plugins {/* #omz-plugins */}
 
 ```diff title="~/.zshrc" showLineNumbers
 - plugins=(
@@ -147,7 +148,7 @@ zi ice as"completion"
 zi snippet OMZP::ag/_ag
 ```
 
-### OMZ themes
+### OMZ themes {/* #omz-themes */}
 
 Themes are stored in the `themes` directory and loaded in the background with the simple syntax:
 
@@ -207,7 +208,7 @@ setopt prompt_subst
 zi snippet OMZT::robbyrussell
 ```
 
-### External theme sample: [NicoSantangelo/Alpharized][]
+### External theme sample: [NicoSantangelo/Alpharized][] {/* #external-theme-sample-nicosantangeloalpharized */}
 
 Load with OMZ:
 
@@ -235,9 +236,9 @@ setopt prompt_subst
 zi light NicoSantangelo/Alpharized
 ```
 
-## Prezto
+## Prezto {/* #prezto */}
 
-### PZT shorthand syntax
+### PZT shorthand syntax {/* #pzt-shorthand-syntax */}
 
 ```shell title="~/.zshrc" showLineNumbers
 zi snippet <URL>        # Raw syntax with URL
@@ -245,7 +246,7 @@ zi snippet PZT::<PATH>  # Shorthand PZT::         (https://github.com/sorin-ione
 zi snippet PZTM::<PATH> # Shorthand PZT::modules/ (https://github.com/sorin-ionescu/prezto/tree/master/modules/)
 ```
 
-### PZT modules {#pzt-modules}
+### PZT modules {/* #pzt-modules */}
 
 Importing the [environment](https://github.com/sorin-ionescu/prezto/tree/master/modules/environment/README.md) and [terminal](https://github.com/sorin-ionescu/prezto/tree/master/modules/terminal/README.md) Prezto modules example:
 
@@ -372,9 +373,9 @@ What is `zstyle`?
 
 Available
 
-## Zgen
+## Zgen {/* #zgen */}
 
-### Load OMZ library
+### Load OMZ library {/* #load-omz-library */}
 
 ```diff title="~/.zshrc" showLineNumbers
 - zgen oh-my-zsh
@@ -382,7 +383,7 @@ Available
 + zi snippet OMZL::<ANY OF THEM>
 ```
 
-### Load OMZ plugins
+### Load OMZ plugins {/* #load-omz-plugins */}
 
 ```diff title="~/.zshrc" showLineNumbers
 - zgen oh-my-zsh <PATH>
@@ -390,7 +391,7 @@ Available
 + zi snippet OMZP::<PATH>
 ```
 
-### Load Prezto modules
+### Load Prezto modules {/* #load-prezto-modules */}
 
 ```diff title="~/.zshrc" showLineNumbers
 - zgen prezto <module name>
@@ -407,7 +408,7 @@ Load repositories as prezto plugins:
 + zi load <repo/plugin>
 ```
 
-### Summarized Zgen
+### Summarized Zgen {/* #summarized-zgen */}
 
 :::info
 
@@ -422,7 +423,7 @@ For the `location`: refer <Link to="/docs/guides/syntax/standard#src-pick-multis
 + zi load <repo>
 ```
 
-## Zplug Basics
+## Zplug Basics {/* #zplug-basics */}
 
 ```diff title="~/.zshrc" showLineNumbers
 - zplug <repo/plugin>, tag1:<option1>, tag2:<option2>
@@ -431,7 +432,7 @@ For the `location`: refer <Link to="/docs/guides/syntax/standard#src-pick-multis
 + zi load <repo/plugin>
 ```
 
-### Tag comparison
+### Tag comparison {/* #tag-comparison */}
 
 - `as` => `as`
 - `use` => `pick`, `src`, `multisrc`
@@ -449,9 +450,9 @@ For the `location`: refer <Link to="/docs/guides/syntax/standard#src-pick-multis
 - `lazy` => `autoload`
 - `depth` => `depth`
 
-<!-- end-of-file -->
-<!-- links -->
-<!-- external -->
+{/* end-of-file */}
+{/* links */}
+{/* external */}
 
 [about-zstyle]: https://unix.stackexchange.com/questions/214657/what-does-zstyle-do
 [nicosantangelo/alpharized]: https://github.com/nicosantangelo/Alpharized
