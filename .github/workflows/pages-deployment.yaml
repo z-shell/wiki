@@ -33,15 +33,14 @@ jobs:
       - name: "⎔  Setup node"
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          node-version: 18
+          node-version: "lts/*"
           cache: "pnpm"
       - name: "🏗  Build"
-        run: pnpm i --prod --frozen-lockfile && pnpm run build
+        run: pnpm i --frozen-lockfile && pnpm run build
       - name: "🚀 Publish"
-        uses: cloudflare/pages-action@f0a1cd58cd66095dee69bfa18fa5efd1dde93bca # v1.5.0
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3.15.0
         with:
-          projectName: "zsh"
-          directory: "build"
           apiToken: ${{ secrets.CF_PAGES_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          command: pages deploy build --project-name=zsh
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}

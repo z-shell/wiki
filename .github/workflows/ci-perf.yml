@@ -12,10 +12,9 @@ on:
     branches: [main, next]
     paths:
       - "crowdin.yml"
-      - "sidebars.js"
+      - "sidebars.ts"
       - "package.json"
       - "pnpm-lock.yaml"
-      - "babel.config.js"
       - "docusaurus.config.ts"
       - "src/**"
       - "static/**"
@@ -59,7 +58,7 @@ jobs:
           cache: "pnpm"
       - uses: preactjs/compressed-size-action@946a292cd35bd1088e0d7eb92b69d1a8d5b5d76a # v2
         with:
-          install-script: "pnpm install --no-frozen-lockfile --prod --shamefully-hoist --fix-lockfile"
+          install-script: "pnpm install --frozen-lockfile"
           build-script: "build:en"
           pattern: "{build/assets/js/*.js,build/assets/css/*.css,build/**/*.html,.docusaurus/globalData.json,build/blog/**/swiss-army-knife-for-zsh/*}"
           exclude: "{./build/manifest.json,./build/**/*.xml,**/*.map,**/node_modules/**,build/assets/**/*.ttf}"
@@ -83,7 +82,7 @@ jobs:
         with:
           node-version: "lts/*"
           cache: "pnpm"
-      - run: pnpm install --no-frozen-lockfile --prod --shamefully-hoist
+      - run: pnpm install --frozen-lockfile
       # Ensure build with a cold cache does not increase too much
       - name: "Build (cold cache)"
         run: pnpm build:en
