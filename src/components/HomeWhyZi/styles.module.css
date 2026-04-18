@@ -23,6 +23,26 @@
 
 .card {
   composes: card from "../shared/CardGrid.module.css";
+  cursor: default;
+}
+
+.card:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: hsl(0deg 0% 100% / 8%);
+}
+
+:global([data-theme="light"]) .card:hover {
+  border-color: hsl(0deg 0% 0% / 6%);
+  box-shadow: 0 2px 12px hsl(0deg 0% 0% / 4%);
+}
+
+.card::before {
+  display: none;
+}
+
+.card:hover::before {
+  display: none;
 }
 
 .cardIcon {
