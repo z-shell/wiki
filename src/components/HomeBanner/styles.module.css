@@ -112,7 +112,7 @@
 
 .heroSubtitle {
   max-width: 600px;
-  margin: 1.5rem 0 0;
+  margin: var(--space-lg) 0 0;
   color: var(--ifm-font-color-secondary);
   font-size: 1.05rem;
   line-height: 1.6;
@@ -145,7 +145,7 @@
   flex-wrap: wrap;
   gap: var(--space-md);
   align-items: center;
-  margin-top: 18px;
+  margin-top: var(--space-md);
 }
 
 .indexCtas a:last-of-type {
@@ -184,7 +184,7 @@
   }
 
   .indexCtas a {
-    margin: 14px 18px;
+    margin: var(--space-md) var(--space-lg);
   }
 
   .indexCtasGitHubButton {

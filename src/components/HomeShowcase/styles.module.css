@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  padding: 6rem 0;
+  padding: var(--space-3xl) 0;
   overflow: hidden;
   background:
     radial-gradient(ellipse at 20% 50%, hsl(168deg 70% 30% / 8%) 0%, transparent 50%),
@@ -19,8 +19,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  margin-bottom: 1rem;
-  padding: 0.35rem 1rem;
+  margin-bottom: var(--space-md);
+  padding: 0.35rem var(--space-md);
   color: var(--ifm-color-primary-light);
   font-weight: 600;
   font-size: 0.75rem;
@@ -40,7 +40,7 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr 1.4fr;
-  gap: 3rem;
+  gap: var(--space-2xl);
   align-items: center;
 }
 
@@ -50,7 +50,7 @@
 }
 
 .heading {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-lg);
   color: transparent;
   font-size: 2.2rem;
   text-wrap: balance;
@@ -75,7 +75,7 @@
 
 .description {
   max-width: 520px;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-md);
   color: var(--ifm-font-color-base);
   font-size: 1.05rem;
   line-height: 1.7;
@@ -84,8 +84,8 @@
 
 .subdesc {
   max-width: 520px;
-  margin: 0.75rem 0 0;
-  padding-left: 1rem;
+  margin: var(--space-sm) 0 0;
+  padding-left: var(--space-md);
   color: var(--ifm-font-color-secondary);
   font-size: 0.92rem;
   line-height: 1.6;
@@ -97,7 +97,7 @@
   position: relative;
   overflow: hidden;
   border: 1px solid hsl(0deg 0% 100% / 12%);
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   box-shadow:
     0 24px 80px hsl(0deg 0% 0% / 35%),
     0 0 60px hsl(168deg 70% 40% / 8%);
@@ -146,7 +146,7 @@
 
 @media only screen and (width <= 768px) {
   .section {
-    padding: 3.5rem 0;
+    padding: var(--space-2xl) 0;
   }
 
   .grid {
