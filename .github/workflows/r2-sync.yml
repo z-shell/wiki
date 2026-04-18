@@ -21,35 +21,48 @@ jobs:
     environment: R2
     steps:
       - name: "⤵️ Check out code from GitHub"
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
       - name: "⎔ Setup Node.js"
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: "lts/*"
       - name: "📦 Install wrangler"
-        run: npm install -g wrangler
+        run: npm install -g wrangler@4.13.2
       - name: "⏫ Sync static assets to R2"
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
         run: |
           bucket="r2-store"
+          upload_concurrency=8
           uploaded=0
           failed=0
           for dir in img assets; do
             src="static/$dir"
             [ -d "$src" ] || continue
             echo "::group::Syncing $src → $bucket/$dir"
-            while IFS= read -r -d '' file; do
+            results_file="$(mktemp)"
+            find "$src" -type f -print0 | xargs -0 -r -P "$upload_concurrency" -I{} bash -c '
+              file="$1"
+              bucket="$2"
               key="${file#static/}"
               if wrangler r2 object put "$bucket/$key" --file="$file" > /dev/null 2>&1; then
+                printf "success\t%s\n" "$key"
+              else
+                printf "failure\t%s\n" "$key"
+              fi
+            ' _ "{}" "$bucket" > "$results_file"
+            while IFS=$'\t' read -r status key; do
+              [ -n "$key" ] || continue
+              if [ "$status" = "success" ]; then
                 echo "✓ $key"
                 uploaded=$((uploaded + 1))
               else
                 echo "::warning::Failed to upload $key"
                 failed=$((failed + 1))
               fi
-            done < <(find "$src" -type f -print0)
+            done < "$results_file"
+            rm -f "$results_file"
             echo "::endgroup::"
           done
           {
