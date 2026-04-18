@@ -33,7 +33,7 @@ Before finishing, all of the following must be true:
 
 Copy and track this checklist:
 
-```
+```text
 - [ ] Phase 1: Run scan, read intent documents
 - [ ] Phase 2: Investigate each documentation area
 - [ ] Phase 3: Populate all seven docs in docs/codebase/
@@ -95,9 +95,8 @@ Run this mandatory validation loop before finalizing:
 1. Validate each doc against `references/inquiry-checkpoints.md`.
 2. For each non-trivial claim, confirm at least one evidence reference exists.
 3. If any required section is missing or unsupported:
-
-- Fix the document.
-- Re-run validation.
+   - Fix the document.
+   - Re-run validation.
 
 4. Repeat until all seven docs pass.
 

@@ -428,7 +428,7 @@ After writing the tour, tell the user:
 
 `<persona>-<focus>.tour` — kebab-case, communicates both:
 
-```
+```text
 onboarding-new-joiner.tour
 bug-fixer-payment-flow.tour
 architect-overview.tour

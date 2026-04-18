@@ -61,16 +61,16 @@ After changes:
 3. Keyboard-navigate all interactive elements
 4. Run linters:
 
-```sh
-pnpm lint:css --quiet
-pnpm lint --quiet
-```
+   ```sh
+   pnpm lint:css --quiet
+   pnpm lint --quiet
+   ```
 
 5. Build:
 
-```sh
-pnpm build:en
-```
+   ```sh
+   pnpm build:en
+   ```
 
 ## Decision Points
 
