@@ -91,7 +91,6 @@
       "unrs-resolver"
     ],
     "overrides": {
-      "eslint>jiti": "^2.6.1",
       "webpackbar": "^7.0.0"
     }
   }
