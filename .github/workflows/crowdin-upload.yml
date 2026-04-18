@@ -27,11 +27,11 @@ jobs:
       cancel-in-progress: true
     steps:
       - name: "⤵️ Check out code from GitHub"
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           fetch-depth: 0
       - name: "🚀 Crowdin Upload"
-        uses: crowdin/github-action@b8012bd5491b8aa8578b73ab5b5f5e7c94aaa6e2 # v2.7.0
+        uses: crowdin/github-action@7ca9c452bfe9197d3bb7fa83a4d7e2b0c9ae835d # v2.16.0
         with:
           upload_sources: true
           upload_translations: false
