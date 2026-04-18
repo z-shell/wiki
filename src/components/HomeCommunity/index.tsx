@@ -35,7 +35,7 @@ const LINKS: CommunityLink[] = [
 
 function CommunityCard({icon, title, description, href}: CommunityLink): React.JSX.Element {
   return (
-    <Link href={href} className={styles.card}>
+    <Link href={href} className={styles.card} target="_blank" rel="noopener noreferrer">
       <i className={clsx(icon, styles.cardIcon)} />
       <Heading as="h3" className={styles.cardTitle}>
         {title}

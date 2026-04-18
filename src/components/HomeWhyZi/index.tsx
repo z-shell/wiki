@@ -1,5 +1,6 @@
 import React from "react";
 import Translate, {translate} from "@docusaurus/Translate";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import Heading from "@theme/Heading";
 import styles from "./styles.module.css";
 
@@ -13,7 +14,7 @@ type CardItem = {
 const CARDS: CardItem[] = [
   {
     id: "speed",
-    icon: "⚡",
+    icon: "/img/svg/cards/speed.svg",
     title: translate({
       id: "homepage.whyzi.speed.title",
       message: "50–80% Faster Startup",
@@ -27,7 +28,7 @@ const CARDS: CardItem[] = [
   },
   {
     id: "ecosystem",
-    icon: "📦",
+    icon: "/img/svg/cards/ecosystem.svg",
     title: translate({
       id: "homepage.whyzi.ecosystem.title",
       message: "Rich Plugin Ecosystem",
@@ -41,7 +42,7 @@ const CARDS: CardItem[] = [
   },
   {
     id: "flexible",
-    icon: "🔧",
+    icon: "/img/svg/cards/flexible.svg",
     title: translate({
       id: "homepage.whyzi.flexible.title",
       message: "Flexible & Extensible",
@@ -58,7 +59,7 @@ const CARDS: CardItem[] = [
 function Card({icon, title, description}: CardItem): React.JSX.Element {
   return (
     <div className={styles.card}>
-      <div className={styles.cardIcon}>{icon}</div>
+      <img src={useBaseUrl(icon)} alt={title} className={styles.cardIcon} width={80} height={80} loading="lazy" />
       <Heading as="h3" className={styles.cardTitle}>
         {title}
       </Heading>

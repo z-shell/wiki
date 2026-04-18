@@ -1,11 +1,12 @@
 import React from "react";
 import Link from "@docusaurus/Link";
 import Translate, {translate} from "@docusaurus/Translate";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import Heading from "@theme/Heading";
 import styles from "./styles.module.css";
 
 type EcosystemItem = {
-  emoji: string;
+  icon: string;
   title: string;
   description: string;
   link: string;
@@ -13,7 +14,7 @@ type EcosystemItem = {
 
 const ITEMS: EcosystemItem[] = [
   {
-    emoji: "🧩",
+    icon: "/img/svg/cards/annexes.svg",
     title: translate({id: "homepage.eco.annexes.title", message: "Annexes"}),
     description: translate({
       id: "homepage.eco.annexes.desc",
@@ -22,7 +23,7 @@ const ITEMS: EcosystemItem[] = [
     link: "/ecosystem/annexes/overview",
   },
   {
-    emoji: "📊",
+    icon: "/img/svg/cards/meta-plugins.svg",
     title: translate({id: "homepage.eco.meta.title", message: "Meta Plugins"}),
     description: translate({
       id: "homepage.eco.meta.desc",
@@ -31,7 +32,7 @@ const ITEMS: EcosystemItem[] = [
     link: "/ecosystem/annexes/meta-plugins",
   },
   {
-    emoji: "📦",
+    icon: "/img/svg/cards/packages.svg",
     title: translate({id: "homepage.eco.packages.title", message: "Packages"}),
     description: translate({
       id: "homepage.eco.packages.desc",
@@ -40,7 +41,7 @@ const ITEMS: EcosystemItem[] = [
     link: "/ecosystem/packages/synopsis",
   },
   {
-    emoji: "🎨",
+    icon: "/img/svg/cards/syntax-highlighting.svg",
     title: translate({id: "homepage.eco.fsh.title", message: "Syntax Highlighting"}),
     description: translate({
       id: "homepage.eco.fsh.desc",
@@ -49,7 +50,7 @@ const ITEMS: EcosystemItem[] = [
     link: "/ecosystem/plugins/f-sy-h",
   },
   {
-    emoji: "🔍",
+    icon: "/img/svg/cards/history-search.svg",
     title: translate({id: "homepage.eco.hsmw.title", message: "History Search"}),
     description: translate({
       id: "homepage.eco.hsmw.desc",
@@ -58,7 +59,7 @@ const ITEMS: EcosystemItem[] = [
     link: "/ecosystem/plugins/h-s-mw",
   },
   {
-    emoji: "🖥️",
+    icon: "/img/svg/cards/zi-console.svg",
     title: translate({id: "homepage.eco.console.title", message: "Zi Console"}),
     description: translate({
       id: "homepage.eco.console.desc",
@@ -68,10 +69,10 @@ const ITEMS: EcosystemItem[] = [
   },
 ];
 
-function EcoCard({emoji, title, description, link}: EcosystemItem): React.JSX.Element {
+function EcoCard({icon, title, description, link}: EcosystemItem): React.JSX.Element {
   return (
     <Link to={link} className={styles.card}>
-      <span className={styles.cardEmoji}>{emoji}</span>
+      <img src={useBaseUrl(icon)} alt={title} className={styles.cardEmoji} width={80} height={80} loading="lazy" />
       <Heading as="h3" className={styles.cardTitle}>
         {title}
       </Heading>

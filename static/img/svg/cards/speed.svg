@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="speed-bg" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#23c88a" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#50df8e" stop-opacity="0.06"/>
+    </linearGradient>
+    <linearGradient id="speed-bolt" x1="50" y1="20" x2="70" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#50df8e"/>
+      <stop offset="100%" stop-color="#23c88a"/>
+    </linearGradient>
+    <linearGradient id="speed-arc" x1="20" y1="40" x2="100" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7feca2"/>
+      <stop offset="50%" stop-color="#23c88a"/>
+      <stop offset="100%" stop-color="#50df8e"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="20" fill="url(#speed-bg)"/>
+  <!-- Gauge arc -->
+  <path d="M30 78 A38 38 0 0 1 90 78" stroke="url(#speed-arc)" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.5"/>
+  <path d="M30 78 A38 38 0 0 1 75 42" stroke="#23c88a" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <!-- Tick marks -->
+  <line x1="30" y1="78" x2="34" y2="74" stroke="#7feca2" stroke-width="2" stroke-linecap="round"/>
+  <line x1="33" y1="58" x2="38" y2="60" stroke="#7feca2" stroke-width="2" stroke-linecap="round"/>
+  <line x1="48" y1="44" x2="51" y2="48" stroke="#7feca2" stroke-width="2" stroke-linecap="round"/>
+  <line x1="68" y1="40" x2="68" y2="45" stroke="#7feca2" stroke-width="2" stroke-linecap="round"/>
+  <line x1="85" y1="50" x2="81" y2="53" stroke="#7feca2" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+  <line x1="90" y1="78" x2="86" y2="74" stroke="#7feca2" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+  <!-- Needle pointing to fast -->
+  <line x1="60" y1="78" x2="40" y2="50" stroke="#23c88a" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="60" cy="78" r="4" fill="#23c88a"/>
+  <!-- Lightning bolt accent -->
+  <polygon points="84,18 78,35 86,35 76,52 82,52 70,70 90,42 82,42 92,24" fill="url(#speed-bolt)" opacity="0.7"/>
+  <!-- Speed lines -->
+  <line x1="14" y1="50" x2="24" y2="50" stroke="#50df8e" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+  <line x1="10" y1="60" x2="22" y2="60" stroke="#50df8e" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+  <line x1="14" y1="70" x2="22" y2="70" stroke="#50df8e" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+  <!-- Label -->
+  <text x="60" y="100" text-anchor="middle" fill="#23c88a" font-family="sans-serif" font-size="10" font-weight="600" opacity="0.7">TURBO</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="flex-bg" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#23c88a" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#50df8e" stop-opacity="0.06"/>
+    </linearGradient>
+    <linearGradient id="flex-slider" x1="0" y1="0" x2="0" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#50df8e"/>
+      <stop offset="100%" stop-color="#23c88a"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="20" fill="url(#flex-bg)"/>
+  <!-- Slider tracks -->
+  <rect x="24" y="30" width="72" height="4" rx="2" fill="#7feca2" opacity="0.25"/>
+  <rect x="24" y="52" width="72" height="4" rx="2" fill="#7feca2" opacity="0.25"/>
+  <rect x="24" y="74" width="72" height="4" rx="2" fill="#7feca2" opacity="0.25"/>
+  <!-- Active track fills -->
+  <rect x="24" y="30" width="52" height="4" rx="2" fill="#23c88a" opacity="0.6"/>
+  <rect x="24" y="52" width="30" height="4" rx="2" fill="#50df8e" opacity="0.6"/>
+  <rect x="24" y="74" width="62" height="4" rx="2" fill="#5ae39c" opacity="0.6"/>
+  <!-- Slider handles -->
+  <circle cx="76" cy="32" r="7" fill="url(#flex-slider)" stroke="#fff" stroke-width="1.5"/>
+  <circle cx="54" cy="54" r="7" fill="url(#flex-slider)" stroke="#fff" stroke-width="1.5"/>
+  <circle cx="86" cy="76" r="7" fill="url(#flex-slider)" stroke="#fff" stroke-width="1.5"/>
+  <!-- Handle inner dots -->
+  <circle cx="76" cy="32" r="2.5" fill="#fff" opacity="0.8"/>
+  <circle cx="54" cy="54" r="2.5" fill="#fff" opacity="0.8"/>
+  <circle cx="86" cy="76" r="2.5" fill="#fff" opacity="0.8"/>
+  <!-- Toggle switch at bottom -->
+  <rect x="38" y="90" width="44" height="18" rx="9" fill="#23c88a" opacity="0.3"/>
+  <rect x="38" y="90" width="28" height="18" rx="9" fill="#23c88a" opacity="0.5"/>
+  <circle cx="57" cy="99" r="6" fill="url(#flex-slider)" stroke="#fff" stroke-width="1"/>
+  <!-- Decorative brackets -->
+  <path d="M16 22 L12 22 L12 46 L16 46" stroke="#50df8e" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.3"/>
+  <path d="M104 22 L108 22 L108 46 L104 46" stroke="#50df8e" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.3"/>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="eco-bg" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#23c88a" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#50df8e" stop-opacity="0.06"/>
+    </linearGradient>
+    <linearGradient id="eco-node" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#50df8e"/>
+      <stop offset="100%" stop-color="#23c88a"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="20" fill="url(#eco-bg)"/>
+  <!-- Connection lines -->
+  <line x1="60" y1="38" x2="34" y2="62" stroke="#7feca2" stroke-width="1.5" opacity="0.5"/>
+  <line x1="60" y1="38" x2="86" y2="62" stroke="#7feca2" stroke-width="1.5" opacity="0.5"/>
+  <line x1="60" y1="38" x2="60" y2="80" stroke="#7feca2" stroke-width="1.5" opacity="0.5"/>
+  <line x1="34" y1="62" x2="34" y2="88" stroke="#7feca2" stroke-width="1.5" opacity="0.3"/>
+  <line x1="86" y1="62" x2="86" y2="88" stroke="#7feca2" stroke-width="1.5" opacity="0.3"/>
+  <line x1="34" y1="62" x2="60" y2="80" stroke="#7feca2" stroke-width="1" opacity="0.25"/>
+  <line x1="86" y1="62" x2="60" y2="80" stroke="#7feca2" stroke-width="1" opacity="0.25"/>
+  <!-- Center hub node -->
+  <circle cx="60" cy="38" r="12" fill="url(#eco-node)" opacity="0.9"/>
+  <circle cx="60" cy="38" r="8" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.5"/>
+  <!-- Zi logo hint in center -->
+  <polygon points="60,30 56,38 64,38" fill="#fff" opacity="0.8"/>
+  <polygon points="58,38 56,46 64,38" fill="#fff" opacity="0.6"/>
+  <!-- Left branch node -->
+  <circle cx="34" cy="62" r="9" fill="#23c88a" opacity="0.8"/>
+  <rect x="29" y="58" width="10" height="8" rx="2" fill="none" stroke="#fff" stroke-width="1.2" opacity="0.7"/>
+  <!-- Right branch node -->
+  <circle cx="86" cy="62" r="9" fill="#50df8e" opacity="0.8"/>
+  <circle cx="86" cy="62" r="4" fill="none" stroke="#fff" stroke-width="1.2" opacity="0.7"/>
+  <!-- Bottom center node -->
+  <circle cx="60" cy="80" r="9" fill="#5ae39c" opacity="0.8"/>
+  <path d="M55 80 L60 75 L65 80 L60 85 Z" fill="none" stroke="#fff" stroke-width="1.2" opacity="0.7"/>
+  <!-- Leaf nodes -->
+  <circle cx="34" cy="88" r="5" fill="#7feca2" opacity="0.6"/>
+  <circle cx="86" cy="88" r="5" fill="#86f4a6" opacity="0.6"/>
+  <!-- Floating particles -->
+  <circle cx="18" cy="30" r="2" fill="#50df8e" opacity="0.3"/>
+  <circle cx="100" cy="28" r="1.5" fill="#7feca2" opacity="0.3"/>
+  <circle cx="14" cy="95" r="1.5" fill="#5ae39c" opacity="0.2"/>
+  <circle cx="105" cy="98" r="2" fill="#50df8e" opacity="0.2"/>
+</svg>

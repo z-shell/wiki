@@ -1,5 +1,5 @@
 .section {
-  padding: 5rem 0;
+  padding: var(--space-3xl) 0;
   color: white;
   text-align: center;
   background:
@@ -53,7 +53,7 @@
 .buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: var(--space-md);
   justify-content: center;
 }
 
@@ -66,10 +66,10 @@
   font-size: 1rem;
   text-decoration: none;
   background: white;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    transform var(--duration-fast) ease,
+    box-shadow var(--duration-fast) ease;
 }
 
 :global([data-theme="light"]) .primaryButton {
@@ -104,10 +104,10 @@
   text-decoration: none;
   background: transparent;
   border: 2px solid hsl(0deg 0% 100% / 50%);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   transition:
-    border-color 0.2s ease,
-    transform 0.2s ease;
+    border-color var(--duration-fast) ease,
+    transform var(--duration-fast) ease;
 }
 
 :global([data-theme="light"]) .secondaryButton {
@@ -134,6 +134,18 @@
 
 @media only screen and (width <= 768px) {
   .section {
-    padding: 3rem 0;
+    padding: var(--space-2xl) 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryButton,
+  .secondaryButton {
+    transition: none;
+  }
+
+  .primaryButton:hover,
+  .secondaryButton:hover {
+    transform: none;
   }
 }

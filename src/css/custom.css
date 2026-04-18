@@ -6,7 +6,7 @@
 @import url("/assets/fonts/jetbrainsmono-variable.css");
 
 :root {
-  transition-duration: 1s;
+  /* transition-duration scoped to html — see below */
 
   --ifm-font-family: "JetBrains Mono", "Hack", monospace;
   --ifm-font-family-base: "JetBrains Mono", monospace;
@@ -40,6 +40,42 @@
   --ifm-navbar-background-color: var(--ifm-background-surface-color);
   --docusaurus-highlighted-code-line-bg: hsl(0deg 0% 0% / 15%);
   --docusaurus-announcement-bar-height: auto;
+
+  /* ── Design system tokens ── */
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+
+  /* Shadow scale */
+  --shadow-sm: 0 2px 8px hsl(0deg 0% 0% / 6%);
+  --shadow-md: 0 4px 16px hsl(0deg 0% 0% / 8%);
+  --shadow-lg: 0 8px 32px hsl(0deg 0% 0% / 12%);
+  --shadow-glow: 0 0 20px hsl(168deg 70% 45% / 15%);
+
+  /* Radius scale */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Transition tokens */
+  --duration-fast: 0.15s;
+  --duration-normal: 0.3s;
+  --duration-slow: 0.5s;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  transition:
+    background-color 0.5s,
+    color 0.5s;
 }
 
 [data-theme="dark"] {
@@ -316,6 +352,10 @@ html[data-theme="dark"] div[class^="announcementBar_"] {
 @media (prefers-reduced-motion: reduce) {
   :root {
     transition-duration: 0s;
+  }
+
+  html {
+    transition: none;
   }
 }
 

@@ -214,7 +214,7 @@ The site already has a global reduced-motion rule in `custom.css`:
 
 Quick-reference checklist when creating or reviewing any UI component:
 
-```
+```text
 □ Color contrast ≥ 4.5:1 (text) / 3:1 (UI) in both themes
 □ All interactive elements keyboard-reachable with visible focus
 □ Proper ARIA labels on icon-only buttons and meaningful emojis

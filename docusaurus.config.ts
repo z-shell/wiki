@@ -21,7 +21,7 @@ export default async function createConfigAsync() {
     tagline: "A Swiss Army Knife for Zsh Unix shell",
     projectName: "wiki",
     organizationName: "z-shell",
-    baseUrlIssueBanner: true,
+    baseUrlIssueBanner: false,
     onBrokenLinks: "throw",
     staticDirectories: ["static"],
     favicon: "/img/favicon.ico",
@@ -209,7 +209,7 @@ export default async function createConfigAsync() {
           {to: "ecosystem", position: "left", label: "Ecosystem"},
           {to: "community", position: "left", label: "Community"},
           /* { to: 'blog', position: 'left', label: 'Blog' }, */
-          {
+          /* {
             type: "localeDropdown",
             position: "right",
             dropdownItemsAfter: [
@@ -218,7 +218,7 @@ export default async function createConfigAsync() {
                 label: "Help Us Translate",
               },
             ],
-          },
+          }, */
           {
             href: "https://github.com/z-shell/zi",
             position: "right",

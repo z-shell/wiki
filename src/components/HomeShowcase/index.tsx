@@ -9,7 +9,8 @@ export default function HomeShowcase(): React.JSX.Element {
     <section className={styles.section}>
       <div className="container">
         <div className={styles.grid}>
-          <div>
+          <div className={styles.textContent}>
+            <span className={styles.badge}>▶ See it in action</span>
             <Heading as="h2" className={styles.heading}>
               <Translate id="homepage.showcase.heading" description="Showcase section heading">
                 Install Plugins in Seconds
@@ -17,8 +18,7 @@ export default function HomeShowcase(): React.JSX.Element {
             </Heading>
             <p className={styles.description}>
               <Translate id="homepage.showcase.desc" description="Showcase section description">
-                Watch Zi install and configure plugins with a single command. Turbo mode handles downloads, compilation,
-                and completions — all in the background.
+                See Zi in action — from installation to plugin setup and configuration.
               </Translate>
             </p>
             <p className={styles.subdesc}>

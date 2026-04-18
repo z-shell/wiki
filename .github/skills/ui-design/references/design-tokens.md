@@ -1,5 +1,10 @@
 # Design Tokens
 
+> **Implementation status**: The tokens below are implemented as CSS custom properties in
+> `src/css/custom.css` `:root` block. Use `var(--token-name)` in CSS modules. Spacing,
+> shadow, radius, and transition tokens are live. Color tokens use existing Docusaurus
+> `--ifm-color-*` variables.
+
 Canonical reference for all visual values used across the wiki UI. Values are derived from
 auditing `src/css/custom.css` and all component CSS modules.
 
@@ -87,26 +92,24 @@ Target 8-point scale. Maps current hardcoded values to semantic tokens:
 | ------------- | --------- | ------------------------------------------------------------------- |
 | `--space-xs`  | `0.25rem` | Kbd padding, footer item padding                                    |
 | `--space-sm`  | `0.5rem`  | Small gaps                                                          |
-| `--space-md`  | `0.75rem` | Card title margin-bottom, button vertical padding                   |
-| `--space-lg`  | `1rem`    | Card icon/emoji margin, button gap, heading margin                  |
-| `--space-xl`  | `1.25rem` | Grid gap (Ecosystem, Community)                                     |
-| `--space-2xl` | `1.5rem`  | Card inner padding (horizontal), grid gap (WhyZi), heading gap      |
-| `--space-3xl` | `2rem`    | Card inner padding (vertical), CTA description margin, hero padding |
-| `--space-4xl` | `3rem`    | Section heading margin-bottom, showcase grid gap                    |
-| `--space-5xl` | `5rem`    | Section vertical padding                                            |
+| `--space-md`  | `1rem`    | Card title margin-bottom, button vertical padding                   |
+| `--space-lg`  | `1.5rem`  | Card inner padding (horizontal), grid gap, heading gap              |
+| `--space-xl`  | `2rem`    | Card inner padding (vertical), CTA description margin, hero padding |
+| `--space-2xl` | `3rem`    | Section heading margin-bottom, showcase grid gap                    |
+| `--space-3xl` | `5rem`    | Section vertical padding                                            |
 
-### Usage Examples
+### Spacing Examples
 
 ```css
 /* ✅ Correct — use token */
 .section {
-  padding: var(--space-5xl) 0;
+  padding: var(--space-3xl) 0;
 }
 .card {
-  padding: var(--space-3xl) var(--space-2xl);
+  padding: var(--space-xl) var(--space-lg);
 }
 .grid {
-  gap: var(--space-xl);
+  gap: var(--space-lg);
 }
 
 /* ❌ Incorrect — hardcoded */
@@ -117,7 +120,7 @@ Target 8-point scale. Maps current hardcoded values to semantic tokens:
   padding: 2rem 1.5rem;
 }
 .grid {
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 ```
 
@@ -138,7 +141,7 @@ Standardize to 4 named breakpoints. Current usage is inconsistent (5 different v
 
 ### Responsive Collapse Pattern
 
-```
+```text
 Desktop (>1024px):   3 columns, full padding
 Tablet (481–1024px): 2 columns, reduced padding
 Mobile (≤480px):     1 column, compact padding
@@ -148,12 +151,12 @@ Mobile (≤480px):     1 column, compact padding
 
 Standardize to 4-level semantic scale:
 
-| Token         | Value                                | Usage                      |
-| ------------- | ------------------------------------ | -------------------------- |
-| `--shadow-sm` | `0 2px 12px hsl(0 0% 0% / 4%)`       | Card resting state (light) |
-| `--shadow-md` | `0 8px 24px hsl(0 0% 0% / 20%)`      | Button hover               |
-| `--shadow-lg` | `0 12px 40px hsl(168 70% 30% / 15%)` | Card hover state           |
-| `--shadow-xl` | `0 20px 60px hsl(0 0% 0% / 30%)`     | Terminal window (dark)     |
+| Token           | Value                                | Usage                      |
+| --------------- | ------------------------------------ | -------------------------- |
+| `--shadow-sm`   | `0 2px 8px hsl(0deg 0% 0% / 6%)`     | Card resting state (light) |
+| `--shadow-md`   | `0 4px 16px hsl(0deg 0% 0% / 8%)`    | Button hover               |
+| `--shadow-lg`   | `0 8px 32px hsl(0deg 0% 0% / 12%)`   | Card hover state           |
+| `--shadow-glow` | `0 0 20px hsl(168deg 70% 45% / 15%)` | Glow accent effect         |
 
 ### Text Shadows
 
@@ -166,42 +169,41 @@ Standardize to 4-level semantic scale:
 
 ## Border Radius
 
-| Token           | Value      | Usage                           |
-| --------------- | ---------- | ------------------------------- |
-| `--radius-xs`   | `0.375rem` | Badges (GhRepoBadge)            |
-| `--radius-sm`   | `0.5em`    | Images (ImageView)              |
-| `--radius-md`   | `8px`      | Buttons                         |
-| `--radius-lg`   | `12px`     | Terminal window                 |
-| `--radius-xl`   | `16px`     | Cards                           |
-| `--radius-full` | `50%`      | Dots, spinners, circular shapes |
+| Token           | Value    | Usage                        |
+| --------------- | -------- | ---------------------------- |
+| `--radius-xs`   | `4px`    | Badges (GhRepoBadge)         |
+| `--radius-sm`   | `8px`    | Images (ImageView), buttons  |
+| `--radius-md`   | `12px`   | Terminal window              |
+| `--radius-lg`   | `16px`   | Cards                        |
+| `--radius-full` | `9999px` | Pills, dots, circular shapes |
 
 ## Transitions
 
-| Token               | Duration | Easing | Usage                           |
-| ------------------- | -------- | ------ | ------------------------------- |
-| `--duration-fast`   | `150ms`  | `ease` | Badge hover, micro-interactions |
-| `--duration-normal` | `200ms`  | `ease` | Button hover/press              |
-| `--duration-slow`   | `300ms`  | `ease` | Card hover transform + shadow   |
-| `--duration-slower` | `600ms`  | `ease` | Table row focus transition      |
+| Token               | Value                           | Usage                           |
+| ------------------- | ------------------------------- | ------------------------------- |
+| `--duration-fast`   | `0.15s`                         | Badge hover, micro-interactions |
+| `--duration-normal` | `0.3s`                          | Button hover/press              |
+| `--duration-slow`   | `0.5s`                          | Card hover transform + shadow   |
+| `--ease-out`        | `cubic-bezier(0.16, 1, 0.3, 1)` | Shared easing curve             |
 
-### Usage Examples
+### Transition Examples
 
 ```css
 /* ✅ Cards — slow for smooth hover lift */
 .card {
   transition:
-    transform var(--duration-slow) ease,
-    box-shadow var(--duration-slow) ease;
+    transform var(--duration-slow) var(--ease-out),
+    box-shadow var(--duration-slow) var(--ease-out);
 }
 
 /* ✅ Buttons — normal for snappy feedback */
 .button {
   transition:
-    transform var(--duration-normal) ease,
-    box-shadow var(--duration-normal) ease;
+    transform var(--duration-normal) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out);
 }
 
-/* ❌ Inconsistent durations */
+/* ❌ Inconsistent durations / hardcoded easing */
 .card {
   transition:
     transform 0.3s ease,
@@ -220,7 +222,7 @@ The card design language uses glass-morphism (frosted glass effect):
   background: hsl(0 0% 100% / 4%);
   border: 1px solid hsl(0 0% 100% / 8%);
   backdrop-filter: blur(12px);
-  border-radius: var(--radius-xl); /* 16px */
+  border-radius: var(--radius-lg); /* 16px */
 
   /* Light mode override */
   [data-theme="light"] & {
