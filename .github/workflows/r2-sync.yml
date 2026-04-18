@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: "lts/*"
       - name: "📦 Install wrangler"
-        run: npm install -g wrangler
+        run: npm install -g wrangler@4.13.2
       - name: "⏫ Sync static assets to R2"
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
@@ -37,19 +37,35 @@ jobs:
           uploaded=0
           failed=0
           for dir in img assets; do
+          upload_concurrency=8
+          uploaded=0
+          failed=0
+          for dir in img assets; do
             src="static/$dir"
             [ -d "$src" ] || continue
             echo "::group::Syncing $src → $bucket/$dir"
-            while IFS= read -r -d '' file; do
+            results_file="$(mktemp)"
+            find "$src" -type f -print0 | xargs -0 -r -P "$upload_concurrency" -I{} bash -c '
+              file="$1"
+              bucket="$2"
               key="${file#static/}"
               if wrangler r2 object put "$bucket/$key" --file="$file" > /dev/null 2>&1; then
+                printf "success\t%s\n" "$key"
+              else
+                printf "failure\t%s\n" "$key"
+              fi
+            ' _ "{}" "$bucket" > "$results_file"
+            while IFS=$'\t' read -r status key; do
+              [ -n "$key" ] || continue
+              if [ "$status" = "success" ]; then
                 echo "✓ $key"
                 uploaded=$((uploaded + 1))
               else
                 echo "::warning::Failed to upload $key"
                 failed=$((failed + 1))
               fi
-            done < <(find "$src" -type f -print0)
+            done < "$results_file"
+            rm -f "$results_file"
             echo "::endgroup::"
           done
           {
