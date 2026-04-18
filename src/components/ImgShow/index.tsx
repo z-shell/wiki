@@ -18,7 +18,7 @@ export default function ImgShow(props: ImgProps): React.JSX.Element {
       <Image
         alt={alt}
         img={img}
-        className={styles.ImgClass}
+        className={styles.image}
         aria-hidden={label != null ? undefined : true}
         aria-label={label ?? undefined}
         role="img"
