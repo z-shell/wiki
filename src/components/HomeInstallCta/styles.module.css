@@ -2,13 +2,37 @@
   padding: 5rem 0;
   color: white;
   text-align: center;
-  background: linear-gradient(135deg, hsl(168deg 70% 22%) 0%, hsl(168deg 55% 32%) 100%);
+  background:
+    radial-gradient(ellipse at 30% 20%, hsl(168deg 80% 35% / 20%) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, hsl(200deg 60% 30% / 15%) 0%, transparent 45%),
+    linear-gradient(135deg, hsl(168deg 70% 18%) 0%, hsl(168deg 55% 28%) 50%, hsl(200deg 40% 22%) 100%);
+}
+
+:global([data-theme="light"]) .section {
+  color: var(--ifm-font-color-base);
+  background:
+    radial-gradient(ellipse at 30% 20%, hsl(168deg 60% 70% / 15%) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, hsl(200deg 50% 80% / 12%) 0%, transparent 45%),
+    linear-gradient(135deg, hsl(168deg 50% 92%) 0%, hsl(168deg 40% 96%) 100%);
 }
 
 .heading {
-  margin-bottom: 1rem;
-  color: white;
-  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: transparent;
+  font-size: 2.4rem;
+  background: linear-gradient(135deg, hsl(168deg 60% 85%) 0%, hsl(168deg 70% 65%) 50%, hsl(0deg 0% 100%) 100%);
+  background-clip: text;
+  text-wrap: balance;
+}
+
+:global([data-theme="light"]) .heading {
+  background: linear-gradient(
+    135deg,
+    var(--ifm-color-primary-light) 0%,
+    var(--ifm-color-primary-dark) 50%,
+    var(--ifm-color-primary-darkest) 100%
+  );
+  background-clip: text;
 }
 
 .description {
@@ -17,6 +41,13 @@
   color: hsl(0deg 0% 100% / 80%);
   font-size: 1.1rem;
   line-height: 1.6;
+  text-shadow: 0 1px 2px hsl(0deg 0% 0% / 20%);
+  text-wrap: pretty;
+}
+
+:global([data-theme="light"]) .description {
+  color: var(--ifm-font-color-secondary);
+  text-shadow: none;
 }
 
 .buttons {
@@ -41,11 +72,26 @@
     box-shadow 0.2s ease;
 }
 
+:global([data-theme="light"]) .primaryButton {
+  color: white;
+  background: var(--ifm-color-primary);
+}
+
 .primaryButton:hover {
   color: hsl(168deg 70% 15%);
   text-decoration: none;
   transform: translateY(-2px);
   box-shadow: 0 8px 24px hsl(0deg 0% 0% / 20%);
+}
+
+.primaryButton:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+:global([data-theme="light"]) .primaryButton:hover {
+  color: white;
+  background: var(--ifm-color-primary-dark);
 }
 
 .secondaryButton {
@@ -64,11 +110,26 @@
     transform 0.2s ease;
 }
 
+:global([data-theme="light"]) .secondaryButton {
+  color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary-light);
+}
+
 .secondaryButton:hover {
   color: white;
   text-decoration: none;
   border-color: white;
   transform: translateY(-2px);
+}
+
+.secondaryButton:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+:global([data-theme="light"]) .secondaryButton:hover {
+  color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary);
 }
 
 @media only screen and (width <= 768px) {

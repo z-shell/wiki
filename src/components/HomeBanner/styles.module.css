@@ -7,7 +7,7 @@
   text-align: right;
 }
 
-@media only screen and (width <= 900px) {
+@media only screen and (width <= 1024px) {
   .herobanner {
     padding: 1rem 0;
   }
@@ -24,10 +24,18 @@
   padding: 4rem;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 15% 50%, hsl(168deg 70% 30% / 15%) 0%, transparent 50%),
-    radial-gradient(ellipse at 85% 20%, hsl(210deg 60% 40% / 10%) 0%, transparent 40%),
+    radial-gradient(ellipse at 15% 50%, hsl(168deg 70% 30% / 18%) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 20%, hsl(210deg 60% 40% / 12%) 0%, transparent 40%),
     radial-gradient(ellipse at 50% 100%, hsl(168deg 50% 20% / 10%) 0%, transparent 50%),
     var(--site-color-surface-elevated);
+}
+
+:global([data-theme="light"]) .hero {
+  background:
+    radial-gradient(ellipse at 15% 50%, hsl(168deg 70% 50% / 12%) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 20%, hsl(210deg 60% 50% / 8%) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 100%, hsl(168deg 50% 40% / 6%) 0%, transparent 50%),
+    var(--ifm-background-surface-color);
 }
 
 .heroInner {
@@ -37,12 +45,31 @@
 }
 
 .heroProjectTagline {
-  color: var(--ifm-color-white);
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 1.5rem;
+  color: var(--ifm-font-color-base);
   font-size: 2.8rem;
+  text-wrap: balance;
+}
+
+:global([data-theme="dark"]) .heroProjectTagline {
+  color: var(--ifm-color-white);
+  text-shadow:
+    0 0 40px hsl(168deg 70% 45% / 35%),
+    0 2px 4px hsl(0deg 0% 0% / 40%);
 }
 
 .heroTitleTextHtml b {
-  color: var(--ifm-color-primary);
+  color: transparent;
+  background: linear-gradient(135deg, var(--ifm-color-primary-lightest) 0%, var(--ifm-color-primary) 100%);
+  background-clip: text;
+}
+
+:global([data-theme="light"]) .heroTitleTextHtml b {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-darkest) 100%);
+  background-clip: text;
 }
 
 @keyframes jack-in-the-box {
@@ -67,29 +94,36 @@
 }
 
 .heroLogo {
-  display: block;
-  margin-left: auto;
+  flex-shrink: 0;
   max-width: 100%;
   height: auto;
-  margin-top: 20px;
-  padding: 0 20px 20px;
   filter: drop-shadow(0 0 40px hsl(168deg 70% 45% / 30%));
   animation-name: jack-in-the-box;
   animation-duration: 4s;
 }
 
+:global([data-theme="light"]) .heroLogo {
+  filter: drop-shadow(0 0 30px hsl(168deg 70% 45% / 20%));
+}
+
 .heroSubtitle {
   max-width: 600px;
-  margin: 0.5rem 0 0;
-  color: hsl(0deg 0% 100% / 65%);
+  margin: 1.5rem 0 0;
+  color: var(--ifm-font-color-secondary);
   font-size: 1.05rem;
   line-height: 1.6;
+  text-wrap: pretty;
+}
+
+:global([data-theme="dark"]) .heroSubtitle {
+  color: hsl(0deg 0% 100% / 65%);
+  text-shadow: 0 1px 3px hsl(0deg 0% 0% / 30%);
 }
 
 .indexCtasGitHubButtonWrapper {
   display: flex;
-  max-width: 70%;
-  padding: 2rem 0;
+  gap: 0.25rem;
+  align-items: center;
 }
 
 .indexCtasGitHubButton {
@@ -100,29 +134,21 @@
   color: var(--ifm-color-primary);
 }
 
-.indexCtas a {
-  color: var(--ifm-color-black) !important;
-}
-
 .indexCtas {
   --ifm-button-size-multiplier: 1.4;
 
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
   align-items: center;
   margin-top: 18px;
 }
 
-.indexCtas a:hover {
-  color: var(--ifm-color-primary) !important;
-  background: var(--site-color-surface-dark);
-}
-
 .indexCtas a:last-of-type {
-  margin: 16px 24px;
+  margin: 0;
 }
 
-@media only screen and (width <= 700px) {
+@media only screen and (width <= 768px) {
   .hero {
     padding-right: 2rem;
     padding-left: 2rem;
@@ -133,16 +159,13 @@
   }
 
   .heroProjectTagline {
+    flex-direction: column;
     font-size: 2rem;
     text-align: center;
   }
 
   .heroLogo {
-    display: block;
-    float: none;
     max-width: 30%;
-    height: auto;
-    margin: 0 auto;
   }
 
   .indexCtas {
@@ -160,7 +183,7 @@
   }
 }
 
-@media only screen and (width <= 500px) {
+@media only screen and (width <= 480px) {
   .heroProjectTagline {
     font-size: 1.8rem;
     text-align: center;

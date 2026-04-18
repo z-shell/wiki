@@ -1,65 +1,40 @@
+/** @format */
+
 .section {
-  padding: 5rem 0;
+  composes: section from "../shared/CardGrid.module.css";
+  background:
+    radial-gradient(ellipse at 70% 20%, hsl(168deg 70% 30% / 6%) 0%, transparent 45%),
+    radial-gradient(ellipse at 30% 80%, hsl(210deg 60% 40% / 5%) 0%, transparent 40%);
+}
+
+:global([data-theme="light"]) .section {
+  background:
+    radial-gradient(ellipse at 70% 20%, hsl(168deg 70% 50% / 5%) 0%, transparent 45%),
+    radial-gradient(ellipse at 30% 80%, hsl(210deg 60% 50% / 3%) 0%, transparent 40%), hsl(168deg 30% 97%);
 }
 
 .heading {
-  margin-bottom: 3rem;
-  font-size: 2.2rem;
-  text-align: center;
+  composes: heading from "../shared/CardGrid.module.css";
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  composes: grid from "../shared/CardGrid.module.css";
 }
 
 .card {
-  padding: 2rem 1.5rem;
-  background: hsl(0deg 0% 100% / 4%);
-  backdrop-filter: blur(12px);
-  border: 1px solid hsl(0deg 0% 100% / 8%);
-  border-radius: 16px;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-:global([data-theme="light"]) .card {
-  background: hsl(0deg 0% 100% / 70%);
-  border-color: hsl(0deg 0% 0% / 6%);
-  box-shadow: 0 2px 12px hsl(0deg 0% 0% / 4%);
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px hsl(168deg 70% 30% / 15%);
+  composes: card from "../shared/CardGrid.module.css";
 }
 
 .cardIcon {
-  margin-bottom: 1rem;
-  font-size: 2.5rem;
-  line-height: 1;
+  composes: cardicon from "../shared/CardGrid.module.css";
+  display: block;
+  object-fit: contain;
 }
 
 .cardTitle {
-  margin-bottom: 0.75rem;
-  color: var(--ifm-color-primary);
-  font-size: 1.25rem;
+  composes: cardtitle from "../shared/CardGrid.module.css";
 }
 
 .cardDesc {
-  margin: 0;
-  color: var(--ifm-font-color-secondary);
-  line-height: 1.6;
-}
-
-@media only screen and (width <= 768px) {
-  .section {
-    padding: 3rem 0;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
+  composes: carddesc from "../shared/CardGrid.module.css";
 }

@@ -7,7 +7,7 @@ import styles from "./styles.module.css";
 
 export default function HeroBanner(): React.JSX.Element {
   return (
-    <div className={styles.hero} data-theme="dark">
+    <div className={styles.hero}>
       <div className={styles.heroInner}>
         <Heading as="h1" className={styles.heroProjectTagline}>
           <img alt="Zi logo" className={styles.heroLogo} src={useBaseUrl("/img/logo.svg")} height="200" width="200" />
@@ -22,11 +22,6 @@ export default function HeroBanner(): React.JSX.Element {
             }}
           />
         </Heading>
-        <p className={styles.heroSubtitle}>
-          <Translate id="homepage.hero.subtitle" description="Hero subtitle text">
-            The fastest and most flexible plugin manager for Zsh — turbo mode, packages, annexes, and more.
-          </Translate>
-        </p>
         <div className={styles.indexCtas}>
           <Link className="button button--primary" to="/docs/getting_started/installation">
             <Translate id="homepage.banner.button.1" description="The homepage get started button">
@@ -42,7 +37,7 @@ export default function HeroBanner(): React.JSX.Element {
             <iframe
               className={styles.indexCtasGitHubButton}
               src="https://ghbtns.com/github-btn.html?user=z-shell&amp;repo=zi&amp;type=star&amp;count=true&amp;size=large"
-              width={230}
+              width={130}
               height={30}
               title="GitHub Stars"
               loading="lazy"
@@ -50,7 +45,7 @@ export default function HeroBanner(): React.JSX.Element {
             <iframe
               className={styles.indexCtasGitHubButton}
               src="https://ghbtns.com/github-btn.html?user=z-shell&amp;type=follow&count=false&size=large"
-              width={230}
+              width={170}
               height={30}
               title="Follow on GitHub"
               loading="lazy"
