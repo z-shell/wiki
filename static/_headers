@@ -1,25 +1,26 @@
-/img/*
-  Cache-Control: public, max-age=31536000, immutable
-  Access-Control-Allow-Origin: *
-  X-Robots-Tag: nosnippet, noindex
+# Security headers for all pages
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: document-domain=()
+  X-Frame-Options: SAMEORIGIN
 
+# Fingerprinted build assets — cache aggressively
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
   X-Robots-Tag: nosnippet, noindex
 
-/ja/assets/*
+# Static images — cache aggressively
+/img/*
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
   X-Robots-Tag: nosnippet, noindex
 
-/zh-Hans/assets/*
-  Cache-Control: public, max-age=31536000, immutable
-  Access-Control-Allow-Origin: *
-  X-Robots-Tag: nosnippet, noindex
+# Prevent *.pages.dev production URL from being indexed
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
 
-https://:zsh.pages.dev/*
-  X-Robots-Tag: nosnippet, noindex
-
-https://:zsh.pages.dev/*
-  Access-Control-Allow-Origin: https://staging.:zsh.pages.dev/
+# Prevent preview deployment URLs from being indexed
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
