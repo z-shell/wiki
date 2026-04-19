@@ -21,7 +21,7 @@ export default async function createConfigAsync() {
     tagline: "A Swiss Army Knife for Zsh Unix shell",
     projectName: "wiki",
     organizationName: "z-shell",
-    baseUrlIssueBanner: false,
+    baseUrlIssueBanner: true,
     onBrokenLinks: "throw",
     staticDirectories: ["static"],
     favicon: "/img/favicon.ico",
