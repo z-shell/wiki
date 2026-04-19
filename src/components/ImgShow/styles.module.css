@@ -1,11 +1,16 @@
 .image {
   display: block;
-  margin: 0 auto;
+  margin: var(--space-md) auto;
   text-align: center;
 }
 
 .image img {
   max-width: 100%;
-  height: auto;
+  height: auto !important;
+  border: 1px solid hsl(0deg 0% 100% / 10%);
   border-radius: var(--ifm-global-radius);
+}
+
+:global([data-theme="light"]) .image img {
+  border-color: hsl(0deg 0% 0% / 10%);
 }

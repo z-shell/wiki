@@ -2,6 +2,7 @@
   "name": "wiki",
   "version": "0.0.0",
   "private": true,
+  "sideEffects": false,
   "scripts": {
     "build": "docusaurus build",
     "build:en": "docusaurus build --locale en",

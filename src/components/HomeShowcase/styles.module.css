@@ -15,31 +15,9 @@
     var(--ifm-background-surface-color);
 }
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  margin-bottom: var(--space-md);
-  padding: var(--space-xs) var(--space-md);
-  color: var(--ifm-color-primary-light);
-  font-weight: 600;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: hsl(168deg 70% 45% / 10%);
-  border: 1px solid hsl(168deg 70% 45% / 20%);
-  border-radius: var(--radius-full);
-}
-
-:global([data-theme="light"]) .badge {
-  color: var(--ifm-color-primary-dark);
-  background: hsl(168deg 70% 45% / 8%);
-  border-color: hsl(168deg 70% 45% / 15%);
-}
-
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
+  grid-template-columns: 1.6fr 1fr;
   gap: var(--space-2xl);
   align-items: center;
 }
@@ -50,7 +28,7 @@
 }
 
 .heading {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-sm);
   color: transparent;
   font-size: 2.2rem;
   text-wrap: balance;
@@ -71,6 +49,28 @@
     var(--ifm-color-primary-darkest) 100%
   );
   background-clip: text;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+  padding: var(--space-xs) var(--space-md);
+  color: var(--ifm-color-primary-light);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: hsl(168deg 70% 45% / 10%);
+  border: 1px solid hsl(168deg 70% 45% / 20%);
+  border-radius: var(--radius-full);
+}
+
+:global([data-theme="light"]) .badge {
+  color: var(--ifm-color-primary-dark);
+  background: hsl(168deg 70% 45% / 8%);
+  border-color: hsl(168deg 70% 45% / 15%);
 }
 
 .description {
@@ -142,6 +142,24 @@
 
 .terminalBody {
   padding: 0;
+  --term-color-background: hsl(235deg 19% 13%);
+  --term-color-foreground: hsl(229deg 73% 86%);
+  --term-color-0: hsl(233deg 18% 10%);
+  --term-color-1: hsl(349deg 89% 72%);
+  --term-color-2: hsl(89deg 51% 61%);
+  --term-color-3: hsl(36deg 66% 64%);
+  --term-color-4: hsl(221deg 89% 72%);
+  --term-color-5: hsl(261deg 85% 79%);
+  --term-color-6: hsl(202deg 100% 75%);
+  --term-color-7: hsl(229deg 35% 75%);
+  --term-color-8: hsl(229deg 23% 33%);
+  --term-color-9: hsl(349deg 89% 72%);
+  --term-color-10: hsl(171deg 58% 65%);
+  --term-color-11: hsl(36deg 66% 64%);
+  --term-color-12: hsl(221deg 89% 72%);
+  --term-color-13: hsl(261deg 85% 79%);
+  --term-color-14: hsl(202deg 100% 75%);
+  --term-color-15: hsl(229deg 73% 86%);
 }
 
 @media only screen and (width <= 768px) {
@@ -154,7 +172,7 @@
   }
 
   .terminal {
-    max-height: 280px;
+    max-height: 320px;
     overflow: hidden;
   }
 

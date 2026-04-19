@@ -9,13 +9,31 @@ export default function HomeShowcase(): React.JSX.Element {
     <section className={styles.section}>
       <div className="container">
         <div className={styles.grid}>
+          <div className={styles.terminal}>
+            <div className={styles.terminalHeader}>
+              <span className={styles.dot} data-color="red" />
+              <span className={styles.dot} data-color="yellow" />
+              <span className={styles.dot} data-color="green" />
+            </div>
+            <div className={styles.terminalBody}>
+              <Player
+                src="/assets/cast/509113.cast"
+                rows={18}
+                cols={231}
+                terminalFontFamily="var(--ifm-font-family-monospace)"
+                terminalFontSize="var(--ifm-code-font-size)"
+                fit={false}
+                controls={false}
+              />
+            </div>
+          </div>
           <div className={styles.textContent}>
-            <span className={styles.badge}>▶ See it in action</span>
             <Heading as="h2" className={styles.heading}>
               <Translate id="homepage.showcase.heading" description="Showcase section heading">
                 Install Plugins in Seconds
               </Translate>
             </Heading>
+            <span className={styles.badge}>▶ See it in action</span>
             <p className={styles.description}>
               <Translate id="homepage.showcase.desc" description="Showcase section description">
                 See Zi in action — from installation to plugin setup and configuration.
@@ -27,24 +45,6 @@ export default function HomeShowcase(): React.JSX.Element {
                 completions and reports.
               </Translate>
             </p>
-          </div>
-          <div className={styles.terminal}>
-            <div className={styles.terminalHeader}>
-              <span className={styles.dot} data-color="red" />
-              <span className={styles.dot} data-color="yellow" />
-              <span className={styles.dot} data-color="green" />
-            </div>
-            <div className={styles.terminalBody}>
-              <Player
-                src="/assets/cast/509113.cast"
-                rows={34}
-                cols={231}
-                terminalFontFamily="var(--ifm-font-family-monospace)"
-                terminalFontSize="var(--ifm-code-font-size)"
-                fit={false}
-                controls={false}
-              />
-            </div>
           </div>
         </div>
       </div>

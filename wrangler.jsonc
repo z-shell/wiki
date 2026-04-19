@@ -1,6 +1,17 @@
-// wrangler.jsonc — Pages configuration for R2 bindings
-// Picked up automatically by `wrangler pages deploy`
+// wrangler.jsonc — Pages Functions configuration
+// Becomes the source of truth once pages_build_output_dir is set
 {
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "wiki",
+  "pages_build_output_dir": "build",
+  "compatibility_date": "2026-04-19",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "head_sampling_rate": 1,
+    },
+  },
   "r2_buckets": [
     {
       "binding": "ASSETS_BUCKET",

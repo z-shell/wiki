@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useRef, useState} from "react";
+import React, {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import Link from "@docusaurus/Link";
 import Spinner from "@site/src/components/Spinner";
 import "asciinema-player/dist/bundle/asciinema-player.css";
@@ -27,7 +27,7 @@ export default function Player({
   src,
   cols,
   rows,
-  autoPlay,
+  autoPlay: _autoPlay,
   preload,
   loop,
   startAt,
@@ -43,14 +43,15 @@ export default function Player({
   markers,
 }: PlayerProps): React.JSX.Element {
   const element = useRef<HTMLDivElement>(null);
-  const [player, setPlayer] = useState<typeof import("asciinema-player")>();
+  const instanceRef = useRef<ReturnType<typeof import("asciinema-player").create> | null>(null);
+  const [playerModule, setPlayerModule] = useState<typeof import("asciinema-player")>();
   const [error, setError] = useState(false);
 
   const opts = useMemo(
     () => ({
       cols,
       rows,
-      autoPlay,
+      autoPlay: false,
       preload,
       loop,
       startAt,
@@ -68,7 +69,6 @@ export default function Player({
     [
       cols,
       rows,
-      autoPlay,
       preload,
       loop,
       startAt,
@@ -86,17 +86,45 @@ export default function Player({
   );
 
   useEffect(() => {
-    import("asciinema-player").then((module) => setPlayer(module)).catch(() => setError(true));
+    import("asciinema-player").then((module) => setPlayerModule(module)).catch(() => setError(true));
   }, []);
 
   useEffect(() => {
     const currentRef = element.current;
-    const instance = player?.create(src, currentRef, opts);
+    const instance = playerModule?.create(src, currentRef, opts);
+    instanceRef.current = instance ?? null;
 
     return () => {
+      instanceRef.current = null;
       instance?.dispose();
     };
-  }, [src, opts, player]);
+  }, [src, opts, playerModule]);
+
+  const handleVisibility = useCallback((entries: IntersectionObserverEntry[]) => {
+    const instance = instanceRef.current;
+    if (!instance) return;
+
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) return;
+
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        instance.play();
+      } else {
+        instance.pause();
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    const node = element.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(handleVisibility, {threshold: 0.3});
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, [handleVisibility, playerModule]);
 
   if (error) {
     return (
@@ -111,7 +139,7 @@ export default function Player({
     );
   }
 
-  if (player == null) {
+  if (playerModule == null) {
     return <Spinner ariaLabel="Loading terminal recording" />;
   }
 
