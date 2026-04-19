@@ -1,5 +1,3 @@
-// wrangler.jsonc — Pages Functions configuration
-// Becomes the source of truth once pages_build_output_dir is set
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "wiki",
@@ -9,13 +7,13 @@
   "observability": {
     "enabled": true,
     "logs": {
-      "head_sampling_rate": 1,
-    },
+      "head_sampling_rate": 1
+    }
   },
   "r2_buckets": [
     {
       "binding": "ASSETS_BUCKET",
-      "bucket_name": "r2-store",
-    },
-  ],
+      "bucket_name": "r2-store"
+    }
+  ]
 }

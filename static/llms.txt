@@ -1,0 +1,62 @@
+# Z-Shell Wiki
+
+> Official documentation and knowledge base for Zi — a Swiss Army Knife plugin manager for the Zsh Unix shell. Covers installation, configuration, syntax, commands, the ecosystem of annexes, packages, and plugins, plus community guides for Zsh scripting and plugin development.
+
+The wiki is organized into three content areas: core Zi documentation (`/docs`), the ecosystem of extensions (`/ecosystem`), and community resources (`/community`). Zi (formerly zplugin/zinit) manages Zsh plugins, snippets, completions, and binary programs with features like turbo mode (deferred loading), ice modifiers, and annexes for extending functionality.
+
+## Getting Started
+
+- [Installation](https://wiki.zshell.dev/docs/getting_started/installation): Automated and manual installation methods for Zi
+- [General Overview](https://wiki.zshell.dev/docs/getting_started/overview): Core concepts, turbo mode, and basic plugin loading
+- [Migration Guide](https://wiki.zshell.dev/docs/getting_started/migration): Migrating from Oh My Zsh, Prezto, or other plugin managers
+
+## Guides
+
+- [Commands](https://wiki.zshell.dev/docs/guides/commands): All Zi subcommands and their usage
+- [Configuration Management](https://wiki.zshell.dev/docs/guides/customization): User preferences, environment variables, and configuration patterns
+- [Benchmarking](https://wiki.zshell.dev/docs/guides/benchmark): Profiling and performance statistics for Zsh startup
+
+## Syntax Reference
+
+- [Standard Syntax](https://wiki.zshell.dev/docs/guides/syntax/standard): Fundamental syntax for loading plugins and snippets
+- [The "For" Syntax](https://wiki.zshell.dev/docs/guides/syntax/for): Modern syntax for loading multiple plugins concisely
+- [Ice Modifiers](https://wiki.zshell.dev/docs/guides/syntax/ice-modifiers): Complete reference for ice modifiers that control plugin behavior
+- [Bindkey Handling](https://wiki.zshell.dev/docs/guides/syntax/bindkey): Key binding management within Zi
+
+## Ecosystem — Annexes
+
+- [Annexes Overview](https://wiki.zshell.dev/ecosystem/annexes/overview): What annexes are and how they extend Zi
+- [Bin-Gem-Node](https://wiki.zshell.dev/ecosystem/annexes/bin-gem-node): Automatically manage Ruby gems, Node modules, and Rust crates
+- [Meta Plugins](https://wiki.zshell.dev/ecosystem/annexes/meta-plugins): Install curated groups of plugins with a single command
+- [Default Ice](https://wiki.zshell.dev/ecosystem/annexes/default-ice): Set default ice modifiers for all subsequent plugin loads
+- [Patch-DL](https://wiki.zshell.dev/ecosystem/annexes/patch-dl): Download and apply patches to plugins automatically
+
+## Ecosystem — Packages
+
+- [Packages Synopsis](https://wiki.zshell.dev/ecosystem/packages/synopsis): What Zi packages are and how they simplify complex installations
+- [Packages Usage](https://wiki.zshell.dev/ecosystem/packages/usage): How to install and manage packages
+
+## Ecosystem — Plugins
+
+- [F-Sy-H](https://wiki.zshell.dev/ecosystem/plugins/f-sy-h): Feature-rich syntax highlighting for Zsh
+- [H-S-MW](https://wiki.zshell.dev/ecosystem/plugins/h-s-mw): History search multi-word — context-aware history searching
+- [ZUI](https://wiki.zshell.dev/ecosystem/plugins/zui): Zsh User Interface library for building TUI applications
+
+## Community
+
+- [Zsh Plugin Standard](https://wiki.zshell.dev/community/zsh_plugin_standard): Standards and best practices for creating Zsh plugins
+- [Zsh Native Scripting Handbook](https://wiki.zshell.dev/community/zsh_handbook): Techniques and best practices for native Zsh scripting
+
+## Code Reference
+
+- [Code Documentation](https://wiki.zshell.dev/docs/code): Internal function reference, interactions, and feature documentation
+
+## Optional
+
+- [Zsh Startup Guide](https://wiki.zshell.dev/community/zsh_guide/roadmap/zsh_startup): Zsh startup file loading order and configuration
+- [Zsh Expansion Guide](https://wiki.zshell.dev/community/zsh_guide/roadmap/expansion): Parameter expansion, globbing, and substitution in Zsh
+- [Diff So Fancy](https://wiki.zshell.dev/ecosystem/plugins/diff-so-fancy): Human-readable diff output plugin
+- [ZBrowse](https://wiki.zshell.dev/ecosystem/plugins/zbrowse): Variable browser for Zsh
+- [ZPrompts](https://wiki.zshell.dev/ecosystem/plugins/zprompts): Zsh prompt themes collection
+- [Zi Console](https://wiki.zshell.dev/ecosystem/plugins/zi_console): Curses-based console for Zi
+- [Contributors](https://wiki.zshell.dev/community/contributors): Project contributors and acknowledgments
