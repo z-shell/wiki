@@ -6,7 +6,12 @@ on:
     paths:
       - "static/**"
       - ".github/workflows/r2-sync.yml"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      full_sync:
+        description: "Upload all static assets (ignore diff)"
+        type: boolean
+        default: false
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -22,54 +27,97 @@ jobs:
     steps:
       - name: "⤵️ Check out code from GitHub"
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          fetch-depth: 2
       - name: "⎔ Setup Node.js"
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: "lts/*"
       - name: "📦 Install wrangler"
         run: npm install -g wrangler@4.13.2
+      - name: "📋 Detect changed assets"
+        id: detect
+        run: |
+          full_sync="${{ inputs.full_sync }}"
+          if [ "$full_sync" = "true" ]; then
+            echo "mode=full" >> "$GITHUB_OUTPUT"
+            find static/img static/assets -type f 2>/dev/null > /tmp/changed_files.txt
+          elif git rev-parse HEAD~1 >/dev/null 2>&1; then
+            echo "mode=incremental" >> "$GITHUB_OUTPUT"
+            git diff --name-only --diff-filter=ACM HEAD~1 HEAD -- 'static/img/**' 'static/assets/**' > /tmp/changed_files.txt
+          else
+            echo "mode=full" >> "$GITHUB_OUTPUT"
+            find static/img static/assets -type f 2>/dev/null > /tmp/changed_files.txt
+          fi
+          count=$(wc -l < /tmp/changed_files.txt | tr -d ' ')
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          echo "Detected $count file(s) to upload"
       - name: "⏫ Sync static assets to R2"
+        if: steps.detect.outputs.count != '0'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
         run: |
           bucket="r2-store"
           upload_concurrency=8
+          max_retries=3
           uploaded=0
           failed=0
-          for dir in img assets; do
-            src="static/$dir"
-            [ -d "$src" ] || continue
-            echo "::group::Syncing $src → $bucket/$dir"
-            results_file="$(mktemp)"
-            find "$src" -type f -print0 | xargs -0 -r -P "$upload_concurrency" -I{} bash -c '
+          skipped=0
+          results_dir="$(mktemp -d)"
+          echo "::group::Uploading to $bucket (${{ steps.detect.outputs.mode }} mode)"
+          while IFS= read -r file; do
+            [ -f "$file" ] || continue
+            key="${file#static/}"
+            echo "$file" >> "$results_dir/queue.txt"
+          done < /tmp/changed_files.txt
+          if [ -s "$results_dir/queue.txt" ]; then
+            xargs -a "$results_dir/queue.txt" -r -P "$upload_concurrency" -I{} bash -c '
               file="$1"
               bucket="$2"
+              max_retries="$3"
+              results_dir="$4"
               key="${file#static/}"
-              if wrangler r2 object put "$bucket/$key" --file="$file" > /dev/null 2>&1; then
-                printf "success\t%s\n" "$key"
-              else
-                printf "failure\t%s\n" "$key"
-              fi
-            ' _ "{}" "$bucket" > "$results_file"
-            while IFS=$'\t' read -r status key; do
-              [ -n "$key" ] || continue
-              if [ "$status" = "success" ]; then
-                echo "✓ $key"
-                uploaded=$((uploaded + 1))
-              else
-                echo "::warning::Failed to upload $key"
-                failed=$((failed + 1))
-              fi
-            done < "$results_file"
-            rm -f "$results_file"
-            echo "::endgroup::"
+              result_file="$results_dir/$(echo "$key" | md5sum | cut -d" " -f1)"
+              attempt=0
+              while [ "$attempt" -lt "$max_retries" ]; do
+                attempt=$((attempt + 1))
+                if wrangler r2 object put "$bucket/$key" --file="$file" 2>/dev/null; then
+                  printf "success\t%s\n" "$key" > "$result_file"
+                  exit 0
+                fi
+                [ "$attempt" -lt "$max_retries" ] && sleep "$((attempt * 2))"
+              done
+              printf "failure\t%s\n" "$key" > "$result_file"
+            ' _ "{}" "$bucket" "$max_retries" "$results_dir"
+          fi
+          for f in "$results_dir"/*; do
+            [ -f "$f" ] && [ "$f" != "$results_dir/queue.txt" ] || continue
+            IFS=$'\t' read -r status key < "$f"
+            [ -n "$key" ] || continue
+            if [ "$status" = "success" ]; then
+              echo "✓ $key"
+              uploaded=$((uploaded + 1))
+            else
+              echo "::warning::Failed to upload $key"
+              failed=$((failed + 1))
+            fi
           done
+          rm -rf "$results_dir"
+          echo "::endgroup::"
           {
             echo "### R2 Sync Summary"
+            echo "- 📋 **Mode:** ${{ steps.detect.outputs.mode }}"
             echo "- ✅ **Uploaded:** $uploaded"
             echo "- ❌ **Failed:** $failed"
           } >> "$GITHUB_STEP_SUMMARY"
           if [ "$failed" -gt 0 ]; then
             exit 1
           fi
+      - name: "✅ Nothing to sync"
+        if: steps.detect.outputs.count == '0'
+        run: |
+          echo "No static asset changes detected — skipping upload."
+          echo "### R2 Sync Summary" >> "$GITHUB_STEP_SUMMARY"
+          echo "- 📋 **Mode:** incremental" >> "$GITHUB_STEP_SUMMARY"
+          echo "- ⏭️ **Skipped:** no changes in static/img or static/assets" >> "$GITHUB_STEP_SUMMARY"
