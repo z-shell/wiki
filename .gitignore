@@ -7,6 +7,9 @@ yarn.lock
 # Production
 /build
 
+# Translations
+/i18n
+
 # Docusaurus cache and generated files
 .docusaurus
 .lycheecache

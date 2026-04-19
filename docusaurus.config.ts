@@ -26,8 +26,31 @@ export default async function createConfigAsync() {
     staticDirectories: ["static"],
     favicon: "/img/favicon.ico",
     i18n: {defaultLocale: "en", locales: ["en"]},
-    markdown: {format: "detect", hooks: {onBrokenMarkdownLinks: "warn"}},
-    scripts: [{src: styles, crossorigin: "anonymous"}],
+    markdown: {mermaid: true, emoji: true, format: "detect", hooks: {onBrokenMarkdownLinks: "warn"}},
+    scripts: [{src: styles, crossorigin: "anonymous", defer: true}],
+    headTags: [
+      {tagName: "link", attributes: {rel: "preconnect", href: "https://cdn.jsdelivr.net", crossorigin: "anonymous"}},
+      {
+        tagName: "link",
+        attributes: {
+          rel: "preload",
+          href: "/assets/fonts/variable/JetBrainsMono[wght].woff2",
+          as: "font",
+          type: "font/woff2",
+          crossorigin: "anonymous",
+        },
+      },
+      {
+        tagName: "link",
+        attributes: {
+          rel: "preload",
+          href: "/assets/fonts/webfonts/hack-regular-subset.woff2",
+          as: "font",
+          type: "font/woff2",
+          crossorigin: "anonymous",
+        },
+      },
+    ],
     storage: {
       type: "localStorage",
       namespace: true,
@@ -40,11 +63,11 @@ export default async function createConfigAsync() {
         fasterByDefault: true,
         mdx1CompatDisabledByDefault: true,
       },
-      experimental_vcs: "default-v2",
+      experimental_vcs: true,
       faster: {
         swcJsLoader: true,
         swcJsMinimizer: true,
-        swcHtmlMinimizer: false,
+        swcHtmlMinimizer: true,
         lightningCssMinimizer: true,
         rspackBundler: true,
         rspackPersistentCache: true,
@@ -93,20 +116,22 @@ export default async function createConfigAsync() {
       [
         "pwa",
         {
-          debug: true,
+          debug: process.env.NODE_ENV === "development",
           offlineModeActivationStrategies: ["appInstalled", "standalone", "queryString"],
           pwaHead: [
-            {tagName: "link", rel: "icon", href: "img/logo.svg"},
-            {tagName: "link", rel: "icon", href: "img/logo.png"},
-            {tagName: "link", rel: "manifest", href: "manifest.json"},
-            {tagName: "link", rel: "browserconfig", href: "browserconfig.xml"},
+            {tagName: "link", rel: "icon", href: "/img/logo.svg"},
+            {tagName: "link", rel: "icon", href: "/img/logo.png"},
+            {tagName: "link", rel: "manifest", href: "/manifest.json"},
+            {tagName: "link", rel: "browserconfig", href: "/browserconfig.xml"},
+            {tagName: "link", rel: "apple-touch-icon", href: "/img/png/theme/z/192x192.png"},
+            {tagName: "link", rel: "mask-icon", href: "/img/logo.svg", color: "#23b898"},
             /* Windows  */
             {tagName: "meta", name: "msapplication-TileColor", content: "#23b898"},
-            {tagName: "meta", name: "msapplication-TileImage", content: "img/logo.png"},
+            {tagName: "meta", name: "msapplication-TileImage", content: "/img/png/theme/z/144x144.png"},
             {tagName: "meta", name: "msapplication-navbutton-color", content: "#23b898"},
-            {tagName: "meta", name: "msapplication-config", content: "browserconfig.xml"},
+            {tagName: "meta", name: "msapplication-config", content: "/browserconfig.xml"},
             /* Android  */
-            {tagName: "meta", name: "theme-color", content: "hsl(167°, 68%, 43%)"},
+            {tagName: "meta", name: "theme-color", content: "#23b898"},
             {tagName: "meta", name: "mobile-web-app-capable", content: "yes"},
             /* iOS  */
             {tagName: "meta", name: "apple-mobile-web-app-title", content: "Z-Shell"},
@@ -126,12 +151,7 @@ export default async function createConfigAsync() {
       [
         "classic",
         {
-          svgr: {
-            svgrConfig: {
-              svgo: true,
-              typescript: true,
-            },
-          },
+          svgr: {},
           docs: {
             path: "docs",
             breadcrumbs: true,
