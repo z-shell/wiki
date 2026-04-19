@@ -40,10 +40,25 @@ export default function MyComponent(props: MyProps): React.JSX.Element {
 
 ## Imports
 
-- Theme components: `@theme/Tabs`, `@theme/TabItem`, `@theme/IdealImage`
-- Docusaurus utilities: `@docusaurus/Link`, `@docusaurus/useDocusaurusContext`
+- Theme components: `@theme/Tabs`, `@theme/TabItem`, `@theme/IdealImage`, `@theme/ThemedImage`, `@theme/CodeBlock`, `@theme/Layout`, `@theme/Heading`
+- Docusaurus components: `@docusaurus/Link`, `@docusaurus/Translate`, `@docusaurus/Head`, `@docusaurus/BrowserOnly`, `@docusaurus/Interpolate`, `@docusaurus/ErrorBoundary`
+- Docusaurus hooks: `@docusaurus/useDocusaurusContext`, `@docusaurus/useBaseUrl`, `@docusaurus/useIsBrowser`, `@docusaurus/useGlobalData`, `@docusaurus/usePluginData`
 - Generated data: `@generated/*`
 - Use `clsx` for conditional class names.
+- See `.github/instructions/docusaurus-api.instructions.md` for detailed usage guidance and anti-patterns.
+
+## Images in Components
+
+Use `ImgShow` (`src/components/ImgShow/`) for PNG/JPG images in TSX components. It wraps `@theme/IdealImage` with centered layout styling and accepts all IdealImage props:
+
+```tsx
+import ImgShow from "@site/src/components/ImgShow";
+
+<ImgShow img="/img/example.png" alt="Example" />
+<ImgShow img={require("./screenshot.png")} alt="Screenshot" />
+```
+
+For SVGs or tiny icons (≤80px), plain `<img>` with `useBaseUrl()` and explicit `width`/`height` is correct.
 
 ## Styling
 

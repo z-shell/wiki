@@ -60,10 +60,18 @@ import Image from "@theme/IdealImage";
 
 Only import what is used on the page.
 
+**Important rules:**
+
+- Use `<Link to="...">` — never `<Link href="...">` (the `to` prop handles both internal and external URLs).
+- Never use `<Link>` inside markdown headings — headings already wrap content in `<a>` for TOC anchors. Use `[text](url)` markdown syntax instead.
+- Globally available components (`<Highlight>`, `<Emoji>`, `<GhRepoBadge>`, `<ShellCodeCopy>`) do not need imports — they are registered in `src/theme/MDXComponents.tsx`.
+- See `.github/instructions/docusaurus-api.instructions.md` for the full Docusaurus API surface and anti-patterns.
+
 ## Content Style
 
 - Use `:::tip`, `:::info`, `:::warning` admonitions for callouts.
 - Reference images with site-root paths: `/img/...`.
+- **Always use `<Image>` from `@theme/IdealImage` for PNG/JPG images** — never raw `<img>` or `![](...)` markdown syntax for content images (see `docusaurus-api.instructions.md` for full guidance).
 - Use `<kbd>` for keyboard/command sequences.
 - Heading IDs are managed by `pnpm write-heading-ids`; add explicit `{#custom-id}` only when needed.
 - See `.github/contributing/github_flavored_markdown.md` for HTML element patterns.
