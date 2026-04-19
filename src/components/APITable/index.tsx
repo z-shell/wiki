@@ -5,6 +5,7 @@ import React, {
   type ForwardedRef,
   type KeyboardEvent,
   type ReactElement,
+  type ReactNode,
   isValidElement,
   useRef,
   useEffect,

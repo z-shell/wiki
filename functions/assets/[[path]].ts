@@ -22,23 +22,40 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     return new Response("Not Found", {status: 404});
   }
 
-  const object = await context.env.ASSETS_BUCKET.get(key);
-  if (!object) {
-    return new Response("Not Found", {status: 404});
-  }
+  const ifNoneMatch = context.request.headers.get("if-none-match");
 
-  const headers = new Headers();
-  object.writeHttpMetadata(headers);
-  headers.set("etag", object.httpEtag);
-  headers.set("cache-control", "public, max-age=31536000, immutable");
-
-  if (!headers.has("content-type")) {
-    const ext = key.substring(key.lastIndexOf("."));
-    const contentType = EXTENSION_TYPES[ext];
-    if (contentType) {
-      headers.set("content-type", contentType);
+  try {
+    const object = await context.env.ASSETS_BUCKET.get(key, {
+      onlyIf: ifNoneMatch ? {etagDoesNotMatch: ifNoneMatch} : undefined,
+    });
+    if (!object) {
+      return new Response("Not Found", {status: 404});
     }
-  }
 
-  return new Response(object.body, {headers});
+    if (!object.body) {
+      return new Response(null, {status: 304, headers: {etag: object.httpEtag}});
+    }
+
+    const headers = new Headers();
+    object.writeHttpMetadata(headers);
+    headers.set("etag", object.httpEtag);
+    headers.set("cache-control", "public, max-age=31536000, immutable");
+    headers.set("x-content-type-options", "nosniff");
+
+    if (!headers.has("content-type")) {
+      const ext = key.substring(key.lastIndexOf("."));
+      const contentType = EXTENSION_TYPES[ext];
+      if (contentType) {
+        headers.set("content-type", contentType);
+      }
+    }
+
+    if (!headers.has("content-type")) {
+      headers.set("content-type", "application/octet-stream");
+    }
+
+    return new Response(object.body, {headers});
+  } catch {
+    return new Response("Internal Server Error", {status: 500});
+  }
 };

@@ -13,3 +13,9 @@
   cursor: pointer;
   transition: box-shadow var(--duration-normal);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .apiTable tbody tr {
+    transition: none;
+  }
+}

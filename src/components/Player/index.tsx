@@ -3,6 +3,15 @@ import Link from "@docusaurus/Link";
 import Spinner from "@site/src/components/Spinner";
 import "asciinema-player/dist/bundle/asciinema-player.css";
 
+type AsciinemaPlayerInstance = {
+  play: () => void;
+  pause: () => void;
+  dispose: () => void;
+  seek: (time: number) => void;
+  getCurrentTime: () => number;
+  getDuration: () => number;
+};
+
 export type PlayerProps = {
   src: string;
   cols?: number;
@@ -43,7 +52,7 @@ export default function Player({
   markers,
 }: PlayerProps): React.JSX.Element {
   const element = useRef<HTMLDivElement>(null);
-  const instanceRef = useRef<ReturnType<typeof import("asciinema-player").create> | null>(null);
+  const instanceRef = useRef<AsciinemaPlayerInstance | null>(null);
   const [playerModule, setPlayerModule] = useState<typeof import("asciinema-player")>();
   const [error, setError] = useState(false);
 
@@ -91,7 +100,7 @@ export default function Player({
 
   useEffect(() => {
     const currentRef = element.current;
-    const instance = playerModule?.create(src, currentRef, opts);
+    const instance = playerModule?.create(src, currentRef, opts) as AsciinemaPlayerInstance | undefined;
     instanceRef.current = instance ?? null;
 
     return () => {

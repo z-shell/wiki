@@ -25,9 +25,9 @@
   --site-color-surface-elevated: hsl(210deg 12% 19%);
   --site-color-error-highlight: hsl(0deg 100% 50% / 12.5%);
   --site-color-error-border: hsl(0deg 100% 50% / 50.2%);
-  --site-color-overlay-light: rgb(94 100 112 / 70%);
-  --site-color-overlay-dark: rgb(47 55 69 / 70%);
-  --site-color-subtle-hover: rgb(255 255 255 / 5%);
+  --site-color-overlay-light: hsl(224deg 9% 40% / 70%);
+  --site-color-overlay-dark: hsl(218deg 19% 23% / 70%);
+  --site-color-subtle-hover: hsl(0deg 0% 100% / 5%);
   --ifm-breadcrumb-color-active: var(--ifm-color-primary-darker);
   --ifm-menu-color-active: var(--ifm-color-primary-darker);
   --ifm-code-font-size: 90%;

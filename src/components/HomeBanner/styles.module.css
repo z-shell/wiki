@@ -1,25 +1,8 @@
 /** @format */
 
-.herobanner {
-  position: relative;
-  padding: 2rem 0;
-  overflow: hidden;
-  text-align: right;
-}
-
-@media only screen and (width <= 1024px) {
-  .herobanner {
-    padding: 1rem 0;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .heroLogo {
     animation: none;
-  }
-
-  .indexCtaTryNowButton:hover {
-    transform: none;
   }
 }
 
@@ -110,20 +93,6 @@
   filter: drop-shadow(0 0 30px hsl(168deg 70% 45% / 20%));
 }
 
-.heroSubtitle {
-  max-width: 600px;
-  margin: var(--space-lg) 0 0;
-  color: var(--ifm-font-color-secondary);
-  font-size: 1.05rem;
-  line-height: 1.6;
-  text-wrap: pretty;
-}
-
-:global([data-theme="dark"]) .heroSubtitle {
-  color: hsl(0deg 0% 100% / 65%);
-  text-shadow: 0 1px 3px hsl(0deg 0% 0% / 30%);
-}
-
 .indexCtasGitHubButtonWrapper {
   display: flex;
   gap: 0.25rem;
@@ -132,10 +101,6 @@
 
 .indexCtasGitHubButton {
   border: 0;
-}
-
-.indexCtaTryNowButton:hover {
-  color: var(--ifm-color-primary);
 }
 
 .indexCtas {

@@ -23,6 +23,12 @@
   color: var(--ifm-font-color-base);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .badge {
+    transition: none;
+  }
+}
+
 .icon {
   width: 1em;
   height: 1em;
