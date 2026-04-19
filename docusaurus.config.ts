@@ -34,7 +34,7 @@ export default async function createConfigAsync() {
         tagName: "link",
         attributes: {
           rel: "preload",
-          href: "/assets/fonts/variable/JetBrainsMono[wght].woff2",
+          href: "/cdn/fonts/variable/JetBrainsMono[wght].woff2",
           as: "font",
           type: "font/woff2",
           crossorigin: "anonymous",
@@ -44,7 +44,7 @@ export default async function createConfigAsync() {
         tagName: "link",
         attributes: {
           rel: "preload",
-          href: "/assets/fonts/webfonts/hack-regular-subset.woff2",
+          href: "/cdn/fonts/webfonts/hack-regular-subset.woff2",
           as: "font",
           type: "font/woff2",
           crossorigin: "anonymous",

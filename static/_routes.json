@@ -1,5 +1,5 @@
 {
   "version": 1,
-  "include": ["/assets/fonts/*", "/assets/cast/*", "/img/*"],
+  "include": ["/cdn/*", "/img/*"],
   "exclude": []
 }

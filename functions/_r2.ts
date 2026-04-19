@@ -55,7 +55,7 @@ export function createR2Handler(prefix: string): PagesFunction<Env> {
         onlyIf: ifNoneMatch ? {etagDoesNotMatch: ifNoneMatch} : undefined,
       });
       if (!object) {
-        return new Response("Not Found", {status: 404});
+        return context.next();
       }
 
       // Conditional request matched — client already has this version

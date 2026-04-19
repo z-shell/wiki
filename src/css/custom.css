@@ -1,5 +1,5 @@
-@import url("/assets/fonts/hack-subset.css");
-@import url("/assets/fonts/jetbrainsmono-variable.css");
+@import url("/cdn/fonts/hack-subset.css");
+@import url("/cdn/fonts/jetbrainsmono-variable.css");
 
 :root {
   /* transition-duration scoped to html — see below */

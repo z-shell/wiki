@@ -17,7 +17,7 @@ export default function HomeShowcase(): React.JSX.Element {
             </div>
             <div className={styles.terminalBody}>
               <Player
-                src="/assets/cast/509113.cast"
+                src="/cdn/cast/509113.cast"
                 rows={18}
                 cols={231}
                 terminalFontFamily="var(--ifm-font-family-monospace)"

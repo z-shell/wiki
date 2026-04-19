@@ -42,14 +42,14 @@ jobs:
           full_sync="${{ inputs.full_sync }}"
           if [ "$full_sync" = "true" ]; then
             echo "mode=full" >> "$GITHUB_OUTPUT"
-            find static/img static/assets -type f 2>/dev/null > /tmp/changed_files.txt
+            find static/img static/cdn -type f 2>/dev/null > /tmp/changed_files.txt
           elif git rev-parse HEAD~1 >/dev/null 2>&1; then
             echo "mode=incremental" >> "$GITHUB_OUTPUT"
-            git diff --name-only --diff-filter=ACM HEAD~1 HEAD -- 'static/img/**' 'static/assets/**' > /tmp/changed_files.txt
+            git diff --name-only --diff-filter=ACM HEAD~1 HEAD -- 'static/img/**' 'static/cdn/**' > /tmp/changed_files.txt
           else
             echo "mode=full" >> "$GITHUB_OUTPUT"
             : > /tmp/changed_files.txt
-            for d in static/img static/assets; do
+            for d in static/img static/cdn; do
               [ -d "$d" ] && find "$d" -type f >> /tmp/changed_files.txt
             done
           fi
@@ -178,4 +178,4 @@ jobs:
           echo "No static asset changes detected — skipping upload."
           echo "### R2 Sync Summary" >> "$GITHUB_STEP_SUMMARY"
           echo "- 📋 **Mode:** incremental" >> "$GITHUB_STEP_SUMMARY"
-          echo "- ⏭️ **Skipped:** no changes in static/img or static/assets" >> "$GITHUB_STEP_SUMMARY"
+          echo "- ⏭️ **Skipped:** no changes in static/img or static/cdn" >> "$GITHUB_STEP_SUMMARY"
