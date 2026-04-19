@@ -36,7 +36,7 @@ export default function HomeShowcase(): React.JSX.Element {
             </div>
             <div className={styles.terminalBody}>
               <Player
-                src="https://asciinema.org/a/509113.cast"
+                src="/assets/cast/509113.cast"
                 rows={34}
                 cols={231}
                 terminalFontFamily="var(--ifm-font-family-monospace)"
