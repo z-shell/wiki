@@ -1,14 +1,11 @@
 .image {
   display: block;
-  align-items: center;
   margin: 0 auto;
-  padding: 0;
-  padding-bottom: 1%;
   text-align: center;
 }
 
 .image img {
   max-width: 100%;
   height: auto;
-  border-radius: 0.4em;
+  border-radius: var(--ifm-global-radius);
 }

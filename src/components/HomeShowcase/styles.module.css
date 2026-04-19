@@ -18,9 +18,9 @@
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: var(--space-xs);
   margin-bottom: var(--space-md);
-  padding: 0.35rem var(--space-md);
+  padding: var(--space-xs) var(--space-md);
   color: var(--ifm-color-primary-light);
   font-weight: 600;
   font-size: 0.75rem;
@@ -28,7 +28,7 @@
   text-transform: uppercase;
   background: hsl(168deg 70% 45% / 10%);
   border: 1px solid hsl(168deg 70% 45% / 20%);
-  border-radius: 100px;
+  border-radius: var(--radius-full);
 }
 
 :global([data-theme="light"]) .badge {
@@ -112,8 +112,8 @@
 
 .terminalHeader {
   display: flex;
-  gap: 6px;
-  padding: 12px 16px;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
   background: hsl(220deg 13% 14%);
 }
 

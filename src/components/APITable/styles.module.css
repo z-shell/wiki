@@ -3,7 +3,7 @@
 }
 
 .apiTable tbody tr {
-  transition: box-shadow 0.2s;
+  transition: box-shadow var(--duration-fast);
 }
 
 .apiTable tbody tr:focus,
@@ -11,5 +11,5 @@
   outline: none;
   box-shadow: 0 0 8px 0 inset var(--ifm-color-primary);
   cursor: pointer;
-  transition: box-shadow 0.4s;
+  transition: box-shadow var(--duration-normal);
 }
