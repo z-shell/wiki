@@ -1,0 +1,10 @@
+// wrangler.jsonc — Pages configuration for R2 bindings
+// Picked up automatically by `wrangler pages deploy`
+{
+  "r2_buckets": [
+    {
+      "binding": "ASSETS_BUCKET",
+      "bucket_name": "r2-store"
+    }
+  ]
+}
