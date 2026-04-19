@@ -1,3 +1,5 @@
+// wrangler.jsonc — Pages Functions configuration
+// Becomes the source of truth once pages_build_output_dir is set
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "wiki",

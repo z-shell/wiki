@@ -4,3 +4,4 @@ node_modules/
 i18n/
 static/
 pnpm-lock.yaml
+wrangler.jsonc
