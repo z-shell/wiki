@@ -41,10 +41,7 @@ jobs:
           full_sync="${{ inputs.full_sync }}"
           if [ "$full_sync" = "true" ]; then
             echo "mode=full" >> "$GITHUB_OUTPUT"
-            : > /tmp/changed_files.txt
-            for d in static/img static/assets; do
-              [ -d "$d" ] && find "$d" -type f >> /tmp/changed_files.txt
-            done
+            find static/img static/assets -type f 2>/dev/null > /tmp/changed_files.txt
           elif git rev-parse HEAD~1 >/dev/null 2>&1; then
             echo "mode=incremental" >> "$GITHUB_OUTPUT"
             git diff --name-only --diff-filter=ACM HEAD~1 HEAD -- 'static/img/**' 'static/assets/**' > /tmp/changed_files.txt
@@ -77,7 +74,7 @@ jobs:
             key="${file#static/}"
             echo "$file" >> "$results_dir/queue.txt"
           done < /tmp/changed_files.txt
-          if [ -f "$results_dir/queue.txt" ] && [ -s "$results_dir/queue.txt" ]; then
+          if [ -s "$results_dir/queue.txt" ]; then
             xargs -a "$results_dir/queue.txt" -r -P "$upload_concurrency" -I{} bash -c '
               file="$1"
               bucket="$2"
