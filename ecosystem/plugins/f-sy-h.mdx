@@ -166,11 +166,11 @@ secondary        = zdharma
 
 A secondary theme (`zdharma` in the example) will be used for highlighting of argument for `eval` and of `$( ... )` interior (i.e. of the interior of command substitution). Recursive highlighting uses the alternate theme to make the highlighted code distinct:
 
-<ImgShow img="/img/plugins/fsh/cmdsubst.png" alt="Syntax highlighting command substitution" />
+<ImgShow width={960} height={25} img="/img/plugins/fsh/cmdsubst.png" alt="Syntax highlighting command substitution" />
 
 In the above screen-shot the interior of `$( ... )` uses different colors than the rest of the code. Example for `eval`:
 
-<ImgShow img="/img/plugins/fsh/eval_cmp.png" alt="Syntax highlighting eval" />
+<ImgShow width={518} height={49} img="/img/plugins/fsh/eval_cmp.png" alt="Syntax highlighting eval" />
 
 The first line doesn't use recursive highlighting, highlights the `eval` argument as a regular string. The second line switches the theme to `zdharma` and does full recursive highlighting of the eval argument.
 
@@ -178,51 +178,51 @@ The first line doesn't use recursive highlighting, highlights the `eval` argumen
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper image):
 
-<ImgShow img="/img/plugins/fsh/parameter.png" alt="Syntax highlighting parameter" />
+<ImgShow width={140} height={52} img="/img/plugins/fsh/parameter.png" alt="Syntax highlighting parameter" />
 
-<ImgShow img="/img/plugins/fsh/in_string.png" alt="Syntax highlighting in string" />
+<ImgShow width={370} height={52} img="/img/plugins/fsh/in_string.png" alt="Syntax highlighting in string" />
 
 ### Brackets {/* #brackets */}
 
-<ImgShow img="/img/plugins/fsh/brackets.gif" alt="Syntax highlighting brackets" />
+<ImgShow width={660} height={82} img="/img/plugins/fsh/brackets.gif" alt="Syntax highlighting brackets" />
 
 ### Conditions {/* #conditions */}
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
-<ImgShow img="/img/plugins/fsh/cplx_cond.png" alt="Syntax highlighting conditions" />
+<ImgShow width={250} height={52} img="/img/plugins/fsh/cplx_cond.png" alt="Syntax highlighting conditions" />
 
 ### Strings {/* #strings */}
 
 Exact highlighting that recognizes quoting.
 
-<ImgShow img="/img/plugins/fsh/ideal-string.png" alt="Syntax highlighting strings" />
+<ImgShow width={1268} height={59} img="/img/plugins/fsh/ideal-string.png" alt="Syntax highlighting strings" />
 
 #### here-strings {/* #here-strings */}
 
-<ImgShow img="/img/plugins/fsh/herestring.png" alt="Syntax highlighting here-strings" />
+<ImgShow width={600} height={33} img="/img/plugins/fsh/herestring.png" alt="Syntax highlighting here-strings" />
 
 ### `exec` descriptor-variables {/* #exec-descriptor-variables */}
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
-<ImgShow img="/img/plugins/fsh/execfd_cmp.png" alt="Syntax highlighting exec" />
+<ImgShow width={223} height={56} img="/img/plugins/fsh/execfd_cmp.png" alt="Syntax highlighting exec" />
 
 ### The for-loops and alternate syntax (brace `{`/`}` blocks) {/* #the-for-loops-and-alternate-syntax-brace--blocks */}
 
-<ImgShow img="/img/plugins/fsh/for-loop-cmp.png" alt="Syntax highlighting loops" />
+<ImgShow width={460} height={63} img="/img/plugins/fsh/for-loop-cmp.png" alt="Syntax highlighting loops" />
 
 ### Function definitions {/* #function-definitions */}
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper 2 lines):
 
-<ImgShow img="/img/plugins/fsh/function.png" alt="Syntax highlighting function" />
+<ImgShow width={338} height={88} img="/img/plugins/fsh/function.png" alt="Syntax highlighting function" />
 
 ### Recursive `eval` and `$( )` highlighting {/* #recursive-eval-and---highlighting */}
 
 Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
-<ImgShow img="/img/plugins/fsh/eval_cmp.png" alt="Syntax highlighting eval" />
+<ImgShow width={518} height={49} img="/img/plugins/fsh/eval_cmp.png" alt="Syntax highlighting eval" />
 
 ## Chroma functions {/* #chroma-functions */}
 
@@ -230,57 +230,62 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
 #### Autoload {/* #autoload */}
 
-<ImgShow img="/img/cast/gif/fsh/fsh-autoload.gif" alt="Syntax highlighting autoload" />
+<ImgShow width={1103} height={600} img="/img/cast/gif/fsh/fsh-autoload.gif" alt="Syntax highlighting autoload" />
 
 #### Awk {/* #awk */}
 
-<ImgShow img="/img/cast/gif/fsh/fsh-awk.gif" alt="Syntax highlighting awk" />
+<ImgShow width={1348} height={696} img="/img/cast/gif/fsh/fsh-awk.gif" alt="Syntax highlighting awk" />
 
 #### Docker {/* #docker */}
 
-<ImgShow img="/img/cast/gif/fsh/fsh-docker.gif" alt="Syntax highlighting docker" />
+<ImgShow width={1103} height={600} img="/img/cast/gif/fsh/fsh-docker.gif" alt="Syntax highlighting docker" />
 
 #### Git commit {/* #git-commit */}
 
-<ImgShow img="/img/cast/gif/fsh/fsh-git-commit.gif" alt="Syntax highlighting git commit" />
+<ImgShow width={1334} height={600} img="/img/cast/gif/fsh/fsh-git-commit.gif" alt="Syntax highlighting git commit" />
 
 #### Git checkout {/* #git-checkout */}
 
-<ImgShow img="/img/cast/gif/fsh/fsh-git-checkout.gif" alt="Syntax highlighting git checkout" />
+<ImgShow
+  width={1406}
+  height={664}
+  img="/img/cast/gif/fsh/fsh-git-checkout.gif"
+  alt="Syntax highlighting git checkout"
+/>
 
 #### Grep {/* #grep */}
 
-<ImgShow img="/img/cast/gif/fsh/fsh-grep.gif" alt="Syntax highlighting grep" />
+<ImgShow width={1406} height={664} img="/img/cast/gif/fsh/fsh-grep.gif" alt="Syntax highlighting grep" />
 
 #### Make {/* #make */}
 
-<ImgShow img="/img/cast/gif/fsh/fsh-make.gif" alt="Syntax highlighting make" />
+<ImgShow width={1319} height={696} img="/img/cast/gif/fsh/fsh-make.gif" alt="Syntax highlighting make" />
 
 #### Perl {/* #perl */}
 
-<ImgShow img="/img/cast/gif/fsh/fsh-perl.gif" alt="Syntax highlighting perl" />
+<ImgShow width={1377} height={664} img="/img/cast/gif/fsh/fsh-perl.gif" alt="Syntax highlighting perl" />
 
 #### Sh {/* #sh */}
 
-<ImgShow img="/img/cast/gif/fsh/fsh-sh-c.gif" alt="Syntax highlighting sh -c" />
+<ImgShow width={1103} height={600} img="/img/cast/gif/fsh/fsh-sh-c.gif" alt="Syntax highlighting sh -c" />
 
 The [chromas][f-sy-h-chromas] are set in [fast-highlight#L174][fast-highlight-chromas].
 
 ### Fpath highlighting {/* #fpath-highlighting */}
 
-<ImgShow img="/img/cast/gif/fsh/fsh-fpath.gif" alt="Syntax highlighting fpath" />
+<ImgShow width={1535} height={728} img="/img/cast/gif/fsh/fsh-fpath.gif" alt="Syntax highlighting fpath" />
 
 ### Case highlighting {/* #case-highlighting */}
 
-<ImgShow img="/img/cast/gif/fsh/fsh-case.gif" alt="Syntax highlighting case" />
+<ImgShow width={1319} height={632} img="/img/cast/gif/fsh/fsh-case.gif" alt="Syntax highlighting case" />
 
 ### Math highlighting {/* #math-highlighting */}
 
-<ImgShow img="/img/plugins/fsh/math.gif" alt="Syntax highlighting math" />
+<ImgShow width={660} height={82} img="/img/plugins/fsh/math.gif" alt="Syntax highlighting math" />
 
 ### Zcalc highlighting {/* #zcalc-highlighting */}
 
-<ImgShow img="/img/plugins/fsh/zcalc.png" alt="Syntax highlighting zcalc" />
+<ImgShow width={508} height={51} img="/img/plugins/fsh/zcalc.png" alt="Syntax highlighting zcalc" />
 
 ### Custom Working Directory {/* #custom-working-directory */}
 
