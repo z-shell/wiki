@@ -17,7 +17,8 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-permissions: read-all
+permissions:
+  contents: write
 
 jobs:
   sync:
@@ -64,8 +65,10 @@ jobs:
           bucket="r2-store"
           upload_concurrency=8
           max_retries=3
+          threshold=512000
           uploaded=0
           failed=0
+          offload_list="$(mktemp)"
           results_dir="$(mktemp -d)"
           echo "::group::Uploading to $bucket (${{ steps.detect.outputs.mode }} mode)"
           while IFS= read -r file; do
@@ -85,12 +88,12 @@ jobs:
               while [ "$attempt" -lt "$max_retries" ]; do
                 attempt=$((attempt + 1))
                 if [ "$attempt" -eq "$max_retries" ]; then
-                  if wrangler r2 object put "$bucket/$key" --file="$file" > /dev/null; then
+                  if wrangler r2 object put "$bucket/$key" --file="$file" --cc "public, max-age=31536000, immutable" > /dev/null; then
                     printf "success\t%s\n" "$key" > "$result_file"
                     exit 0
                   fi
                 else
-                  if wrangler r2 object put "$bucket/$key" --file="$file" > /dev/null 2>&1; then
+                  if wrangler r2 object put "$bucket/$key" --file="$file" --cc "public, max-age=31536000, immutable" > /dev/null 2>&1; then
                     printf "success\t%s\n" "$key" > "$result_file"
                     exit 0
                   fi
@@ -107,6 +110,11 @@ jobs:
             if [ "$status" = "success" ]; then
               echo "✓ $key"
               uploaded=$((uploaded + 1))
+              file="static/$key"
+              size=$(stat --printf='%s' "$file" 2>/dev/null || echo 0)
+              if [ "$size" -gt "$threshold" ]; then
+                echo "$file" >> "$offload_list"
+              fi
             else
               echo "::warning::Failed to upload $key"
               failed=$((failed + 1))
@@ -120,9 +128,50 @@ jobs:
             echo "- ✅ **Uploaded:** $uploaded"
             echo "- ❌ **Failed:** $failed"
           } >> "$GITHUB_STEP_SUMMARY"
+
           if [ "$failed" -gt 0 ]; then
             exit 1
           fi
+
+          echo "OFFLOAD_LIST=$offload_list" >> "$GITHUB_ENV"
+
+      - name: "🗑️ Offload large files from repository"
+        if: success()
+        run: |
+          offload_list="${OFFLOAD_LIST:-}"
+          if [ ! -f "$offload_list" ] || [ ! -s "$offload_list" ]; then
+            echo "No large files to offload"
+            exit 0
+          fi
+
+          count=0
+          while IFS= read -r file; do
+            [ -n "$file" ] || continue
+            size=$(stat --printf='%s' "$file" 2>/dev/null || echo 0)
+            size_kb=$((size / 1024))
+            echo "Removing $file (${size_kb}KB) — served from R2"
+            git rm "$file"
+            count=$((count + 1))
+          done < "$offload_list"
+          rm -f "$offload_list"
+
+          if [ "$count" -eq 0 ]; then
+            echo "No files to offload"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: offload ${count} large file(s) to R2
+
+          Files above 500KB are uploaded to R2 and served via Functions proxy.
+          This keeps the repository lean while assets remain available at their original URLs."
+          git push
+
+          {
+            echo "### 🗑️ Offloaded Files"
+            echo "Removed **$count** file(s) from repository (now served from R2)"
+          } >> "$GITHUB_STEP_SUMMARY"
       - name: "✅ Nothing to sync"
         if: steps.detect.outputs.count == '0'
         run: |
