@@ -41,13 +41,19 @@ jobs:
           full_sync="${{ inputs.full_sync }}"
           if [ "$full_sync" = "true" ]; then
             echo "mode=full" >> "$GITHUB_OUTPUT"
-            find static/img static/assets -type f 2>/dev/null > /tmp/changed_files.txt
+            : > /tmp/changed_files.txt
+            for d in static/img static/assets; do
+              [ -d "$d" ] && find "$d" -type f >> /tmp/changed_files.txt
+            done
           elif git rev-parse HEAD~1 >/dev/null 2>&1; then
             echo "mode=incremental" >> "$GITHUB_OUTPUT"
             git diff --name-only --diff-filter=ACM HEAD~1 HEAD -- 'static/img/**' 'static/assets/**' > /tmp/changed_files.txt
           else
             echo "mode=full" >> "$GITHUB_OUTPUT"
-            find static/img static/assets -type f 2>/dev/null > /tmp/changed_files.txt
+            : > /tmp/changed_files.txt
+            for d in static/img static/assets; do
+              [ -d "$d" ] && find "$d" -type f >> /tmp/changed_files.txt
+            done
           fi
           count=$(wc -l < /tmp/changed_files.txt | tr -d ' ')
           echo "count=$count" >> "$GITHUB_OUTPUT"
@@ -71,22 +77,29 @@ jobs:
             key="${file#static/}"
             echo "$file" >> "$results_dir/queue.txt"
           done < /tmp/changed_files.txt
-          if [ -s "$results_dir/queue.txt" ]; then
+          if [ -f "$results_dir/queue.txt" ] && [ -s "$results_dir/queue.txt" ]; then
             xargs -a "$results_dir/queue.txt" -r -P "$upload_concurrency" -I{} bash -c '
               file="$1"
               bucket="$2"
               max_retries="$3"
               results_dir="$4"
               key="${file#static/}"
-              result_file="$results_dir/$(echo "$key" | md5sum | cut -d" " -f1)"
+              result_file="$results_dir/$(echo "$key" | tr "/" "_")"
               attempt=0
               while [ "$attempt" -lt "$max_retries" ]; do
                 attempt=$((attempt + 1))
-                if wrangler r2 object put "$bucket/$key" --file="$file" 2>/dev/null; then
-                  printf "success\t%s\n" "$key" > "$result_file"
-                  exit 0
+                if [ "$attempt" -eq "$max_retries" ]; then
+                  if wrangler r2 object put "$bucket/$key" --file="$file" > /dev/null; then
+                    printf "success\t%s\n" "$key" > "$result_file"
+                    exit 0
+                  fi
+                else
+                  if wrangler r2 object put "$bucket/$key" --file="$file" > /dev/null 2>&1; then
+                    printf "success\t%s\n" "$key" > "$result_file"
+                    exit 0
+                  fi
+                  sleep "$((attempt * 2))"
                 fi
-                [ "$attempt" -lt "$max_retries" ] && sleep "$((attempt * 2))"
               done
               printf "failure\t%s\n" "$key" > "$result_file"
             ' _ "{}" "$bucket" "$max_retries" "$results_dir"
