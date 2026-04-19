@@ -34,9 +34,6 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
         run: |
           bucket="r2-store"
-          uploaded=0
-          failed=0
-          for dir in img assets; do
           upload_concurrency=8
           uploaded=0
           failed=0
