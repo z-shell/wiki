@@ -6,7 +6,7 @@
   "scripts": {
     "build": "docusaurus build",
     "build:en": "docusaurus build --locale en",
-    "clean": "pnpm exec rm -rf node_modules build pnpm-lock.yaml",
+    "clean": "pnpm exec rm -rf node_modules build .docusaurus .wrangler  pnpm-lock.yaml",
     "clear": "docusaurus clear",
     "crowdin:check": "crowdin lint && crowdin status",
     "crowdin:sync": "docusaurus write-translations && crowdin upload && crowdin download",
