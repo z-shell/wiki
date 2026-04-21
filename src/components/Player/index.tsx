@@ -113,7 +113,9 @@ export default function Player({
               setPlayerModule(m);
             })
             .catch(() => {
-              if (!cancelled) setError(true);
+              if (cancelled) return;
+              setIsLoading(false);
+              setError(true);
             });
         }
       },
