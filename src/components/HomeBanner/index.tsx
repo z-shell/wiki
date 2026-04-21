@@ -10,7 +10,14 @@ export default function HeroBanner(): React.JSX.Element {
     <div className={styles.hero}>
       <div className={styles.heroInner}>
         <Heading as="h1" className={styles.heroProjectTagline}>
-          <img alt="Zi logo" className={styles.heroLogo} src={useBaseUrl("/img/logo.svg")} height="200" width="200" />
+          <img
+            alt="Zi logo"
+            className={styles.heroLogo}
+            src={useBaseUrl("/img/logo.svg")}
+            height="200"
+            width="200"
+            fetchPriority="high"
+          />
           <span
             className={styles.heroTitleTextHtml}
             dangerouslySetInnerHTML={{

@@ -1,0 +1,483 @@
+
+=== DIRECTORY TREE (max depth 3, source files only) ===
+.docusaurus
+.docusaurus/DONT-EDIT-THIS-FOLDER
+.docusaurus/client-manifest.json
+.docusaurus/client-modules.js
+.docusaurus/codeTranslations.json
+.docusaurus/docusaurus-plugin-content-blog
+.docusaurus/docusaurus-plugin-content-blog/default
+.docusaurus/docusaurus-plugin-content-blog/default/__plugin.json
+.docusaurus/docusaurus-plugin-content-blog/default/blog-post-list-prop-default.json
+.docusaurus/docusaurus-plugin-content-blog/default/blogMetadata-default.json
+.docusaurus/docusaurus-plugin-content-blog/default/p
+.docusaurus/docusaurus-plugin-content-blog/default/site-blog-2022-01-15-swiss-army-knife-for-zsh-md-352.json
+.docusaurus/docusaurus-plugin-content-docs
+.docusaurus/docusaurus-plugin-content-docs/community
+.docusaurus/docusaurus-plugin-content-docs/community/__mdx-loader-dependency.json
+.docusaurus/docusaurus-plugin-content-docs/community/__plugin.json
+.docusaurus/docusaurus-plugin-content-docs/community/p
+.docusaurus/docusaurus-plugin-content-docs/community/site-community-01-zsh-guide-01-roadmap-10-expansion-mdx-8eb.json
+.docusaurus/docusaurus-plugin-content-docs/community/site-community-02-zsh-plugin-standard-mdx-245.json
+.docusaurus/docusaurus-plugin-content-docs/community/site-community-03-zsh-native-scripting-handbook-mdx-b46.json
+.docusaurus/docusaurus-plugin-content-docs/community/site-community-99-contributors-mdx-d40.json
+.docusaurus/docusaurus-plugin-content-docs/community/site-community-gallery-collection-01-collection-mdx-78a.json
+.docusaurus/docusaurus-plugin-content-docs/community/site-community-gallery-collection-02-completions-mdx-ec2.json
+.docusaurus/docusaurus-plugin-content-docs/community/site-community-gallery-collection-03-programs-mdx-fed.json
+.docusaurus/docusaurus-plugin-content-docs/community/site-community-gallery-collection-04-snippets-mdx-573.json
+.docusaurus/docusaurus-plugin-content-docs/community/site-community-gallery-collection-05-services-mdx-eec.json
+.docusaurus/docusaurus-plugin-content-docs/community/site-community-gallery-collection-06-plugins-mdx-073.json
+.docusaurus/docusaurus-plugin-content-docs/community/site-community-gallery-collection-07-themes-mdx-e9e.json
+.docusaurus/docusaurus-plugin-content-docs/community/site-community-index-mdx-93c.json
+.docusaurus/docusaurus-plugin-content-docs/default
+.docusaurus/docusaurus-plugin-content-docs/default/__mdx-loader-dependency.json
+.docusaurus/docusaurus-plugin-content-docs/default/__plugin.json
+.docusaurus/docusaurus-plugin-content-docs/default/p
+.docusaurus/docusaurus-plugin-content-docs/default/site-docs-getting-started-01-installation-mdx-389.json
+.docusaurus/docusaurus-plugin-content-docs/default/site-docs-getting-started-02-overview-mdx-704.json
+.docusaurus/docusaurus-plugin-content-docs/default/site-docs-getting-started-03-migration-mdx-eb7.json
+.docusaurus/docusaurus-plugin-content-docs/default/site-docs-guides-01-commands-mdx-0a6.json
+.docusaurus/docusaurus-plugin-content-docs/default/site-docs-guides-02-customization-mdx-40c.json
+.docusaurus/docusaurus-plugin-content-docs/default/site-docs-guides-03-benchmark-mdx-9b0.json
+.docusaurus/docusaurus-plugin-content-docs/default/site-docs-guides-syntax-01-standard-mdx-09a.json
+.docusaurus/docusaurus-plugin-content-docs/default/site-docs-guides-syntax-02-for-mdx-7bf.json
+.docusaurus/docusaurus-plugin-content-docs/default/site-docs-guides-syntax-03-ice-modifiers-mdx-175.json
+.docusaurus/docusaurus-plugin-content-docs/default/site-docs-guides-syntax-10-bindkey-mdx-55b.json
+.docusaurus/docusaurus-plugin-content-docs/default/site-docs-index-mdx-4ed.json
+.docusaurus/docusaurus-plugin-content-docs/default/site-docs-zi-code-mdx-12c.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/__mdx-loader-dependency.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/__plugin.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/p
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-annexes-0-overview-mdx-167.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-annexes-1-bin-gem-node-mdx-a21.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-annexes-19-eval-mdx-db8.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-annexes-2-meta-plugins-mdx-bc7.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-annexes-3-default-ice-mdx-0fd.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-annexes-4-patch-dl-mdx-446.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-annexes-5-readurl-mdx-b14.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-annexes-6-submods-mdx-1b3.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-annexes-7-unscope-mdx-3fc.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-annexes-8-linkbin-mdx-fd2.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-annexes-9-rust-mdx-221.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-index-mdx-ebe.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-packages-01-synopsis-mdx-988.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-packages-02-usage-mdx-d5c.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-plugins-diff-so-fancy-mdx-a82.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-plugins-f-sy-h-mdx-263.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-plugins-h-s-mw-mdx-b28.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-plugins-zbrowse-mdx-7c5.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-plugins-zconvey-mdx-991.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-plugins-zi-console-mdx-835.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-plugins-zprompts-mdx-438.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-plugins-zsh-comand-architect-mdx-b46.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-plugins-zsh-editing-workbench-mdx-3dd.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-plugins-zsh-modules-mdx-ea8.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-plugins-zsh-navigation-tools-mdx-f07.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-plugins-zsh-select-mdx-f53.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-plugins-zsh-unique-id-mdx-945.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-plugins-zui-mdx-2e7.json
+.docusaurus/docusaurus-plugin-content-docs/ecosystem/site-ecosystem-plugins-zzcomplete-mdx-57a.json
+.docusaurus/docusaurus-plugin-content-pages
+.docusaurus/docusaurus-plugin-content-pages/default
+.docusaurus/docusaurus-plugin-content-pages/default/__plugin.json
+.docusaurus/docusaurus-plugin-content-pages/default/site-src-pages-legal-code-of-conduct-md-6be.json
+.docusaurus/docusaurus-plugin-content-pages/default/site-src-pages-legal-privacy-md-c7b.json
+.docusaurus/docusaurus-plugin-css-cascade-layers
+.docusaurus/docusaurus-plugin-css-cascade-layers/default
+.docusaurus/docusaurus-plugin-css-cascade-layers/default/__plugin.json
+.docusaurus/docusaurus-plugin-css-cascade-layers/default/layers.css
+.docusaurus/docusaurus-theme-search-algolia
+.docusaurus/docusaurus-theme-search-algolia/default
+.docusaurus/docusaurus-theme-search-algolia/default/__plugin.json
+.docusaurus/docusaurus.config.mjs
+.docusaurus/globalData.json
+.docusaurus/i18n.json
+.docusaurus/registry.js
+.docusaurus/routes.js
+.docusaurus/routesChunkNames.json
+.docusaurus/site-metadata.json
+.docusaurus/site-storage.json
+.editorconfig
+.geminiignore
+.gitattributes
+.github
+.github/ISSUE_TEMPLATE
+.github/ISSUE_TEMPLATE/01_bug_report.yml
+.github/ISSUE_TEMPLATE/01_request_documentation.yml
+.github/ISSUE_TEMPLATE/02_feature_request.yml
+.github/ISSUE_TEMPLATE/03_codebase_improvement.yml
+.github/ISSUE_TEMPLATE/04_documentation.yml
+.github/ISSUE_TEMPLATE/config.yml
+.github/MAINTAINERS.md
+.github/README.md
+.github/agents
+.github/agents/localization-maintainer.agent.md
+.github/codebase
+.github/codebase/.codebase-scan.txt
+.github/codebase/ARCHITECTURE.md
+.github/codebase/CONCERNS.md
+.github/codebase/CONVENTIONS.md
+.github/codebase/INTEGRATIONS.md
+.github/codebase/Project_Architecture_Blueprint.md
+.github/codebase/STACK.md
+.github/codebase/STRUCTURE.md
+.github/codebase/TESTING.md
+.github/contributing
+.github/contributing/github_branching.md
+.github/contributing/github_flavored_markdown.md
+.github/copilot-instructions.md
+.github/copilot-mcp.json
+.github/drafts
+.github/drafts/draft.md
+.github/drafts/noIndex.md
+.github/drafts/notes.md
+.github/drafts/zsh_native_handbook-history.md
+.github/drafts/zsh_plugin_standart-history.md
+.github/hooks
+.github/hooks/lint-on-edit.json
+.github/instructions
+.github/instructions/docs-authoring.instructions.md
+.github/instructions/docusaurus-api.instructions.md
+.github/instructions/docusaurus-config.instructions.md
+.github/instructions/frontend-components.instructions.md
+.github/instructions/skill-codebase-health.instructions.md
+.github/instructions/skill-docs-readiness.instructions.md
+.github/instructions/skill-ui-design.instructions.md
+.github/prompts
+.github/prompts/add-doc-section.prompt.md
+.github/prompts/audit-consistency.prompt.md
+.github/prompts/project-health.prompt.md
+.github/prompts/review-pr.prompt.md
+.github/skills
+.github/skills/acquire-codebase-knowledge
+.github/skills/acquire-codebase-knowledge/SKILL.md
+.github/skills/acquire-codebase-knowledge/assets
+.github/skills/acquire-codebase-knowledge/references
+.github/skills/acquire-codebase-knowledge/scripts
+.github/skills/architecture-blueprint-generator
+.github/skills/architecture-blueprint-generator/SKILL.md
+.github/skills/code-tour
+.github/skills/code-tour/SKILL.md
+.github/skills/codebase-health-audit
+.github/skills/codebase-health-audit/SKILL.md
+.github/skills/codebase-health-audit/references
+.github/skills/context-map
+.github/skills/context-map/SKILL.md
+.github/skills/conventional-commit
+.github/skills/conventional-commit/SKILL.md
+.github/skills/create-llms
+.github/skills/create-llms/SKILL.md
+.github/skills/docs-release-readiness
+.github/skills/docs-release-readiness/SKILL.md
+.github/skills/documentation-writer
+.github/skills/documentation-writer/SKILL.md
+.github/skills/editorconfig
+.github/skills/editorconfig/SKILL.md
+.github/skills/ui-design
+.github/skills/ui-design/SKILL.md
+.github/skills/ui-design/references
+.github/skills/what-context-needed
+.github/skills/what-context-needed/SKILL.md
+.github/workflows
+.github/workflows/ci-perf.yml
+.github/workflows/crowdin-download.yml
+.github/workflows/crowdin-upload.yml
+.github/workflows/link-checker.yml
+.github/workflows/pages-deployment.yaml
+.github/workflows/r2-sync.yml
+.gitignore
+.lychee.toml
+.markdownlint.json
+.prettierignore
+.prettierrc.json
+.stylelintrc.yml
+.trunk
+.trunk/.gitignore
+.trunk/actions
+.trunk/actions/trunk-announce
+.trunk/actions/trunk-announce/2026-04-17-15-07-25.928.yaml
+.trunk/actions/trunk-announce/2026-04-17-20-37-35.709.yaml
+.trunk/actions/trunk-announce/2026-04-18-17-24-14.775.yaml
+.trunk/actions/trunk-announce/2026-04-18-20-37-10.932.yaml
+
+=== STACK DETECTION (manifest files) ===
+
+--- package.json ---
+{
+  "name": "wiki",
+  "version": "0.0.0",
+  "private": true,
+  "sideEffects": false,
+  "scripts": {
+    "build": "docusaurus build",
+    "build:en": "docusaurus build --locale en",
+    "clean": "pnpm exec rm -rf node_modules build .docusaurus .wrangler  pnpm-lock.yaml",
+    "clear": "docusaurus clear",
+    "crowdin:check": "crowdin lint && crowdin status",
+    "crowdin:sync": "docusaurus write-translations && crowdin upload && crowdin download",
+    "crowdin:upload": "pnpm crowdin upload sources --delete-obsolete",
+    "deploy": "docusaurus deploy",
+    "preinstall": "npx only-allow pnpm",
+    "lint": "eslint .",
+    "lint:css": "stylelint 'src/**/*.css'",
+    "lint:css:fix": "stylelint 'src/**/*.css' --fix",
+    "lint:fix": "eslint . --fix",
+    "serve": "docusaurus serve",
+    "start": "docusaurus start",
+    "swizzle": "docusaurus swizzle",
+    "write-community-version": "docusaurus docs:version:community",
+    "write-docs-version": "docusaurus docs:version",
+    "write-ecosystem-version": "docusaurus docs:version:ecosystem",
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "write-translations": "docusaurus write-translations",
+    "write-translations:force": "docusaurus write-translations --override"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@docusaurus/core": "3.10.0",
+    "@docusaurus/faster": "3.10.0",
+    "@docusaurus/plugin-ideal-image": "3.10.0",
+    "@docusaurus/plugin-pwa": "3.10.0",
+    "@docusaurus/preset-classic": "3.10.0",
+    "@mdx-js/react": "3.1.1",
+    "asciinema-player": "3.15.1",
+    "clsx": "2.1.1",
+    "prism-react-renderer": "2.4.1",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  },
+  "devDependencies": {
+    "@crowdin/cli": "4.14.1",
+    "@docusaurus/eslint-plugin": "3.10.0",
+    "@docusaurus/module-type-aliases": "3.10.0",
+    "@docusaurus/tsconfig": "3.10.0",
+    "@docusaurus/types": "3.10.0",
+    "@eslint/compat": "^2.0.5",
+    "@eslint/js": "^10.0.1",
+    "@types/node": "25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^10.2.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import-x": "^4.16.2",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-mdx": "^3.7.0",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "globals": "^17.5.0",
+    "jiti": "^2.6.1",
+    "stylelint": "17.8.0",
+    "stylelint-color-format": "1.1.0",
+    "stylelint-config-css-modules": "4.6.0",
+    "stylelint-config-standard": "40.0.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "^8.59.0"
+
+[TRUNCATED] Showing first 80 of 93 lines.
+--- pnpm-lock.yaml ---
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+overrides:
+  eslint>jiti: ^2.6.1
+  webpackbar: ^7.0.0
+
+importers:
+
+  .:
+    dependencies:
+      '@docusaurus/core':
+        specifier: 3.10.0
+        version: 3.10.0(@docusaurus/faster@3.10.0(@docusaurus/types@3.10.0(@swc/core@1.15.30)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)))(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.5))(@rspack/core@1.7.11)(@swc/core@1.15.30)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)
+      '@docusaurus/faster':
+        specifier: 3.10.0
+        version: 3.10.0(@docusaurus/types@3.10.0(@swc/core@1.15.30)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
+      '@docusaurus/plugin-ideal-image':
+        specifier: 3.10.0
+        version: 3.10.0(@docusaurus/faster@3.10.0(@docusaurus/types@3.10.0(@swc/core@1.15.30)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)))(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.5))(@rspack/core@1.7.11)(@swc/core@1.15.30)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)
+      '@docusaurus/plugin-pwa':
+        specifier: 3.10.0
+        version: 3.10.0(@docusaurus/faster@3.10.0(@docusaurus/types@3.10.0(@swc/core@1.15.30)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)))(@docusaurus/plugin-content-docs@3.10.0(@docusaurus/faster@3.10.0(@docusaurus/types@3.10.0(@swc/core@1.15.30)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)))(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.5))(@rspack/core@1.7.11)(@swc/core@1.15.30)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3))(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.5))(@rspack/core@1.7.11)(@swc/core@1.15.30)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)
+      '@docusaurus/preset-classic':
+        specifier: 3.10.0
+        version: 3.10.0(@algolia/client-search@5.50.2)(@docusaurus/faster@3.10.0(@docusaurus/types@3.10.0(@swc/core@1.15.30)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)))(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.5))(@rspack/core@1.7.11)(@swc/core@1.15.30)(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(search-insights@2.17.3)(typescript@6.0.3)
+      '@mdx-js/react':
+        specifier: 3.1.1
+        version: 3.1.1(@types/react@19.2.14)(react@19.2.5)
+      asciinema-player:
+        specifier: 3.15.1
+        version: 3.15.1
+      clsx:
+        specifier: 2.1.1
+        version: 2.1.1
+      prism-react-renderer:
+        specifier: 2.4.1
+        version: 2.4.1(react@19.2.5)
+      react:
+        specifier: ^19.2.5
+        version: 19.2.5
+      react-dom:
+        specifier: ^19.2.5
+        version: 19.2.5(react@19.2.5)
+    devDependencies:
+      '@crowdin/cli':
+        specifier: 4.14.1
+        version: 4.14.1
+      '@docusaurus/eslint-plugin':
+        specifier: 3.10.0
+        version: 3.10.0(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3)
+      '@docusaurus/module-type-aliases':
+        specifier: 3.10.0
+        version: 3.10.0(@swc/core@1.15.30)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      '@docusaurus/tsconfig':
+        specifier: 3.10.0
+        version: 3.10.0
+      '@docusaurus/types':
+        specifier: 3.10.0
+        version: 3.10.0(@swc/core@1.15.30)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      '@eslint/compat':
+        specifier: ^2.0.5
+        version: 2.0.5(eslint@10.2.1(jiti@2.6.1))
+      '@eslint/js':
+        specifier: ^10.0.1
+        version: 10.0.1(eslint@10.2.1(jiti@2.6.1))
+      '@types/node':
+        specifier: 25.6.0
+        version: 25.6.0
+      '@types/react':
+        specifier: ^19.2.14
+        version: 19.2.14
+      '@types/react-dom':
+        specifier: ^19.2.3
+        version: 19.2.3(@types/react@19.2.14)
+      eslint:
+        specifier: ^10.2.0
+
+[TRUNCATED] Showing first 80 of 16707 lines.
+
+=== ENTRY POINTS ===
+No common entry points found. Check 'main' or 'scripts.start' in manifest files above.
+
+=== LINTING AND FORMATTING CONFIG ===
+Found: .prettierrc.json
+Found: .editorconfig
+Found: tsconfig.json
+
+=== ENVIRONMENT VARIABLE TEMPLATES ===
+No .env.example or .env.template found. Identify required environment variables by searching the code and config for environment variable reads.
+
+=== TODO / FIXME / HACK (production code only, test dirs excluded) ===
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:26: TODO_LIMIT = 60
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:465: """Search for TODO/FIXME/HACK comments."""
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:465: """Search for TODO/FIXME/HACK comments."""
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:465: """Search for TODO/FIXME/HACK comments."""
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:467: patterns = ["TODO", "FIXME", "HACK"]
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:467: patterns = ["TODO", "FIXME", "HACK"]
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:467: patterns = ["TODO", "FIXME", "HACK"]
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:504: return todos[:TODO_LIMIT]
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:850: # TODOs
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:854: "TODO / FIXME / HACK (production code only, test dirs excluded)",
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:854: "TODO / FIXME / HACK (production code only, test dirs excluded)",
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:854: "TODO / FIXME / HACK (production code only, test dirs excluded)",
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:860: "TODO / FIXME / HACK (production code only, test dirs excluded)",
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:860: "TODO / FIXME / HACK (production code only, test dirs excluded)",
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:860: "TODO / FIXME / HACK (production code only, test dirs excluded)",
+
+=== GIT RECENT COMMITS (last 20) ===
+e559cc24 (HEAD -> main, origin/main, origin/HEAD) chore: update clean script and add .geminiignore
+4cfd6679 fix: comprehensive lychee link checker configuration
+96028c9b refactor: move R2-backed assets from /assets/ to /cdn/ prefix
+0ed67527 fix: add _routes.json to prevent Functions from intercepting build assets
+7122f58e refactor: extract shared R2 handler into functions/_r2.ts
+47680f8c fix: project audit fixes across functions, CSS, MDX, and TSX
+82180b12 chore: rename Pages project to zsh
+9d991103 fix: remove unsupported observability from Pages config
+b6c6b615 fix: restore wrangler.jsonc, add to .prettierignore
+88b21e4f fix: rename wrangler.jsonc to wrangler.json for Pages compat
+cc7d1015 feat: redesign homepage showcase, fix wrangler config, and improve UX
+260463e1 perf: add explicit dimensions to all images and videos for CLS prevention
+7b9dab59 perf: optimize assets and improve component quality
+7801d368 docs: add Docusaurus API and config instruction files
+2498b195 fix: resolve build warnings and update project configuration
+edaa16a7 Cleanup
+9775c6e6 feat: self-host third-party assets via R2
+f907ff29 feat: auto-offload large files from repo to R2
+23207e54 feat: add R2 fallback proxy for static assets
+904a0087 fix: rewrite _headers and add _redirects for pages.dev
+
+=== HIGH-CHURN FILES (last 90 days, top 20) ===
+   8 .github/workflows/r2-sync.yml
+   6 wrangler.jsonc
+   5 functions/assets/[[path]].ts
+   5 src/css/custom.css
+   5 ecosystem/annexes/20_test.mdx
+   4 package.json
+   4 .github/workflows/link-checker.yml
+   4 docusaurus.config.ts
+   4 src/components/HomeShowcase/index.tsx
+   4 functions/img/[[path]].ts
+   4 ecosystem/plugins/diff-so-fancy.mdx
+   4 ecosystem/plugins/h-s-mw.mdx
+   4 src/components/GhRepoBadge/styles.module.css
+   4 src/components/HomeShowcase/styles.module.css
+   4 ecosystem/plugins/f-sy-h.mdx
+   3 .gitignore
+   3 src/components/APITable/index.tsx
+   3 src/components/APITable/styles.module.css
+   3 src/components/HomeBanner/styles.module.css
+   3 src/components/HomeInstallCta/styles.module.css
+
+=== MONOREPO SIGNALS ===
+Monorepo tool detected: pnpm-workspace.yaml
+
+=== CODE METRICS ===
+Total files scanned: 703
+Total lines of code: 11938
+
+Files by language:
+  Other: 671
+  TypeScript/React: 18
+  TypeScript: 8
+  JavaScript: 5
+  Python: 1
+
+Top 10 largest files:
+static/cdn/cast/509113.cast: 2414.6KB
+static/img/cast/gif/dsf/zsh-diff-so-fancy.gif: 1423.4KB
+static/img/cast/gif/zsh/zbrowse.gif: 1032.8KB
+static/img/cast/gif/zsh/zprompts.gif: 810.7KB
+static/img/zsh/artwork/z_shell-style-guide.pdf: 792.6KB
+pnpm-lock.yaml: 577.6KB
+static/img/cast/gif/hsmw/hsmw-2.gif: 469.0KB
+static/img/cast/gif/zsh/zsh-select.gif: 374.5KB
+static/img/plugins/annex/test-annex.gif: 355.7KB
+static/img/cast/webm/hsmw/hsmw-2.webm: 343.0KB
+
+=== CI/CD PIPELINES ===
+CI/CD: GitHub Actions
+
+=== CONTAINERS & ORCHESTRATION ===
+No containerization configs detected.
+
+=== SECURITY & COMPLIANCE ===
+No security configs detected.
+
+=== PERFORMANCE & TESTING ===
+No performance testing configs detected.
+
+=== SCAN COMPLETE ===

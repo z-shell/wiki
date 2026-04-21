@@ -5,6 +5,24 @@
   Permissions-Policy: document-domain=()
   X-Frame-Options: SAMEORIGIN
 
+# CDN font binaries — fingerprinted, cache immutably
+/cdn/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+  X-Robots-Tag: nosnippet, noindex
+
+# CDN recordings — fingerprinted, cache immutably
+/cdn/*.cast
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+  X-Robots-Tag: nosnippet, noindex
+
+# CDN stylesheets — not fingerprinted, allow revalidation
+/cdn/*.css
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
+  X-Robots-Tag: nosnippet, noindex
+
 # Fingerprinted build assets — cache aggressively
 /assets/*
   Cache-Control: public, max-age=31536000, immutable

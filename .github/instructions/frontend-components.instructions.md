@@ -7,13 +7,15 @@ applyTo: "src/**/*.{ts,tsx}"
 
 ## Directory Layout
 
-| Path              | Purpose                                                             |
-| ----------------- | ------------------------------------------------------------------- |
-| `src/components/` | Reusable React components (Emoji, Highlight, ImgShow, Player, etc.) |
-| `src/pages/`      | Custom pages routed automatically by Docusaurus                     |
-| `src/theme/`      | Swizzled Docusaurus theme overrides                                 |
-| `src/css/`        | Global styles (`custom.css`)                                        |
-| `src/data/`       | Static data files consumed by components                            |
+| Path                       | Purpose                                                                                 |
+| -------------------------- | --------------------------------------------------------------------------------------- |
+| `src/components/`          | Reusable React components (Emoji, Highlight, ImgShow, Player, etc.)                     |
+| `src/components/shared/`   | Shared CSS modules (e.g. `CardGrid.module.css`) composed by sibling components — no TSX |
+| `src/components/Markdown/` | MDX partial snippets (underscore-prefixed) imported by docs pages                       |
+| `src/pages/`               | Custom pages routed automatically by Docusaurus                                         |
+| `src/theme/`               | Swizzled Docusaurus theme overrides                                                     |
+| `src/css/`                 | Global styles (`custom.css`)                                                            |
+| `src/data/`                | Static data files consumed by config or components (e.g. `announcement-icons.ts`)       |
 
 ## TypeScript Conventions
 
@@ -22,7 +24,7 @@ applyTo: "src/**/*.{ts,tsx}"
 - Destructure props in the function signature.
 - Use `React.JSX.Element` as the return type.
 
-Example pattern (from `Emoji.tsx`):
+Example pattern (from `Emoji/index.tsx`):
 
 ```tsx
 import React, {type HTMLAttributes} from "react";

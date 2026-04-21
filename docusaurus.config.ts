@@ -7,9 +7,12 @@ import type {Options as BlogOptions} from "@docusaurus/plugin-content-blog";
 import type {Options as PageOptions} from "@docusaurus/plugin-content-pages";
 import type {Options as IdealImageOptions} from "@docusaurus/plugin-ideal-image";
 
+import {announcementStarIcon, announcementGithubIcon, announcementHackerNewsIcon} from "./src/data/announcement-icons";
+
 const url = process.env.URL ?? "https://wiki.zshell.dev";
 const baseUrl = process.env.BASE_URL ?? "/";
-const styles = process.env.STYLES ?? "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/js/all.min.js";
+const fontAwesomeScript =
+  process.env.STYLES ?? "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/js/all.min.js";
 
 export default async function createConfigAsync() {
   return {
@@ -27,9 +30,12 @@ export default async function createConfigAsync() {
     favicon: "/img/favicon.ico",
     i18n: {defaultLocale: "en", locales: ["en"]},
     markdown: {mermaid: true, emoji: true, format: "detect", hooks: {onBrokenMarkdownLinks: "warn"}},
-    scripts: [{src: styles, crossorigin: "anonymous", defer: true}],
+    customFields: {
+      fontAwesomeScript,
+    },
     headTags: [
-      {tagName: "link", attributes: {rel: "preconnect", href: "https://cdn.jsdelivr.net", crossorigin: "anonymous"}},
+      {tagName: "link", attributes: {rel: "stylesheet", href: "/cdn/fonts/hack-subset.css"}},
+      {tagName: "link", attributes: {rel: "stylesheet", href: "/cdn/fonts/jetbrainsmono-variable.css"}},
       {
         tagName: "link",
         attributes: {
@@ -44,7 +50,7 @@ export default async function createConfigAsync() {
         tagName: "link",
         attributes: {
           rel: "preload",
-          href: "/cdn/fonts/webfonts/hack-regular-subset.woff2",
+          href: "/cdn/fonts/webfonts/hack-regular-subset.woff2?sha=4b288c48e41aed70",
           as: "font",
           type: "font/woff2",
           crossorigin: "anonymous",
@@ -206,7 +212,7 @@ export default async function createConfigAsync() {
       ],
       announcementBar: {
         id: "announcement-bar",
-        content: `If you like Zi - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi" aria-label="GitHub repository star"><i class="fa-solid fa-star"></i></a>, share it on <a target="_blank" rel="noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=https://wiki.zshell.dev/&t=A%20Swiss%20Army%20Knife%20for%20Zsh%20Unix%20shell%20|%20%E2%9D%AE%20Zi%20%E2%9D%AF" aria-label="Hacker News"><i class="fa-brands fa-square-hacker-news"></i></a>, and consider following us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell" aria-label="GitHub"><i class="fa-brands fa-github-alt"></i></a>`,
+        content: `If you like Zi - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi" aria-label="GitHub repository star">${announcementStarIcon}</a>, share it on <a target="_blank" rel="noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=https://wiki.zshell.dev/&t=A%20Swiss%20Army%20Knife%20for%20Zsh%20Unix%20shell%20|%20%E2%9D%AE%20Zi%20%E2%9D%AF" aria-label="Hacker News">${announcementHackerNewsIcon}</a>, and consider following us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell" aria-label="GitHub">${announcementGithubIcon}</a>`,
         isCloseable: true,
       },
       algolia: {
