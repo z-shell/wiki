@@ -51,10 +51,12 @@ export default function Player({
   controls,
   markers,
 }: PlayerProps): React.JSX.Element {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const element = useRef<HTMLDivElement>(null);
   const instanceRef = useRef<AsciinemaPlayerInstance | null>(null);
   const [playerModule, setPlayerModule] = useState<typeof import("asciinema-player")>();
   const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const opts = useMemo(
     () => ({
@@ -95,7 +97,34 @@ export default function Player({
   );
 
   useEffect(() => {
-    import("asciinema-player").then((module) => setPlayerModule(module)).catch(() => setError(true));
+    const node = wrapperRef.current;
+    if (!node) return;
+    let cancelled = false;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          observer.disconnect();
+          setIsLoading(true);
+          import("asciinema-player")
+            .then((m) => {
+              if (cancelled) return;
+              setIsLoading(false);
+              setPlayerModule(m);
+            })
+            .catch(() => {
+              if (!cancelled) setError(true);
+            });
+        }
+      },
+      {rootMargin: "200px"},
+    );
+    observer.observe(node);
+
+    return () => {
+      cancelled = true;
+      observer.disconnect();
+    };
   }, []);
 
   useEffect(() => {
@@ -127,7 +156,7 @@ export default function Player({
 
   useEffect(() => {
     const node = element.current;
-    if (!node) return;
+    if (!node || !playerModule) return;
 
     const observer = new IntersectionObserver(handleVisibility, {threshold: 0.3});
     observer.observe(node);
@@ -148,9 +177,10 @@ export default function Player({
     );
   }
 
-  if (playerModule == null) {
-    return <Spinner ariaLabel="Loading terminal recording" />;
-  }
-
-  return <div ref={element} role="region" aria-label="Terminal recording" />;
+  return (
+    <div ref={wrapperRef} role="region" aria-label="Terminal recording">
+      {isLoading && <Spinner ariaLabel="Loading terminal recording" />}
+      <div ref={element} />
+    </div>
+  );
 }
