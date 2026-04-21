@@ -48,7 +48,7 @@
   text-align: center;
   text-decoration: none;
   background: hsl(0deg 0% 100% / 4%);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(6px);
   border: 1px solid hsl(0deg 0% 100% / 8%);
   border-radius: var(--radius-lg);
   transition:
