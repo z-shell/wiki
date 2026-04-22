@@ -43,10 +43,10 @@
 
 ### 6) Evidence
 
-- `eslint.config.ts`
-- `.prettierrc.json`
-- `.stylelintrc.yml`
-- `.editorconfig`
+- .trunk/configs/eslint.config.ts
+- .trunk/configs/.prettierrc.json
+- .trunk/configs/.stylelintrc.yml
+- .editorconfig
 - `.github/instructions/frontend-components.instructions.md`
 - `.github/instructions/docs-authoring.instructions.md`
 - `src/components/HomeCommunity/index.tsx`

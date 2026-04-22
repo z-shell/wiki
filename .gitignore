@@ -131,3 +131,7 @@ web_modules/
 .gemini/
 gha-creds-*.json
 .wrangler/
+
+# Automated Codebase Scans
+.codebase-scan.txt
+

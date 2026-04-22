@@ -18,8 +18,7 @@
 Operational quality gates that do exist:
 
 - `pnpm lint`
-- `pnpm lint:css`
-- `pnpm build:en`
+- `pnpm build`
 - GitHub Actions workflows for link checking and build-size/build-time checks
 
 ### 2) Test Layout

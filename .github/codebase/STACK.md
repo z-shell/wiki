@@ -31,9 +31,9 @@ List only high-impact production dependencies (frameworks, data, transport, auth
 | Tool                     | Purpose                                        | Evidence                                                                                     |
 | ------------------------ | ---------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | TypeScript `6.0.3`       | Type-checking and TS config base               | `package.json`, `tsconfig.json`                                                              |
-| ESLint `10.2.x`          | JS/TS/MDX linting with flat config             | `package.json`, `eslint.config.ts`                                                           |
-| Stylelint `17.8.0`       | CSS linting with HSL color enforcement         | `package.json`, `.stylelintrc.yml`                                                           |
-| Prettier                 | Formatting                                     | `.prettierrc.json`                                                                           |
+| ESLint `10.2.x`          | JS/TS/MDX linting with flat config             | `package.json`, `.trunk/configs/eslint.config.ts`                                            |
+| Stylelint `17.8.0`       | CSS linting with HSL color enforcement         | `package.json`, `.trunk/configs/.stylelintrc.yml`                                            |
+| Prettier                 | Formatting                                     | `.trunk/configs/.prettierrc.json`                                                            |
 | Crowdin CLI `4.14.1`     | Translation upload/download workflow support   | `package.json`, `crowdin.yml`                                                                |
 | Wrangler config + action | Cloudflare Pages deployment and R2 integration | `wrangler.jsonc`, `.github/workflows/pages-deployment.yaml`, `.github/workflows/r2-sync.yml` |
 | `jiti` `^2.6.1`          | ESLint TypeScript config loading               | `package.json`, `pnpm-lock.yaml`                                                             |
@@ -54,7 +54,7 @@ pnpm crowdin:sync
 
 ### 5) Environment and Config
 
-- Config sources: `docusaurus.config.ts`, `wrangler.jsonc`, `crowdin.yml`, `.prettierrc.json`, `.stylelintrc.yml`, `eslint.config.ts`, `tsconfig.json`, `.editorconfig`
+- Config sources: `docusaurus.config.ts`, `wrangler.jsonc`, `crowdin.yml`, `.trunk/configs/.prettierrc.json`, `.trunk/configs/.stylelintrc.yml`, `.trunk/configs/eslint.config.ts`, `tsconfig.json`, `.editorconfig`
 - Required env vars: `URL`, `BASE_URL`, `STYLES`, `CROWDIN_PROJECT`, `CROWDIN_TOKEN`, `CF_PAGES_API_TOKEN`, `CF_ACCOUNT_ID`, `CF_API_TOKEN`, `ORG_TOKEN`, `[TODO]` local-development env documentation
 - Deployment/runtime constraints:
   - Build output must land in `build/` for Cloudflare Pages deployment

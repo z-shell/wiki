@@ -37,8 +37,20 @@ export default async function createConfigAsync() {
       fontAwesomeScript,
     },
     headTags: [
-      {tagName: "link", attributes: {rel: "stylesheet", href: "/cdn/fonts/hack-subset.css"}},
-      {tagName: "link", attributes: {rel: "stylesheet", href: "/cdn/fonts/jetbrainsmono-variable.css"}},
+      {tagName: "link", attributes: {rel: "preconnect", href: "https://ghbtns.com"}},
+      {
+        tagName: "link",
+        attributes: {rel: "stylesheet", href: "/cdn/fonts/hack-subset.css", media: "print", onload: "this.media='all'"},
+      },
+      {
+        tagName: "link",
+        attributes: {
+          rel: "stylesheet",
+          href: "/cdn/fonts/jetbrainsmono-variable.css",
+          media: "print",
+          onload: "this.media='all'",
+        },
+      },
       {
         tagName: "link",
         attributes: {

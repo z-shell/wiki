@@ -76,7 +76,7 @@ Auto-fix: add missing frontmatter fields with sensible defaults. Create missing 
 
 Review configuration freshness and best practices:
 
-- **ESLint** (`eslint.config.ts`): verify flat config format is used (not legacy `.eslintrc`). Check that `@docusaurus/eslint-plugin` is included. Flag unused or redundant rule overrides.
+- **ESLint** (`.trunk/configs/eslint.config.ts`): verify flat config format is used (not legacy `.eslintrc`). Check that `@docusaurus/eslint-plugin` is included. Flag unused or redundant rule overrides.
 - **TypeScript** (`tsconfig.json`): verify it extends `@docusaurus/tsconfig`. Flag `ignoreDeprecations` if the referenced deprecation cycle has passed.
 - **Stylelint**: confirm `stylelint-config-standard` and `stylelint-config-css-modules` are both active.
 - **EditorConfig**: verify `.editorconfig` exists and matches project conventions (2-space indent, LF line endings).
