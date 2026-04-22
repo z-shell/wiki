@@ -218,19 +218,6 @@ html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
   display: none;
 }
 
-.player-tabs .tabs__item {
-  margin-right: 0.2rem;
-  padding: 0.7rem;
-  line-height: 0.2rem;
-}
-
-.player-tabs .tabs__item--active {
-  color: var(--ifm-color-primary);
-  border-bottom: 0.01rem solid var(--ifm-color-primary);
-  border-radius: var(--ifm-global-radius);
-  transition: border-bottom 1s ease-in-out;
-}
-
 /* Image styles */
 .IceLogo {
   display: block;
@@ -324,12 +311,6 @@ tbody tr:hover {
 .fa-beat-fade {
   --fa-beat-fade-opacity: 0.6;
   --fa-beat-fade-scale: 1.075;
-}
-
-.video-container {
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
 }
 
 /* Github Link */
