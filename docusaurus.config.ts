@@ -1,11 +1,12 @@
 import {themes as prismThemes} from "prism-react-renderer";
 
-import type {Config} from "@docusaurus/types";
+import type {Config, PluginConfig} from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import type {Options as DocsOptions} from "@docusaurus/plugin-content-docs";
 import type {Options as BlogOptions} from "@docusaurus/plugin-content-blog";
 import type {Options as PageOptions} from "@docusaurus/plugin-content-pages";
 import type {Options as IdealImageOptions} from "@docusaurus/plugin-ideal-image";
+import devAssetProxy from "./plugins/devAssetProxy";
 
 /* import {announcementStarIcon, announcementGithubIcon, announcementHackerNewsIcon} from "./src/data/announcement-icons"; */
 
@@ -13,6 +14,8 @@ const url = process.env.URL ?? "https://wiki.zshell.dev";
 const baseUrl = process.env.BASE_URL ?? "/";
 const fontAwesomeScript =
   process.env.STYLES ?? "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/js/all.min.js";
+const isDev = process.env.NODE_ENV !== "production";
+const runtimePlugins: PluginConfig[] = isDev ? [[devAssetProxy, {}]] : [];
 
 export default async function createConfigAsync() {
   return {
@@ -82,6 +85,7 @@ export default async function createConfigAsync() {
       },
     },
     plugins: [
+      ...runtimePlugins,
       [
         "content-docs",
         {

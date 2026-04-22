@@ -4,3 +4,12 @@ onlyBuiltDependencies:
   - core-js-pure
   - sharp
   - unrs-resolver
+
+# Packages that are always optional but never useful in this environment
+ignoredOptionalDependencies:
+  - fsevents
+
+# Dependency version overrides (replaces pnpm.overrides in package.json)
+overrides:
+  "eslint>jiti": "^2.6.1"
+  webpackbar: "^7.0.0"

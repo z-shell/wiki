@@ -17,6 +17,7 @@
     "lint:css": "stylelint 'src/**/*.css'",
     "lint:css:fix": "stylelint 'src/**/*.css' --fix",
     "lint:fix": "eslint . --fix",
+    "start:cf": "wrangler pages dev build --remote",
     "serve": "docusaurus serve",
     "start": "docusaurus start",
     "swizzle": "docusaurus swizzle",
@@ -83,11 +84,5 @@
   "engines": {
     "node": ">=20",
     "pnpm": ">=10"
-  },
-  "pnpm": {
-    "overrides": {
-      "eslint>jiti": "^2.6.1",
-      "webpackbar": "^7.0.0"
-    }
   }
 }
