@@ -22,9 +22,20 @@ keywords:
 ---
 ```
 
-- `id` is required and must be unique within its content root.
-- `sidebar_position` controls order inside the parent category.
-- `image` should use a site-root path from `static/`.
+**Required fields** (build and commit validation will fail without these):
+
+- `id` — unique within its content root; used by Docusaurus for cross-linking
+- `title` — displayed in sidebar and browser tab
+- `sidebar_position` — controls order inside the parent category
+
+**Recommended fields** (reported as warnings by `pnpm validate:frontmatter`):
+
+- `description` — one-line summary; used by Algolia search and social previews
+- `keywords` — array of terms for Algolia and SEO
+
+**Exempt files**: any `.mdx` file whose name starts with `_` (e.g. MDX partials used as imports) does not need frontmatter and is skipped by validation.
+
+Run `pnpm validate:frontmatter` before pushing to catch any missing fields.
 
 ## File Naming
 

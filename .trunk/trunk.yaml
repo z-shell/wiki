@@ -75,6 +75,14 @@ actions:
     - trunk-check-pre-push
     - trunk-cache-prune
     - trunk-announce
+    - frontmatter-validate
+  definitions:
+    - id: frontmatter-validate
+      runtime: node
+      description: Validate required MDX frontmatter fields
+      run: node scripts/validate-frontmatter.mjs
+      triggers:
+        - git_hooks: [pre-push]
 tools:
   enabled: []
   runtimes:

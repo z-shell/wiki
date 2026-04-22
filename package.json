@@ -21,6 +21,7 @@
     "serve": "docusaurus serve",
     "start": "docusaurus start",
     "swizzle": "docusaurus swizzle",
+    "validate:frontmatter": "node scripts/validate-frontmatter.mjs",
     "write-community-version": "docusaurus docs:version:community",
     "write-docs-version": "docusaurus docs:version",
     "write-ecosystem-version": "docusaurus docs:version:ecosystem",
