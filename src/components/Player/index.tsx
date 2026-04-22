@@ -1,8 +1,8 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from "react";
-import type {AsciinemaPlayerInstance, AsciinemaPlayerOptions} from "asciinema-player";
 import {translate} from "@docusaurus/Translate";
 import Link from "@docusaurus/Link";
 import Spinner from "@site/src/components/Spinner";
+import type {AsciinemaPlayerInstance, AsciinemaPlayerOptions} from "asciinema-player";
 import styles from "./styles.module.css";
 
 export type PlayerProps = AsciinemaPlayerOptions & {

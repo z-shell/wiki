@@ -10,6 +10,8 @@ on:
       - "ecosystem/**"
       - "blog/**"
       - "src/pages/**"
+      - "scripts/validate-frontmatter.mjs"
+      - "package.json"
   schedule:
     - cron: "0 6 * * 1"
   workflow_dispatch: {}
@@ -30,6 +32,12 @@ jobs:
     steps:
       - name: "⤵️ Check out code from GitHub"
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+      - name: "⎔ Setup node"
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          node-version: "20"
+      - name: "🧾 Validate MDX frontmatter"
+        run: node scripts/validate-frontmatter.mjs
       - name: "🔗 Lychee Link Checker"
         uses: lycheeverse/lychee-action@8646ba30535128ac92d33dfc9133794bfdd9b411 # v2
         with:

@@ -54,7 +54,7 @@ jobs:
       - name: "⎔ Setup node"
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
         with:
-          node-version: "lts/*"
+          node-version: "20"
           cache: "pnpm"
       - uses: preactjs/compressed-size-action@66325aad6443cb7cf89c4bfcd414aea2367cda94 # v2
         with:
@@ -80,7 +80,7 @@ jobs:
       - name: "⎔ Setup node"
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
         with:
-          node-version: "lts/*"
+          node-version: "20"
           cache: "pnpm"
       - run: pnpm install --frozen-lockfile
       # Ensure build with a cold cache does not increase too much

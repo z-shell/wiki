@@ -81,11 +81,7 @@ export default function devAssetProxy(context: LoadContext) {
       setupMiddlewares: (middlewares: DevServerMiddleware[]) => {
         middlewares.unshift({
           name: "dev-asset-proxy",
-          middleware: async (
-            req: DevProxyRequest,
-            res: DevProxyResponse,
-            next: NextFunction,
-          ) => {
+          middleware: async (req: DevProxyRequest, res: DevProxyResponse, next: NextFunction) => {
             const requestUrl = new URL(req.url ?? "/", "http://localhost");
             const {pathname, search} = requestUrl;
 
