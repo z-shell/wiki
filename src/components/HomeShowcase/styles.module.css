@@ -96,6 +96,7 @@
 .terminal {
   position: relative;
   overflow: hidden;
+  background: hsl(235deg 19% 13%);
   border: 1px solid hsl(0deg 0% 100% / 12%);
   border-radius: var(--radius-lg);
   box-shadow:
@@ -111,43 +112,19 @@
 }
 
 .terminalHeader {
-  position: relative;
   display: flex;
   align-items: center;
   padding: var(--space-sm) var(--space-md);
   background: hsl(220deg 13% 14%);
-  min-height: 36px;
 }
 
 :global([data-theme="light"]) .terminalHeader {
-  background: hsl(220deg 10% 92%);
+  background: hsl(220deg 10% 18%);
 }
 
 .terminalDots {
   display: flex;
   gap: var(--space-sm);
-  flex-shrink: 0;
-}
-
-.terminalTitle {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: calc(100% - 120px);
-  overflow: hidden;
-  color: hsl(0deg 0% 100% / 38%);
-  font-weight: 400;
-  font-size: 0.73rem;
-  font-family: var(--ifm-font-family-monospace);
-  letter-spacing: 0.03em;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  pointer-events: none;
-  user-select: none;
-}
-
-:global([data-theme="light"]) .terminalTitle {
-  color: hsl(0deg 0% 0% / 40%);
 }
 
 .dot {

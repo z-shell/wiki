@@ -16,11 +16,6 @@ export default function HomeShowcase(): React.JSX.Element {
                 <span className={styles.dot} data-color="yellow" />
                 <span className={styles.dot} data-color="green" />
               </span>
-              <span className={styles.terminalTitle} aria-hidden="true">
-                <Translate id="homepage.showcase.terminalTitle" description="Terminal window title">
-                  zi — plugin setup
-                </Translate>
-              </span>
             </div>
             <div className={styles.terminalBody}>
               <Player
