@@ -74,7 +74,7 @@ Only import what is used on the page.
 - **Always use `<Image>` from `@theme/IdealImage` for PNG/JPG images** — never raw `<img>` or `![](...)` markdown syntax for content images (see `docusaurus-api.instructions.md` for full guidance).
 - Use `<kbd>` for keyboard/command sequences.
 - Heading IDs are managed by `pnpm write-heading-ids`; add explicit `{#custom-id}` only when needed.
-- See `.github/instructions/gfm-patterns.instructions.md` for HTML element patterns (`<kbd>`, `<details>`, `<dl>`, `<samp>`, etc.).
+- See `.github/contributing/github_flavored_markdown.md` for HTML element patterns.
 
 ## Localization Awareness
 
