@@ -54,6 +54,7 @@
     "react-dom": "^19.2.5"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260422.1",
     "@crowdin/cli": "4.14.1",
     "@docusaurus/eslint-plugin": "3.10.0",
     "@docusaurus/module-type-aliases": "3.10.0",
