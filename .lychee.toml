@@ -23,7 +23,7 @@ threads = 4
 
 timeout = 30
 retry_wait_time = 5
-accept = ["100..=399"]
+accept = ["100..=399", "403"]
 user_agent = "Mozilla/5.0 (compatible; lychee/0.18; +https://github.com/z-shell/wiki)"
 insecure = false
 require_https = false
@@ -54,9 +54,6 @@ exclude = [
 
   # YouTube — bot detection
   'https?://(www\.)?youtu(\.be|be\.com)',
-
-  # NPM — aggressive bot blocking
-  'https?://(www\.)?npmjs\.com',
 
   # Crowdin — requires authentication
   'https://digitalclouds\.crowdin\.com',
