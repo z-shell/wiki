@@ -69,6 +69,13 @@ exclude = [
   'https://(.*\.)?zshell\.dev',
   'https://.*\.pages\.dev',
 
+  # Internal Docusaurus links (validated by Docusaurus build instead)
+  '^/',
+  '#.*', # Skip anchor-only links
+
+  # GitHub specific "new" pages often return 404 or 403 to bots
+  'https://github\.com/.*/(discussions|issues|pulls)/new',
+
   # GitHub Pages legacy
   'https://z-shell\.github\.io',
 
