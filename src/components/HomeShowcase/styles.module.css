@@ -147,7 +147,10 @@
 }
 
 .terminalBody {
+  position: relative;
+  overflow: hidden;
   padding: 0;
+  border-radius: 0 0 calc(var(--radius-lg) - 1px) calc(var(--radius-lg) - 1px);
   --term-color-background: hsl(235deg 19% 13%);
   --term-color-foreground: hsl(229deg 73% 86%);
   --term-color-0: hsl(233deg 18% 10%);

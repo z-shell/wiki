@@ -52,26 +52,26 @@
   scrollbar-color: hsl(168deg 70% 45% / 35%) transparent;
 }
 
-.viewport :global(.ap-wrapper) {
+.shell .viewport :global(.ap-wrapper) {
   min-height: calc(var(--player-shell-min-height) - (var(--player-shell-padding) * 2));
   align-items: center;
 }
 
-.viewport :global(.ap-player) {
+.shell .viewport :global(.ap-player) {
   border-radius: var(--player-terminal-radius);
   box-shadow: inset 0 0 0 1px hsl(0deg 0% 100% / 5%);
 }
 
-:global([data-theme="light"]) .viewport :global(.ap-player) {
+:global([data-theme="light"]) .shell .viewport :global(.ap-player) {
   box-shadow: inset 0 0 0 1px hsl(0deg 0% 0% / 8%);
 }
 
-.viewport :global(.ap-control-bar) {
+.shell .viewport :global(.ap-control-bar) {
   background: var(--player-controls-background);
   backdrop-filter: blur(10px);
 }
 
-.viewport :global(.ap-player:focus-within .ap-control-bar) {
+.shell .viewport :global(.ap-player:focus-within .ap-control-bar) {
   opacity: 1;
 }
 
