@@ -67,3 +67,15 @@ Runtime flow, using file-backed evidence:
 - `src/data/announcement-icons.ts`
 - `wrangler.jsonc`
 - `static/_routes.json`
+
+## UI Components (TODO: Icon Migration)
+
+- **Decision:** The project is leaning towards replacing the CDN-hosted FontAwesome kit with a custom, internal SVG `<Icon />` component (Option 2).
+- **Goals:**
+  - Eliminate render-blocking 3rd-party CDN requests.
+  - Achieve perfect subsetting and zero layout shift.
+  - Enforce design system consistency and type safety in MDX files.
+- **Future Action Items:**
+  1.  Build the `<Icon />` React component.
+  2.  Gather and define the allowed SVG paths/types for the project's specific needs.
+  3.  Write a migration script to systematically replace existing `<i class="...">` tags in all MDX files.
