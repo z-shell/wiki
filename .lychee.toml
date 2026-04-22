@@ -55,6 +55,9 @@ exclude = [
   # YouTube — bot detection
   'https?://(www\.)?youtu(\.be|be\.com)',
 
+  # NPM — aggressive bot blocking
+  'https?://(www\.)?npmjs\.com',
+
   # Crowdin — requires authentication
   'https://digitalclouds\.crowdin\.com',
 
