@@ -1,0 +1,22 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.SideBar.category.📖 Zsh User's Guide": {
+    "message": "📖 Zsh User's Guide",
+    "description": "The label for category '📖 Zsh User's Guide' in sidebar 'SideBar'"
+  },
+  "sidebar.SideBar.category.🎯 Roadmap": {
+    "message": "🎯 Roadmap",
+    "description": "The label for category '🎯 Roadmap' in sidebar 'SideBar'"
+  },
+  "sidebar.SideBar.category.✨ Gallery of Invocations": {
+    "message": "✨ Gallery of Invocations",
+    "description": "The label for category '✨ Gallery of Invocations' in sidebar 'SideBar'"
+  },
+  "sidebar.SideBar.category.✨ Collection": {
+    "message": "✨ Collection",
+    "description": "The label for category '✨ Collection' in sidebar 'SideBar'"
+  }
+}
