@@ -71,7 +71,20 @@ exclude = [
 
   # Internal Docusaurus links (validated by Docusaurus build instead)
   '^/',
+  '^\.\./',
+  '^\./',
+  '^file://',
   '#.*', # Skip anchor-only links
+
+  # Docusaurus / static assets (often offloaded or handled by proxy)
+  '^/cdn/',
+  '^/img/',
+
+  # Template variables in JS/TS/MDX (and URL-encoded versions)
+  '\$\{.*\}',
+  '\{\{.*\}\}',
+  '\$%7B.*%7D',
+  '%7B%7B.*%7D%7D',
 
   # GitHub specific "new" pages often return 404 or 403 to bots
   'https://github\.com/.*/(discussions|issues|pulls)/new',

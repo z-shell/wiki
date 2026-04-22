@@ -59,7 +59,6 @@ lint:
           read_output_from: stdout
       environment:
         - name: GITHUB_TOKEN
-          value: ${env.GITHUB_TOKEN}
     - name: eslint
       commands:
         - name: lint
