@@ -1,34 +1,45 @@
 .shell {
-  --player-shell-background: hsl(235deg 19% 13%);
   --player-shell-border-color: hsl(0deg 0% 100% / 10%);
   --player-shell-shadow: var(--shadow-md);
   --player-shell-radius: var(--radius-md);
   --player-terminal-radius: var(--radius-sm);
   --player-shell-padding: var(--space-sm);
   --player-controls-background: hsl(235deg 19% 13% / 82%);
-  --player-shell-min-height: clamp(12rem, calc((var(--player-terminal-rows, 18) * 0.82rem) + var(--space-xl)), 32rem);
+  --player-shell-min-height: clamp(12rem, calc((var(--player-terminal-rows, 18) * 0.82rem) + var(--space-xl)), 38rem);
   position: relative;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
   min-height: var(--player-shell-min-height);
-  background: var(--player-shell-background);
+  margin-block-end: var(--space-xl);
+  background: linear-gradient(160deg, hsl(235deg 19% 15% / 96%), hsl(235deg 19% 10%));
   border: 1px solid var(--player-shell-border-color);
   border-radius: var(--player-shell-radius);
   box-shadow: var(--player-shell-shadow);
   isolation: isolate;
+  transition:
+    border-color var(--duration-fast) ease,
+    box-shadow var(--duration-fast) ease;
 }
 
 .shell:focus-within {
-  border-color: hsl(168deg 70% 45% / 25%);
+  border-color: hsl(168deg 70% 45% / 45%);
+  box-shadow:
+    var(--player-shell-shadow),
+    0 0 0 3px hsl(168deg 70% 45% / 15%);
 }
 
 .shell[data-status="error"] {
-  border-color: hsl(3deg 100% 67% / 24%);
-  box-shadow: var(--shadow-md);
+  border-color: hsl(3deg 100% 67% / 36%);
+  box-shadow:
+    var(--shadow-md),
+    0 0 0 3px hsl(3deg 100% 67% / 12%);
 }
 
 :global([data-theme="light"]) .shell {
   --player-shell-border-color: hsl(0deg 0% 0% / 20%);
   --player-shell-shadow: var(--shadow-sm);
+  background: linear-gradient(160deg, hsl(220deg 20% 97% / 96%), hsl(220deg 20% 93%));
 }
 
 .viewport {
@@ -103,6 +114,16 @@
   text-underline-offset: 0.18em;
 }
 
+@media only screen and (width <= 480px) {
+  .shell {
+    --player-shell-min-height: clamp(8rem, calc((var(--player-terminal-rows, 18) * 0.6rem) + var(--space-lg)), 18rem);
+  }
+
+  .viewport {
+    padding: var(--space-xs);
+  }
+}
+
 @media only screen and (width <= 768px) {
   .shell {
     --player-shell-min-height: clamp(10rem, calc((var(--player-terminal-rows, 18) * 0.7rem) + var(--space-xl)), 24rem);
@@ -114,6 +135,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .shell {
+    transition: none;
+  }
+
   .loading {
     backdrop-filter: none;
   }
