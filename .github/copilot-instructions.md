@@ -63,9 +63,9 @@
 
 ### Branching
 
-- `main` — active development. `stable` — production.
+- `next` — active development. `main` — production.
 - Branch naming: `feature-<id>`, `bug-<id>`, `hotfix-<id>`.
-- Hotfixes branch from `stable`; everything else from `main`.
+- Hotfixes branch from `main`; everything else from `next`.
 
 ## Agent Notes
 

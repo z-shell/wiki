@@ -7,7 +7,7 @@ import type {Options as BlogOptions} from "@docusaurus/plugin-content-blog";
 import type {Options as PageOptions} from "@docusaurus/plugin-content-pages";
 import type {Options as IdealImageOptions} from "@docusaurus/plugin-ideal-image";
 
-import {announcementStarIcon, announcementGithubIcon, announcementHackerNewsIcon} from "./src/data/announcement-icons";
+/* import {announcementStarIcon, announcementGithubIcon, announcementHackerNewsIcon} from "./src/data/announcement-icons"; */
 
 const url = process.env.URL ?? "https://wiki.zshell.dev";
 const baseUrl = process.env.BASE_URL ?? "/";
@@ -210,11 +210,11 @@ export default async function createConfigAsync() {
         {name: "og:description", content: "Swiss Army Knife for Zsh Unix shell"},
         {name: "keywords", content: "z-shell, zsh, zinit, zplugin, oh-my-zsh, prezto, zi, devops, zsh-plugins"},
       ],
-      announcementBar: {
+      /* announcementBar: {
         id: "announcement-bar",
         content: `If you like Zi - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi" aria-label="GitHub repository star">${announcementStarIcon}</a>, share it on <a target="_blank" rel="noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=https://wiki.zshell.dev/&t=A%20Swiss%20Army%20Knife%20for%20Zsh%20Unix%20shell%20|%20%E2%9D%AE%20Zi%20%E2%9D%AF" aria-label="Hacker News">${announcementHackerNewsIcon}</a>, and consider following us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell" aria-label="GitHub">${announcementGithubIcon}</a>`,
         isCloseable: true,
-      },
+      }, */
       algolia: {
         appId: "FMPN8VE51Y",
         apiKey: "a3d13a1058ae9304a8c987ea67b08ce4",
