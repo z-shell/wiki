@@ -19,7 +19,7 @@ lint:
     - name: markdown
       extensions: [md, markdown]
   disabled:
-    - lychee@0.23.0
+    - lychee
     - yamllint
     - terrascan
     - trufflehog
