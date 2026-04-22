@@ -19,7 +19,6 @@ lint:
     - name: markdown
       extensions: [md, markdown]
   disabled:
-    - lychee
     - yamllint
     - terrascan
     - trufflehog
@@ -47,6 +46,7 @@ lint:
     - prettier@3.8.3
     - shfmt@3.6.0
     - frontmatter-linter@SYSTEM
+    - lychee@0.23.0
   definitions:
     - name: lychee
       files: [mdx, markdown, typescript, javascript, css, html]
@@ -84,6 +84,8 @@ lint:
         - build/**
         - static/**
         - .docusaurus/**
+    - linters: [lychee]
+      paths: [ALL]
     - linters: [eslint]
       paths:
         - .trunk/configs/*
