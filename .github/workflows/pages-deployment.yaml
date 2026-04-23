@@ -37,6 +37,8 @@ jobs:
           cache: "pnpm"
       - name: "🏗  Build"
         run: pnpm i --frozen-lockfile && pnpm run build
+        env:
+          NODE_ENV: development
       - name: "🚀 Publish"
         uses: cloudflare/wrangler-action@v3
         with:

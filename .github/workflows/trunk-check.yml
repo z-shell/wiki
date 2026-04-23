@@ -36,7 +36,9 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm i --frozen-lockfile
+        env:
+          NODE_ENV: development
 
       - name: Trunk Check
         uses: trunk-io/trunk-action@v1
