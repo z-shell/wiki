@@ -5,14 +5,14 @@ runs:
   using: composite
   steps:
     - name: 📦 Setup pnpm
-      uses: pnpm/action-setup@71c92474e7e4f5bca283fb17ef80fba9cdb2b4b1 # v6
+      uses: pnpm/action-setup@v4
     - name: ⎔ Setup node
-      uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
+      uses: actions/setup-node@v4
       with:
-        node-version: "lts/*"
+        node-version: "20"
         cache: "pnpm"
     - name: 🏗 Prepare
       shell: bash
-      run: |
-        pnpm install --no-frozen-lockfile --prod --shamefully-hoist --fix-lockfile
-        pnpm build:en
+      run: pnpm i --frozen-lockfile
+      env:
+        NODE_ENV: development

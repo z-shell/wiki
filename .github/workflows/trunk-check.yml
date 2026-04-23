@@ -26,19 +26,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: "pnpm"
-
-      - name: Install dependencies
-        run: pnpm i --frozen-lockfile
-        env:
-          NODE_ENV: development
+      - name: Setup dependencies
+        uses: ./.trunk/setup-ci
 
       - name: Trunk Check
         uses: trunk-io/trunk-action@v1
