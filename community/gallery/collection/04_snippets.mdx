@@ -13,33 +13,29 @@ keywords:
 
 :::info[Related:]
 
-1. [Ice: svn][the-svn-ice]
-2. [Ice: multisrc'…'][the-multisrc-ice]
+1. [Ice: multisrc'…'][the-multisrc-ice]
 
 :::
 
-### SC: [OMZ::lib](https://github.com/ohmyzsh/ohmyzsh/tree/master/lib) {/* #sc-omzlib */}
+### SC: [OMZ::lib/git.zsh](https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/git.zsh) {/* #sc-omzlib */}
 
 ```shell showLineNumbers
-zi ice svn pick"completion.zsh" src"git.zsh"
-zi snippet OMZ::lib
+zi snippet OMZL::git.zsh
 ```
 
 ```shell showLineNumbers
-zi ice svn pick"completion.zsh" multisrc'git.zsh \
-    functions.zsh {history,grep}.zsh'
-zi snippet OMZ::lib
+zi ice multisrc'git.zsh \
+    functions.zsh history.zsh grep.zsh'
+zi snippet OMZ::lib/completion.zsh
 ```
 
-### SC: [OMZ::plugin/macos](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/macos) {/* #sc-omzpluginmacos */}
+### SC: [OMZ::plugin/macos](https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/macos/macos.plugin.zsh) {/* #sc-omzpluginmacos */}
 
 ```shell showLineNumbers
-zi ice svn
-zi snippet OMZ::plugins/macos
+zi snippet OMZP::macos
 ```
 
 {/* end-of-file */}
 {/* links */}
 
-[the-svn-ice]: /docs/guides/syntax/standard#the-svn-ice
 [the-multisrc-ice]: /docs/guides/syntax/standard#the-multisrc-ice

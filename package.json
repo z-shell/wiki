@@ -14,20 +14,20 @@
     "deploy": "docusaurus deploy",
     "preinstall": "npx only-allow pnpm",
     "lint": "trunk check",
+    "lint:all": "trunk check --all",
     "lint:fix": "trunk check --fix",
-    "lint:links": "trunk check --all --filter lychee",
+    "lint:links": "trunk check --filter lychee",
+    "lint:links:all": "trunk check --all --filter lychee",
+    "lint:links:refresh": "trunk check --all --filter lychee --cache=false",
     "project-health": "pnpm lint && pnpm build:en",
     "serve": "docusaurus serve",
     "start": "docusaurus start",
     "start:cf": "wrangler pages dev build --remote",
     "swizzle": "docusaurus swizzle",
     "validate:frontmatter": "node scripts/validate-frontmatter.mjs",
-    "write-community-version": "docusaurus docs:version:community",
     "write-docs-version": "docusaurus docs:version",
-    "write-ecosystem-version": "docusaurus docs:version:ecosystem",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "write-translations": "docusaurus write-translations",
-    "write-translations:force": "docusaurus write-translations --override"
+    "write-translations": "docusaurus write-translations"
   },
   "browserslist": {
     "production": [
@@ -55,7 +55,7 @@
     "react-dom": "^19.2.5"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20260422.1",
+    "@cloudflare/workers-types": "^4.20260423.1",
     "@crowdin/cli": "4.14.1",
     "@docusaurus/eslint-plugin": "3.10.0",
     "@docusaurus/module-type-aliases": "3.10.0",

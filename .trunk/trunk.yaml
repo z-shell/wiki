@@ -4,6 +4,7 @@ cli:
   shell_hooks:
     path_add:
       - "${workspace}/tools"
+      - "${workspace}/node_modules/.bin"
 plugins:
   sources:
     - id: trunk
@@ -35,7 +36,7 @@ lint:
     - isort@8.0.1
     - ruff@0.15.11
     - sort-package-json@3.6.1
-    - oxipng@10.1.0
+    - oxipng@10.1.1
     - svgo@4.0.1
     - stylelint@SYSTEM
     - git-diff-check@SYSTEM
@@ -46,20 +47,15 @@ lint:
     - prettier@3.8.3
     - shfmt@3.6.0
     - frontmatter-linter@SYSTEM
-    - lychee@0.23.0
   definitions:
-    - name: lychee
-      files: [mdx, markdown, typescript, javascript, css, html]
-      tools: [lychee]
-      commands:
-        - name: lint
-          run: lychee --config .lychee.toml --root-dir . ${target}
-          output: pass_fail
-          success_codes: [0, 1]
-          read_output_from: stdout
+    - name: stylelint
       environment:
-        - name: GITHUB_TOKEN
+        - name: PATH
+          list: ["${workspace}/node_modules/.bin"]
     - name: eslint
+      environment:
+        - name: PATH
+          list: ["${workspace}/node_modules/.bin"]
       commands:
         - name: lint
           version: ">=9.0.0"
@@ -68,6 +64,17 @@ lint:
             - eslint.config.mjs
             - eslint.config.cjs
             - eslint.config.ts
+    - name: lychee
+      files: [mdx, markdown, typescript, javascript, css, html]
+      tools: [lychee]
+      commands:
+        - name: lint
+          run: lychee --config .trunk/configs/.lychee.toml --root-dir . ${target}
+          output: pass_fail
+          success_codes: [0, 1]
+          read_output_from: stdout
+      environment:
+        - name: GITHUB_TOKEN
     - name: frontmatter-linter
       files: [mdx]
       commands:
@@ -83,11 +90,6 @@ lint:
         - build/**
         - static/**
         - .docusaurus/**
-    - linters: [lychee]
-      paths: [ALL]
-    - linters: [eslint]
-      paths:
-        - .trunk/configs/*
     - linters: [gitleaks]
       paths:
         - docusaurus.config.ts
@@ -123,4 +125,4 @@ runtimes:
   enabled:
     - python@3.13.3
     - go@1.21.5
-    - node@22.16.0
+    - node@24.15.0

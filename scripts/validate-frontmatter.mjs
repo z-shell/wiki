@@ -46,8 +46,8 @@ function collectMdx(dir) {
  * Returns null if no frontmatter block found.
  */
 function extractFrontmatter(content) {
-  const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-  return match ? match[1] : null;
+  const match = content.match(/^---\r?\n(?:[\s\S]*?)\r?\n---/);
+  return match ? match[0].replace(/^---\r?\n/, "").replace(/\r?\n---$/, "") : null;
 }
 
 /**

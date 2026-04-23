@@ -197,7 +197,7 @@ Following commands are passed to `zi …` to obtain described effects.
 |            `loaded`             | Show loaded plugins                                                                                                                                        |
 |        `list` `keyword`         | Filter loaded plugins with only 'keyword'                                                                                                                  |
 |              `ls`               | List snippets in a formatted and colorized manner. Requires **tree** program.                                                                              |
-| `status` `'…'` or `URL` `--all` | Git status for plugin or svn status for the snippet. `--all` – do it for all plugins and snippets.                                                         |
+| `status` `'…'` or `URL` `--all` | Git status for plugin. `--all` – do it for all plugins.                                                         |
 |     `recently` `time-spec`      | Show plugins that changed recently, the argument is e.g. 1 month 2 days.                                                                                   |
 |           `bindkeys`            | Lists bindkeys set up by each plugin.                                                                                                                      |
 
@@ -214,7 +214,7 @@ Following commands are passed to `zi …` to obtain described effects.
 |                         Command                          | Description                                                                                                                                                |
 | :------------------------------------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |                      `self-update`                       | Updates and compiles Zi.                                                                                                                                   |
-|           `update` `-q` `-r` `'…'` or `--all`            | Update all plugins and snippets with `--all` – for quiet `-q` – execute `git reset --hard` or `svn revert` before pulling changes with `-r`.               |
+|           `update` `-q` `-r` `'…'` or `--all`            | Update all plugins and snippets with `--all` – for quiet `-q` – execute `git reset --hard` before pulling changes with `-r`.               |
 |                        `ice '…'`                         | Add ice to next command, argument e.g.: from"gitlab".                                                                                                      |
 |           `delete` `'…'` or `--clean` `--all`            | Remove plugin or snippet from disk (good to forget wrongly passed ice-modifiers) `--all` – delete plugins and snippets that are not loaded with `--clean`. |
 |                         `cd '…'`                         | Jump into the plugin's directory. Also support snippets if fed with URL.                                                                                   |

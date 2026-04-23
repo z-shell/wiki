@@ -154,7 +154,7 @@ export default function devAssetProxy(context: LoadContext) {
                 return;
               }
 
-              await pipeline(Readable.fromWeb(upstreamRes.body), res);
+              await pipeline(Readable.fromWeb(upstreamRes.body as import("node:stream/web").ReadableStream), res);
             } catch (error: unknown) {
               console.warn(`${ansi.tag("[PROXY]")} Failed to proxy ${ansi.url(upstream)}: ${formatError(error)}`);
               next();

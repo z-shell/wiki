@@ -1,5 +1,4 @@
 import {themes as prismThemes} from "prism-react-renderer";
-
 import type {Config, PluginConfig} from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import type {Options as DocsOptions} from "@docusaurus/plugin-content-docs";
@@ -190,7 +189,7 @@ export default async function createConfigAsync() {
             showLastUpdateAuthor: true,
             showLastUpdateTime: true,
           } satisfies DocsOptions,
-          blog: {
+          /* blog: {
             path: "blog",
             editUrl: ({locale, blogDirPath, blogPath}) => {
               if (locale !== "en") {
@@ -204,7 +203,7 @@ export default async function createConfigAsync() {
               type: "all",
               copyright: `Copyright © ${new Date().getFullYear()} Z-Shell Community`,
             },
-          } satisfies BlogOptions,
+          } satisfies BlogOptions, */
           pages: {
             path: "src/pages",
           } satisfies PageOptions,

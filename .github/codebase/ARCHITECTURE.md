@@ -76,6 +76,6 @@ Runtime flow, using file-backed evidence:
   - Achieve perfect subsetting and zero layout shift.
   - Enforce design system consistency and type safety in MDX files.
 - **Future Action Items:**
-  1.  Build the `<Icon />` React component.
-  2.  Gather and define the allowed SVG paths/types for the project's specific needs.
-  3.  Write a migration script to systematically replace existing `<i class="...">` tags in all MDX files.
+  1. Build the `<Icon />` React component.
+  2. Gather and define the allowed SVG paths/types for the project's specific needs.
+  3. Write a migration script to systematically replace existing `<i class="...">` tags in all MDX files.

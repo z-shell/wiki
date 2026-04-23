@@ -21,11 +21,11 @@ Synopsis:
 submods'{user}/{plugin} -> {output directory}; …`
 ```
 
-An example command utilizing the annex and its ice-modifier to load `zsh-autosuggestions` plugin via [Prezto module](/docs/getting_started/migration#pzt-modules) `autosuggestions`.
+An example command utilizing the annex and its ice-modifier to load a plugin with additional submodules:
 
 ```shell title='~/.zshrc' showLineNumbers
-zi ice svn submods'zsh-users/zsh-autosuggestions -> external'
-zi snippet PZT::modules/autosuggestions
+zi ice submods'zsh-users/zsh-autosuggestions -> external'
+zi load some/plugin
 ```
 
 ## Install submods {/* #install-submods */}
