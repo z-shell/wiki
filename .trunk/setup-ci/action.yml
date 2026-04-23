@@ -13,4 +13,4 @@ runs:
         cache: "pnpm"
     - name: 🏗 Prepare
       shell: bash
-      run: pnpm i --frozen-lockfile
+      run: NODE_ENV=development pnpm i --frozen-lockfile
