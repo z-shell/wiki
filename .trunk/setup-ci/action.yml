@@ -14,5 +14,3 @@ runs:
     - name: 🏗 Prepare
       shell: bash
       run: pnpm i --frozen-lockfile
-      env:
-        NODE_ENV: development
