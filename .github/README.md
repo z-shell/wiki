@@ -72,7 +72,7 @@ The site will be available at `http://localhost:3000`.
 
 We welcome contributions! Whether it's fixing a typo, updating outdated information, or adding a new guide.
 
-- **Content Authoring**: Refer to [Docs Authoring Guidelines](.github/instructions/docs-authoring.instructions.md) for standards on MDX, frontmatter, and file naming.
+- **Content Authoring**: Refer to [Docs Authoring Guidelines](https://github.com/z-shell/wiki/blob/main/.github/instructions/docs-authoring.instructions.md) for standards on MDX, frontmatter, and file naming.
 - **Localization**: Use [Crowdin](https://translate.zshell.dev/) for translations. Do not modify files in `i18n/` directly.
 - **Code of Conduct**: Please follow our [Code of Conduct](https://github.com/z-shell/.github/tree/main/.github/CODE_OF_CONDUCT.md).
 
