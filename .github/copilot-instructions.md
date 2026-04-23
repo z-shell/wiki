@@ -9,8 +9,7 @@
 - `pnpm build:en` — English-only build, faster for docs-only checks.
 - `pnpm serve` — serve the production build locally for verification.
 - `pnpm clear` — clear Docusaurus cache; use when the site behaves inconsistently after config or theme changes.
-- `pnpm lint` — ESLint (flat config in `eslint.config.ts`). Fix with `pnpm lint:fix`.
-- `pnpm lint:css` — Stylelint for `src/**/*.css`. Fix with `pnpm lint:css:fix`.
+- `pnpm lint` — Unified linting with Trunk (configs in `.trunk/configs/`). Fix with `pnpm lint:fix`.
 - `pnpm write-heading-ids` — regenerate heading IDs across all docs.
 - Trunk CI runs pre-commit formatting and pre-push linting (config: `.trunk/trunk.yaml`).
 
@@ -63,9 +62,9 @@
 
 ### Branching
 
-- `main` — active development. `stable` — production.
+- `next` — active development. `main` — production.
 - Branch naming: `feature-<id>`, `bug-<id>`, `hotfix-<id>`.
-- Hotfixes branch from `stable`; everything else from `main`.
+- Hotfixes branch from `main`; everything else from `next`.
 
 ## Agent Notes
 

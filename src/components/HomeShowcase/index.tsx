@@ -11,9 +11,11 @@ export default function HomeShowcase(): React.JSX.Element {
         <div className={styles.grid}>
           <div className={styles.terminal}>
             <div className={styles.terminalHeader}>
-              <span className={styles.dot} data-color="red" />
-              <span className={styles.dot} data-color="yellow" />
-              <span className={styles.dot} data-color="green" />
+              <span className={styles.terminalDots}>
+                <span className={styles.dot} data-color="red" />
+                <span className={styles.dot} data-color="yellow" />
+                <span className={styles.dot} data-color="green" />
+              </span>
             </div>
             <div className={styles.terminalBody}>
               <Player

@@ -14,7 +14,7 @@ Review only the files changed in the current working tree for consistency, perfo
    - If the user says "staged", filter to staged changes only.
    - Otherwise include both staged and unstaged changes.
 2. For each changed file, apply the rules below based on file type.
-3. After all fixes, run `pnpm lint --quiet` and `pnpm lint:css --quiet` to validate.
+3. After all fixes, run `pnpm lint --quiet` to validate.
 4. Summarize what was fixed, grouped by file.
 
 ## Rules by File Type

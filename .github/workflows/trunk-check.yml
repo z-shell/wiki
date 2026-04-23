@@ -1,0 +1,38 @@
+name: Trunk Check
+on:
+  push:
+    branches: [main, next]
+  pull_request:
+    branches: [main, next]
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  trunk_check:
+    name: Trunk Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup dependencies
+        uses: ./.trunk/setup-ci
+
+      - name: Trunk Check
+        uses: trunk-io/trunk-action@v1
+        with:
+          # Run full link audit on schedule/dispatch, otherwise run standard incremental checks
+          arguments: ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && 'run lychee-audit' || '' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

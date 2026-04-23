@@ -1,18 +1,20 @@
 import {themes as prismThemes} from "prism-react-renderer";
-
-import type {Config} from "@docusaurus/types";
+import type {Config, PluginConfig} from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import type {Options as DocsOptions} from "@docusaurus/plugin-content-docs";
 import type {Options as BlogOptions} from "@docusaurus/plugin-content-blog";
 import type {Options as PageOptions} from "@docusaurus/plugin-content-pages";
 import type {Options as IdealImageOptions} from "@docusaurus/plugin-ideal-image";
+import devAssetProxy from "./plugins/devAssetProxy";
 
-import {announcementStarIcon, announcementGithubIcon, announcementHackerNewsIcon} from "./src/data/announcement-icons";
+/* import {announcementStarIcon, announcementGithubIcon, announcementHackerNewsIcon} from "./src/data/announcement-icons"; */
 
 const url = process.env.URL ?? "https://wiki.zshell.dev";
 const baseUrl = process.env.BASE_URL ?? "/";
 const fontAwesomeScript =
   process.env.STYLES ?? "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/js/all.min.js";
+const isDev = process.env.NODE_ENV !== "production";
+const runtimePlugins: PluginConfig[] = isDev ? [[devAssetProxy, {}]] : [];
 
 export default async function createConfigAsync() {
   return {
@@ -34,8 +36,20 @@ export default async function createConfigAsync() {
       fontAwesomeScript,
     },
     headTags: [
-      {tagName: "link", attributes: {rel: "stylesheet", href: "/cdn/fonts/hack-subset.css"}},
-      {tagName: "link", attributes: {rel: "stylesheet", href: "/cdn/fonts/jetbrainsmono-variable.css"}},
+      {tagName: "link", attributes: {rel: "preconnect", href: "https://ghbtns.com"}},
+      {
+        tagName: "link",
+        attributes: {rel: "stylesheet", href: "/cdn/fonts/hack-subset.css", media: "print", onload: "this.media='all'"},
+      },
+      {
+        tagName: "link",
+        attributes: {
+          rel: "stylesheet",
+          href: "/cdn/fonts/jetbrainsmono-variable.css",
+          media: "print",
+          onload: "this.media='all'",
+        },
+      },
       {
         tagName: "link",
         attributes: {
@@ -82,6 +96,7 @@ export default async function createConfigAsync() {
       },
     },
     plugins: [
+      ...runtimePlugins,
       [
         "content-docs",
         {
@@ -174,7 +189,7 @@ export default async function createConfigAsync() {
             showLastUpdateAuthor: true,
             showLastUpdateTime: true,
           } satisfies DocsOptions,
-          blog: {
+          /* blog: {
             path: "blog",
             editUrl: ({locale, blogDirPath, blogPath}) => {
               if (locale !== "en") {
@@ -188,7 +203,7 @@ export default async function createConfigAsync() {
               type: "all",
               copyright: `Copyright © ${new Date().getFullYear()} Z-Shell Community`,
             },
-          } satisfies BlogOptions,
+          } satisfies BlogOptions, */
           pages: {
             path: "src/pages",
           } satisfies PageOptions,
@@ -210,11 +225,11 @@ export default async function createConfigAsync() {
         {name: "og:description", content: "Swiss Army Knife for Zsh Unix shell"},
         {name: "keywords", content: "z-shell, zsh, zinit, zplugin, oh-my-zsh, prezto, zi, devops, zsh-plugins"},
       ],
-      announcementBar: {
+      /* announcementBar: {
         id: "announcement-bar",
         content: `If you like Zi - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi" aria-label="GitHub repository star">${announcementStarIcon}</a>, share it on <a target="_blank" rel="noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=https://wiki.zshell.dev/&t=A%20Swiss%20Army%20Knife%20for%20Zsh%20Unix%20shell%20|%20%E2%9D%AE%20Zi%20%E2%9D%AF" aria-label="Hacker News">${announcementHackerNewsIcon}</a>, and consider following us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell" aria-label="GitHub">${announcementGithubIcon}</a>`,
         isCloseable: true,
-      },
+      }, */
       algolia: {
         appId: "FMPN8VE51Y",
         apiKey: "a3d13a1058ae9304a8c987ea67b08ce4",

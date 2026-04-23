@@ -12,7 +12,7 @@
   X-Robots-Tag: nosnippet, noindex
 
 # CDN recordings — fingerprinted, cache immutably
-/cdn/*.cast
+/cdn/cast/*.cast
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
   X-Robots-Tag: nosnippet, noindex

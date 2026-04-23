@@ -59,10 +59,9 @@ After all fixes:
 
 ```sh
 pnpm lint --quiet
-pnpm lint:css --quiet
 ```
 
-If either command reports remaining issues, fix those too, then re-run.
+If it reports remaining issues, fix those too, then re-run.
 
 ### Phase 5 — Report
 

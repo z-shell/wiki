@@ -33,7 +33,15 @@ If either fails, check the error output for broken links (`onBrokenLinks: "throw
 
 ### 2. Frontmatter Validation
 
-For each new or changed `.mdx` file, verify:
+Run the automated validator to check all MDX files across content roots:
+
+```sh
+pnpm validate:frontmatter
+```
+
+This exits non-zero if any file is missing a **required** field (`id`, `title`, `sidebar_position`). Warnings are printed for **recommended** fields (`description`, `keywords`) but do not block.
+
+For each new or changed `.mdx` file also manually verify:
 
 - [ ] `id` is present and unique within its content root
 - [ ] `title` is set

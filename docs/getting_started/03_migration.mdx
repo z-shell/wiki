@@ -48,22 +48,6 @@ zi snippet OMZL::clipboard.zsh
 zi snippet OMZL::termsupport.zsh
 ```
 
-Example of more advanced, library loading using subversion:
-
-```shell title="~/.zshrc" showLineNumbers
-if (( $+commands[svn] )) {
-	sni=({git,theme-and-appearance,prompt_info_functions,history,completion,vcs_info}.zsh)
-	zi is-snippet has'svn' for svn \
-		multisrc'${sni[*]}' pick'/dev/null' \
-		atinit'typeset -gx COMPLETION_WAITING_DOTS=true \
-    HISTSIZE=290000 SAVEHIST=290000 HISTFILE=${ZSH_CACHE_DIR}/.history;' \
-      OMZ::lib
-	unset sni
-} else {
-	+zi-message "{auto}Subversion not installed!"
-}
-```
-
 ### OMZ plugins {/* #omz-plugins */}
 
 ```diff title="~/.zshrc" showLineNumbers
@@ -114,38 +98,13 @@ Bundle the example above to a single file:
 
 :::
 
-Use `zi ice svn` if multiple files require an entire subdirectory.
-
-- [gitfast][omz/gitfast]
-- [osx][omz/osx]
-- [history-substring-search][omz/history-substring-search]
-
-```shell title="~/.zshrc" showLineNumbers
-zi ice svn
-zi snippet OMZP::gitfast
-
-zi ice svn
-zi snippet OMZP::osx
-
-zi ice svn
-zi snippet OMZP::history-substring-search
-```
-
 Use `zi ice as"completion"` to directly add single file completion snippets.
 
 - [docker][omz/docker]
-- [fd][omz/fd]
-- [ag][omz/ag]
 
 ```shell title="~/.zshrc" showLineNumbers
 zi ice as"completion"
-zi snippet OMZP::docker/_docker
-
-zi ice as"completion"
-zi snippet OMZP::fd/_fd
-
-zi ice as"completion"
-zi snippet OMZP::ag/_ag
+zi snippet OMZP::docker/completions/_docker
 ```
 
 ### OMZ themes {/* #omz-themes */}
@@ -328,38 +287,6 @@ Available Prezto modules:
 | [wakeonlan](https://github.com/sorin-ionescu/prezto/tree/master/modules/wakeonlan/README.md)                               | This module provides a wrapper around the wakeonlan tool.                                                  |
 | [yum](https://github.com/sorin-ionescu/prezto/blob/master/modules/autosuggestions/README.md)                               | Defines yum aliases.                                                                                       |
 
-Use `zi ice svn` if multiple files require an entire subdirectory.
-
-- [docker](https://github.com/sorin-ionescu/prezto/tree/master/modules/docker/README.md)
-- [git](https://github.com/sorin-ionescu/prezto/tree/master/modules/git/README.md)
-
-```shell title="~/.zshrc" showLineNumbers
-zi ice svn
-zi snippet PZTM::docker
-
-zi ice svn
-zi snippet PZTM::git
-```
-
-Use `zi ice as"null"` no `*.plugin.zsh`, `init.zsh`, `*.zsh-theme*` files exist in module directory.
-
-- [archive](https://github.com/sorin-ionescu/prezto/tree/master/modules/archive/README.md):
-
-```shell title="~/.zshrc" showLineNumbers
-zi ice svn as"null"
-zi snippet PZTM::archive
-```
-
-Use `zi ice atclone"git clone <repo> <location>"` if module have external module.
-
-- [completion](https://github.com/sorin-ionescu/prezto/tree/master/modules/completion/README.md):
-
-```shell title="~/.zshrc" showLineNumbers
-zi ice svn blockf \
-  atclone"git clone --recursive https://github.com/zsh-users/zsh-completions.git external"
-zi snippet PZTM::completion
-```
-
 Use `blockf` to prevent any unnecessary additions to `fpath`, as Zi manages `fpath`.
 
 :::tip
@@ -456,11 +383,6 @@ For the `location`: refer <Link to="/docs/guides/syntax/standard#src-pick-multis
 
 [about-zstyle]: https://unix.stackexchange.com/questions/214657/what-does-zstyle-do
 [nicosantangelo/alpharized]: https://github.com/nicosantangelo/Alpharized
-[omz/ag]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ag
 [omz/clipboard]: https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
-[omz/docker]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
-[omz/fd]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fd
-[omz/gitfast]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/gitfast
-[omz/history-substring-search]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/history-substring-search
-[omz/osx]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/macos
+[omz/docker]: https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/docker/completions/_docker
 [omz/termsupport]: https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh

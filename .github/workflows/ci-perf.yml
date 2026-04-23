@@ -46,19 +46,19 @@ jobs:
       issues: write # for preactjs/compressed-size-action to create comments
     steps:
       - name: "⤵️ Check out code from GitHub"
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: "📦 Setup pnpm"
-        uses: pnpm/action-setup@71c92474e7e4f5bca283fb17ef80fba9cdb2b4b1 # v6
+        uses: pnpm/action-setup@v4
       - name: "⎔ Setup node"
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
+        uses: actions/setup-node@v4
         with:
-          node-version: "lts/*"
+          node-version: "20"
           cache: "pnpm"
-      - uses: preactjs/compressed-size-action@66325aad6443cb7cf89c4bfcd414aea2367cda94 # v2
+      - uses: preactjs/compressed-size-action@v2
         with:
-          install-script: "pnpm install --frozen-lockfile"
+          install-script: pnpm i --frozen-lockfile
           build-script: "build:en"
           pattern: "{build/assets/js/*.js,build/assets/css/*.css,build/**/*.html,.docusaurus/globalData.json,build/blog/**/swiss-army-knife-for-zsh/*}"
           exclude: "{./build/manifest.json,./build/**/*.xml,**/*.map,**/node_modules/**,build/assets/**/*.ttf}"
@@ -72,17 +72,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "⤵️ Check out code from GitHub"
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: "📦 Setup pnpm"
-        uses: pnpm/action-setup@71c92474e7e4f5bca283fb17ef80fba9cdb2b4b1 # v6
+        uses: pnpm/action-setup@v4
       - name: "⎔ Setup node"
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
+        uses: actions/setup-node@v4
         with:
-          node-version: "lts/*"
+          node-version: "20"
           cache: "pnpm"
-      - run: pnpm install --frozen-lockfile
+      - run: pnpm i --frozen-lockfile
+        env:
+          NODE_ENV: development
       # Ensure build with a cold cache does not increase too much
       - name: "Build (cold cache)"
         run: pnpm build:en
