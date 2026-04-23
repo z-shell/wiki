@@ -1,15 +1,20 @@
 name: Trunk Check setup
 description: Set up dependencies for Trunk Check
 
+inputs:
+  cache-key:
+    description: "Cache key passed by trunk-action"
+    required: false
+
 runs:
   using: composite
   steps:
     - name: 📦 Setup pnpm
-      uses: pnpm/action-setup@v4
+      uses: pnpm/action-setup@v5
     - name: ⎔ Setup node
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v6
       with:
-        node-version: "20"
+        node-version: "24"
         cache: "pnpm"
     - name: 🏗 Prepare
       shell: bash

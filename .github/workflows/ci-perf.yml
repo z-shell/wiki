@@ -46,15 +46,15 @@ jobs:
       issues: write # for preactjs/compressed-size-action to create comments
     steps:
       - name: "⤵️ Check out code from GitHub"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: "📦 Setup pnpm"
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v5
       - name: "⎔ Setup node"
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: "20"
+          node-version: "24"
           cache: "pnpm"
       - uses: preactjs/compressed-size-action@v2
         with:
@@ -72,15 +72,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "⤵️ Check out code from GitHub"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: "📦 Setup pnpm"
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v5
       - name: "⎔ Setup node"
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: "20"
+          node-version: "24"
           cache: "pnpm"
       - run: pnpm i --frozen-lockfile
         env:

@@ -27,13 +27,13 @@ jobs:
     environment: R2
     steps:
       - name: "⤵️ Check out code from GitHub"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
       - name: "⎔ Setup Node.js"
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: "20"
+          node-version: "24"
       - name: "📦 Install wrangler"
         run: npm install -g wrangler@4.13.2
       - name: "📋 Detect changed assets"
