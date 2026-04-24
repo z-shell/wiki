@@ -76,6 +76,7 @@ lint:
           read_output_from: stdout
           direct_configs:
             - .trunk/configs/.lychee.toml
+          cache_results: false
       environment:
         - name: GITHUB_TOKEN
     - name: frontmatter-linter
