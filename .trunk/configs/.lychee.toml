@@ -9,8 +9,8 @@ mode = "color"
 
 #############################  Cache  ################################
 
-cache = true
-max_cache_age = "7d"
+cache = false
+# max_cache_age = "7d"
 
 #############################  Runtime  ##############################
 
@@ -28,7 +28,7 @@ user_agent = "Mozilla/5.0 (compatible; lychee/0.18; +https://github.com/z-shell/
 insecure = false
 require_https = false
 method = "get"
-include_fragments = false
+
 
 #############################  Exclusions  ###########################
 
@@ -46,6 +46,8 @@ exclude_all_private = true
 
 # Exclude URLs from checking (regex patterns)
 exclude = [
+  'https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ag',
+  'https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fd',
   # Social media — aggressive rate limiting / bot blocking
   'https?://(www\.)?twitter\.com',
   'https?://(www\.)?x\.com',
@@ -141,4 +143,3 @@ request_interval = "2000ms"
 [hosts."gist.githubusercontent.com"]
 concurrency = 2
 request_interval = "2000ms"
-
