@@ -1,10 +1,12 @@
 ---
 description: "Add a new documentation section (page or category) to docs/, community/, or ecosystem/ following project conventions."
-agent: "agent"
+mode: agent
 argument-hint: "Section title, target path, and related docs to link"
 ---
 
 Add a new documentation section to this Docusaurus wiki.
+
+Follow conventions from `.github/instructions/docs-authoring.instructions.md` when creating files.
 
 ## Inputs
 
@@ -21,4 +23,4 @@ Add a new documentation section to this Docusaurus wiki.
 4. Add only necessary imports (`Tabs`, `TabItem`, `Link`, `Image`) after the frontmatter.
 5. Write initial content with proper admonitions and heading style.
 6. Cross-link to related docs provided by the user.
-7. Verify the result with `pnpm build:en`.
+7. Invoke the **docs-release-readiness** skill on the new file(s) to run the full pre-merge QA checklist — frontmatter validation, heading IDs, cross-link integrity, and translation readiness. Do not mark the task complete until the skill passes.

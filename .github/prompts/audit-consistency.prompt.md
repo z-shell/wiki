@@ -1,6 +1,6 @@
 ---
 description: "Audit and auto-fix consistency, performance, and style issues across TypeScript components, MDX docs, CSS, and imports."
-agent: "agent"
+mode: agent
 argument-hint: "File path, directory glob, or 'all' to scan the full project"
 ---
 
