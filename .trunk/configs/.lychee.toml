@@ -48,6 +48,9 @@ exclude_all_private = true
 exclude = [
   'https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ag',
   'https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fd',
+  'https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/fd/_fd',
+  'https://github.com/BurntSushi/ripgrep/blob/master/complete/_rg',
+  'https://github.com/asciinema/asciinema/blob/master/doc/asciicast-v2.md',
   # Social media — aggressive rate limiting / bot blocking
   'https?://(www\.)?twitter\.com',
   'https?://(www\.)?x\.com',
