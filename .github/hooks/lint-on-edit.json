@@ -5,6 +5,7 @@
         "type": "command",
         "linux": "bash .github/hooks/lint-on-edit.sh",
         "osx": "bash .github/hooks/lint-on-edit.sh",
+        "windows": "bash .github/hooks/lint-on-edit.sh",
         "timeout": 30
       }
     ]
