@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "hooks": {
-    "postToolUse": [
+    "PostToolUse": [
       {
         "type": "command",
-        "bash": ".github/hooks/lint-on-edit.sh",
-        "timeoutSec": 30
+        "linux": "bash .github/hooks/lint-on-edit.sh",
+        "osx": "bash .github/hooks/lint-on-edit.sh",
+        "timeout": 30
       }
     ]
   }

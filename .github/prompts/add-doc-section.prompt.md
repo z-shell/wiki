@@ -1,6 +1,6 @@
 ---
 description: "Add a new documentation section (page or category) to docs/, community/, or ecosystem/ following project conventions."
-mode: agent
+agent: agent
 argument-hint: "Section title, target path, and related docs to link"
 ---
 

@@ -1,11 +1,11 @@
-// wrangler.jsonc — Pages Functions configuration
-// Becomes the source of truth once pages_build_output_dir is set
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "zsh",
-  "pages_build_output_dir": "build",
-  "compatibility_date": "2026-04-19",
   "compatibility_flags": ["nodejs_compat"],
+  "compatibility_date": "2026-04-28",
+  "assets": {
+    "directory": "./build"
+  },
   "r2_buckets": [
     {
       "binding": "ASSETS_BUCKET",

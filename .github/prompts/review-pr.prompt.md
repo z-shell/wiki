@@ -1,6 +1,6 @@
 ---
 description: "Review changed files for consistency, performance, and style issues before merging. Scoped to staged and unstaged git changes."
-mode: agent
+agent: agent
 argument-hint: "'staged' for pre-commit review, or omit for all changes"
 tools:
   - get_changed_files
