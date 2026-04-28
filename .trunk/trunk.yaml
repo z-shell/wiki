@@ -72,7 +72,7 @@ lint:
         - name: lint
           run: lychee --config .trunk/configs/.lychee.toml --root-dir . ${target}
           output: pass_fail
-          success_codes: [0, 1]
+          success_codes: [0]
           read_output_from: stdout
           direct_configs:
             - .trunk/configs/.lychee.toml
