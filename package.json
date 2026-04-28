@@ -55,8 +55,8 @@
     "react-dom": "^19.2.5"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20260423.1",
-    "@crowdin/cli": "4.14.1",
+    "@cloudflare/workers-types": "^4.20260426.1",
+    "@crowdin/cli": "4.14.2",
     "@docusaurus/eslint-plugin": "3.10.0",
     "@docusaurus/module-type-aliases": "3.10.0",
     "@docusaurus/tsconfig": "3.10.0",
@@ -75,12 +75,12 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "globals": "^17.5.0",
     "jiti": "^2.6.1",
-    "stylelint": "17.8.0",
+    "stylelint": "17.9.1",
     "stylelint-color-format": "1.1.0",
     "stylelint-config-css-modules": "4.6.0",
     "stylelint-config-standard": "40.0.0",
     "typescript": "6.0.3",
-    "typescript-eslint": "^8.59.0"
+    "typescript-eslint": "^8.59.1"
   },
   "packageManager": "pnpm@10.33.2",
   "engines": {
