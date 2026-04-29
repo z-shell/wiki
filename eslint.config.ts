@@ -37,6 +37,8 @@ export default tseslint.config(
       "ecosystem/**/*.md",
       "ecosystem/**/*.mdx",
       "blog/**/*.md",
+      "functions/worker-env.d.ts",
+      "agent/**",
     ],
   },
 

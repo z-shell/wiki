@@ -3,9 +3,10 @@
     "PostToolUse": [
       {
         "type": "command",
-        "command": "pnpm lint --quiet 2>&1 | tail -40",
-        "timeout": 30,
-        "toolNames": ["replace_string_in_file", "multi_replace_string_in_file", "create_file"]
+        "linux": "bash .github/hooks/lint-on-edit.sh",
+        "osx": "bash .github/hooks/lint-on-edit.sh",
+        "windows": "pnpm lint",
+        "timeout": 30
       }
     ]
   }

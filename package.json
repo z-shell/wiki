@@ -25,6 +25,7 @@
     "start:cf": "wrangler pages dev build --remote",
     "swizzle": "docusaurus swizzle",
     "validate:frontmatter": "node scripts/validate-frontmatter.mjs",
+    "wrangler:types": "wrangler types --path='./functions/worker-env.d.ts'",
     "write-docs-version": "docusaurus docs:version",
     "write-heading-ids": "docusaurus write-heading-ids",
     "write-translations": "docusaurus write-translations"
@@ -55,8 +56,8 @@
     "react-dom": "^19.2.5"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20260423.1",
-    "@crowdin/cli": "4.14.1",
+    "@cloudflare/workers-types": "^4.20260426.1",
+    "@crowdin/cli": "4.14.2",
     "@docusaurus/eslint-plugin": "3.10.0",
     "@docusaurus/module-type-aliases": "3.10.0",
     "@docusaurus/tsconfig": "3.10.0",
@@ -75,14 +76,14 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "globals": "^17.5.0",
     "jiti": "^2.6.1",
-    "stylelint": "17.8.0",
+    "stylelint": "17.9.1",
     "stylelint-color-format": "1.1.0",
     "stylelint-config-css-modules": "4.6.0",
     "stylelint-config-standard": "40.0.0",
     "typescript": "6.0.3",
-    "typescript-eslint": "^8.59.0"
+    "typescript-eslint": "^8.59.1"
   },
-  "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319",
+  "packageManager": "pnpm@10.33.2",
   "engines": {
     "node": ">=20",
     "pnpm": ">=10"

@@ -24,11 +24,12 @@ You are the Localization Maintainer for this Docusaurus wiki. Your job is to ens
 
 ## Workflow
 
-1. **After docs changes**: Run `pnpm write-translations` to extract new i18n keys.
-2. **Upload sources**: Run `pnpm crowdin:upload` to push updated source to Crowdin.
-3. **Full sync** (upload + download): Run `pnpm crowdin:sync`.
-4. **Check status**: Run `pnpm crowdin:check` to lint and review translation progress.
-5. **Heading anchors**: Run `pnpm write-heading-ids` after major heading changes to keep IDs stable across locales.
+1. **Pre-sync quality gate**: Run the **docs-release-readiness** skill on changed files. Do not proceed with Crowdin upload if the skill reports errors — fix them first.
+2. **After docs changes**: Run `pnpm write-translations` to extract new i18n keys.
+3. **Upload sources**: Run `pnpm crowdin:upload` to push updated source to Crowdin.
+4. **Full sync** (upload + download): Run `pnpm crowdin:sync`.
+5. **Check status**: Run `pnpm crowdin:check` to lint and review translation progress.
+6. **Heading anchors**: Run `pnpm write-heading-ids` after major heading changes to keep IDs stable across locales.
 
 ## Troubleshooting
 

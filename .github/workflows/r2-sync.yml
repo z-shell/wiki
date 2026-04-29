@@ -14,7 +14,7 @@ on:
         default: false
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
 permissions:
@@ -24,14 +24,15 @@ jobs:
   sync:
     if: github.repository == 'z-shell/wiki'
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     environment: R2
     steps:
       - name: "⤵️ Check out code from GitHub"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
       - name: "⎔ Setup Node.js"
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "20"
       - name: "📦 Install wrangler"
