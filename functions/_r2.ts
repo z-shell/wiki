@@ -5,10 +5,6 @@
  * is only imported — never exposed as an endpoint.
  */
 
-interface Env {
-  ASSETS_BUCKET: R2Bucket;
-}
-
 const EXTENSION_TYPES: Record<string, string> = {
   // Images
   ".png": "image/png",
@@ -82,7 +78,8 @@ export function createR2Handler(prefix: string): PagesFunction<Env> {
       }
 
       return new Response(object.body, {headers});
-    } catch {
+    } catch (e) {
+      console.error("R2 handler error for key:", key, e);
       return new Response("Internal Server Error", {status: 500});
     }
   };
