@@ -2,7 +2,7 @@
 # PostToolUse hook: run pnpm lint only after file mutation tools.
 set -eo pipefail
 
-# Ensure jq is available; fall back to node if needed
+# Ensure jq is available; this hook requires it to parse the tool payload
 if ! command -v jq &>/dev/null; then
   echo "Error: jq is required for lint-on-edit hook but not found. Install jq to enable automatic linting on file changes." >&2
   exit 1
