@@ -23,7 +23,7 @@ threads = 8
 
 timeout = 20
 retry_wait_time = 3
-accept = ["100..=399", "403"]
+accept = ["100..=399", "403", "502"]
 user_agent = "Mozilla/5.0 (compatible; lychee/0.18; +https://github.com/z-shell/wiki)"
 insecure = false
 require_https = false
