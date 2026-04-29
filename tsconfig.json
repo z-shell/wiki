@@ -6,5 +6,5 @@
     "ignoreDeprecations": "6.0",
     "types": ["@docusaurus/types"]
   },
-  "exclude": ["functions", "build", ".docusaurus"]
+  "exclude": ["functions", "agent", "build", ".docusaurus"]
 }
