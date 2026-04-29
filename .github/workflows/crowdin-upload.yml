@@ -12,6 +12,9 @@ on:
       - "src/pages/**"
   workflow_dispatch: {}
 
+permissions:
+  contents: read
+
 env:
   GITHUB_TOKEN: ${{ secrets.ORG_TOKEN }}
   CROWDIN_PROJECT: ${{ secrets.CROWDIN_PROJECT }}
@@ -27,7 +30,7 @@ jobs:
       cancel-in-progress: true
     steps:
       - name: "⤵️ Check out code from GitHub"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: "🚀 Crowdin Upload"
