@@ -1,11 +1,12 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
+  "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "zsh",
+  // pages_build_output_dir signals Pages mode to wrangler (replaces assets.directory which is Workers-only)
+  "pages_build_output_dir": "./build",
+  "compatibility_date": "2026-04-29",
   "compatibility_flags": ["nodejs_compat"],
-  "compatibility_date": "2026-04-28",
-  "assets": {
-    "directory": "./build"
-  },
+  // Upload TypeScript function source maps for accurate stack traces in logs
+  "upload_source_maps": true,
   "r2_buckets": [
     {
       "binding": "ASSETS_BUCKET",
