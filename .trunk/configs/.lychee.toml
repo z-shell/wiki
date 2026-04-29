@@ -127,6 +127,7 @@ exclude_path = [
   '\.git/',
   'pnpm-lock\.yaml',
   'static/cdn',
+  'worker-env\.d\.ts',
 ]
 
 # File extensions to check
