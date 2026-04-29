@@ -1,6 +1,6 @@
 ---
 description: "Verify project consistency, find issues, and propose improvements across dependencies, config, build, docs, and tooling. Run monthly, before releases, or after major upgrades."
-agent: "agent"
+agent: agent
 argument-hint: "'full' for all checks, or a category: deps, config, build, docs, tooling"
 tools:
   - search

@@ -91,4 +91,4 @@ Summarize results:
 - Prompt: [audit-consistency](../../prompts/audit-consistency.prompt.md) — single-task version
 - Prompt: [review-pr](../../prompts/review-pr.prompt.md) — scoped to changed files
 - Skill: [docs-release-readiness](../docs-release-readiness/SKILL.md) — docs-specific QA
-- Hook: [lint-on-edit](../../hooks/lint-on-edit.json) — automatic lint after edits
+- Hook: [lint-on-edit](../../hooks/lint-on-edit.json) — workspace hook that runs lint after file-mutation tool calls in VS Code agent sessions
