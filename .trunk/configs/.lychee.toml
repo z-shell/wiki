@@ -9,26 +9,26 @@ mode = "color"
 
 #############################  Cache  ################################
 
-cache = true
-max_cache_age = "7d"
+cache = false
+# max_cache_age = "7d"
 
 #############################  Runtime  ##############################
 
 max_redirects = 10
-max_retries = 3
-max_concurrency = 10
-threads = 4
+max_retries = 2
+max_concurrency = 20
+threads = 8
 
 #############################  Requests  #############################
 
-timeout = 30
-retry_wait_time = 5
+timeout = 20
+retry_wait_time = 3
 accept = ["100..=399", "403"]
 user_agent = "Mozilla/5.0 (compatible; lychee/0.18; +https://github.com/z-shell/wiki)"
 insecure = false
 require_https = false
 method = "get"
-include_fragments = false
+
 
 #############################  Exclusions  ###########################
 
@@ -46,6 +46,11 @@ exclude_all_private = true
 
 # Exclude URLs from checking (regex patterns)
 exclude = [
+  'https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ag',
+  'https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fd',
+  'https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/fd/_fd',
+  'https://github.com/BurntSushi/ripgrep/blob/master/complete/_rg',
+  'https://github.com/asciinema/asciinema/blob/master/doc/asciicast-v2.md',
   # Social media — aggressive rate limiting / bot blocking
   'https?://(www\.)?twitter\.com',
   'https?://(www\.)?x\.com',
@@ -122,6 +127,7 @@ exclude_path = [
   '\.git/',
   'pnpm-lock\.yaml',
   'static/cdn',
+  'worker-env\.d\.ts',
 ]
 
 # File extensions to check
@@ -141,4 +147,3 @@ request_interval = "2000ms"
 [hosts."gist.githubusercontent.com"]
 concurrency = 2
 request_interval = "2000ms"
-

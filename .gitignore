@@ -134,4 +134,3 @@ gha-creds-*.json
 
 # Automated Codebase Scans
 .codebase-scan.txt
-

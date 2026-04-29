@@ -20,6 +20,7 @@ lint:
     - name: markdown
       extensions: [md, markdown]
   disabled:
+    - markdownlint
     - yamllint
     - terrascan
     - trufflehog
@@ -31,10 +32,12 @@ lint:
     - taplo
     - hadolint
   enabled:
+    - markdownlint-cli2@0.22.1
+    - lychee@lychee-v0.23.0
     - bandit@1.9.4
     - black@26.3.1
     - isort@8.0.1
-    - ruff@0.15.11
+    - ruff@0.15.12
     - sort-package-json@3.6.1
     - oxipng@10.1.1
     - svgo@4.0.1
@@ -43,7 +46,6 @@ lint:
     - actionlint@1.7.12
     - eslint@SYSTEM
     - gitleaks@8.30.1
-    - markdownlint@0.48.0
     - prettier@3.8.3
     - shfmt@3.6.0
     - frontmatter-linter@SYSTEM
@@ -65,7 +67,7 @@ lint:
             - eslint.config.cjs
             - eslint.config.ts
     - name: lychee
-      files: [mdx, markdown, typescript, javascript, css, html]
+      files: [mdx, markdown, typescript]
       tools: [lychee]
       commands:
         - name: lint
@@ -73,6 +75,9 @@ lint:
           output: pass_fail
           success_codes: [0, 1]
           read_output_from: stdout
+          direct_configs:
+            - .trunk/configs/.lychee.toml
+          cache_results: false
       environment:
         - name: GITHUB_TOKEN
     - name: frontmatter-linter
@@ -89,7 +94,20 @@ lint:
         - i18n/**
         - build/**
         - static/**
+        - .wrangler/**
         - .docusaurus/**
+    - linters: [lychee]
+      paths:
+        - i18n/**
+        - build/**
+        # TS infrastructure — no external links or only template/env URLs
+        - eslint.config.ts
+        - sidebars.ts
+        - plugins/**
+        - scripts/**
+        # TSX components with no external links
+        - src/theme/**
+        - src/components/**
     - linters: [gitleaks]
       paths:
         - docusaurus.config.ts
@@ -110,19 +128,24 @@ tools:
       runtime: rust
       known_good_version: 0.23.0
       download: lychee-download
-      shims: [lychee]
+      shims:
+        - name: lychee
+          target: lychee
   enabled: []
   runtimes:
     - python
 downloads:
   - name: lychee-download
     downloads:
-      - os: linux
-        cpu: x86_64
-        url: https://github.com/lycheeverse/lychee/releases/download/lychee-v${version}/lychee-x86_64-unknown-linux-gnu.tar.gz
-        sha256: 1fcb6ccf10d04c22b8c5873c5b9cb7be32ee7423e12169d6f1a79a6f1962ef81
+      - os:
+          linux: linux
+        cpu:
+          x86_64: x86_64
+        url: "https://github.com/lycheeverse/lychee/releases/download/${version}/lychee-x86_64-unknown-linux-gnu.tar.gz"
+        sha256: "1fcb6ccf10d04c22b8c5873c5b9cb7be32ee7423e12169d6f1a79a6f1962ef81"
 runtimes:
   enabled:
+    - rust@1.82.0
     - python@3.13.3
     - go@1.21.5
     - node@24.15.0
