@@ -5,7 +5,6 @@ import type {Options as DocsOptions} from "@docusaurus/plugin-content-docs";
 import type {Options as BlogOptions} from "@docusaurus/plugin-content-blog";
 import type {Options as PageOptions} from "@docusaurus/plugin-content-pages";
 import type {Options as IdealImageOptions} from "@docusaurus/plugin-ideal-image";
-import devAssetProxy from "./plugins/devAssetProxy";
 
 /* import {announcementStarIcon, announcementGithubIcon, announcementHackerNewsIcon} from "./src/data/announcement-icons"; */
 
@@ -14,7 +13,6 @@ const baseUrl = process.env.BASE_URL ?? "/";
 const fontAwesomeScript =
   process.env.STYLES ?? "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/js/all.min.js";
 const isDev = process.env.NODE_ENV !== "production";
-const runtimePlugins: PluginConfig[] = isDev ? [[devAssetProxy, {}]] : [];
 
 export default async function createConfigAsync() {
   return {
@@ -30,6 +28,22 @@ export default async function createConfigAsync() {
     onBrokenLinks: "throw",
     staticDirectories: ["static"],
     favicon: "/img/favicon.ico",
+    headTags: [
+      {
+        tagName: "link",
+        attributes: {
+          rel: "stylesheet",
+          href: "/cdn/fonts/hack.css",
+        },
+      },
+      {
+        tagName: "link",
+        attributes: {
+          rel: "stylesheet",
+          href: "/cdn/fonts/jetbrainsmono.css",
+        },
+      },
+    ],
     i18n: {defaultLocale: "en", locales: ["en"]},
     markdown: {mermaid: true, emoji: true, format: "detect", hooks: {onBrokenMarkdownLinks: "warn"}},
     customFields: {fontAwesomeScript},
@@ -52,13 +66,12 @@ export default async function createConfigAsync() {
         swcHtmlMinimizer: true,
         lightningCssMinimizer: true,
         rspackBundler: true,
-        rspackPersistentCache: true,
+        rspackPersistentCache: false, // Disabled for CI/CD stability
         ssgWorkerThreads: true,
         mdxCrossCompilerCache: true,
       },
     },
     plugins: [
-      ...runtimePlugins,
       [
         "content-docs",
         {
