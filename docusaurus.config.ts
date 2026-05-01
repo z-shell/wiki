@@ -17,7 +17,6 @@ const isDev = process.env.NODE_ENV !== "production";
 export default async function createConfigAsync() {
   return {
     url,
-    url,
     baseUrl,
     trailingSlash: false,
     title: "Z-Shell",
