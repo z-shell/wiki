@@ -32,15 +32,35 @@ export default async function createConfigAsync() {
       {
         tagName: "link",
         attributes: {
-          rel: "stylesheet",
-          href: "/cdn/fonts/hack.css",
+          rel: "preload",
+          href: "/cdn/fonts/webfonts/hack-regular-subset.woff2",
+          as: "font",
+          type: "font/woff2",
+          crossorigin: "anonymous",
+        },
+      },
+      {
+        tagName: "link",
+        attributes: {
+          rel: "preload",
+          href: "/cdn/fonts/variable/JetBrainsMono[wght].woff2",
+          as: "font",
+          type: "font/woff2",
+          crossorigin: "anonymous",
         },
       },
       {
         tagName: "link",
         attributes: {
           rel: "stylesheet",
-          href: "/cdn/fonts/jetbrainsmono.css",
+          href: "/cdn/fonts/hack-subset.css",
+        },
+      },
+      {
+        tagName: "link",
+        attributes: {
+          rel: "stylesheet",
+          href: "/cdn/fonts/jetbrainsmono-variable.css",
         },
       },
     ],
@@ -164,7 +184,7 @@ export default async function createConfigAsync() {
             showLastUpdateAuthor: true,
             showLastUpdateTime: true,
           } satisfies DocsOptions,
-          /* blog: {
+          blog: {
             path: "blog",
             editUrl: ({locale, blogDirPath, blogPath}) => {
               if (locale !== "en") {
@@ -178,7 +198,7 @@ export default async function createConfigAsync() {
               type: "all",
               copyright: `Copyright © ${new Date().getFullYear()} Z-Shell Community`,
             },
-          } satisfies BlogOptions, */
+          } satisfies BlogOptions,
           pages: {
             path: "src/pages",
           } satisfies PageOptions,
