@@ -12,7 +12,6 @@ const url = process.env.URL ?? "https://wiki.zshell.dev";
 const baseUrl = process.env.BASE_URL ?? "/";
 const fontAwesomeScript =
   process.env.STYLES ?? "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/js/all.min.js";
-const isDev = process.env.NODE_ENV !== "production";
 
 export default async function createConfigAsync() {
   return {
