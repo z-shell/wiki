@@ -4,7 +4,6 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: document-domain=()
   X-Frame-Options: SAMEORIGIN
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' kit.fontawesome.com ka-f.fontawesome.com static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: raw.githubusercontent.com api.github.com github.com avatars.githubusercontent.com; font-src 'self'; frame-src ghbtns.com; connect-src 'self' ka-f.fontawesome.com static.cloudflareinsights.com api.github.com *.algolia.net *.algolianet.com raw.githubusercontent.com; worker-src 'self'
 
 # CDN font binaries — fingerprinted, cache immutably
 /cdn/*.woff2
