@@ -32,45 +32,7 @@ export default async function createConfigAsync() {
     favicon: "/img/favicon.ico",
     i18n: {defaultLocale: "en", locales: ["en"]},
     markdown: {mermaid: true, emoji: true, format: "detect", hooks: {onBrokenMarkdownLinks: "warn"}},
-    customFields: {
-      fontAwesomeScript,
-    },
-    headTags: [
-      {tagName: "link", attributes: {rel: "preconnect", href: "https://ghbtns.com"}},
-      {
-        tagName: "link",
-        attributes: {rel: "stylesheet", href: "/cdn/fonts/hack-subset.css", media: "print", onload: "this.media='all'"},
-      },
-      {
-        tagName: "link",
-        attributes: {
-          rel: "stylesheet",
-          href: "/cdn/fonts/jetbrainsmono-variable.css",
-          media: "print",
-          onload: "this.media='all'",
-        },
-      },
-      {
-        tagName: "link",
-        attributes: {
-          rel: "preload",
-          href: "/cdn/fonts/variable/JetBrainsMono[wght].woff2",
-          as: "font",
-          type: "font/woff2",
-          crossorigin: "anonymous",
-        },
-      },
-      {
-        tagName: "link",
-        attributes: {
-          rel: "preload",
-          href: "/cdn/fonts/webfonts/hack-regular-subset.woff2?sha=4b288c48e41aed70",
-          as: "font",
-          type: "font/woff2",
-          crossorigin: "anonymous",
-        },
-      },
-    ],
+    customFields: {fontAwesomeScript},
     storage: {
       type: "localStorage",
       namespace: true,
