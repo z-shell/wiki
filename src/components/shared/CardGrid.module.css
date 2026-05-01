@@ -87,6 +87,11 @@
   box-shadow: 0 2px 12px hsl(0deg 0% 0% / 4%);
 }
 
+.card:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
 .card:hover {
   color: inherit;
   text-decoration: none;
@@ -106,11 +111,6 @@
 
 .card:hover::before {
   opacity: 0.72;
-}
-
-.card:focus-visible {
-  outline: 2px solid var(--ifm-color-primary);
-  outline-offset: 2px;
 }
 
 .cardicon {
