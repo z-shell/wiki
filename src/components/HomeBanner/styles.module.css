@@ -8,22 +8,12 @@
   position: relative;
   padding: 4rem;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse at 15% 50%, hsl(168deg 70% 30% / 18%) 0%, transparent 50%),
-    radial-gradient(ellipse at 85% 20%, hsl(210deg 60% 40% / 12%) 0%, transparent 40%),
-    radial-gradient(ellipse at 50% 100%, hsl(168deg 50% 20% / 10%) 0%, transparent 50%),
-    var(--site-color-surface-elevated);
-}
-
-:global([data-theme="light"]) .hero {
-  background:
-    radial-gradient(ellipse at 15% 50%, hsl(168deg 70% 50% / 12%) 0%, transparent 50%),
-    radial-gradient(ellipse at 85% 20%, hsl(210deg 60% 50% / 8%) 0%, transparent 40%),
-    radial-gradient(ellipse at 50% 100%, hsl(168deg 50% 40% / 6%) 0%, transparent 50%),
-    var(--ifm-background-surface-color);
+  background: transparent;
 }
 
 .heroInner {
+  position: relative;
+  z-index: 1;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 4rem;
@@ -42,8 +32,8 @@
 :global([data-theme="dark"]) .heroProjectTagline {
   color: var(--ifm-color-white);
   text-shadow:
-    0 0 40px hsl(168deg 70% 45% / 35%),
-    0 2px 4px hsl(0deg 0% 0% / 40%);
+    0 12px 34px hsl(216deg 40% 4% / 45%),
+    0 1px 2px hsl(0deg 0% 0% / 34%);
 }
 
 .heroTitleTextHtml b {
@@ -73,7 +63,6 @@
   flex-shrink: 0;
   max-width: 100%;
   height: auto;
-  will-change: transform, opacity;
   animation: jack-in-the-box 1s var(--ease-out) both;
 }
 

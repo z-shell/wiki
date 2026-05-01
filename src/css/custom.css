@@ -1,8 +1,6 @@
 /* Font CSS loaded via headTags in docusaurus.config.ts to avoid render-blocking @import */
 
 :root {
-  /* transition-duration scoped to html — see below */
-
   --ifm-font-family: "JetBrains Mono", "Hack", monospace;
   --ifm-font-family-base: "JetBrains Mono", monospace;
   --ifm-font-family-monospace: "Hack", monospace;
@@ -53,6 +51,12 @@
   --shadow-lg: 0 8px 32px hsl(0deg 0% 0% / 12%);
   --shadow-glow: 0 0 20px hsl(168deg 70% 45% / 15%);
 
+  /* Homepage atmosphere */
+  --home-bg-dark: hsl(216deg 28% 7%);
+  --home-bg-dark-soft: hsl(214deg 24% 11%);
+  --home-bg-light: hsl(180deg 38% 98%);
+  --home-bg-light-soft: hsl(174deg 32% 96%);
+
   /* Radius scale */
   --radius-xs: 4px;
   --radius-sm: 8px;
@@ -65,12 +69,7 @@
   --duration-normal: 0.3s;
   --duration-slow: 0.5s;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-html[data-theme] {
-  transition:
-    background-color 0.5s,
-    color 0.5s;
+  color-scheme: light;
 }
 
 [data-theme="dark"] {
@@ -85,6 +84,7 @@ html[data-theme] {
   --ifm-color-primary-light: hsl(var(--site-primary-hue-saturation-light) 54%);
   --ifm-color-primary-lighter: hsl(var(--site-primary-hue-saturation-light) 62%);
   --ifm-color-primary-lightest: hsl(var(--site-primary-hue-saturation-light) 73%);
+  color-scheme: dark;
 }
 
 .code-block-error-line {
@@ -216,6 +216,66 @@ html[data-theme="dark"] img[src$="#gh-light-mode-only"] {
 html[data-theme="light"] a[href$="#gh-dark-mode-only"],
 html[data-theme="dark"] a[href$="#gh-light-mode-only"] {
   display: none;
+}
+
+.homePage {
+  position: relative;
+  overflow: hidden;
+  color: hsl(210deg 28% 93%);
+  background-color: var(--home-bg-dark);
+  background-image:
+    radial-gradient(
+      105rem 78rem at -8% 0%,
+      hsl(169deg 62% 30% / 13%) 0%,
+      hsl(169deg 62% 30% / 6%) 36%,
+      hsl(169deg 62% 30% / 0%) 72%
+    ),
+    radial-gradient(
+      96rem 74rem at 108% 18%,
+      hsl(203deg 64% 36% / 10%) 0%,
+      hsl(203deg 64% 36% / 5%) 38%,
+      hsl(203deg 64% 36% / 0%) 76%
+    ),
+    radial-gradient(
+      86rem 68rem at 50% 104%,
+      hsl(184deg 38% 18% / 12%) 0%,
+      hsl(184deg 38% 18% / 5%) 42%,
+      hsl(184deg 38% 18% / 0%) 78%
+    ),
+    linear-gradient(180deg, hsl(216deg 28% 7%) 0%, hsl(214deg 24% 10%) 42%, hsl(216deg 28% 7%) 100%);
+  --ifm-font-color-base: hsl(210deg 28% 93%);
+  --ifm-font-color-secondary: hsl(210deg 14% 72%);
+}
+
+[data-theme="light"] .homePage {
+  color: hsl(215deg 20% 18%);
+  background-color: var(--home-bg-light);
+  background-image:
+    radial-gradient(
+      90rem 70rem at 8% 8%,
+      hsl(168deg 72% 48% / 12%) 0%,
+      hsl(168deg 72% 48% / 5%) 34%,
+      hsl(168deg 72% 48% / 0%) 68%
+    ),
+    radial-gradient(
+      82rem 66rem at 94% 28%,
+      hsl(202deg 72% 54% / 9%) 0%,
+      hsl(202deg 72% 54% / 4%) 36%,
+      hsl(202deg 72% 54% / 0%) 72%
+    ),
+    radial-gradient(
+      76rem 62rem at 28% 72%,
+      hsl(42deg 88% 62% / 8%) 0%,
+      hsl(42deg 88% 62% / 3%) 38%,
+      hsl(42deg 88% 62% / 0%) 74%
+    ),
+    linear-gradient(180deg, var(--home-bg-light) 0%, var(--home-bg-light-soft) 48%, var(--home-bg-light) 100%);
+  --ifm-font-color-base: hsl(215deg 20% 18%);
+  --ifm-font-color-secondary: hsl(215deg 12% 42%);
+}
+
+.homeMain {
+  background: transparent;
 }
 
 /* Image styles */

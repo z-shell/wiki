@@ -2,18 +2,11 @@
 
 .section {
   composes: section from "../shared/CardGrid.module.css";
-  background:
-    radial-gradient(ellipse at 50% 0%, hsl(168deg 70% 30% / 8%) 0%, transparent 50%),
-    radial-gradient(ellipse at 10% 70%, hsl(200deg 60% 40% / 5%) 0%, transparent 35%),
-    radial-gradient(ellipse at 90% 90%, hsl(168deg 50% 30% / 5%) 0%, transparent 35%);
+  background: transparent;
 }
 
 :global([data-theme="light"]) .section {
-  background:
-    radial-gradient(ellipse at 50% 0%, hsl(168deg 70% 50% / 6%) 0%, transparent 50%),
-    radial-gradient(ellipse at 10% 70%, hsl(200deg 60% 50% / 3%) 0%, transparent 35%),
-    radial-gradient(ellipse at 90% 90%, hsl(168deg 50% 50% / 3%) 0%, transparent 35%),
-    var(--ifm-background-surface-color);
+  background: transparent;
 }
 
 .heading {

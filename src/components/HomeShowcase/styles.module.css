@@ -2,17 +2,16 @@
   position: relative;
   padding: var(--space-3xl) 0;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse at 20% 50%, hsl(168deg 70% 30% / 8%) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 80%, hsl(210deg 60% 40% / 6%) 0%, transparent 40%),
-    var(--ifm-background-surface-color);
+  background: transparent;
 }
 
 :global([data-theme="light"]) .section {
-  background:
-    radial-gradient(ellipse at 20% 50%, hsl(168deg 70% 50% / 6%) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 80%, hsl(210deg 60% 50% / 4%) 0%, transparent 40%),
-    var(--ifm-background-surface-color);
+  background: transparent;
+}
+
+.section > :global(.container) {
+  position: relative;
+  z-index: 1;
 }
 
 .grid {
@@ -100,15 +99,15 @@
   border: 1px solid hsl(0deg 0% 100% / 12%);
   border-radius: var(--radius-lg);
   box-shadow:
-    0 24px 80px hsl(0deg 0% 0% / 35%),
-    0 0 60px hsl(168deg 70% 40% / 8%);
+    0 18px 46px hsl(216deg 44% 4% / 34%),
+    inset 0 1px 0 hsl(0deg 0% 100% / 5%);
 }
 
 :global([data-theme="light"]) .terminal {
   border-color: hsl(0deg 0% 0% / 10%);
   box-shadow:
-    0 24px 80px hsl(0deg 0% 0% / 10%),
-    0 0 40px hsl(168deg 70% 40% / 4%);
+    0 18px 46px hsl(0deg 0% 0% / 9%),
+    inset 0 1px 0 hsl(0deg 0% 100% / 70%);
 }
 
 .terminalHeader {
