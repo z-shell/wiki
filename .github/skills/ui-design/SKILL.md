@@ -62,7 +62,6 @@ After changes:
 4. Run linters:
 
    ```sh
-   pnpm lint:css --quiet
    pnpm lint --quiet
    ```
 

@@ -87,20 +87,9 @@ zi snippet OMZ::plugins/git/git.plugin.zsh
 zi snippet PZT::modules/helper/init.zsh
 ```
 
-Moreover, GitHub supports the Subversion protocol for snippets. This allows loading snippets that are multi-file (for example, a Prezto module can consist of two or more files, e.g. `init.zsh` and `alias.zsh`).
-
-Default files that will be sourced are: `*.plugin.zsh`, `init.zsh`, `*.zsh-theme`:
-
-URL points to a directory:
-
-```shell {2} showLineNumbers
-zi ice svn
-zi snippet PZT::modules/docker
-```
-
 ## Snippets and Performance {/* #snippets-and-performance */}
 
-Using `curl`, `wget`, etc. along with Subversion allows us to almost completely avoid code dedicated to Oh-My-Zsh and Prezto, and also to other frameworks. It delivers better performance as has a low footprint on memory and shorter loading times.
+Using `curl`, `wget`, etc. allows us to almost completely avoid code dedicated to Oh-My-Zsh and Prezto, and also to other frameworks. It delivers better performance as has a low footprint on memory and shorter loading times.
 
 ## Ice Modifiers {/* #ice-modifiers */}
 
@@ -108,12 +97,7 @@ The command `zi ice` provides [ice modifiers][1] for the single Zi command, i.e.
 
 The logic is that "ice" is something that’s added, e.g. to a drink or a coffee, and in the Zi sense this means that ice is a modifier added to the next Zi command, and also something that melts, so it doesn’t last long, – and in the Zi use it means that the modifier lasts for only single next Zi command.
 
-Using one other ice modifier "**pick**" users can explicitly **select the file to source**:
-
-```shell {1} showLineNumbers
-zi ice svn pick"init.zsh"
-zi snippet PZT::modules/git
-```
+Using one other ice modifier "**pick**" users can explicitly **select the file to source**.
 
 The content of the ice-modifier is simply put into `"…"`, `'…'`, `$'…'`. No need for `":"` after the ice-modifier name (although it's allowed: as the equal sign `=`, e.g. `pick="init.zsh"` or `pick=init.zsh`).
 
@@ -150,7 +134,7 @@ If `atpull` starts with an exclamation mark, then it will be run before `git pul
 
 So in summary, when the user runs `zi update b4b4r07/httpstat` to update this plugin, and there are new commits, what happens first is that `git reset --hard` is run – and it **restores** original `httpstat.sh`, **then** `git pull` is ran and it downloads new commits (doing fast-forward), **then** `mv` is running again so that the command is `httpstat` not `httpstat.sh`.
 
-This way the `mv` ice can be used to induce permanent changes into the plugin's contents without blocking the ability to update it with `git` or with `subversion` in the case of snippets.
+This way the `mv` ice can be used to induce permanent changes into the plugin's contents without blocking the ability to update it with `git` in the case of snippets.
 
 :::info
 
@@ -191,7 +175,7 @@ zi snippet https://github.com/b4b4r07/httpstat/blob/master/httpstat.sh
 
 :::tip
 
-Snippets also support `atpull`, e.g. `atpull'!svn revert'`. There’s also an `atinit` ice-modifier, executed before each loading of plugin or snippet.
+Snippets also support `atpull`. There’s also an `atinit` ice-modifier, executed before each loading of plugin or snippet.
 
 :::
 
@@ -265,26 +249,6 @@ Command `zi csearch` will **search** all plugin directories for available comple
 
 <ImgShow height="455.91" width="1180" img="/img/cast/svg/zi_csearch.svg" alt="Zi completion search" />
 
-## The subversion for subdirectories {/* #the-subversion-for-subdirectories */}
-
-In general, to use **subdirectories** of Github projects as snippets add `/trunk/{path-to-dir}` to the URL:
-
-```shell showLineNumbers
-zi ice svn
-zi snippet https://github.com/zsh-users/zsh-completions/trunk/src
-```
-
-:::tip
-
-For Oh-My-Zsh and Prezto, the OMZ:: and PZT:: prefixes work without the need to add the `/trunk/` infix, however, the path should point to a directory, not to a file.
-
-:::
-
-```shell showLineNumbers
-zi ice svn
-zi snippet PZT::modules/docker
-```
-
 ## Turbo Mode (Zsh >= 5.3) {/* #turbo-mode-zsh--53 */}
 
 The ice-modifier `wait` allows the user to postpone the loading of a plugin to the moment when the processing of `.zshrc` is finished and the first prompt is shown.
@@ -313,14 +277,7 @@ zi load halfo/lambda-mod-zsh-theme
 
 This sets plugin `halfo/lambda-mod-zsh-theme` to be loaded `0` seconds after `.zshrc`. It will fire up after c.a. 1 ms of showing the basic prompt `READY >`.
 
-You probably won't load the prompt in such a way, however, it is a good example in which turbo mode can be observed. The exclamation mark causes Zi to reset the prompt after loading the plugin – commonly needed for themes. The same with Prezto prompts, with a longer delay:
-
-```shell showLineNumbers
-zi ice svn silent wait'!1' atload'prompt smiley'
-zi snippet PZT::modules/prompt
-```
-
-Using `zsh-users/zsh-autosuggestions` without any drawbacks:
+You probably won't load the prompt in such a way, however, it is a good example in which turbo mode can be observed. The exclamation mark causes Zi to reset the prompt after loading the plugin – commonly needed for themes. Using `zsh-users/zsh-autosuggestions` without any drawbacks:
 
 ```shell showLineNumbers
 zi ice wait lucid atload'!_zsh_autosuggest_start'

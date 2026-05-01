@@ -17,13 +17,13 @@ argument-hint: 'Optional: specific area to focus on, e.g. "architecture only", "
 
 # Acquire Codebase Knowledge
 
-Produces seven populated documents in `docs/codebase/` covering everything needed to work effectively on the project. Only document what is verifiable from files or terminal output — never infer or assume.
+Produces seven populated documents in `.github/codebase/` covering everything needed to work effectively on the project. Only document what is verifiable from files or terminal output — never infer or assume.
 
 ## Output Contract (Required)
 
 Before finishing, all of the following must be true:
 
-1. Exactly these files exist in `docs/codebase/`: `STACK.md`, `STRUCTURE.md`, `ARCHITECTURE.md`, `CONVENTIONS.md`, `INTEGRATIONS.md`, `TESTING.md`, `CONCERNS.md`.
+1. Exactly these files exist in `.github/codebase/`: `STACK.md`, `STRUCTURE.md`, `ARCHITECTURE.md`, `CONVENTIONS.md`, `INTEGRATIONS.md`, `TESTING.md`, `CONCERNS.md`.
 2. Every claim is traceable to source files, config, or terminal output.
 3. Unknowns are marked as `[TODO]`; intent-dependent decisions are marked `[ASK USER]`.
 4. Every document includes a short "evidence" list with concrete file paths.
@@ -36,7 +36,7 @@ Copy and track this checklist:
 ```text
 - [ ] Phase 1: Run scan, read intent documents
 - [ ] Phase 2: Investigate each documentation area
-- [ ] Phase 3: Populate all seven docs in docs/codebase/
+- [ ] Phase 3: Populate all seven docs in .github/codebase/
 - [ ] Phase 4: Validate docs, present findings, resolve all [ASK USER] items
 ```
 
@@ -54,7 +54,7 @@ If the user supplies a focus area (for example: "architecture only" or "testing 
 1. Run the scan script from the target project root:
 
    ```bash
-   python3 "$SKILL_ROOT/scripts/scan.py" --output docs/codebase/.codebase-scan.txt
+   python3 "$SKILL_ROOT/scripts/scan.py" --output .github/codebase/.codebase-scan.txt
    ```
 
    Where `$SKILL_ROOT` is the absolute path to the skill folder. Works on Windows, macOS, and Linux.
@@ -62,7 +62,7 @@ If the user supplies a focus area (for example: "architecture only" or "testing 
    **Quick start:** If you have the path inline:
 
    ```bash
-   python3 /absolute/path/to/skills/acquire-codebase-knowledge/scripts/scan.py --output docs/codebase/.codebase-scan.txt
+   python3 /absolute/path/to/skills/acquire-codebase-knowledge/scripts/scan.py --output .github/codebase/.codebase-scan.txt
    ```
 
 2. Search for `PRD`, `TRD`, `README`, `ROADMAP`, `SPEC`, `DESIGN` files and read them.
@@ -76,7 +76,7 @@ If the stack is ambiguous (multiple manifest files, unfamiliar file types, no `p
 
 ### Phase 3: Populate Templates
 
-Copy each template from `assets/templates/` into `docs/codebase/`. Fill in this order:
+Copy each template from `assets/templates/` into `.github/codebase/`. Fill in this order:
 
 1. [STACK.md](assets/templates/STACK.md) — language, runtime, frameworks, all dependencies
 2. [STRUCTURE.md](assets/templates/STRUCTURE.md) — directory layout, entry points, key files

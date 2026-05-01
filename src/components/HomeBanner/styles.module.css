@@ -1,5 +1,3 @@
-/** @format */
-
 @media (prefers-reduced-motion: reduce) {
   .heroLogo {
     animation: none;
@@ -61,17 +59,8 @@
 
 @keyframes jack-in-the-box {
   0% {
-    transform: scale(0.1) rotate(180deg);
-    transform-origin: center bottom;
+    transform: scale(0.6);
     opacity: 0;
-  }
-
-  50% {
-    transform: rotate(-20deg);
-  }
-
-  70% {
-    transform: rotate(5deg);
   }
 
   100% {
@@ -84,13 +73,8 @@
   flex-shrink: 0;
   max-width: 100%;
   height: auto;
-  filter: drop-shadow(0 0 40px hsl(168deg 70% 45% / 30%));
-  animation-name: jack-in-the-box;
-  animation-duration: 4s;
-}
-
-:global([data-theme="light"]) .heroLogo {
-  filter: drop-shadow(0 0 30px hsl(168deg 70% 45% / 20%));
+  will-change: transform, opacity;
+  animation: jack-in-the-box 1s var(--ease-out) both;
 }
 
 .indexCtasGitHubButtonWrapper {

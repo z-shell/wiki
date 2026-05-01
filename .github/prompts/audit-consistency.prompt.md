@@ -1,6 +1,6 @@
 ---
 description: "Audit and auto-fix consistency, performance, and style issues across TypeScript components, MDX docs, CSS, and imports."
-agent: "agent"
+agent: agent
 argument-hint: "File path, directory glob, or 'all' to scan the full project"
 ---
 
@@ -58,4 +58,4 @@ For each file with issues:
 
 1. State the file path and a one-line summary.
 2. Apply the fix directly.
-3. After all fixes, run `pnpm lint` and `pnpm lint:css` to validate.
+3. After all fixes, run `pnpm lint` to validate.

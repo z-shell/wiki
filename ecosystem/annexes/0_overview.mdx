@@ -1,7 +1,7 @@
 ---
 id: overview
 title: "🌀 What can Annexes do?"
-sidebar_position: 1
+sidebar_position: 0
 image: /img/png/theme/z/320x320.png
 description: Annex Introduction
 keywords:
@@ -124,11 +124,11 @@ The general syntax of the API call is:
 
 The last argument, i.e. the `|`-separated ice list, is optional. That’s all\! After this loading the plugin `myproject` will set up the new [ice-modifier][ice-modifiers] `submods` that will have syntax `submods'{user}/{plugin} –> {output-dir}; …'` and will clone submodules when installing the original plugin or snippet\!
 
-Example of the [submods][submods] ice-modifier to load the `zsh-autosuggestions` plugin via the Prezto module: `autosuggestions`:
+Example of the [submods][submods] ice-modifier to load a plugin with additional submodules:
 
 ```shell showLineNumbers
-zi ice svn submods'zsh-users/zsh-autosuggestions -> external'
-zi snippet PZT::modules/autosuggestions
+zi ice submods'zsh-users/zsh-autosuggestions -> external'
+zi load some/plugin
 ```
 
 Check out the project which fully implements this idea, [z-a-submods][submods]. It e.g. also implements the `atpull` hook, i.e. supports the automatic update of the submodules. The `z-a-*` prefix is recommended for projects which indicate annexes.

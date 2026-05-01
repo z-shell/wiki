@@ -28,6 +28,8 @@
 
 .cardIcon {
   composes: cardicon from "../shared/CardGrid.module.css";
+  width: 2.25rem;
+  height: 2.25rem;
   color: var(--ifm-color-primary);
 }
 

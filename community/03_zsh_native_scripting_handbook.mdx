@@ -8,8 +8,6 @@ keywords:
   - zsh-handbook
 ---
 
-{/* @format */}
-
 import ReadINIExample from "@site/src/components/Markdown/_read_ini_example.mdx";
 
 ## Information {/* #information */}
@@ -98,20 +96,20 @@ Side-note: `(M)` flag can be used also with `${(M)var#pattern}` and other substi
 
 #### Multi-line matching like with grep {/* #multi-line-matching-like-with-grep */}
 
-Suppose you have a Subversion repository and want to check if it contains files not under version control. You could do this in Bash style like follows:
+Suppose you have a Git repository and want to check if it contains files not under version control. You could do this in Bash style like follows:
 
 ```shell showLineNumbers
-local svn_status="$(svn status)"
-if [[ -n "$(echo "$svn_status" | \grep \^\?)" ]]; then
+local git_status="$(git status --porcelain)"
+if [[ -n "$(echo "$git_status" | \grep \^\?\?)" ]]; then
     echo found
 fi
 ```
 
-Those are 3 forks: for `svn status`, for `echo`, and for `grep`. This can be solved by the `:#` substitution and the `(M)` flag described above in this section (just check if the number of matched lines is greater than 0). However, there's a more direct approach:
+Those are 3 forks: for `git status`, for `echo`, and for `grep`. This can be solved by the `:#` substitution and the `(M)` flag described above in this section (just check if the number of matched lines is greater than 0). However, there's a more direct approach:
 
 ```shell showLineNumbers
-local svn_status="$(svn status)" nl=$'\n'
-if [[ "$svn_status" = *((#s)|$nl)\?* ]]; then
+local git_status="$(git status --porcelain)" nl=$'\n'
+if [[ "$git_status" = *((#s)|$nl)\?\?* ]]; then
   echo found
 fi
 ```
@@ -122,8 +120,8 @@ If the `extended_glob` option cannot be used for some reason, this can be achiev
 
 ```shell showLineNumbers
 setopt local_options no_extended_glob
-local svn_status="$(svn status)" nl=$'\n'
-if [[ "$svn_status" = (\?*|*$nl\?*) ]]; then
+local git_status="$(git status --porcelain)" nl=$'\n'
+if [[ "$git_status" = (\?\?*|*$nl\?\?*) ]]; then
   echo found
 fi
 ```
@@ -131,11 +129,11 @@ fi
 In general, multi-line matching falls into the following idiom (`extended glob` version):
 
 ```shell showLineNumbers
-local needle="?" required_preceding='[[:space:]]#'
-[[ "$(svn status)" = *((#s)|$nl)${~required_preceding}${needle}* ]] && echo found
+local needle="??" required_preceding='[[:space:]]#'
+[[ "$(git status --porcelain)" = *((#s)|$nl)${~required_preceding}${needle}* ]] && echo found
 ```
 
-It does a single fork (called `svn` status). The `${~variable}` means (the `~` init): "the variable is holding a pattern, interpret it". All in all, instead of regular expressions we were using patterns (globs) (see [this section](#using-built-in-regular-expressions-engine)).
+It does a single fork (called `git` status). The `${~variable}` means (the `~` init): "the variable is holding a pattern, interpret it". All in all, instead of regular expressions we were using patterns (globs) (see [this section](#using-built-in-regular-expressions-engine)).
 
 ### Pattern matching in AND-fashion {/* #pattern-matching-in-and-fashion */}
 

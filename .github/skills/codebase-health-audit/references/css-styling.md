@@ -49,5 +49,5 @@ import styles from "./styles.module.css";
 After CSS changes, validate:
 
 ```sh
-pnpm lint:css --quiet
+pnpm lint --quiet
 ```

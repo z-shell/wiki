@@ -34,6 +34,7 @@ description: "Prompt and workflow for generating conventional commit messages us
 	<description>A short, imperative summary of the change</description>
 	<body>(optional: more detailed explanation)</body>
 	<footer>(optional: e.g. BREAKING CHANGE: details, or issue references)</footer>
+	<trailer>Co-authored-by: Copilot &lt;223556219+Copilot@users.noreply.github.com&gt;</trailer>
 </commit-message>
 ```
 
@@ -59,6 +60,7 @@ description: "Prompt and workflow for generating conventional commit messages us
 	<description>Required. Use the imperative mood (e.g., "add", not "added").</description>
 	<body>Optional. Use for additional context.</body>
 	<footer>Use for breaking changes or issue references.</footer>
+	<trailer>Required. Always append the Co-authored-by Copilot trailer.</trailer>
 </validation>
 ```
 
@@ -66,7 +68,7 @@ description: "Prompt and workflow for generating conventional commit messages us
 
 ```xml
 <final-step>
-	<cmd>git commit -m "type(scope): description"</cmd>
-	<note>Replace with your constructed message. Include body and footer if needed.</note>
+	<cmd>git commit -m "type(scope): description" --trailer "Co-authored-by: Copilot &lt;223556219+Copilot@users.noreply.github.com&gt;"</cmd>
+	<note>Replace with your constructed message. Include body and footer if needed. The Co-authored-by trailer is required on every commit.</note>
 </final-step>
 ```

@@ -1,2 +1,0 @@
-# Redirect production pages.dev URL to custom domain
-https://:project.pages.dev/* https://wiki.zshell.dev/:splat 301

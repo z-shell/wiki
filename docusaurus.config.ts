@@ -1,18 +1,22 @@
 import {themes as prismThemes} from "prism-react-renderer";
-
-import type {Config} from "@docusaurus/types";
+import type {Config, PluginConfig} from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import type {Options as DocsOptions} from "@docusaurus/plugin-content-docs";
 import type {Options as BlogOptions} from "@docusaurus/plugin-content-blog";
 import type {Options as PageOptions} from "@docusaurus/plugin-content-pages";
 import type {Options as IdealImageOptions} from "@docusaurus/plugin-ideal-image";
 
+/* import {announcementStarIcon, announcementGithubIcon, announcementHackerNewsIcon} from "./src/data/announcement-icons"; */
+
 const url = process.env.URL ?? "https://wiki.zshell.dev";
 const baseUrl = process.env.BASE_URL ?? "/";
-const styles = process.env.STYLES ?? "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/js/all.min.js";
+const fontAwesomeScript =
+  process.env.STYLES ?? "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/js/all.min.js";
+const isDev = process.env.NODE_ENV !== "production";
 
 export default async function createConfigAsync() {
   return {
+    url,
     url,
     baseUrl,
     trailingSlash: false,
@@ -25,16 +29,12 @@ export default async function createConfigAsync() {
     onBrokenLinks: "throw",
     staticDirectories: ["static"],
     favicon: "/img/favicon.ico",
-    i18n: {defaultLocale: "en", locales: ["en"]},
-    markdown: {mermaid: true, emoji: true, format: "detect", hooks: {onBrokenMarkdownLinks: "warn"}},
-    scripts: [{src: styles, crossorigin: "anonymous", defer: true}],
     headTags: [
-      {tagName: "link", attributes: {rel: "preconnect", href: "https://cdn.jsdelivr.net", crossorigin: "anonymous"}},
       {
         tagName: "link",
         attributes: {
           rel: "preload",
-          href: "/assets/fonts/variable/JetBrainsMono[wght].woff2",
+          href: "/cdn/fonts/webfonts/hack-regular-subset.woff2",
           as: "font",
           type: "font/woff2",
           crossorigin: "anonymous",
@@ -44,13 +44,34 @@ export default async function createConfigAsync() {
         tagName: "link",
         attributes: {
           rel: "preload",
-          href: "/assets/fonts/webfonts/hack-regular-subset.woff2",
+          href: "/cdn/fonts/variable/JetBrainsMono[wght].woff2",
           as: "font",
           type: "font/woff2",
           crossorigin: "anonymous",
+        },
+      },
+      {
+        tagName: "link",
+        attributes: {
+          rel: "stylesheet",
+          href: "/cdn/fonts/hack-subset.css",
+          media: "print",
+          onload: "this.media='all'",
+        },
+      },
+      {
+        tagName: "link",
+        attributes: {
+          rel: "stylesheet",
+          href: "/cdn/fonts/jetbrainsmono-variable.css",
+          media: "print",
+          onload: "this.media='all'",
         },
       },
     ],
+    i18n: {defaultLocale: "en", locales: ["en"]},
+    markdown: {mermaid: true, emoji: true, format: "detect", hooks: {onBrokenMarkdownLinks: "warn"}},
+    customFields: {fontAwesomeScript},
     storage: {
       type: "localStorage",
       namespace: true,
@@ -70,7 +91,7 @@ export default async function createConfigAsync() {
         swcHtmlMinimizer: true,
         lightningCssMinimizer: true,
         rspackBundler: true,
-        rspackPersistentCache: true,
+        rspackPersistentCache: false, // Disabled for CI/CD stability
         ssgWorkerThreads: true,
         mdxCrossCompilerCache: true,
       },
@@ -204,11 +225,11 @@ export default async function createConfigAsync() {
         {name: "og:description", content: "Swiss Army Knife for Zsh Unix shell"},
         {name: "keywords", content: "z-shell, zsh, zinit, zplugin, oh-my-zsh, prezto, zi, devops, zsh-plugins"},
       ],
-      announcementBar: {
+      /* announcementBar: {
         id: "announcement-bar",
-        content: `If you like Zi - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi" aria-label="GitHub repository star"><i class="fa-solid fa-star"></i></a>, share it on <a target="_blank" rel="noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=https://wiki.zshell.dev/&t=A%20Swiss%20Army%20Knife%20for%20Zsh%20Unix%20shell%20|%20%E2%9D%AE%20Zi%20%E2%9D%AF" aria-label="Hacker News"><i class="fa-brands fa-square-hacker-news"></i></a>, and consider following us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell" aria-label="GitHub"><i class="fa-brands fa-github-alt"></i></a>`,
+        content: `If you like Zi - give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell/zi" aria-label="GitHub repository star">${announcementStarIcon}</a>, share it on <a target="_blank" rel="noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=https://wiki.zshell.dev/&t=A%20Swiss%20Army%20Knife%20for%20Zsh%20Unix%20shell%20|%20%E2%9D%AE%20Zi%20%E2%9D%AF" aria-label="Hacker News">${announcementHackerNewsIcon}</a>, and consider following us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/z-shell" aria-label="GitHub">${announcementGithubIcon}</a>`,
         isCloseable: true,
-      },
+      }, */
       algolia: {
         appId: "FMPN8VE51Y",
         apiKey: "a3d13a1058ae9304a8c987ea67b08ce4",
