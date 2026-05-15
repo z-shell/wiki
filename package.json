@@ -64,7 +64,7 @@
     "@docusaurus/types": "3.10.1",
     "@eslint/compat": "^2.0.5",
     "@eslint/js": "^10.0.1",
-    "@types/node": "25.6.0",
+    "@types/node": "25.8.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "eslint": "^10.2.0",
