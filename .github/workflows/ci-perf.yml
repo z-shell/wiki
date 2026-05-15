@@ -50,16 +50,16 @@ jobs:
         with:
           fetch-depth: 0
       - name: "📦 Setup pnpm"
-        uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5
+        uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
       - name: "⎔ Setup node"
         uses: actions/setup-node@v6
         with:
           node-version: "20"
           cache: "pnpm"
-      - uses: preactjs/compressed-size-action@v2
+      - uses: preactjs/compressed-size-action@v3
         with:
           install-script: pnpm i --frozen-lockfile
-          build-script: "build:en"
+          build-script: "pnpm build:en"
           pattern: "{build/assets/js/*.js,build/assets/css/*.css,build/**/*.html,.docusaurus/globalData.json,build/blog/**/swiss-army-knife-for-zsh/*}"
           exclude: "{./build/manifest.json,./build/**/*.xml,**/*.map,**/node_modules/**,build/assets/**/*.ttf}"
           strip-hash: '\.([^;]\w{7})\.'
@@ -78,7 +78,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: "📦 Setup pnpm"
-        uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5
+        uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
       - name: "⎔ Setup node"
         uses: actions/setup-node@v6
         with:
