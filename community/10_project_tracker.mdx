@@ -1,0 +1,119 @@
+---
+id: project-tracker
+title: 📋 Project Tracker
+sidebar_position: 10
+image: /img/png/theme/z/320x320.png
+hide_title: false
+hide_table_of_contents: false
+description: How we track bugs, features and planned work across the Z-Shell organization
+keywords:
+  - project
+  - tracker
+  - bugs
+  - features
+  - roadmap
+  - sprint
+  - labels
+draft: false
+slug: /community/project-tracker
+---
+
+import Link from "@docusaurus/Link";
+
+## Overview
+
+All work across the Z-Shell organization is tracked in a single unified project:
+
+<Link
+  className="button button--primary button--lg"
+  to="https://github.com/orgs/z-shell/projects/28"
+>
+  Z-Shell Tracker →
+</Link>
+
+<br /><br />
+
+The project pulls issues and pull requests from every repository in the
+[`z-shell`](https://github.com/z-shell) GitHub organization into one place, so
+nothing slips through the cracks.
+
+---
+
+## Project Views
+
+| View | Layout | Purpose |
+|---|---|---|
+| **Triage** | Table | New items awaiting investigation — start here |
+| **Bugs Board** | Board | Active bug work, grouped by Status |
+| **Features Board** | Board | Feature and enhancement work |
+| **Active Sprint** | Board | Everything in the current 2-week sprint |
+| **Roadmap** | Roadmap | Planned work on a timeline |
+| **By Repository** | Table | All items grouped by source repo |
+
+---
+
+## Custom Fields
+
+Each item in the project can have the following fields set:
+
+| Field | Values | Notes |
+|---|---|---|
+| **Status** | Triage · Todo · In Progress · In Review · Done · Blocked · Won't Fix | Set by maintainers during triage |
+| **Priority** | 🔴 Critical · 🟠 High · 🟡 Medium · 🔵 Low · None | |
+| **Item Type** | Bug · Feature · Enhancement · Docs · Security · Performance · Chore · CI | |
+| **Effort** | XS · S · M · L · XL | Rough size estimate |
+| **Sprint** | Sprint 1 … Sprint N | 2-week iterations starting Mondays |
+
+---
+
+## Triage Workflow
+
+New issues and PRs are automatically added to the project with **Status = Triage**.
+A maintainer reviews the item and:
+
+1. Sets **Item Type** (Bug, Feature, etc.)
+2. Sets **Priority**
+3. Moves **Status** to `Todo` (or `Won't Fix` / `Blocked` if appropriate)
+4. Assigns to a **Sprint** if it should be worked on soon
+5. Adds the appropriate **label** (see [Labels](/community/labels))
+
+---
+
+## Sprint Cadence
+
+Sprints run for **2 weeks**, starting every other Monday.
+
+| Sprint | Start | End |
+|---|---|---|
+| Sprint 1 | 2026-05-18 | 2026-05-31 |
+| Sprint 2 | 2026-06-01 | 2026-06-14 |
+| Sprint 3 | 2026-06-15 | 2026-06-28 |
+| Sprint 4 | 2026-06-29 | 2026-07-12 |
+
+At the end of each sprint, incomplete items are moved to the next sprint or
+returned to the backlog (`Todo` without a sprint assignment).
+
+---
+
+## Automation
+
+Every repository in the organization has a
+`.github/workflows/project-tracker.yml` workflow that automatically adds new
+issues and pull requests to the project. No manual steps are required from
+contributors.
+
+The workflow calls a shared reusable workflow from
+[`z-shell/.github`](https://github.com/z-shell/.github/blob/main/.github/workflows/add-to-project.yml)
+using an org-level secret — no per-repo configuration is needed.
+
+---
+
+## Priority Definitions
+
+| Priority | Meaning |
+|---|---|
+| 🔴 **Critical** | Data loss, security vulnerability, or complete breakage with no workaround |
+| 🟠 **High** | Significantly impacts users; should be in the current or next sprint |
+| 🟡 **Medium** | Important but not urgent; planned within the next few sprints |
+| 🔵 **Low** | Nice to have; no fixed timeline |
+| **None** | Not yet triaged or genuinely optional |

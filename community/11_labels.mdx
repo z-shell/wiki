@@ -1,0 +1,90 @@
+---
+id: labels
+title: 🏷️ Labels
+sidebar_position: 11
+image: /img/png/theme/z/320x320.png
+hide_title: false
+hide_table_of_contents: false
+description: Canonical label reference for all Z-Shell repositories
+keywords:
+  - labels
+  - github
+  - triage
+  - issues
+draft: false
+slug: /community/labels
+---
+
+## Overview
+
+All repositories in the `z-shell` organization use the same canonical label set.
+Labels are applied automatically by the stale bot or manually during triage.
+
+The label set is maintained by
+[`scripts/sync-labels.sh`](https://github.com/z-shell/src/blob/next/scripts/sync-labels.sh)
+in `z-shell/src` — run it to re-sync labels after adding a new repository.
+
+---
+
+## Type Labels
+
+Use these to describe **what kind of work** an issue or PR represents.
+
+| Label | Color | Description |
+|---|---|---|
+| `bug 🐛` | ![#d73a4a](https://placehold.co/12x12/d73a4a/d73a4a.png) `#d73a4a` | Something isn't working |
+| `feature-request 💡` | ![#0075ca](https://placehold.co/12x12/0075ca/0075ca.png) `#0075ca` | New feature or request |
+| `enhancement ✨` | ![#a2eeef](https://placehold.co/12x12/a2eeef/a2eeef.png) `#a2eeef` | Improvement to existing functionality |
+| `documentation 📝` | ![#0052cc](https://placehold.co/12x12/0052cc/0052cc.png) `#0052cc` | Documentation-only changes |
+| `performance 🚀` | ![#006b75](https://placehold.co/12x12/006b75/006b75.png) `#006b75` | Performance improvements |
+| `security 🛡️` | ![#ee0701](https://placehold.co/12x12/ee0701/ee0701.png) `#ee0701` | Security vulnerability or hardening |
+| `breaking-change 💥` | ![#d93f0b](https://placehold.co/12x12/d93f0b/d93f0b.png) `#d93f0b` | Breaks backward compatibility |
+| `dependencies 📦` | ![#0366d6](https://placehold.co/12x12/0366d6/0366d6.png) `#0366d6` | Dependency updates |
+| `chore 🔧` | ![#c5def5](https://placehold.co/12x12/c5def5/c5def5.png) `#c5def5` | Routine maintenance, no behavior change |
+| `refactor ♻️` | ![#5319e7](https://placehold.co/12x12/5319e7/5319e7.png) `#5319e7` | Code refactor, no behavior change |
+| `ci ⚙️` | ![#1d76db](https://placehold.co/12x12/1d76db/1d76db.png) `#1d76db` | CI/CD pipeline changes |
+
+---
+
+## Status / Workflow Labels
+
+Use these to describe **where an issue stands** in the process.
+
+| Label | Color | Description |
+|---|---|---|
+| `triage 🔍` | ![#fbca04](https://placehold.co/12x12/fbca04/fbca04.png) `#fbca04` | Needs investigation before action |
+| `in-progress 🚧` | ![#f9d0c4](https://placehold.co/12x12/f9d0c4/f9d0c4.png) `#f9d0c4` | Currently being worked on |
+| `blocked ⛔` | ![#e4e669](https://placehold.co/12x12/e4e669/e4e669.png) `#e4e669` | Blocked on external dependency/decision |
+| `stale 💤` | ![#f2f2f2](https://placehold.co/12x12/f2f2f2/f2f2f2.png) `#f2f2f2` | No activity for an extended period |
+| `invalid ⚠️` | ![#e4e669](https://placehold.co/12x12/e4e669/e4e669.png) `#e4e669` | Off-topic, cannot reproduce, or incorrect |
+| `wontfix 🚫` | ![#ffffff](https://placehold.co/12x12/ffffff/ffffff.png) `#ffffff` | Will not be fixed |
+| `no-stale 🔒` | ![#0e8a16](https://placehold.co/12x12/0e8a16/0e8a16.png) `#0e8a16` | Exempt from stale-bot closing |
+
+---
+
+## Community Labels
+
+| Label | Color | Description |
+|---|---|---|
+| `help-wanted 🙋` | ![#008672](https://placehold.co/12x12/008672/008672.png) `#008672` | Extra attention or expertise needed |
+| `good-first-issue 🌱` | ![#7057ff](https://placehold.co/12x12/7057ff/7057ff.png) `#7057ff` | Good for newcomers |
+| `Q&A ✍️` | ![#d4c5f9](https://placehold.co/12x12/d4c5f9/d4c5f9.png) `#d4c5f9` | Questions and answers |
+
+---
+
+## Syncing Labels
+
+To apply the canonical label set to a repository:
+
+```sh
+# Single repo
+echo "my-repo" > /tmp/repos.txt
+./scripts/sync-labels.sh z-shell /tmp/repos.txt
+
+# All org repos
+./scripts/sync-labels.sh z-shell scripts/repos.txt
+```
+
+The `--force` flag means existing labels with the same name are updated to match
+the canonical color and description. Labels not in the canonical set are **not**
+deleted automatically — remove them manually if desired.
