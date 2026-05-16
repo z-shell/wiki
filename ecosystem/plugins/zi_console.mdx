@@ -98,7 +98,7 @@ zi ice id-as"zsh" atclone"./.preconfig
 zi load zsh-users/zsh
 ```
 
-The command will build a custom `zsh` and install it under `$ZPFX` (`~/.zi/polaris` by default). The path `$ZPFX/bin` is already added to `$PATH` by Zi at the first position, so starting `zsh` will run the new Z shell.
+The command will build a custom `zsh` and install it under `$ZPFX` (`${XDG_DATA_HOME:-$HOME/.local/share}/zi/polaris` by default). The path `$ZPFX/bin` is already added to `$PATH` by Zi at the first position, so starting `zsh` will run the new Z shell.
 
 When on Gentoo, and possibly other systems, the `zsh` can still not have the ncurses library linked. To address this, utilize the [patch-dl][z-a-patch-dl] annex and automatically patch the source first:
 

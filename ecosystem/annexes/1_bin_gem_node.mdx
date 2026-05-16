@@ -52,7 +52,7 @@ zi ice as'program' from'gh-r' sbin'fzf'
 zi load junegunn/fzf
 ```
 
-The `$PATH` will remain unchanged and a forwarder-script of `fzf` shim will be created in `$ZPFX/bin` (`~/.zi/polaris/bin` by default), which is being already added to the `$PATH` by Zi when it is being sourced:
+The `$PATH` will remain unchanged and a forwarder-script of `fzf` shim will be created in `$ZPFX/bin` (`${XDG_DATA_HOME:-$HOME/.local/share}/zi/polaris/bin` by default), which is being already added to the `$PATH` by Zi when it is being sourced:
 
 ```shell title="cat $ZPFX/bin/fzf" showLineNumbers
 #!/usr/bin/env zsh
@@ -117,7 +117,7 @@ View all currently registered:
 sbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-script}]; …'
 ```
 
-Creates the so-called `shim` known from `rbenv` – a wrapper script that forwards the call to the actual binary. The script is created always under the same, standard, and single `$PATH` entry: `$ZPFX/bin` (which is `~/.zi/polaris/bin` by default). The flags have the same meaning as with `fbin'…'` ice.
+Creates the so-called `shim` known from `rbenv` – a wrapper script that forwards the call to the actual binary. The script is created always under the same, standard, and single `$PATH` entry: `$ZPFX/bin` (which is `${XDG_DATA_HOME:-$HOME/.local/share}/zi/polaris/bin` by default). The flags have the same meaning as with `fbin'…'` ice.
 
 <Player
   src="/cdn/cast/513810.cast"
@@ -450,7 +450,7 @@ zi shim-list [ -t | -i | -o | -s | -h ]
 
 ## Cygwin support {/* #cygwin-support */}
 
-The [sbin](#sbin-1) ice-modifier has an explicit Cygwin support – it creates additional, **extra shim files** – Windows batch scripts that allow running the shielded applications from e.g.: Windows run dialog – if the `~/.zi/polaris/bin` directory is being added to the Windows `PATH` environment variable, for example (it is a good idea to do so, IMHO). The Windows shims have the same name as the standard ones (which are also being created, normally) plus the `.cmd` extension. You can test the feature by e.g.: installing Firefox from the Zi package via:
+The [sbin](#sbin-1) ice-modifier has an explicit Cygwin support – it creates additional, **extra shim files** – Windows batch scripts that allow running the shielded applications from e.g.: Windows run dialog – if the `${XDG_DATA_HOME:-$HOME/.local/share}/zi/polaris/bin` directory is being added to the Windows `PATH` environment variable, for example (it is a good idea to do so, IMHO). The Windows shims have the same name as the standard ones (which are also being created, normally) plus the `.cmd` extension. You can test the feature by e.g.: installing Firefox from the Zi package via:
 
 ```shell
 zi pack=bgn for firefox
