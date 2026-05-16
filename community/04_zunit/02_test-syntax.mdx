@@ -17,7 +17,7 @@ keywords:
 
 Every ZUnit test file must begin with the ZUnit shebang:
 
-```zsh
+```zunit
 #!/usr/bin/env zunit
 ```
 
@@ -26,7 +26,7 @@ delimited with `{` and `}`.
 
 ## `@test` blocks
 
-```zsh
+```zunit
 #!/usr/bin/env zunit
 
 @test 'my first test' {
@@ -44,7 +44,7 @@ delimited with `{` and `}`.
 `@setup` runs **before each test** in the file. `@teardown` runs **after each
 test**, even if the test fails.
 
-```zsh
+```zunit
 #!/usr/bin/env zunit
 
 @setup {
@@ -86,7 +86,7 @@ These functions are available inside every `@test`, `@setup`, and `@teardown` bl
 
 Runs a command and captures its output and exit code without failing the test:
 
-```zsh
+```zunit
 @test 'run captures output' {
   run echo 'hello world'
 
@@ -105,7 +105,7 @@ After `run`:
 
 Sources a file relative to the test directory (or as an absolute path):
 
-```zsh
+```zunit
 @test 'load a helper' {
   load '_support/helpers'
   assert $MY_HELPER same_as 'loaded'
@@ -118,7 +118,7 @@ ZUnit appends `.zsh` automatically if the file without the extension is not foun
 
 Explicit test outcome shortcuts:
 
-```zsh
+```zunit
 @test 'explicit pass' {
   pass
 }

@@ -52,6 +52,7 @@
     "asciinema-player": "3.15.1",
     "clsx": "2.1.1",
     "prism-react-renderer": "2.4.1",
+    "prismjs": "1.30.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5"
   },
@@ -65,6 +66,7 @@
     "@eslint/compat": "^2.0.5",
     "@eslint/js": "^10.0.1",
     "@types/node": "25.8.0",
+    "@types/prismjs": "^1.26.6",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "eslint": "^10.2.0",

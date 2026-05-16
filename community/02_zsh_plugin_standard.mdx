@@ -47,7 +47,7 @@ They cover the information on how to write a Zsh plugin.
 
 To get the plugin’s location, plugins should do:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 0="${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"
 0="${${(M)0:#/*}:-$PWD/$0}"
 ```
@@ -100,7 +100,7 @@ When you set e.g.: the `zsh` emulation in a function, you in general don’t hav
 
 Despite that, the current-standard plugins have their main directory added to `$fpath`, a more clean approach is being proposed: that the plugins use a subdirectory called `functions` to store their completions and autoload functions. This will allow a much cleaner design of plugins. The plugin manager should add such a directory to `$fpath`. The lack of support of the current plugin managers can be easily resolved via the [indicator](#activity-indicator):
 
-```shell showLineNumbers
+```zsh showLineNumbers
 if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}/functions]} ]]; then
   fpath+=( "${0:h}/functions" )
 fi
@@ -108,7 +108,7 @@ fi
 
 or, via the use of the `PMSPEC` [parameter](#global-parameter-with-capabilities):
 
-```shell showLineNumbers
+```zsh showLineNumbers
 if [[ $PMSPEC != *f* ]]; then
   fpath+=( "${0:h}/functions" )
 fi
@@ -137,7 +137,7 @@ The runnable should be put into the directory with a `+x` access right assigned.
 
 4. The plugin manager is permitted to do optional things like ensuring `+x` access rights on the directory contents. The `$PMSPEC` code letter for the feature is `b`, and it allows for the plugin to handle the `$PATH` extending itself, via, e.g.:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 if [[ $PMSPEC != *b* ]]; then
   path+=( "${0:h}/bin" )
 fi
@@ -177,7 +177,7 @@ Note that the unload function should contain `unfunction $0` (or better `unfunct
 
 The plugin manager can provide a function `@zsh-plugin-run-on-unload` which has the following call syntax:
 
-```shell
+```zsh
 @zsh-plugin-run-on-unload "{code-snippet-1}" "{code-snippet-2}" …
 ```
 
@@ -193,7 +193,7 @@ The function registers pieces of code to be run by the plugin manager **on the u
 
 The plugin manager can provide a function `@zsh-plugin-run-on-update` which has the following call syntax:
 
-```shell
+```zsh
 @zsh-plugin-run-on-update "{code-snippet-1}" "{code-snippet-2}" …
 ```
 
@@ -219,7 +219,7 @@ The first item allows a plugin to e.g. issue a notice about missing dependencies
 
 The second item allows a plugin to e.g. set up `$fpath`, knowing that the plugin manager will not handle this:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 if [[ ${zsh_loaded_plugins[-1]} != */kalc && -z ${fpath[(r)${0:h}]} ]]; then
   fpath+=( "${0:h}" )
 fi
@@ -285,7 +285,7 @@ The contents of the parameter describing a fully compliant plugin manager should
 
 The plugin can then verify the support by:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 if [[ $PMSPEC != *P* ]]; then
   path+=( "${0:h}/bin" )
 fi
@@ -303,7 +303,7 @@ The document is to define a **Zsh-plugin** but also to serve as an information s
 
 Zsh ships with the function `add-zsh-hook`. It has the following invocation syntax:
 
-```shell
+```zsh
 add-zsh-hook [ -L | -dD ] [ -Uzk ] hook function
 ```
 
@@ -315,7 +315,7 @@ The Zle editor is the part of the Zsh that is responsible for receiving the text
 
 The syntax of the call is:
 
-```shell
+```zsh
 add-zle-hook-widget [ -L | -dD ] [ -Uzk ] hook widget_name
 ```
 
@@ -341,7 +341,7 @@ The plugin often has to declare global parameters that should live throughout a 
 
 An example value needed by the plugin:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -gA Plugins
 Plugins[MY_PLUGIN_REPO_DIR]="${0:h}"
 ```
@@ -352,7 +352,7 @@ This way all the data of all plugins will be kept in a single parameter, availab
 
 The following code snippet is recommended to be included at the beginning of each of the main functions provided by the plugin:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 builtin emulate -L zsh ${=${options[xtrace]:#off}:+-o xtrace}
 builtin setopt extended_glob warn_create_global typeset_silent no_short_loops rc_quotes no_auto_pushd
 ```
@@ -385,7 +385,7 @@ The emulation is altered with the following options:
 
 It’s good to localize the following variables at the entry of the main function of a plugin:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 local MATCH REPLY; integer MBEGIN MEND
 local -a match mbegin mend reply
 ```
@@ -430,7 +430,7 @@ The proposition of the standard prefixes is as follows:
 
    2.4. Zsh supports any string as a function name because absolutely any string can be a **file** name – if there would be an exception in the name of the call-ables, then how would it be possible to run a script called "→abcd"? There are **no** exceptions, the function can be called even as a sequence of null bytes:
 
-   ```shell showLineNumbers
+   ```zsh showLineNumbers
    ❯ $'\0'() { print hello }
    ❯ $'\0'
    hello
@@ -444,7 +444,7 @@ The proposition of the standard prefixes is as follows:
 
 ## Example code utilizing the prefixes {/* #example-code-utilizing-the-prefixes */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 .zinc_register_hooks() {
   add-zsh-hook precmd :zinc_precmd
   /zinc_dmsg "Installed precmd hook with the result: $?"
@@ -461,7 +461,7 @@ When the main function finishes executing, the functions are left defined. This 
 
 The following snippet of code, when added at the beginning of the main function will automatically unset the sub-functions when leaving the main function to don't leak any functions into the global namespace:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -g prjef
 prjef=( ${(k)functions} )
 trap "unset -f -- \"\${(k)functions[@]:|prjef}\" &>/dev/null; unset prjef" EXIT
@@ -482,7 +482,7 @@ When writing a plugin one often needs to keep a state during the Zsh session. To
 
 With the following method, only a single global parameter per plugin can be sufficient:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -A PlgMap
 typeset -A SomeMap
 typeset -a some_array
@@ -494,7 +494,7 @@ some_array[1]=state
 
 can be converted into:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -A PlgMap
 
 PlgMap[state]=1
