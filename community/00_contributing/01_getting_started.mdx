@@ -1,0 +1,133 @@
+---
+id: getting_started
+title: "🚀 Getting Started"
+sidebar_position: 1
+image: /img/png/theme/z/320x320.png
+description: General contributor setup — branch model, commit conventions, and pull request workflow for all Z-Shell repositories.
+keywords:
+  - contributing
+  - getting-started
+  - branch-model
+  - conventional-commits
+  - pull-request
+---
+
+{/* @format */}
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+<div style={{float: "right", marginLeft: "1.5rem", marginBottom: "1rem"}}>
+  <img src={useBaseUrl("/img/svg/community/contributing-getting-started.svg")} alt="" width="100" height="100" style={{borderRadius: "16px"}}/>
+</div>
+
+This guide applies to **all repositories** in the Z-Shell organization. Repo-specific additions (zi, wiki, etc.) are documented in their own sub-pages.
+
+## Prerequisites
+
+- [Git](https://git-scm.com/) ≥ 2.30
+- [Zsh](https://www.zsh.org/) ≥ 5.8
+- A [GitHub](https://github.com) account
+
+## Fork and Clone
+
+```shell
+# 1. Fork the repo on GitHub, then clone your fork
+git clone https://github.com/<your-username>/<repo>.git
+cd <repo>
+
+# 2. Add the upstream remote
+git remote add upstream https://github.com/z-shell/<repo>.git
+```
+
+## Branch Model
+
+All repositories follow the same two-branch model:
+
+```text
+main  ←─── production (tagged releases only)
+  ↑
+next  ←─── integration branch  ← open all PRs here
+  ↑
+  ├── feat/<name>      new features
+  ├── fix/<name>       bug fixes
+  ├── perf/<name>      performance improvements
+  ├── refactor/<name>  code refactors
+  ├── docs/<name>      documentation updates
+  └── ci/<name>        CI / workflow changes
+```
+
+**Rules:**
+
+1. **Always branch from `next`**: `git checkout -b fix/my-issue next`
+2. **Open PRs targeting `next`** — never target `main` directly
+3. `next` → `main` happens via a release PR once `next` is stable
+4. **Hotfixes** are the only exception — branch from `main` and open a PR against `main`
+
+## Commit Message Format
+
+All commits must follow [Conventional Commits](https://www.conventionalcommits.org/):
+
+```text
+type(scope): short description
+
+Optional body — explain what and why, not how.
+Wrap at 72 characters.
+
+Optional footer(s):
+Fixes #123
+BREAKING CHANGE: description of what breaks
+```
+
+### Allowed Types
+
+| Type | Purpose |
+| --- | --- |
+| `feat` | New feature |
+| `fix` | Bug fix |
+| `perf` | Performance improvement |
+| `refactor` | Code restructure, no behavior change |
+| `docs` | Documentation only |
+| `test` | Test additions or corrections |
+| `ci` | CI/CD pipeline changes |
+| `chore` | Routine maintenance |
+| `revert` | Revert a previous commit |
+
+### Rules
+
+- Subject line: imperative mood, ≤ 72 characters, no trailing period
+- Breaking changes: use `!` suffix (`feat!:`) **and** add a `BREAKING CHANGE:` footer
+- **Do not add `Co-authored-by` trailers** — this is enforced by CI
+
+To tidy commits before opening a PR:
+
+```shell
+git rebase -i $(git merge-base HEAD next)
+```
+
+## What Not to Add
+
+- `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.cursorrules`, or any AI-specific config files
+- Secrets, credentials, or API tokens of any kind
+- Binary files unrelated to the project
+
+## Pull Request Checklist
+
+Before opening a PR:
+
+- [ ] Branched from `next` (or `main` for a hotfix)
+- [ ] PR targets `next`
+- [ ] Commits follow Conventional Commits
+- [ ] No secrets or AI config files added
+- [ ] Relevant docs or tests updated
+- [ ] All CI checks pass
+
+## Keeping Your Fork Up to Date
+
+```shell
+git fetch upstream
+git rebase upstream/next  # for feature branches
+```
+
+## Discussion First
+
+Before starting significant work, [open an issue](https://github.com/z-shell/zi/issues/new/choose) to discuss the change. This avoids duplicated effort and ensures alignment with the project roadmap.

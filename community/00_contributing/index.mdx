@@ -1,0 +1,78 @@
+---
+id: contributing
+title: "🤝 Contributing"
+sidebar_position: 1
+image: /img/png/theme/z/320x320.png
+description: Everything you need to contribute to the Z-Shell ecosystem — zi, Zsh plugins, Zi annexes, and the wiki itself.
+keywords:
+  - contributing
+  - contribute
+  - zi
+  - zsh-plugin
+  - annex
+  - open-source
+  - community
+---
+
+{/* @format */}
+
+import Link from "@docusaurus/Link";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+Contributions are what make the Z-Shell ecosystem thrive. Whether you want to fix a bug in zi, publish a Zsh plugin, or improve this documentation — you are in the right place.
+
+<div style={{textAlign: "center", margin: "1.5rem 0"}}>
+  <img
+    src={useBaseUrl("/img/svg/community/contributing-banner.svg")}
+    alt="Contributing workflow: fork → write → PR → merge"
+    style={{maxWidth: "100%", borderRadius: "12px"}}
+  />
+</div>
+
+:::info Code of Conduct
+All contributors are expected to follow our [Code of Conduct](https://github.com/z-shell/zi/blob/main/CODE_OF_CONDUCT.md). Please read it before participating.
+:::
+
+## Contribution Paths
+
+Choose the path that matches what you want to do:
+
+<div style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1rem", margin: "1.5rem 0"}}>
+
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/community/contributing-zi.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
+  <strong>Contribute to Zi</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Fix bugs, add features, improve performance, or improve the zi source code itself.</span>
+  <Link to="/community/contributing/contributing_to_zi" style={{marginTop: "auto"}}>Contributing to Zi →</Link>
+</div>
+
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/community/contributing-plugin-standard.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
+  <strong>Create a Zsh Plugin</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Write your own Zsh plugin following the community standard and best practices.</span>
+  <Link to="/community/zsh_plugin_standard" style={{marginTop: "auto"}}>Zsh Plugin Standard →</Link>
+</div>
+
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/community/contributing-docs.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
+  <strong>Improve the Docs</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Add pages, fix typos, improve guides, or help translate the wiki.</span>
+  <Link to="/community/contributing/contributing_docs" style={{marginTop: "auto"}}>Contributing to the Wiki →</Link>
+</div>
+
+</div>
+
+## Get Involved
+
+| Action | Link |
+| --- | --- |
+| 👥 Join the team | [Open a membership request](https://github.com/z-shell/community/issues/new?assignees=&labels=%F0%9F%91%A5+member&template=membership.yml&title=team%3A+) |
+| 🌐 Translate | [translate.zshell.dev](https://translate.zshell.dev) |
+| 📋 Project tracker | [Z-Shell Tracker](https://github.com/orgs/z-shell/projects/28) |
+| 💬 Discuss | [GitHub Discussions](https://github.com/z-shell/zi/discussions) |
+
+## General Guidelines
+
+Before starting any significant work — open an [issue](https://github.com/z-shell/zi/issues/new/choose) to discuss the change first. This avoids wasted effort and helps the maintainers coordinate.
+
+All repositories in the z-shell organization share a common branch model, commit convention, and project tracker. See [**Getting Started**](./01_getting_started.mdx) for the details that apply everywhere.

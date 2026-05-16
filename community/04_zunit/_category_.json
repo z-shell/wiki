@@ -1,8 +1,0 @@
-{
-  "label": "🧪 ZUnit",
-  "position": 4,
-  "link": {
-    "type": "generated-index",
-    "description": "ZUnit — a unit testing framework for Zsh projects."
-  }
-}

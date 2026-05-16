@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="gs-bg" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#23c88a" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#50df8e" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="gs-node" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#50df8e"/>
+      <stop offset="100%" stop-color="#23c88a"/>
+    </linearGradient>
+    <filter id="gs-glow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="120" height="120" rx="20" fill="url(#gs-bg)"/>
+
+  <!-- Main branch: vertical trunk -->
+  <line x1="60" y1="18" x2="60" y2="96" stroke="#23c88a" stroke-width="2" opacity="0.5"/>
+
+  <!-- Commit nodes on trunk -->
+  <circle cx="60" cy="24" r="6" fill="url(#gs-node)" opacity="0.9" filter="url(#gs-glow)"/>
+  <circle cx="60" cy="24" r="3.5" fill="none" stroke="#fff" stroke-width="1.2" opacity="0.6"/>
+
+  <circle cx="60" cy="48" r="6" fill="url(#gs-node)" opacity="0.85"/>
+
+  <circle cx="60" cy="90" r="6" fill="url(#gs-node)" opacity="0.9" filter="url(#gs-glow)"/>
+  <circle cx="60" cy="90" r="3.5" fill="none" stroke="#fff" stroke-width="1.2" opacity="0.6"/>
+
+  <!-- Feature branch curving off -->
+  <path d="M60 48 Q60 62 84 68" stroke="#7feca2" stroke-width="1.8" fill="none" opacity="0.7"/>
+  <path d="M84 68 Q84 78 60 90" stroke="#7feca2" stroke-width="1.8" fill="none" stroke-dasharray="3 2" opacity="0.5"/>
+
+  <!-- Branch commit node -->
+  <circle cx="84" cy="68" r="5.5" fill="#50df8e" opacity="0.8"/>
+  <!-- Branch label -->
+  <rect x="88" y="63" width="26" height="10" rx="5" fill="#23c88a" opacity="0.2"/>
+  <text x="101" y="71" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#23c88a" opacity="0.9">feat</text>
+
+  <!-- "next" label on main -->
+  <rect x="14" y="86" width="28" height="10" rx="5" fill="#23c88a" opacity="0.15"/>
+  <text x="28" y="94" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#23c88a" opacity="0.9">next</text>
+
+  <!-- Arrow head at top of trunk (latest commits go up) -->
+  <polygon points="57,15 60,10 63,15" fill="#23c88a" opacity="0.6"/>
+</svg>

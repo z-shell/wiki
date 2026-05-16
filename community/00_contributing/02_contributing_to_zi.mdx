@@ -1,0 +1,131 @@
+---
+id: contributing_to_zi
+title: "🔧 Contributing to Zi"
+sidebar_position: 2
+image: /img/png/theme/z/320x320.png
+description: Guidelines for contributing to the zi plugin manager — branch model, commits, PR workflow, and what not to add.
+keywords:
+  - zi
+  - contributing
+  - branch-model
+  - pull-request
+  - conventional-commits
+---
+
+{/* @format */}
+
+import Link from "@docusaurus/Link";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+<div style={{float: "right", marginLeft: "1.5rem", marginBottom: "1rem"}}>
+  <img src={useBaseUrl("/img/svg/community/contributing-zi.svg")} alt="" width="100" height="100" style={{borderRadius: "16px"}}/>
+</div>
+
+Thank you for contributing to zi! This page covers the guidelines specific to the
+[`z-shell/zi`](https://github.com/z-shell/zi) repository. For the org-wide basics
+(branch model, commit format, PR checklist) see [Getting Started](./01_getting_started.mdx).
+
+## Repository Overview
+
+Zi is a Zsh plugin manager written entirely in Zsh. The source lives in `lib/zsh/`
+with the main entry point at `lib/zsh/zi.zsh`. The installer lives in
+[`z-shell/zi-src`](https://github.com/z-shell/zi-src).
+
+```text
+zi/
+  lib/zsh/          ← core plugin manager source
+  docs/             ← repository-level docs (CONTRIBUTING.md, man page)
+  tests/            ← ZUnit test suite
+  .github/
+    workflows/      ← CI workflows (syntax check, ZUnit, CodeQL)
+```
+
+## Setting Up Locally
+
+```shell
+git clone https://github.com/<your-username>/zi.git
+cd zi
+git remote add upstream https://github.com/z-shell/zi.git
+git checkout -b feat/my-change next
+```
+
+No build step is required — zi is pure Zsh. To test changes interactively, source
+the modified files in a Zsh session:
+
+```shell
+zsh
+source lib/zsh/zi.zsh
+```
+
+## Running Tests
+
+Zi uses [ZUnit](https://github.com/z-shell/zunit) for tests:
+
+```shell
+# Run all tests
+zunit
+
+# Run a single test file
+zunit tests/install.zunit
+```
+
+Tests live in `tests/`. Add or update tests when your change affects behavior.
+
+## Zi-Specific Commit Scopes
+
+In addition to the [standard commit types](getting_started#commit-message-format),
+prefer these scopes when relevant:
+
+| Scope | Covers |
+| --- | --- |
+| `core` | `lib/zsh/zi.zsh` and `lib/zsh/zi-*.zsh` |
+| `install` | installer scripts in `zi-src` |
+| `ci` | GitHub Actions workflows |
+| `docs` | repository-level documentation |
+| `annex` | annex API surface changes |
+
+Examples:
+
+```text
+fix(core): resolve fpath duplication on plugin reload
+feat(annex): expose atdelete hook to external annexes
+docs(ci): document workflow trigger conditions
+```
+
+## What Not to Add to Zi
+
+:::warning Off-limits
+- `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.cursorrules`, or any AI-specific config files
+- Secrets, credentials, or tokens of any kind
+- Files unrelated to the plugin manager itself
+:::
+
+## Opening Issues
+
+Before starting significant work, [open an issue](https://github.com/z-shell/zi/issues/new/choose)
+to discuss the change. Use the appropriate issue template:
+
+| Template | When to use |
+| --- | --- |
+| Bug report | Reproducible misbehavior |
+| Feature request | New capability |
+| Annex proposal | Proposing a new annex |
+
+## Release Process
+
+Zi follows a trunk-based flow:
+
+1. All work merges into `next`
+2. When `next` is stable, a release PR merges `next` → `main`
+3. A tag is created on `main` (e.g., `v1.14.0`) — this triggers the release workflow
+4. The installer in `zi-src` is updated to point to the new tag
+
+Maintainers handle the `next` → `main` merge. As a contributor, you only need to
+target `next`.
+
+## See Also
+
+- <Link to="https://github.com/z-shell/zi/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</Link>
+- <Link to="https://github.com/z-shell/community/blob/main/docs/CONTRIBUTING_GUIDELINES.md">Community Contributing Guidelines</Link>
+- [Getting Started](getting_started) — org-wide branch and commit conventions
+- [Project Management](project_management) — how work is tracked across the org
