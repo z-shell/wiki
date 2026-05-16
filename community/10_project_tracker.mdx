@@ -79,6 +79,26 @@ A maintainer reviews the item and:
 
 ---
 
+## Capturing Deferred Work
+
+Do not leave postponed work only in local diffs, review notes, or memory.
+Create or update an issue in the repository that owns the work so it is added to
+the shared tracker automatically.
+
+When splitting or deferring work:
+
+1. Create **one issue per logical task** so each item can be prioritized and
+   completed independently.
+2. Include enough context for another maintainer to resume later: the observed
+   problem, why it matters, relevant files, and any known constraints.
+3. Suggest the likely **Item Type**, **Priority**, and **Effort** during triage.
+4. Use the canonical labels instead of repo-local tracking conventions.
+
+This keeps broad cleanup passes organized without turning one oversized change
+into a catch-all issue that is hard to schedule or review.
+
+---
+
 ## Sprint Cadence
 
 Sprints run for **2 weeks**, starting every other Monday.
