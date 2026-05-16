@@ -1,0 +1,62 @@
+---
+id: zunit
+title: "🧪 ZUnit"
+sidebar_position: 1
+image: /img/png/theme/z/320x320.png
+description: ZUnit — a unit testing framework for Zsh projects.
+keywords:
+  - zunit
+  - zsh
+  - testing
+  - unit-testing
+  - test-framework
+---
+
+ZUnit is a unit testing framework for Zsh projects, maintained by the
+[Z-Shell organization](https://github.com/z-shell) for the wider Zi/Z-Shell
+ecosystem.
+
+It provides a concise `@test` syntax inspired by [Bats](https://github.com/bats-core/bats-core),
+a rich assertion library, per-test `@setup`/`@teardown` hooks, TAP output, HTML
+reports, and a `zunit init` scaffolding command for fast project setup.
+
+## Documentation sections
+
+| Section | What it covers |
+|---|---|
+| [Installation](./01_installation) | Manual install, dependencies, Zi integration |
+| [Test Syntax](./02_test-syntax) | `@test`, `@setup`/`@teardown`, helper functions |
+| [Assertions](./03_assertions) | All ~25 assertion functions with examples |
+| [Running Tests](./04_running-tests) | CLI usage, flags, output modes |
+| [Configuration](./05_configuration) | `.zunit.yml` key reference |
+| [CI Integration](./06_ci) | GitHub Actions and Travis CI workflows |
+
+## Quick start
+
+```zsh
+# 1. Install
+git clone https://github.com/z-shell/zunit.git
+cd zunit && ./build.zsh && cp ./zunit /usr/local/bin
+
+# 2. Scaffold a new project
+cd my-project
+zunit init
+
+# 3. Write a test  (tests/example.zunit)
+# #!/usr/bin/env zunit
+# @test 'addition works' {
+#   assert 2 equals 2
+# }
+
+# 4. Run
+zunit
+```
+
+:::tip
+
+Run `zunit init --github-actions` to generate a ready-to-use GitHub Actions
+workflow in `.github/workflows/zunit.yml` alongside the project scaffold.
+
+:::
+
+{/* end-of-file */}

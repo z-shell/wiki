@@ -1,0 +1,101 @@
+---
+id: zunit-running-tests
+title: "▶️ Running Tests"
+sidebar_position: 4
+image: /img/png/theme/z/320x320.png
+description: How to run ZUnit tests — CLI usage, all flags, output modes, and result summary.
+keywords:
+  - zunit
+  - cli
+  - running-tests
+  - zsh
+  - testing
+---
+
+## Basic usage
+
+Run the full suite from the project root (ZUnit picks up `.zunit.yml`
+automatically):
+
+```sh
+zunit
+```
+
+Pass a specific file, directory, or glob:
+
+```sh
+zunit tests/example.zunit
+zunit tests
+zunit 'tests/**/*.zunit'
+```
+
+## Synopsis
+
+```
+zunit run [options] [tests...]
+```
+
+`zunit` without a subcommand defaults to `zunit run`.
+
+## Options
+
+| Flag | Description |
+|---|---|
+| `-h`, `--help` | Print usage and exit |
+| `-v`, `--version` | Print version and exit |
+| `-f`, `--fail-fast` | Stop immediately after the first failure |
+| `-t`, `--tap` | Output results in TAP-compatible format (stdout) |
+| `--verbose` | Print full output from each test |
+| `--output-text` | Write a TAP-format text report to the output directory |
+| `--output-html` | Write an HTML report to the output directory |
+| `--allow-risky` | Suppress warnings for risky tests (tests with no assertions) |
+| `--time-limit <n>` | Set a per-test time limit of `n` seconds |
+
+## Examples
+
+```sh
+# Stop on first failure
+zunit --fail-fast
+
+# TAP output (useful for CI parsers)
+zunit --tap tests
+
+# Full output + HTML report
+zunit --verbose --output-html tests
+
+# Time-limit each test to 10 seconds
+zunit --time-limit 10 tests
+```
+
+## Result summary
+
+After a run, ZUnit prints a table to stdout (unless `--tap` is active):
+
+```
+42 tests run in 1234ms
+
+Results
+✔ Passed      38
+✘ Failed       2
+‼ Errors       1
+● Skipped      1
+‼ Warnings     0
+```
+
+Exit code is `0` when all tests pass, non-zero on any failure or error.
+
+## Output files
+
+When `--output-text` or `--output-html` is used, reports are written to the
+directory configured under `directories.output` in `.zunit.yml` (default:
+`tests/_output`).
+
+:::tip
+
+Combine `--tap` with a TAP reporter (e.g., `tap-junit`) in CI to get structured
+test result artifacts. See [CI Integration](./06_ci) for ready-to-use workflow
+examples.
+
+:::
+
+{/* end-of-file */}
