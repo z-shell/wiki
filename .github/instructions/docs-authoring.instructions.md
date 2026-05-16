@@ -5,6 +5,29 @@ applyTo: "{docs,community,ecosystem}/**/*.mdx"
 
 # Docs Authoring
 
+## Content Root Placement
+
+Choose the documentation root by **what the page is about**, not only by who might read it:
+
+- `docs/` — Zi product documentation only: installation, commands, configuration, migration, and Zi internals.
+- `community/` — material that benefits the wider community across projects: standards, handbooks, contribution guidance, governance, galleries, and project process.
+- `ecosystem/` — installable or companion parts of the Z-Shell ecosystem around Zi: annexes, plugins, packages, tools, and test or integration projects when they are ecosystem components rather than Zi core documentation.
+
+When a page could fit more than one root, choose by primary subject:
+
+1. If it explains Zi itself, use `docs/`.
+2. If it is broadly useful across the community regardless of a specific installable component, use `community/`.
+3. If it documents something users install or use around Zi, use `ecosystem/`.
+
+## Organization-Wide Documentation Ownership
+
+Prefer the wiki as the canonical home for durable documentation across Z-Shell repositories whenever practical. Keep individual project repositories lean:
+
+- Put reusable, user-facing, or cross-repository documentation in the wiki under the appropriate content root.
+- In project repositories, link to the wiki instead of maintaining duplicate long-form guidance.
+- When repository-local files are still needed, prefer generated or synchronized copies sourced from the wiki so maintenance stays centralized and drift is minimized.
+- Keep repo-local docs only when they are tightly coupled to that repository's source, release process, or contributor workflow.
+
 ## Frontmatter
 
 Every MDX page starts with YAML frontmatter, then imports, then content:

@@ -60,9 +60,9 @@ The site will be available at `http://localhost:3000`.
 
 ## 📂 Project Structure
 
-- `docs/`: Core documentation and getting started guides.
-- `community/`: Community-driven guides and resources.
-- `ecosystem/`: Documentation for Zi annexes and related plugins.
+- `docs/`: Zi product documentation only.
+- `community/`: Cross-project material that benefits the wider community.
+- `ecosystem/`: Installable or companion ecosystem components such as annexes, plugins, packages, tools, and tests.
 - `blog/`: Project updates and articles.
 - `src/`: Custom React components and styles.
 - `static/`: Static assets (images, fonts, etc.).
@@ -73,6 +73,7 @@ The site will be available at `http://localhost:3000`.
 We welcome contributions! Whether it's fixing a typo, updating outdated information, or adding a new guide.
 
 - **Content Authoring**: Refer to [Docs Authoring Guidelines](./instructions/docs-authoring.instructions.md) for standards on MDX, frontmatter, and file naming.
+- **Documentation ownership**: Prefer the wiki as the canonical home for durable documentation across Z-Shell repositories; keep repo-local docs lean by linking back here or using generated/synchronized copies where practical.
 - **Localization**: Use [Crowdin](https://translate.zshell.dev/) for translations. Do not modify files in `i18n/` directly.
 - **Code of Conduct**: Please follow our [Code of Conduct](https://github.com/z-shell/.github/tree/main/.github/CODE_OF_CONDUCT.md).
 
