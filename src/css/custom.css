@@ -32,6 +32,9 @@
   --ifm-background-color: hsl(0deg 0% 100%);
   --ifm-navbar-background-color: var(--ifm-background-surface-color);
   --docusaurus-highlighted-code-line-bg: hsl(0deg 0% 0% / 15%);
+  --site-zsh-token-command-color: hsl(15deg 85% 45%);
+  --site-zsh-token-builtin-color: hsl(198deg 100% 35%);
+  --site-zsh-token-expansion-color: hsl(273deg 65% 45%);
   --docusaurus-announcement-bar-height: auto;
 
   /* ── Design system tokens ── */
@@ -84,6 +87,9 @@
   --ifm-color-primary-light: hsl(var(--site-primary-hue-saturation-light) 54%);
   --ifm-color-primary-lighter: hsl(var(--site-primary-hue-saturation-light) 62%);
   --ifm-color-primary-lightest: hsl(var(--site-primary-hue-saturation-light) 73%);
+  --site-zsh-token-command-color: hsl(25deg 95% 70%);
+  --site-zsh-token-builtin-color: hsl(198deg 100% 75%);
+  --site-zsh-token-expansion-color: hsl(288deg 85% 80%);
   color-scheme: dark;
 }
 
@@ -93,6 +99,21 @@
   padding: 0 var(--ifm-pre-padding);
   background-color: var(--site-color-error-highlight);
   border-left: 3px solid var(--site-color-error-border);
+}
+
+/* ZSH syntax palette */
+code.language-zsh .token.zi-command,
+code.language-zsh .token.zunit-command {
+  color: var(--site-zsh-token-command-color);
+  font-weight: 700;
+}
+
+code.language-zsh .token.zsh-builtin {
+  color: var(--site-zsh-token-builtin-color);
+}
+
+code.language-zsh .token.zsh-expansion-flag {
+  color: var(--site-zsh-token-expansion-color);
 }
 
 .navbar--dark {
