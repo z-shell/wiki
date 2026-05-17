@@ -1,28 +1,9 @@
-import siteConfig from "@generated/docusaurus.config";
-import type * as PrismNamespace from "prismjs";
+import prismIncludeLanguagesOriginal from "@theme-original/prism-include-languages";
+
 import {registerZShellLanguages} from "../prism/z-shell-languages";
+import type * as PrismNamespace from "prismjs";
 
 export default function prismIncludeLanguages(PrismObject: typeof PrismNamespace): void {
-  const {
-    themeConfig: {prism},
-  } = siteConfig;
-  const {additionalLanguages} = prism as {additionalLanguages: string[]};
-
-  const PrismBefore = globalThis.Prism;
-  globalThis.Prism = PrismObject;
-
-  additionalLanguages.forEach((lang) => {
-    if (lang === "php") {
-      require("prismjs/components/prism-markup-templating.js");
-    }
-    require(`prismjs/components/prism-${lang}`);
-  });
-
+  (prismIncludeLanguagesOriginal as (p: typeof PrismNamespace) => void)(PrismObject);
   registerZShellLanguages(PrismObject);
-
-  if (typeof PrismBefore === "undefined") {
-    delete (globalThis as Record<string, unknown>).Prism;
-  } else {
-    globalThis.Prism = PrismObject;
-  }
 }

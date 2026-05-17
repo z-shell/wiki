@@ -3,19 +3,28 @@ import type * as PrismNamespace from "prismjs";
 export function registerZShellLanguages(Prism: typeof PrismNamespace): void {
   Prism.languages.zsh = Prism.languages.extend("bash", {});
 
-  Prism.languages.insertBefore("zsh", "keyword", {
-    "zsh-keyword": {
+  // ZSH-specific builtins — inserted before 'function' so they take priority
+  Prism.languages.insertBefore("zsh", "function", {
+    "zsh-builtin": {
       pattern:
-        /(^|[\s;|&()])(?:autoload|bindkey|compdef|emulate|functions|local|print|setopt|typeset|unsetopt|zcompile|zmodload|zparseopts|zstyle)\b/,
+        /(?<lb>^|[\s;|&])(?:autoload|bindkey|builtin|compctl|compdump|compinit|compdef|compfiles|compgroups|compquote|comptags|comptry|compvalues|declare|dirs|disable|disown|emulate|enable|fc|float|functions|getcap|getln|getopts|history|integer|jobs|let|limit|local|log|noglob|popd|print|printf|pushd|pushln|pwd|read|readonly|sched|set|setcap|setopt|shift|source|stat|suspend|ttyctl|type|typeset|ulimit|umask|unalias|unfunction|unhash|unlimit|unset|unsetopt|vared|wait|whence|where|which|zcompile|zformat|zle|zmodload|zparseopts|zpty|zregexparse|zsocket|zstyle|ztcp)(?=\s|;|$)/,
       lookbehind: true,
-      alias: "keyword",
+      alias: "builtin",
+    },
+  });
+
+  // Expansion flags and parameter tokens — inserted before 'variable' for priority
+  Prism.languages.insertBefore("zsh", "variable", {
+    "zsh-expansion-flag": {
+      pattern: /\$\{\([^)]*\)/,
+      alias: "attr-value",
     },
     "zsh-special-parameter": {
       pattern: /\$(?:[#*@?!$]|[A-Za-z_][\w-]*|\{[^}\n]+\})/,
       alias: "variable",
     },
     "zsh-glob-qualifier": {
-      pattern: /(^|[^\w])(?:\*\*\/)?\*[^ \n]*(?:\([^)]+\))/,
+      pattern: /(?<lb>^|[^\w])(?:\*\*\/)?\*[^ \n]*(?:\([^)]+\))/,
       lookbehind: true,
       alias: "operator",
     },
