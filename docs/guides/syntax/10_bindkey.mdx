@@ -42,7 +42,7 @@ Zi provides a solution to this problem – the ability to remap the bindkeys wit
 
 Map <kbd>Ctrl-G</kbd> instead of <kbd>Ctrl-R</kbd> for the history searcher.
 
-```shell
+```zsh
 zi bindmap'^R -> ^G' for z-shell/history-search-multi-word
 ```
 
@@ -54,7 +54,7 @@ Could also separate the bindmaps with a semicolon, i.e.:
 bindmap'"\\e[1\;6D" -> \\e[1\;5D ; "\\e[1\;6C" -> ^[[1\;5C' \
 ```
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi wait light-mode trackbinds bindmap'"\\e[1\;6D" -> \\e[1\;5D"' \
   bindmap'"\\e[1\;6C" -> ^[[1\;5C' pick'dircycle.zsh' for \
   michaelxmcbride/zsh-dircycle
@@ -62,7 +62,7 @@ zi wait light-mode trackbinds bindmap'"\\e[1\;6D" -> \\e[1\;5D"' \
 
 Map space to regular space and <kbd>Ctrl-Space</kbd> to the `globalias` widget, which expands the alias entered on the left, provided by OMZ globalias plugin.
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi bindmap='!" " -> magic-space; !"^ " -> globalias' nocompletions \
   depth=1 pick=plugins/globalias/globalias.plugin.zsh for \
   ohmyzsh/ohmyzsh
@@ -78,14 +78,14 @@ In this mode, the given key is being mapped to the given widget instead of the w
 
 Instead of:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 bindkey "^ " magic-space
 bindkey " " globalias
 ```
 
 The actual call that'll be done will be:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 bindkey "^ " globalias
 bindkey " " magic-space
 ```
@@ -104,14 +104,14 @@ In the non-investigation:
 
 With the use of the light-mode ice and the for-syntax:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi light-mode for trackbinds bindmap'^R -> ^G' \
   z-shell/history-search-multi-word
 ```
 
 With the use of the traditional syntax:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice trackbinds bindmap'^R -> ^G'
 zi light z-shell/history-search-multi-word
 ```
@@ -120,7 +120,7 @@ zi light z-shell/history-search-multi-word
 
 There are four special values that can be used on the left side of the bind-map: <kbd>UPAR</kbd>, <kbd>DOWNAR</kbd>, <kbd>LEFTAR</kbd>, <kbd>RIGHTAR</kbd>. They'll match up arrow, down arrow, etc. So that it's possible to do:
 
-```shell
+```zsh
 zi bindmap='LEFTAR -> ^F; RIGHTAR -> ^G' …
 ```
 

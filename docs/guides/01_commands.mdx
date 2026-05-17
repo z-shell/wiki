@@ -24,13 +24,13 @@ The ice-modifiers for any plugin or snippet are stored in their directory in a `
 
 Self-update & compile:
 
-```shell
+```zsh
 zi self-update
 ```
 
 Update plugins and snippets:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi update --all
 zi update --reset
 zi update --quiet
@@ -38,26 +38,26 @@ zi update --quiet
 
 Update plugins or snippets:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi update --plugins
 zi update --snippets
 ```
 
 Update specific plugins. Default is GitHub but can specify any with ice [from'…'](/search?q=from):
 
-```shell
+```zsh
 zi update <user>/<repo>
 ```
 
 Plugin parallel update plugins:
 
-```shell
+```zsh
 zi update --parallel
 ```
 
 Increase the number of jobs in a concurrent set to 40
 
-```shell
+```zsh
 zi update --parallel 40
 ```
 
@@ -75,7 +75,7 @@ With no turbo mode in use, compinit can be called normally, i.e.: as `autoload c
 
 As it should be called later, after loading all of the plugins, Zi provides its own `compdef` function that catches (i.e.: records in an array) the arguments of the call, so that the loaded plugins can freely call `compdef`. Then, the `cdreplay` (compdef-replay) can be used, after `compinit` will be called (and the original `compdef` function will become available), to execute all detected `compdef` calls.
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 source ~/.zi/bin/zi.zsh
 
 zi load "some/plugin"
@@ -113,7 +113,7 @@ There's also `zicdreplay` which will replay any caught compdefs so you can also 
 
 It is recommended to run the `compinit` call in the `atinit` or `atload` hook of the last related plugin with the use of the helper functions `zicompinit`,`zicdreplay` & `zicdclear` as shown below:
 
-```shell {10} title="~/.zshrc" showLineNumbers
+```zsh {10} title="~/.zshrc" showLineNumbers
 source ~/.zi/bin/zi.zsh
 
 # Load using the for-syntax
@@ -131,7 +131,7 @@ zi wait lucid atload"zicompinit; zicdreplay" blockf for \
 
 If you want to ignore compdefs provided by some plugins or snippets, place their load commands before commands loading other plugins or snippets, and issue `zi cdclear` (or `zicdclear`, designed to be used in hooks like `atload'…'`):
 
-```shell showLineNumbers
+```zsh showLineNumbers
 source ~/.zi/bin/zi.zsh
 zi snippet OMZP::git
 zi cdclear -q # <- forget completions provided by Git plugin

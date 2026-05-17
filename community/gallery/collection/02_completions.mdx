@@ -38,7 +38,7 @@ Create your own syntax e.g:
 > - The ver'main' - allows selecting a specific version or branch.
 > - It's optional and can be removed if not required.
 
-```shell showlinenumbers
+```zsh showlinenumbers
 z_lucid() {
   zi ice lucid ver'main' "$@"
 }
@@ -58,7 +58,7 @@ zi_completion() {
 
 Then load as:
 
-```shell showlinenumbers
+```zsh showlinenumbers
 zi_completion has'…'
 zi snippet …
 
@@ -73,28 +73,28 @@ zi snippet …
 
 ### COMP: [alacritty/alacritty][] {/* #comp-alacritty-alacritty */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait as'completion' blockf has'alacritty'
 zi snippet https://github.com/alacritty/alacritty/blob/master/extra/completions/_alacritty
 ```
 
 ### COMP: [Aloxaf/fzf-tab][] {/* #comp-aloxaf-fzf-tab */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait has'fzf'
 zi light Aloxaf/fzf-tab
 ```
 
 ### COMP: [beetbox/beets][] {/* #comp-beetbox-beets */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait as'completion' blockf has'beet'
 zi snippet https://github.com/beetbox/beets/blob/master/extra/_beet
 ```
 
 ### COMP: [bugaevc/wl-clipboard](https://github.com/bugaevc/wl-clipboard/tree/master/completions/zsh/) {/* #comp-bugaevc-wl-clipboard */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait as'completion' blockf has'wl-copy'
 zi snippet https://github.com/bugaevc/wl-clipboard/blob/master/completions/zsh/_wl-copy
 
@@ -104,126 +104,126 @@ zi snippet https://github.com/bugaevc/wl-clipboard/blob/master/completions/zsh/_
 
 ### COMP: [BurntSushi/ripgrep/rg](https://github.com/BurntSushi/ripgrep/blob/master/crates/core/flags/complete/rg.zsh) {/* #comp-burntsushi-ripgrep-rg */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait as'completion' blockf has'rg' mv'rg.zsh -> _rg'
 zi snippet https://github.com/BurntSushi/ripgrep/blob/master/crates/core/flags/complete/rg.zsh
 ```
 
 ### COMP: [dbrgn/tealdeer][dbrgn-tealdeer] {/* #comp-dbrgn-tealdeer */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait as'completion' blockf has'tldr' mv'zsh_tealdeer -> _tldr'
 zi snippet https://github.com/dbrgn/tealdeer/blob/main/completion/zsh_tealdeer
 ```
 
 ### COMP: [docker/cli][] {/* #comp-docker-cli */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice as"completion"
 zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 ```
 
 ### COMP: [flatpak/flatpak][] {/* #comp-flatpak-flatpak */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait as'completion' blockf has'flatpak'
 zi light https://github.com/flatpak/flatpak/blob/master/completion/_flatpak
 ```
 
 ### COMP: [git/git][] {/* #comp-git-git */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait as'completion' blockf mv'git-completion.zsh -> _git'
 zi snippet https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh
 ```
 
 ### COMP: [greymd/tmux-xpanes][] {/* #comp-greymd-tmux-xpanes */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait as'completion' blockf has'tmux' pick'completion/zsh'
 zi light greymd/tmux-xpanes
 ```
 
 ### COMP: [jarun/Buku][] {/* #comp-jarun-Buku */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait as'completion' blockf has'buku'
 zi snippet https://github.com/jarun/Buku/blob/master/auto-completion/zsh/_buku
 ```
 
 ### COMP: [mpv-player/mpv][] {/* #comp-mpv-player-mpv */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait as'completion' blockf has'mpv'
 zi snippet https://github.com/mpv-player/mpv/blob/master/etc/_mpv.zsh
 ```
 
 ### COMP: [ohmyzsh/rust][] {/* #comp-ohmyzsh-rust */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait as'completion' blockf has'rustc'
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/rust/_rustc
 ```
 
 ### COMP: [oven-sh/bun][] {/* #comp-oven-sh-bun */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait as'completion' blockf has'bun'
 zi snippet https://github.com/oven-sh/bun/blob/main/completions/bun.zsh
 ```
 
 ### COMP: [rust-lang/cargo][] {/* #comp-rust-lang-cargo */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait as'completion' blockf has'cargo'
 zi snippet https://github.com/rust-lang/cargo/blob/master/src/etc/_cargo
 ```
 
 ### COMP: [srijanshetty/zsh-pandoc-completion][] {/* #comp-srijanshetty-zsh-pandoc-completion */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait as'completion' blockf has'pandoc'
 zi light srijanshetty/zsh-pandoc-completion
 ```
 
 ### COMP: [TheLocehiliosan/yadm](https://github.com/yadm-dev/yadm/blob/master/completion/zsh/_yadm) {/* #comp-TheLocehiliosan-yadm */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait as'completion' blockf has'yadm'
 zi snippet https://github.com/yadm-dev/yadm/blob/master/completion/zsh/_yadm
 ```
 
 ### COMP: [x-motemen/ghq][] {/* #comp-x-motemen-ghq */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait as'completion' blockf has'ghq'
 zi snippet https://github.com/x-motemen/ghq/blob/master/misc/zsh/_ghq
 ```
 
 ### COMP: [zchee/zsh-completions][] {/* #comp-zchee-zsh-completions */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait as'completion' blockf
 zi light zchee/zsh-completions
 ```
 
 ### [ajeetdsouza/zoxide](https://github.com/ajeetdsouza/zoxide/blob/main/contrib/completions/_zoxide) {/* #comp-zoxide-completions */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice wait lucid as'completion' blockf has'zoxide'
 zi snippet https://github.com/ajeetdsouza/zoxide/blob/main/contrib/completions/_zoxide
 ```
 
 ### COMP: [zsh-users/zsh-completions][] {/* #comp-zsh-users-zsh-completions */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait as'completion'
 zi light zsh-users/zsh-completions
 ```
 
 ### COMP: Local {/* #comp-local */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice lucid wait as'completion' blockf has'pip'
 zi snippet "$SHELL_COMMON/zsh/completions/_pip"
 

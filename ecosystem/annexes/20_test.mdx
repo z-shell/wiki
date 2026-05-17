@@ -33,7 +33,7 @@ An annex runs `zunit` and `make` tests if they are configured in the repository.
 
 Simply load it like any other plugin to make it active:
 
-```shell
+```zsh
 zi light z-shell/z-a-test
 ```
 
@@ -42,13 +42,13 @@ zi light z-shell/z-a-test
 
 To run the tests in a verbose mode, issue:
 
-```shell
+```zsh
 zstyle :zi:annex:test quiet 0
 ```
 
 To skip tests for a single plugin before installing or updating add the `notest` ice-modifier:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice notest
 zi load …
 ```

@@ -315,7 +315,7 @@ The Zle editor is the part of the Zsh that is responsible for receiving the text
 
 The syntax of the call is:
 
-```shell
+```zsh
 add-zle-hook-widget [ -L | -dD ] [ -Uzk ] hook widget_name
 ```
 
@@ -352,7 +352,7 @@ This way all the data of all plugins will be kept in a single parameter, availab
 
 The following code snippet is recommended to be included at the beginning of each of the main functions provided by the plugin:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 builtin emulate -L zsh ${=${options[xtrace]:#off}:+-o xtrace}
 builtin setopt extended_glob warn_create_global typeset_silent no_short_loops rc_quotes no_auto_pushd
 ```
@@ -461,7 +461,7 @@ When the main function finishes executing, the functions are left defined. This 
 
 The following snippet of code, when added at the beginning of the main function will automatically unset the sub-functions when leaving the main function to don't leak any functions into the global namespace:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -g prjef
 prjef=( ${(k)functions} )
 trap "unset -f -- \"\${(k)functions[@]:|prjef}\" &>/dev/null; unset prjef" EXIT
@@ -482,7 +482,7 @@ When writing a plugin one often needs to keep a state during the Zsh session. To
 
 With the following method, only a single global parameter per plugin can be sufficient:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -A PlgMap
 typeset -A SomeMap
 typeset -a some_array
@@ -494,7 +494,7 @@ some_array[1]=state
 
 can be converted into:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -A PlgMap
 
 PlgMap[state]=1

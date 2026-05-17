@@ -118,7 +118,7 @@ This requires `extended_glob`. The `(#s)` means: "start of the string". So `((#s
 
 If the `extended_glob` option cannot be used for some reason, this can be achieved also without it, but essentially it means that the alternative (i.e. `|`) of two versions of the pattern will have to be matched:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 setopt local_options no_extended_glob
 local git_status="$(git status --porcelain)" nl=$'\n'
 if [[ "$git_status" = (\?\?*|*$nl\?\?*) ]]; then
@@ -145,7 +145,7 @@ The `~` is a negation -- `match \*abc* but not ...`. Then, `^` is also a negatio
 
 ### Skipping tr {/* #skipping-tr */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -A map; map=( a 1 b 2 );
 text=( "ab" "ba" )
 text=( ${text[@]//(#m)?/${map[$MATCH]}} )
@@ -246,7 +246,7 @@ Use of the `#b` glob flag enables math-code execution (and not only) in `/` and 
 
 ### Serializing data {/* #serializing-data */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -A hsh deserialized; hsh=( key value )
 serialized="${(j: :)${(qkv@)hsh}}"
 deserialized=( "${(Q@)${(z@)serialized}}" )

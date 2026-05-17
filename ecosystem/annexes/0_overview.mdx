@@ -46,13 +46,13 @@ keywords:
 
 Use [meta-plugins](/ecosystem/annexes/meta-plugins) to install common annexes as a group:
 
-```shell
+```zsh
 zi light-mode for z-shell/z-a-meta-plugins @annexes
 ```
 
 To install common and additional annexes:
 
-```shell
+```zsh
 zi light-mode for z-shell/z-a-meta-plugins @annexes+rec
 ```
 
@@ -105,7 +105,7 @@ The recommended method of creating a hook is to place its body into a file that 
 
 `@zi-register-annex`:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 @zi-register-annex myproject hook:atclone \
   →za-myproject-atclone-handler \
   →za-myproject-atclone-help-handler \
@@ -114,7 +114,7 @@ The recommended method of creating a hook is to place its body into a file that 
 
 The general syntax of the API call is:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 @zi-register-annex {project-name} \
   {hook: \
   {name-of-the-handler-function} \
@@ -126,7 +126,7 @@ The last argument, i.e. the `|`-separated ice list, is optional. That’s all\! 
 
 Example of the [submods][submods] ice-modifier to load a plugin with additional submodules:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice submods'zsh-users/zsh-autosuggestions -> external'
 zi load some/plugin
 ```
