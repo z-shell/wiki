@@ -38,8 +38,8 @@ source "${ZI[BIN_DIR]}/zi.zsh"
 
 | Hash Field                           | Default                       | Description                                    |
 | ------------------------------------ | ----------------------------- | ---------------------------------------------- |
-| `ZI[HOME_DIR]`                       | `$HOME/.zi`                   | Where Zi should create all working directories |
-| `ZI[BIN_DIR]`                        | `$HOME/.zi/bin`               | Directory where Zi code resides                |
+| `ZI[HOME_DIR]`                       | `${XDG_DATA_HOME:-$HOME/.local/share}/zi` | Where Zi should create all working directories |
+| `ZI[BIN_DIR]`                        | `$ZI[HOME_DIR]/bin`           | Directory where Zi code resides                |
 | `ZI[COMPLETIONS_DIR]`                | `$ZI[HOME_DIR]/completions`   | Completion working directory                   |
 | `ZI[CACHE_DIR]`                      | `$HOME/.cache/zi`             | Cache directory                                |
 | `ZI[CONFIG_DIR]`                     | `$HOME/.config/zi`            | Directory for configuration files              |
@@ -103,7 +103,7 @@ zi as'null' wait'1' lucid for \
     tj/git-extras
 ```
 
-The target directory for installed files is `$ZPFX` - `~/.zi/polaris` by default.
+The target directory for installed files is `$ZPFX` - `${XDG_DATA_HOME:-$HOME/.local/share}/zi/polaris` by default.
 
 With [meta-plugins][z-shell/z-a-meta-plugins] consisting of:
 

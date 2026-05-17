@@ -1,0 +1,97 @@
+---
+id: zunit-installation
+title: "📦 Installation"
+sidebar_position: 1
+image: /img/png/theme/z/320x320.png
+description: How to install ZUnit — manual, with Zi, or via the init scaffolding command.
+keywords:
+  - zunit
+  - install
+  - zsh
+  - testing
+---
+
+## Dependencies
+
+ZUnit requires:
+
+- **Zsh** (any reasonably recent version)
+- **[Revolver](https://github.com/zdharma/revolver)** — a progress spinner,
+  must be available in `$PATH`
+
+## Manual install
+
+```sh
+git clone https://github.com/z-shell/zunit.git
+cd zunit
+./build.zsh
+chmod u+x ./zunit
+cp ./zunit /usr/local/bin
+```
+
+Install Revolver alongside it:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/zdharma/revolver/master/revolver \
+  > /usr/local/bin/revolver
+chmod u+x /usr/local/bin/revolver
+```
+
+## Local bin install (no root)
+
+If you prefer to keep dependencies local to a project (useful for CI):
+
+```sh
+mkdir -p .bin
+curl -fsSL "https://github.com/z-shell/zunit/releases/latest/download/zunit" > .bin/zunit
+curl -fsSL "https://raw.githubusercontent.com/zdharma/revolver/master/revolver" > .bin/revolver
+curl -fsSL "https://raw.githubusercontent.com/zdharma/color/master/color.zsh" > .bin/color
+chmod u+x .bin/{color,revolver,zunit}
+export PATH="$PWD/.bin:$PATH"
+```
+
+## Install with Zi
+
+```zsh title="~/.zshrc"
+zi ice from"github" as"program" pick"zunit"
+zi load z-shell/zunit
+```
+
+## Project scaffolding
+
+Once ZUnit is installed, `zunit init` sets up a new project in one command:
+
+```sh
+cd my-project
+zunit init
+```
+
+This creates:
+
+```
+.zunit.yml              — project config
+tests/
+  example.zunit         — example test file
+  _support/
+    bootstrap           — bootstrap script (sourced before each test file)
+  _output/              — report output directory
+```
+
+To also generate a GitHub Actions workflow:
+
+```sh
+zunit init --github-actions
+```
+
+See [Configuration](./zunit-configuration) for the `.zunit.yml` key reference and
+[CI Integration](./zunit-ci) for the generated workflow details.
+
+:::note Legacy package-manager recipes
+
+Older recipes may reference historical coordinates such as `zunit-zsh/zunit`
+or `zdharma/zunit`. These are not the canonical source. Prefer the manual
+install or the `z-shell/zunit` Zi snippet shown above.
+
+:::
+
+{/* end-of-file */}

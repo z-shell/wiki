@@ -75,8 +75,11 @@ With no turbo mode in use, compinit can be called normally, i.e.: as `autoload c
 
 As it should be called later, after loading all of the plugins, Zi provides its own `compdef` function that catches (i.e.: records in an array) the arguments of the call, so that the loaded plugins can freely call `compdef`. Then, the `cdreplay` (compdef-replay) can be used, after `compinit` will be called (and the original `compdef` function will become available), to execute all detected `compdef` calls.
 
-```zsh title="~/.zshrc" showLineNumbers
-source ~/.zi/bin/zi.zsh
+```shell title="~/.zshrc" showLineNumbers
+typeset -A ZI
+: ${ZI[HOME_DIR]:="${XDG_DATA_HOME:-${HOME}/.local/share}/zi"}
+: ${ZI[BIN_DIR]:="${ZI[HOME_DIR]}/bin"}
+source "${ZI[BIN_DIR]}/zi.zsh"
 
 zi load "some/plugin"
 
@@ -114,7 +117,10 @@ There's also `zicdreplay` which will replay any caught compdefs so you can also 
 It is recommended to run the `compinit` call in the `atinit` or `atload` hook of the last related plugin with the use of the helper functions `zicompinit`,`zicdreplay` & `zicdclear` as shown below:
 
 ```zsh {10} title="~/.zshrc" showLineNumbers
-source ~/.zi/bin/zi.zsh
+typeset -A ZI
+: ${ZI[HOME_DIR]:="${XDG_DATA_HOME:-${HOME}/.local/share}/zi"}
+: ${ZI[BIN_DIR]:="${ZI[HOME_DIR]}/bin"}
+source "${ZI[BIN_DIR]}/zi.zsh"
 
 # Load using the for-syntax
 zi wait lucid for \
@@ -132,7 +138,11 @@ zi wait lucid atload"zicompinit; zicdreplay" blockf for \
 If you want to ignore compdefs provided by some plugins or snippets, place their load commands before commands loading other plugins or snippets, and issue `zi cdclear` (or `zicdclear`, designed to be used in hooks like `atload'…'`):
 
 ```zsh showLineNumbers
-source ~/.zi/bin/zi.zsh
+typeset -A ZI
+: ${ZI[HOME_DIR]:="${XDG_DATA_HOME:-${HOME}/.local/share}/zi"}
+: ${ZI[BIN_DIR]:="${ZI[HOME_DIR]}/bin"}
+source "${ZI[BIN_DIR]}/zi.zsh"
+
 zi snippet OMZP::git
 zi cdclear -q # <- forget completions provided by Git plugin
 

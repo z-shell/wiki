@@ -1,0 +1,129 @@
+---
+id: zunit-ci
+title: "🔄 CI Integration"
+sidebar_position: 6
+image: /img/png/theme/z/320x320.png
+description: Running ZUnit tests in CI — GitHub Actions (recommended) and Travis CI (legacy).
+keywords:
+  - zunit
+  - ci
+  - github-actions
+  - travis-ci
+  - continuous-integration
+  - zsh
+  - testing
+---
+
+## Generate CI config with `zunit init`
+
+The fastest way to get a CI workflow is to use the scaffolding command:
+
+```sh
+zunit init --github-actions   # GitHub Actions (recommended)
+zunit init --travis           # Travis CI (legacy)
+```
+
+Both flags can be combined with the regular `zunit init` run.
+
+## GitHub Actions (recommended)
+
+```yaml title=".github/workflows/zunit.yml"
+---
+name: "ZUnit"
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  zunit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -yq zsh
+          mkdir -p .bin
+          curl -fsSL 'https://github.com/z-shell/zunit/releases/latest/download/zunit' > .bin/zunit
+          curl -fsSL 'https://raw.githubusercontent.com/zdharma/revolver/master/revolver' > .bin/revolver
+          curl -fsSL 'https://raw.githubusercontent.com/zdharma/color/master/color.zsh' > .bin/color
+          chmod u+x .bin/{color,revolver,zunit}
+
+      - name: Test
+        run: PATH="$PWD/.bin:$PATH" zunit --tap tests
+```
+
+:::tip
+
+The `--tap` flag produces machine-readable output. You can pipe it through a
+TAP reporter (e.g., `tap-junit`) to generate JUnit XML for GitHub Actions test
+summary annotations.
+
+:::
+
+### Using a pinned ZUnit release
+
+Replace `latest/download/zunit` with a versioned URL to pin to a specific
+release:
+
+```yaml
+curl -fsSL 'https://github.com/z-shell/zunit/releases/download/v0.9.0/zunit' > .bin/zunit
+```
+
+## Travis CI (legacy)
+
+:::warning
+
+Travis CI is a legacy option. GitHub Actions is the recommended CI platform
+for new projects.
+
+:::
+
+```yaml title=".travis.yml"
+addons:
+  apt:
+    packages:
+      - zsh
+
+install:
+  - mkdir .bin
+  - curl -L https://github.com/z-shell/zunit/releases/latest/download/zunit > .bin/zunit
+  - curl -L https://raw.githubusercontent.com/zdharma/revolver/master/revolver > .bin/revolver
+  - curl -L https://raw.githubusercontent.com/zdharma/color/master/color.zsh > .bin/color
+
+before_script:
+  - chmod u+x .bin/{color,revolver,zunit}
+  - export PATH="$PWD/.bin:$PATH"
+
+script: zunit
+```
+
+## macOS (GitHub Actions)
+
+ZUnit works on macOS via `brew install zsh` (Zsh is already available on
+`macos-latest` runners, but may be an older version):
+
+```yaml
+jobs:
+  zunit-macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          mkdir -p .bin
+          curl -fsSL 'https://github.com/z-shell/zunit/releases/latest/download/zunit' > .bin/zunit
+          curl -fsSL 'https://raw.githubusercontent.com/zdharma/revolver/master/revolver' > .bin/revolver
+          curl -fsSL 'https://raw.githubusercontent.com/zdharma/color/master/color.zsh' > .bin/color
+          chmod u+x .bin/{color,revolver,zunit}
+      - name: Test
+        run: PATH="$PWD/.bin:$PATH" zunit --tap tests
+```
+
+{/* end-of-file */}

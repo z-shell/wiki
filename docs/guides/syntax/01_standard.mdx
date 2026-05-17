@@ -37,7 +37,7 @@ A snippet is a single file with a portion of reusable source code, machine code,
 > - Execute the following command in your terminal:
 
 ```zsh
-zi snippet https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/snippets/welcome.zsh
+zi snippet https://raw.githubusercontent.com/z-shell/src/main/public/zsh/snippets/welcome.zsh
 ```
 
 Success! But not always everything is so easy and simple, also sometimes we want certain things to happen at certain times or conditions. This can be achieved using [ice-modifiers][ice-mods].
@@ -130,7 +130,7 @@ The `make'…'` ice could also be: `make"install PREFIX=$ZPFX"`, if "install" wo
 
 :::info
 
-[$ZPFX][global-parameter-with-prefix] is provided by Zi, it is set to `~/.zi/polaris` by default. However, it can be changed by specifying the `$ZPFX=` target.
+[$ZPFX][global-parameter-with-prefix] is provided by Zi, it is set to `${XDG_DATA_HOME:-$HOME/.local/share}/zi/polaris` by default. However, it can be changed by specifying the `$ZPFX=` target.
 
 :::
 

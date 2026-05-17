@@ -1,0 +1,147 @@
+---
+id: zunit-test-syntax
+title: "✍️ Test Syntax"
+sidebar_position: 2
+image: /img/png/theme/z/320x320.png
+description: ZUnit test file syntax — @test blocks, @setup/@teardown hooks, and helper functions.
+keywords:
+  - zunit
+  - test-syntax
+  - zsh
+  - testing
+  - setup
+  - teardown
+---
+
+## File structure
+
+Every ZUnit test file must begin with the ZUnit shebang:
+
+```zsh
+#!/usr/bin/env zunit
+```
+
+The rest of the file contains `@test`, `@setup`, and `@teardown` blocks — each
+delimited with `{` and `}`.
+
+## `@test` blocks
+
+```zsh
+#!/usr/bin/env zunit
+
+@test 'my first test' {
+  assert 'hello' same_as 'hello'
+}
+```
+
+- The label in quotes is used in output and reports.
+- The body can contain any valid Zsh code.
+- A test **passes** when it exits with code `0`.
+- A test **fails** when it exits with a non-zero code.
+
+## `@setup` and `@teardown`
+
+`@setup` runs **before each test** in the file. `@teardown` runs **after each
+test**, even if the test fails.
+
+```zsh
+#!/usr/bin/env zunit
+
+@setup {
+  SOME_VAR='rainbows'
+}
+
+@teardown {
+  unset SOME_VAR
+}
+
+@test 'check SOME_VAR' {
+  assert $SOME_VAR same_as 'rainbows'
+}
+
+@test 'change SOME_VAR' {
+  SOME_VAR='unicorns'
+  assert $SOME_VAR same_as 'unicorns'
+}
+
+@test 'SOME_VAR is reset between tests' {
+  # @setup ran again, so SOME_VAR is 'rainbows' again
+  run assert $SOME_VAR same_as 'unicorns'
+  assert $state equals 1
+}
+```
+
+:::info
+
+`@setup` and `@teardown` scope is per-file, not per-suite. Each test file has
+its own independent `@setup`/`@teardown`.
+
+:::
+
+## Helper functions
+
+These functions are available inside every `@test`, `@setup`, and `@teardown` block.
+
+### `run`
+
+Runs a command and captures its output and exit code without failing the test:
+
+```zsh
+@test 'run captures output' {
+  run echo 'hello world'
+
+  assert $state equals 0
+  assert "$output" same_as 'hello world'
+  assert "${lines[1]}" same_as 'hello world'
+}
+```
+
+After `run`:
+- `$state` — the exit code of the command
+- `$output` — full stdout (and stderr) as a string
+- `$lines` — array of output lines
+
+### `load`
+
+Sources a file relative to the test directory (or as an absolute path):
+
+```zsh
+@test 'load a helper' {
+  load '_support/helpers'
+  assert $MY_HELPER same_as 'loaded'
+}
+```
+
+ZUnit appends `.zsh` automatically if the file without the extension is not found.
+
+### `pass`, `fail`, `error`, `skip`
+
+Explicit test outcome shortcuts:
+
+```zsh
+@test 'explicit pass' {
+  pass
+}
+
+@test 'explicit fail' {
+  fail 'something went wrong'
+}
+
+@test 'explicit error' {
+  error 'unexpected condition'   # exit code 78
+}
+
+@test 'skip conditionally' {
+  [[ -z $CI ]] && skip 'only runs in CI'
+  assert $CI is_not_empty
+}
+```
+
+| Function | Exit code | Effect |
+|---|---|---|
+| `pass` | 0 | Marks test as passed immediately |
+| `fail <msg>` | 1 | Marks test as failed with message |
+| `error <msg>` | 78 | Marks test as errored with message |
+| `skip <msg>` | 48 | Marks test as skipped with reason |
+
+{/* end-of-file */}

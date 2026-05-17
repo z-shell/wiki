@@ -235,13 +235,13 @@ This will allow the user to reliably source the plugin without using a plugin ma
 
 > [ global-parameter-with-prefix ]
 
-Plugin managers may export the parameter `$ZPFX` which should contain a path to a directory dedicated to user-land software, i.e. for directories `$ZPFX/bin`, `$ZPFX/lib`, `$ZPFX/share`, etc. The suggested name of the directory is `polaris` (e.g.: Zi uses this name and places this directory at `~/.zi/polaris` by default).
+Plugin managers may export the parameter `$ZPFX` which should contain a path to a directory dedicated to user-land software, i.e. for directories `$ZPFX/bin`, `$ZPFX/lib`, `$ZPFX/share`, etc. The suggested name of the directory is `polaris` (e.g.: Zi uses this name and places this directory at `${XDG_DATA_HOME:-$HOME/.local/share}/zi/polaris` by default).
 
 Users can then configure hooks to invoke e.g. `make PREFIX=$ZPFX install` at clone & update the plugin to install software like e.g. [tj/git-extras][]. This is the developing role of Zsh plugin managers as package managers, where `.zshrc` has a similar role to Chef or Puppet configuration and allows to **declare** system state and have the same state on different accounts/machines.
 
 No-narration facts-list related to `$ZPFX`:
 
-1. `export ZPFX="$HOME/polaris"` (or e.g. `$HOME/.zi/polaris`)
+1. `export ZPFX="$HOME/polaris"` (or e.g. `${XDG_DATA_HOME:-$HOME/.local/share}/zi/polaris`)
 
 2. `make PREFIX=$ZPFX install`
 

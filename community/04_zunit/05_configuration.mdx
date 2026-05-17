@@ -1,0 +1,118 @@
+---
+id: zunit-configuration
+title: "⚙️ Configuration"
+sidebar_position: 5
+image: /img/png/theme/z/320x320.png
+description: ZUnit configuration file reference — all .zunit.yml keys and their defaults.
+keywords:
+  - zunit
+  - configuration
+  - zunit.yml
+  - zsh
+  - testing
+---
+
+ZUnit reads configuration from `.zunit.yml` in the project root. All keys are
+optional; the file itself is optional — ZUnit falls back to built-in defaults
+when it is absent.
+
+## Generating the config
+
+```sh
+zunit init
+```
+
+This creates `.zunit.yml` with all keys set to their defaults (see below), plus
+`tests/`, `tests/_support/bootstrap`, and `tests/_output/`.
+
+## Key reference
+
+```yaml title=".zunit.yml"
+tap: false
+directories:
+  tests: tests
+  output: tests/_output
+  support: tests/_support
+time_limit: 0
+fail_fast: false
+allow_risky: false
+verbose: false
+```
+
+### `tap`
+
+**Type:** boolean — **Default:** `false`
+
+When `true`, all output is written in [TAP](https://testanything.org/) format.
+Equivalent to passing `--tap` on the command line.
+
+### `directories.tests`
+
+**Type:** string — **Default:** `tests`
+
+Path (relative to project root) where ZUnit looks for test files (`*.zunit`).
+
+### `directories.output`
+
+**Type:** string — **Default:** `tests/_output`
+
+Directory where text and HTML report files are written when `--output-text` or
+`--output-html` is used.
+
+### `directories.support`
+
+**Type:** string — **Default:** `tests/_support`
+
+Directory containing support files. ZUnit sources `bootstrap` from this
+directory before running each test file, if it exists.
+
+### `time_limit`
+
+**Type:** integer (seconds) — **Default:** `0` (disabled)
+
+Maximum time allowed per test. Tests that exceed this limit are marked as
+errors. Set to `0` to disable. Equivalent to `--time-limit <n>` on the command
+line.
+
+### `fail_fast`
+
+**Type:** boolean — **Default:** `false`
+
+When `true`, ZUnit stops immediately after the first failure. Equivalent to
+`--fail-fast`.
+
+### `allow_risky`
+
+**Type:** boolean — **Default:** `false`
+
+When `true`, suppresses warnings for risky tests (tests that contain no
+assertions). Equivalent to `--allow-risky`.
+
+### `verbose`
+
+**Type:** boolean — **Default:** `false`
+
+When `true`, prints the full stdout/stderr output of each test. Equivalent to
+`--verbose`.
+
+## Bootstrap script
+
+`tests/_support/bootstrap` (or the path set in `directories.support`) is
+sourced by ZUnit before running each test file. Use it to set environment
+variables, define helper functions, or load shared fixtures.
+
+```zsh title="tests/_support/bootstrap"
+#!/usr/bin/env zsh
+
+# Shared setup — sourced before every test file
+export PROJECT_ROOT="$PWD"
+source "$PROJECT_ROOT/my-library.zsh"
+```
+
+:::info
+
+Command-line flags always take precedence over `.zunit.yml` values.
+
+:::
+
+{/* end-of-file */}
