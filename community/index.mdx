@@ -1,10 +1,10 @@
 ---
 id: community
 slug: /
-title: "👥 Community Docs"
+title: "👥 Community"
 sidebar_position: 1
 image: /img/png/theme/z/320x320.png
-description: Community documentation, guides, and resources for Zsh enthusiasts.
+description: Community documentation, guides, and resources for Zsh enthusiasts and Z-Shell contributors.
 keywords:
   - documentation
   - zsh-lovers
@@ -17,22 +17,51 @@ keywords:
 
 import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
-import ThemedImage from "@theme/ThemedImage";
 
-```mdx-code-block
-<div className="RightView">
-  <ThemedImage
-  className="ImageView"
-  alt="Zsh Image"
-  sources={{
-      light: useBaseUrl('/img/zsh/artwork/png/color_horizontal_icon.png'),
-      dark: useBaseUrl('/img/zsh/artwork/png/white_horizontal_icon.png'),
-    }}
+The Z-Shell community is home to contributors, plugin authors, and Zsh enthusiasts. Find guides, a plugin gallery, the ZUnit testing framework, and everything you need to get involved.
+
+<div style={{textAlign: "center", margin: "1.5rem 0"}}>
+  <img
+    src={useBaseUrl("/img/svg/community-banner.svg")}
+    alt="Z-Shell community: Contributing, ZUnit, Gallery, ZSH Guide"
+    style={{maxWidth: "100%", borderRadius: "12px"}}
   />
 </div>
-```
 
-## 🤝 Contributing
+:::info[Get involved]
+Join the [Z-Shell organization](https://github.com/z-shell), help [translate the wiki](https://translate.zshell.dev), or track work in the [Z-Shell Tracker](https://github.com/orgs/z-shell/projects/28).
+:::
 
-Want to contribute to zi, create a Zsh plugin, or improve the docs?
-The <Link to="/community/contributing">**Contributing**</Link> section is your starting point — it covers everything from setting up your fork to project management and the Zsh Plugin Standard.
+## Community Sections
+
+<div style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1rem", margin: "1.5rem 0"}}>
+
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/community/contributing-zi.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
+  <strong>Contributing</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Contribute to Zi, create Zsh plugins, improve the docs, or help with project management.</span>
+  <Link to="/community/contributing" style={{marginTop: "auto"}}>Start contributing →</Link>
+</div>
+
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/cards/history-search.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
+  <strong>ZUnit</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>A unit testing framework for Zsh — write @test blocks, run assertions, and integrate with CI.</span>
+  <Link to="/community/zunit" style={{marginTop: "auto"}}>Explore ZUnit →</Link>
+</div>
+
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/cards/meta-plugins.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
+  <strong>Plugin Gallery</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Community-curated collections of plugins, completions, snippets, services, and themes.</span>
+  <Link to="/community/category/-gallery-of-invocations" style={{marginTop: "auto"}}>Browse the gallery →</Link>
+</div>
+
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/cards/syntax-highlighting.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
+  <strong>ZSH Guide &amp; Handbook</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Zsh expansion, scripting handbook, plugin standard, and roadmap for the broader ecosystem.</span>
+  <Link to="/community/zsh_plugin_standard" style={{marginTop: "auto"}}>Read the guides →</Link>
+</div>
+
+</div>

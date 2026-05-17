@@ -4,7 +4,7 @@ slug: /
 title: 🎉 Introduction
 sidebar_position: 1
 image: /img/png/theme/z/320x320.png
-description: Introduction to a Swiss Army Knife for Zsh, formerly known as zplugin, zinit.
+description: Introduction to Zi — a Swiss Army Knife for Zsh, formerly known as zplugin and zinit.
 keywords:
   - zsh
   - zi
@@ -12,67 +12,54 @@ keywords:
   - plugin-manager
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
+{/* @format */}
+
 import Link from "@docusaurus/Link";
-import Image from "@theme/IdealImage";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import ImgShow from "@site/src/components/ImgShow";
-import ZGitImg from "@site/static/img/png/theme/branch_box.png";
 
-<Image alt="Z-Shell" width="100%" height="auto" img={ZGitImg} />
+Zi is a Swiss Army Knife for Zsh — a blazing-fast plugin manager with Turbo mode, built-in package management, annexes, and full control over your shell environment.
 
-<Tabs>
-  <TabItem value="gems" label="RubyGems">
+<div style={{textAlign: "center", margin: "1.5rem 0"}}>
+  <img
+    src={useBaseUrl("/img/svg/docs-banner.svg")}
+    alt="Zi: install, turbo mode, extend everything"
+    style={{maxWidth: "100%", borderRadius: "12px"}}
+  />
+</div>
 
-The [RubyGems](https://rubygems.org) and [$GEM_HOME](https://guides.rubygems.org/command-reference/#gem-environment) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex or installed by the [any-gem](https://github.com/z-shell/any-gem) package.
+:::info[Why Zi?]
+**50–80% faster** Zsh startup with Turbo mode. Manage plugins, packages, completions, and prompts from a single tool — without root access, without cluttering `$FPATH`.
+:::
 
-  </TabItem>
-  <TabItem value="node" label="Node">
+## Explore the Docs
 
-The [Node](https://www.npmjs.com) modules and [$NODE_PATH](https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex or installed by the [any-node](https://github.com/z-shell/any-node) package.
+<div style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1rem", margin: "1.5rem 0"}}>
 
-  </TabItem>
-  <TabItem value="pip" label="Python">
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/cards/speed.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
+  <strong>Getting Started</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Install Zi, load your first plugins, and migrate from Oh My Zsh or Prezto.</span>
+  <Link to="/docs/category/-getting-started" style={{marginTop: "auto"}}>Get started →</Link>
+</div>
 
-The [Python](https://python.org) modules, [$VIRTUALENV](https://docs.python.org/3/tutorial/venv.html) are automatically managed by the [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex.
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/cards/flexible.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
+  <strong>Guides</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Commands reference, customization, benchmarks, and syntax guides for power users.</span>
+  <Link to="/docs/category/-guides" style={{marginTop: "auto"}}>Read the guides →</Link>
+</div>
 
-  </TabItem>
-  <TabItem value="rust" label="Rust">
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/cards/zi-console.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
+  <strong>Zi Code Reference</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Internals, function reference, and annotated source for contributors and advanced users.</span>
+  <Link to="/docs/code" style={{marginTop: "auto"}}>Browse the code →</Link>
+</div>
 
-The [Rust](https://crates.io) packages are managed by the [rust](/ecosystem/annexes/rust) annex.
+</div>
 
-  </TabItem>
-  <TabItem value="github" label="GitHub" default>
-
-Install and control almost everything from GitHub: [Annexes](/ecosystem/category/-annexes), [Packages](/ecosystem/category/-packages), [Gallery of Invocations](/community/gallery/collection).
-
-  </TabItem>
-</Tabs>
-
-## <i class="fa-solid fa-spinner fa-spin-pulse"></i> Fast and feature-rich {/* #i-classfa-solid-fa-spinner-fa-spin-pulsei-fast-and-feature-rich */}
-
-- [Meta plugins][meta-plugins] allow installing groups of plugins via a single, friendly label.
-- [Packages](/ecosystem/category/-packages) offload the user from providing long and complex commands.
-- [Annexes](ecosystem/category/-annexes) allow extending the plugin manager with new features.
-- [Turbo][turbo-mode-zsh--53] mode yields **50-80%** faster Zsh startup.
-
-## <i class="fa-beat fa-solid fa-heart"></i> Neat and flexible {/* #i-classfa-beat-fa-solid-fa-hearti-neat-and-flexible */}
-
-- [Customize paths][customizing-paths], use [multiple prompts][multiple-prompts] or create [your own][non-github-local-plugins] plugins.
-- Supports [Oh My Zsh][oh-my-zsh-prezto] and [Prezto][oh-my-zsh-prezto] plugins and libraries. ([migration][help-migrate]).
-- Does not use <kbd>$FPATH</kbd>, loading multiple plugins doesn't clutter <kbd>$FPATH</kbd> with the same number of entries, e.g: 10, 15, or more.
-- Code is immune to <kbd>KSH_ARRAYS</kbd> and other options typically causing compatibility problems.
-- Do not require <kbd>root</kbd> access, and provide many workarounds e.g: setting so-called **shims** locally.
-
-## <i class="fa-solid fa-circle-info fa-beat-fade"></i> Familiarize and control {/* #i-classfa-solid-fa-circle-info-fa-beat-fadei-familiarize-and-control */}
-
-- [Visualize and manage][commands] elements of the plugin:
-  - **aliases**, **functions**, **bindkeys**, **zle widgets**, **completions**, **variables**.
-- Quickly [familiarize][reports-and-statistics] yourself with rich and easy-to-digest information.
-- [Load or unload][loading-and-unloading] plugins, use the ability to [manage][completions-management] completions.
-- Docker [playground][configs-playground], test or propose configurations.
-
-## <i class="fa-solid fa-list-check"></i> Summary {/* #i-classfa-solid-fa-list-checki-summary */}
+## Summary
 
 <Link to="https://github.com/orgs/z-shell">
   <ImgShow
@@ -90,20 +77,3 @@ Install and control almost everything from GitHub: [Annexes](/ecosystem/category
 </Link>
 
 {/* end-of-file */}
-{/* links */}
-
-[commands]: /docs/guides/commands
-[completions-management]: /docs/guides/commands#completions-management
-[customizing-paths]: /docs/guides/customization#customizing-paths
-[loading-and-unloading]: /docs/guides/commands#loading-and-unloading
-[meta-plugins]: /search?q=meta+plugins
-[help-migrate]: /docs/getting_started/migration
-[multiple-prompts]: /docs/guides/customization#multiple-prompts
-[non-github-local-plugins]: /docs/guides/customization#non-github-local-plugins
-[oh-my-zsh-prezto]: /docs/getting_started/overview#oh-my-zsh-prezto
-[reports-and-statistics]: /docs/guides/commands#reports-and-statistics
-[turbo-mode-zsh--53]: /docs/getting_started/overview#turbo-mode-zsh--53
-
-{/* external */}
-
-[configs-playground]: https://github.com/z-shell/playground
