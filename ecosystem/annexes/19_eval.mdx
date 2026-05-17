@@ -33,14 +33,14 @@ The optional preceding `!` flag means to store command output regardless of exit
 <Tabs>
 <TabItem value="no-eval+zi" label="No Eval + Zi" default>
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice as"command" from"gh-r" \
   atclone"./zoxide init --cmd x zsh > init.zsh" \
   atpull"%atclone" src"init.zsh" nocompile'!'
 zi light ajeetdsouza/zoxide
 ```
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice atclone"dircolors -b LS_COLORS > init.zsh" \
   atpull"%atclone" pick"init.zsh" nocompile'!' \
   atload'zstyle ":completion:*" list-colors ${(s.:.)LS_COLORS}'
@@ -50,13 +50,13 @@ zi light trapd00r/LS_COLORS
 </TabItem>
 <TabItem value="eval+zi" label="Eval + Zi">
 
-```shell {2} showLineNumbers
+```zsh {2} showLineNumbers
 zi ice as"command" from"gh-r" \
   eval"./zoxide init --cmd x zsh"
 zi light ajeetdsouza/zoxide
 ```
 
-```shell {1} showLineNumbers
+```zsh {1} showLineNumbers
 zi ice eval"dircolors -b LS_COLORS" \
   atload'zstyle ":completion:*" list-colors ${(s.:.)LS_COLORS}'
 zi light trapd00r/LS_COLORS
@@ -76,7 +76,7 @@ fi
 </TabItem>
 <TabItem value="zi+eval" label="Zi + Eval">
 
-```shell {2} showLineNumbers
+```zsh {2} showLineNumbers
 zi ice id-as"kubectl_completion" has"kubectl" \
   eval"kubectl completion zsh" run-atpull
 zi light z-shell/null
@@ -100,7 +100,7 @@ zi light z-shell/null
 
 Add the following snippet in the `.zshrc` file:
 
-```shell
+```zsh
 zi light z-shell/z-a-eval
 ```
 
@@ -111,7 +111,7 @@ Add the following snippet in the `.zshrc` file:
 
 > Set value `Z_A_USECOMP=1` to enable <kbd>TAB</kbd> completion for subcommand `recache`.
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice atinit'Z_A_USECOMP=1'
 zi light z-shell/z-a-eval
 ```

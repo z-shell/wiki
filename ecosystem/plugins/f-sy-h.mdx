@@ -25,13 +25,13 @@ import ChromaFunctionExample from "@site/src/components/Markdown/_chroma_functio
 
 Add the following to your `.zshrc` file.
 
-```shell
+```zsh
 zi light z-shell/F-Sy-H
 ```
 
 Load the plugin in [turbo mode][turbo-mode]:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi wait lucid for \
   atinit"ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
     z-shell/F-Sy-H \

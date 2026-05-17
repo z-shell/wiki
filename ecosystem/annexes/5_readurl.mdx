@@ -30,7 +30,7 @@ The part after the `|` has the same meaning as in the normal `as'…'` ice.
 
 ## Examples {/* #examples */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi id-as=fzf as='readurl|command' for \
   dlink='/junegunn/fzf/releases/download/%VERSION%/fzf-%VERSION%-linux_amd64.tar.gz' \
     https://github.com/junegunn/fzf/releases/
@@ -44,7 +44,7 @@ As it can be seen, the `dlink'…'` can be a relative or an absolute path and al
 
 Sometimes, like it is in the case of the [terraform][terraform-link] command, the final download link isn't on the download page, but on a page, that's listed on it. In such a case use the `dlink0'…'` ice to provide the pattern for the additional, intermediate download page, e.g.:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi id-as=terraform as='readurl|command' extract for \
   dlink0='/terraform/%VERSION%/' \
   dlink='/terraform/%VERSION%/terraform_%VERSION%_linux_386.zip' \
@@ -55,14 +55,14 @@ zi id-as=terraform as='readurl|command' extract for \
 
 Sometimes the URL of the download page differs from the URL of the archive in just a few `/`-sections. In such a case, it is possible to skip the `dlink'…'` ice by appending a `++`-separated fragment of the archive URL, like so:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi as'readurl|command' extract for \
   http://domain.com/download-page++/archive.zip
 ```
 
 If the archive URL has some different `/`-sections, then it's possible to strip the conflicting ones from the download URL by using `+++`, `++++`, etc. – the number of the `/`-section that'll be stripped equals to the number of the `+` minus 2. So, for example:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi as'readurl|command' extract for \
   http://domain.com/download-page/removed-section+++/archive.zip
 ```
@@ -75,7 +75,7 @@ Sometimes the download page doesn't list the package versions from newest to old
 
 Sometimes some unwanted URLs match the `dlink'…'`/`dlink0'…'` regex/pattern. In such a case it's possible to filter them out by appending a filtering regex to the `dlink'…'` ice as: `dlink='the-main-regex~%the-unwanted-URLs-regex%'` (or the same for `dlink0'…'`). An example package that can benefit from this is the [Open Shift][open-shift-link] client, which doesn't sort the URLs from latest to the oldest – hence the exclamation mark (`!`) prepend – and it has special URLs like `stable-4.4` or `candidate-4.5` together with the regular version URLs (like `4.5.0-rc.1`):
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi id-as"ocp" as"readurl|command" for \
   dlink0'!%VERSION%~%(stable|latest|fast|candidate).*%' \
   dlink"openshift-client-windows-%VERSION%.zip" \
@@ -88,7 +88,7 @@ The above snippet of Zsh code / Zi invocation will sort the URLs (`dlink0'!…'`
 
 [Pulumi][pulumi-link], a tool to create, deploy and manage modern cloud software.
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi id-as'pulumi' as'readurl|null' for \
   dlink='https://get.pulumi.com/releases/sdk/pulumi-%VERSION%-linux-x64.tar.gz' \
   sbin'pulumi*' \
@@ -110,7 +110,7 @@ zi id-as'pulumi' as'readurl|null' for \
 
 Add the following snippet in the `.zshrc` file:
 
-```shell
+```zsh
 zi light z-shell/z-a-readurl
 ```
 

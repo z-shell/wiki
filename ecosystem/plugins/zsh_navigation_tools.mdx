@@ -85,7 +85,7 @@ Feature highlights include incremental multi-word searching, approximate matchin
 
 Add the following to `.zshrc`. The config files will be in `~/.config/znt`.
 
-```shell title="~/.zshrc"
+```zsh title="~/.zshrc"
 zi load z-shell/zsh-navigation-tools
 ```
 
@@ -143,7 +143,7 @@ Don't forget to copy [configuration files][2].
 
 They should go to `~/.config/znt`. Moreover, `n-cd` works together with option `AUTO_PUSHD` and you should have:
 
-```shell
+```zsh
 setopt AUTO_PUSHD
 ```
 
@@ -169,7 +169,7 @@ After installing and reloading the shell give `ZNT` a quick try with `Ctrl-R` â€
 
 To have `n-history` as the incremental searcher bound to `Ctrl-R` copy `znt-*` files into the `*/site-functions` dir (unless you do a single file install) and add:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 autoload znt-history-widget
 zle -N znt-history-widget
 bindkey "^R" znt-history-widget
@@ -177,7 +177,7 @@ bindkey "^R" znt-history-widget
 
 to `.zshrc`. This is done automatically when using the installer, zgen, antigen, or single file install. Two other widgets exist, `and-cd-widget` and `znt-kill-widget`, they too can be assigned to key combinations (`autoload` is done in `.zshrc` so no need for it):
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zle -N znt-cd-widget
 bindkey "^B" znt-cd-widget
 zle -N znt-kill-widget

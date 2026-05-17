@@ -24,7 +24,7 @@ Set the initial hash definition and custom values, before enabling Zi.
 
 Example:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -A ZI
 ZI[BIN_DIR]="some/custom/path/to/bin"
 source "${ZI[BIN_DIR]}/zi.zsh"
@@ -88,7 +88,7 @@ Several projects provide git extensions. Installing them with Zi has many benefi
 
 Below is a configuration that adds multiple git extensions, loaded in Turbo mode, 1 second after prompt, with the use of the [bin-gem-node][z-shell/z-a-bin-gem-node] annex:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi as'null' wait'1' lucid for \
   sbin  Fakerr/git-recall \
   sbin  cloneopts paulirish/git-open \
@@ -126,7 +126,7 @@ Git tools:
 
 just run:
 
-```shell
+```zsh
 zi light-mode for z-shell/z-a-meta-plugins @annexes @ext-git
 ```
 
@@ -140,7 +140,7 @@ The sense of an option name may be inverted by preceding it with `no`, so `setop
 
 {/* TODO: Include more setopt examples and import as component */}
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 setopt append_history         # Allow multiple sessions to append to one Zsh command history.
 setopt extended_history       # Show timestamp in history.
 setopt hist_expire_dups_first # Expire A duplicate event first when trimming history.
@@ -157,7 +157,7 @@ setopt share_history          # Share history between different instances of the
 
 ### Other tweaks {/* #other-tweaks */}
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 setopt auto_cd              # Use cd by typing directory name if it's not a command.
 setopt auto_list            # Automatically list choices on ambiguous completion.
 setopt auto_pushd           # Make cd push the old directory onto the directory stack.
@@ -180,7 +180,7 @@ The `zstyle` handles the obvious style control for the [completion system][compl
 
 {/* TODO: Include more zstyle examples and import as component */}
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3>7?7:($#PREFIX+$#SUFFIX)/3))numeric)'
@@ -188,7 +188,7 @@ zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX
 
 ### <i class="fa-solid fa-terminal"></i> Pretty completions {/* #pretty-completions */}
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zstyle ':completion:*:matches' group 'yes'
 zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*:options' auto-description '%d'
@@ -208,13 +208,13 @@ zstyle ':completion:*' rehash true
 
 ### <i class="fa-solid fa-terminal"></i> Do menu-driven completion {/* #do-menu-driven-completion */}
 
-```shell
+```zsh
 zstyle ':completion:*' menu select
 ```
 
 ### <i class="fa-solid fa-fill-drip"></i> Color completion for [some things][color-completion-using-zsh-modules-on] {/* #color-completion-for-some-things */}
 
-```shell
+```zsh
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 ```
 

@@ -76,20 +76,20 @@ The main command is `zc` (yet it is rather rarely used, I'm always sending to al
 
 Add the following to your `.zshrc` file. Zi will clone the plugin the next time you start Zsh. To update issue `zi update z-shell/zconvey`.
 
-```shell
+```zsh
 zi load z-shell/zconvey
 ```
 
 Zi can load in [turbo mode](/search?q=turbo+and+lucid), below is an example configuration.
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice wait"0"
 zi light z-shell/zconvey
 ```
 
 Adding `zc-bg-notify` to `$PATH`:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice wait"0" as"command" pick"cmds/zc-bg-notify" silent
 zi light z-shell/zconvey
 ```

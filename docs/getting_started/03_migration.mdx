@@ -15,7 +15,7 @@ import Link from "@docusaurus/Link";
 
 ### OMZ shorthand syntax {/* #omz-shorthand-syntax */}
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi snippet <URL>        # Raw syntax with URL
 zi snippet OMZ::<PATH>  # Shorthand OMZ::         (http://github.com/ohmyzsh/ohmyzsh/raw/master/)
 zi snippet OMZL::<PATH> # Shorthand OMZ::lib      (http://github.com/ohmyzsh/ohmyzsh/raw/master/lib)
@@ -29,21 +29,21 @@ Importing the [clipboard][omz/clipboard] and [termsupport][omz/termsupport] from
 
 Raw syntax:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh
 ```
 
 OMZ shorthand syntax:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi snippet OMZ::lib/clipboard.zsh
 zi snippet OMZ::lib/termsupport.zsh
 ```
 
 OMZL shorthand syntax:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi snippet OMZL::clipboard.zsh
 zi snippet OMZL::termsupport.zsh
 ```
@@ -68,7 +68,7 @@ zi snippet OMZL::termsupport.zsh
 
 Example of more advanced, conditional turbo loading:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi is-snippet wait lucid for \
     atload"unalias grv g" \
   OMZP::{git,sudo,encode64,extract} \
@@ -102,7 +102,7 @@ Use `zi ice as"completion"` to directly add single file completion snippets.
 
 - [docker][omz/docker]
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi ice as"completion"
 zi snippet OMZP::docker/completions/_docker
 ```
@@ -153,7 +153,7 @@ You need to load `prompt_info_functions.zsh`
 
 All together it looks like this:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi snippet OMZL::git.zsh
 zi snippet OMZP::git
 zi snippet OMZL::theme-and-appearance.zsh
@@ -162,7 +162,7 @@ zi snippet OMZL::prompt_info_functions.zsh
 
 Then load the prompt:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 setopt prompt_subst
 zi snippet OMZT::robbyrussell
 ```
@@ -177,20 +177,20 @@ ZSH_THEME="alpharized"
 
 Load `git` library from OMZ:
 
-```shell title="~/.zshrc"
+```zsh title="~/.zshrc"
 zi snippet OMZL::git.zsh
 ```
 
 Load `git` plugin from OMZ:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi snippet OMZP::git
 zi cdclear -q
 ```
 
 Then load the prompt:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 setopt prompt_subst
 zi light NicoSantangelo/Alpharized
 ```
@@ -199,7 +199,7 @@ zi light NicoSantangelo/Alpharized
 
 ### PZT shorthand syntax {/* #pzt-shorthand-syntax */}
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi snippet <URL>        # Raw syntax with URL
 zi snippet PZT::<PATH>  # Shorthand PZT::         (https://github.com/sorin-ionescu/prezto/tree/master/)
 zi snippet PZTM::<PATH> # Shorthand PZT::modules/ (https://github.com/sorin-ionescu/prezto/blob/master/modules/)
@@ -211,14 +211,14 @@ Importing the [environment](https://github.com/sorin-ionescu/prezto/blob/master/
 
 Raw syntax
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi snippet https://github.com/sorin-ionescu/prezto/blob/master/modules/environment/init.zsh
 zi snippet https://github.com/sorin-ionescu/prezto/blob/master/modules/terminal/init.zsh
 ```
 
 PZT shorthand syntax:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi snippet PZT::<PATH>
 zi snippet PZT::modules/environment
 zi snippet PZT::modules/terminal
@@ -226,7 +226,7 @@ zi snippet PZT::modules/terminal
 
 PZTM shorthand syntax:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi snippet PZTM::<PATH>
 zi snippet PZTM::environment
 zi snippet PZTM::terminal

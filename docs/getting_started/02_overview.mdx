@@ -22,14 +22,14 @@ This overview will cover the basics for:
 
 ## Plugin and snippet loading {/* #plugin-and-snippet-loading */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi load z-shell/H-S-MW
 zi light zsh-users/zsh-syntax-highlighting
 ```
 
 The above commands show two ways of basic plugin loading. If you want to source local or remote files (using a direct URL), you can do so with a `snippet`.
 
-```shell
+```zsh
 zi snippet <URL>
 ```
 
@@ -41,27 +41,27 @@ Using `light` is a faster loading without tracking and reporting about the plugi
 
 Using `load` or `light`:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi load  <repo/plugin> # Load with reporting/investigating.
 zi light <repo/plugin> # Load without reporting/investigating.
 ```
 
 Plugin history-search-multi-word loaded with investigating:
 
-```shell
+```zsh
 zi load z-shell/H-S-MW
 ```
 
 Two regular plugins loaded without investigating:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi light zsh-users/zsh-autosuggestions
 zi light z-shell/F-Sy-H
 ```
 
 Snippet:
 
-```shell
+```zsh
 zi snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
 ```
 
@@ -75,14 +75,14 @@ In turbo mode loading, the slowdown by plugin tracking is done in the background
 
 To load Oh-My-Zsh and Prezto plugins, use the `snippet` feature. Snippets are **single files** downloaded by `curl`, `wget`, etc., automatic detection of the download tool is being performed, directly from the URL:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi snippet 'https://github.com/robbyrussell/oh-my-zsh/raw/master/plugins/git/git.plugin.zsh'
 zi snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/helper/init.zsh'
 ```
 
 Also, for Oh-My-Zsh and Prezto, you can use `OMZ::` and `PZT::` shorthands:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi snippet OMZ::plugins/git/git.plugin.zsh
 zi snippet PZT::modules/helper/init.zsh
 ```
@@ -107,7 +107,7 @@ This way editors like `vim` and `emacs` and also `zsh-users/zsh-syntax-highlight
 
 A plugin might not be a file for sourcing, but a command to be added to `$PATH`. To obtain this effect, use ice-modifier `as` with value `program` (or an alias value `command`).
 
-```shell {1} showLineNumbers
+```zsh {1} showLineNumbers
 zi ice as"program" cp"httpstat.sh -> httpstat" pick"httpstat"
 zi light b4b4r07/httpstat
 ```
@@ -124,7 +124,7 @@ The `cp` and `mv` ices (and also some other ones, like `atclone`) are being run 
 
 Copying file is safe for doing later updates – original files of the repository are unmodified and `Git` will report no conflicts. However, `mv` also can be used, if a proper `atpull`, an ice-modifier ran at **update** of the plugin:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice as"program" mv"httpstat.sh -> httpstat" \
   pick"httpstat" atpull'!git reset --hard'
 zi light b4b4r07/httpstat
@@ -148,7 +148,7 @@ Ice modifier defers the loading of a plugin while checking the modification time
 
 Copy and paste the example below to the terminal or add it to the `.zshrc` file and reload the shell with `exec zsh`.
 
-```shell {1} showLineNumbers
+```zsh {1} showLineNumbers
 zi ice subscribe'{~/files-*,/tmp/files-*}' id-as'z-sub' lucid \
   atload'+zi-message "{profile}I have been loaded{nl}\
   {auto}\`Zi Rocks ♥\`"' notify"Yes that is cool ♥ "
@@ -167,7 +167,7 @@ The plugin or snippet will be sourced as many times as the file gets updated.
 
 Commands can also be added to `$PATH` using **snippets**:
 
-```shell {2} showLineNumbers
+```zsh {2} showLineNumbers
 zi ice mv"httpstat.sh -> httpstat" \
   pick"httpstat" as"program"
 zi snippet https://github.com/b4b4r07/httpstat/blob/master/httpstat.sh
@@ -183,7 +183,7 @@ Snippets also support `atpull`. There’s also an `atinit` ice-modifier, execute
 
 By using the `as'…'` ice modifier with the value `completion` you can point the `snippet` subcommand directly to a completion file:
 
-```shell {1} showLineNumbers
+```zsh {1} showLineNumbers
 zi ice as"completion"
 zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 ```
@@ -192,7 +192,7 @@ zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_doc
 
 Zi allows disabling and enabling each completion in every plugin. Try installing a popular plugin that provides completions:
 
-```shell {1} showLineNumbers
+```zsh {1} showLineNumbers
 zi ice blockf
 zi light zsh-users/zsh-completions
 ```
@@ -203,13 +203,13 @@ To uninstall and install completions:
 
 Uninstall:
 
-```shell
+```zsh
 zi cuninstall zsh-users/zsh-completions
 ```
 
 Install:
 
-```shell
+```zsh
 zi creinstall zsh-users/zsh-completions
 ```
 
@@ -217,7 +217,7 @@ zi creinstall zsh-users/zsh-completions
 
 To see what completions **all** plugins provide, in tabular formatting and with the name of each plugin:
 
-```shell
+```zsh
 zi clist
 ```
 
@@ -235,13 +235,13 @@ Completions can be disabled and other completion will be used, e.g. Zsh builtin.
 
 Disable `cmake` completion:
 
-```shell
+```zsh
 zi cdisable cmake
 ```
 
 Enable `cmake` completion:
 
-```shell
+```zsh
 zi cenable cmake
 ```
 
@@ -269,7 +269,7 @@ Zsh 5.3 or greater is required.
 
 To use turbo mode add `wait` ice to the target plugin in one of the following ways:
 
-```shell {2} showLineNumbers
+```zsh {2} showLineNumbers
 PS1="READY > "
 zi ice wait'!0'
 zi load halfo/lambda-mod-zsh-theme
@@ -279,7 +279,7 @@ This sets plugin `halfo/lambda-mod-zsh-theme` to be loaded `0` seconds after `.z
 
 You probably won't load the prompt in such a way, however, it is a good example in which turbo mode can be observed. The exclamation mark causes Zi to reset the prompt after loading the plugin – commonly needed for themes. Using `zsh-users/zsh-autosuggestions` without any drawbacks:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice wait lucid atload'!_zsh_autosuggest_start'
 zi light zsh-users/zsh-autosuggestions
 ```
@@ -294,21 +294,21 @@ The `wait` is equivalent to `wait'0'`.
 
 :::
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice wait
 zi load z-shell/H-S-MW
 ```
 
 Load after 2 seconds:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice wait'2'
 zi load z-shell/H-S-MW
 ```
 
 Also can be used in `light` and `snippet`:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice wait
 zi snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
 ```
@@ -317,7 +317,7 @@ zi snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
 
 Turbo and lucid are the most used options because turbo mode is verbose and may require an option for quiet and this can be achieved with the `lucid`.
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice wait lucid
 zi load z-shell/H-S-MW
 ```
@@ -336,7 +336,7 @@ _zsh_autosuggest_start prompt_zinc_setup prompt_zinc_precmd
 
 Then, add them to the ice list in the `atload'…'` ice:
 
-```shell {2} showLineNumbers
+```zsh {2} showLineNumbers
 zi ice wait'!' lucid nocd \
   atload'!prompt_zinc_setup; prompt_zinc_precmd'
 zi load robobenklein/zinc
@@ -360,7 +360,7 @@ Ices `load` and `unload` allow defining when you want plugins active or inactive
 
 Load when in `~/tmp`:
 
-```shell {1} showLineNumbers
+```zsh {1} showLineNumbers
 zi ice load'![[ $PWD = */tmp* ]]' unload'![[ $PWD != */tmp* ]]' \
   atload'!promptinit; prompt sprint3'
 zi load z-shell/zprompts
@@ -370,7 +370,7 @@ zi load z-shell/zprompts
 
 Load when NOT in `~/tmp`:
 
-```shell {1} showLineNumbers
+```zsh {1} showLineNumbers
 zi ice load'![[ $PWD != */tmp* ]]' unload'![[ $PWD = */tmp* ]]'
 zi load russjohnson/angry-fly-zsh
 ```
@@ -399,7 +399,7 @@ This is [powerlevel10k](https://github.com/romkatv/powerlevel10k), [pure](https:
 
 Load powerlevel10k theme:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi ice depth"1"
 zi light romkatv/powerlevel10k
 ```
@@ -408,7 +408,7 @@ Load pure theme:
 
 > will pick the `async.zsh` library and will source it.
 
-```shell {1} title="~/.zshrc" showLineNumbers
+```zsh {1} title="~/.zshrc" showLineNumbers
 zi ice pick"async.zsh" src"pure.zsh"
 zi light sindresorhus/pure
 ```
@@ -420,7 +420,7 @@ Load starship theme:
 > - the `atpull'…'` behavior same as `atclone'…'` and but is used when running `zi update`.
 > - `src` will source `init.zsh`.
 
-```shell {2} {3} title="~/.zshrc" showLineNumbers
+```zsh {2} {3} title="~/.zshrc" showLineNumbers
 zi ice as"command" from"gh-r" \
   atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
   atpull"%atclone" src"init.zsh"
@@ -431,14 +431,14 @@ zi light starship/starship
 
 Load the pure theme, with the **zsh-async** library that's bundled with it.
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi ice pick"async.zsh" src"pure.zsh"
 zi light sindresorhus/pure
 ```
 
 Binary release in the archive, from GitHub. After automatic unpacking, it provides the program "fzf".
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi ice from"gh-r" as"program"
 zi light junegunn/fzf
 ```
@@ -447,14 +447,14 @@ One other binary release needs renaming from `docker-compose-Linux-x86_64`. This
 
 There are multiple packages per single version for OS X, Linux, and Windows – the ice-modifier `bpick` is utilized to select the Linux package – in this case - not required, Zi will grep operating system name and architecture automatically when there's no `bpick`.
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*"
 zi load docker/compose
 ```
 
 Handle completions without loading any plugin, see the `clist` command. This one is to be run just once, in an interactive session.
 
-```shell title="~/.zshrc"
+```zsh title="~/.zshrc"
 zi creinstall %HOME/my_completions
 ```
 
