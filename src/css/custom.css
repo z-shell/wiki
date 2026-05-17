@@ -117,52 +117,54 @@
   border-left: 3px solid var(--site-color-error-border);
 }
 
-/* ── ZSH / Zi / ZUnit Prism token colors ── */
-:is(code[class*="language-zsh"], code[class*="language-zi"], code[class*="language-zunit"]) {
+/* ── ZSH / Zi / ZUnit Prism token colors ──
+ * Selectors target <pre class="prism-code language-*"> (not <code>).
+ * !important overrides inline style="color:..." set by prism-react-renderer. */
+:is(pre.language-zsh, pre.language-zi, pre.language-zunit) {
   .token.zsh-builtin {
-    color: var(--site-zsh-builtin-color);
+    color: var(--site-zsh-builtin-color) !important;
   }
 
   .token.zsh-expansion-flag {
-    color: var(--site-zsh-expansion-color);
+    color: var(--site-zsh-expansion-color) !important;
   }
 
   .token.zsh-special-parameter {
-    color: var(--site-zsh-param-color);
+    color: var(--site-zsh-param-color) !important;
   }
 
   .token.zsh-glob-qualifier {
-    color: var(--site-zsh-glob-color);
+    color: var(--site-zsh-glob-color) !important;
   }
 }
 
-code[class*="language-zi"] {
+pre.language-zi {
   .token.zi-command .token.keyword {
-    color: var(--site-zi-command-color);
+    color: var(--site-zi-command-color) !important;
     font-weight: 700;
   }
 
   .token.zi-command .token.function {
-    color: var(--site-zi-subcommand-color);
+    color: var(--site-zi-subcommand-color) !important;
   }
 
   .token.zi-ice {
-    color: var(--site-zi-ice-color);
+    color: var(--site-zi-ice-color) !important;
   }
 }
 
-code[class*="language-zunit"] {
+pre.language-zunit {
   .token.zunit-command {
-    color: var(--site-zunit-command-color);
+    color: var(--site-zunit-command-color) !important;
   }
 
   .token.zunit-directive {
-    color: var(--site-zunit-directive-color);
+    color: var(--site-zunit-directive-color) !important;
     font-weight: 700;
   }
 
   .token.zunit-assertion {
-    color: var(--site-zunit-assertion-color);
+    color: var(--site-zunit-assertion-color) !important;
   }
 }
 
