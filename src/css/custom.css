@@ -119,53 +119,48 @@
 
 /* ── ZSH / Zi / ZUnit Prism token colors ──
  * Selectors target <pre class="prism-code language-*"> (not <code>).
- * !important overrides inline style="color:..." set by prism-react-renderer. */
-:is(pre.language-zsh, pre.language-zi, pre.language-zunit) {
-  .token.zsh-builtin {
-    color: var(--site-zsh-builtin-color) !important;
-  }
-
-  .token.zsh-expansion-flag {
-    color: var(--site-zsh-expansion-color) !important;
-  }
-
-  .token.zsh-special-parameter {
-    color: var(--site-zsh-param-color) !important;
-  }
-
-  .token.zsh-glob-qualifier {
-    color: var(--site-zsh-glob-color) !important;
-  }
+ * !important overrides inline style="color:..." set by prism-react-renderer.
+ * Flat selectors required — Docusaurus CSS pipeline does not support CSS nesting. */
+:is(pre.language-zsh, pre.language-zi, pre.language-zunit) .token.zsh-builtin {
+  color: var(--site-zsh-builtin-color) !important;
 }
 
-pre.language-zi {
-  .token.zi-command .token.keyword {
-    color: var(--site-zi-command-color) !important;
-    font-weight: 700;
-  }
-
-  .token.zi-command .token.function {
-    color: var(--site-zi-subcommand-color) !important;
-  }
-
-  .token.zi-ice {
-    color: var(--site-zi-ice-color) !important;
-  }
+:is(pre.language-zsh, pre.language-zi, pre.language-zunit) .token.zsh-expansion-flag {
+  color: var(--site-zsh-expansion-color) !important;
 }
 
-pre.language-zunit {
-  .token.zunit-command {
-    color: var(--site-zunit-command-color) !important;
-  }
+:is(pre.language-zsh, pre.language-zi, pre.language-zunit) .token.zsh-special-parameter {
+  color: var(--site-zsh-param-color) !important;
+}
 
-  .token.zunit-directive {
-    color: var(--site-zunit-directive-color) !important;
-    font-weight: 700;
-  }
+:is(pre.language-zsh, pre.language-zi, pre.language-zunit) .token.zsh-glob-qualifier {
+  color: var(--site-zsh-glob-color) !important;
+}
 
-  .token.zunit-assertion {
-    color: var(--site-zunit-assertion-color) !important;
-  }
+pre.language-zi .token.zi-command .token.keyword {
+  color: var(--site-zi-command-color) !important;
+  font-weight: 700;
+}
+
+pre.language-zi .token.zi-command .token.function {
+  color: var(--site-zi-subcommand-color) !important;
+}
+
+pre.language-zi .token.zi-ice {
+  color: var(--site-zi-ice-color) !important;
+}
+
+pre.language-zunit .token.zunit-command {
+  color: var(--site-zunit-command-color) !important;
+}
+
+pre.language-zunit .token.zunit-directive {
+  color: var(--site-zunit-directive-color) !important;
+  font-weight: 700;
+}
+
+pre.language-zunit .token.zunit-assertion {
+  color: var(--site-zunit-assertion-color) !important;
 }
 
 .navbar--dark {
