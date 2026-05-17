@@ -1,25 +1,14 @@
 // Swizzled Docusaurus prism-include-languages.
-// Loads standard additionalLanguages from prismjs, then registers the custom ZSH grammar.
-import siteConfig from '@generated/docusaurus.config';
+// Delegates standard additionalLanguages loading to the original implementation,
+// then registers the custom ZSH grammar.
+import prismIncludeLanguagesOriginal from '@theme-original/prism-include-languages';
 
 export default function prismIncludeLanguages(PrismObject) {
-  const {
-    themeConfig: {prism},
-  } = siteConfig;
-  const {additionalLanguages} = prism;
-
-  // Mount PrismObject on globalThis temporarily — prismjs components expect it there.
-  const PrismBefore = globalThis.Prism;
-  globalThis.Prism = PrismObject;
-
-  additionalLanguages.forEach((lang) => {
-    if (lang === 'php') {
-      require('prismjs/components/prism-markup-templating.js');
-    }
-    require(`prismjs/components/prism-${lang}`);
-  });
+  prismIncludeLanguagesOriginal(PrismObject);
 
   // Register custom ZSH grammar (must load after bash, which is in additionalLanguages)
+  const PrismBefore = globalThis.Prism;
+  globalThis.Prism = PrismObject;
   require('../prism/prism-zsh.js');
 
   // Restore globalThis.Prism

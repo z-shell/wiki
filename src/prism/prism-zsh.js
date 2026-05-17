@@ -1,6 +1,9 @@
 // Custom Prism language definition for ZSH.
 // Extends Prism's bash grammar with ZSH-specific builtins and project commands.
 (function (Prism) {
+  if (!Prism?.languages?.bash) {
+    return;
+  }
   // Clone bash grammar as the base
   Prism.languages.zsh = Prism.languages.extend('bash', {});
 
@@ -38,4 +41,4 @@
       alias: 'attr-value',
     },
   });
-})(Prism);
+})(globalThis.Prism);
