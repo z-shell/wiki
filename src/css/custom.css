@@ -137,12 +137,12 @@
   color: var(--site-zsh-glob-color) !important;
 }
 
-pre.language-zi .token.zi-command .token.keyword {
+pre.language-zi .token.zi-command.keyword {
   color: var(--site-zi-command-color) !important;
   font-weight: 700;
 }
 
-pre.language-zi .token.zi-command .token.function {
+pre.language-zi .token.zi-command.function {
   color: var(--site-zi-subcommand-color) !important;
 }
 

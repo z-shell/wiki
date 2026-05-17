@@ -1,76 +1,94 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 140" fill="none">
   <defs>
     <linearGradient id="eb-bg" x1="0" y1="0" x2="720" y2="140" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#23c88a" stop-opacity="0.10"/>
-      <stop offset="60%" stop-color="#1b9e6e" stop-opacity="0.06"/>
-      <stop offset="100%" stop-color="#50df8e" stop-opacity="0.04"/>
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.12"/>
+      <stop offset="55%" stop-color="#d97706" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#fb923c" stop-opacity="0.04"/>
     </linearGradient>
-    <linearGradient id="eb-pill" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
-      <stop offset="0%" stop-color="#50df8e"/>
-      <stop offset="100%" stop-color="#23c88a"/>
+    <linearGradient id="eb-annex" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="eb-pkg" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="eb-plugin" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
     <filter id="eb-glow">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
 
-  <!-- Background -->
-  <rect width="720" height="140" rx="16" fill="url(#eb-bg)" stroke="#23c88a" stroke-width="0.5" stroke-opacity="0.2"/>
+  <rect width="720" height="140" rx="16" fill="url(#eb-bg)" stroke="#f59e0b" stroke-width="0.6" stroke-opacity="0.25"/>
 
   <!-- LEFT: Annexes pillar -->
-  <rect x="32" y="24" width="176" height="92" rx="10" fill="#23c88a" fill-opacity="0.07" stroke="#23c88a" stroke-width="0.8" stroke-opacity="0.35"/>
-  <!-- Puzzle pieces -->
-  <path d="M80 46 L96 46 L96 50 C96 53,101 53,101 50 L101 46 L116 46 L116 62 L112 62 C109 62,109 67,112 67 L116 67 L116 82 L80 82 Z" fill="#23c88a" opacity="0.75"/>
-  <path d="M116 54 L116 46 L132 46 L132 50 C132 53,137 53,137 50 L137 46 L153 46 L153 82 L116 82 L116 77 C116 74,111 74,111 77 L111 82 L80 82" fill="#50df8e" opacity="0.4"/>
-  <text x="120" y="102" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#23c88a" opacity="0.9" font-weight="600">Annexes</text>
-  <text x="120" y="114" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7.5" fill="#23c88a" opacity="0.65">hooks · bin-gem-node · rust</text>
+  <rect x="28" y="18" width="185" height="104" rx="10" fill="#0f172a" fill-opacity="0.50" stroke="#f59e0b" stroke-width="0.9" stroke-opacity="0.45"/>
+  <rect x="28" y="18" width="185" height="24" rx="10" fill="url(#eb-annex)" opacity="0.75"/>
+  <rect x="28" y="30" width="185" height="12" fill="url(#eb-annex)" opacity="0.75"/>
+  <text x="120" y="34" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#fff" font-weight="700">🌀 Annexes</text>
+  <!-- Annex items -->
+  <rect x="40" y="52" width="5" height="5" rx="2" fill="#fbbf24" opacity="0.85"/>
+  <text x="51" y="58" font-family="monospace" font-size="8" fill="#fde68a" opacity="0.9">bin-gem-node</text>
+  <rect x="40" y="64" width="5" height="5" rx="2" fill="#fbbf24" opacity="0.85"/>
+  <text x="51" y="70" font-family="monospace" font-size="8" fill="#fde68a" opacity="0.9">rust</text>
+  <rect x="40" y="76" width="5" height="5" rx="2" fill="#fbbf24" opacity="0.85"/>
+  <text x="51" y="82" font-family="monospace" font-size="8" fill="#fde68a" opacity="0.9">patch-dl</text>
+  <rect x="40" y="88" width="5" height="5" rx="2" fill="#fbbf24" opacity="0.85"/>
+  <text x="51" y="94" font-family="monospace" font-size="8" fill="#fde68a" opacity="0.9">meta-plugins</text>
+  <rect x="40" y="100" width="5" height="5" rx="2" fill="#fbbf24" opacity="0.85"/>
+  <text x="51" y="106" font-family="monospace" font-size="8" fill="#fde68a" opacity="0.9">readurl  ···</text>
+  <text x="120" y="132" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8.5" fill="#f59e0b" opacity="0.9" font-weight="600">Extend Zi's lifecycle</text>
 
-  <!-- Connector -->
-  <path d="M216 70 L244 70" stroke="#23c88a" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.4"/>
-  <polygon points="244,67 250,70 244,73" fill="#23c88a" opacity="0.5"/>
+  <!-- Connector arrow -->
+  <path d="M221 70 L247 70" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.55"/>
+  <polygon points="247,67 253,70 247,73" fill="#f59e0b" opacity="0.65"/>
 
   <!-- CENTER: Packages pillar -->
-  <rect x="258" y="24" width="204" height="92" rx="10" fill="#23c88a" fill-opacity="0.07" stroke="#23c88a" stroke-width="0.8" stroke-opacity="0.35"/>
-  <!-- Box icon -->
-  <path d="M330 42 L390 42 L390 88 L330 88 Z" fill="#23c88a" fill-opacity="0.12" stroke="#23c88a" stroke-width="1" stroke-opacity="0.4"/>
-  <path d="M330 42 L360 52 L390 42" stroke="#23c88a" stroke-width="1.2" stroke-opacity="0.5" fill="none"/>
-  <path d="M360 52 L360 88" stroke="#23c88a" stroke-width="1" stroke-dasharray="3 2" stroke-opacity="0.4"/>
-  <!-- Package labels -->
-  <rect x="339" y="60" width="42" height="12" rx="6" fill="url(#eb-pill)" opacity="0.7"/>
-  <text x="360" y="69.5" text-anchor="middle" font-family="monospace" font-size="7" fill="#fff">fzf</text>
-  <rect x="339" y="76" width="42" height="12" rx="6" fill="url(#eb-pill)" opacity="0.5"/>
-  <text x="360" y="85.5" text-anchor="middle" font-family="monospace" font-size="7" fill="#fff">neovim</text>
-  <text x="360" y="114" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#23c88a" opacity="0.9" font-weight="600">Packages</text>
-  <text x="360" y="126" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7.5" fill="#23c88a" opacity="0.65">curated · ready-to-use</text>
+  <rect x="260" y="18" width="200" height="104" rx="10" fill="#0f172a" fill-opacity="0.50" stroke="#fb923c" stroke-width="0.9" stroke-opacity="0.45"/>
+  <rect x="260" y="18" width="200" height="24" rx="10" fill="url(#eb-pkg)" opacity="0.75"/>
+  <rect x="260" y="30" width="200" height="12" fill="url(#eb-pkg)" opacity="0.75"/>
+  <text x="360" y="34" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#fff" font-weight="700">📦 Packages</text>
+  <!-- Package boxes -->
+  <rect x="274" y="50" width="76" height="22" rx="5" fill="#f97316" fill-opacity="0.15" stroke="#fb923c" stroke-width="0.8" stroke-opacity="0.5"/>
+  <text x="312" y="65" text-anchor="middle" font-family="monospace" font-size="8.5" fill="#fed7aa">fzf</text>
+  <rect x="358" y="50" width="90" height="22" rx="5" fill="#f97316" fill-opacity="0.15" stroke="#fb923c" stroke-width="0.8" stroke-opacity="0.5"/>
+  <text x="403" y="65" text-anchor="middle" font-family="monospace" font-size="8.5" fill="#fed7aa">neovim</text>
+  <rect x="274" y="78" width="76" height="22" rx="5" fill="#f97316" fill-opacity="0.15" stroke="#fb923c" stroke-width="0.8" stroke-opacity="0.5"/>
+  <text x="312" y="93" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#fed7aa">any-gem</text>
+  <rect x="358" y="78" width="90" height="22" rx="5" fill="#f97316" fill-opacity="0.15" stroke="#fb923c" stroke-width="0.8" stroke-opacity="0.5"/>
+  <text x="403" y="93" text-anchor="middle" font-family="monospace" font-size="7" fill="#fed7aa">zsh-completions</text>
+  <text x="360" y="132" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8.5" fill="#fb923c" opacity="0.9" font-weight="600">Curated, ready-to-use</text>
 
-  <!-- Connector -->
-  <path d="M470 70 L498 70" stroke="#23c88a" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.4"/>
-  <polygon points="498,67 504,70 498,73" fill="#23c88a" opacity="0.5"/>
+  <!-- Connector arrow -->
+  <path d="M468 70 L494 70" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.55"/>
+  <polygon points="494,67 500,70 494,73" fill="#f59e0b" opacity="0.65"/>
 
   <!-- RIGHT: Plugins pillar -->
-  <rect x="512" y="24" width="180" height="92" rx="10" fill="#23c88a" fill-opacity="0.07" stroke="#23c88a" stroke-width="0.8" stroke-opacity="0.35"/>
-  <!-- Plugin nodes -->
-  <circle cx="602" cy="52" r="11" fill="url(#eb-pill)" opacity="0.85" filter="url(#eb-glow)"/>
-  <text x="602" y="55.5" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#fff" font-weight="700">zi</text>
-  <circle cx="556" cy="78" r="8" fill="#23c88a" opacity="0.6"/>
-  <circle cx="580" cy="84" r="7" fill="#50df8e" opacity="0.55"/>
-  <circle cx="620" cy="82" r="9" fill="#23c88a" opacity="0.5"/>
-  <circle cx="648" cy="74" r="8" fill="#50df8e" opacity="0.6"/>
-  <line x1="602" y1="63" x2="556" y2="70" stroke="#23c88a" stroke-width="1" stroke-opacity="0.35"/>
-  <line x1="602" y1="63" x2="580" y2="77" stroke="#23c88a" stroke-width="1" stroke-opacity="0.35"/>
-  <line x1="602" y1="63" x2="620" y2="73" stroke="#23c88a" stroke-width="1" stroke-opacity="0.35"/>
-  <line x1="602" y1="63" x2="648" y2="66" stroke="#23c88a" stroke-width="1" stroke-opacity="0.35"/>
-  <text x="602" y="114" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#23c88a" opacity="0.9" font-weight="600">Plugins</text>
-  <text x="602" y="126" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7.5" fill="#23c88a" opacity="0.65">syntax · completions · themes</text>
+  <rect x="507" y="18" width="185" height="104" rx="10" fill="#0f172a" fill-opacity="0.50" stroke="#fbbf24" stroke-width="0.9" stroke-opacity="0.45"/>
+  <rect x="507" y="18" width="185" height="24" rx="10" fill="url(#eb-plugin)" opacity="0.75"/>
+  <rect x="507" y="30" width="185" height="12" fill="url(#eb-plugin)" opacity="0.75"/>
+  <text x="599" y="34" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#fff" font-weight="700">⚙️ Plugins</text>
+  <!-- Plugin items -->
+  <rect x="519" y="52" width="5" height="5" rx="2" fill="#fbbf24" opacity="0.85"/>
+  <text x="530" y="58" font-family="monospace" font-size="8" fill="#fde68a" opacity="0.9">fast-syntax-highlighting</text>
+  <rect x="519" y="64" width="5" height="5" rx="2" fill="#fbbf24" opacity="0.85"/>
+  <text x="530" y="70" font-family="monospace" font-size="8" fill="#fde68a" opacity="0.9">zsh-autosuggestions</text>
+  <rect x="519" y="76" width="5" height="5" rx="2" fill="#fbbf24" opacity="0.85"/>
+  <text x="530" y="82" font-family="monospace" font-size="8" fill="#fde68a" opacity="0.9">history-search-multi-word</text>
+  <rect x="519" y="88" width="5" height="5" rx="2" fill="#fbbf24" opacity="0.85"/>
+  <text x="530" y="94" font-family="monospace" font-size="8" fill="#fde68a" opacity="0.9">diff-so-fancy</text>
+  <rect x="519" y="100" width="5" height="5" rx="2" fill="#fbbf24" opacity="0.85"/>
+  <text x="530" y="106" font-family="monospace" font-size="8" fill="#fde68a" opacity="0.9">zbrowse  ···</text>
+  <text x="599" y="132" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8.5" fill="#fbbf24" opacity="0.9" font-weight="600">Syntax · completions · themes</text>
 
-  <!-- Decorative dots -->
-  <g opacity="0.07">
-    <circle cx="20" cy="20" r="1.5" fill="#23c88a"/>
-    <circle cx="40" cy="20" r="1.5" fill="#23c88a"/>
-    <circle cx="680" cy="20" r="1.5" fill="#23c88a"/>
-    <circle cx="700" cy="20" r="1.5" fill="#23c88a"/>
-    <circle cx="20" cy="120" r="1.5" fill="#23c88a"/>
-    <circle cx="700" cy="120" r="1.5" fill="#23c88a"/>
+  <g opacity="0.12">
+    <circle cx="20" cy="20" r="1.5" fill="#f59e0b"/>
+    <circle cx="700" cy="20" r="1.5" fill="#f59e0b"/>
+    <circle cx="20" cy="120" r="1.5" fill="#f59e0b"/>
+    <circle cx="700" cy="120" r="1.5" fill="#f59e0b"/>
   </g>
 </svg>

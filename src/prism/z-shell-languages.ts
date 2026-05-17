@@ -31,6 +31,15 @@ export function registerZShellLanguages(Prism: typeof PrismNamespace): void {
   });
 
   Prism.languages.zi = Prism.languages.extend("zsh", {});
+  // zi-ice must fire before zsh-builtin: both match words like 'wait'/'src',
+  // but in zi blocks ice modifiers take priority over shell builtins.
+  Prism.languages.insertBefore("zi", "zsh-builtin", {
+    "zi-ice": {
+      pattern:
+        /\b(?:as|atclone|atinit|atload|atpull|blockf|cloneonly|compile|depth|eval|extract|from|has|id-as|if|lucid|mv|nocd|nocompile|pick|proto|sbin|src|svn|trigger-load|wait)\b(?=(?:["'\s]|$))/,
+      alias: "builtin",
+    },
+  });
   Prism.languages.insertBefore("zi", "function", {
     "zi-command": {
       pattern:
@@ -40,11 +49,6 @@ export function registerZShellLanguages(Prism: typeof PrismNamespace): void {
         function:
           /\b(?:annex|bindkey|cdclear|cdlist|cdreplay|compile|delete|ice|light(?:-mode)?|load|module|pack|self-update|snippet|source|status|update)\b/,
       },
-    },
-    "zi-ice": {
-      pattern:
-        /\b(?:as|atclone|atinit|atload|atpull|blockf|cloneonly|compile|depth|eval|extract|from|has|id-as|if|lucid|mv|nocd|nocompile|pick|proto|sbin|src|svn|trigger-load|wait)\b(?=(?:["'\s]|$))/,
-      alias: "builtin",
     },
   });
 
