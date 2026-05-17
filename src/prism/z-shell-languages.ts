@@ -34,15 +34,16 @@ export function registerZShellLanguages(Prism: typeof PrismNamespace): void {
   Prism.languages.insertBefore("zi", "function", {
     "zi-command": {
       pattern:
-        /\b(?:zi|zinit)\s+(?:annex|bindkey|cdclear|compile|delete|ice|light|load|module|pack|snippet|source|update)\b/,
+        /\b(?:zi|zinit)\s+(?:annex|bindkey|cdclear|cdlist|cdreplay|compile|delete|ice|light(?:-mode)?|load|module|pack|self-update|snippet|source|status|update)\b/,
       inside: {
         keyword: /\b(?:zi|zinit)\b/,
-        function: /\b(?:annex|bindkey|cdclear|compile|delete|ice|light|load|module|pack|snippet|source|update)\b/,
+        function:
+          /\b(?:annex|bindkey|cdclear|cdlist|cdreplay|compile|delete|ice|light(?:-mode)?|load|module|pack|self-update|snippet|source|status|update)\b/,
       },
     },
     "zi-ice": {
       pattern:
-        /\b(?:as|atclone|atinit|atload|atpull|blockf|cloneonly|depth|from|id-as|lucid|mv|nocompile|pick|proto|src|trigger-load|wait)\b(?=(?:["'\s]|$))/,
+        /\b(?:as|atclone|atinit|atload|atpull|blockf|cloneonly|compile|depth|eval|extract|from|has|id-as|if|lucid|mv|nocd|nocompile|pick|proto|sbin|src|svn|trigger-load|wait)\b(?=(?:["'\s]|$))/,
       alias: "builtin",
     },
   });
@@ -59,7 +60,8 @@ export function registerZShellLanguages(Prism: typeof PrismNamespace): void {
       alias: "function",
     },
     "zunit-command": {
-      pattern: /\bzunit\b(?=\s+(?:init|run)|$)/,
+      pattern: /(?<lb>^|[\s;|&])zunit(?=[\s;|&]|$)/,
+      lookbehind: true,
       alias: "builtin",
     },
   });
