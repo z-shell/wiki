@@ -97,6 +97,9 @@ exclude = [
   # GitHub Pages legacy
   'https://z-shell\.github\.io',
 
+  # Legacy repo paths kept in historical docs until migration is complete
+  'https://github\.com/z-shell/zsh-startify',
+
   # Placeholder / example domains in docs
   'https?://domain\.com',
   'https?://example\.(com|org|net)',
