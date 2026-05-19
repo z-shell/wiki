@@ -35,6 +35,7 @@ jobs:
       - name: Trunk Check
         uses: trunk-io/trunk-action@v1
         with:
+          cache: false
           # Run full link audit on schedule/dispatch, otherwise run standard incremental checks
           arguments: ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && 'run lychee-audit' || '' }}
         env:
