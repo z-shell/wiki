@@ -18,13 +18,13 @@ An annex downloads files and applies patches and adds two ice-modifiers:
 
 first:
 
-```shell
+```zsh
 zi ice dl'{URL} [-> {optional-output-file-name}]; …' …
 ```
 
 second:
 
-```shell
+```zsh
 zi ice patch'{file-name-with-the-patch-to-apply}; …' …
 ```
 
@@ -32,7 +32,7 @@ The annex will download the given `{URL}` under the path `{optional-output-file-
 
 For example, to install `fbterm`, two patches are being needed, one to fix the operation, the other one to fix the build:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice as"command" pick"$ZPFX/bin/fbterm" \
   dl"https://bugs.archlinux.org/task/46860?getfile=13513 -> ins.patch" \
   dl"https://aur.archlinux.org/cgit/aur.git/plain/0001-Fix-build-with-gcc-6.patch?h=fbterm-git" \
@@ -61,7 +61,7 @@ This command will result in:
 
 Add the following snippet in the `.zshrc` file:
 
-```shell
+```zsh
 zi light z-shell/z-a-patch-dl
 ```
 

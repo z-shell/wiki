@@ -44,7 +44,7 @@ The plugin allows to search history for multiple keywords, <kbd><kbd>Ctrl</kbd>+
 
 Add the following to your `.zshrc` file:
 
-```shell title="~/.zshrc"
+```zsh title="~/.zshrc"
 zi light z-shell/H-S-MW
 ```
 
@@ -121,7 +121,7 @@ Add `zstyle` to `~/.zshrc`: `zstyle :plugin:history-search-multi-word <value>`, 
 
 Example:
 
-```shell showLineNumbers title="~/.zshrc"
+```zsh showLineNumbers title="~/.zshrc"
 zstyle :plugin:history-search-multi-word reset-prompt-protect 1
 zstyle ":history-search-multi-word" page-size "8"
 ```
@@ -130,7 +130,7 @@ zstyle ":history-search-multi-word" page-size "8"
 
 For a better experience adjust history using [options][zsh-options], for example:
 
-```shell showLineNumbers title="~/.zshrc"
+```zsh showLineNumbers title="~/.zshrc"
 setopt extended_history       # record timestamp of command in HISTFILE
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_all_dups   # remove older duplicate entries from the history
@@ -154,7 +154,7 @@ Use `zle reset-prompt` in `sched` calls, in the presence of [z-shell/F-Sy-H][z-s
 
 For example, to refresh the clock in prompt every second:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 PROMPT=%B%F{yellow}%D{%H:%M:%S}%B%b%f
 
 schedprompt() {

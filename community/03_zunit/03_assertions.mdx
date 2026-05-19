@@ -14,7 +14,7 @@ toc_max_heading_level: 3
 
 Assertions are called through the `assert` helper:
 
-```zsh
+```zunit
 assert <value> <assertion> [<comparison>...]
 ```
 
@@ -26,7 +26,7 @@ If an assertion fails, the test stops immediately and is marked as failed.
 
 Passes when `$value` is equal to `$comparison` (string equality).
 
-```zsh
+```zunit
 assert "$output" same_as 'expected string'
 ```
 
@@ -34,7 +34,7 @@ assert "$output" same_as 'expected string'
 
 Passes when `$value` is **not** equal to `$comparison`.
 
-```zsh
+```zunit
 assert "$result" different_to 'forbidden'
 ```
 
@@ -42,7 +42,7 @@ assert "$result" different_to 'forbidden'
 
 Passes when `$value` contains `$comparison` as a substring.
 
-```zsh
+```zunit
 assert "$output" contains 'hello'
 ```
 
@@ -50,7 +50,7 @@ assert "$output" contains 'hello'
 
 Passes when `$value` does **not** contain `$comparison`.
 
-```zsh
+```zunit
 assert "$output" does_not_contain 'error'
 ```
 
@@ -58,7 +58,7 @@ assert "$output" does_not_contain 'error'
 
 Passes when `$value` is a substring of `$comparison` (reverse of `contains`).
 
-```zsh
+```zunit
 assert 'hell' is_substring_of 'hello world'
 ```
 
@@ -66,7 +66,7 @@ assert 'hell' is_substring_of 'hello world'
 
 Passes when `$value` is **not** a substring of `$comparison`.
 
-```zsh
+```zunit
 assert 'xyz' is_not_substring_of 'hello world'
 ```
 
@@ -74,7 +74,7 @@ assert 'xyz' is_not_substring_of 'hello world'
 
 Passes when `$value` matches the regex `$pattern`.
 
-```zsh
+```zunit
 assert "$output" matches '^[0-9]+$'
 ```
 
@@ -82,7 +82,7 @@ assert "$output" matches '^[0-9]+$'
 
 Passes when `$value` does **not** match the regex `$pattern`.
 
-```zsh
+```zunit
 assert "$output" does_not_match '^Error'
 ```
 
@@ -90,7 +90,7 @@ assert "$output" does_not_match '^Error'
 
 Passes when `$value` is an empty string or unset.
 
-```zsh
+```zunit
 assert "$output" is_empty
 ```
 
@@ -98,7 +98,7 @@ assert "$output" is_empty
 
 Passes when `$value` is non-empty.
 
-```zsh
+```zunit
 assert "$result" is_not_empty
 ```
 
@@ -108,7 +108,7 @@ assert "$result" is_not_empty
 
 Passes when the two integers are equal (`-eq`).
 
-```zsh
+```zunit
 assert $state equals 0
 ```
 
@@ -116,7 +116,7 @@ assert $state equals 0
 
 Passes when the two integers are **not** equal (`-ne`).
 
-```zsh
+```zunit
 assert $count not_equal_to 0
 ```
 
@@ -124,7 +124,7 @@ assert $count not_equal_to 0
 
 Passes when the integer is greater than zero.
 
-```zsh
+```zunit
 assert $count is_positive
 ```
 
@@ -132,7 +132,7 @@ assert $count is_positive
 
 Passes when the integer is less than zero.
 
-```zsh
+```zunit
 assert $diff is_negative
 ```
 
@@ -140,7 +140,7 @@ assert $diff is_negative
 
 Passes when `$value` is greater than `$comparison` (`-gt`).
 
-```zsh
+```zunit
 assert $count is_greater_than 5
 ```
 
@@ -148,7 +148,7 @@ assert $count is_greater_than 5
 
 Passes when `$value` is less than `$comparison` (`-lt`).
 
-```zsh
+```zunit
 assert $count is_less_than 100
 ```
 
@@ -158,7 +158,7 @@ assert $count is_less_than 100
 
 Passes when `$value` is found in the array.
 
-```zsh
+```zunit
 local -a fruits=(apple banana cherry)
 assert 'banana' in "${fruits[@]}"
 ```
@@ -167,7 +167,7 @@ assert 'banana' in "${fruits[@]}"
 
 Passes when `$value` is **not** found in the array.
 
-```zsh
+```zunit
 assert 'grape' not_in "${fruits[@]}"
 ```
 
@@ -177,7 +177,7 @@ assert 'grape' not_in "${fruits[@]}"
 
 Passes when `$value` is a key in the associative array.
 
-```zsh
+```zunit
 local -A config=(host localhost port 5432)
 assert 'host' is_key_in "${(kv)config[@]}"
 ```
@@ -186,7 +186,7 @@ assert 'host' is_key_in "${(kv)config[@]}"
 
 Passes when `$value` is **not** a key in the hash.
 
-```zsh
+```zunit
 assert 'password' is_not_key_in "${(kv)config[@]}"
 ```
 
@@ -194,7 +194,7 @@ assert 'password' is_not_key_in "${(kv)config[@]}"
 
 Passes when `$value` is a value in the associative array.
 
-```zsh
+```zunit
 assert 'localhost' is_value_in "${(kv)config[@]}"
 ```
 
@@ -202,7 +202,7 @@ assert 'localhost' is_value_in "${(kv)config[@]}"
 
 Passes when `$value` is **not** a value in the hash.
 
-```zsh
+```zunit
 assert 'remotehost' is_not_value_in "${(kv)config[@]}"
 ```
 
@@ -215,7 +215,7 @@ directory) or absolute paths.
 
 Passes when the path exists (file, directory, or symlink).
 
-```zsh
+```zunit
 assert 'output.txt' exists
 ```
 
@@ -223,7 +223,7 @@ assert 'output.txt' exists
 
 Passes when the path exists and is a regular file.
 
-```zsh
+```zunit
 assert 'output.txt' is_file
 ```
 
@@ -231,7 +231,7 @@ assert 'output.txt' is_file
 
 Passes when the path exists and is a directory.
 
-```zsh
+```zunit
 assert '_output' is_dir
 ```
 
@@ -239,7 +239,7 @@ assert '_output' is_dir
 
 Passes when the path exists and is a symbolic link.
 
-```zsh
+```zunit
 assert 'current' is_link
 ```
 
@@ -247,7 +247,7 @@ assert 'current' is_link
 
 Passes when the path exists and is readable by the current user.
 
-```zsh
+```zunit
 assert 'config.yml' is_readable
 ```
 
@@ -255,7 +255,7 @@ assert 'config.yml' is_readable
 
 Passes when the path exists and is writable.
 
-```zsh
+```zunit
 assert 'output.txt' is_writable
 ```
 
@@ -263,7 +263,7 @@ assert 'output.txt' is_writable
 
 Passes when the path exists and is executable.
 
-```zsh
+```zunit
 assert 'myscript.zsh' is_executable
 ```
 

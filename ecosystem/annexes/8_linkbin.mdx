@@ -29,7 +29,7 @@ The optional preceding `!` flag means creating a soft link instead of a hard lin
 
 Example:
 
-```shell {2} showLineNumbers
+```zsh {2} showLineNumbers
 zi ice from'gh-r' as'program' \
   lbin'!fzf'
 zi load junegunn/fzf
@@ -52,7 +52,7 @@ The ice-modifier can contain globs as it will expand these when searching for th
 
 Example:
 
-```shell {2} showLineNumbers
+```zsh {2} showLineNumbers
 zi ice from'gh-r' as'program' \
   lbin'**fzf -> myfzf'
 zi load junegunn/fzf
@@ -91,7 +91,7 @@ The above also applies if just `!` were passed.
 
 Add the following snippet in the `.zshrc` file:
 
-```shell
+```zsh
 zi light z-shell/z-a-linkbin
 ```
 

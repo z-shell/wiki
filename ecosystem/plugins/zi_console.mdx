@@ -62,7 +62,7 @@ Start the console by <kbd>Ctrl-O</kbd> <kbd>Ctrl-J</kbd> keyboard shortcut, or b
 
 Standard syntax:
 
-```shell
+```zsh
 zi load z-shell/zi-console
 ```
 
@@ -71,7 +71,7 @@ zi load z-shell/zi-console
 
 with use of [turbo mode][4] and the [for][5] syntax:
 
-```shell
+```zsh
 zi wait lucid for z-shell/zi-console
 ```
 
@@ -80,7 +80,7 @@ zi wait lucid for z-shell/zi-console
 
 The plugin needs the `zsh/curses` Zsh module. You can check if it's available to your Zsh by executing:
 
-```shell
+```zsh
 zmodload zsh/curses
 ```
 
@@ -90,7 +90,7 @@ If the call will return an error, then the `zsh/curses` module isn't available.
 
 You can build the `zsh/curses`-equipped Z shell with Zi by the following command:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice id-as"zsh" atclone"./.preconfig
     CFLAGS='-I/usr/include -I/usr/local/include -g -O2 -Wall' \
     LDFLAGS='-L/usr/lib -L/usr/local/lib' ./configure --prefix='$ZPFX'" \
@@ -102,7 +102,7 @@ The command will build a custom `zsh` and install it under `$ZPFX` (`${XDG_DATA_
 
 When on Gentoo, and possibly other systems, the `zsh` can still not have the ncurses library linked. To address this, utilize the [patch-dl][z-a-patch-dl] annex and automatically patch the source first:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi light z-shell/z-a-patch-dl
 zi ice id-as"zsh" atclone"./.preconfig
     CFLAGS='-I/usr/include -I/usr/local/include -g -O2 -Wall' \

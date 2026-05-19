@@ -45,7 +45,7 @@ sh -c "$(curl -fsSL get.zshell.dev)" -- -a loader
 
 The installer will download the loader and add the snippet below to the <kbd>.zshrc</kbd> file.
 
-```shell showLineNumbers
+```zsh showLineNumbers
 if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]]; then
   source "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" && zzinit
 fi
@@ -95,7 +95,7 @@ sh -c "$(curl -fsSL get.zshell.dev)" -- -a zunit
 
 Set up the install location and create a directory:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -Ag ZI
 typeset -gx ZI[HOME_DIR]="${XDG_DATA_HOME:-${HOME}/.local/share}/zi"
 typeset -gx ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
@@ -106,7 +106,7 @@ For security reasons run function <kbd>compaudit</kbd> to check if the [completi
 
 If failed, then set the current user as the owner of directories, then remove group/others write permissions, and clone the repository:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 compaudit | xargs chown -R "$(whoami)" "$ZI[HOME_DIR]"
 compaudit | xargs chmod -R go-w "$ZI[HOME_DIR]"
 command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
@@ -116,7 +116,7 @@ command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
 
 To enable Zi, source the <kbd>zi.zsh</kbd> from the previously set up directory placing the following snippet in the <kbd>.zshrc</kbd> file:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 typeset -A ZI
 : ${ZI[HOME_DIR]:="${XDG_DATA_HOME:-${HOME}/.local/share}/zi"}
 : ${ZI[BIN_DIR]:="${ZI[HOME_DIR]}/bin"}
@@ -133,7 +133,7 @@ The snippet below must be placed after after enabling Zi.
 
 :::
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 ```

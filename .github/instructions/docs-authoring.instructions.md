@@ -87,6 +87,21 @@ Only import what is used on the page.
 - Heading IDs are managed by `pnpm write-heading-ids`; add explicit `{#custom-id}` only when needed.
 - For HTML elements in MDX (`<kbd>`, `<details>`, `<samp>`, `<dl>`, etc.), refer to the [GitHub Flavored Markdown spec](https://github.github.com/gfm/#raw-html) for supported tags.
 
+## Code Blocks
+
+Always choose the most specific accurate fence language so examples receive the
+right highlighting:
+
+- `zsh` — generic Zsh syntax and shell snippets
+- `zi` — Zi commands, ice modifiers, and Zi-oriented examples
+- `zunit` — ZUnit test files and ZUnit CLI examples
+- `sh` — portable POSIX shell
+- `bash` — Bash-specific syntax
+- `yaml`, `json`, `diff`, etc. — non-shell formats
+
+Do not use `shell` when the snippet is specifically Zsh, Zi, ZUnit, Bash, or
+POSIX `sh`; reserve it for genuinely shell-agnostic examples.
+
 ## Localization Awareness
 
 - Edit only English source files in `docs/`, `community/`, `ecosystem/`.

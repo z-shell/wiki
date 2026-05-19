@@ -69,6 +69,17 @@
   --duration-normal: 0.3s;
   --duration-slow: 0.5s;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  /* ── ZSH Prism syntax token colors (light) ── */
+  --site-zsh-builtin-color: hsl(198deg 100% 32%);
+  --site-zsh-expansion-color: hsl(273deg 65% 42%);
+  --site-zsh-param-color: hsl(32deg 90% 38%);
+  --site-zsh-glob-color: hsl(315deg 70% 38%);
+  --site-zi-command-color: hsl(38deg 95% 36%);
+  --site-zi-subcommand-color: hsl(210deg 85% 40%);
+  --site-zi-ice-color: hsl(175deg 70% 28%);
+  --site-zunit-command-color: hsl(15deg 85% 42%);
+  --site-zunit-directive-color: hsl(220deg 85% 42%);
+  --site-zunit-assertion-color: hsl(152deg 70% 32%);
   color-scheme: light;
 }
 
@@ -84,6 +95,17 @@
   --ifm-color-primary-light: hsl(var(--site-primary-hue-saturation-light) 54%);
   --ifm-color-primary-lighter: hsl(var(--site-primary-hue-saturation-light) 62%);
   --ifm-color-primary-lightest: hsl(var(--site-primary-hue-saturation-light) 73%);
+  /* ── ZSH Prism syntax token colors (dark) ── */
+  --site-zsh-builtin-color: hsl(198deg 100% 72%);
+  --site-zsh-expansion-color: hsl(288deg 85% 78%);
+  --site-zsh-param-color: hsl(35deg 100% 68%);
+  --site-zsh-glob-color: hsl(315deg 90% 72%);
+  --site-zi-command-color: hsl(45deg 100% 68%);
+  --site-zi-subcommand-color: hsl(210deg 100% 70%);
+  --site-zi-ice-color: hsl(175deg 80% 62%);
+  --site-zunit-command-color: hsl(15deg 90% 68%);
+  --site-zunit-directive-color: hsl(210deg 100% 72%);
+  --site-zunit-assertion-color: hsl(145deg 80% 62%);
   color-scheme: dark;
 }
 
@@ -93,6 +115,52 @@
   padding: 0 var(--ifm-pre-padding);
   background-color: var(--site-color-error-highlight);
   border-left: 3px solid var(--site-color-error-border);
+}
+
+/* ── ZSH / Zi / ZUnit Prism token colors ──
+ * Selectors target <pre class="prism-code language-*"> (not <code>).
+ * !important overrides inline style="color:..." set by prism-react-renderer.
+ * Flat selectors required — Docusaurus CSS pipeline does not support CSS nesting. */
+:is(pre.language-zsh, pre.language-zi, pre.language-zunit) .token.zsh-builtin {
+  color: var(--site-zsh-builtin-color) !important;
+}
+
+:is(pre.language-zsh, pre.language-zi, pre.language-zunit) .token.zsh-expansion-flag {
+  color: var(--site-zsh-expansion-color) !important;
+}
+
+:is(pre.language-zsh, pre.language-zi, pre.language-zunit) .token.zsh-special-parameter {
+  color: var(--site-zsh-param-color) !important;
+}
+
+:is(pre.language-zsh, pre.language-zi, pre.language-zunit) .token.zsh-glob-qualifier {
+  color: var(--site-zsh-glob-color) !important;
+}
+
+pre.language-zi .token.zi-command.keyword {
+  color: var(--site-zi-command-color) !important;
+  font-weight: 700;
+}
+
+pre.language-zi .token.zi-command.function {
+  color: var(--site-zi-subcommand-color) !important;
+}
+
+pre.language-zi .token.zi-ice {
+  color: var(--site-zi-ice-color) !important;
+}
+
+pre.language-zunit .token.zunit-command {
+  color: var(--site-zunit-command-color) !important;
+}
+
+pre.language-zunit .token.zunit-directive {
+  color: var(--site-zunit-directive-color) !important;
+  font-weight: 700;
+}
+
+pre.language-zunit .token.zunit-assertion {
+  color: var(--site-zunit-assertion-color) !important;
 }
 
 .navbar--dark {

@@ -674,13 +674,13 @@ Returning `0` means not-updating the status window, and `reply` is then ignored.
 
 To change ZUI global default, invoke:
 
-```shell
+```zsh
 zstyle ":plugin:zui" colorpair "white/black"
 ```
 
 An application may override such default with its default. To change the default per application, invoke:
 
-```shell
+```zsh
 zstyle ":plugin:zui:app:zui-demo-fly" colorpair "250/17"  # 256 colors – zsh >= 5.3; "default" color also from this version
 ```
 
@@ -768,7 +768,7 @@ source {where-zui-is}/zui.plugin.zsh
 
 Add the following to your `.zshrc` file.
 
-```shell title="~/.zshrc"
+```zsh title="~/.zshrc"
 zi load z-shell/zui
 ```
 

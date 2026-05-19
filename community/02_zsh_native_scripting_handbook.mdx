@@ -1,7 +1,7 @@
 ---
 id: zsh_handbook
 title: "🔤 Zsh Native Scripting Handbook"
-sidebar_position: 3
+sidebar_position: 2
 image: /img/png/theme/z/320x320.png
 description: A handbook covering native Zsh scripting techniques and best practices.
 keywords:
@@ -30,14 +30,14 @@ Glob-flags `#b` and `#m` require `setopt extended_glob`. Patterns utilizing `~` 
 
 ### Reading a file {/* #reading-a-file */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -a lines
 lines=( "${(@f)"$(<path/file)"}" )
 ```
 
 This preserves empty lines because of double-quoting (the outside one). `@`-flag is used to obtain an array instead of a scalar. If you don't want empty lines preserved, you can also skip `@`-splitting, as is explained in the [Information](#information) section:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -a lines
 lines=( ${(f)"$(<path/file)"} )
 ```
@@ -48,14 +48,14 @@ Note: `$(<...)` construct strips trailing empty lines.
 
 This topic is governed by the same principles as the previous paragraph (`Reading a file`), with the single difference that instead of the substitution `"$(<file-path)"` the substitution that should be used is `"$(command arg1 ...)"`, i.e.:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -a lines
 lines=( ${(f)"$(command arg1 ...)"} )
 ```
 
 This will read the `command's` output into the array `lines`. The version that does `@` splitting and retains any empty lines are:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -a lines
 lines=( "${(f@)$(command arg1 ...)}" )
 ```
@@ -66,7 +66,7 @@ Note that instead of four double-quotes `"`, an idiom that is justified (simply 
 
 `dirname` and `basename` can be skipped by:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 local dirname="${PWD:h}"
 local basename="${PWD:t}"
 ```
@@ -77,13 +77,13 @@ Read more: [zsh: 14 Expansion](https://zsh.sourceforge.net/Doc/Release/Expansion
 
 Symbolic links can be turned into an absolute path with:
 
-```shell
+```zsh
 local absolute_path="${PWD:A}"
 ```
 
 ### Skipping grep {/* #skipping-grep */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -a lines; lines=( "${(@f)"$(<path/file)"}" )
 typeset -a grepped; grepped=( ${(M)lines:#*query*} )
 ```
@@ -98,7 +98,7 @@ Side-note: `(M)` flag can be used also with `${(M)var#pattern}` and other substi
 
 Suppose you have a Git repository and want to check if it contains files not under version control. You could do this in Bash style like follows:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 local git_status="$(git status --porcelain)"
 if [[ -n "$(echo "$git_status" | \grep \^\?\?)" ]]; then
     echo found
@@ -107,7 +107,7 @@ fi
 
 Those are 3 forks: for `git status`, for `echo`, and for `grep`. This can be solved by the `:#` substitution and the `(M)` flag described above in this section (just check if the number of matched lines is greater than 0). However, there's a more direct approach:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 local git_status="$(git status --porcelain)" nl=$'\n'
 if [[ "$git_status" = *((#s)|$nl)\?\?* ]]; then
   echo found
@@ -118,7 +118,7 @@ This requires `extended_glob`. The `(#s)` means: "start of the string". So `((#s
 
 If the `extended_glob` option cannot be used for some reason, this can be achieved also without it, but essentially it means that the alternative (i.e. `|`) of two versions of the pattern will have to be matched:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 setopt local_options no_extended_glob
 local git_status="$(git status --porcelain)" nl=$'\n'
 if [[ "$git_status" = (\?\?*|*$nl\?\?*) ]]; then
@@ -128,7 +128,7 @@ fi
 
 In general, multi-line matching falls into the following idiom (`extended glob` version):
 
-```shell showLineNumbers
+```zsh showLineNumbers
 local needle="??" required_preceding='[[:space:]]#'
 [[ "$(git status --porcelain)" = *((#s)|$nl)${~required_preceding}${needle}* ]] && echo found
 ```
@@ -137,7 +137,7 @@ It does a single fork (called `git` status). The `${~variable}` means (the `~` i
 
 ### Pattern matching in AND-fashion {/* #pattern-matching-in-and-fashion */}
 
-```shell
+```zsh
 [[ "abc xyz efg" = *abc*~^*efg* ]] && print Match found
 ```
 
@@ -145,7 +145,7 @@ The `~` is a negation -- `match \*abc* but not ...`. Then, `^` is also a negatio
 
 ### Skipping tr {/* #skipping-tr */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -A map; map=( a 1 b 2 );
 text=( "ab" "ba" )
 text=( ${text[@]//(#m)?/${map[$MATCH]}} )
@@ -156,7 +156,7 @@ print $text → 12 21
 
 ### Ternary expressions with `+,-,:+,:-` substitutions {/* #ternary-expressions-with----substitutions */}
 
-```shell
+```zsh
 HELP="yes"; print ${${HELP:+help enabled}:-help disabled} → help enabled
 HELP=""; print ${${HELP:+help enabled}:-help disabled} → help disabled
 ```
@@ -165,7 +165,7 @@ Ternary expression is known from the `C` language but exists also in Zsh, but di
 
 ### Ternary expressions with `:#` substitution {/* #ternary-expressions-with--substitution */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 var=abc; print ${${${(M)var:#abc}:+is abc}:-not abc} → is abc
 var=abcd; print ${${${(M)var:#abc}:+is abc}:-not abc} → not abc
 ```
@@ -174,7 +174,7 @@ A one-line "if var = x, then …, else …". Again, can spare a great amount of 
 
 ### Using built-in regular expressions engine {/* #using-built-in-regular-expressions-engine */}
 
-```shell
+```zsh
 [[ "aabbb" = (#b)(a##)*(b(#c2,2)) ]] && print ${match[1]}-${match[2]} → aa-bb
 ```
 
@@ -184,7 +184,7 @@ Zsh patterns are a custom regular expressions engine. They are slightly faster t
 
 ### Skipping uniq {/* #skipping-uniq */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -aU array; array=( a a b ); print $array → a b
 typeset -a array; array=( a a b ); print ${(u)array} → a b
 ```
@@ -193,27 +193,27 @@ Enable the `-U` flag for the array so that it guards elements to be unique, or u
 
 ### Skipping awk {/* #skipping-awk */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -a list; list=( "a,b,c,1,e" "p,q,r,2,t" );
 print "${list[@]/(#b)([^,]##,)(#c3,3)([^,]##)*/${match[2]}}" → 1 2
 ```
 
 The pattern specifies 3 blocks of `[^,]##,` so 3 "not-comma multiple times, then comma", then the single block of "not-comma multiple times" in second parentheses -- and then replaces this with second parentheses. The result is the 4th column extracted from multiple lines of text, something `awk` is often used for. Another method is the use of the `s`-flag. For a single line of text:
 
-```shell
+```zsh
 text="a,b,c,1,e"; print ${${(s:,:)text}[4]} → 1
 ```
 
 Thanks to in-substitution code-execution capabilities it's possible to use the `s`-flag to apply it to multiple lines:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -a list; list=( "a,b,c,1,e" "p,q,r,2,t" );
 print "${list[@]/(#m)*/${${(s:,:)MATCH}[4]}}" → 1 2
 ```
 
 There is a problem with the `(s::)` flag that can be solved if Zsh is version `5.4` or higher: if there will be single input column, e.g. `list=( "column1" "a,b")` instead of two or more columns (i.e. `list=( "column1,column2" "a,b" )`), then `(s::)` will return **string** instead of 1-element **array**. So the index `[4]` in the above snippet will index a string, and show its 4th letter. Starting with Zsh 5.4, thanks to a patch by Bart Schaefer (`40640: the (A) parameter flag forces array result even if...`), it is possible to force **array**-kind of result even for a single column, by adding `(A)` flag, i.e.:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -a list; list=( "a,b,c,1,e" "p,q,r,2,t" "column1" );
 print "${list[@]/(#m)*/${${(As:,:)MATCH}[4]}}" → 1 2
 print "${list[@]/(#m)*/${${(s:,:)MATCH}[4]}}" → 1 2 u
@@ -223,7 +223,7 @@ Side-note: `(A)` flag is often used together with the `::=` assignment-substitut
 
 ### Searching arrays {/* #searching-arrays */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -a array; array=( a b " c1" d ); print ${array[(r)[[:space:]][[:alpha:]]*]} → c1
 ```
 
@@ -233,7 +233,7 @@ Note that [Skipping grep](#skipping-grep) that uses `:#` substitution can also b
 
 ### Code execution in `//` substitution {/* #code-execution-in--substitution */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 append() { gathered+=( $array[$1] ); }
 functions -M append 1 1 append
 typeset -a array; array=( "Value 1" "Other data" "Value 2" )
@@ -246,7 +246,7 @@ Use of the `#b` glob flag enables math-code execution (and not only) in `/` and 
 
 ### Serializing data {/* #serializing-data */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -A hsh deserialized; hsh=( key value )
 serialized="${(j: :)${(qkv@)hsh}}"
 deserialized=( "${(Q@)${(z@)serialized}}" )
@@ -261,7 +261,7 @@ Note: to be compatible with `setopt ksharrays`, use `[@]` instead of `(@)`, e.g.
 
 #### Tip: serializing with Bash {/* #tip-serializing-with-bash */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 array=( key1 key2 )
 printf -v serialized "%q " "${array[@]}"
 eval "deserialized=($serialized)"
@@ -275,13 +275,13 @@ This method works also with Zsh. The drawback is the use of `eval`, however, no 
 
 Following code checks, if there is a `git` subcommand `$mysub`:
 
-```shell
+```zsh
 if git help -a | grep "^  [a-z]" | tr ' ' '\n' | grep -x $mysub > /dev/null > /dev/null; then
 ```
 
 Those are `4` forks. The code can be replaced according to this guide:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 local -a lines_list
 lines_list=( ${(f)"$(git help -a)"} )
 lines_list=( ${(M)${(s: :)${(M)lines_list:#   [a-z]*}}:#$mysub} )
@@ -298,7 +298,7 @@ A project was needing this to do some Zle line-continuation tricks (when you put
 
 The required functionality is: in the given string, count the number of apostrophes, but _only the unquoted ones_. This means that only apostrophes with null or an even number of preceding backslashes should be accepted into the count:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 buf="word'continue\'after\\\'afterSecnd\\''afterPair"
 integer count=0
 : ${buf//(#b)((#s)|[^\\])([\\][\\])#(\'\'#)/$(( count += ${#match[3]} ))}
@@ -309,7 +309,7 @@ The answer (i.e. the output) to the above presentation and example is: `3` (ther
 
 Below follows a variation of the above snippet that doesn't use math-code execution:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 buf="word'continue\'after\\\'afterSecnd\\''afterPair"
 buf="${(S)buf//(#b)*((#s)|[^\\])([\\][\\])#(\'\'#)*/${match[3]}}"; buf=${buf%%[^\']##}
 integer count=${#buf}
