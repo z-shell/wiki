@@ -25,13 +25,13 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - name: "⤵️  Check out code from GitHub"
-        uses: actions/checkout@v6
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v6.0.0
         with:
           fetch-depth: 0
       - name: "📦 Setup pnpm"
         uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
       - name: "⎔  Setup node"
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@1d71962e4969c231c0ad1f2295c3b40115656507 # v6.0.0
         with:
           node-version: "20"
           cache: "pnpm"
@@ -40,7 +40,7 @@ jobs:
         env:
           NODE_ENV: development
       - name: "🚀 Publish"
-        uses: cloudflare/wrangler-action@v4
+        uses: cloudflare/wrangler-action@ebbaa158a14352136e0d9572f136bb031afdd8d8 # v4.0.0
         with:
           apiToken: ${{ secrets.CF_PAGES_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}

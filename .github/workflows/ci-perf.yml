@@ -46,17 +46,17 @@ jobs:
       issues: write # for preactjs/compressed-size-action to create comments
     steps:
       - name: "⤵️ Check out code from GitHub"
-        uses: actions/checkout@v6
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v6.0.0
         with:
           fetch-depth: 0
       - name: "📦 Setup pnpm"
         uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
       - name: "⎔ Setup node"
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@1d71962e4969c231c0ad1f2295c3b40115656507 # v6.0.0
         with:
           node-version: "20"
           cache: "pnpm"
-      - uses: preactjs/compressed-size-action@v3
+      - uses: preactjs/compressed-size-action@75744b386426020d674c9af68311bd71901bbe5b # v3.0.0
         with:
           install-script: pnpm i --frozen-lockfile
           build-script: "build:en"
@@ -74,13 +74,13 @@ jobs:
       contents: read
     steps:
       - name: "⤵️ Check out code from GitHub"
-        uses: actions/checkout@v6
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v6.0.0
         with:
           fetch-depth: 0
       - name: "📦 Setup pnpm"
         uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
       - name: "⎔ Setup node"
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@1d71962e4969c231c0ad1f2295c3b40115656507 # v6.0.0
         with:
           node-version: "20"
           cache: "pnpm"

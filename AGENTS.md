@@ -1,5 +1,7 @@
 # Project Guidelines
 
+This project follows the organization-wide [Z-Shell Organization Guidelines](https://github.com/z-shell/.github/blob/main/AGENTS.md).
+
 ## Build, Lint, and Dev Commands
 
 - Use Node >= 20 and pnpm >= 10 (see `engines` in `package.json`).
