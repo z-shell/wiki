@@ -4,7 +4,7 @@ slug: /
 title: 🌐 Ecosystem
 sidebar_position: 1
 image: /img/png/theme/z/320x320.png
-description: "Introduction to the ecosystem"
+description: Zi's ecosystem — annexes that extend the plugin manager, curated packages, and a gallery of Zsh plugins.
 keywords:
   - ecosystem
   - plugins
@@ -14,18 +14,46 @@ keywords:
 
 {/* @format */}
 
-```mdx-code-block
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import ThemedImage from '@theme/ThemedImage';
+import Link from "@docusaurus/Link";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
-<div className="RightView">
-  <ThemedImage
-  className="ImageView"
-  alt="Zsh Image"
-  sources={{
-      light: useBaseUrl('/img/zsh/artwork/png/color_horizontal_icon.png'),
-      dark: useBaseUrl('/img/zsh/artwork/png/white_horizontal_icon.png'),
-    }}
+Zi's ecosystem extends the plugin manager with three building blocks: **annexes** that add new capabilities, **packages** that bundle complex setups into a single ice, and a curated **plugin gallery**.
+
+<div style={{textAlign: "center", margin: "1.5rem 0"}}>
+  <img
+    src={useBaseUrl("/img/svg/ecosystem-banner.svg")}
+    alt="Zi ecosystem: Annexes, Packages, Plugins"
+    style={{maxWidth: "100%", borderRadius: "12px"}}
   />
 </div>
-```
+
+:::tip[Start with annexes]
+The [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex automatically manages Ruby gems, Node modules, and Python virtualenvs. Install it once via [meta-plugins](/ecosystem/annexes/meta-plugins) and everything just works.
+:::
+
+## What's in the Ecosystem
+
+<div style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1rem", margin: "1.5rem 0"}}>
+
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/cards/annexes.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
+  <strong>Annexes</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Hook into Zi's lifecycle to add bin-gem-node, Rust crate management, patch-dl, readurl, and more.</span>
+  <Link to="/ecosystem/category/-annexes" style={{marginTop: "auto"}}>Browse annexes →</Link>
+</div>
+
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/cards/packages.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
+  <strong>Packages</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Curated ice configurations for popular tools — fzf, neovim, zsh-system-completions, and more, ready to load.</span>
+  <Link to="/ecosystem/category/-packages" style={{marginTop: "auto"}}>Browse packages →</Link>
+</div>
+
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/cards/meta-plugins.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
+  <strong>Plugins</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Featured Zsh plugins — syntax highlighting, autosuggestions, history search, and console tools.</span>
+  <Link to="/ecosystem/plugins/diff-so-fancy" style={{marginTop: "auto"}}>Browse plugins →</Link>
+</div>
+
+</div>

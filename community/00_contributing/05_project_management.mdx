@@ -1,0 +1,188 @@
+---
+id: project_management
+title: "📋 Project Management"
+sidebar_position: 5
+image: /img/png/theme/z/320x320.png
+description: How work is tracked and labelled across the Z-Shell organization — project tracker, views, triage workflow, and canonical labels.
+keywords:
+  - project
+  - tracker
+  - labels
+  - triage
+  - sprint
+  - roadmap
+  - github
+---
+
+{/* @format */}
+
+import Link from "@docusaurus/Link";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+<div style={{float: "right", marginLeft: "1.5rem", marginBottom: "1rem"}}>
+  <img src={useBaseUrl("/img/svg/community/contributing-project-management.svg")} alt="" width="100" height="100" style={{borderRadius: "16px"}}/>
+</div>
+
+## Project Tracker
+
+All work across the Z-Shell organization is tracked in a single unified project:
+
+<Link
+  className="button button--primary button--lg"
+  to="https://github.com/orgs/z-shell/projects/28"
+>
+  Z-Shell Tracker →
+</Link>
+
+<br />
+<br />
+
+The project pulls issues and pull requests from every repository in the
+[`z-shell`](https://github.com/z-shell) GitHub organization into one place, so
+nothing slips through the cracks.
+
+### Project Views
+
+| View | Layout | Purpose |
+| --- | --- | --- |
+| **Triage** | Table | New items awaiting investigation — start here |
+| **Bugs Board** | Board | Active bug work, grouped by Status |
+| **Features Board** | Board | Feature and enhancement work |
+| **Active Sprint** | Board | Everything in the current 2-week sprint |
+| **Roadmap** | Roadmap | Planned work on a timeline |
+| **By Repository** | Table | All items grouped by source repo |
+
+### Custom Fields
+
+Each item in the project can have the following fields set:
+
+| Field | Values | Notes |
+| --- | --- | --- |
+| **Status** | Triage · Todo · In Progress · In Review · Done · Blocked · Won't Fix | Set by maintainers during triage |
+| **Priority** | 🔴 Critical · 🟠 High · 🟡 Medium · 🔵 Low · None | |
+| **Item Type** | Bug · Feature · Enhancement · Docs · Security · Performance · Chore · CI | |
+| **Effort** | XS · S · M · L · XL | Rough size estimate |
+| **Sprint** | Sprint 1 … Sprint N | 2-week iterations starting Mondays |
+
+### Triage Workflow
+
+New issues and PRs are automatically added to the project with **Status = Triage**.
+A maintainer reviews the item and:
+
+1. Sets **Item Type** (Bug, Feature, etc.)
+2. Sets **Priority**
+3. Moves **Status** to `Todo` (or `Won't Fix` / `Blocked` if appropriate)
+4. Assigns to a **Sprint** if it should be worked on soon
+5. Adds the appropriate [label](#labels)
+
+### Capturing Deferred Work
+
+Do not leave postponed work only in local diffs, review notes, or memory.
+Create or update an issue in the repository that owns the work so it is added to
+the shared tracker automatically.
+
+When splitting or deferring work:
+
+1. Create **one issue per logical task** so each item can be prioritized and completed independently.
+2. Include enough context for another maintainer to resume later: the observed problem, why it matters, relevant files, and any known constraints.
+3. Suggest the likely **Item Type**, **Priority**, and **Effort** during triage.
+4. Use the canonical labels instead of repo-local tracking conventions.
+
+### Sprint Cadence
+
+Sprints run for **2 weeks**, starting every other Monday.
+
+At the end of each sprint, incomplete items are moved to the next sprint or
+returned to the backlog (`Todo` without a sprint assignment).
+
+### Priority Definitions
+
+| Priority | Meaning |
+| --- | --- |
+| 🔴 **Critical** | Data loss, security vulnerability, or complete breakage with no workaround |
+| 🟠 **High** | Significantly impacts users; should be in the current or next sprint |
+| 🟡 **Medium** | Important but not urgent; planned within the next few sprints |
+| 🔵 **Low** | Nice to have; no fixed timeline |
+| **None** | Not yet triaged or genuinely optional |
+
+### Automation
+
+Every repository in the organization has a `.github/workflows/project-tracker.yml`
+workflow that automatically adds new issues and pull requests to the project. No
+manual steps are required from contributors.
+
+---
+
+## Labels
+
+All repositories in the `z-shell` organization use the same canonical label set.
+Labels are applied automatically by the stale bot or manually during triage.
+
+The source of truth lives in
+[`z-shell/.github/.github/lib/labels.yml`](https://github.com/z-shell/.github/blob/main/.github/lib/labels.yml).
+Rollout across repositories is handled through organization maintenance automation.
+
+### Work Type Labels
+
+Use these to describe **what kind of work** an issue or PR represents.
+
+| Label | Color | Description |
+| --- | --- | --- |
+| `type: bug` | ![#b60205](https://placehold.co/12x12/b60205/b60205.png) `#b60205` | Something is broken or behaving incorrectly |
+| `type: feature` | ![#0e8a16](https://placehold.co/12x12/0e8a16/0e8a16.png) `#0e8a16` | A request for new behavior or capability |
+| `type: docs` | ![#0052cc](https://placehold.co/12x12/0052cc/0052cc.png) `#0052cc` | Documentation-only work |
+| `type: question` | ![#d4c5f9](https://placehold.co/12x12/d4c5f9/d4c5f9.png) `#d4c5f9` | Support, clarification, or usage question |
+| `type: maintenance` | ![#531999](https://placehold.co/12x12/531999/531999.png) `#531999` | Non-feature maintenance, cleanup, or org work |
+| `type: membership` | ![#6f42c1](https://placehold.co/12x12/6f42c1/6f42c1.png) `#6f42c1` | Membership and organization-role requests |
+| `type: handoff` | ![#5319e7](https://placehold.co/12x12/5319e7/5319e7.png) `#5319e7` | Cross-agent or cross-maintainer handoff context |
+
+### Area Labels
+
+Use these to describe **which part of the ecosystem** the item touches.
+
+| Label | Color | Description |
+| --- | --- | --- |
+| `area: zi` | ![#1d76db](https://placehold.co/12x12/1d76db/1d76db.png) `#1d76db` | Zi core behavior, APIs, or documentation |
+| `area: plugin` | ![#3e16f3](https://placehold.co/12x12/3e16f3/3e16f3.png) `#3e16f3` | Plugin behavior or plugin-facing work |
+| `area: annex` | ![#3e16f3](https://placehold.co/12x12/3e16f3/3e16f3.png) `#3e16f3` | Annex behavior or annex-facing work |
+| `area: package` | ![#3e16f3](https://placehold.co/12x12/3e16f3/3e16f3.png) `#3e16f3` | Package or package-management work |
+| `area: docs` | ![#0052cc](https://placehold.co/12x12/0052cc/0052cc.png) `#0052cc` | Documentation systems, content, or publishing |
+| `area: ci` | ![#5319e7](https://placehold.co/12x12/5319e7/5319e7.png) `#5319e7` | Continuous integration or GitHub Actions work |
+| `area: dependencies` | ![#fbca04](https://placehold.co/12x12/fbca04/fbca04.png) `#fbca04` | Dependency updates or dependency-management work |
+| `area: release` | ![#d93f0b](https://placehold.co/12x12/d93f0b/d93f0b.png) `#d93f0b` | Release process, versioning, or changelog work |
+| `area: meta` | ![#1d76db](https://placehold.co/12x12/1d76db/1d76db.png) `#1d76db` | Organization-wide policy, templates, or meta-repo work |
+
+### Priority and Workflow Labels
+
+Use these to describe **urgency or state** in the workflow.
+
+| Label | Color | Description |
+| --- | --- | --- |
+| `priority: high` | ![#ee0701](https://placehold.co/12x12/ee0701/ee0701.png) `#ee0701` | Needs prompt attention |
+| `security` | ![#ee0701](https://placehold.co/12x12/ee0701/ee0701.png) `#ee0701` | Security-sensitive issue or hardening work |
+| `breaking-change` | ![#d93f0b](https://placehold.co/12x12/d93f0b/d93f0b.png) `#d93f0b` | Breaks backward compatibility or changes a public contract |
+| `status: triage` | ![#fbca04](https://placehold.co/12x12/fbca04/fbca04.png) `#fbca04` | Awaiting initial review or classification |
+| `status: blocked` | ![#e4e669](https://placehold.co/12x12/e4e669/e4e669.png) `#e4e669` | Cannot proceed until an external dependency or decision changes |
+| `needs-info` | ![#f9d0c4](https://placehold.co/12x12/f9d0c4/f9d0c4.png) `#f9d0c4` | Waiting on more detail before work can continue |
+| `good first issue` | ![#7057ff](https://placehold.co/12x12/7057ff/7057ff.png) `#7057ff` | Well-scoped starter task for a new contributor |
+| `help wanted` | ![#008672](https://placehold.co/12x12/008672/008672.png) `#008672` | Maintainers would welcome outside help |
+| `invalid` | ![#0b467f](https://placehold.co/12x12/0b467f/0b467f.png) `#0b467f` | Off-topic, incorrect, or not actionable |
+| `duplicate` | ![#cfd3d7](https://placehold.co/12x12/cfd3d7/cfd3d7.png) `#cfd3d7` | Covered by another issue or pull request |
+| `wontfix` | ![#ffffff](https://placehold.co/12x12/ffffff/ffffff.png) `#ffffff` | Acknowledged but not planned for implementation |
+
+### Syncing Labels
+
+To apply the canonical label set to a repository:
+
+```sh
+# Single repo
+echo "my-repo" > /tmp/repos.txt
+./scripts/sync-labels.sh z-shell /tmp/repos.txt
+
+# All org repos
+./scripts/sync-labels.sh z-shell scripts/repos.txt
+```
+
+The `--force` flag means existing labels with the same name are updated to match
+the canonical color and description. Labels not in the canonical set are **not**
+deleted automatically — remove them manually if desired.

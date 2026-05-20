@@ -22,7 +22,7 @@ Run `zi analytics` to see the available commands for statistics and reporting.
 
 ## <i class="fa-solid fa-gauge-high"></i> Profile plugins {/* #i-classfa-solid-fa-gauge-highi-profile-plugins */}
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 zi ice atinit'zmodload zsh/zprof' \
   atload'zprof | head -n 20; zmodload -u zsh/zprof'
 zi light z-shell/F-Sy-H
@@ -70,7 +70,7 @@ The table is sorted in the **self-time** column.
 
 Place the snippet below at the top of `.zshrc`.
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 PROFILE_STARTUP=false
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
@@ -89,7 +89,7 @@ Zsh Sourceforge docs: [Prompt Expansion][prompt-expansion]
 
 Place at the bottom of `.zshrc`
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 if [[ "$PROFILE_STARTUP" == true ]]; then
   unsetopt xtrace
   exec 2>&3 3>&-; zprof > ~/zshprofile$(date +'%s')

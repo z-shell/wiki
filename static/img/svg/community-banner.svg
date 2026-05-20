@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 140" fill="none">
+  <defs>
+    <linearGradient id="cmb-bg" x1="0" y1="0" x2="720" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.12"/>
+      <stop offset="55%" stop-color="#7c3aed" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.04"/>
+    </linearGradient>
+    <linearGradient id="cmb-card" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="cmb-hub" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <filter id="cmb-glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="720" height="140" rx="16" fill="url(#cmb-bg)" stroke="#8b5cf6" stroke-width="0.6" stroke-opacity="0.25"/>
+
+  <!-- LEFT: People avatars -->
+  <circle cx="80" cy="56" r="16" fill="#7c3aed" opacity="0.30"/>
+  <circle cx="80" cy="49" r="8" fill="url(#cmb-hub)" opacity="0.80" filter="url(#cmb-glow)"/>
+  <path d="M64 68 Q80 60 96 68" stroke="#a78bfa" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <circle cx="52" cy="56" r="16" fill="#6d28d9" opacity="0.25"/>
+  <circle cx="52" cy="49" r="7" fill="#8b5cf6" opacity="0.70"/>
+  <path d="M38 68 Q52 60 66 68" stroke="#a78bfa" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <circle cx="110" cy="56" r="14" fill="#7c3aed" opacity="0.22"/>
+  <circle cx="110" cy="49" r="7" fill="#a78bfa" opacity="0.65"/>
+  <path d="M96 68 Q110 61 124 68" stroke="#a78bfa" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <!-- Speech bubbles -->
+  <rect x="36" y="76" width="58" height="18" rx="9" fill="#7c3aed" opacity="0.50"/>
+  <polygon points="55,94 60,102 65,94" fill="#7c3aed" opacity="0.50"/>
+  <text x="65" y="88" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7.5" fill="#e9d5ff">Zsh plugin</text>
+  <rect x="72" y="76" width="58" height="18" rx="9" fill="#6d28d9" opacity="0.45"/>
+  <polygon points="95,94 100,102 105,94" fill="#6d28d9" opacity="0.45"/>
+  <text x="101" y="88" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7.5" fill="#e9d5ff">PR merged!</text>
+  <text x="80" y="126" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#8b5cf6" opacity="0.9" font-weight="600">Active community</text>
+
+  <!-- Center divider -->
+  <line x1="170" y1="20" x2="170" y2="120" stroke="#8b5cf6" stroke-width="0.5" stroke-opacity="0.2" stroke-dasharray="4 3"/>
+
+  <!-- RIGHT: Four section cards in 2×2 grid -->
+  <text x="448" y="16" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#a78bfa" opacity="0.7" font-weight="600">Community sections</text>
+
+  <!-- Contributing card -->
+  <rect x="185" y="22" width="123" height="52" rx="8" fill="#0f172a" fill-opacity="0.55" stroke="#8b5cf6" stroke-width="0.9" stroke-opacity="0.5"/>
+  <rect x="185" y="22" width="123" height="18" rx="8" fill="url(#cmb-card)" opacity="0.65"/>
+  <rect x="185" y="32" width="123" height="8" fill="url(#cmb-card)" opacity="0.65"/>
+  <text x="246" y="34" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#fff" font-weight="700">🤝 Contributing</text>
+  <text x="246" y="51" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7.5" fill="#c4b5fd" opacity="0.9">Zi · plugins · docs · PM</text>
+  <text x="246" y="65" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7.5" fill="#a78bfa" opacity="0.8">Start here →</text>
+
+  <!-- ZUnit card -->
+  <rect x="318" y="22" width="123" height="52" rx="8" fill="#0f172a" fill-opacity="0.55" stroke="#7c3aed" stroke-width="0.9" stroke-opacity="0.5"/>
+  <rect x="318" y="22" width="123" height="18" rx="8" fill="#6d28d9" fill-opacity="0.70"/>
+  <rect x="318" y="32" width="123" height="8" fill="#6d28d9" fill-opacity="0.70"/>
+  <text x="379" y="34" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#fff" font-weight="700">🧪 ZUnit</text>
+  <text x="379" y="51" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#c4b5fd" opacity="0.9">@test · assert · CI</text>
+  <text x="379" y="65" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7.5" fill="#a78bfa" opacity="0.8">Test Zsh →</text>
+
+  <!-- Gallery card -->
+  <rect x="185" y="82" width="123" height="52" rx="8" fill="#0f172a" fill-opacity="0.55" stroke="#8b5cf6" stroke-width="0.9" stroke-opacity="0.5"/>
+  <rect x="185" y="82" width="123" height="18" rx="8" fill="#7c3aed" fill-opacity="0.65"/>
+  <rect x="185" y="92" width="123" height="8" fill="#7c3aed" fill-opacity="0.65"/>
+  <text x="246" y="94" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#fff" font-weight="700">🖼 Gallery</text>
+  <text x="246" y="111" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7.5" fill="#c4b5fd" opacity="0.9">Plugins · themes · snippets</text>
+  <text x="246" y="125" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7.5" fill="#a78bfa" opacity="0.8">Browse →</text>
+
+  <!-- ZSH Guide card -->
+  <rect x="318" y="82" width="123" height="52" rx="8" fill="#0f172a" fill-opacity="0.55" stroke="#6d28d9" stroke-width="0.9" stroke-opacity="0.5"/>
+  <rect x="318" y="82" width="123" height="18" rx="8" fill="#6d28d9" fill-opacity="0.60"/>
+  <rect x="318" y="92" width="123" height="8" fill="#6d28d9" fill-opacity="0.60"/>
+  <text x="379" y="94" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#fff" font-weight="700">📖 ZSH Guide</text>
+  <text x="379" y="111" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7.5" fill="#c4b5fd" opacity="0.9">Scripting · expansions</text>
+  <text x="379" y="125" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7.5" fill="#a78bfa" opacity="0.8">Learn Zsh →</text>
+
+  <!-- Stats / links area right of cards -->
+  <rect x="453" y="22" width="240" height="112" rx="10" fill="#0f172a" fill-opacity="0.45" stroke="#8b5cf6" stroke-width="0.8" stroke-opacity="0.35"/>
+  <text x="573" y="40" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#c4b5fd" opacity="0.9" font-weight="700">Get involved</text>
+  <line x1="453" y1="47" x2="693" y2="47" stroke="#8b5cf6" stroke-width="0.4" stroke-opacity="0.3"/>
+  <rect x="465" y="54" width="7" height="7" rx="3.5" fill="#a78bfa" opacity="0.8"/>
+  <text x="479" y="61" font-family="system-ui,sans-serif" font-size="8" fill="#ddd6fe" opacity="0.9">Join the org — GitHub</text>
+  <rect x="465" y="68" width="7" height="7" rx="3.5" fill="#a78bfa" opacity="0.8"/>
+  <text x="479" y="75" font-family="system-ui,sans-serif" font-size="8" fill="#ddd6fe" opacity="0.9">Translate — Crowdin</text>
+  <rect x="465" y="82" width="7" height="7" rx="3.5" fill="#a78bfa" opacity="0.8"/>
+  <text x="479" y="89" font-family="system-ui,sans-serif" font-size="8" fill="#ddd6fe" opacity="0.9">Tracker — GitHub Projects</text>
+  <rect x="465" y="96" width="7" height="7" rx="3.5" fill="#a78bfa" opacity="0.8"/>
+  <text x="479" y="103" font-family="system-ui,sans-serif" font-size="8" fill="#ddd6fe" opacity="0.9">Discuss — GitHub Discussions</text>
+  <rect x="465" y="110" width="7" height="7" rx="3.5" fill="#a78bfa" opacity="0.8"/>
+  <text x="479" y="117" font-family="system-ui,sans-serif" font-size="8" fill="#ddd6fe" opacity="0.9">Chat — Gitter / Matrix</text>
+
+  <g opacity="0.12">
+    <circle cx="20" cy="20" r="1.5" fill="#8b5cf6"/>
+    <circle cx="700" cy="20" r="1.5" fill="#8b5cf6"/>
+    <circle cx="20" cy="120" r="1.5" fill="#8b5cf6"/>
+    <circle cx="700" cy="120" r="1.5" fill="#8b5cf6"/>
+  </g>
+</svg>

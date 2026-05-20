@@ -1,0 +1,103 @@
+---
+id: zunit
+title: "🧪 ZUnit"
+sidebar_position: 1
+image: /img/png/theme/z/320x320.png
+description: ZUnit — a unit testing framework for Zsh projects with @test syntax, assertions, TAP output, and CI integration.
+keywords:
+  - zunit
+  - zsh
+  - testing
+  - unit-testing
+  - test-framework
+---
+
+{/* @format */}
+
+import Link from "@docusaurus/Link";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+ZUnit is a unit testing framework for Zsh projects, maintained by the [Z-Shell organization](https://github.com/z-shell). It brings a concise `@test` syntax inspired by [Bats](https://github.com/bats-core/bats-core), a rich assertion library, per-test `@setup`/`@teardown` hooks, TAP output, HTML reports, and a `zunit init` scaffolding command.
+
+<div style={{textAlign: "center", margin: "1.5rem 0"}}>
+  <img
+    src={useBaseUrl("/img/svg/zunit-banner.svg")}
+    alt="ZUnit: write @test blocks, run assertions, see results"
+    style={{maxWidth: "100%", borderRadius: "12px"}}
+  />
+</div>
+
+:::tip[Scaffold in seconds]
+Run `zunit init --github-actions` to generate a ready-to-use GitHub Actions workflow alongside the project scaffold — CI from day one.
+:::
+
+## Documentation
+
+<div style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1rem", margin: "1.5rem 0"}}>
+
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/cards/packages.svg")} alt="" width="48" height="48" style={{borderRadius: "8px"}}/>
+  <strong>Installation</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Manual install, build from source, dependencies, and Zi integration.</span>
+  <Link to="/community/zunit/zunit-installation" style={{marginTop: "auto"}}>Install →</Link>
+</div>
+
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/cards/zi-console.svg")} alt="" width="48" height="48" style={{borderRadius: "8px"}}/>
+  <strong>Test Syntax</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>`@test`, `@setup`/`@teardown` hooks, and helper functions.</span>
+  <Link to="/community/zunit/zunit-test-syntax" style={{marginTop: "auto"}}>Learn syntax →</Link>
+</div>
+
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/cards/flexible.svg")} alt="" width="48" height="48" style={{borderRadius: "8px"}}/>
+  <strong>Assertions</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>All ~25 assertion functions with examples — equals, contains, match, status.</span>
+  <Link to="/community/zunit/zunit-assertions" style={{marginTop: "auto"}}>See assertions →</Link>
+</div>
+
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/cards/speed.svg")} alt="" width="48" height="48" style={{borderRadius: "8px"}}/>
+  <strong>Running Tests</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>CLI usage, flags, TAP output, HTML reports, and filtering.</span>
+  <Link to="/community/zunit/zunit-running-tests" style={{marginTop: "auto"}}>Run tests →</Link>
+</div>
+
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/cards/annexes.svg")} alt="" width="48" height="48" style={{borderRadius: "8px"}}/>
+  <strong>Configuration</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>`.zunit.yml` key reference — directories, TAP, HTML, time limits.</span>
+  <Link to="/community/zunit/zunit-configuration" style={{marginTop: "auto"}}>Configure →</Link>
+</div>
+
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/cards/ecosystem.svg")} alt="" width="48" height="48" style={{borderRadius: "8px"}}/>
+  <strong>CI Integration</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>GitHub Actions and Travis CI workflow examples ready to drop in.</span>
+  <Link to="/community/zunit/zunit-ci" style={{marginTop: "auto"}}>Set up CI →</Link>
+</div>
+
+</div>
+
+## Quick start
+
+```zsh
+# 1. Install
+git clone https://github.com/z-shell/zunit.git
+cd zunit && ./build.zsh && cp ./zunit /usr/local/bin
+
+# 2. Scaffold a new project
+cd my-project
+zunit init
+
+# 3. Write a test  (tests/example.zunit)
+# #!/usr/bin/env zunit
+# @test 'addition works' {
+#   assert 2 equals 2
+# }
+
+# 4. Run
+zunit
+```
+
+{/* end-of-file */}

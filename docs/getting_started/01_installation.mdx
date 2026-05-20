@@ -45,7 +45,7 @@ sh -c "$(curl -fsSL get.zshell.dev)" -- -a loader
 
 The installer will download the loader and add the snippet below to the <kbd>.zshrc</kbd> file.
 
-```shell showLineNumbers
+```zsh showLineNumbers
 if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]]; then
   source "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" && zzinit
 fi
@@ -95,10 +95,10 @@ sh -c "$(curl -fsSL get.zshell.dev)" -- -a zunit
 
 Set up the install location and create a directory:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -Ag ZI
-typeset -gx ZI[HOME_DIR]="${HOME}/.zi"
-typeset -gx ZI[BIN_DIR]="${HOME}/.zi/bin"
+typeset -gx ZI[HOME_DIR]="${XDG_DATA_HOME:-${HOME}/.local/share}/zi"
+typeset -gx ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
 command mkdir -p "$ZI[BIN_DIR]"
 ```
 
@@ -106,7 +106,7 @@ For security reasons run function <kbd>compaudit</kbd> to check if the [completi
 
 If failed, then set the current user as the owner of directories, then remove group/others write permissions, and clone the repository:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 compaudit | xargs chown -R "$(whoami)" "$ZI[HOME_DIR]"
 compaudit | xargs chmod -R go-w "$ZI[HOME_DIR]"
 command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
@@ -116,9 +116,10 @@ command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
 
 To enable Zi, source the <kbd>zi.zsh</kbd> from the previously set up directory placing the following snippet in the <kbd>.zshrc</kbd> file:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 typeset -A ZI
-ZI[BIN_DIR]="${HOME}/.zi/bin"
+: ${ZI[HOME_DIR]:="${XDG_DATA_HOME:-${HOME}/.local/share}/zi"}
+: ${ZI[BIN_DIR]:="${ZI[HOME_DIR]}/bin"}
 source "${ZI[BIN_DIR]}/zi.zsh"
 ```
 
@@ -132,7 +133,7 @@ The snippet below must be placed after after enabling Zi.
 
 :::
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 ```
@@ -200,15 +201,15 @@ The module transparently and automatically compiles sourced scripts and lists of
 
 | Service    | URL                                                                     |
 | :--------- | ----------------------------------------------------------------------- |
-| Git.io     | https://git.io/get-zi                                                   |
-| GitHub RAW | https://raw.githubusercontent.com/z-shell/zi-src/main/lib/sh/install.sh |
+| Short URL  | https://get.zshell.dev                                                  |
+| GitHub RAW | https://raw.githubusercontent.com/z-shell/src/main/lib/sh/install.sh |
 
 ### <i class="fa-brands fa-superpowers"></i> Loader {/* #loader */}
 
 | Service    | URL                                                                    |
 | :--------- | ---------------------------------------------------------------------- |
-| Git.io     | https://git.io/zi-loader                                               |
-| GitHub RAW | https://raw.githubusercontent.com/z-shell/zi-src/main/lib/zsh/init.zsh |
+| Short URL  | https://init.zshell.dev                                                |
+| GitHub RAW | https://raw.githubusercontent.com/z-shell/src/main/lib/zsh/init.zsh |
 
 {/* end-of-file */}
 {/* links */}
@@ -221,7 +222,7 @@ The module transparently and automatically compiles sourced scripts and lists of
 
 {/* external */}
 
-[checksum-txt]: https://raw.githubusercontent.com/z-shell/zi-src/main/lib/checksum.txt
+[checksum-txt]: https://raw.githubusercontent.com/z-shell/src/main/lib/checksum.txt
 [completion-system]: https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Use-of-compinit
 [discuss]: https://github.com/orgs/z-shell/discussions/new
 [dockerfile]: https://github.com/robobenklein/configs/blob/master/Dockerfile

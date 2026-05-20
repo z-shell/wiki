@@ -24,7 +24,7 @@ keywords:
 
 Zsh tweak - map colors to the nearest color in the available palette.
 
-```shell
+```zsh
 [[ $COLORTERM = *(24bit|truecolor)* ]] || zmodload zsh/nearcolor
 ```
 
@@ -57,7 +57,7 @@ When running: `zi update` will:
 - if an update is available, will update the fonts.
 - repeat the install process to update fonts.
 
-```shell
+```zsh
 zi ice if"[[ -d ${HOME}/.fonts/ttf ]] && [[ $OSTYPE = linux* ]]" \
   id-as"meslo" from"gh-r" bpick"Meslo.zip" extract nocompile depth"1" \
   atclone="rm -f *Windows*; mv -vf *.ttf ${HOME}/.fonts/ttf/; fc-cache -v -f" atpull"%atclone"
@@ -66,14 +66,14 @@ zi light ryanoasis/nerd-fonts
 
 Load prompt if the terminal has at least 256 colors.
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice if"[ "${TERM##*-}" = '256color' ] || [ "${terminfo[colors]:?}" -gt 255 ]" depth=1
 zi light romkatv/powerlevel10k
 ```
 
 Oneliner:
 
-```shell
+```zsh
 zi ice depth=1; zi light romkatv/powerlevel10k
 ```
 
@@ -81,7 +81,7 @@ zi ice depth=1; zi light romkatv/powerlevel10k
 
 - Run manually: `p10k configure` (The file `~/.p10k.zsh` auto sourced if exists).
 
-```shell
+```zsh
 zi light-mode for @romkatv
 ```
 
@@ -89,21 +89,21 @@ After finishing the configuration wizard last question:
 
 - "Apply changes to ~/.zshrc?" choose no - unless you know what you're doing.
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice depth'1' atload"[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh" nocd
 zi light romkatv/powerlevel10k
 ```
 
 ### THP: [ohmyzsh/robbyrussell](https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/robbyrussell.zsh-theme) {/* #thp-ohmyzshrobbyrussell */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi wait'!' lucid for OMZL::prompt_info_functions.zsh \
   OMZT::robbyrussell
 ```
 
 ### THP: [z-shell/zprompts](https://github.com/z-shell/zprompts) {/* #thp-z-shellzprompts */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi lucid for \
   atload"!promptinit; typeset -g PSSHORT=0; \
   prompt sprint3 yellow red green blue" nocd \
@@ -112,14 +112,14 @@ zi lucid for \
 
 ### THP: [halfo/lambda-mod-zsh-theme](https://github.com/halfo/lambda-mod-zsh-theme) {/* #thp-halfolambda-mod-zsh-theme */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi lucid for nocd \
   halfo/lambda-mod-zsh-theme
 ```
 
 ### THP: [geometry-zsh/geometry](https://github.com/geometry-zsh/geometry) {/* #thp-geometry-zshgeometry */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi lucid for atload"!geometry::prompt" \
   atinit"GEOMETRY_COLOR_DIR=63 GEOMETRY_PATH_COLOR=63" nocd \
     geometry-zsh/geometry
@@ -127,7 +127,7 @@ zi lucid for atload"!geometry::prompt" \
 
 ### THP: [sindresorhus/pure](https://github.com/sindresorhus/pure) {/* #thp-sindresorhuspure */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi lucid for pick"/dev/null" multisrc"{async,pure}.zsh" \
 atload"!prompt_pure_precmd" nocd \
   sindresorhus/pure
@@ -135,13 +135,13 @@ atload"!prompt_pure_precmd" nocd \
 
 Install as meta-plugin:
 
-```shell
+```zsh
 zi light-mode for @sindresorhus/pure
 ```
 
 Personalised:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi light-mode for compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh' atload" \
   PURE_GIT_UP_ARROW='↑'; PURE_GIT_DOWN_ARROW='↓'; PURE_PROMPT_SYMBOL='ᐳ'; PURE_PROMPT_VICMD_SYMBOL='ᐸ'; \
   zstyle ':prompt:pure:prompt:success' color 'green' \
@@ -154,7 +154,7 @@ zi light-mode for compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh' atload
 
 ### THP: [agkozak/agkozak-zsh-prompt](https://github.com/agkozak/agkozak-zsh-prompt) {/* #thp-agkozakagkozak-zsh-prompt */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi lucid nocd atinit"AGKOZAK_COLORS_PROMPT_CHAR='magenta' AGKOZAK_MULTILINE=0 \
   AGKOZAK_PROMPT_CHAR=( ❯ ❯ ❮ ) AGKOZAK_USER_HOST_DISPLAY=0" for \
     agkozak/agkozak-zsh-prompt
@@ -162,20 +162,20 @@ zi lucid nocd atinit"AGKOZAK_COLORS_PROMPT_CHAR='magenta' AGKOZAK_MULTILINE=0 \
 
 Install as meta-plugin:
 
-```shell
+```zsh
 zi for @agkozak/agkozak-zsh-prompt
 ```
 
 ### THP: [chauncey-garrett/zsh-prompt-garrett](https://github.com/chauncey-garrett/zsh-prompt-garrett) {/* #thp-chauncey-garrettzsh-prompt-garrett */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice atload"fpath+=( \$PWD );"
 zi light chauncey-garrett/zsh-prompt-garrett
 ```
 
 ### THP: [starship/starship](https://github.com/starship/starship) {/* #thp-starshipstarship */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice as"command" from"gh-r" \
   atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
   atpull"%atclone" src"init.zsh"
@@ -184,7 +184,7 @@ zi light starship/starship
 
 ### THP: [robobenklein/zinc][robobenklein/zinc] {/* #thp-robobenkleinzincrobobenkleinzinc */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice wait'!' lucid nocompletions \
   compile"{zinc_functions/*,segments/*,zinc.zsh}" \
   atload'!prompt_zinc_setup; prompt_zinc_precmd'
@@ -193,7 +193,7 @@ zi load robobenklein/zinc
 
 ZINC git info is already async, but if you want it even faster with [gitstatus][gitstatus] in turbo mode:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi ice wait'1' atload'zinc_optional_dependency_loaded'
 zi load romkatv/gitstatus
 ```

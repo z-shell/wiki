@@ -1,0 +1,270 @@
+---
+id: zunit-assertions
+title: "✅ Assertions"
+sidebar_position: 3
+image: /img/png/theme/z/320x320.png
+description: Complete reference for all ZUnit assertion functions.
+keywords:
+  - zunit
+  - assertions
+  - zsh
+  - testing
+toc_max_heading_level: 3
+---
+
+Assertions are called through the `assert` helper:
+
+```zunit
+assert <value> <assertion> [<comparison>...]
+```
+
+If an assertion fails, the test stops immediately and is marked as failed.
+
+## String assertions
+
+### `same_as`
+
+Passes when `$value` is equal to `$comparison` (string equality).
+
+```zunit
+assert "$output" same_as 'expected string'
+```
+
+### `different_to`
+
+Passes when `$value` is **not** equal to `$comparison`.
+
+```zunit
+assert "$result" different_to 'forbidden'
+```
+
+### `contains`
+
+Passes when `$value` contains `$comparison` as a substring.
+
+```zunit
+assert "$output" contains 'hello'
+```
+
+### `does_not_contain`
+
+Passes when `$value` does **not** contain `$comparison`.
+
+```zunit
+assert "$output" does_not_contain 'error'
+```
+
+### `is_substring_of`
+
+Passes when `$value` is a substring of `$comparison` (reverse of `contains`).
+
+```zunit
+assert 'hell' is_substring_of 'hello world'
+```
+
+### `is_not_substring_of`
+
+Passes when `$value` is **not** a substring of `$comparison`.
+
+```zunit
+assert 'xyz' is_not_substring_of 'hello world'
+```
+
+### `matches`
+
+Passes when `$value` matches the regex `$pattern`.
+
+```zunit
+assert "$output" matches '^[0-9]+$'
+```
+
+### `does_not_match`
+
+Passes when `$value` does **not** match the regex `$pattern`.
+
+```zunit
+assert "$output" does_not_match '^Error'
+```
+
+### `is_empty`
+
+Passes when `$value` is an empty string or unset.
+
+```zunit
+assert "$output" is_empty
+```
+
+### `is_not_empty`
+
+Passes when `$value` is non-empty.
+
+```zunit
+assert "$result" is_not_empty
+```
+
+## Integer assertions
+
+### `equals`
+
+Passes when the two integers are equal (`-eq`).
+
+```zunit
+assert $state equals 0
+```
+
+### `not_equal_to`
+
+Passes when the two integers are **not** equal (`-ne`).
+
+```zunit
+assert $count not_equal_to 0
+```
+
+### `is_positive`
+
+Passes when the integer is greater than zero.
+
+```zunit
+assert $count is_positive
+```
+
+### `is_negative`
+
+Passes when the integer is less than zero.
+
+```zunit
+assert $diff is_negative
+```
+
+### `is_greater_than`
+
+Passes when `$value` is greater than `$comparison` (`-gt`).
+
+```zunit
+assert $count is_greater_than 5
+```
+
+### `is_less_than`
+
+Passes when `$value` is less than `$comparison` (`-lt`).
+
+```zunit
+assert $count is_less_than 100
+```
+
+## Array assertions
+
+### `in`
+
+Passes when `$value` is found in the array.
+
+```zunit
+local -a fruits=(apple banana cherry)
+assert 'banana' in "${fruits[@]}"
+```
+
+### `not_in`
+
+Passes when `$value` is **not** found in the array.
+
+```zunit
+assert 'grape' not_in "${fruits[@]}"
+```
+
+## Hash assertions
+
+### `is_key_in`
+
+Passes when `$value` is a key in the associative array.
+
+```zunit
+local -A config=(host localhost port 5432)
+assert 'host' is_key_in "${(kv)config[@]}"
+```
+
+### `is_not_key_in`
+
+Passes when `$value` is **not** a key in the hash.
+
+```zunit
+assert 'password' is_not_key_in "${(kv)config[@]}"
+```
+
+### `is_value_in`
+
+Passes when `$value` is a value in the associative array.
+
+```zunit
+assert 'localhost' is_value_in "${(kv)config[@]}"
+```
+
+### `is_not_value_in`
+
+Passes when `$value` is **not** a value in the hash.
+
+```zunit
+assert 'remotehost' is_not_value_in "${(kv)config[@]}"
+```
+
+## Filesystem assertions
+
+All filesystem assertions accept relative paths (resolved against the test
+directory) or absolute paths.
+
+### `exists`
+
+Passes when the path exists (file, directory, or symlink).
+
+```zunit
+assert 'output.txt' exists
+```
+
+### `is_file`
+
+Passes when the path exists and is a regular file.
+
+```zunit
+assert 'output.txt' is_file
+```
+
+### `is_dir`
+
+Passes when the path exists and is a directory.
+
+```zunit
+assert '_output' is_dir
+```
+
+### `is_link`
+
+Passes when the path exists and is a symbolic link.
+
+```zunit
+assert 'current' is_link
+```
+
+### `is_readable`
+
+Passes when the path exists and is readable by the current user.
+
+```zunit
+assert 'config.yml' is_readable
+```
+
+### `is_writable`
+
+Passes when the path exists and is writable.
+
+```zunit
+assert 'output.txt' is_writable
+```
+
+### `is_executable`
+
+Passes when the path exists and is executable.
+
+```zunit
+assert 'myscript.zsh' is_executable
+```
+
+{/* end-of-file */}

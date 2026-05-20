@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="docs-bg" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#23c88a" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#50df8e" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="docs-page" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#50df8e" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#23c88a" stop-opacity="0.12"/>
+    </linearGradient>
+    <filter id="docs-glow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="120" height="120" rx="20" fill="url(#docs-bg)"/>
+
+  <!-- Document stack (back) -->
+  <rect x="38" y="24" width="52" height="66" rx="5" fill="#23c88a" opacity="0.12" transform="rotate(4,64,57)"/>
+
+  <!-- Main document -->
+  <rect x="30" y="20" width="56" height="72" rx="5" fill="url(#docs-page)" stroke="#23c88a" stroke-width="1" stroke-opacity="0.4" filter="url(#docs-glow)"/>
+
+  <!-- Folded corner -->
+  <path d="M72 20 L86 20 L86 34 Z" fill="#23c88a" opacity="0.15"/>
+  <path d="M72 20 L72 34 L86 34" stroke="#23c88a" stroke-width="0.8" stroke-opacity="0.4" fill="none"/>
+
+  <!-- Text lines on document -->
+  <rect x="38" y="42" width="36" height="4" rx="2" fill="#23c88a" opacity="0.5"/>
+  <rect x="38" y="52" width="30" height="3.5" rx="1.75" fill="#50df8e" opacity="0.35"/>
+  <rect x="38" y="61" width="38" height="3.5" rx="1.75" fill="#50df8e" opacity="0.3"/>
+  <rect x="38" y="70" width="24" height="3.5" rx="1.75" fill="#50df8e" opacity="0.25"/>
+
+  <!-- Pen / pencil (overlapping bottom-right) -->
+  <g transform="translate(70,72) rotate(-40)">
+    <!-- Pen body -->
+    <rect x="-4" y="-22" width="8" height="30" rx="2" fill="#23c88a" opacity="0.85"/>
+    <!-- Pen tip -->
+    <polygon points="-4,8 4,8 0,16" fill="#50df8e" opacity="0.9"/>
+    <!-- Pen eraser top -->
+    <rect x="-4" y="-26" width="8" height="6" rx="2" fill="#7feca2" opacity="0.6"/>
+    <!-- Pen clip -->
+    <rect x="3" y="-22" width="2" height="20" rx="1" fill="#7feca2" opacity="0.4"/>
+  </g>
+
+  <!-- Writing sparkle -->
+  <text x="84" y="96" font-size="9" fill="#ffbd2e" opacity="0.65">✦</text>
+</svg>

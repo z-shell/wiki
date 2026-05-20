@@ -23,7 +23,7 @@ To find more information about anything use [search][3] or just <kbd>CTRL+K</kbd
 
 :::
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi light-mode for \
   zsh-users/zsh-autosuggestions \
   z-shell/F-Sy-H \
@@ -34,7 +34,7 @@ zi light-mode for \
 
 It is best presented by real-world examples:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi wait"3" lucid for as"null" \
   sbin Fakerr/git-recall \
   sbin paulirish/git-open \
@@ -48,7 +48,7 @@ The above single command installs 6 plugins ([git extension][2] packages), with 
 
 Load a few useful binary packages from the [GitHub releases][1], utils:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi for as"null" wait"2" lucid from"gh-r" \
   mv"exa* -> exa" sbin ogham/exa \
   mv"fd* -> fd" sbin"fd/fd" @sharkdp/fd \
@@ -64,7 +64,7 @@ zi for as"null" wait"2" lucid from"gh-r" \
 
 [Turbo][6] load some plugins, without any plugin-specific ices:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi wait lucid for \
   hlissner/zsh-autopair \
   urbainvaes/fzf-marks
@@ -72,7 +72,7 @@ zi wait lucid for \
 
 Load two [Oh-My-Zsh][7] files as [snippets][8], in turbo mode:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi wait lucid for \
     OMZ::lib/git.zsh \
   atload"unalias grv" \
@@ -81,7 +81,7 @@ zi wait lucid for \
 
 Popular plugin set with [turbo][6] and The "For":
 
-```shell {1} showLineNumbers
+```zsh {1} showLineNumbers
 zi wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
     z-shell/F-Sy-H \
@@ -114,7 +114,7 @@ zi wait lucid light-mode for \
 
 ### <i class="fa-solid fa-forward-step"></i> Without [turbo mode][6] and The "For" {/* #i-classfa-solid-fa-forward-stepi-without-turbo-mode6-and-the-for */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 # A.
 setopt prompt_subst
 
@@ -142,7 +142,7 @@ zi light z-shell/F-Sy-H
 
 ### <i class="fa-solid fa-forward-fast"></i> With [turbo mode][6] and The "For" {/* #i-classfa-solid-fa-forward-fasti-with-turbo-mode6-and-the-for */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 # A.
 setopt prompt_subst
 
@@ -193,7 +193,7 @@ Try both setups on the daily basis to notice the difference. The features of Zi 
 
 The `zi-turbo` is a function to simplify `wait`:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 zi-turbo() {
   zi depth'3' lucid ${1/#[0-9][a-c]/wait"${1}"} "${@:2}"
 }
@@ -201,7 +201,7 @@ zi-turbo() {
 
 Then use the `for` syntax in the imposed loading order:
 
-```shell {1,6,10,15} showLineNumbers
+```zsh {1,6,10,15} showLineNumbers
 zi-turbo '0a' for \
   OMZL::git.zsh \
   OMZL::compfix.zsh \

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="pm-bg" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#23c88a" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#50df8e" stop-opacity="0.05"/>
+    </linearGradient>
+    <filter id="pm-glow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="120" height="120" rx="20" fill="url(#pm-bg)"/>
+
+  <!-- Kanban board frame -->
+  <rect x="16" y="26" width="88" height="74" rx="7" fill="#23c88a" fill-opacity="0.07" stroke="#23c88a" stroke-width="0.8" stroke-opacity="0.3" filter="url(#pm-glow)"/>
+
+  <!-- Board header -->
+  <rect x="16" y="26" width="88" height="14" rx="7" fill="#23c88a" opacity="0.18"/>
+  <rect x="16" y="33" width="88" height="7" fill="#23c88a" opacity="0.18"/>
+  <text x="60" y="36.5" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7.5" fill="#23c88a" opacity="0.9" font-weight="600">Z-Shell Tracker</text>
+
+  <!-- Column dividers -->
+  <line x1="47" y1="40" x2="47" y2="96" stroke="#23c88a" stroke-width="0.5" stroke-opacity="0.25"/>
+  <line x1="78" y1="40" x2="78" y2="96" stroke="#23c88a" stroke-width="0.5" stroke-opacity="0.25"/>
+
+  <!-- Column headers -->
+  <text x="31.5" y="50" text-anchor="middle" font-family="system-ui,sans-serif" font-size="6" fill="#23c88a" opacity="0.7">Todo</text>
+  <text x="62.5" y="50" text-anchor="middle" font-family="system-ui,sans-serif" font-size="6" fill="#ffbd2e" opacity="0.8">In Progress</text>
+  <text x="93" y="50" text-anchor="middle" font-family="system-ui,sans-serif" font-size="6" fill="#27c93f" opacity="0.8">Done</text>
+
+  <!-- Todo column cards -->
+  <rect x="20" y="54" width="24" height="11" rx="2.5" fill="#23c88a" opacity="0.2"/>
+  <rect x="22" y="57" width="16" height="2.5" rx="1.25" fill="#23c88a" opacity="0.5"/>
+  <rect x="22" y="61" width="12" height="2.5" rx="1.25" fill="#23c88a" opacity="0.3"/>
+
+  <rect x="20" y="68" width="24" height="11" rx="2.5" fill="#23c88a" opacity="0.15"/>
+  <rect x="22" y="71" width="14" height="2.5" rx="1.25" fill="#23c88a" opacity="0.4"/>
+  <rect x="22" y="75" width="18" height="2.5" rx="1.25" fill="#23c88a" opacity="0.25"/>
+
+  <!-- In Progress column card (highlighted) -->
+  <rect x="51" y="54" width="24" height="18" rx="2.5" fill="#ffbd2e" opacity="0.15" stroke="#ffbd2e" stroke-width="0.6" stroke-opacity="0.4"/>
+  <rect x="53" y="57" width="16" height="2.5" rx="1.25" fill="#ffbd2e" opacity="0.5"/>
+  <rect x="53" y="61" width="12" height="2.5" rx="1.25" fill="#ffbd2e" opacity="0.3"/>
+  <rect x="53" y="65" width="14" height="2.5" rx="1.25" fill="#ffbd2e" opacity="0.2"/>
+
+  <!-- Done column cards (checked) -->
+  <rect x="82" y="54" width="24" height="11" rx="2.5" fill="#27c93f" opacity="0.12" stroke="#27c93f" stroke-width="0.6" stroke-opacity="0.3"/>
+  <circle cx="86.5" cy="59.5" r="3.5" fill="#27c93f" opacity="0.4"/>
+  <polyline points="84.8,59.5 86,61 88.5,57.5" stroke="#27c93f" stroke-width="1" fill="none" opacity="0.8"/>
+  <rect x="91" y="57" width="12" height="2.5" rx="1.25" fill="#27c93f" opacity="0.4"/>
+  <rect x="91" y="61" width="9" height="2.5" rx="1.25" fill="#27c93f" opacity="0.25"/>
+
+  <rect x="82" y="68" width="24" height="11" rx="2.5" fill="#27c93f" opacity="0.12" stroke="#27c93f" stroke-width="0.6" stroke-opacity="0.3"/>
+  <circle cx="86.5" cy="73.5" r="3.5" fill="#27c93f" opacity="0.4"/>
+  <polyline points="84.8,73.5 86,75 88.5,71.5" stroke="#27c93f" stroke-width="1" fill="none" opacity="0.8"/>
+  <rect x="91" y="71" width="10" height="2.5" rx="1.25" fill="#27c93f" opacity="0.4"/>
+  <rect x="91" y="75" width="14" height="2.5" rx="1.25" fill="#27c93f" opacity="0.25"/>
+
+  <!-- Labels badge strip at bottom -->
+  <rect x="20" y="90" width="18" height="7" rx="3.5" fill="#23c88a" opacity="0.3"/>
+  <rect x="41" y="90" width="22" height="7" rx="3.5" fill="#50df8e" opacity="0.2"/>
+  <rect x="66" y="90" width="16" height="7" rx="3.5" fill="#ffbd2e" opacity="0.2"/>
+  <rect x="85" y="90" width="14" height="7" rx="3.5" fill="#ff5f56" opacity="0.15"/>
+</svg>

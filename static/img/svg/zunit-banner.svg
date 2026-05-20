@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 140" fill="none">
+  <defs>
+    <linearGradient id="zub-bg" x1="0" y1="0" x2="720" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.12"/>
+      <stop offset="55%" stop-color="#0891b2" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="zub-pass" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="zub-fail" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <linearGradient id="zub-header" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#0891b2"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <filter id="zub-glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="zub-glow-sm">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="720" height="140" rx="16" fill="url(#zub-bg)" stroke="#06b6d4" stroke-width="0.6" stroke-opacity="0.25"/>
+
+  <!-- LEFT: @test code block -->
+  <rect x="28" y="18" width="210" height="104" rx="10" fill="#0f172a" fill-opacity="0.60" stroke="#0891b2" stroke-width="0.9" stroke-opacity="0.45"/>
+  <rect x="28" y="18" width="210" height="22" rx="10" fill="url(#zub-header)" opacity="0.75"/>
+  <rect x="28" y="30" width="210" height="10" fill="url(#zub-header)" opacity="0.75"/>
+  <!-- Traffic lights -->
+  <circle cx="43" cy="29" r="3.5" fill="#f43f5e" opacity="0.85"/>
+  <circle cx="54" cy="29" r="3.5" fill="#fbbf24" opacity="0.85"/>
+  <circle cx="65" cy="29" r="3.5" fill="#22d3ee" opacity="0.85"/>
+  <text x="119" y="33" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#e0f2fe" opacity="0.9">zunit — test.zsh</text>
+  <!-- Code -->
+  <text x="40" y="56" font-family="monospace" font-size="7.5" fill="#f43f5e" opacity="0.95">@test</text>
+  <text x="72" y="56" font-family="monospace" font-size="7.5" fill="#e0f2fe" opacity="0.8">'parses flags correctly' {</text>
+  <text x="40" y="68" font-family="monospace" font-size="7.5" fill="#94a3b8" opacity="0.75">  run</text>
+  <text x="58" y="68" font-family="monospace" font-size="7.5" fill="#22d3ee" opacity="0.85"> parse_flags --verbose</text>
+  <text x="40" y="80" font-family="monospace" font-size="7.5" fill="#f43f5e" opacity="0.9">  assert</text>
+  <text x="74" y="80" font-family="monospace" font-size="7.5" fill="#22d3ee" opacity="0.8"> "${status}"</text>
+  <text x="40" y="92" font-family="monospace" font-size="7.5" fill="#94a3b8" opacity="0.7">    equals</text>
+  <text x="84" y="92" font-family="monospace" font-size="7.5" fill="#fbbf24" opacity="0.85"> 0</text>
+  <text x="40" y="104" font-family="monospace" font-size="7.5" fill="#e0f2fe" opacity="0.6">}</text>
+  <text x="133" y="132" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#06b6d4" opacity="0.9" font-weight="600">Write @test blocks</text>
+
+  <!-- Connector -->
+  <path d="M246 70 L266 70" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.5"/>
+  <polygon points="266,67 272,70 266,73" fill="#06b6d4" opacity="0.6"/>
+
+  <!-- CENTER: Test result output -->
+  <rect x="279" y="18" width="162" height="104" rx="10" fill="#0f172a" fill-opacity="0.55" stroke="#0891b2" stroke-width="0.9" stroke-opacity="0.40"/>
+  <text x="360" y="35" text-anchor="middle" font-family="monospace" font-size="8" fill="#22d3ee" opacity="0.85">$ zunit run</text>
+  <line x1="279" y1="43" x2="441" y2="43" stroke="#0891b2" stroke-width="0.4" stroke-opacity="0.35"/>
+  <!-- Pass rows -->
+  <text x="293" y="58" font-family="monospace" font-size="8" fill="#22d3ee" opacity="0.9">✔</text>
+  <text x="305" y="58" font-family="monospace" font-size="7.5" fill="#a5f3fc" opacity="0.8">parses flags</text>
+  <text x="293" y="70" font-family="monospace" font-size="8" fill="#22d3ee" opacity="0.9">✔</text>
+  <text x="305" y="70" font-family="monospace" font-size="7.5" fill="#a5f3fc" opacity="0.8">handles errors</text>
+  <!-- Fail row -->
+  <text x="293" y="82" font-family="monospace" font-size="8" fill="#f43f5e" opacity="0.9">✘</text>
+  <text x="305" y="82" font-family="monospace" font-size="7.5" fill="#fda4af" opacity="0.85">edge case: empty</text>
+  <text x="293" y="94" font-family="monospace" font-size="8" fill="#22d3ee" opacity="0.9">✔</text>
+  <text x="305" y="94" font-family="monospace" font-size="7.5" fill="#a5f3fc" opacity="0.8">teardown runs</text>
+  <!-- Summary bar -->
+  <rect x="293" y="104" width="128" height="7" rx="3.5" fill="#1e293b" opacity="0.9"/>
+  <rect x="293" y="104" width="96" height="7" rx="3.5" fill="url(#zub-pass)" opacity="0.80"/>
+  <rect x="389" y="104" width="32" height="7" rx="3.5" fill="url(#zub-fail)" opacity="0.85"/>
+  <text x="360" y="126" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#06b6d4" opacity="0.9" font-weight="600">See clear output</text>
+
+  <!-- Connector -->
+  <path d="M449 70 L469 70" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.5"/>
+  <polygon points="469,67 475,70 469,73" fill="#06b6d4" opacity="0.6"/>
+
+  <!-- RIGHT: Stats panel -->
+  <rect x="482" y="18" width="210" height="104" rx="10" fill="#0f172a" fill-opacity="0.50" stroke="#0891b2" stroke-width="0.8" stroke-opacity="0.40"/>
+  <text x="587" y="36" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#a5f3fc" opacity="0.9" font-weight="700">ZUnit features</text>
+  <line x1="482" y1="43" x2="692" y2="43" stroke="#0891b2" stroke-width="0.4" stroke-opacity="0.3"/>
+
+  <!-- Feature list with colored dots -->
+  <circle cx="496" cy="56" r="3.5" fill="#f43f5e" opacity="0.85" filter="url(#zub-glow-sm)"/>
+  <text x="507" y="60" font-family="system-ui,sans-serif" font-size="8" fill="#e0f2fe" opacity="0.85">@setup · @teardown · @test</text>
+  <circle cx="496" cy="71" r="3.5" fill="#22d3ee" opacity="0.85"/>
+  <text x="507" y="75" font-family="system-ui,sans-serif" font-size="8" fill="#e0f2fe" opacity="0.85">assert · assert_equal · assert_match</text>
+  <circle cx="496" cy="86" r="3.5" fill="#fbbf24" opacity="0.85"/>
+  <text x="507" y="90" font-family="system-ui,sans-serif" font-size="8" fill="#e0f2fe" opacity="0.85">TAP-compliant output</text>
+  <circle cx="496" cy="101" r="3.5" fill="#22d3ee" opacity="0.85"/>
+  <text x="507" y="105" font-family="system-ui,sans-serif" font-size="8" fill="#e0f2fe" opacity="0.85">CI-ready · no deps · pure Zsh</text>
+
+  <!-- Pass / Fail counter badges -->
+  <rect x="494" y="112" width="50" height="14" rx="7" fill="#06b6d4" fill-opacity="0.20" stroke="#22d3ee" stroke-width="0.8" stroke-opacity="0.6"/>
+  <text x="519" y="122" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#22d3ee" font-weight="700">3 passed</text>
+  <rect x="552" y="112" width="44" height="14" rx="7" fill="#f43f5e" fill-opacity="0.18" stroke="#fb7185" stroke-width="0.8" stroke-opacity="0.6"/>
+  <text x="574" y="122" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#fb7185" font-weight="700">1 failed</text>
+  <rect x="604" y="112" width="76" height="14" rx="7" fill="#0f172a" fill-opacity="0.5" stroke="#0891b2" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="642" y="122" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#94a3b8" font-weight="600">0 skipped</text>
+
+  <text x="587" y="134" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8.5" fill="#0891b2" opacity="0.85" font-weight="600">Zsh-native unit testing</text>
+
+  <g opacity="0.12">
+    <circle cx="20" cy="20" r="1.5" fill="#06b6d4"/>
+    <circle cx="700" cy="20" r="1.5" fill="#06b6d4"/>
+    <circle cx="20" cy="120" r="1.5" fill="#06b6d4"/>
+    <circle cx="700" cy="120" r="1.5" fill="#06b6d4"/>
+  </g>
+</svg>
