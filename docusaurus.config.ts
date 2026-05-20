@@ -32,16 +32,6 @@ export default async function createConfigAsync() {
         tagName: "link",
         attributes: {
           rel: "preload",
-          href: "/cdn/fonts/webfonts/hack-regular-subset.woff2",
-          as: "font",
-          type: "font/woff2",
-          crossorigin: "anonymous",
-        },
-      },
-      {
-        tagName: "link",
-        attributes: {
-          rel: "preload",
           href: "/cdn/fonts/variable/JetBrainsMono[wght].woff2",
           as: "font",
           type: "font/woff2",

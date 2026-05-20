@@ -1,0 +1,36 @@
+# https://wiki.zshell.dev/robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /cdn-cgi/
+
+# AI / LLM crawlers — allow full access to the documentation
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Prevent staging/preview deployments from being crawled
+User-agent: *
+Disallow: /*.pages.dev/
+
+Sitemap: https://wiki.zshell.dev/sitemap.xml
