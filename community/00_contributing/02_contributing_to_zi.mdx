@@ -42,7 +42,7 @@ zi/
 
 ## Setting Up Locally
 
-```shell
+```sh
 git clone https://github.com/<your-username>/zi.git
 cd zi
 git remote add upstream https://github.com/z-shell/zi.git
@@ -52,7 +52,7 @@ git checkout -b feat/my-change next
 No build step is required — zi is pure Zsh. To test changes interactively, source
 the modified files in a Zsh session:
 
-```shell
+```zsh
 zsh
 source lib/zsh/zi.zsh
 ```
@@ -61,7 +61,7 @@ source lib/zsh/zi.zsh
 
 Zi uses [ZUnit](https://github.com/z-shell/zunit) for tests:
 
-```shell
+```zunit
 # Run all tests
 zunit
 

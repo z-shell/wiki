@@ -30,7 +30,7 @@ This guide applies to **all repositories** in the Z-Shell organization. Repo-spe
 
 ## Fork and Clone
 
-```shell
+```sh
 # 1. Fork the repo on GitHub, then clone your fork
 git clone https://github.com/<your-username>/<repo>.git
 cd <repo>
@@ -100,7 +100,7 @@ BREAKING CHANGE: description of what breaks
 
 To tidy commits before opening a PR:
 
-```shell
+```sh
 git rebase -i $(git merge-base HEAD next)
 ```
 
@@ -123,7 +123,7 @@ Before opening a PR:
 
 ## Keeping Your Fork Up to Date
 
-```shell
+```sh
 git fetch upstream
 git rebase upstream/next  # for feature branches
 ```

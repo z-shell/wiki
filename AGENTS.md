@@ -71,4 +71,4 @@
 - Prefer small, scoped edits that match surrounding MDX and TypeScript style.
 - Link to existing docs rather than duplicating long guidance.
 - Scoped instruction files in `.github/instructions/` are auto-applied by file glob — prefer updating those for domain-specific guidance over modifying this file.
-- Do not introduce new global instruction files (e.g., `AGENTS.md`) unless explicitly requested.
+- Do not introduce additional global instruction files beyond the documented repo entry points unless explicitly requested.

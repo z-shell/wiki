@@ -119,8 +119,6 @@ exclude = [
   # Asciinema (embeds, not navigational links)
   'https://asciinema\.org',
 
-  # Archived/removed z-shell repositories that are referenced in docs for historical context
-  'https://github\.com/z-shell/zsh-startify',
 ]
 
 # Exclude paths from being checked (regex patterns)

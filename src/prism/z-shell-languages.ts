@@ -20,7 +20,7 @@ export function registerZShellLanguages(Prism: typeof PrismNamespace): void {
       alias: "attr-value",
     },
     "zsh-special-parameter": {
-      pattern: /\$(?:[#*@?!$]|[A-Za-z_][\w-]*|\{[^}\n]+\})/,
+      pattern: /\$(?:[#*@?!$]|[A-Za-z_]\w*|\{[^}\n]+\})/,
       alias: "variable",
     },
     "zsh-glob-qualifier": {
