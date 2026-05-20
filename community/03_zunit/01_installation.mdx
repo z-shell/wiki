@@ -16,7 +16,7 @@ keywords:
 ZUnit requires:
 
 - **Zsh** (any reasonably recent version)
-- **[Revolver](https://github.com/zdharma/revolver)** — a progress spinner,
+- **[Revolver](https://github.com/z-shell/revolver)** — a progress spinner,
   must be available in `$PATH`
 
 ## Manual install
@@ -32,7 +32,7 @@ cp ./zunit /usr/local/bin
 Install Revolver alongside it:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/zdharma/revolver/master/revolver \
+curl -fsSL https://raw.githubusercontent.com/z-shell/revolver/master/revolver \
   > /usr/local/bin/revolver
 chmod u+x /usr/local/bin/revolver
 ```
@@ -44,8 +44,8 @@ If you prefer to keep dependencies local to a project (useful for CI):
 ```sh
 mkdir -p .bin
 curl -fsSL "https://github.com/z-shell/zunit/releases/latest/download/zunit" > .bin/zunit
-curl -fsSL "https://raw.githubusercontent.com/zdharma/revolver/master/revolver" > .bin/revolver
-curl -fsSL "https://raw.githubusercontent.com/zdharma/color/master/color.zsh" > .bin/color
+curl -fsSL "https://raw.githubusercontent.com/z-shell/revolver/master/revolver" > .bin/revolver
+curl -fsSL "https://raw.githubusercontent.com/z-shell/color/master/color.zsh" > .bin/color
 chmod u+x .bin/{color,revolver,zunit}
 export PATH="$PWD/.bin:$PATH"
 ```
@@ -89,7 +89,7 @@ See [Configuration](./05_configuration.mdx) for the `.zunit.yml` key reference a
 :::note[Legacy package-manager recipes]
 
 Older recipes may reference historical coordinates such as `zunit-zsh/zunit`
-or `zdharma/zunit`. These are not the canonical source. Prefer the manual
+or `z-shell/zunit`. These are not the canonical source. Prefer the manual
 install or the `z-shell/zunit` Zi snippet shown above.
 
 :::
