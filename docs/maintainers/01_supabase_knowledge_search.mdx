@@ -1,0 +1,45 @@
+---
+id: supabase_knowledge_search
+title: Supabase Knowledge Search
+sidebar_position: 1
+image: /img/png/theme/z/320x320.png
+description: Maintainer guide for the Supabase-backed Z-Shell documentation search index.
+keywords:
+  - supabase
+  - search
+  - embeddings
+  - maintainers
+---
+
+Z-Shell Knowledge Search indexes public wiki documentation into Supabase so maintainers can run source-linked semantic search across the docs.
+
+GitHub repositories and the wiki remain the source of truth. Supabase stores derived metadata, chunks, and embeddings only.
+
+## Secrets
+
+- `SUPABASE_URL`: Supabase project API URL.
+- `SUPABASE_DB_URL`: direct Postgres connection string for server-side ingestion.
+- `SUPABASE_SERVICE_ROLE_KEY`: server-only key for Edge Function and maintainer CLI calls.
+- `OPENAI_API_KEY`: embedding provider key.
+
+Do not expose server-side secrets in browser code.
+
+## Index
+
+```sh
+pnpm knowledge-search:index
+```
+
+The indexer scans `docs/`, `community/`, and `ecosystem/` Markdown and MDX files, chunks the content, generates embeddings, and upserts rows into the private `docs_search` schema.
+
+## Query
+
+```sh
+pnpm knowledge-search:query "release policy"
+```
+
+The query command calls the `knowledge-search` Edge Function and prints source-linked results.
+
+## Access Control
+
+The `docs_search` schema is private. Public search uses the `public.match_public_docs` function, which returns only sources marked `public`.
