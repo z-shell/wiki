@@ -5,6 +5,17 @@ interface Env {
 }
 
 export const onRequest: PagesFunction<Env> = async (context) => {
+  if (context.request.method === "OPTIONS") {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
+        "Access-Control-Max-Age": "86400",
+      },
+    });
+  }
+
   const response = await context.next();
   if (response.status !== 404) {
     return response;
@@ -29,7 +40,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   headers.set("ETag", object.httpEtag);
   headers.set("Access-Control-Allow-Origin", "*");
   if (url.pathname.startsWith("/cdn/")) {
-    headers.set("X-Robots-Tag", "nosnippet, noindex");
+    headers.set("X-Robots-Tag", "noindex, noarchive");
   }
 
   return new Response(object.body, {headers});
