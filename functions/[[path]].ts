@@ -27,6 +27,10 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   object.writeHttpMetadata(headers);
   headers.set("Cache-Control", "public, max-age=31536000, immutable");
   headers.set("ETag", object.httpEtag);
+  headers.set("Access-Control-Allow-Origin", "*");
+  if (url.pathname.startsWith("/cdn/")) {
+    headers.set("X-Robots-Tag", "nosnippet, noindex");
+  }
 
   return new Response(object.body, {headers});
 };
