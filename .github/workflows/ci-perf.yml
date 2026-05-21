@@ -1,5 +1,5 @@
 ---
-name: "📊 Build Performance"
+name: Build Performance
 
 # Note! you can't safely use "pull_request_target" here
 # This workflow is mostly useful for "internal PRs"
@@ -36,7 +36,7 @@ env:
 
 jobs:
   build-size:
-    name: " 📊 Build Size Report"
+    name: Build Size Report
     timeout-minutes: 30
     runs-on: ubuntu-latest
     permissions:
@@ -67,7 +67,7 @@ jobs:
           compression: none
 
   build-time:
-    name: 💹 Build Time Perf
+    name: Build Time Perf
     timeout-minutes: 30
     runs-on: ubuntu-latest
     permissions:

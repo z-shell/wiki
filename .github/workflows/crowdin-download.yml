@@ -1,5 +1,5 @@
 ---
-name: "🌐 Crowdin Download"
+name: Crowdin Download
 
 on:
   schedule:

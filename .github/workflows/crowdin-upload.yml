@@ -1,5 +1,5 @@
 ---
-name: "🌐 Crowdin Upload"
+name: Crowdin Upload
 
 on:
   push:

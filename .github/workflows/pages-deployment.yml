@@ -1,5 +1,5 @@
 ---
-name: "🛳  Deploy Wiki"
+name: Deploy Wiki
 on:
   push:
     branches: [main]
@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   deploy:
-    name: 🛳  Deploying
+    name: Deploying
     timeout-minutes: 30
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'

@@ -1,5 +1,5 @@
 ---
-name: "🔄 R2 Sync"
+name: R2 Sync
 on:
   push:
     branches: [main]
