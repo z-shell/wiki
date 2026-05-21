@@ -3,7 +3,7 @@
     "target": "ES2022",
     "lib": ["ES2022"],
     "module": "ESNext",
-    "moduleResolution": "node16",
+    "moduleResolution": "bundler",
     "types": ["@cloudflare/workers-types"],
     "strict": true,
     "noEmit": true,
