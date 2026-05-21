@@ -4,7 +4,7 @@ import test from "node:test";
 import {formatResult, validateQueryEnv} from "./query.mjs";
 
 test("validateQueryEnv requires the public URL and server key", () => {
-  assert.throws(() => validateQueryEnv({SUPABASE_URL: "https://example.supabase.co"}), /SUPABASE_SERVICE_ROLE_KEY/u);
+  assert.throws(() => validateQueryEnv({SUPABASE_URL: "https://example.supabase.co"}), /SUPABASE_SECRET_KEY/u);
 });
 
 test("formatResult prints score, title, URL, and excerpt", () => {

@@ -1,7 +1,7 @@
 import {pathToFileURL} from "node:url";
 import process from "node:process";
 
-const REQUIRED_ENV = ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"];
+const REQUIRED_ENV = ["SUPABASE_URL", "SUPABASE_SECRET_KEY"];
 
 export function validateQueryEnv(env = process.env) {
   for (const name of REQUIRED_ENV) {
@@ -27,7 +27,7 @@ export async function runQuery(query, env = process.env) {
   const response = await fetch(`${env.SUPABASE_URL}/functions/v1/knowledge-search`, {
     method: "POST",
     headers: {
-      authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
+      apikey: env.SUPABASE_SECRET_KEY,
       "content-type": "application/json",
     },
     body: JSON.stringify({query, matchCount: 8}),

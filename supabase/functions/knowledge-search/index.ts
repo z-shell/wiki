@@ -5,11 +5,16 @@ import OpenAI from "jsr:@openai/openai";
 import {createClient} from "jsr:@supabase/supabase-js@2";
 
 const openai = new OpenAI({apiKey: Deno.env.get("OPENAI_API_KEY")});
-const supabase = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
+const supabaseSecretKey = Deno.env.get("SB_SECRET_KEY")!;
+const supabase = createClient(Deno.env.get("SUPABASE_URL")!, supabaseSecretKey);
 
 Deno.serve(async (request) => {
   if (request.method !== "POST") {
     return json({error: "method_not_allowed"}, 405);
+  }
+
+  if (request.headers.get("apikey") !== supabaseSecretKey) {
+    return json({error: "unauthorized"}, 401);
   }
 
   const body = await request.json().catch(() => null);
