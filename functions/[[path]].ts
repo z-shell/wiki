@@ -11,6 +11,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
+        "Access-Control-Allow-Headers": "Range, If-None-Match",
         "Access-Control-Max-Age": "86400",
       },
     });
@@ -18,6 +19,10 @@ export const onRequest: PagesFunction<Env> = async (context) => {
 
   const response = await context.next();
   if (response.status !== 404) {
+    return response;
+  }
+
+  if (context.request.method !== "GET" && context.request.method !== "HEAD") {
     return response;
   }
 
