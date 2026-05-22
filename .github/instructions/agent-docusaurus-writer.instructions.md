@@ -38,8 +38,10 @@ Invoke the `docusaurus-writer` agent and provide:
 
 Before creating a page, select the root:
 
-- Admin / tooling / operational / infrastructure → `community/`.
 - Zi plugin-manager user docs → `docs/`.
+- Community content (contributing, handbook, ZUnit) → `community/`.
 - Third-party ecosystem (annexes, packages, plugins) → `ecosystem/`.
+- Admin / tooling / operational / infrastructure → **not the wiki**; these are
+  runbooks for `z-shell/.github/runbooks/`.
 
-`docs/` is Zi user docs only — never put maintainer tooling there.
+Never put maintainer/operational documentation anywhere in the wiki.

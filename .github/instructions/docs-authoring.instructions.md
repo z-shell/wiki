@@ -9,15 +9,17 @@ applyTo: "{docs,community,ecosystem}/**/*.mdx"
 
 Choose the content root before writing. The roots are not interchangeable:
 
-| Content type                                       | Root                                            |
-| -------------------------------------------------- | ----------------------------------------------- |
-| Zi plugin-manager install / commands / usage       | `docs/`                                         |
-| Contributing, Zsh handbook, plugin standard, ZUnit | `community/`                                    |
-| Maintainer / operational / infrastructure guides   | `community/` (e.g. `community/10_maintainers/`) |
-| Third-party annexes, packages, plugins             | `ecosystem/`                                    |
+| Content type                                       | Root                                           |
+| -------------------------------------------------- | ---------------------------------------------- |
+| Zi plugin-manager install / commands / usage       | `docs/`                                        |
+| Contributing, Zsh handbook, plugin standard, ZUnit | `community/`                                   |
+| Maintainer / operational / infrastructure runbooks | **not the wiki** — `z-shell/.github/runbooks/` |
+| Third-party annexes, packages, plugins             | `ecosystem/`                                   |
 
 **Prohibition:** Never place maintainer, operational, or infrastructure
-documentation under `docs/`. `docs/` is Zi end-user documentation only.
+documentation anywhere in the wiki (neither `docs/` nor `community/`). It leaks
+ops surface and belongs in `z-shell/.github/runbooks/`. See ADR
+`decisions/0006-wiki-content-root-boundaries.md` in `z-shell/.github`.
 
 ## Frontmatter
 
