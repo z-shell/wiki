@@ -38,13 +38,15 @@ Deno.serve(async (request) => {
     });
 
     if (error) {
-      return json({error: "search_failed", detail: error.message}, 500);
+      // Log details server-side; do not leak internal error info to clients.
+      console.error("knowledge-search query failed:", error.message);
+      return json({error: "search_failed"}, 500);
     }
 
     return json({query, results: data});
   } catch (err) {
-    const message = err instanceof Error ? err.message : String(err);
-    return json({error: "internal_error", detail: message}, 500);
+    console.error("knowledge-search internal error:", err);
+    return json({error: "internal_error"}, 500);
   }
 });
 
