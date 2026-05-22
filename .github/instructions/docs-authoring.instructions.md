@@ -5,6 +5,20 @@ applyTo: "{docs,community,ecosystem}/**/*.mdx"
 
 # Docs Authoring
 
+## Content Root Selection
+
+Choose the content root before writing. The roots are not interchangeable:
+
+| Content type                                       | Root                                            |
+| -------------------------------------------------- | ----------------------------------------------- |
+| Zi plugin-manager install / commands / usage       | `docs/`                                         |
+| Contributing, Zsh handbook, plugin standard, ZUnit | `community/`                                    |
+| Maintainer / operational / infrastructure guides   | `community/` (e.g. `community/10_maintainers/`) |
+| Third-party annexes, packages, plugins             | `ecosystem/`                                    |
+
+**Prohibition:** Never place maintainer, operational, or infrastructure
+documentation under `docs/`. `docs/` is Zi end-user documentation only.
+
 ## Frontmatter
 
 Every MDX page starts with YAML frontmatter, then imports, then content:
