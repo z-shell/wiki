@@ -37,8 +37,14 @@ export async function runIndexer(env = process.env) {
     runId = run.id;
 
     let chunkCount = 0;
+    let skippedCount = 0;
     for (const doc of docs) {
       const contentHash = hash(JSON.stringify(doc.chunks.map((chunk) => chunk.content)));
+
+      const [existing] = await sql`
+        select content_hash from docs_search.sources where source_key = ${doc.sourceKey}
+      `;
+
       const [source] = await sql`
         insert into docs_search.sources
           (source_key, repo, path, url, title, visibility, content_hash, indexed_at)
@@ -55,10 +61,22 @@ export async function runIndexer(env = process.env) {
         returning id
       `;
 
+      // Skip re-embedding when the chunk content is unchanged since the last run;
+      // metadata (title, url, visibility) is still refreshed by the upsert above.
+      if (existing && existing.content_hash === contentHash) {
+        skippedCount += 1;
+        continue;
+      }
+
       await sql`delete from docs_search.chunks where source_id = ${source.id}`;
 
-      for (const chunk of doc.chunks) {
-        const embedding = await embed(openai, chunk.content);
+      // One embeddings request per document instead of one per chunk.
+      const embeddings = await embedBatch(
+        openai,
+        doc.chunks.map((chunk) => chunk.content),
+      );
+
+      for (const [index, chunk] of doc.chunks.entries()) {
         await sql`
           insert into docs_search.chunks
             (source_id, chunk_index, heading, content, token_estimate, embedding)
@@ -69,7 +87,7 @@ export async function runIndexer(env = process.env) {
               ${chunk.heading},
               ${chunk.content},
               ${chunk.tokenEstimate},
-              ${JSON.stringify(embedding)}::extensions.vector
+              ${JSON.stringify(embeddings[index])}::extensions.vector
             )
         `;
         chunkCount += 1;
@@ -81,7 +99,7 @@ export async function runIndexer(env = process.env) {
       set status = 'succeeded', finished_at = now(), source_count = ${docs.length}, chunk_count = ${chunkCount}
       where id = ${runId}
     `;
-    console.log(`Indexed ${docs.length} sources and ${chunkCount} chunks`);
+    console.log(`Indexed ${docs.length} sources (${skippedCount} unchanged) and ${chunkCount} chunks`);
   } catch (error) {
     if (runId) {
       await sql`
@@ -96,12 +114,15 @@ export async function runIndexer(env = process.env) {
   }
 }
 
-async function embed(openai, input) {
+async function embedBatch(openai, inputs) {
+  if (inputs.length === 0) {
+    return [];
+  }
   const response = await openai.embeddings.create({
     model: EMBEDDING_MODEL,
-    input,
+    input: inputs,
   });
-  return response.data[0].embedding;
+  return response.data.map((item) => item.embedding);
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {

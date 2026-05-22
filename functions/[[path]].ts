@@ -33,7 +33,12 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     return response;
   }
 
-  const object = await context.env.ASSETS_BUCKET.get(key);
+  // Honor the conditional (If-None-Match) and Range request headers advertised
+  // in the OPTIONS preflight by forwarding them to R2.
+  const object = await context.env.ASSETS_BUCKET.get(key, {
+    onlyIf: context.request.headers,
+    range: context.request.headers,
+  });
 
   if (!object) {
     return response;
@@ -44,9 +49,28 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   headers.set("Cache-Control", "public, max-age=31536000, immutable");
   headers.set("ETag", object.httpEtag);
   headers.set("Access-Control-Allow-Origin", "*");
+  headers.set("Accept-Ranges", "bytes");
   if (url.pathname.startsWith("/cdn/")) {
     headers.set("X-Robots-Tag", "noindex, noarchive");
   }
 
-  return new Response(object.body, {headers});
+  // No body means the If-None-Match precondition was satisfied: nothing changed.
+  if (!("body" in object)) {
+    return new Response(null, {status: 304, headers});
+  }
+
+  const isHead = context.request.method === "HEAD";
+
+  // A returned range means the client sent a satisfiable Range header.
+  const {range} = object;
+  if (range) {
+    const length = "suffix" in range ? range.suffix : (range.length ?? object.size - (range.offset ?? 0));
+    const offset = "suffix" in range ? object.size - length : (range.offset ?? 0);
+    headers.set("Content-Range", `bytes ${offset}-${offset + length - 1}/${object.size}`);
+    headers.set("Content-Length", String(length));
+    return new Response(isHead ? null : object.body, {status: 206, headers});
+  }
+
+  headers.set("Content-Length", String(object.size));
+  return new Response(isHead ? null : object.body, {headers});
 };
