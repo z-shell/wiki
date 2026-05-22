@@ -33,3 +33,15 @@ Invoke the `docusaurus-writer` agent and provide:
 1. The target content root and directory (`docs/`, `community/`, `ecosystem/`)
 2. The page or section title
 3. Any existing pages to cross-link
+
+### Choosing the content root
+
+Before creating a page, select the root:
+
+- Zi plugin-manager user docs → `docs/`.
+- Community content (contributing, handbook, ZUnit) → `community/`.
+- Third-party ecosystem (annexes, packages, plugins) → `ecosystem/`.
+- Admin / tooling / operational / infrastructure → **not the wiki**; these are
+  runbooks for `z-shell/.github/runbooks/`.
+
+Never put maintainer/operational documentation anywhere in the wiki.

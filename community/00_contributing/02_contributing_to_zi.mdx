@@ -29,7 +29,7 @@ Thank you for contributing to zi! This page covers the guidelines specific to th
 
 Zi is a Zsh plugin manager written entirely in Zsh. The source lives in `lib/zsh/`
 with the main entry point at `lib/zsh/zi.zsh`. The installer lives in
-[`z-shell/zi-src`](https://github.com/z-shell/zi-src).
+[`z-shell/src`](https://github.com/z-shell/src).
 
 ```text
 zi/
@@ -79,7 +79,7 @@ prefer these scopes when relevant:
 | Scope | Covers |
 | --- | --- |
 | `core` | `lib/zsh/zi.zsh` and `lib/zsh/zi-*.zsh` |
-| `install` | installer scripts in `zi-src` |
+| `install` | installer scripts in `src` |
 | `ci` | GitHub Actions workflows |
 | `docs` | repository-level documentation |
 | `annex` | annex API surface changes |
@@ -118,7 +118,7 @@ Zi follows a trunk-based flow:
 1. All work merges into `next`
 2. When `next` is stable, a release PR merges `next` → `main`
 3. A tag is created on `main` (e.g., `v1.14.0`) — this triggers the release workflow
-4. The installer in `zi-src` is updated to point to the new tag
+4. The installer in `src` is updated to point to the new tag
 
 Maintainers handle the `next` → `main` merge. As a contributor, you only need to
 target `next`.

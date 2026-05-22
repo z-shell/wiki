@@ -224,18 +224,18 @@ zi ice as'program' from'gh-r' pick'zoxide' \
 zi light ajeetdsouza/zoxide
 ```
 
-### SC: [zdharma/revolver][] {/* #sc-zdharmarevolver */}
+### SC: [z-shell/revolver][] {/* #sc-z-shellrevolver */}
 
 ```zsh showLineNumbers
 zi ice wait lucid as'program' pick'revolver'
-zi light zdharma/revolver
+zi light z-shell/revolver
 ```
 
-### SC: [zdharma/zunit][] {/* #sc-zdharmazunit */}
+### SC: [z-shell/zunit][] {/* #sc-z-shellzunit */}
 
 ```zsh showLineNumbers
 zi ice wait lucid as'program' pick'zunit' atclone'./build.zsh' atpull'%atclone'
-zi load zdharma/zunit
+zi load z-shell/zunit
 ```
 
 ### SC: [Osse/git-scripts/git-unique][] {/* #sc-ossegit-scriptsgit-unique */}
@@ -550,16 +550,16 @@ zi from"gh-r" as"null" for \
   sbin"**/exa -> exa" atclone"cp -vf completions/exa.zsh _exa" ogham/exa
 ```
 
-### SC: [zdharma/revolver][], [zdharma/zunit][] {/* #sc-zdharmarevolver-zdharmazunit */}
+### SC: [z-shell/revolver][], [z-shell/zunit][] {/* #sc-z-shellrevolver-z-shellzunit */}
 
 ```zsh showLineNumbers
 zi wait lucid for as'program' \
   atclone'ln -sfv revolver.zsh-completion _revolver' \
   atpull'%atclone' pick'revolver' \
-    @zdharma/revolver \
+    @z-shell/revolver \
   as'completion' atclone'./build.zsh; ln -sfv zunit.zsh-completion _zunit' \
   atpull'%atclone' sbin'zunit' \
-    @zdharma/zunit
+    @z-shell/zunit
 ```
 
 ### SC: [tj/n](https://github.com/tj/n) {/* #sc-tjn */}
@@ -731,5 +731,5 @@ zi for as'program' nocompile'!' depth'1' \
 [yarnpkg/yarn]: https://github.com/yarnpkg/yarn
 [ytdl-org/youtube-dl]: https://github.com/ytdl-org/youtube-dl
 [z-shell/zsh-diff-so-fancy]: https://github.com/z-shell/zsh-diff-so-fancy
-[zdharma/revolver]: https://github.com/zdharma/revolver
-[zdharma/zunit]: https://github.com/zdharma/zunit
+[z-shell/revolver]: https://github.com/z-shell/src/blob/d38202ee20efeec42900ce26f747a3024028845f/public/zsh/snippets/revolver
+[z-shell/zunit]: https://github.com/z-shell/zunit

@@ -1,0 +1,54 @@
+---
+id: zsh_lint
+title: 🔍 Zsh Lint
+sidebar_position: 13
+description: A Zi-aware linter for Zsh configuration and scripting.
+keywords:
+  - zsh-lint
+  - linter
+  - zi
+---
+
+{/* @format */}
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+## Zi-aware Linter for Zsh scripting language
+
+`zsh-lint` is a powerful linter designed specifically for Zsh. It understands Zi-specific constructs and helps ensure your configuration and scripts are following best practices and are free of syntax errors.
+
+### <i class="fa-brands fa-github"></i> [z-shell/zsh-lint][]
+
+### Installation
+
+<Tabs>
+  <TabItem value="zi" label="Zi" default>
+
+Add the following to your `.zshrc` file:
+
+```zsh title="~/.zshrc"
+zi light z-shell/zui
+zi light z-shell/zsh-lint
+```
+
+Note: `zsh-lint` requires [ZUI](zui) to be loaded as well.
+
+  </TabItem>
+  <TabItem value="standalone" label="Standalone">
+
+Clone the repository and source the plugin:
+
+```shell title="~/.zshrc"
+git clone https://github.com/z-shell/zsh-lint.git
+source path/to/zsh-lint/zsh-lint.plugin.zsh
+```
+
+  </TabItem>
+</Tabs>
+
+{/* end-of-file */}
+{/* links */}
+{/* external */}
+
+[z-shell/zsh-lint]: https://github.com/z-shell/zsh-lint
