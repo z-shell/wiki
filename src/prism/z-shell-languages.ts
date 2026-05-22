@@ -7,7 +7,7 @@ export function registerZShellLanguages(Prism: typeof PrismNamespace): void {
   Prism.languages.insertBefore("zsh", "function", {
     "zsh-builtin": {
       pattern:
-        /(^|[\s;|&])(?:autoload|bindkey|builtin|compctl|compdump|compinit|compdef|compfiles|compgroups|compquote|comptags|comptry|compvalues|declare|dirs|disable|disown|emulate|enable|fc|float|functions|getcap|getln|getopts|history|integer|jobs|let|limit|local|log|noglob|popd|print|printf|pushd|pushln|pwd|read|readonly|sched|set|setcap|setopt|shift|source|stat|suspend|ttyctl|type|typeset|ulimit|umask|unalias|unfunction|unhash|unlimit|unset|unsetopt|vared|wait|whence|where|which|zcompile|zformat|zle|zmodload|zparseopts|zpty|zregexparse|zsocket|zstyle|ztcp)(?=\s|;|$)/,
+        /(?<lb>^|[\s;|&])(?:autoload|bindkey|builtin|compctl|compdump|compinit|compdef|compfiles|compgroups|compquote|comptags|comptry|compvalues|declare|dirs|disable|disown|emulate|enable|fc|float|functions|getcap|getln|getopts|history|integer|jobs|let|limit|local|log|noglob|popd|print|printf|pushd|pushln|pwd|read|readonly|sched|set|setcap|setopt|shift|source|stat|suspend|ttyctl|type|typeset|ulimit|umask|unalias|unfunction|unhash|unlimit|unset|unsetopt|vared|wait|whence|where|which|zcompile|zformat|zle|zmodload|zparseopts|zpty|zregexparse|zsocket|zstyle|ztcp)(?=\s|;|$)/,
       lookbehind: true,
       alias: "builtin",
     },
@@ -24,7 +24,7 @@ export function registerZShellLanguages(Prism: typeof PrismNamespace): void {
       alias: "variable",
     },
     "zsh-glob-qualifier": {
-      pattern: /(^|[^\w])(?:\*\*\/)?\*[^ \n]*(?:\([^)]+\))/,
+      pattern: /(?<lb>^|[^\w])(?:\*\*\/)?\*[^ \n]*(?:\([^)]+\))/,
       lookbehind: true,
       alias: "operator",
     },
@@ -64,7 +64,7 @@ export function registerZShellLanguages(Prism: typeof PrismNamespace): void {
       alias: "function",
     },
     "zunit-command": {
-      pattern: /(^|[\s;|&])zunit(?=[\s;|&]|$)/,
+      pattern: /(?<lb>^|[\s;|&])zunit(?=[\s;|&]|$)/,
       lookbehind: true,
       alias: "builtin",
     },
