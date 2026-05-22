@@ -70,12 +70,12 @@ as $$
     s.title,
     c.heading,
     c.content,
-    1 - (c.embedding <=> query_embedding) as similarity
+    1 - (c.embedding OPERATOR(extensions.<=>) query_embedding) as similarity
   from docs_search.chunks c
   join docs_search.sources s on s.id = c.source_id
   where s.visibility = 'public'
-    and 1 - (c.embedding <=> query_embedding) >= match_threshold
-  order by c.embedding <=> query_embedding
+    and 1 - (c.embedding OPERATOR(extensions.<=>) query_embedding) >= match_threshold
+  order by c.embedding OPERATOR(extensions.<=>) query_embedding
   limit least(greatest(match_count, 1), 20);
 $$;
 

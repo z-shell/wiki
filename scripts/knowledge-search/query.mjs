@@ -32,7 +32,14 @@ export async function runQuery(query, env = process.env) {
     },
     body: JSON.stringify({query, matchCount: 8}),
   });
-  const payload = await response.json();
+
+  const text = await response.text();
+  let payload;
+  try {
+    payload = JSON.parse(text);
+  } catch {
+    throw new Error(`HTTP ${response.status}: ${text}`);
+  }
 
   if (!response.ok) {
     throw new Error(JSON.stringify(payload));
