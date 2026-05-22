@@ -33,3 +33,13 @@ Invoke the `docusaurus-writer` agent and provide:
 1. The target content root and directory (`docs/`, `community/`, `ecosystem/`)
 2. The page or section title
 3. Any existing pages to cross-link
+
+### Choosing the content root
+
+Before creating a page, select the root:
+
+- Admin / tooling / operational / infrastructure → `community/`.
+- Zi plugin-manager user docs → `docs/`.
+- Third-party ecosystem (annexes, packages, plugins) → `ecosystem/`.
+
+`docs/` is Zi user docs only — never put maintainer tooling there.
