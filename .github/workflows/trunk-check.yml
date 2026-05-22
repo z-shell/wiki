@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v6.0.0
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
         with:
           fetch-depth: 0
 
@@ -33,7 +33,7 @@ jobs:
         uses: ./.trunk/setup-ci
 
       - name: Trunk Check
-        uses: trunk-io/trunk-action@385694c03612503282470762496a7935f8d5f30e # v1.2.4
+        uses: trunk-io/trunk-action@75699af9e26881e564e9d832ef7dc3af25ec031b # v1.2.4
         with:
           cache: false
           # Run full link audit on schedule/dispatch, otherwise run standard incremental checks
