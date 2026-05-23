@@ -24,7 +24,10 @@ export async function runIndexer(env = process.env) {
 
   const [{default: OpenAI}, {default: postgres}] = await Promise.all([import("openai"), import("postgres")]);
   const openai = new OpenAI({apiKey: env.OPENAI_API_KEY});
-  const sql = postgres(env.SUPABASE_DB_URL, {ssl: env.SUPABASE_DB_SSL === "disable" ? false : "require"});
+  const sql = postgres(env.SUPABASE_DB_URL, {
+    ssl: env.SUPABASE_DB_SSL === "disable" ? false : "require",
+    family: 4,
+  });
   let runId;
 
   try {
