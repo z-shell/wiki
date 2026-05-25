@@ -4,7 +4,7 @@ This project follows the organization-wide [Z-Shell Organization Guidelines](htt
 
 ## Build, Lint, and Dev Commands
 
-- Use Node >= 20 and pnpm >= 10 (see `engines` in `package.json`).
+- Use Node >= 22 and pnpm >= 10 (see `engines` in `package.json`).
 - Install dependencies with `pnpm install`.
 - `pnpm start` — local dev server at `http://localhost:3000`.
 - `pnpm build` — full production build (run before finishing substantial changes).
