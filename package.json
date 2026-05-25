@@ -13,9 +13,6 @@
     "crowdin:upload": "pnpm crowdin upload sources --delete-obsolete",
     "deploy": "docusaurus deploy",
     "preinstall": "npx only-allow pnpm",
-    "knowledge-search:index": "node scripts/knowledge-search/embed-docs.mjs",
-    "knowledge-search:query": "node scripts/knowledge-search/query.mjs",
-    "knowledge-search:test": "node --test scripts/knowledge-search/*.test.mjs",
     "lint": "trunk check",
     "lint:all": "trunk check --all",
     "lint:fix": "trunk check --fix",
@@ -54,8 +51,6 @@
     "@mdx-js/react": "3.1.1",
     "asciinema-player": "3.15.1",
     "clsx": "2.1.1",
-    "openai": "^6.38.0",
-    "postgres": "^3.4.9",
     "prism-react-renderer": "2.4.1",
     "prismjs": "1.30.0",
     "react": "^19.2.5",
@@ -70,7 +65,7 @@
     "@docusaurus/types": "3.10.1",
     "@eslint/compat": "^2.0.5",
     "@eslint/js": "^10.0.1",
-    "@types/node": "25.9.1",
+    "@types/node": "25.8.0",
     "@types/prismjs": "^1.26.6",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
@@ -83,7 +78,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "globals": "^17.5.0",
     "jiti": "^2.6.1",
-    "stylelint": "17.12.0",
+    "stylelint": "17.11.1",
     "stylelint-color-format": "1.1.0",
     "stylelint-config-css-modules": "4.6.0",
     "stylelint-config-standard": "40.0.0",
@@ -92,7 +87,7 @@
   },
   "packageManager": "pnpm@10.33.2",
   "engines": {
-    "node": ">=20",
+    "node": ">=22",
     "pnpm": ">=10"
   }
 }
