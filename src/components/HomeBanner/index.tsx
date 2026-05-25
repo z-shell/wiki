@@ -44,7 +44,7 @@ export default function HeroBanner(): React.JSX.Element {
             <iframe
               className={styles.indexCtasGitHubButton}
               src="https://ghbtns.com/github-btn.html?user=z-shell&amp;repo=zi&amp;type=star&amp;count=true&amp;size=large"
-              width={130}
+              width={170}
               height={30}
               title="GitHub Stars"
               loading="lazy"
