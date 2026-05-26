@@ -15,3 +15,9 @@ overrides:
   webpackbar: "^7.0.0"
   serialize-javascript: "7.0.5"
   uuid: "14.0.0"
+
+# Allow ESLint 10 (current stable) for plugins whose declared peer range
+# predates it but which work fine with it. Removes install-time peer warnings.
+peerDependencyRules:
+  allowedVersions:
+    "eslint-plugin-jsx-a11y>eslint": "^10"
