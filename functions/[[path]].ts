@@ -4,6 +4,8 @@ interface Env {
   ASSETS_BUCKET: R2Bucket;
 }
 
+const immutableAssetPrefixes = ["/assets/", "/cdn/", "/img/"];
+
 export const onRequest: PagesFunction<Env> = async (context) => {
   if (context.request.method === "OPTIONS") {
     return new Response(null, {
@@ -46,7 +48,11 @@ export const onRequest: PagesFunction<Env> = async (context) => {
 
   const headers = new Headers();
   object.writeHttpMetadata(headers);
-  headers.set("Cache-Control", "public, max-age=31536000, immutable");
+  if (immutableAssetPrefixes.some((prefix) => url.pathname.startsWith(prefix))) {
+    headers.set("Cache-Control", "public, max-age=31536000, immutable");
+  } else if (!headers.has("Cache-Control")) {
+    headers.set("Cache-Control", "public, max-age=300");
+  }
   headers.set("ETag", object.httpEtag);
   headers.set("Access-Control-Allow-Origin", "*");
   headers.set("Accept-Ranges", "bytes");
