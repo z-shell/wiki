@@ -2,50 +2,50 @@
 id: zsh_lint
 title: 🔍 Zsh Lint
 sidebar_position: 13
-description: A Zi-aware linter for Zsh configuration and scripting.
+description: A Go-based semantic analyzer for Zsh.
 keywords:
   - zsh-lint
   - linter
-  - zi
+  - zsh
+  - go
 ---
 
 {/* @format */}
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
+## A Go-based semantic analyzer for Zsh
 
-## Zi-aware Linter for Zsh scripting language
-
-`zsh-lint` is a powerful linter designed specifically for Zsh. It understands Zi-specific constructs and helps ensure your configuration and scripts are following best practices and are free of syntax errors.
+`zsh-lint` is being rebooted as a Go semantic analyzer for Zsh. It parses Zsh
+sources with a real grammar front end and reports problems. It currently
+operates as a **parser survey** — reporting which files the parser accepts — and
+does not implement lint rules yet.
 
 ### <i class="fa-brands fa-github"></i> [z-shell/zsh-lint][]
 
 ### Installation
 
-<Tabs>
-  <TabItem value="zi" label="Zi" default>
-
-Add the following to your `.zshrc` file:
-
-```zsh title="~/.zshrc"
-zi light z-shell/zui
-zi light z-shell/zsh-lint
+```sh
+go install github.com/z-shell/zsh-lint/cmd/zsh-lint@latest
 ```
 
-Note: `zsh-lint` requires [ZUI](zui) to be loaded as well.
+### Usage
 
-  </TabItem>
-  <TabItem value="standalone" label="Standalone">
-
-Clone the repository and source the plugin:
-
-```shell title="~/.zshrc"
-git clone https://github.com/z-shell/zsh-lint.git
-source path/to/zsh-lint/zsh-lint.plugin.zsh
+```sh
+zsh-lint path/to/file.zsh another.zsh
 ```
 
-  </TabItem>
-</Tabs>
+Each file gets an `OK`/`FAIL` line; failures include a greppable
+`path:line:col: message`. The exit code is `0` only if every file parsed.
+
+## Reference
+
+The section below is generated from the project's Go doc comments and synced
+automatically. Do not edit it by hand.
+
+{/* zsh-lint:generated:start */}
+
+_Reference content is injected here by the `wiki-docs-sync` workflow._
+
+{/* zsh-lint:generated:end */}
 
 {/* end-of-file */}
 {/* links */}
