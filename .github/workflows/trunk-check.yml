@@ -1,5 +1,5 @@
 ---
-name: Trunk Check
+name: Trunk Code Quality
 on:
   push:
     branches: [main, next]
@@ -21,7 +21,7 @@ concurrency:
 
 jobs:
   trunk_check:
-    name: Trunk Check
+    name: Trunk Code Quality
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
