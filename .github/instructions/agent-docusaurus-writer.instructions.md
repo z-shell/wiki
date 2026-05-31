@@ -39,7 +39,7 @@ Invoke the `docusaurus-writer` agent and provide:
 Before creating a page, select the root:
 
 - Zi plugin-manager user docs → `docs/`.
-- Community content (contributing, handbook, ZUnit) → `community/`.
+- Community content (contributing, handbook, tools such as ZUnit and Zsh Lint) → `community/`.
 - Third-party ecosystem (annexes, packages, plugins) → `ecosystem/`.
 - Admin / tooling / operational / infrastructure → **not the wiki**; these are
   runbooks for `z-shell/.github/runbooks/`.

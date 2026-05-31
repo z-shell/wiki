@@ -1,7 +1,7 @@
 ---
 id: zsh_lint
 title: 🔍 Zsh Lint
-sidebar_position: 13
+sidebar_position: 1
 description: A Go-based semantic analyzer for Zsh.
 keywords:
   - zsh-lint
@@ -14,10 +14,9 @@ keywords:
 
 ## A Go-based semantic analyzer for Zsh
 
-`zsh-lint` is being rebooted as a Go semantic analyzer for Zsh. It parses Zsh
-sources with a real grammar front end and reports problems. It currently
-operates as a **parser survey** — reporting which files the parser accepts — and
-does not implement lint rules yet.
+`zsh-lint` is a standalone Go semantic analyzer for Zsh. It parses Zsh sources
+with a real grammar front end and reports greppable diagnostics from its default
+static-analysis rules.
 
 ### <i class="fa-brands fa-github"></i> [z-shell/zsh-lint][]
 
@@ -33,8 +32,15 @@ go install github.com/z-shell/zsh-lint/cmd/zsh-lint@latest
 zsh-lint path/to/file.zsh another.zsh
 ```
 
-Each file gets an `OK`/`FAIL` line; failures include a greppable
-`path:line:col: message`. The exit code is `0` only if every file parsed.
+Diagnostics use the `path:line:col: [rule-id] message` format. Parse errors,
+warnings, and errors produce a non-zero exit code.
+
+For parser-gap corpus evaluation without static-analysis rules, use the
+dedicated survey command:
+
+```sh
+zsh-lint-survey path/to/file.zsh another.zsh
+```
 
 ### Reference
 
@@ -42,33 +48,43 @@ Each file gets an `OK`/`FAIL` line; failures include a greppable
 
 
 
-# zsh\-lint
+#### zsh\-lint
 
-	import "github.com/z-shell/zsh-lint/cmd/zsh-lint"
+    import "github.com/z-shell/zsh-lint/cmd/zsh-lint"
 
-Command zsh\-lint surveys Zsh files with the mvdan/sh parser front end and reports parse success or failure per file \(reboot parser\-evaluation phase, issues \#5, \#8\). Lint rule diagnostics \(issue \#18\) build on this foundation.
+Command zsh\-lint performs static analysis of Zsh shell scripts.
 
-## Index
+##### Index
 
 
 
-# survey
+#### zsh\-lint\-survey
 
-	import "github.com/z-shell/zsh-lint/internal/survey"
+    import "github.com/z-shell/zsh-lint/cmd/zsh-lint-survey"
+
+Command zsh\-lint\-survey runs the parser front end across Zsh files and reports parser gaps without evaluating static\-analysis rules.
+
+##### Index
+
+
+
+#### survey
+
+    import "github.com/z-shell/zsh-lint/internal/survey"
 
 Package survey runs the parser front end across a set of Zsh files and reports, per file, whether parsing succeeded. It produces greppable \`path:line:col: message\` diagnostics for failures and a one\-line summary.
 
 This is the reboot's parser\-evaluation surface \(issues \#5, \#8\): it reports parser outcomes only and intentionally implements no lint rules yet.
 
-## Index
+##### Index
 
-- [func Run\(names \[\]string, w io.Writer\) int](#Run)
+- [func Run\(names \[\]string, w io.Writer\) int](#func-run)
 
 
 
-## func Run
+##### func Run
 
-	func Run(names []string, w io.Writer) int
+    func Run(names []string, w io.Writer) int
 
 Run parses each file in names, writing per\-file status and a summary to w.
 
