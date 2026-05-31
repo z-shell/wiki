@@ -50,7 +50,7 @@ zsh-lint-survey path/to/file.zsh another.zsh
 
 #### zsh\-lint
 
-	import "github.com/z-shell/zsh-lint/cmd/zsh-lint"
+    import "github.com/z-shell/zsh-lint/cmd/zsh-lint"
 
 Command zsh\-lint performs static analysis of Zsh shell scripts.
 
@@ -60,7 +60,7 @@ Command zsh\-lint performs static analysis of Zsh shell scripts.
 
 #### zsh\-lint\-survey
 
-	import "github.com/z-shell/zsh-lint/cmd/zsh-lint-survey"
+    import "github.com/z-shell/zsh-lint/cmd/zsh-lint-survey"
 
 Command zsh\-lint\-survey runs the parser front end across Zsh files and reports parser gaps without evaluating static\-analysis rules.
 
@@ -70,7 +70,7 @@ Command zsh\-lint\-survey runs the parser front end across Zsh files and reports
 
 #### survey
 
-	import "github.com/z-shell/zsh-lint/internal/survey"
+    import "github.com/z-shell/zsh-lint/internal/survey"
 
 Package survey runs the parser front end across a set of Zsh files and reports, per file, whether parsing succeeded. It produces greppable \`path:line:col: message\` diagnostics for failures and a one\-line summary.
 
@@ -84,7 +84,7 @@ This is the reboot's parser\-evaluation surface \(issues \#5, \#8\): it reports 
 
 ##### func Run
 
-	func Run(names []string, w io.Writer) int
+    func Run(names []string, w io.Writer) int
 
 Run parses each file in names, writing per\-file status and a summary to w.
 
