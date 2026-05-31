@@ -22,7 +22,8 @@ This project follows the organization-wide [Z-Shell Organization Guidelines](htt
   - `docs/` → `/docs` — **Zi plugin manager user documentation only**
     (installation, commands, usage guides).
   - `community/` → `/community` — Z-Shell ecosystem community content:
-    contributing, the Zsh handbook/plugin standard, and ZUnit.
+    contributing, the Zsh handbook/plugin standard, and community tools such as
+    ZUnit and Zsh Lint.
   - `ecosystem/` → `/ecosystem` — third-party catalog: annexes, packages, plugins.
 - **Maintainer, operational, and infrastructure runbooks do not belong on the
   public wiki.** They live in `z-shell/.github/runbooks/`.

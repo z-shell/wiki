@@ -9,12 +9,12 @@ applyTo: "{docs,community,ecosystem}/**/*.mdx"
 
 Choose the content root before writing. The roots are not interchangeable:
 
-| Content type                                       | Root                                           |
-| -------------------------------------------------- | ---------------------------------------------- |
-| Zi plugin-manager install / commands / usage       | `docs/`                                        |
-| Contributing, Zsh handbook, plugin standard, ZUnit | `community/`                                   |
-| Maintainer / operational / infrastructure runbooks | **not the wiki** — `z-shell/.github/runbooks/` |
-| Third-party annexes, packages, plugins             | `ecosystem/`                                   |
+| Content type                                                                            | Root                                           |
+| --------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| Zi plugin-manager install / commands / usage                                            | `docs/`                                        |
+| Contributing, Zsh handbook, plugin standard, community tools such as ZUnit and Zsh Lint | `community/`                                   |
+| Maintainer / operational / infrastructure runbooks                                      | **not the wiki** — `z-shell/.github/runbooks/` |
+| Third-party annexes, packages, plugins                                                  | `ecosystem/`                                   |
 
 **Prohibition:** Never place maintainer, operational, or infrastructure
 documentation anywhere in the wiki (neither `docs/` nor `community/`). It leaks
