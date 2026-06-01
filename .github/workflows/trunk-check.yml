@@ -10,33 +10,22 @@ on:
   workflow_dispatch: {}
 
 permissions:
-  checks: write
   contents: read
-  issues: write
-  pull-requests: write
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  trunk_check:
+  check:
     name: Trunk Code Quality
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
-        with:
-          fetch-depth: 0
-
-      - name: Setup dependencies
-        uses: ./.trunk/setup-ci
-
-      - name: Trunk Check
-        uses: trunk-io/trunk-action@75699af9e26881e564e9d832ef7dc3af25ec031b # v1.2.4
-        with:
-          cache: false
-          # Run full link audit on schedule/dispatch, otherwise run standard incremental checks
-          arguments: ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && 'run lychee-audit' || '' }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    permissions:
+      actions: read
+      checks: write
+      contents: read
+    uses: z-shell/.github/.github/workflows/trunk.yml@df7c51baaa966337fe5e8d15d82bc9c38486a227 # main
+    with:
+      cache: false
+      setup-deps: true
+      # Run full link audit on schedule/dispatch, otherwise run standard incremental checks.
+      arguments: ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && 'run lychee-audit' || '' }}
