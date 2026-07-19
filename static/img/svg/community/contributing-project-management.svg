@@ -18,7 +18,7 @@
   <!-- Board header -->
   <rect x="16" y="26" width="88" height="14" rx="7" fill="#23c88a" opacity="0.18"/>
   <rect x="16" y="33" width="88" height="7" fill="#23c88a" opacity="0.18"/>
-  <text x="60" y="36.5" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7.5" fill="#23c88a" opacity="0.9" font-weight="600">Z-Shell Tracker</text>
+  <text x="60" y="36.5" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7.5" fill="#23c88a" opacity="0.9" font-weight="600">Linear Tracker</text>
 
   <!-- Column dividers -->
   <line x1="47" y1="40" x2="47" y2="96" stroke="#23c88a" stroke-width="0.5" stroke-opacity="0.25"/>
