@@ -3,15 +3,15 @@ id: project_management
 title: "📋 Project Management"
 sidebar_position: 5
 image: /img/png/theme/z/320x320.png
-description: How work is tracked and labelled across the Z-Shell organization — project tracker, views, triage workflow, and canonical labels.
+description: How GitHub issues and the Z-Shell Workspace in Linear track work across the organization — workflow, labels, and triage.
 keywords:
   - project
   - tracker
+  - linear
+  - github
+  - workflow
   - labels
   - triage
-  - sprint
-  - roadmap
-  - github
 ---
 
 {/* @format */}
@@ -23,100 +23,87 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
   <img src={useBaseUrl("/img/svg/community/contributing-project-management.svg")} alt="" width="100" height="100" style={{borderRadius: "16px"}}/>
 </div>
 
-## Project Tracker
+## Linear Tracker
 
-All work across the Z-Shell organization is tracked in a single unified project:
+Planned, active, and deferred work across the Z-Shell organization is
+prioritized in the **Z-Shell Workspace** project in Linear:
 
 <Link
   className="button button--primary button--lg"
-  to="https://github.com/orgs/z-shell/projects/28"
+  to="https://linear.app/ss-o/project/z-shell-workspace-0206c6a7192d"
 >
-  Z-Shell Tracker →
+  Open Linear →
 </Link>
 
 <br />
 <br />
 
-The project pulls issues and pull requests from every repository in the
-[`z-shell`](https://github.com/z-shell) GitHub organization into one place, so
-nothing slips through the cracks.
+GitHub issues and pull requests remain the repository-level record for
+discussion, implementation, and review. Linear provides the cross-repository
+planning view: priority, status, ownership, estimates, cycles, and dependencies.
 
-### Project Views
+### Workflow
 
-| View | Layout | Purpose |
-| --- | --- | --- |
-| **Triage** | Table | New items awaiting investigation — start here |
-| **Bugs Board** | Board | Active bug work, grouped by Status |
-| **Features Board** | Board | Feature and enhancement work |
-| **Active Sprint** | Board | Everything in the current 2-week sprint |
-| **Roadmap** | Roadmap | Planned work on a timeline |
-| **By Repository** | Table | All items grouped by source repo |
+Each tracked item moves through the z-shell team's Linear workflow:
 
-### Custom Fields
-
-Each item in the project can have the following fields set:
-
-| Field | Values | Notes |
-| --- | --- | --- |
-| **Status** | Triage · Todo · In Progress · In Review · Done · Blocked · Won't Fix | Set by maintainers during triage |
-| **Priority** | 🔴 Critical · 🟠 High · 🟡 Medium · 🔵 Low · None | |
-| **Item Type** | Bug · Feature · Enhancement · Docs · Security · Performance · Chore · CI | |
-| **Effort** | XS · S · M · L · XL | Rough size estimate |
-| **Sprint** | Sprint 1 … Sprint N | 2-week iterations starting Mondays |
+| Status | Purpose |
+| --- | --- |
+| **Backlog** | Accepted work that is not yet scheduled |
+| **Todo** | Ready to begin |
+| **In Progress** | Actively being implemented |
+| **In Review** | Awaiting review, verification, or publication |
+| **Done** | Completed and verified |
+| **Canceled** | Deliberately removed from the plan |
+| **Duplicate** | Covered by another tracked item |
 
 ### Triage Workflow
 
-New issues and PRs are automatically added to the project with **Status = Triage**.
-A maintainer reviews the item and:
+When work is added to Linear, a maintainer:
 
-1. Sets **Item Type** (Bug, Feature, etc.)
-2. Sets **Priority**
-3. Moves **Status** to `Todo` (or `Won't Fix` / `Blocked` if appropriate)
-4. Assigns to a **Sprint** if it should be worked on soon
-5. Adds the appropriate [label](#labels)
+1. Links the owning GitHub issue or pull request when one exists.
+2. Sets its **Priority**, **Status**, and project.
+3. Adds labels and an estimate when they improve planning.
+4. Records dependencies so blocked work is visible.
+5. Assigns it to a cycle only when it is ready to schedule.
 
 ### Capturing Deferred Work
 
 Do not leave postponed work only in local diffs, review notes, or memory.
-Create or update an issue in the repository that owns the work so it is added to
-the shared tracker automatically.
+Create or update an issue in the repository that owns the work, then add or link
+the corresponding Linear item when the task needs cross-repository planning.
 
 When splitting or deferring work:
 
 1. Create **one issue per logical task** so each item can be prioritized and completed independently.
 2. Include enough context for another maintainer to resume later: the observed problem, why it matters, relevant files, and any known constraints.
-3. Suggest the likely **Item Type**, **Priority**, and **Effort** during triage.
+3. Suggest the likely **Priority**, estimate, and initial Linear status during triage.
 4. Use the canonical labels instead of repo-local tracking conventions.
-
-### Sprint Cadence
-
-Sprints run for **2 weeks**, starting every other Monday.
-
-At the end of each sprint, incomplete items are moved to the next sprint or
-returned to the backlog (`Todo` without a sprint assignment).
 
 ### Priority Definitions
 
 | Priority | Meaning |
 | --- | --- |
 | 🔴 **Critical** | Data loss, security vulnerability, or complete breakage with no workaround |
-| 🟠 **High** | Significantly impacts users; should be in the current or next sprint |
-| 🟡 **Medium** | Important but not urgent; planned within the next few sprints |
+| 🟠 **High** | Significantly impacts users or blocks important work; schedule next |
+| 🟡 **Medium** | Important but not urgent; prioritize against other planned work |
 | 🔵 **Low** | Nice to have; no fixed timeline |
 | **None** | Not yet triaged or genuinely optional |
 
-### Automation
+### GitHub and Linear
 
-Every repository in the organization has a `.github/workflows/project-tracker.yml`
-workflow that automatically adds new issues and pull requests to the project. No
-manual steps are required from contributors.
+Contributors should continue opening issues and pull requests in the owning
+GitHub repository. Maintainers use Linear to coordinate work that spans
+repositories, needs scheduling, or should remain visible after it is deferred.
+Links between the two systems preserve the implementation history without
+duplicating long-form technical context.
 
 ---
 
 ## Labels
 
 All repositories in the `z-shell` organization use the same canonical label set.
-Labels are applied automatically by the stale bot or manually during triage.
+Labels are applied manually during triage or by approved organization
+automation.
 
 The source of truth lives in
 [`z-shell/.github/.github/lib/labels.yml`](https://github.com/z-shell/.github/blob/main/.github/lib/labels.yml).
