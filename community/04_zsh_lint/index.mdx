@@ -92,6 +92,435 @@ Each file produces either an "OK \&lt;path\&gt;" line or a "FAIL \&lt;path\&gt;"
 
 It returns a process exit code: 0 if every file parsed, 1 otherwise.
 
+#### rules
+
+    import "github.com/z-shell/zsh-lint/internal/rules"
+
+##### Index
+
+- [func Default\(\) \[\]analyzer.Rule](#func-default)
+- [type Backquotes](#type-backquotes)
+  - [func \(r Backquotes\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#Backquotes.Analyze)
+  - [func \(r Backquotes\) ID\(\) diag.RuleID](#Backquotes.ID)
+  - [func \(r Backquotes\) Name\(\) string](#Backquotes.Name)
+- [type EvalUsage](#type-evalusage)
+  - [func \(r EvalUsage\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#EvalUsage.Analyze)
+  - [func \(r EvalUsage\) ID\(\) diag.RuleID](#EvalUsage.ID)
+  - [func \(r EvalUsage\) Name\(\) string](#EvalUsage.Name)
+- [type FuncDeclStyle](#type-funcdeclstyle)
+  - [func \(r FuncDeclStyle\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#FuncDeclStyle.Analyze)
+  - [func \(r FuncDeclStyle\) ID\(\) diag.RuleID](#FuncDeclStyle.ID)
+  - [func \(r FuncDeclStyle\) Name\(\) string](#FuncDeclStyle.Name)
+- [type FunctionScopedOptions](#type-functionscopedoptions)
+  - [func \(rule FunctionScopedOptions\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#FunctionScopedOptions.Analyze)
+  - [func \(FunctionScopedOptions\) ID\(\) diag.RuleID](#FunctionScopedOptions.ID)
+  - [func \(FunctionScopedOptions\) Name\(\) string](#FunctionScopedOptions.Name)
+- [type PreferDoubleBrackets](#type-preferdoublebrackets)
+  - [func \(r PreferDoubleBrackets\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#PreferDoubleBrackets.Analyze)
+  - [func \(r PreferDoubleBrackets\) ID\(\) diag.RuleID](#PreferDoubleBrackets.ID)
+  - [func \(r PreferDoubleBrackets\) Name\(\) string](#PreferDoubleBrackets.Name)
+- [type SpecialParamShadow](#type-specialparamshadow)
+  - [func \(rule SpecialParamShadow\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#SpecialParamShadow.Analyze)
+  - [func \(SpecialParamShadow\) ID\(\) diag.RuleID](#SpecialParamShadow.ID)
+  - [func \(SpecialParamShadow\) Name\(\) string](#SpecialParamShadow.Name)
+- [type UnquotedVar](#type-unquotedvar)
+  - [func \(r UnquotedVar\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#UnquotedVar.Analyze)
+  - [func \(r UnquotedVar\) ID\(\) diag.RuleID](#UnquotedVar.ID)
+  - [func \(r UnquotedVar\) Name\(\) string](#UnquotedVar.Name)
+
+
+
+##### func Default
+
+    func Default() []analyzer.Rule
+
+Default returns the default set of static analysis rules.
+
+
+##### type Backquotes
+
+Backquotes reports grave\-accent command substitutions.
+
+ID: \`style/backquotes\`
+
+Name: Prefer dollar\-parenthesis command substitution
+
+Summary: Reports the grave\-accent form of command substitution in favor of \`$\(\)\`.
+
+Why: The Zsh manual's Command Substitution section documents both \`$\(\)\` and grave accents as supported forms. This rule prefers \`$\(\)\` as the clearer, readily nestable modern idiom; it does not claim grave accents are invalid Zsh syntax. See https://zsh.sourceforge.io/Doc/Release/Expansion.html#Command-Substitution.
+
+Bad:
+
+    current=`pwd`
+    
+
+Good:
+
+    current=$(pwd)
+    
+
+Severity: Hint. The forms are semantically supported; this is an idiom and readability preference rather than a correctness diagnostic.
+
+False positives: A project may intentionally preserve historical style or mirror code shared with an environment where that spelling is required.
+
+Suppression: Use \`\# zsh\-lint disable=style/backquotes \-\- \&lt;reason\&gt;\` on the finding line or immediately before the next non\-comment, non\-blank source line.
+
+Corpus evidence: The June 12, 2026 LangZsh clean\-baseline run produced zero findings from this rule across the 11 parseable corpus files. This grandfathered rule therefore has no positive corpus citation yet.
+
+    type Backquotes struct{}
+
+
+###### func \(Backquotes\) Analyze
+
+    func (r Backquotes) Analyze(ctx *analyzer.Context, node syntax.Node)
+
+
+
+
+###### func \(Backquotes\) ID
+
+    func (r Backquotes) ID() diag.RuleID
+
+
+
+
+###### func \(Backquotes\) Name
+
+    func (r Backquotes) Name() string
+
+
+
+
+##### type EvalUsage
+
+EvalUsage reports calls to the \`eval\` shell builtin.
+
+ID: \`security/eval\`
+
+Name: Use of eval
+
+Summary: Reports commands whose literal command name is \`eval\`.
+
+Why: The Zsh manual documents that \`eval\` reads its arguments as shell input and executes the resulting commands in the current shell process. Dynamic or untrusted text can therefore become shell syntax rather than inert data. See https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html#index-eval.
+
+Bad:
+
+    eval "print -r -- $user_input"
+    
+
+Good:
+
+    print -r -- "$user_input"
+    
+
+Severity: Info. Re\-evaluating dynamic input is risky, but deliberate uses such as trusted code generation and compatibility shims are common enough that the pattern is not automatically a bug.
+
+False positives: Static, maintainer\-controlled command strings and deliberate shell\-language adapters may require \`eval\`. Keep the finding visible unless the trust boundary is documented next to the call.
+
+Suppression: Use \`\# zsh\-lint disable=security/eval \-\- \&lt;reason\&gt;\` on the finding line or immediately before the next non\-comment, non\-blank source line. A reason is strongly recommended for this security\-category rule.
+
+Corpus evidence: The June 12, 2026 LangZsh clean\-baseline run produced zero findings from this rule across the 11 parseable corpus files. This grandfathered rule therefore has no positive corpus citation yet.
+
+    type EvalUsage struct{}
+
+
+###### func \(EvalUsage\) Analyze
+
+    func (r EvalUsage) Analyze(ctx *analyzer.Context, node syntax.Node)
+
+
+
+
+###### func \(EvalUsage\) ID
+
+    func (r EvalUsage) ID() diag.RuleID
+
+
+
+
+###### func \(EvalUsage\) Name
+
+    func (r EvalUsage) Name() string
+
+
+
+
+##### type FuncDeclStyle
+
+FuncDeclStyle reports function declarations that combine \`function\` and \`\(\)\`.
+
+ID: \`style/function\-decl\`
+
+Name: Function declaration style
+
+Summary: Reports declarations written as \`function name\(\)\` instead of choosing either \`name\(\)\` or \`function name\`.
+
+Why: The Zsh manual's Complex Commands grammar documents the sh\-compatible \`word \(\)\` form and the Zsh \`function word\` form as alternatives. Combining both spellings is accepted but redundant, so choosing one form communicates the intended style more clearly. See https://zsh.sourceforge.io/Doc/Release/Shell-Grammar.html#Complex-Commands.
+
+Bad:
+
+    function render() { print ok; }
+    
+
+Good:
+
+    render() { print ok; }
+    
+
+Severity: Hint. The mixed declaration is valid Zsh and the suggested change is stylistic.
+
+False positives: Generated code or a project\-wide convention may intentionally use the mixed spelling even though Zsh does not require it.
+
+Suppression: Use \`\# zsh\-lint disable=style/function\-decl \-\- \&lt;reason\&gt;\` on the finding line or immediately before the next non\-comment, non\-blank source line.
+
+Corpus evidence: The June 12, 2026 LangZsh clean\-baseline run produced zero findings from this rule across the 11 parseable corpus files. This grandfathered rule therefore has no positive corpus citation yet.
+
+    type FuncDeclStyle struct{}
+
+
+###### func \(FuncDeclStyle\) Analyze
+
+    func (r FuncDeclStyle) Analyze(ctx *analyzer.Context, node syntax.Node)
+
+
+
+
+###### func \(FuncDeclStyle\) ID
+
+    func (r FuncDeclStyle) ID() diag.RuleID
+
+
+
+
+###### func \(FuncDeclStyle\) Name
+
+    func (r FuncDeclStyle) Name() string
+
+
+
+
+##### type FunctionScopedOptions
+
+FunctionScopedOptions reports autoloadable function files that execute logic before localizing inherited shell options.
+
+ID: \`plugin/function\-scoped\-options\`
+
+Name: Function files should scope shell options
+
+Summary: Reports executable files beneath a \`functions\` directory when neither \`builtin emulate \-L zsh\` nor \`setopt local\_options\` appears before the first non\-guard top\-level statement.
+
+Why: Zsh functions inherit the caller's option state. The Zsh manual documents \`LOCAL\_OPTIONS\` as restoring options on function return, while \`emulate \-L\` both selects Zsh emulation and makes option changes local. Without either form, options such as \`SH\_WORD\_SPLIT\`, \`KSH\_ARRAYS\`, or \`NO\_EXTENDED\_GLOB\` can silently change function behavior. See https://zsh.sourceforge.io/Doc/Release/Options.html#index-LOCAL_005fOPTIONS and https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html#index-emulate.
+
+Bad:
+
+    local -a matches
+    matches=( $~pattern )
+    
+
+Good:
+
+    builtin emulate -L zsh
+    local -a matches
+    matches=( $~pattern )
+    
+
+Severity: Hint. Missing option scoping enables latent caller\-dependent bugs, but some helper functions intentionally inspect or mutate caller option state.
+
+False positives: Functions that intentionally share caller option state and trivial single\-builtin functions remain findings by design; suppress them with a reason. Files outside a complete \`functions\` path segment are out of scope. A contiguous prefix of recognized \`condition || return\` or single\-return \`if\` guards is accepted before scoping.
+
+Suppression: Use \`\# zsh\-lint disable=plugin/function\-scoped\-options \-\- \&lt;reason\&gt;\` on the finding line or immediately before the next non\-comment, non\-blank source line.
+
+Corpus evidence: Issue \#63 reported missing scoping across z\-a\-meta\-plugins and zsh\-fancy\-completions function files. The analyzer currently flags \`zsh\-fancy\-completions/functions/.completion\-prediction\` and \`zsh\-fancy\-completions/functions/.force\_rehash\`. The originally cited \`z\-a\-meta\-plugins/functions/.za\-meta\-plugins\-meta\-cmd\-help\-handler\` is a fully commented\-out stub and is correctly silent. Compliant \`setopt local\_options\` and \`builtin emulate \-L zsh\` examples exist in the same repositories.
+
+    type FunctionScopedOptions struct{}
+
+
+###### func \(FunctionScopedOptions\) Analyze
+
+    func (rule FunctionScopedOptions) Analyze(ctx *analyzer.Context, node syntax.Node)
+
+
+
+
+###### func \(FunctionScopedOptions\) ID
+
+    func (FunctionScopedOptions) ID() diag.RuleID
+
+
+
+
+###### func \(FunctionScopedOptions\) Name
+
+    func (FunctionScopedOptions) Name() string
+
+
+
+
+##### type PreferDoubleBrackets
+
+PreferDoubleBrackets reports \`\[\` and \`test\` conditional commands.
+
+ID: \`style/prefer\-double\-brackets\`
+
+Name: Prefer \[\[ \]\] over \[ \] or test
+
+Summary: Reports literal \`\[\` and \`test\` command names in favor of Zsh's \`\[\[ ... \]\]\` compound command.
+
+Why: The Zsh manual's Conditional Expressions section documents that expansions inside \`\[\[ ... \]\]\` are constrained to one word and do not perform filename generation. With \`\[\` or \`test\`, normal command\-line globbing can produce multiple words and confuse the test command's syntax. See https://zsh.sourceforge.io/Doc/Release/Conditional-Expressions.html.
+
+Bad:
+
+    if [ "$name" = *.zsh ]; then print match; fi
+    
+
+Good:
+
+    if [[ $name = *.zsh ]]; then print match; fi
+    
+
+Severity: Hint. \`\[\` and \`test\` remain valid commands; the rule recommends the safer and more expressive Zsh\-native conditional syntax.
+
+False positives: Scripts intentionally kept portable across POSIX shells, or code that explicitly needs \`test\` command semantics, should retain the portable form and document the choice.
+
+Suppression: Use \`\# zsh\-lint disable=style/prefer\-double\-brackets \-\- \&lt;reason\&gt;\` on the finding line or immediately before the next non\-comment, non\-blank source line.
+
+Corpus evidence: The June 12, 2026 LangZsh clean\-baseline run produced zero findings from this rule across the 11 parseable corpus files. This grandfathered rule therefore has no positive corpus citation yet.
+
+    type PreferDoubleBrackets struct{}
+
+
+###### func \(PreferDoubleBrackets\) Analyze
+
+    func (r PreferDoubleBrackets) Analyze(ctx *analyzer.Context, node syntax.Node)
+
+
+
+
+###### func \(PreferDoubleBrackets\) ID
+
+    func (r PreferDoubleBrackets) ID() diag.RuleID
+
+
+
+
+###### func \(PreferDoubleBrackets\) Name
+
+    func (r PreferDoubleBrackets) Name() string
+
+
+
+
+##### type SpecialParamShadow
+
+SpecialParamShadow reports declarations that shadow parameters set by the shell.
+
+ID: \`compat/special\-param\-shadow\`
+
+Name: Shadowing special shell parameters
+
+Summary: Reports \`local\`, \`typeset\`, \`declare\`, or \`readonly\` declarations of a curated set of shell\-set parameters \(for example \`ZSH\_VERSION\`, \`OSTYPE\`, and \`pipestatus\`\); explicit non\-local \`\-g\` declarations \(including \`readonly \-g\`\), the \`export\` builtin, and \`typeset\`\-family query/display/function modes \(standalone \`\+\`, \`\-p\`/\`\+p\`, \`\+m\`, and \`\-f\`/\`\+f\`\) are excluded. Pattern declarations with \`\-m\` are reported only when an effective \`\+g\` makes matching non\-local parameters local. The rule also stays silent when dynamic option words or the ambient \`GLOBAL\_EXPORT\` option make declaration scope uncertain. Reads are never reported.
+
+Why: The Zsh manual's zshparam "Parameters Set By The Shell" section documents these as shell\-provided state. In a function, \`readonly\` is \`typeset \-r\` and creates a local binding unless \`\-g\` explicitly selects non\-local behavior. Version probes such as \`is\-at\-least $ZSH\_VERSION\` are pervasive in plugin code, so a \`local ZSH\_VERSION=...\` in a caller silently feeds the override to all nested code for the lifetime of the scope. At top level, the same declaration form clobbers the shell\-managed outer binding instead of creating a temporary local. Unlike ordinary shadowing, the reader has no declaration of the original to look up \-\- the shell set it. See https://zsh.sourceforge.io/Doc/Release/Parameters.html#Parameters-Set-By-The-Shell.
+
+Bad:
+
+    compile_zsh() {
+      local ZSH_VERSION="$1"
+    }
+    
+
+Good:
+
+    compile_zsh() {
+      local target_zsh_version="$1"
+    }
+    
+
+Severity: Warning. The pattern is functional but misleading and can change what nested code observes; deliberate compatibility shims are realistic, so it is suppressible rather than an error.
+
+False positives: Deliberate compatibility shims or test harnesses that fake \`ZSH\_VERSION\` or \`OSTYPE\` for downstream code are the rule's target behavior made intentional; suppress them with a reason. The rule flags only a curated allowlist of read\-mostly shell\-set parameters and stays silent for reads and the conventionally mutated \`path\`, \`fpath\`, \`PATH\`, \`REPLY\`, and \`match\`. The shell\-special \`status\` and \`pipestatus\` cases remain included because \`local \-h status=...\` and \`local \-h pipestatus=\(...\)\` can replace their special behavior with ordinary local bindings.
+
+Suppression: Use \`\# zsh\-lint disable=compat/special\-param\-shadow \-\- \&lt;reason\&gt;\` on the finding line or immediately before the next non\-comment, non\-blank source line.
+
+Corpus evidence: Issue \#64 records \`zd/docker/utils.zsh:78\`: \`local ZSH\_VERSION="$1"\` inside a helper that takes a target version as its first argument. Deferred issue \#72 tracks bare assignments in function scope and \`integer\`/\`float\` declarations; both are out of scope for this rule version.
+
+    type SpecialParamShadow struct{}
+
+
+###### func \(SpecialParamShadow\) Analyze
+
+    func (rule SpecialParamShadow) Analyze(ctx *analyzer.Context, node syntax.Node)
+
+
+
+
+###### func \(SpecialParamShadow\) ID
+
+    func (SpecialParamShadow) ID() diag.RuleID
+
+
+
+
+###### func \(SpecialParamShadow\) Name
+
+    func (SpecialParamShadow) Name() string
+
+
+
+
+##### type UnquotedVar
+
+UnquotedVar reports direct, unquoted parameter expansions in command words.
+
+ID: \`quoting/unquoted\-var\`
+
+Name: Unquoted variable expansion
+
+Summary: Reports parameter expansions in command names or arguments that are not enclosed in double quotes.
+
+Why: The Zsh manual's Parameter Expansion section explains that unquoted parameters are not split on whitespace by default, unlike in sh, but null words are still elided; enabling \`SH\_WORD\_SPLIT\` also makes unquoted values subject to field splitting. Double quotes preserve an empty scalar as an argument and keep the expansion single\-word under either option state. See https://zsh.sourceforge.io/Doc/Release/Expansion.html#Parameter-Expansion.
+
+Bad:
+
+    print -r -- $value
+    
+
+Good:
+
+    print -r -- "$value"
+    
+
+Severity: Warning. Losing an empty argument or inheriting \`SH\_WORD\_SPLIT\` can change command behavior, while intentional elision remains realistic.
+
+False positives: Code may intentionally omit an empty argument, deliberately rely on \`SH\_WORD\_SPLIT\`, or expand a value guaranteed to be non\-empty. Those cases should use a reasoned suppression rather than weakening unrelated diagnostics.
+
+Suppression: Use \`\# zsh\-lint disable=quoting/unquoted\-var \-\- \&lt;reason\&gt;\` on the finding line or immediately before the next non\-comment, non\-blank source line.
+
+Corpus evidence: The June 12, 2026 LangZsh clean\-baseline run produced zero findings from this rule across the 11 parseable corpus files. This grandfathered rule therefore has no positive corpus citation yet.
+
+    type UnquotedVar struct{}
+
+
+###### func \(UnquotedVar\) Analyze
+
+    func (r UnquotedVar) Analyze(ctx *analyzer.Context, node syntax.Node)
+
+
+
+
+###### func \(UnquotedVar\) ID
+
+    func (r UnquotedVar) ID() diag.RuleID
+
+
+
+
+###### func \(UnquotedVar\) Name
+
+    func (r UnquotedVar) Name() string
+
+
+
 Generated by [gomarkdoc](https://github.com/princjef/gomarkdoc)
 
 {/* zsh-lint:generated:end */}
