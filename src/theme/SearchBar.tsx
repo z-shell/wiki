@@ -3,23 +3,34 @@ import SearchBar from "@theme-original/SearchBar";
 
 export default function SearchBarWrapper(props: React.ComponentProps<typeof SearchBar>): React.JSX.Element {
   useEffect(() => {
-    const setAriaHiddenIfPresent = (): boolean => {
-      const keysSpan = document.querySelector(".DocSearch-Button-Keys");
-      if (keysSpan && !keysSpan.getAttribute("aria-hidden")) {
+    const setAriaHidden = (keysSpan: Element): void => {
+      if (!keysSpan.getAttribute("aria-hidden")) {
         keysSpan.setAttribute("aria-hidden", "true");
       }
-      return Boolean(keysSpan);
     };
 
-    if (setAriaHiddenIfPresent()) {
+    const initialKeysSpan = document.querySelector(".DocSearch-Button-Keys");
+    if (initialKeysSpan) {
+      setAriaHidden(initialKeysSpan);
       return;
     }
 
     const observerTarget = document.querySelector(".navbar") ?? document.body;
 
-    const observer = new MutationObserver(() => {
-      if (setAriaHiddenIfPresent()) {
-        observer.disconnect();
+    const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        for (const node of mutation.addedNodes) {
+          if (!(node instanceof Element)) {
+            continue;
+          }
+
+          const keysSpan = node.matches(".DocSearch-Button-Keys") ? node : node.querySelector(".DocSearch-Button-Keys");
+          if (keysSpan) {
+            setAriaHidden(keysSpan);
+            observer.disconnect();
+            return;
+          }
+        }
       }
     });
 
