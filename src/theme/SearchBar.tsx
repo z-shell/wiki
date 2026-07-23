@@ -12,12 +12,12 @@ export default function SearchBarWrapper(props: React.ComponentProps<typeof Sear
     const initialKeysSpan = document.querySelector(".DocSearch-Button-Keys");
     if (initialKeysSpan) {
       setAriaHidden(initialKeysSpan);
-      return (): void => {};
+      return;
     }
 
     const observerTarget = document.querySelector(".navbar");
     if (!observerTarget) {
-      return (): void => {};
+      return;
     }
 
     const observer = new MutationObserver((mutations) => {
@@ -27,9 +27,9 @@ export default function SearchBarWrapper(props: React.ComponentProps<typeof Sear
             continue;
           }
 
-          const keysSpan = node.matches(".DocSearch-Button-Keys") ? node : node.querySelector(".DocSearch-Button-Keys");
-          if (keysSpan) {
-            setAriaHidden(keysSpan);
+          const foundKeysSpan = node.matches(".DocSearch-Button-Keys") ? node : node.querySelector(".DocSearch-Button-Keys");
+          if (foundKeysSpan) {
+            setAriaHidden(foundKeysSpan);
             observer.disconnect();
             return;
           }
