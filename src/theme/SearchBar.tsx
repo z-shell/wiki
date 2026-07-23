@@ -15,13 +15,15 @@ export default function SearchBarWrapper(props: React.ComponentProps<typeof Sear
       return;
     }
 
+    const observerTarget = document.querySelector(".navbar") ?? document.body;
+
     const observer = new MutationObserver(() => {
       if (setAriaHiddenIfPresent()) {
         observer.disconnect();
       }
     });
 
-    observer.observe(document.body, {childList: true, subtree: true});
+    observer.observe(observerTarget, {childList: true, subtree: true});
 
     return () => {
       observer.disconnect();
