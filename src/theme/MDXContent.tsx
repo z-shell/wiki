@@ -12,11 +12,22 @@ export default function MDXContentWrapper(props: React.ComponentProps<typeof MDX
   const src = customFields.fontAwesomeScript;
 
   useEffect(() => {
-    if (src && !document.querySelector(`script[src="${src}"]`)) {
-      const script = document.createElement("script");
-      script.src = src;
-      script.crossOrigin = "anonymous";
-      document.head.appendChild(script);
+    if (src) {
+      let scriptExists = false;
+
+      for (const existingScript of document.scripts) {
+        if (existingScript.getAttribute("src") === src) {
+          scriptExists = true;
+          break;
+        }
+      }
+
+      if (!scriptExists) {
+        const script = document.createElement("script");
+        script.src = src;
+        script.crossOrigin = "anonymous";
+        document.head.appendChild(script);
+      }
     }
   }, [src]);
 
