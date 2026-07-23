@@ -13,9 +13,14 @@ export default function MDXContentWrapper(props: React.ComponentProps<typeof MDX
 
   useEffect(() => {
     if (src) {
-      const scriptExists = Array.from(document.scripts).some(
-        (existingScript) => existingScript.getAttribute("src") === src,
-      );
+      let scriptExists = false;
+
+      for (const existingScript of document.scripts) {
+        if (existingScript.getAttribute("src") === src) {
+          scriptExists = true;
+          break;
+        }
+      }
 
       if (!scriptExists) {
         const script = document.createElement("script");
