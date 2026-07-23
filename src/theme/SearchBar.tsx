@@ -27,7 +27,9 @@ export default function SearchBarWrapper(props: React.ComponentProps<typeof Sear
             continue;
           }
 
-          const foundKeysSpan = node.matches(".DocSearch-Button-Keys") ? node : node.querySelector(".DocSearch-Button-Keys");
+          const foundKeysSpan = node.matches(".DocSearch-Button-Keys")
+            ? node
+            : node.querySelector(".DocSearch-Button-Keys");
           if (foundKeysSpan) {
             setAriaHidden(foundKeysSpan);
             observer.disconnect();
