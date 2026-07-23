@@ -3,6 +3,8 @@ import SearchBar from "@theme-original/SearchBar";
 
 export default function SearchBarWrapper(props: React.ComponentProps<typeof SearchBar>): React.JSX.Element {
   useEffect(() => {
+    let disconnectObserver = (): void => {};
+
     const setAriaHidden = (keysSpan: Element): void => {
       if (!keysSpan.getAttribute("aria-hidden")) {
         keysSpan.setAttribute("aria-hidden", "true");
@@ -12,10 +14,13 @@ export default function SearchBarWrapper(props: React.ComponentProps<typeof Sear
     const initialKeysSpan = document.querySelector(".DocSearch-Button-Keys");
     if (initialKeysSpan) {
       setAriaHidden(initialKeysSpan);
-      return;
+      return disconnectObserver;
     }
 
-    const observerTarget = document.querySelector(".navbar") ?? document.body;
+    const observerTarget = document.querySelector(".navbar");
+    if (!observerTarget) {
+      return disconnectObserver;
+    }
 
     const observer = new MutationObserver((mutations) => {
       for (const mutation of mutations) {
@@ -34,11 +39,13 @@ export default function SearchBarWrapper(props: React.ComponentProps<typeof Sear
       }
     });
 
-    observer.observe(observerTarget, {childList: true, subtree: true});
-
-    return () => {
+    disconnectObserver = () => {
       observer.disconnect();
     };
+
+    observer.observe(observerTarget, {childList: true, subtree: true});
+
+    return disconnectObserver;
   }, []);
 
   return <SearchBar {...props} />;
