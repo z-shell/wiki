@@ -23,7 +23,7 @@ jobs:
       actions: read
       checks: write
       contents: read
-    uses: z-shell/.github/.github/workflows/trunk.yml@df7c51baaa966337fe5e8d15d82bc9c38486a227 # main
+    uses: z-shell/.github/.github/workflows/trunk.yml@8ee041623cd5a2892887357ea9f0fb443ff3d2b4 # main
     with:
       cache: false
       setup-deps: true
