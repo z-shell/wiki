@@ -1,0 +1,5 @@
+# Require the maintainer to approve generated zsh-lint reference updates.
+/docs/zsh-lint/reference.mdx @ss-o
+
+# Protect this targeted review policy.
+/.github/CODEOWNERS @ss-o
