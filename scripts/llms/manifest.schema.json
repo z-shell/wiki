@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://wiki.zshell.dev/ai/v1/manifest.schema.json",
   "title": "Z-Shell Wiki machine-readable corpus manifest",
   "type": "object",
   "additionalProperties": false,
