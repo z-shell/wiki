@@ -1,3 +1,54 @@
+# Explicit origin policy; Cloudflare must not inject its permissive default.
+/*
+  Content-Signal: search=yes, ai-input=yes, ai-train=no
+
+# Machine-readable discovery indexes
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=300, must-revalidate
+  Access-Control-Allow-Origin: *
+  X-Content-Type-Options: nosniff
+
+/*/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=300, must-revalidate
+  Access-Control-Allow-Origin: *
+  X-Content-Type-Options: nosniff
+
+# Complete locale corpora
+/llms-full.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=300, must-revalidate
+  Access-Control-Allow-Origin: *
+  X-Content-Type-Options: nosniff
+
+/*/llms-full.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=300, must-revalidate
+  Access-Control-Allow-Origin: *
+  X-Content-Type-Options: nosniff
+
+# Canonical per-page Markdown
+/*.md
+  Content-Type: text/markdown; charset=utf-8
+  Cache-Control: public, max-age=300, must-revalidate
+  Access-Control-Allow-Origin: *
+  X-Content-Type-Options: nosniff
+
+# Versioned corpus manifest
+/ai/v1/manifest.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=300, must-revalidate
+  Access-Control-Allow-Origin: *
+  X-Content-Type-Options: nosniff
+
+# Repository-owned crawler policy
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=300, must-revalidate
+  Access-Control-Allow-Origin: *
+  X-Content-Type-Options: nosniff
+
 # CDN font binaries — fingerprinted, cache immutably
 /cdn/*.woff2
   Cache-Control: public, max-age=31536000, immutable
