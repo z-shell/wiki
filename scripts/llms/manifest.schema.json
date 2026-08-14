@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Z-Shell Wiki machine-readable corpus manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "markdown_profile_version",
+    "name",
+    "description",
+    "canonical_url",
+    "manifest_url",
+    "source_repository",
+    "source_authority",
+    "release",
+    "capabilities",
+    "content_signal",
+    "default_locale",
+    "locales",
+    "sections",
+    "documents",
+    "artifacts"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "markdown_profile_version": {"const": "1.0.0"},
+    "name": {"type": "string", "minLength": 1},
+    "description": {"type": "string", "minLength": 1},
+    "canonical_url": {"type": "string", "format": "uri"},
+    "manifest_url": {"type": "string", "format": "uri"},
+    "source_repository": {"type": "string", "format": "uri"},
+    "source_authority": {"const": "human-facing wiki"},
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner", "evidence_url", "completed_phases"],
+      "properties": {
+        "owner": {"type": "string", "minLength": 1},
+        "evidence_url": {"type": "string", "format": "uri"},
+        "completed_phases": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "prefixItems": [{"const": "1A"}, {"const": "1B"}],
+          "items": false
+        }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["static_discovery", "retrieval_api", "mcp"],
+      "properties": {
+        "static_discovery": {"const": true},
+        "retrieval_api": {"const": false},
+        "mcp": {"const": false}
+      }
+    },
+    "content_signal": {"const": "search=yes, ai-input=yes, ai-train=no"},
+    "default_locale": {"const": "en"},
+    "locales": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/locale"}
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 3,
+      "items": {"$ref": "#/$defs/section"}
+    },
+    "documents": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/document"}
+    },
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/artifact"}
+    }
+  },
+  "$defs": {
+    "locale": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "default", "path_prefix", "canonical_base_url", "llms_url", "llms_full_url", "manifest_url"],
+      "properties": {
+        "id": {"type": "string", "minLength": 2},
+        "default": {"type": "boolean"},
+        "path_prefix": {"type": "string"},
+        "canonical_base_url": {"type": "string", "format": "uri"},
+        "llms_url": {"type": "string", "format": "uri"},
+        "llms_full_url": {"type": "string", "format": "uri"},
+        "manifest_url": {"type": "string", "format": "uri"}
+      }
+    },
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "description"],
+      "properties": {
+        "id": {"enum": ["docs", "community", "ecosystem"]},
+        "title": {"type": "string", "minLength": 1},
+        "description": {"type": "string", "minLength": 1}
+      }
+    },
+    "alternate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["locale", "canonical_url", "markdown_url"],
+      "properties": {
+        "locale": {"type": "string", "minLength": 2},
+        "canonical_url": {"type": "string", "format": "uri"},
+        "markdown_url": {"type": "string", "format": "uri"}
+      }
+    },
+    "document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "translation_key",
+        "section",
+        "locale",
+        "title",
+        "description",
+        "source_path",
+        "canonical_url",
+        "markdown_url",
+        "alternates",
+        "bytes",
+        "sha256"
+      ],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "translation_key": {"type": "string", "pattern": "^/(docs|community|ecosystem)(/|$)"},
+        "section": {"enum": ["docs", "community", "ecosystem"]},
+        "locale": {"type": "string", "minLength": 2},
+        "title": {"type": "string", "minLength": 1},
+        "description": {"type": "string", "minLength": 1},
+        "source_path": {
+          "oneOf": [{"type": "string", "pattern": "^(docs|community|ecosystem)/.+\\.mdx$"}, {"type": "null"}]
+        },
+        "canonical_url": {"type": "string", "format": "uri"},
+        "markdown_url": {"type": "string", "format": "uri"},
+        "alternates": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/alternate"}
+        },
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "url", "kind", "locale", "media_type", "bytes", "sha256"],
+      "properties": {
+        "path": {"type": "string", "pattern": "^/"},
+        "url": {"type": "string", "format": "uri"},
+        "kind": {
+          "enum": ["document", "index", "full-corpus", "markdown-profile"]
+        },
+        "locale": {
+          "oneOf": [{"type": "string", "minLength": 2}, {"type": "null"}]
+        },
+        "media_type": {
+          "enum": ["text/markdown; charset=utf-8", "text/plain; charset=utf-8"]
+        },
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    }
+  }
+}
