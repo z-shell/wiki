@@ -84,7 +84,7 @@ export function registerZShellLanguages(Prism: typeof PrismNamespace): void {
   // ZSH-specific builtins — inserted before 'function' so they take priority
   Prism.languages.insertBefore("zsh", "function", {
     "zsh-builtin": {
-      pattern: new RegExp(String.raw`(?<lb>^|[\s;|&])(?:${zshBuiltins.join("|")})(?=\s|;|$)`),
+      pattern: new RegExp(String.raw`(?<lb>^|[\s;|&])(?:${zshBuiltins.join("|")})(?=[\s;|&]|$)`),
       lookbehind: true,
       alias: "builtin",
     },
