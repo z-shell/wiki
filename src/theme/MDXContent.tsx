@@ -4,6 +4,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import MDXContent from "@theme-original/MDXContent";
 
 const FONT_AWESOME_STYLESHEET_ID = "font-awesome-stylesheet";
+const FONT_AWESOME_ICON_SELECTOR = 'i[class^="fa-"], i[class*=" fa-"]';
 
 type SiteCustomFields = {
   fontAwesomeStylesheet?: string;
@@ -16,29 +17,28 @@ export default function MDXContentWrapper(props: React.ComponentProps<typeof MDX
   const stylesheet = customFields.fontAwesomeStylesheet;
 
   useEffect(() => {
-    const hasFontAwesomeIcon = Array.from(document.querySelectorAll<HTMLElement>("i[class]")).some(({classList}) =>
-      Array.from(classList).some((className) => className.startsWith("fa-")),
-    );
-
-    if (!hasFontAwesomeIcon) {
+    if (!document.querySelector(FONT_AWESOME_ICON_SELECTOR)) {
       return;
     }
 
     if (!stylesheet) {
-      throw new Error("Font Awesome icons are present, but no fontAwesomeStylesheet custom field is configured.");
+      console.error("Font Awesome icons are present, but no fontAwesomeStylesheet custom field is configured.");
+      return;
     }
 
     const stylesheetUrl = new URL(stylesheet, document.baseURI).href;
     const existingElement = document.getElementById(FONT_AWESOME_STYLESHEET_ID);
 
-    if (existingElement) {
-      if (!(existingElement instanceof HTMLLinkElement) || existingElement.rel !== "stylesheet") {
-        throw new Error(`Element #${FONT_AWESOME_STYLESHEET_ID} must be a stylesheet link.`);
-      }
+    if (existingElement instanceof HTMLLinkElement && existingElement.rel === "stylesheet") {
       if (existingElement.href !== stylesheetUrl) {
-        throw new Error(`Element #${FONT_AWESOME_STYLESHEET_ID} already points to a different stylesheet.`);
+        existingElement.href = stylesheetUrl;
       }
       return;
+    }
+
+    if (existingElement) {
+      console.error(`Replacing non-stylesheet element #${FONT_AWESOME_STYLESHEET_ID}.`);
+      existingElement.remove();
     }
 
     const link = document.createElement("link");
