@@ -15,7 +15,7 @@ Full reference: <https://docusaurus.io/docs/api/docusaurus-config>
 - Environment variables for deployment-flexible values:
   - `URL` → site origin (default: `https://wiki.zshell.dev`)
   - `BASE_URL` → base path (default: `/`)
-  - `STYLES` → external stylesheet/script URL
+  - `FONT_AWESOME_STYLESHEET` → Font Awesome CSS distribution URL
 
 ## Core Settings
 
