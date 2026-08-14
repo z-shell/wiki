@@ -82,6 +82,8 @@ lint:
           cache_results: false
       environment:
         - name: GITHUB_TOKEN
+        - name: PATH
+          list: ["${env.PATH}"]
     - name: frontmatter-linter
       files: [mdx]
       commands:
