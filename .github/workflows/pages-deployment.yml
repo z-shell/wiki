@@ -7,7 +7,6 @@ on:
 
 env:
   URL: "https://wiki.zshell.dev"
-  STYLES: ${{ secrets.FA_STYLES_KIT }}
 
 permissions:
   contents: read

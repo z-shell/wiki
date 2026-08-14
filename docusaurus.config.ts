@@ -10,8 +10,9 @@ import type {Options as IdealImageOptions} from "@docusaurus/plugin-ideal-image"
 
 const url = process.env.URL ?? "https://wiki.zshell.dev";
 const baseUrl = process.env.BASE_URL ?? "/";
-const fontAwesomeScript =
-  process.env.STYLES ?? "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/js/all.min.js";
+const fontAwesomeStylesheet =
+  process.env.FONT_AWESOME_STYLESHEET ??
+  "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css";
 
 export default async function createConfigAsync() {
   return {
@@ -69,7 +70,7 @@ export default async function createConfigAsync() {
     ],
     i18n: {defaultLocale: "en", locales: ["en"]},
     markdown: {mermaid: true, emoji: true, format: "detect", hooks: {onBrokenMarkdownLinks: "warn"}},
-    customFields: {fontAwesomeScript},
+    customFields: {fontAwesomeStylesheet},
     storage: {
       type: "localStorage",
       namespace: true,
