@@ -16,6 +16,8 @@ on:
       - "package.json"
       - "pnpm-lock.yaml"
       - "docusaurus.config.ts"
+      - "functions/**"
+      - "scripts/llms/**"
       - "src/**"
       - "static/**"
       - "!docs/**"

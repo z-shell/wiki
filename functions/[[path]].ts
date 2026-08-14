@@ -1,3 +1,4 @@
+import contentPolicy from "../content-policy.json";
 import type {PagesFunction} from "@cloudflare/workers-types";
 
 interface Env {
@@ -5,6 +6,17 @@ interface Env {
 }
 
 const immutableAssetPrefixes = ["/assets/", "/cdn/", "/img/"];
+const {contentSignal} = contentPolicy;
+
+function withContentSignal(response: Response): Response {
+  const headers = new Headers(response.headers);
+  headers.set("Content-Signal", contentSignal);
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
 
 export const onRequest: PagesFunction<Env> = async (context) => {
   if (context.request.method === "OPTIONS") {
@@ -15,24 +27,25 @@ export const onRequest: PagesFunction<Env> = async (context) => {
         "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
         "Access-Control-Allow-Headers": "Range, If-None-Match",
         "Access-Control-Max-Age": "86400",
+        "Content-Signal": contentSignal,
       },
     });
   }
 
   const response = await context.next();
   if (response.status !== 404) {
-    return response;
+    return withContentSignal(response);
   }
 
   if (context.request.method !== "GET" && context.request.method !== "HEAD") {
-    return response;
+    return withContentSignal(response);
   }
 
   const url = new URL(context.request.url);
   const key = url.pathname.slice(1);
 
   if (!key) {
-    return response;
+    return withContentSignal(response);
   }
 
   // Honor the conditional (If-None-Match) and Range request headers advertised
@@ -43,7 +56,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   });
 
   if (!object) {
-    return response;
+    return withContentSignal(response);
   }
 
   const headers = new Headers();
@@ -56,6 +69,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   headers.set("ETag", object.httpEtag);
   headers.set("Access-Control-Allow-Origin", "*");
   headers.set("Accept-Ranges", "bytes");
+  headers.set("Content-Signal", contentSignal);
   if (url.pathname.startsWith("/cdn/")) {
     headers.set("X-Robots-Tag", "noindex, noarchive");
   }
