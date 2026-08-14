@@ -179,8 +179,8 @@ test("link extraction covers preserved HTML but ignores fenced examples", () => 
 test("robots policy emits one explicit group per crawler", () => {
   const robots = renderRobots("https://wiki.zshell.dev");
   for (const {directive, path, userAgent} of CRAWLER_POLICY) {
-    assert.equal(robots.match(new RegExp(`User-agent: ${userAgent.replace("*", "\\*")}`, "g"))?.length, 1);
-    assert.match(robots, new RegExp(`User-agent: ${userAgent.replace("*", "\\*")}\\n${directive}: ${path}`));
+    assert.equal(robots.split(`User-agent: ${userAgent}`).length - 1, 1);
+    assert.ok(robots.includes(`User-agent: ${userAgent}\n${directive}: ${path}`));
   }
   assert.match(robots, /User-agent: GPTBot\nDisallow: \//);
   assert.match(robots, /User-agent: OAI-SearchBot\nAllow: \//);
