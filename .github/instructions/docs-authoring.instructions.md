@@ -53,6 +53,11 @@ keywords:
 
 Run `pnpm validate:frontmatter` before pushing to catch any missing fields.
 
+When editing `community/00_contributing/03_zsh_plugin_standard.mdx`, also run
+`pnpm validate:plugin-standard`. This checks the portable-core/profile boundary,
+legacy route anchors, safety guidance, and the semiannual review workflow
+contract.
+
 ## File Naming
 
 Use numeric prefixes to control sidebar order: `01_first.mdx`, `02_second.mdx`.
