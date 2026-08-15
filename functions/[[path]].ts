@@ -6,11 +6,20 @@ interface Env {
 }
 
 const immutableAssetPrefixes = ["/assets/", "/cdn/", "/img/"];
+const asciicastContentType = "text/plain; charset=utf-8";
 const {contentSignal} = contentPolicy;
 
-function withContentSignal(response: Response): Response {
-  const headers = new Headers(response.headers);
+function applyContentHeaders(headers: Headers, pathname?: string): void {
   headers.set("Content-Signal", contentSignal);
+  // Cloudflare compresses text/plain responses, unlike the default application/octet-stream used for .cast files.
+  if (pathname?.endsWith(".cast")) {
+    headers.set("Content-Type", asciicastContentType);
+  }
+}
+
+function withContentHeaders(response: Response, pathname?: string): Response {
+  const headers = new Headers(response.headers);
+  applyContentHeaders(headers, pathname);
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
@@ -32,20 +41,20 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     });
   }
 
+  const url = new URL(context.request.url);
   const response = await context.next();
   if (response.status !== 404) {
-    return withContentSignal(response);
+    return withContentHeaders(response, url.pathname);
   }
 
   if (context.request.method !== "GET" && context.request.method !== "HEAD") {
-    return withContentSignal(response);
+    return withContentHeaders(response);
   }
 
-  const url = new URL(context.request.url);
   const key = url.pathname.slice(1);
 
   if (!key) {
-    return withContentSignal(response);
+    return withContentHeaders(response);
   }
 
   // Honor the conditional (If-None-Match) and Range request headers advertised
@@ -56,7 +65,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   });
 
   if (!object) {
-    return withContentSignal(response);
+    return withContentHeaders(response);
   }
 
   const headers = new Headers();
@@ -69,7 +78,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   headers.set("ETag", object.httpEtag);
   headers.set("Access-Control-Allow-Origin", "*");
   headers.set("Accept-Ranges", "bytes");
-  headers.set("Content-Signal", contentSignal);
+  applyContentHeaders(headers, url.pathname);
   if (url.pathname.startsWith("/cdn/")) {
     headers.set("X-Robots-Tag", "noindex, noarchive");
   }
