@@ -158,6 +158,16 @@ test("rejects behavior-changing workflow mapping fields", () => {
   assert.match(errors, /repository-scoped GitHub token/);
 });
 
+test("returns validation errors for non-mapping required steps", () => {
+  const parsed = parse(workflow);
+  parsed.jobs.review.steps[2] = null;
+  parsed.jobs.review.steps[6] = "invalid";
+  const errors = validateWorkflow(JSON.stringify(parsed)).join("\n");
+
+  assert.match(errors, /Node setup must use Node 22/);
+  assert.match(errors, /repository-scoped GitHub token/);
+});
+
 test("builds stable half-year review metadata", () => {
   assert.equal(buildReviewTitle(new Date("2026-01-17T07:23:00Z")), "Review Zsh Plugin Standard relevance: 2026 H1");
   assert.equal(buildReviewTitle(new Date("2026-07-17T07:23:00Z")), "Review Zsh Plugin Standard relevance: 2026 H2");
