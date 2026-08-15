@@ -296,6 +296,11 @@ export function validateWorkflow(content) {
       run: "pnpm install --frozen-lockfile",
     },
     {
+      name: "Install Zsh",
+      keys: ["name", "run"],
+      run: "sudo apt-get update && sudo apt-get install --yes --no-install-recommends zsh",
+    },
+    {
       name: "Validate deterministic contract",
       keys: ["name", "run"],
       run: "pnpm validate:plugin-standard",
@@ -335,7 +340,7 @@ export function validateWorkflow(content) {
     }
   }
 
-  const [, , setupNodeStep, , , issueStep] = steps;
+  const [, , setupNodeStep, , , , issueStep] = steps;
   if (
     !hasExactKeys(setupNodeStep.with, ["node-version", "cache"]) ||
     setupNodeStep.with["node-version"] !== "22" ||
