@@ -54,6 +54,7 @@ test("propagates a nonzero loader status after cleanup", () => {
     .replace("# Register the plugin's persistent functions, hooks, and state.", "return 23");
   const result = spawnSync("zsh", ["-f", "-c", `${example}\nexit $?`], {encoding: "utf8"});
 
+  assert.equal(result.error, undefined);
   assert.equal(result.status, 23, result.stderr);
 });
 
@@ -100,15 +101,36 @@ test("rejects removal of scheduled issue creation", () => {
 
 test("rejects validation before repository setup", () => {
   const parsed = parse(workflow);
-  const [validateStep] = parsed.jobs.review.steps.splice(4, 1);
+  const [validateStep] = parsed.jobs.review.steps.splice(5, 1);
   parsed.jobs.review.steps.unshift(validateStep);
   assert.match(validateWorkflow(JSON.stringify(parsed)).join("\n"), /step 1/);
+});
+
+test("rejects removal of Zsh provisioning", () => {
+  const parsed = parse(workflow);
+  parsed.jobs.review.steps.splice(4, 1);
+  assert.match(validateWorkflow(JSON.stringify(parsed)).join("\n"), /complete required step sequence/);
+});
+
+test("rejects mutation of Zsh provisioning", () => {
+  const invalid = workflow.replace(
+    "sudo apt-get update && sudo apt-get install --yes --no-install-recommends zsh",
+    "sudo apt-get install --yes zsh",
+  );
+  assert.match(validateWorkflow(invalid).join("\n"), /Install Zsh must run/);
+});
+
+test("rejects Zsh provisioning after deterministic validation", () => {
+  const parsed = parse(workflow);
+  const [zshStep] = parsed.jobs.review.steps.splice(4, 1);
+  parsed.jobs.review.steps.splice(5, 0, zshStep);
+  assert.match(validateWorkflow(JSON.stringify(parsed)).join("\n"), /step 5 must be Install Zsh/);
 });
 
 test("rejects extra triggers and skippable required steps", () => {
   const parsed = parse(workflow);
   parsed.on.push = {};
-  parsed.jobs.review.steps[4].if = false;
+  parsed.jobs.review.steps[5].if = false;
   const errors = validateWorkflow(JSON.stringify(parsed)).join("\n");
   assert.match(errors, /exactly schedule and workflow_dispatch/);
   assert.match(errors, /must not be skipped/);
@@ -128,11 +150,21 @@ test("rejects behavior-changing workflow mapping fields", () => {
   parsed.on.schedule[0].timezone = "Europe/London";
   parsed.jobs.review.strategy = {matrix: {node: [22]}};
   parsed.jobs.review.steps[0].with = {repository: "other/repository"};
-  parsed.jobs.review.steps[5].env.NODE_OPTIONS = "--import=./other.mjs";
+  parsed.jobs.review.steps[6].env.NODE_OPTIONS = "--import=./other.mjs";
   const errors = validateWorkflow(JSON.stringify(parsed)).join("\n");
   assert.match(errors, /07:23 UTC/);
   assert.match(errors, /review job must contain only/);
   assert.match(errors, /Check out repository must contain only/);
+  assert.match(errors, /repository-scoped GitHub token/);
+});
+
+test("returns validation errors for non-mapping required steps", () => {
+  const parsed = parse(workflow);
+  parsed.jobs.review.steps[2] = null;
+  parsed.jobs.review.steps[6] = "invalid";
+  const errors = validateWorkflow(JSON.stringify(parsed)).join("\n");
+
+  assert.match(errors, /Node setup must use Node 22/);
   assert.match(errors, /repository-scoped GitHub token/);
 });
 

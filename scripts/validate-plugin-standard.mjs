@@ -296,6 +296,11 @@ export function validateWorkflow(content) {
       run: "pnpm install --frozen-lockfile",
     },
     {
+      name: "Install Zsh",
+      keys: ["name", "run"],
+      run: "sudo apt-get update && sudo apt-get install --yes --no-install-recommends zsh",
+    },
+    {
       name: "Validate deterministic contract",
       keys: ["name", "run"],
       run: "pnpm validate:plugin-standard",
@@ -335,8 +340,9 @@ export function validateWorkflow(content) {
     }
   }
 
-  const [, , setupNodeStep, , , issueStep] = steps;
+  const [, , setupNodeStep, , , , issueStep] = steps;
   if (
+    !isRecord(setupNodeStep) ||
     !hasExactKeys(setupNodeStep.with, ["node-version", "cache"]) ||
     setupNodeStep.with["node-version"] !== "22" ||
     setupNodeStep.with.cache !== "pnpm"
@@ -344,7 +350,11 @@ export function validateWorkflow(content) {
     errors.push("Node setup must use Node 22 with the pnpm cache");
   }
 
-  if (!hasExactKeys(issueStep.env, ["GH_TOKEN"]) || issueStep.env.GH_TOKEN !== GITHUB_TOKEN_EXPRESSION) {
+  if (
+    !isRecord(issueStep) ||
+    !hasExactKeys(issueStep.env, ["GH_TOKEN"]) ||
+    issueStep.env.GH_TOKEN !== GITHUB_TOKEN_EXPRESSION
+  ) {
     errors.push("review issue step must use the repository-scoped GitHub token");
   }
 

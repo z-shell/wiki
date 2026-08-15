@@ -32,6 +32,8 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Install Zsh
+        run: sudo apt-get update && sudo apt-get install --yes --no-install-recommends zsh
       - name: Validate deterministic contract
         run: pnpm validate:plugin-standard
       - name: Open ecosystem relevance review
