@@ -43,7 +43,7 @@ When you add a new content area, feature, or infrastructure component, pick the
 content root using the scope rule above, then review and update these files so
 guidance stays current:
 
-- `AGENTS.md` (this file; `CLAUDE.md` is a symlink to it) — content-root scope and conventions.
+- `AGENTS.md` (this file): content-root scope and conventions.
 - `.github/instructions/docs-authoring.instructions.md` — Content Root Selection.
 - `.github/instructions/agent-docusaurus-writer.instructions.md` — root selection.
 
