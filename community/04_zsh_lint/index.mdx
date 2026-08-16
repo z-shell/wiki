@@ -117,6 +117,10 @@ import "github.com/z-shell/zsh-lint/internal/rules"
   - [func \(r EvalUsage\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-evalusage-analyze)
   - [func \(r EvalUsage\) ID\(\) diag.RuleID](#func-evalusage-id)
   - [func \(r EvalUsage\) Name\(\) string](#func-evalusage-name)
+- [type FpathHygiene](#type-fpathhygiene)
+  - [func \(rule FpathHygiene\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-fpathhygiene-analyze)
+  - [func \(FpathHygiene\) ID\(\) diag.RuleID](#func-fpathhygiene-id)
+  - [func \(FpathHygiene\) Name\(\) string](#func-fpathhygiene-name)
 - [type FuncDeclStyle](#type-funcdeclstyle)
   - [func \(r FuncDeclStyle\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-funcdeclstyle-analyze)
   - [func \(r FuncDeclStyle\) ID\(\) diag.RuleID](#func-funcdeclstyle-id)
@@ -133,10 +137,18 @@ import "github.com/z-shell/zsh-lint/internal/rules"
   - [func \(rule SpecialParamShadow\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-specialparamshadow-analyze)
   - [func \(SpecialParamShadow\) ID\(\) diag.RuleID](#func-specialparamshadow-id)
   - [func \(SpecialParamShadow\) Name\(\) string](#func-specialparamshadow-name)
+- [type UnloadFunction](#type-unloadfunction)
+  - [func \(rule UnloadFunction\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-unloadfunction-analyze)
+  - [func \(UnloadFunction\) ID\(\) diag.RuleID](#func-unloadfunction-id)
+  - [func \(UnloadFunction\) Name\(\) string](#func-unloadfunction-name)
 - [type UnquotedVar](#type-unquotedvar)
   - [func \(r UnquotedVar\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-unquotedvar-analyze)
   - [func \(r UnquotedVar\) ID\(\) diag.RuleID](#func-unquotedvar-id)
   - [func \(r UnquotedVar\) Name\(\) string](#func-unquotedvar-name)
+- [type ZeroHandling](#type-zerohandling)
+  - [func \(rule ZeroHandling\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-zerohandling-analyze)
+  - [func \(ZeroHandling\) ID\(\) diag.RuleID](#func-zerohandling-id)
+  - [func \(ZeroHandling\) Name\(\) string](#func-zerohandling-name)
 
 
 
@@ -272,6 +284,77 @@ func (r EvalUsage) ID() diag.RuleID
 
 ```
 func (r EvalUsage) Name() string
+```
+
+
+
+
+##### type FpathHygiene
+
+FpathHygiene checks `fpath` modifications in plugin scripts for safety and best practices.
+
+ID: `plugin/fpath-hygiene`
+
+Name: fpath manipulation hygiene in plugin entrypoints
+
+Summary: Detects destructive assignments to `fpath` that overwrite existing autoload paths, additions of non\-function directories \(`bin/`, `tests/`\), and hardcoded user paths.
+
+Why: Sourced Zsh plugins must not destructively replace `fpath` \(which removes standard system and user function directories\), add hardcoded user machine paths, or add non\-function directories \(`bin/`, `tests/`\) that can trigger completion security audit warnings \(`compaudit`\) or namespace collisions. Plugins should append or prepend relative `functions/` or `completions/` directories. See https://wiki.zshell.dev/community/zsh_plugin_standard#completions-and-compinit-ownership.
+
+Bad:
+
+```
+#### Destructively overwrites existing autoload paths
+fpath=( "${0:h}/functions" )
+
+#### Adds binary directory to fpath
+fpath+=( "${0:h}/bin" )
+```
+
+Good:
+
+```
+fpath+=( "${0:h}/functions" "${0:h}/completions" )
+
+#### Prepending while preserving existing paths
+fpath=( "${0:h}/functions" $fpath )
+```
+
+Severity: Warning for destructive `fpath` overwrites or additions of `bin`/`tests` directories to `fpath`.
+
+False positives: Hermetic test runners or standalone shell bootstrap scripts that deliberately isolate `fpath`. Suppress with a reason.
+
+Suppression: Use `# zsh-lint disable=plugin/fpath-hygiene -- <reason>` on the finding line or immediately before the next non\-comment, non\-blank source line.
+
+Corpus evidence: `z-a-meta-plugins/z-a-meta-plugins.plugin.zsh:12` uses compliant `fpath+=( "${0:h}/functions" )`.
+
+```
+type FpathHygiene struct{}
+```
+
+
+###### func \(FpathHygiene\) Analyze
+
+```
+func (rule FpathHygiene) Analyze(ctx *analyzer.Context, node syntax.Node)
+```
+
+
+
+
+###### func \(FpathHygiene\) ID
+
+```
+func (FpathHygiene) ID() diag.RuleID
+```
+
+
+
+
+###### func \(FpathHygiene\) Name
+
+```
+func (FpathHygiene) Name() string
 ```
 
 
@@ -540,6 +623,78 @@ func (SpecialParamShadow) Name() string
 
 
 
+##### type UnloadFunction
+
+UnloadFunction checks plugin entrypoints for lifecycle unload conventions.
+
+ID: `plugin/unload-function`
+
+Name: Unload function convention and hygiene
+
+Summary: Checks that plugins registering persistent shell hooks or widgets define a namespaced unload function \(`*_plugin_unload`\), and that defined unload functions cleanly unfunction themselves upon completion.
+
+Why: The Zsh Plugin Standard specifies that plugins with persistent side effects \(hooks via `add-zsh-hook`, line\-editor widgets via `add-zle-hook-widget` or `zle -N`\) should provide a namespaced `*_plugin_unload` function so plugin managers and users can cleanly unload the plugin without restarting the shell. The unload function must explicitly remove only its own resources and unfunction itself upon completion. See https://wiki.zshell.dev/community/zsh_plugin_standard#lifecycle-and-resource-ownership.
+
+Bad:
+
+```
+#### Plugin installs hook but provides no unload function
+add-zsh-hook precmd _my_precmd
+```
+
+Good:
+
+```
+add-zsh-hook precmd _my_precmd
+
+my_plugin_unload() {
+  emulate -L zsh
+  autoload -Uz add-zsh-hook
+  add-zsh-hook -d precmd _my_precmd
+  unfunction _my_precmd my_plugin_unload
+}
+```
+
+Severity: Hint. Missing unload functions or self\-unfunction in unload definitions are lifecycle recommendations. Indiscriminate function wiping is a Warning.
+
+False positives: Plugins intended only for static, once\-per\-session loading without unload support. Suppress with a reason.
+
+Suppression: Use `# zsh-lint disable=plugin/unload-function -- <reason>` on the finding line or immediately before the next non\-comment, non\-blank source line.
+
+Corpus evidence: `zsh-fancy-completions/lib/state.zsh:72` implements `zsh-fancy-completions_plugin_unload` with full resource restoration and self\-unfunction.
+
+```
+type UnloadFunction struct{}
+```
+
+
+###### func \(UnloadFunction\) Analyze
+
+```
+func (rule UnloadFunction) Analyze(ctx *analyzer.Context, node syntax.Node)
+```
+
+
+
+
+###### func \(UnloadFunction\) ID
+
+```
+func (UnloadFunction) ID() diag.RuleID
+```
+
+
+
+
+###### func \(UnloadFunction\) Name
+
+```
+func (UnloadFunction) Name() string
+```
+
+
+
+
 ##### type UnquotedVar
 
 UnquotedVar reports direct, unquoted parameter expansions in command words.
@@ -570,7 +725,7 @@ False positives: Code may intentionally omit an empty argument, deliberately rel
 
 Suppression: Use `# zsh-lint disable=quoting/unquoted-var -- <reason>` on the finding line or immediately before the next non\-comment, non\-blank source line.
 
-Corpus evidence: The June 12, 2026 LangZsh clean\-baseline run produced zero findings from this rule across the 11 parseable corpus files. This grandfathered rule therefore has no positive corpus citation yet.
+Corpus evidence: Sourced scripts and plugin entrypoints frequently use quoted parameters for scalar configuration and path derivation.
 
 ```
 type UnquotedVar struct{}
@@ -599,6 +754,72 @@ func (r UnquotedVar) ID() diag.RuleID
 
 ```
 func (r UnquotedVar) Name() string
+```
+
+
+
+
+##### type ZeroHandling
+
+ZeroHandling reports uninitialized top\-level usage of `$0` in plugin entrypoints.
+
+ID: `plugin/zero-handling`
+
+Name: Zero\-handling idiom in plugin entrypoint
+
+Summary: Reports direct uses of `$0` at the top level of plugin scripts before `$0` has been initialized using prompt expansions \(`${(%):-%N}` or `${(%):-%x}`\).
+
+Why: When a Zsh plugin is sourced, positional parameter `$0` evaluates to the name of the shell \(`zsh` or `-zsh`\) rather than the path of the sourced script, unless `FUNCTION_ARGZERO` is active. Plugin entrypoints must initialize `$0` using prompt expansion `${(%):-%N}` or `${(%):-%x}` \(optionally with `$ZERO` fallback\) before using `$0` to derive directories or autoload paths. See https://wiki.zshell.dev/community/zsh_plugin_standard#zero-handling.
+
+Bad:
+
+```
+fpath+=( "${0:h}/functions" )
+```
+
+Good:
+
+```
+0="${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"
+0="${${(M)0:#/*}:-$PWD/$0}"
+fpath+=( "${0:h}/functions" )
+```
+
+Severity: Warning. Deriving paths from uninitialized `$0` in a sourced plugin leads to incorrect directory paths or runtime loading failures.
+
+False positives: Scripts intended solely for direct execution \(not sourcing\) or functions where `$0` refers to the function name. Suppress with a reason.
+
+Suppression: Use `# zsh-lint disable=plugin/zero-handling -- <reason>` on the finding line or immediately before the next non\-comment, non\-blank source line.
+
+Corpus evidence: `z-a-meta-plugins/z-a-meta-plugins.plugin.zsh:7` uses the compliant `0="${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"` idiom before referencing `${0:h}` on line 12.
+
+```
+type ZeroHandling struct{}
+```
+
+
+###### func \(ZeroHandling\) Analyze
+
+```
+func (rule ZeroHandling) Analyze(ctx *analyzer.Context, node syntax.Node)
+```
+
+
+
+
+###### func \(ZeroHandling\) ID
+
+```
+func (ZeroHandling) ID() diag.RuleID
+```
+
+
+
+
+###### func \(ZeroHandling\) Name
+
+```
+func (ZeroHandling) Name() string
 ```
 
 
