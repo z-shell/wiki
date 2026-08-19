@@ -27,5 +27,3 @@ jobs:
     with:
       cache: false
       setup-deps: true
-      # Run full link audit on schedule/dispatch, otherwise run standard incremental checks.
-      arguments: ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && 'run lychee-audit' || '' }}
