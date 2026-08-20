@@ -45,9 +45,13 @@ const REQUIRED_STANDARD_TEXT = [
   "This is ecosystem guidance, not an official Zsh language specification.",
   "## Portable core",
   "## Optional manager interoperability profiles",
-  "Zi is the canonical manager",
+  // Managers are named where a plugin author needs the interop fact, which is
+  // the profile appendix, not the page introduction. These pins keep the
+  // anti-conflation guarantee at that location rather than requiring
+  // manager positioning up front.
+  "The canonical z-shell manager is",
   "Zinit",
-  "separate projects",
+  "it is not Zi",
   "not guaranteed to be absolute",
   "autoload -Uz add-zsh-hook",
   "autoload -Uz add-zle-hook-widget",
