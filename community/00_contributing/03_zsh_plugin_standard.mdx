@@ -124,7 +124,10 @@ The first line will:
 
    2.2. This allows, for example, `eval "$(<plugin)"`, which can be faster than
    `source` ([comparison][]). Note that this does not hold for a compiled
-   script.
+   script. This is an eval-based interface and it belongs to the manager, not
+   to the plugin: it is recorded here to explain why `ZERO` exists. A plugin
+   must never evaluate its own or another plugin's text this way, and must
+   never pass untrusted data through such a call.
 
 3. Use `$0` if it does not contain the path to the Zsh binary.
 
@@ -1202,6 +1205,12 @@ solely for this.
   +zinc_print "Zinc initialization complete"
 }
 ```
+
+The `@zsh-plugin-run-on-unload` line above is the optional manager callback
+from [requirement 5](#run-on-unload-call). The manager evaluates that string,
+so never pass untrusted or externally-derived data into the call, and keep the
+snippet literal as shown. A named unload function remains the primary
+mechanism; see [requirement 4](#unload-function).
 
 ### Preventing function pollution {/* #preventing-function-pollution */}
 

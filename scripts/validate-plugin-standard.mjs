@@ -189,12 +189,27 @@ export function validateStandard(content) {
   return errors;
 }
 
-// A documented-but-qualified convention must keep its qualifier on the page.
+// A documented-but-qualified convention must keep its qualifier nearby.
+//
+// Scoped to a window rather than the whole document: a qualifier sitting in a
+// distant section would otherwise satisfy a new, unqualified mention added
+// somewhere else, leaving a check that reads as protection but is not. Every
+// occurrence must be covered, so the qualifier has to survive alongside each
+// one. The window spans a generous section's worth of prose in either
+// direction, because a warning admonition may precede or follow the code it
+// qualifies.
+const QUALIFIER_WINDOW = 4000;
+
 function requiresQualifier(content, convention, qualifier, label) {
-  if (!content.includes(convention)) {
-    return [];
+  const errors = [];
+  for (let at = content.indexOf(convention); at >= 0; at = content.indexOf(convention, at + 1)) {
+    const near = content.slice(Math.max(0, at - QUALIFIER_WINDOW), at + convention.length + QUALIFIER_WINDOW);
+    if (!near.includes(qualifier)) {
+      const line = content.slice(0, at).split("\n").length;
+      errors.push(`${label} is documented without its "${qualifier}" qualifier near line ${line}`);
+    }
   }
-  return content.includes(qualifier) ? [] : [`${label} is documented without its "${qualifier}" qualifier`];
+  return errors;
 }
 
 function isRecord(value) {
