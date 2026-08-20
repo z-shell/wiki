@@ -147,6 +147,43 @@ The second line makes the path absolute. The `:a` modifier resolves `.` and
 see [Zsh filename modifiers][zsh-modifiers]. Use `:A` or `:P` only when you
 intentionally want symlink resolution.
 
+The goal is flexibility. The essential motivation is to support manager-side
+`eval "$(<plugin)"` loading and to keep working under `setopt no_function_argzero`,
+with `posix_argzero` handled as described below.
+
+#### Use in standalone scripts {/* #zero-handling-standalone-scripts */}
+
+The same idiom works in a standalone script, one run through a `#!` line, to
+find the directory the script file resides in. Verified on Zsh 5.9.2 when
+invoked by absolute path, from an unrelated working directory, by relative
+path, and through a symlink.
+
+Two differences apply outside a plugin manager:
+
+- `ZERO` is inert, because nothing sets it. The `%N` branch does the work.
+- `:a` does not resolve symlinks, so a script reached through a symlink
+  resolves to the directory holding the **link**, not the target. Use `:A` when
+  you want the target's directory.
+
+:::warning[`%N` inside a function is a name, not a path]
+
+Do not convert a plugin or script into a function and expect self-location to
+keep working. Inside a function, `%N` expands to the **function name**, so the
+idiom silently resolves against the current directory instead of failing:
+
+```console
+$ zsh -f -c 'f() { print -r -- ${(%):-%N} }; f'
+f
+$ zsh -f -c 'myplugin() { print -r -- ${${(%):-%N}:a:h} }; myplugin'
+/current/working/directory        # not the plugin directory
+```
+
+Earlier revisions speculated that a manager might convert a plugin to a
+function. Treat that as an unsupported loading mode: a plugin body that needs
+its own location must be sourced or executed, not wrapped in a function.
+
+:::
+
 :::note[Change from earlier revisions]
 
 Earlier revisions used `0="${${(M)0:#/*}:-$PWD/$0}"` for the second line. The
@@ -158,6 +195,15 @@ the plugin was loaded.
 The assignment uses quoting to make it resilient to the combination of the
 `GLOB_SUBST` and `GLOB_ASSIGN` options. It is a standard snippet of code, so it
 has to work everywhere.
+
+The quoting is required **here specifically** because this runs at the top
+level of a sourced entrypoint, where no emulation is in effect and the caller's
+options apply. Inside a function that has established `emulate -L zsh`, those
+two options are off and assignments generally do not need the same defensive
+quoting. That is a property of the emulation, not a licence to drop quoting in
+general; see `zsh/quoting/quote-boundaries` in the
+[Zsh Scripting Standard][zsh-scripting-standard], which is `required` and owns
+the general rule.
 
 :::warning[`posix_argzero` makes `0` read-only]
 
@@ -576,6 +622,28 @@ Zi's `X` has no definition in any published source and no consumer anywhere in
 the z-shell organization. Treat it as an unallocated Zi extension observed in
 the wild; this page does not assign it a meaning.
 
+:::info[There is no conformance target]
+
+This page defines the **meaning** of each letter. It does not define a required
+set, and it does not rank managers by how many letters they advertise.
+
+Earlier revisions stated that a fully compliant manager should advertise
+`0fuUpiPs`. That target is withdrawn. No published manager advertises it, no
+two of the managers above agree, and a plugin gains nothing from comparing a
+string against a fixed list.
+
+A manager is not non-conforming because it omits a letter; it advertises what
+it implements. Correspondingly, a plugin must feature-test the exact letter it
+needs and keep a manager-independent path, rather than testing for a set:
+
+```zsh title="Test one capability, not a set"
+if [[ $PMSPEC != *f* ]]; then
+  fpath+=( "${0:h}/functions" )
+fi
+```
+
+:::
+
 #### STATUS: [ global-parameter-with-capabilities ] {/* #status--global-parameter-with-capabilities- */}
 
 - **Zi:** implemented. Sets `PMSPEC=0fuUpiPsX` in its
@@ -635,7 +703,15 @@ plugin must not:
   [requirement 3](#binaries-directory);
 - write into its own checkout, which may be read-only or manager-controlled;
 - change global options as an incidental effect;
+- change the working directory without restoring it, or disturb the directory
+  stack;
+- print routine success output;
 - prompt interactively when the shell is non-interactive.
+
+Send actionable diagnostics to standard error and stay silent on success. A
+shell that starts cleanly should print nothing. Defer cache creation and
+expensive discovery until the feature is actually used, rather than doing the
+work at load time.
 
 **Do not access the network** while loading. Network activity must be an
 explicit user action, such as a command the user runs, not a side effect of
@@ -648,6 +724,30 @@ advertising the capability. Leave `$ZPFX/bin` to the user or the manager.
 
 Treat all user-supplied and externally-derived text as untrusted data, never as
 code.
+
+### Sourcing versus evaluating {/* #sourcing-versus-evaluating */}
+
+The rule differs by who is doing the loading.
+
+A **plugin or a user** must not use `eval` merely to load a file. Use the
+builtin and end the options so a leading dash or a path containing one cannot
+be reinterpreted:
+
+```zsh title="Load a file as a plugin or a user"
+source -- "$file"
+```
+
+A **plugin manager** may load a plugin by evaluating its text, for example with
+`eval "$(<plugin)"`, which can be faster than `source`. This is an eval-based
+interface and it belongs to the manager alone: never pass untrusted or
+externally-derived text through it. A manager that evaluates a plugin must
+supply `ZERO`, because evaluated text has no `%N` path of its own to fall back
+on. That obligation is the reason [requirement 1](#zero-handling) reads `ZERO`
+before `%N`.
+
+There is no contradiction between the two: a plugin must never evaluate its own
+or another plugin's text, while a manager evaluating a plugin it loaded is a
+documented loading mode with a matching obligation.
 
 ## Function and option scope {/* #function-and-option-scope */}
 
@@ -876,8 +976,9 @@ idioms live in the [Zsh Native Scripting Handbook][zsh-handbook].
 ### Use of `add-zsh-hook` to install hooks {/* #use-of-add-zsh-hook-to-install-hooks */}
 
 **Zsh guarantee:** the distributed `add-zsh-hook` function manages multiple
-callbacks for hook functions such as `precmd`, `preexec`, `chpwd`, and
-`zshexit`. Its `-d` option removes a callback. See the official
+callbacks for the supported hook entries, which are `chpwd`, `periodic`,
+`precmd`, `preexec`, `zshaddhistory`, `zshexit`, and `zsh_directory_name`. Its
+`-d` option removes a callback. For the meaning of each entry see the official
 [hook function documentation][zsh-hook-functions]. The invocation syntax is:
 
 ```zsh title="add-zsh-hook syntax"
@@ -1106,8 +1207,9 @@ natural to localize them in the main function.
 ### Standard function name-space prefixes {/* #standard-function-name-space-prefixes */}
 
 The recommendation in this section originates as the subjective opinion of the
-original author. It can evolve; raise remarks as an issue against the owning
-repository.
+original author. It can evolve; raise remarks in the
+[wiki issue tracker](https://github.com/z-shell/wiki/issues/new). Older copies
+of this page linked `z-shell/zw`, which now redirects to the same tracker.
 
 #### The problems solved by the proposition {/* #the-problems-solved-by-the-proposition */}
 
@@ -1247,6 +1349,16 @@ The snippet works as follows:
 
 4. `${(M)…:#_example_*}` then keeps only the names matching the project's own
    prefix, and `unset -f` removes them.
+
+:::note[Reading older plugins]
+
+Published plugins often name the saved list `prjef` or a project-specific
+variant such as `rustef`. In that convention `prj` stands for the project name
+and `ef` for "entry functions". `_example_pre` above is the same idea with a
+clearer name. The older name is fine; what matters is that the list is `local`
+and that the cleanup is filtered by prefix.
+
+:::
 
 :::warning[Do not omit the prefix filter]
 
