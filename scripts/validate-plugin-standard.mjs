@@ -82,8 +82,16 @@ const REQUIRED_REVIEW_BODY_TEXT = [
   "z-shell/wiki maintainers own",
 ];
 
+// Markdown reflows: a pinned phrase can be split across a line break by any
+// formatter run. Collapse whitespace before matching so these checks assert
+// content rather than the current line wrapping.
+function flat(text) {
+  return text.replace(/\s+/g, " ");
+}
+
 function missingText(content, required, label) {
-  return required.filter((text) => !content.includes(text)).map((text) => `${label} is missing: ${text}`);
+  const haystack = flat(content);
+  return required.filter((text) => !haystack.includes(flat(text))).map((text) => `${label} is missing: ${text}`);
 }
 
 function codeBlock(content, title) {
@@ -208,7 +216,7 @@ function requiresQualifier(content, convention, qualifier, label) {
   const errors = [];
   for (let at = content.indexOf(convention); at >= 0; at = content.indexOf(convention, at + 1)) {
     const near = content.slice(Math.max(0, at - QUALIFIER_WINDOW), at + convention.length + QUALIFIER_WINDOW);
-    if (!near.includes(qualifier)) {
+    if (!flat(near).includes(flat(qualifier))) {
       const line = content.slice(0, at).split("\n").length;
       errors.push(`${label} is documented without its "${qualifier}" qualifier near line ${line}`);
     }
