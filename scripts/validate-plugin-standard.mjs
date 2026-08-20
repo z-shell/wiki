@@ -45,9 +45,13 @@ const REQUIRED_STANDARD_TEXT = [
   "This is ecosystem guidance, not an official Zsh language specification.",
   "## Portable core",
   "## Optional manager interoperability profiles",
-  "Zi is the canonical manager",
+  // Managers are named where a plugin author needs the interop fact, which is
+  // the profile appendix, not the page introduction. These pins keep the
+  // anti-conflation guarantee at that location rather than requiring
+  // manager positioning up front.
+  "The canonical z-shell manager is",
   "Zinit",
-  "separate projects",
+  "it is not Zi",
   "not guaranteed to be absolute",
   "autoload -Uz add-zsh-hook",
   "autoload -Uz add-zle-hook-widget",
@@ -153,9 +157,14 @@ export function validateStandard(content) {
 
   const stalePatterns = [
     [/always gives the absolute path/i, "must not claim %N is always absolute"],
-    [/eval "\$\(<plugin\)"/, "must not promote eval-based plugin loading"],
-    [/typeset -gA Plugins/, "must not promote the shared Plugins hash"],
     [/trap "unset -f/, "must not broadly delete newly defined functions"],
+    [/setopt posix_argzero` will be detected/, "must not claim posix_argzero is detected; it makes 0 read-only"],
+    // Anchored to line start so the form is caught as published code but still
+    // citable in prose, where it is wrapped in backticks mid-sentence.
+    [
+      /^0="\$\{\$\{\(M\)0:#\/\*\}:-\$PWD\/\$0\}"$/m,
+      "must not publish the superseded $PWD self-location form; use the :a modifier instead",
+    ],
     [/PMSPEC=0fuUpiPs(?!X)/, "must not publish the obsolete PMSPEC value as a universal contract"],
     [/zmodload\s+-e\s+zsh\/zle/, "must load zsh/zle before testing the required ZLE facility"],
   ];
@@ -165,6 +174,45 @@ export function validateStandard(content) {
     }
   }
 
+  // Established ecosystem conventions may be documented, because published
+  // plugins link to these anchors and their code comments must land on prose
+  // that explains the code beneath them. They must never be promoted
+  // unqualified: each one carries a note stating the recommended direction for
+  // new plugins, and the eval-based manager callbacks carry a warning against
+  // passing untrusted data. Publishing the convention without its qualifier is
+  // the regression this guards, not the convention itself.
+  errors.push(...requiresQualifier(content, "typeset -gA Plugins", "Direction of travel", "shared Plugins hash"));
+  errors.push(...requiresQualifier(content, "→prompt_zinc_precmd", "Direction of travel", "function-name prefixes"));
+  errors.push(
+    ...requiresQualifier(content, "@zsh-plugin-run-on-unload ", "never pass untrusted", "eval-based unload callback"),
+  );
+  errors.push(
+    ...requiresQualifier(content, 'eval "$(<plugin)"', "This is an eval-based interface", "eval-based loading"),
+  );
+
+  return errors;
+}
+
+// A documented-but-qualified convention must keep its qualifier nearby.
+//
+// Scoped to a window rather than the whole document: a qualifier sitting in a
+// distant section would otherwise satisfy a new, unqualified mention added
+// somewhere else, leaving a check that reads as protection but is not. Every
+// occurrence must be covered, so the qualifier has to survive alongside each
+// one. The window spans a generous section's worth of prose in either
+// direction, because a warning admonition may precede or follow the code it
+// qualifies.
+const QUALIFIER_WINDOW = 4000;
+
+function requiresQualifier(content, convention, qualifier, label) {
+  const errors = [];
+  for (let at = content.indexOf(convention); at >= 0; at = content.indexOf(convention, at + 1)) {
+    const near = content.slice(Math.max(0, at - QUALIFIER_WINDOW), at + convention.length + QUALIFIER_WINDOW);
+    if (!near.includes(qualifier)) {
+      const line = content.slice(0, at).split("\n").length;
+      errors.push(`${label} is documented without its "${qualifier}" qualifier near line ${line}`);
+    }
+  }
   return errors;
 }
 
