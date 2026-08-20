@@ -153,9 +153,14 @@ export function validateStandard(content) {
 
   const stalePatterns = [
     [/always gives the absolute path/i, "must not claim %N is always absolute"],
-    [/eval "\$\(<plugin\)"/, "must not promote eval-based plugin loading"],
-    [/typeset -gA Plugins/, "must not promote the shared Plugins hash"],
     [/trap "unset -f/, "must not broadly delete newly defined functions"],
+    [/setopt posix_argzero` will be detected/, "must not claim posix_argzero is detected; it makes 0 read-only"],
+    // Anchored to line start so the form is caught as published code but still
+    // citable in prose, where it is wrapped in backticks mid-sentence.
+    [
+      /^0="\$\{\$\{\(M\)0:#\/\*\}:-\$PWD\/\$0\}"$/m,
+      "must not publish the superseded $PWD self-location form; use the :a modifier instead",
+    ],
     [/PMSPEC=0fuUpiPs(?!X)/, "must not publish the obsolete PMSPEC value as a universal contract"],
     [/zmodload\s+-e\s+zsh\/zle/, "must load zsh/zle before testing the required ZLE facility"],
   ];
@@ -165,7 +170,31 @@ export function validateStandard(content) {
     }
   }
 
+  // Established ecosystem conventions may be documented, because published
+  // plugins link to these anchors and their code comments must land on prose
+  // that explains the code beneath them. They must never be promoted
+  // unqualified: each one carries a note stating the recommended direction for
+  // new plugins, and the eval-based manager callbacks carry a warning against
+  // passing untrusted data. Publishing the convention without its qualifier is
+  // the regression this guards, not the convention itself.
+  errors.push(...requiresQualifier(content, "typeset -gA Plugins", "Direction of travel", "shared Plugins hash"));
+  errors.push(...requiresQualifier(content, "→prompt_zinc_precmd", "Direction of travel", "function-name prefixes"));
+  errors.push(
+    ...requiresQualifier(content, "@zsh-plugin-run-on-unload ", "never pass untrusted", "eval-based unload callback"),
+  );
+  errors.push(
+    ...requiresQualifier(content, 'eval "$(<plugin)"', "This is an eval-based interface", "eval-based loading"),
+  );
+
   return errors;
+}
+
+// A documented-but-qualified convention must keep its qualifier on the page.
+function requiresQualifier(content, convention, qualifier, label) {
+  if (!content.includes(convention)) {
+    return [];
+  }
+  return content.includes(qualifier) ? [] : [`${label} is documented without its "${qualifier}" qualifier`];
 }
 
 function isRecord(value) {
