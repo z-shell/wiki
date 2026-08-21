@@ -23,9 +23,7 @@ jobs:
       actions: read
       checks: write
       contents: read
-    uses: z-shell/.github/.github/workflows/trunk.yml@9dab73078d0c476892693e0d0c45843398a137d1 # main
+    uses: z-shell/.github/.github/workflows/trunk.yml@e9cad163297f84eb2c315ac36da82877f0504a01 # main
     with:
       cache: false
       setup-deps: true
-      # Run full link audit on schedule/dispatch, otherwise run standard incremental checks.
-      arguments: ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && 'run lychee-audit' || '' }}
