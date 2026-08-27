@@ -1,0 +1,14 @@
+/** @format */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-lg);
+  margin: var(--space-xl) 0;
+}
+
+@media only screen and (width <= 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -108,7 +108,7 @@ Below are descriptions of Standard Library functions. Arguments in triangular br
 
 #### -zui_std_init {/* #-zui_std_init */}
 
-```shell
+```zsh
 -zui_std_init [app:"application ID"] [app_name:"Application name"]
 ```
 
@@ -118,7 +118,7 @@ Initializes application. To be called **before emulate**. Optional argument `app
 
 #### -zui_std_init2 {/* #-zui_std_init2 */}
 
-```shell
+```zsh
 -zui_std_init2
 ```
 
@@ -128,7 +128,7 @@ Initialization to be called **after emulate**. `emulate` is the command that mak
 
 #### -zui_std_stalog {/* #-zui_std_stalog */}
 
-```shell
+```zsh
 -zui_std_stalog <Text 1> [Text 2] ...
 ```
 
@@ -138,7 +138,7 @@ Appends a message to the status window logs. Each text argument has a color assi
 
 #### -zui_std_special_text {/* #-zui_std_special_text */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 -zui_std_special_text <text> [output array]
 reply+=( "{output string}" )
 ```
@@ -149,7 +149,7 @@ Quote special characters in the text. This allows to use of strings like `That's
 
 #### -zui_std_button_ext {/* #-zui_std_button_ext */}
 
-```shell
+```zsh
 -zui_std_button_ext <ID> <data1> <data2> <data3> <data4> <button text> [handler] [output array]
 ```
 
@@ -159,7 +159,7 @@ Creates string with the button. Every button has an ID assigned – it is the fi
 
 #### -zui_std_rc_button_ext {/* #-zui_std_rc_button_ext */}
 
-```shell
+```zsh
 -zui_std_rc_button_ext <ID> <data1> <data2> <data3> <data4> <button text> [handler] [output array]
 ```
 
@@ -169,13 +169,13 @@ The function works identically to `-zui_std_button`, but it wraps button text in
 
 #### -zui_std_anchor {/* #-zui_std_anchor */}
 
-```shell
+```zsh
 -zui_std_anchor <ID> <index> <data1> <data2> <data3> <button text> [handler] [output array]
 ```
 
 Creates an anchor – a hyperlink that moves the cursor to the specified line. Appends it to `[output array]` (a parameter specified by name) – `reply` by default. `<index>` is the line number to jump to. It is relative to the current module. It in general cannot point to the absolute line number in the document. To point to the line outside the module, use `A+B` syntax, e.g. `1-2`, to jump `2` lines before the first line of the module. Instead of the handler, you may use `<data2>` and `<data3>` to pass a module regeneration instruction. For example, pass `",mod2_ice1,"` `"arg"` to regenerate some module numbered 2, instance 1, with passed user-data "arg". This regeneration is with list restart (i.e. it is like a web page reload with `arg` passed to script on the server side). If the handler has substring "internal" in it (in function name or inline code), then the anchor will be internal – will not cause the document to reload. Anchor of which `<data2>` matches `,*,` is set to be external. Example call:
 
-```shell
+```zsh
 -zui_std_anchor regen1 4 "" ",mod1_ice1," $RANDOM "[${ZUI[MAGENTA]}Regen${ZUI[FMT_END]}]"
 ```
 
@@ -185,7 +185,7 @@ This instructs to regenerate module `1` instance `1`, with no handler call, with
 
 #### -zui_std_text_field {/* #-zui_std_text_field */}
 
-```shell
+```zsh
 -zui_std_text_field <ID> <width param> <index param> <text param> <data1> <data2> <data3> [handler] [output array]
 ```
 
@@ -195,7 +195,7 @@ Creates text-field. Every text field has width, given indirectly, by supplying t
 
 #### -zui_std_list_box {/* #-zui_std_list_box */}
 
-```shell
+```zsh
 -zui_std_list_box <ID> <width param> <index param> <options param> <data1> <data2> <data3> [handler] [output array]
 ```
 
@@ -205,7 +205,7 @@ Creates list-box. Every list box has a text width that it will occupy in the doc
 
 #### -zui_std_get_ganchor {/* #-zui_std_get_ganchor */}
 
-```shell
+```zsh
 -zui_std_get_ganchor <module index> <instance index> <button text>
 ```
 
@@ -215,7 +215,7 @@ Anchors cannot use global indexes and easily point to other modules. However, th
 
 #### -zui_std_decode_hyperlink {/* #-zui_std_decode_hyperlink */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 -zui_std_decode_hyperlink <hyperlink string> [output array]
 array=( ID data1 data2 data3 data4 )
 ```
@@ -226,7 +226,7 @@ Decodes given hyperlink (anchor, button, raw link). Its ID and user data are pla
 
 #### -zui_std_decode_text_field {/* #-zui_std_decode_text_field */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 -zui_std_decode_text_field <hyperlink string> [output array]
 array=( ID width-param index-param text-param data1 data2 data3 )
 ```
@@ -237,7 +237,7 @@ Decodes given text-field hyperlink. Its ID, names of backend parameters, and use
 
 #### -zui_std_decode_list_box {/* #-zui_std_decode_list_box */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 -zui_std_decode_list_box <hyperlink string> [output array]
 array=( ID width-param index-param options-param data1 data2 data3 )
 ```
@@ -248,7 +248,7 @@ Decodes given list-box hyperlink. Its ID, names of backend parameters, and user 
 
 #### -zui_std_decode {/* #-zui_std_decode */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 -zui_std_decode <hyperlink string> [output parameter] [output array]
 array=( {data decoded from hyperlink} )
 parameter=1|2|3
@@ -260,7 +260,7 @@ Tries various decoding functions (for regular hyperlinks, text fields, list boxe
 
 #### -zui_std_get_stext {/* #-zui_std_get_stext */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 -zui_std_get_stext <special-text string> [output parameter]
 REPLY={text}
 ```
@@ -271,7 +271,7 @@ Output variable (default: `REPLY`) is set to text contained in the special-text 
 
 #### -zui_std_is_hyperlink {/* #-zui_std_is_hyperlink */}
 
-```shell
+```zsh
 -zui_std_is_hyperlink <hyperlink string>
 ```
 
@@ -281,7 +281,7 @@ Checks if a given string is a regular hyperlink (anchor, button, raw link). Test
 
 #### -zui_std_is_text_field {/* #-zui_std_is_text_field */}
 
-```shell
+```zsh
 -zui_std_is_text_field <hyperlink string>
 ```
 
@@ -291,7 +291,7 @@ Checks if a given string is a text field. Testable (true – the string is a cor
 
 #### -zui_std_is_list_box {/* #-zui_std_is_list_box */}
 
-```shell
+```zsh
 -zui_std_is_list_box <hyperlink string>
 ```
 
@@ -301,7 +301,7 @@ Checks if a given string is a list box. Testable (true – the string is a corre
 
 #### -zui_std_is_any_hyperlink {/* #-zui_std_is_any_hyperlink */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 -zui_std_is_any_hyperlink <hyperlink string> [output parameter]
 parameter=1|2|3
 ```
@@ -312,7 +312,7 @@ Checks if a given string is any possible hyperlink, from anchor to list-box. Out
 
 #### -zui_std_has_any_hyperlinks {/* #-zui_std_has_any_hyperlinks */}
 
-```shell
+```zsh
 -zui_std_has_any_hyperlinks <hyperlink string>
 ```
 
@@ -322,13 +322,13 @@ Similar to `-zui_std_is_any_hyperlink`, but doesn't return the type of the hyper
 
 #### -zui_std_load_config {/* #-zui_std_load_config */}
 
-```shell
+```zsh
 -zui_std_load_config <variable> <default> <time limit> <output parameter>
 ```
 
 Loads variable from configuration if it's older than e.g. `2` seconds (the `<time limit>` argument). Time limit is used only if `<output parameter>` points to `ZUI` hash field, e.g. `ZUI[text_mode]`. Otherwise, the configuration is always read regardless of the time limit. `<variable>` should have a `b:` prefix for boolean type, and `s:` for string type (`s:` is the default). Boolean variables are mapped to just `0` or `1`, the same only values are accepted as `<default>` values for that variable type. Example call:
 
-```shell
+```zsh
 -zui_std_load_config s:text_mode "off" 2 'ZUI[text_mode]'  # No text-segment navigation
 ```
 
@@ -338,13 +338,13 @@ The **Zstyle** variable is looked up at path `:plugin:zui`, then at `:plugin:zui
 
 #### -zui_std_store_default_app_config {/* #-zui_std_store_default_app_config */}
 
-```shell
+```zsh
 -zui_std_store_default_app_config <variable> <value>
 ```
 
 Store the given variable to Zstyle **if** the variable is not already set. Can be used to set up the default configuration of the application. The user will be still able to set his configuration, the function will not overwrite it. Example call:
 
-```shell
+```zsh
 -zui_std_store_default_app_config b:top_anchors 0  # No top-anchors
 ```
 
@@ -352,7 +352,7 @@ Store the given variable to Zstyle **if** the variable is not already set. Can b
 
 #### -zui_std_cleanup {/* #-zui_std_cleanup */}
 
-```shell
+```zsh
 -zui_std_cleanup [serialize|deserialize:"app"]
 ```
 
@@ -362,7 +362,7 @@ Clears the `ZUI` hash – all configuration fields, anchors, buttons, etc. Also,
 
 #### -zui_std_set_mod_factor {/* #-zui_std_set_mod_factor */}
 
-```shell
+```zsh
 -zui_std_set_mod_factor <module index> <factor>
 ```
 
@@ -372,7 +372,7 @@ Sets how many instances of a module given by index should be generated (the modu
 
 #### -zui_std_get_mod_factor {/* #-zui_std_get_mod_factor */}
 
-```shell
+```zsh
 -zui_std_get_mod_factor <module index> [output parameter]
 ```
 
@@ -382,7 +382,7 @@ Gets several instances of a module given by index. Stores result in `REPLY`, or 
 
 #### -zui_std_load_global_index_and_size {/* #-zui_std_load_global_index_and_size */}
 
-```shell
+```zsh
 -zui_std_load_global_index_and_size <module index> <instance index> [output param1] [output param2]
 ```
 
@@ -392,7 +392,7 @@ Loads where the module is located (at which line in the document) and what size 
 
 #### -zui_std_reset_replies {/* #-zui_std_reset_replies */}
 
-```shell
+```zsh
 -zui_std_reset_replies
 ```
 
@@ -402,13 +402,13 @@ Generators use parameters `reply`, `reply2`, `reply3`, and `reply4`. This functi
 
 #### -zui_std_map_replies {/* #-zui_std_map_replies */}
 
-```shell
+```zsh
 -zui_std_map_replies
 ```
 
 Generator output should be mapped onto parameters:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 mod${midx}_ice${iidx}_output
 mod${midx}_ice${iidx}_size
 mod${midx}_ice${iidx}_nonselectables
@@ -422,7 +422,7 @@ This function does this. It should normally not be needed, `-zui_std_fly_mod_reg
 
 #### -zui_std_fly_mod_regen {/* #-zui_std_fly_mod_regen */}
 
-```shell
+```zsh
 -zui_std_fly_mod_regen <module index> <instance index>
 ```
 
@@ -432,7 +432,7 @@ Schedules on-the-fly document-fragment update. This corresponds to DHTML, to doi
 
 #### -zui_std_fly_mod_regen_ext {/* #-zui_std_fly_mod_regen_ext */}
 
-```shell
+```zsh
 -zui_std_fly_mod_regen <generator> <module index> <instance index>
 ```
 
@@ -442,7 +442,7 @@ The same as `-zui_std_fly_mod_regen`, but uses alternate, specified generator-fu
 
 #### -zui_std_fly_array_refresh {/* #-zui_std_fly_array_refresh */}
 
-```shell
+```zsh
 -zui_std_fly_array_refresh <module index>
 ```
 
@@ -450,13 +450,13 @@ Submits on-the-fly array refresh. The given `<module index>` should point to an 
 
 The array will be read again and pasted into the document replacing previous content. For example, in the history demo there is:
 
-```shell
+```zsh
 zui-event-loop 1:demo_generator_A a:u-history 1:demo_generator_A
 ```
 
 The second module (and 1st instance) is an array `history` that is made unique (the `u-` prefix). You can refresh that content (document fragment) via:
 
-```shell
+```zsh
 -zui_std_fly_array_refresh 2
 ```
 
@@ -475,7 +475,7 @@ Below are descriptions of Utilities Library functions. Arguments in triangular b
 
 #### -zui_util_map_bools {/* #-zui_util_map_bools */}
 
-```shell
+```zsh
 -zui_util_map_bools <expressions> <parameters> <true string> <false string>
 ```
 
@@ -483,7 +483,7 @@ Maps boolean values of expressions given in `$1` (string with entries separated 
 
 Example call:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 local color1 color2 color3
 -zui_util_map_bools "1;[[ a = b ]];ZUI[text_select]" "color1;color2;color3" $red $white
 ```
@@ -494,7 +494,7 @@ Parameter `color1` will be set to `$red`, `color2` to `$white`, `color3` will be
 
 #### -zui_util_strip_codes {/* #-zui_util_strip_codes */}
 
-```shell
+```zsh
 -zui_util_strip_codes <text>
 ```
 
@@ -504,7 +504,7 @@ Strip formatting codes from the text and save the result into parameter `REPLY`.
 
 #### -zui_util_get_time {/* #-zui_util_get_time */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 -zui_util_get_time
 REPLY="H:M time string"
 ```
@@ -515,7 +515,7 @@ Returns time in format `%H:%M`, via `datetime` module (fast) or `date` command a
 
 #### -zui_util_get_datetime {/* #-zui_util_get_datetime */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 -zui_util_get_datetime
 REPLY="Ymd_H.M.S date string"
 ```
@@ -526,7 +526,7 @@ Returns date and time. Uses `datetime` zsh module (fast) or `date` command as a 
 
 #### -zui_util_get_timestamp {/* #-zui_util_get_timestamp */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 -zui_util_get_timestamp
 REPLY={seconds}
 ```
@@ -537,7 +537,7 @@ Returns timestamp, via `datetime` module (fast) or `date` as a fallback.
 
 #### -zui_util_has_default_color {/* #-zui_util_has_default_color */}
 
-```shell
+```zsh
 -zui_util_has_default_color
 ```
 
@@ -547,7 +547,7 @@ Returns true if the "default" color can be used with current `Zsh`/`zcurses`.
 
 #### -zui_util_resolve_path {/* #-zui_util_resolve_path */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 -zui_util_resolve_path <current working directory> <file path>
 reply[1]={dir-name}
 reply[2]={base-name}
@@ -559,7 +559,7 @@ Resolves absolute path to file from `<current working directory>` and `<file pat
 
 #### -zui_util_to_cmd_line {/* #-zui_util_to_cmd_line */}
 
-```shell
+```zsh
 -zui_util_to_cmd_line <text>
 ```
 
@@ -569,7 +569,7 @@ Puts given text on the command line - regardless of Zle being active or not
 
 #### -zui_util_circular_next {/* #-zui_util_circular_next */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 -zui_util_circular_next <base> <size>
 REPLY={path}
 ```
@@ -580,7 +580,7 @@ Returns next file to write to in circular buffer set of file names `<base>.1` `<
 
 #### -zui_util_circular_paths {/* #-zui_util_circular_paths */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 -zui_util_circular_paths <base>
 reply=( {path1} {path2} ... )
 ```
@@ -595,7 +595,7 @@ Many situations are solved by callbacks. This eases the API, you don't have to e
 
 #### -zui-standard-timeout-callback {/* #-zui-standard-timeout-callback */}
 
-```shell
+```zsh
 -zui-standard-timeout-callback
 ```
 
@@ -607,7 +607,7 @@ Called when `$ZUI[timeout]` milliseconds pass without user input (the timeout de
 
 #### -zui-standard-text-select-callback {/* #-zui-standard-text-select-callback */}
 
-```shell
+```zsh
 -zui-standard-text-select-callback <type> <text>
 ```
 
@@ -617,7 +617,7 @@ Called when a text is selected. This is possible when Zstyle `text_select` is `1
 
 #### -zui-standard-global-anchors-callback {/* #-zui-standard-global-anchors-callback */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 -zui-standard-global-anchors-callback <id> <initial line> <module index> <instance index>
 ```
 
@@ -627,7 +627,7 @@ Invoked when a global anchor is pressed. Global anchors are typically at the fir
 
 #### -zui-standard-status-callback {/* #-zui-standard-status-callback */}
 
-```shell showLineNumbers
+```zsh showLineNumbers
 -zui-standard-status-callback 0 <selectable> <uniq> <search> <line> <segment>
 -zui-standard-status-callback 1 <selectable> <uniq> <search> <line> <segment> ...
 ```
@@ -636,25 +636,25 @@ Called after each key-press and also when timeout-callback schedules document up
 
 For the variant with `1` in the first argument, what follows is current-hyperlink decoded data. For anchors and buttons, it is (follows code to be used to read the input):
 
-```shell
+```zsh
 local id="$7" data1="$8" data2="$9" data3="$10" data4="$11"
 ```
 
 For text fields, it is:
 
-```shell
+```zsh
 local id="$7" width="$8" index="$9" text="$10" data1="$11" data2="$12" data3="$13"
 ```
 
 For list boxes, it is:
 
-```shell
+```zsh
 local id="$7" width="$8" index="$9" options_text="$10" data1="$11" data2="$12" data3="$13"
 ```
 
 You can test for `tfield` in the ID of a text field, and `lbox` in the ID of a list box. These strings are prepended to the IDs that you use when creating those hyperlinks. You can then read the whole data as follows:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 local tpe="$1" selectable="$2" uniq="$3" search="$4" line="$5" segment="$6"
 shift 6
 [[ "$1" = *(tfield|lbox)* ]] && local id="$1" width="$2" index="$3" text="$4" data1="$5" data2="$6" data3="$7" ||
@@ -663,7 +663,7 @@ shift 6
 
 The main function of the status callback is adding a message to the status window. It should return `1` and set array `reply` to add the message. For example:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 reply=( "My " "new " "message" )
 return 1
 ```
@@ -728,7 +728,7 @@ All Zstyles are available in the ZUI repository: [Zstyles][11]
 
 Started from Zle or the command line
 
-```shell showLineNumbers
+```zsh showLineNumbers
 -zui_std_cleanup deserialize:"zui-demo-hello-world"
 -zui_std_init app:"zui-demo-hello-world" app_name:"ZUI Hello World"
 emulate -LR zsh -o extended_glob -o type_set_silent -o warn_create_global
@@ -759,7 +759,7 @@ Other example which uses list-box: [zui-demo-list-box][].
 
 Unpack `zui` somewhere and add to `.zshrc`:
 
-```shell title="~/.zshrc"
+```zsh title="~/.zshrc"
 source {where-zui-is}/zui.plugin.zsh
 ```
 
@@ -768,7 +768,7 @@ source {where-zui-is}/zui.plugin.zsh
 
 Add the following to your `.zshrc` file.
 
-```zsh title="~/.zshrc"
+```zi title="~/.zshrc"
 zi load z-shell/zui
 ```
 
@@ -777,7 +777,7 @@ zi load z-shell/zui
 
 Add the following to your `.zshrc` file in the same place you're doing your other `zgen load` calls.
 
-```shell title="~/.zshrc"
+```zsh title="~/.zshrc"
 zgen load z-shell/zui.git
 ```
 
@@ -786,7 +786,7 @@ zgen load z-shell/zui.git
 
 Clone the Repository:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 git clone https://github.com/z-shell/zui.git \
   ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zui
 ```

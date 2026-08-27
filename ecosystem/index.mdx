@@ -14,7 +14,6 @@ keywords:
 
 {/* @format */}
 
-import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
 Zi's ecosystem extends the plugin manager with three building blocks: **annexes** that add new capabilities, **packages** that bundle complex setups into a single ice, and a curated **plugin gallery**.
@@ -33,27 +32,18 @@ The [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex automatically manages 
 
 ## What's in the Ecosystem
 
-<div style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1rem", margin: "1.5rem 0"}}>
+<CardGrid>
 
-<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
-  <img src={useBaseUrl("/img/svg/cards/annexes.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
-  <strong>Annexes</strong>
-  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Hook into Zi's lifecycle to add bin-gem-node, Rust crate management, patch-dl, readurl, and more.</span>
-  <Link to="/ecosystem/category/-annexes" style={{marginTop: "auto"}}>Browse annexes →</Link>
-</div>
+<Card title="Annexes" to="/ecosystem/category/-annexes" icon="/img/svg/cards/annexes.svg" cta="Browse annexes">
+  Hook into Zi's lifecycle to add bin-gem-node, Rust crate management, patch-dl, readurl, and more.
+</Card>
 
-<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
-  <img src={useBaseUrl("/img/svg/cards/packages.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
-  <strong>Packages</strong>
-  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Curated ice configurations for popular tools — fzf, neovim, zsh-system-completions, and more, ready to load.</span>
-  <Link to="/ecosystem/category/-packages" style={{marginTop: "auto"}}>Browse packages →</Link>
-</div>
+<Card title="Packages" to="/ecosystem/category/-packages" icon="/img/svg/cards/packages.svg" cta="Browse packages">
+  Curated ice configurations for popular tools — fzf, neovim, zsh-system-completions, and more, ready to load.
+</Card>
 
-<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
-  <img src={useBaseUrl("/img/svg/cards/meta-plugins.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
-  <strong>Plugins</strong>
-  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Featured Zsh plugins — syntax highlighting, autosuggestions, history search, and console tools.</span>
-  <Link to="/ecosystem/plugins/diff-so-fancy" style={{marginTop: "auto"}}>Browse plugins →</Link>
-</div>
+<Card title="Plugins" to="/ecosystem/plugins/diff-so-fancy" icon="/img/svg/cards/meta-plugins.svg" cta="Browse plugins">
+  Featured Zsh plugins — syntax highlighting, autosuggestions, history search, and console tools.
+</Card>
 
-</div>
+</CardGrid>
