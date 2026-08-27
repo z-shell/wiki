@@ -34,7 +34,7 @@ As previously mentioned, the function can automatically export `$GEM_HOME`, `$NO
 
 Suppose that we want to install the `junegunn/fzf` plugin from GitHub Releases, which contains only a single file – the `fzf` binary for the selected architecture. It is possible to do it in the standard way – by adding the plugin's directory to the `$PATH`.
 
-```zsh
+```zi
 zi ice as'program' from'gh-r'
 zi load junegunn/fzf
 ```
@@ -47,7 +47,7 @@ After this command, the `$PATH` variable will contain e.g.:
 
 For many such programs loaded as plugins, the PATH can become quite cluttered. I've had 26 entries before switching to `z-a-bin-gem-node`. To solve this, load with the use of [sbin](#sbin-1) ice-modifier provided and handled by `z-a-bin-gem-node`:
 
-```zsh showLineNumbers
+```zi showLineNumbers
 zi ice as'program' from'gh-r' sbin'fzf'
 zi load junegunn/fzf
 ```
@@ -113,7 +113,7 @@ View all currently registered:
 
 ## `SBIN'…'` {/* #sbin-1 */}
 
-```shell
+```zi
 sbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-script}]; …'
 ```
 
@@ -128,7 +128,7 @@ Creates the so-called `shim` known from `rbenv` – a wrapper script that forwar
   fit={false}
 />
 
-```zsh showLineNumbers
+```zi showLineNumbers
 zi ice as'program' from'gh-r' sbin'fzf'
 zi load junegunn/fzf
 ```
@@ -160,7 +160,7 @@ The same trailing component would be set for the snippet URL, for any alphabetic
 
 ## `FBIN'…'` {/* #fbin-2 */}
 
-```shell
+```zi
 fbin'[{g|n|c|N|E|O}:]{path-to-binary}[ -> {name-of-the-function}]; …'
 ```
 
@@ -175,7 +175,7 @@ Creates a wrapper function of the name the same as the last segment of the path 
   fit={false}
 />
 
-```zsh showLineNumbers
+```zi showLineNumbers
 zi ice from"gh-r" fbin"g:fzf -> myfzf" nocompile
 zi load junegunn/fzf
 ```
@@ -197,7 +197,7 @@ myfzf () {
 
 ## `GEM'…'` {/* #gem-3 */}
 
-```shell showLineNumbers
+```zi showLineNumbers
 gem'{gem-name}; …'
 gem'[{path-to-binary} <-] !{gem-name} [-> {name-of-the-function}]; …'
 ```
@@ -213,7 +213,7 @@ Installs the gem of name `{gem-name}` with `$GEM_HOME` set to the plugin's or sn
   fit={false}
 />
 
-```zsh showLineNumbers
+```zi showLineNumbers
 zi ice gem'!asciidoctor' id-as'asciidoctor' nocompile
 zi load z-shell/0
 ```
@@ -237,7 +237,7 @@ asciidoctor () {
 
 ## `NODE'…'` {/* #node-4 */}
 
-```shell showLineNumbers
+```zi showLineNumbers
 node'{node-module}; …'
 node'[{path-to-binary} <-] !{node-module} [-> {name-of-the-function}]; …'
 ```
@@ -253,7 +253,7 @@ Installs the node module of name `{node-module}` inside the plugin's or snippet'
   fit={false}
 />
 
-```zsh showLineNumbers
+```zi showLineNumbers
 zi ice node'remark <- !remark-cli -> remark; remark-man' id-as'remark' nocompile
 zi load z-shell/0
 ```
@@ -279,7 +279,7 @@ In this case, the name of the binary program provided by the node module is diff
 
 ## `PIP'…'` {/* #pip-5 */}
 
-```shell showLineNumbers
+```zi showLineNumbers
 pip'{pip-package}; …'
 pip'[{path-to-binary} <-] !{pip-package} [-> {name-of-the-function}]; …'
 ```
@@ -295,7 +295,7 @@ Installs the node module of name `{pip-package}` inside the plugin's or snippet'
   fit={false}
 />
 
-```zsh showLineNumbers
+```zi showLineNumbers
 zi ice pip'youtube-dl <- !youtube-dl -> youtube-dl' id-as'youtube-dl' nocompile
 zi load z-shell/0
 ```
@@ -319,7 +319,7 @@ youtube-dl () {
 
 ## `FMOD'…'` {/* #fmod-6 */}
 
-```shell showLineNumbers
+```zi showLineNumbers
 fmod'[{g|n|c|N|E|O}:]{function-name}; …'
 fmod'[{g|n|c|N|E|O}:]{function-name} -> {wrapping-function-name}; …'
 ```
@@ -337,7 +337,7 @@ Example:
   fit={false}
 />
 
-```zsh showLineNumbers
+```zi showLineNumbers
 myfunc() { pwd; ls -1 }; zi ice fmod'cgn:myfunc' id-as'myfunc' nocompile
 zi load z-shell/0
 ```
@@ -376,13 +376,13 @@ README.md
 
 ## `FSRC'…'` {/* #fsrc-7 */}
 
-```shell
+```zi
 fsrc'[{g|n|c|N|E|O}:]{path-to-script}[ -> {name-of-the-function}]; …'
 ```
 
 ## `FERC'…'` {/* #ferc-8 */}
 
-```shell
+```zi
 ferc'[{g|n|c|N|E|O}:]{path-to-script}[ -> {name-of-the-function}]; …'
 ```
 
@@ -397,7 +397,7 @@ Creates a wrapper function that at each invocation sources the given file. The s
   fit={false}
 />
 
-```zsh showLineNumbers
+```zi showLineNumbers
 zi ice fsrc"myscript -> myfunc" ferc"myscript" nocompile
 zi load z-shell/0
 ```
@@ -436,7 +436,7 @@ An annex provides a subcommand – `shim-list` for shims currently stored in `$Z
 
 Available flags are:
 
-```zsh
+```zi
 zi shim-list [ -t | -i | -o | -s | -h ]
 ```
 
@@ -452,7 +452,7 @@ zi shim-list [ -t | -i | -o | -s | -h ]
 
 The [sbin](#sbin-1) ice-modifier has an explicit Cygwin support – it creates additional, **extra shim files** – Windows batch scripts that allow running the shielded applications from e.g.: Windows run dialog – if the `${XDG_DATA_HOME:-$HOME/.local/share}/zi/polaris/bin` directory is being added to the Windows `PATH` environment variable, for example (it is a good idea to do so, IMHO). The Windows shims have the same name as the standard ones (which are also being created, normally) plus the `.cmd` extension. You can test the feature by e.g.: installing Firefox from the Zi package via:
 
-```zsh
+```zi
 zi pack=bgn for firefox
 ```
 
@@ -471,7 +471,7 @@ zi pack=bgn for firefox
 
 Add the following snippet in the `.zshrc` file:
 
-```zsh
+```zi
 zi light z-shell/z-a-bin-gem-node
 ```
 
@@ -480,7 +480,7 @@ zi light z-shell/z-a-bin-gem-node
 
 Add the following snippet in the `.zshrc` file to install using the [unscope][] annex:
 
-```zsh
+```zi
 zi light z-shell/z-a-unscope bgn
 ```
 

@@ -1,0 +1,88 @@
+---
+id: zsh_startup_profiling
+title: "⏱️ Startup Profiling"
+sidebar_position: 5
+slug: /zsh-guide/startup-profiling
+image: /img/png/theme/z/320x320.png
+description: Profile Zsh startup with zprof, xtrace timestamps, and lightweight checkpoints.
+keywords:
+  - zsh
+  - startup
+  - profiling
+  - zprof
+---
+
+## Profile functions with zprof {/* #profile-functions-with-zprof */}
+
+The `zsh/zprof` module records timing information for shell functions. Load it near the top of
+`.zshrc`, then print the report after the code being measured:
+
+```zsh title="~/.zshrc" showLineNumbers
+zmodload zsh/zprof
+
+# Load the functions or configuration to measure here.
+
+zprof
+```
+
+Profiling continues while the module is loaded. Start a fresh Zsh process for each comparison so one
+run does not include earlier function calls. See the [`zsh/zprof` module reference][zprof-module] for
+the report columns and sorting options.
+
+## Trace startup lines {/* #trace-startup-lines */}
+
+For line-by-line timing, guard Zsh's execution trace behind a variable. Place this near the top of
+`.zshrc`:
+
+```zsh title="~/.zshrc" showLineNumbers
+typeset -g PROFILE_STARTUP=${PROFILE_STARTUP:-false}
+
+if [[ $PROFILE_STARTUP == true ]]; then
+  zmodload zsh/zprof
+  PS4=$'%D{%M%S%.} %N:%i> '
+  exec 3>&2 2>"$HOME/startlog.$$"
+  setopt xtrace prompt_subst
+fi
+```
+
+Place the matching cleanup near the bottom:
+
+```zsh title="~/.zshrc" showLineNumbers
+if [[ $PROFILE_STARTUP == true ]]; then
+  unsetopt xtrace
+  exec 2>&3 3>&-
+  zprof >"$HOME/zshprofile.$(date +%s)"
+fi
+```
+
+Run a new interactive Zsh with `PROFILE_STARTUP=true zsh -i`. The trace is written to
+`$HOME/startlog.<pid>`, and the function report is written to `$HOME/zshprofile.<timestamp>`.
+
+## Add lightweight checkpoints {/* #lightweight-checkpoints */}
+
+For coarse comparisons, use Zsh's floating-point `SECONDS` parameter and an array:
+
+```zsh title="~/.zshrc" showLineNumbers
+typeset -ga ZLOGS
+typeset -F4 SECONDS=0
+
+zmsg() {
+  ZLOGS+=("$1: $((SECONDS * 1000)) ms")
+}
+
+# Run a section to measure.
+zmsg 'Loaded functions'
+
+# Run another section.
+zmsg 'Loaded something else'
+
+zmsg 'Done'
+```
+
+Print the collected checkpoints after startup:
+
+```zsh
+print -rl -- $ZLOGS
+```
+
+[zprof-module]: https://zsh.sourceforge.io/Doc/Release/Zsh-Modules.html#The-zsh_002fzprof-Module

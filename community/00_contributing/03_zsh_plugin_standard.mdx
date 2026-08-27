@@ -171,7 +171,7 @@ Do not convert a plugin or script into a function and expect self-location to
 keep working. Inside a function, `%N` expands to the **function name**, so the
 idiom silently resolves against the current directory instead of failing:
 
-```console
+```shell-session
 $ zsh -f -c 'f() { print -r -- ${(%):-%N} }; f'
 f
 $ zsh -f -c 'myplugin() { print -r -- ${${(%):-%N}:a:h} }; myplugin'
@@ -211,7 +211,7 @@ Earlier revisions of this page claimed that `setopt posix_argzero` is detected
 by the snippet above. That is incorrect. Under `posix_argzero` the parameter
 `0` is read-only, so the assignment aborts before any detection can happen:
 
-```console
+```shell-session
 $ zsh -f -c 'setopt posixargzero; typeset -p 0'
 typeset 0=zsh
 $ zsh -f -c 'setopt posixargzero; 0=x'
@@ -1366,7 +1366,7 @@ Step 4 is not cosmetic. Without it, the subtraction deletes every function
 created during the block, including ones the plugin did not create. An
 `autoload` triggered inside the block is a common case:
 
-```console
+```shell-session
 $ zsh -f -c 'f(){ local -a p=( ${(k)functions} )
     { autoload -Uz is-at-least; is-at-least 5.8 } always {
       unset -f -- "${(k)functions[@]:|p}" 2>/dev/null }
@@ -1410,7 +1410,7 @@ verified on Zsh 5.9.2:
    lexicographic, which is wrong for numeric indices. Numeric `(on)` is
    required, and nothing warns you:
 
-   ```console
+   ```shell-session
    $ # keys arr__1 arr__2 arr__3 arr__9 arr__10 arr__11
    $ print -r -- ${(o)keys}
    arr__1 arr__10 arr__11 arr__2 arr__3 arr__9

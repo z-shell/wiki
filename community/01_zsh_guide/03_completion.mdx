@@ -1,0 +1,90 @@
+---
+id: zsh_completion
+title: "✨ Completion Configuration"
+sidebar_position: 3
+slug: /zsh-guide/completion
+image: /img/png/theme/z/320x320.png
+description: Configure Zsh completion behavior and styles with compinit and zstyle.
+keywords:
+  - zsh
+  - completion
+  - compinit
+  - zstyle
+---
+
+## Initialize completion {/* #initialize-completion */}
+
+Zsh's modern completion system is initialized by `compinit`. Load it once, after adding all required
+completion directories to `fpath`:
+
+```zsh title="~/.zshrc" showLineNumbers
+autoload -Uz compinit
+compinit
+```
+
+See the [Completion System manual][completion-system] for initialization options and security checks.
+
+## Configure completion with zstyle {/* #configure-completion-with-zstyle */}
+
+The completion system reads `zstyle` values from contexts such as `:completion:*`. A more specific
+context overrides a broader one, which lets you tune individual completers, commands, or tags.
+
+### Approximate matching {/* #approximate-matching */}
+
+```zsh title="~/.zshrc" showLineNumbers
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:match:*' original only
+zstyle -e ':completion:*:approximate:*' max-errors \
+  'reply=($((($#PREFIX + $#SUFFIX) / 3 > 7 ? 7 : ($#PREFIX + $#SUFFIX) / 3))numeric)'
+```
+
+### Grouping, descriptions, and matching {/* #grouping-descriptions-and-matching */}
+
+```zsh title="~/.zshrc" showLineNumbers
+zstyle ':completion:*:matches' group yes
+zstyle ':completion:*:options' description yes
+zstyle ':completion:*:options' auto-description '%d'
+zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f'
+zstyle ':completion:*:descriptions' format ' %F{yellow}-- %d --%f'
+zstyle ':completion:*:messages' format ' %F{purple}-- %d --%f'
+zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' matcher-list \
+  'm:{a-zA-Z}={A-Za-z}' \
+  'r:|[._-]=* r:|=*' \
+  'l:|=* r:|=*'
+zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec))'
+zstyle ':completion:*' use-cache true
+```
+
+### Menu selection {/* #menu-selection */}
+
+```zsh title="~/.zshrc"
+zstyle ':completion:*' menu select
+```
+
+### Colors {/* #completion-colors */}
+
+When `LS_COLORS` is defined, split its colon-separated value into the array expected by `list-colors`:
+
+```zsh title="~/.zshrc"
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+```
+
+## Ubuntu's global compinit call {/* #ubuntu-global-compinit */}
+
+Ubuntu's system-wide Zsh configuration can call `compinit` automatically. If your own `.zshrc`
+initializes completion, prevent the duplicate call by setting this distro-specific variable in
+`$ZDOTDIR/.zshenv` (normally `~/.zshenv`):
+
+```zsh title="~/.zshenv"
+skip_global_compinit=1
+```
+
+This variable is an Ubuntu packaging convention, not a portable Zsh setting. The current behavior is
+documented in the [Debian package source][debian-zshrc].
+
+[completion-system]: https://zsh.sourceforge.io/Doc/Release/Completion-System.html
+[debian-zshrc]: https://sources.debian.org/src/zsh/5.9-8/debian/zshrc/

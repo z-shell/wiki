@@ -52,7 +52,7 @@ export PATH="$PWD/.bin:$PATH"
 
 ## Install with Zi
 
-```zsh title="~/.zshrc"
+```zi title="~/.zshrc"
 zi ice from"github" as"program" pick"zunit"
 zi load z-shell/zunit
 ```
@@ -61,14 +61,14 @@ zi load z-shell/zunit
 
 Once ZUnit is installed, `zunit init` sets up a new project in one command:
 
-```sh
+```zunit
 cd my-project
 zunit init
 ```
 
 This creates:
 
-```
+```text
 .zunit.yml              — project config
 tests/
   example.zunit         — example test file
@@ -79,7 +79,7 @@ tests/
 
 To also generate a GitHub Actions workflow:
 
-```sh
+```zunit
 zunit init --github-actions
 ```
 
