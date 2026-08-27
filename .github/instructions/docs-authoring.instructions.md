@@ -127,4 +127,4 @@ POSIX `sh`; reserve it for genuinely shell-agnostic examples.
 
 - Edit only English source files in `docs/`, `community/`, `ecosystem/`.
 - Do not manually edit files under `i18n/`.
-- Some paths are excluded from translation (see `crowdin.yml`): `ecosystem/plugins/**`, `community/gallery/**`, `community/01_zsh_guide/**`.
+- Some paths are excluded from translation (see `crowdin.yml`): `ecosystem/plugins/**`, `community/05_gallery/**`, `community/01_zsh_guide/**`.

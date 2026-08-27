@@ -2,7 +2,7 @@
 id: community
 slug: /
 title: "👥 Community"
-sidebar_position: 1
+sidebar_position: 0
 image: /img/png/theme/z/320x320.png
 description: Community documentation, guides, and resources for Zsh enthusiasts and Z-Shell contributors.
 keywords:
@@ -29,7 +29,7 @@ The Z-Shell community is home to contributors, plugin authors, and Zsh enthusias
 </div>
 
 :::info[Get involved]
-Join the [Z-Shell organization](https://github.com/z-shell), help [translate the wiki](https://translate.zshell.dev), or track work in the [Z-Shell Workspace](https://linear.app/ss-o/project/z-shell-workspace-0206c6a7192d).
+Join the [Z-Shell organization](https://github.com/z-shell), help [translate the wiki](https://translate.zshell.dev), or follow active work in [Z-shell Delivery](https://github.com/orgs/z-shell/projects/28).
 :::
 
 ## Community Sections
@@ -66,9 +66,16 @@ Join the [Z-Shell organization](https://github.com/z-shell), help [translate the
 
 <div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
   <img src={useBaseUrl("/img/svg/cards/syntax-highlighting.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
-  <strong>ZSH Guide &amp; Handbook</strong>
-  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Zsh expansion, scripting handbook, plugin standard, and roadmap for the broader ecosystem.</span>
-  <Link to="/community/zsh_plugin_standard" style={{marginTop: "auto"}}>Read the guides →</Link>
+  <strong>Zsh Scripting Handbook</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Native Zsh idioms and worked techniques — array forms, expansion, pattern matching, and substitutions.</span>
+  <Link to="/community/zsh_handbook" style={{marginTop: "auto"}}>Read the handbook →</Link>
+</div>
+
+<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
+  <img src={useBaseUrl("/img/svg/community/contributing-plugin-standard.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
+  <strong>Zsh Plugin Standard</strong>
+  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>The plugin interoperability contract — what makes a directory a plugin and how managers load it.</span>
+  <Link to="/community/zsh_plugin_standard" style={{marginTop: "auto"}}>Read the standard →</Link>
 </div>
 
 </div>

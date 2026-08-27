@@ -3,11 +3,10 @@ id: project_management
 title: "📋 Project Management"
 sidebar_position: 5
 image: /img/png/theme/z/320x320.png
-description: How GitHub issues and the Z-Shell Workspace in Linear track work across the organization — workflow, labels, and triage.
+description: How GitHub issues and Project 28 track work across the organization — workflow, labels, and triage.
 keywords:
   - project
   - tracker
-  - linear
   - github
   - workflow
   - labels
@@ -23,153 +22,136 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
   <img src={useBaseUrl("/img/svg/community/contributing-project-management.svg")} alt="" width="100" height="100" style={{borderRadius: "16px"}}/>
 </div>
 
-## Linear Tracker
+## Project Tracker
 
-Planned, active, and deferred work across the Z-Shell organization is
-prioritized in the **Z-Shell Workspace** project in Linear:
+GitHub issues and pull requests are the authoritative record for all work in the
+Z-Shell organization. Open issues are tracked across repositories in
+**Z-shell Delivery**, GitHub Project 28:
 
 <Link
   className="button button--primary button--lg"
-  to="https://linear.app/ss-o/project/z-shell-workspace-0206c6a7192d"
+  to="https://github.com/orgs/z-shell/projects/28"
 >
-  Open Linear →
+  Open Z-shell Delivery →
 </Link>
 
 <br />
 <br />
 
-GitHub issues and pull requests remain the repository-level record for
-discussion, implementation, and review. Linear provides the cross-repository
-planning view: priority, status, ownership, estimates, cycles, and dependencies.
+The project board is the cross-repository execution view: status, priority,
+impact, effort, and dependencies. It does not replace the owning repository's
+issue thread, which remains where discussion, implementation, and review happen.
 
-### Workflow
+The board separates workstreams into views so unrelated work does not compete
+for attention:
 
-Each tracked item moves through the z-shell team's Linear workflow:
-
-| Status | Purpose |
+| View | Contents |
 | --- | --- |
-| **Backlog** | Accepted work that is not yet scheduled |
-| **Todo** | Ready to begin |
-| **In Progress** | Actively being implemented |
-| **In Review** | Awaiting review, verification, or publication |
-| **Done** | Completed and verified |
-| **Canceled** | Deliberately removed from the plan |
-| **Duplicate** | Covered by another tracked item |
+| **Human delivery** | Ordinary bugs, features, maintenance, and documentation |
+| **Automation** | Bot dashboards and recurring automation records |
+| **Dependency maintenance** | Routine dependency updates and dashboards |
+| **Security** | Security work requiring maintainer attention |
+| **Administrative** | Organization and repository governance |
 
-### Triage Workflow
+### What Happens After You File
 
-When work is added to Linear, a maintainer:
+A maintainer triages the issue: classifying it, setting the board fields, and
+linking it to related work. You do not need to set any of this yourself.
 
-1. Links the owning GitHub issue or pull request when one exists.
-2. Sets its **Priority**, **Status**, and project.
-3. Adds labels and an estimate when they improve planning.
-4. Records dependencies so blocked work is visible.
-5. Assigns it to a cycle only when it is ready to schedule.
+Related issues are connected using GitHub's native parent and sub-issue
+relationships; blockers use native issue dependencies, so if your issue is
+waiting on something else that link is visible on the issue itself.
+
+Pull requests appear on the board once they are linked to a tracked issue or are
+ready for review. Closed and merged items move to `Done`.
+
+The full maintainer procedure lives in the
+[triage runbook](https://github.com/z-shell/.github/blob/main/runbooks/triage.md).
 
 ### Capturing Deferred Work
 
-Do not leave postponed work only in local diffs, review notes, or memory.
-Create or update an issue in the repository that owns the work, then add or link
-the corresponding Linear item when the task needs cross-repository planning.
+Do not leave postponed work only in local diffs, review notes, or a chat thread.
+Create or update an issue in the repository that owns the work so it stays
+visible.
 
 When splitting or deferring work:
 
-1. Create **one issue per logical task** so each item can be prioritized and completed independently.
-2. Include enough context for another maintainer to resume later: the observed problem, why it matters, relevant files, and any known constraints.
-3. Suggest the likely **Priority**, estimate, and initial Linear status during triage.
-4. Use the canonical labels instead of repo-local tracking conventions.
+1. Create **one issue per logical task** so each can be prioritized and completed
+   independently.
+2. Include enough context for someone else to resume later: the observed
+   problem, why it matters, relevant files, and known constraints.
+3. Use the canonical labels described below instead of repo-local tracking
+   conventions.
 
-### Priority Definitions
+Do not create standalone project-only items for a deliverable that belongs in a
+repository issue.
 
-| Priority | Meaning |
-| --- | --- |
-| 🔴 **Critical** | Data loss, security vulnerability, or complete breakage with no workaround |
-| 🟠 **High** | Significantly impacts users or blocks important work; schedule next |
-| 🟡 **Medium** | Important but not urgent; prioritize against other planned work |
-| 🔵 **Low** | Nice to have; no fixed timeline |
-| **None** | Not yet triaged or genuinely optional |
+### Priority
 
-### GitHub and Linear
+Maintainers set priority during triage; contributors do not need to. If your
+issue is urgent, say why in the description rather than setting a field — the
+justification is what drives the decision.
 
-Contributors should continue opening issues and pull requests in the owning
-GitHub repository. Maintainers use Linear to coordinate work that spans
-repositories, needs scheduling, or should remain visible after it is deferred.
-Links between the two systems preserve the implementation history without
-duplicating long-form technical context.
+The bands and their meanings are defined in the
+[triage runbook](https://github.com/z-shell/.github/blob/main/runbooks/triage.md)
+in `z-shell/.github`.
+
+### Where to File
+
+Always open issues and pull requests in the repository that owns the work. That
+thread is the authoritative record.
+
+Maintainers additionally mirror a small amount of cross-repository, strategic,
+release-blocking, or security-sensitive work into an internal planning tool.
+That mirror is a convenience view for maintainers and is **not** a source of
+truth — nothing there replaces the GitHub issue, and contributors never need to
+consult it.
 
 ---
 
 ## Labels
 
-All repositories in the `z-shell` organization use the same canonical label set.
-Labels are applied manually during triage or by approved organization
-automation.
+All repositories in the `z-shell` organization share one canonical label set. A
+maintainer applies labels during triage — you do not need to set them yourself,
+though knowing what they mean helps you read an issue's state.
 
-The source of truth lives in
-[`z-shell/.github/lib/labels.yml`](https://github.com/z-shell/.github/blob/main/lib/labels.yml).
-Rollout across repositories is handled through organization maintenance automation.
+:::info[Canonical source]
 
-### Work Type Labels
+The authoritative list, including colors and descriptions, is
+[`lib/labels.yml`](https://github.com/z-shell/.github/blob/main/lib/labels.yml)
+in `z-shell/.github`. That file is the source of truth; this page summarizes it
+rather than restating it, so the two cannot drift apart.
 
-Use these to describe **what kind of work** an issue or PR represents.
+:::
 
-| Label | Color | Description |
+Namespaced labels are written **without a space** after the colon — `type:bug`,
+not `type: bug`. Spaced variants are legacy and are being retired.
+
+### What the namespaces mean
+
+| Namespace | Answers | Examples |
 | --- | --- | --- |
-| `type: bug` | ![#b60205](https://placehold.co/12x12/b60205/b60205.png) `#b60205` | Something is broken or behaving incorrectly |
-| `type: feature` | ![#0e8a16](https://placehold.co/12x12/0e8a16/0e8a16.png) `#0e8a16` | A request for new behavior or capability |
-| `type: docs` | ![#0052cc](https://placehold.co/12x12/0052cc/0052cc.png) `#0052cc` | Documentation-only work |
-| `type: question` | ![#d4c5f9](https://placehold.co/12x12/d4c5f9/d4c5f9.png) `#d4c5f9` | Support, clarification, or usage question |
-| `type: maintenance` | ![#531999](https://placehold.co/12x12/531999/531999.png) `#531999` | Non-feature maintenance, cleanup, or org work |
-| `type: membership` | ![#6f42c1](https://placehold.co/12x12/6f42c1/6f42c1.png) `#6f42c1` | Membership and organization-role requests |
-| `type: handoff` | ![#5319e7](https://placehold.co/12x12/5319e7/5319e7.png) `#5319e7` | Cross-agent or cross-maintainer handoff context |
+| `type:` | What kind of work is this? | `type:bug`, `type:feature`, `type:docs`, `type:question`, `type:maintenance` |
+| `area:` | Which part of the ecosystem does it touch? | `area:zi`, `area:plugin`, `area:annex`, `area:package`, `area:docs`, `area:ci` |
+| `status:` | What is blocking progress? | `status:triage`, `status:blocked` |
+| `priority:` | How urgently is it needed? | `priority:high` |
 
-### Area Labels
+Standalone modifiers carry no namespace: `regression`, `security`,
+`performance`, `breaking-change`, `needs-info`, `duplicate`, `invalid`, and
+`wontfix`.
 
-Use these to describe **which part of the ecosystem** the item touches.
+### Labels worth watching as a contributor
 
-| Label | Color | Description |
-| --- | --- | --- |
-| `area: zi` | ![#1d76db](https://placehold.co/12x12/1d76db/1d76db.png) `#1d76db` | Zi core behavior, APIs, or documentation |
-| `area: plugin` | ![#3e16f3](https://placehold.co/12x12/3e16f3/3e16f3.png) `#3e16f3` | Plugin behavior or plugin-facing work |
-| `area: annex` | ![#3e16f3](https://placehold.co/12x12/3e16f3/3e16f3.png) `#3e16f3` | Annex behavior or annex-facing work |
-| `area: package` | ![#3e16f3](https://placehold.co/12x12/3e16f3/3e16f3.png) `#3e16f3` | Package or package-management work |
-| `area: docs` | ![#0052cc](https://placehold.co/12x12/0052cc/0052cc.png) `#0052cc` | Documentation systems, content, or publishing |
-| `area: ci` | ![#5319e7](https://placehold.co/12x12/5319e7/5319e7.png) `#5319e7` | Continuous integration or GitHub Actions work |
-| `area: dependencies` | ![#fbca04](https://placehold.co/12x12/fbca04/fbca04.png) `#fbca04` | Dependency updates or dependency-management work |
-| `area: release` | ![#d93f0b](https://placehold.co/12x12/d93f0b/d93f0b.png) `#d93f0b` | Release process, versioning, or changelog work |
-| `area: meta` | ![#1d76db](https://placehold.co/12x12/1d76db/1d76db.png) `#1d76db` | Organization-wide policy, templates, or meta-repo work |
+| Label | Meaning |
+| --- | --- |
+| `good first issue` | Well-scoped starter task — a good place to begin |
+| `help wanted` | Maintainers would welcome outside help |
+| `needs-info` | Waiting on more detail before work can continue |
+| `status:blocked` | Cannot proceed until an external dependency or decision changes |
 
-### Priority and Workflow Labels
+### Label Rollout
 
-Use these to describe **urgency or state** in the workflow.
-
-| Label | Color | Description |
-| --- | --- | --- |
-| `priority: high` | ![#ee0701](https://placehold.co/12x12/ee0701/ee0701.png) `#ee0701` | Needs prompt attention |
-| `security` | ![#ee0701](https://placehold.co/12x12/ee0701/ee0701.png) `#ee0701` | Security-sensitive issue or hardening work |
-| `breaking-change` | ![#d93f0b](https://placehold.co/12x12/d93f0b/d93f0b.png) `#d93f0b` | Breaks backward compatibility or changes a public contract |
-| `status: triage` | ![#fbca04](https://placehold.co/12x12/fbca04/fbca04.png) `#fbca04` | Awaiting initial review or classification |
-| `status: blocked` | ![#e4e669](https://placehold.co/12x12/e4e669/e4e669.png) `#e4e669` | Cannot proceed until an external dependency or decision changes |
-| `needs-info` | ![#f9d0c4](https://placehold.co/12x12/f9d0c4/f9d0c4.png) `#f9d0c4` | Waiting on more detail before work can continue |
-| `good first issue` | ![#7057ff](https://placehold.co/12x12/7057ff/7057ff.png) `#7057ff` | Well-scoped starter task for a new contributor |
-| `help wanted` | ![#008672](https://placehold.co/12x12/008672/008672.png) `#008672` | Maintainers would welcome outside help |
-| `invalid` | ![#0b467f](https://placehold.co/12x12/0b467f/0b467f.png) `#0b467f` | Off-topic, incorrect, or not actionable |
-| `duplicate` | ![#cfd3d7](https://placehold.co/12x12/cfd3d7/cfd3d7.png) `#cfd3d7` | Covered by another issue or pull request |
-| `wontfix` | ![#ffffff](https://placehold.co/12x12/ffffff/ffffff.png) `#ffffff` | Acknowledged but not planned for implementation |
-
-### Syncing Labels
-
-To apply the canonical label set to a repository:
-
-```sh
-# Single repo
-echo "my-repo" > /tmp/repos.txt
-./scripts/sync-labels.sh z-shell /tmp/repos.txt
-
-# All org repos
-./scripts/sync-labels.sh z-shell scripts/repos.txt
-```
-
-The `--force` flag means existing labels with the same name are updated to match
-the canonical color and description. Labels not in the canonical set are **not**
-deleted automatically — remove them manually if desired.
+Creating and syncing labels across repositories is a maintainer operation. It is
+documented in the
+[`labels.md` runbook](https://github.com/z-shell/.github/blob/main/runbooks/labels.md)
+in `z-shell/.github`, together with the migration path for legacy names.
