@@ -34,30 +34,21 @@ Zi is a Swiss Army Knife for Zsh — a blazing-fast plugin manager with Turbo mo
 
 ## Explore the Docs
 
-<div style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1rem", margin: "1.5rem 0"}}>
+<CardGrid>
 
-<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
-  <img src={useBaseUrl("/img/svg/cards/speed.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
-  <strong>Getting Started</strong>
-  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Install Zi, load your first plugins, and migrate from Oh My Zsh or Prezto.</span>
-  <Link to="/docs/category/-getting-started" style={{marginTop: "auto"}}>Get started →</Link>
-</div>
+<Card title="Getting Started" to="/docs/category/-getting-started" icon="/img/svg/cards/speed.svg" cta="Get started">
+  Install Zi, load your first plugins, and migrate from Oh My Zsh or Prezto.
+</Card>
 
-<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
-  <img src={useBaseUrl("/img/svg/cards/flexible.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
-  <strong>Guides</strong>
-  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Commands reference, customization, benchmarks, and syntax guides for power users.</span>
-  <Link to="/docs/category/-guides" style={{marginTop: "auto"}}>Read the guides →</Link>
-</div>
+<Card title="Guides" to="/docs/category/-guides" icon="/img/svg/cards/flexible.svg" cta="Read the guides">
+  Commands reference, customization, benchmarks, and syntax guides for power users.
+</Card>
 
-<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
-  <img src={useBaseUrl("/img/svg/cards/zi-console.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
-  <strong>Zi Code Reference</strong>
-  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Internals, function reference, and annotated source for contributors and advanced users.</span>
-  <Link to="/docs/code" style={{marginTop: "auto"}}>Browse the code →</Link>
-</div>
+<Card title="Zi Code Reference" to="/docs/code" icon="/img/svg/cards/zi-console.svg" cta="Browse the code">
+  Internals, function reference, and annotated source for contributors and advanced users.
+</Card>
 
-</div>
+</CardGrid>
 
 ## Summary
 

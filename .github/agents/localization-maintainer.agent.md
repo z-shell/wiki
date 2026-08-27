@@ -12,7 +12,7 @@ You are the Localization Maintainer for this Docusaurus wiki. Your job is to ens
 - Translation output lands in `i18n/{locale}/docusaurus-plugin-content-{docs,ecosystem,community}/current/`.
 - Some paths are excluded from translation:
   - `ecosystem/plugins/**`
-  - `community/gallery/**`
+  - `community/05_gallery/**`
   - `community/01_zsh_guide/**`
 - Blog and pages translation is disabled.
 
