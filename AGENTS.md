@@ -35,6 +35,8 @@ This project follows the organization-wide [Z-Shell Organization Guidelines](htt
   - `<Emoji>` — accessible emoji rendering
   - `<GhRepoBadge>` — GitHub repository badges
   - `<ShellCodeCopy>` — copyable shell command blocks
+  - `<CardGrid>` / `<Card>` — responsive landing-page card grids; use these
+    instead of hand-rolling a grid with inline styles
 - Localization uses Crowdin (`crowdin.yml`). Never edit files under `i18n/` directly.
 
 ## Adding New Content or Infrastructure
@@ -83,9 +85,12 @@ full cross-repo checklist.
 
 ### Branching
 
-- `next` — active development. `main` — production.
-- Branch naming: `feature-<id>`, `bug-<id>`, `hotfix-<id>`.
-- Hotfixes branch from `main`; everything else from `next`.
+- `next` — active development. `main` — production. This repository uses the
+  `next` → `main` model per org ADR 0008; branch from and target `next`.
+- Branch naming: `feat/<name>`, `fix/<name>`, `perf/<name>`, `refactor/<name>`,
+  `docs/<name>`, `ci/<name>` — matching the published contributor guide in
+  `community/00_contributing/01_getting_started.mdx`.
+- Hotfixes branch from `main` and target `main`; everything else from `next`.
 
 ## Agent Notes
 
