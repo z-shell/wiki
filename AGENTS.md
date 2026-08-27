@@ -91,5 +91,9 @@ full cross-repo checklist.
 
 - Prefer small, scoped edits that match surrounding MDX and TypeScript style.
 - Link to existing docs rather than duplicating long guidance.
-- Scoped instruction files in `.github/instructions/` are auto-applied by file glob — prefer updating those for domain-specific guidance over modifying this file.
+- GitHub Copilot auto-applies matching scoped files in `.github/instructions/`
+  by `applyTo` glob. Other runtimes should follow this `AGENTS.md` and open the
+  linked scoped instructions explicitly unless native discovery has been
+  verified. Prefer updating scoped files for domain-specific guidance over
+  modifying this file.
 - Do not introduce additional global instruction files beyond the documented repo entry points unless explicitly requested.
