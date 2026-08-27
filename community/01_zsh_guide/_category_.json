@@ -1,0 +1,9 @@
+{
+  "label": "🐚 Zsh Guide",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "slug": "/zsh-guide",
+    "description": "Practical Zsh configuration, completion, key binding, and profiling guidance."
+  }
+}

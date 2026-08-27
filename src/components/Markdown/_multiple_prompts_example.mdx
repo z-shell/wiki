@@ -1,6 +1,6 @@
 1 - zprompts
 
-```shell showLineNumbers
+```zi showLineNumbers
 zi lucid load'![[ $MYPROMPT = 1 ]]' unload'![[ $MYPROMPT != 1 ]]' \
   atload'!promptinit; typeset -g PSSHORT=0; prompt sprint3 yellow red green blue' nocd for \
     z-shell/zprompts
@@ -8,21 +8,21 @@ zi lucid load'![[ $MYPROMPT = 1 ]]' unload'![[ $MYPROMPT != 1 ]]' \
 
 2 - lambda-mod-zsh-theme
 
-```shell showLineNumbers
+```zi showLineNumbers
 zi lucid load'![[ $MYPROMPT = 2 ]]' unload'![[ $MYPROMPT != 2 ]]' nocd for \
   halfo/lambda-mod-zsh-theme
 ```
 
 3 - lambda-gitster
 
-```shell showLineNumbers
+```zi showLineNumbers
 zi lucid load'![[ $MYPROMPT = 3 ]]' unload'![[ $MYPROMPT != 3 ]]' nocd for \
   ergenekonyigit/lambda-gitster
 ```
 
 4 - geometry
 
-```shell showLineNumbers
+```zi showLineNumbers
 zi lucid load'![[ $MYPROMPT = 4 ]]' unload'![[ $MYPROMPT != 4 ]]' \
   atload'!geometry::prompt' nocd \
   atinit'GEOMETRY_COLOR_DIR=63 GEOMETRY_PATH_COLOR=63' for \
@@ -31,7 +31,7 @@ zi lucid load'![[ $MYPROMPT = 4 ]]' unload'![[ $MYPROMPT != 4 ]]' \
 
 5 - pure
 
-```shell showLineNumbers
+```zi showLineNumbers
 zi lucid load'![[ $MYPROMPT = 5 ]]' unload'![[ $MYPROMPT != 5 ]]' \
   pick"/dev/null" multisrc"{async,pure}.zsh" atload'!prompt_pure_precmd' nocd for \
     sindresorhus/pure
@@ -39,7 +39,7 @@ zi lucid load'![[ $MYPROMPT = 5 ]]' unload'![[ $MYPROMPT != 5 ]]' \
 
 6 - agkozak-zsh-theme
 
-```shell showLineNumbers
+```zi showLineNumbers
 zi lucid load'![[ $MYPROMPT = 6 ]]' unload'![[ $MYPROMPT != 6 ]]' \
   atload'!_agkozak_precmd' nocd atinit'AGKOZAK_FORCE_ASYNC_METHOD=subst-async' for \
     agkozak/agkozak-zsh-theme
@@ -47,7 +47,7 @@ zi lucid load'![[ $MYPROMPT = 6 ]]' unload'![[ $MYPROMPT != 6 ]]' \
 
 7 - zinc
 
-```shell showLineNumbers
+```zi showLineNumbers
 zi load'![[ $MYPROMPT = 7 ]]' unload'![[ $MYPROMPT != 7 ]]' \
   compile"{zinc_functions/*,segments/*,zinc.zsh}" nocompletions \
   atload'!prompt_zinc_setup; prompt_zinc_precmd' nocd for \
@@ -56,7 +56,7 @@ zi load'![[ $MYPROMPT = 7 ]]' unload'![[ $MYPROMPT != 7 ]]' \
 
 8 - git-prompt
 
-```shell showLineNumbers
+```zi showLineNumbers
 zi lucid load'![[ $MYPROMPT = 8 ]]' unload'![[ $MYPROMPT != 8 ]]' \
   atload'!_zsh_git_prompt_precmd_hook' nocd for \
     woefe/git-prompt.zsh

@@ -15,7 +15,7 @@ import Link from "@docusaurus/Link";
 
 ### OMZ shorthand syntax {/* #omz-shorthand-syntax */}
 
-```zsh title="~/.zshrc" showLineNumbers
+```zi title="~/.zshrc" showLineNumbers
 zi snippet <URL>        # Raw syntax with URL
 zi snippet OMZ::<PATH>  # Shorthand OMZ::         (http://github.com/ohmyzsh/ohmyzsh/raw/master/)
 zi snippet OMZL::<PATH> # Shorthand OMZ::lib      (http://github.com/ohmyzsh/ohmyzsh/raw/master/lib)
@@ -29,21 +29,21 @@ Importing the [clipboard][omz/clipboard] and [termsupport][omz/termsupport] from
 
 Raw syntax:
 
-```zsh title="~/.zshrc" showLineNumbers
+```zi title="~/.zshrc" showLineNumbers
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
 zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/termsupport.zsh
 ```
 
 OMZ shorthand syntax:
 
-```zsh title="~/.zshrc" showLineNumbers
+```zi title="~/.zshrc" showLineNumbers
 zi snippet OMZ::lib/clipboard.zsh
 zi snippet OMZ::lib/termsupport.zsh
 ```
 
 OMZL shorthand syntax:
 
-```zsh title="~/.zshrc" showLineNumbers
+```zi title="~/.zshrc" showLineNumbers
 zi snippet OMZL::clipboard.zsh
 zi snippet OMZL::termsupport.zsh
 ```
@@ -68,7 +68,7 @@ zi snippet OMZL::termsupport.zsh
 
 Example of more advanced, conditional turbo loading:
 
-```zsh title="~/.zshrc" showLineNumbers
+```zi title="~/.zshrc" showLineNumbers
 zi is-snippet wait lucid for \
     atload"unalias grv g" \
   OMZP::{git,sudo,encode64,extract} \
@@ -102,7 +102,7 @@ Use `zi ice as"completion"` to directly add single file completion snippets.
 
 - [docker][omz/docker]
 
-```zsh title="~/.zshrc" showLineNumbers
+```zi title="~/.zshrc" showLineNumbers
 zi ice as"completion"
 zi snippet OMZP::docker/completions/_docker
 ```
@@ -111,7 +111,7 @@ zi snippet OMZP::docker/completions/_docker
 
 Themes are stored in the `themes` directory and loaded in the background with the simple syntax:
 
-```shell title="~/.zshrc"
+```zsh title="~/.zshrc"
 ZSH_THEME="robbyrussell"
 ```
 
@@ -128,13 +128,13 @@ To use **themes** created for OMZ requires loading shown below as it would be th
 
 If any of the above are not in order or missing, the theme will break similar as shown below:
 
-```shell
+```text
 … $(build_prompt) …
 ```
 
 If the `Git` library is not loaded or loaded in the wrong order, then it may appear similar to the following:
 
-```shell showLineNumbers
+```text showLineNumbers
 ........:1: command not found: git_prompt_status
 ........:1: command not found: git_prompt_short_sha
 ```
@@ -145,7 +145,7 @@ If you encounter any issue with the theme, OMZ support libraries are to be loade
 
 - If you encounter an error message similar to:
 
-```shell showLineNumbers
+```text showLineNumbers
 zsh: command not found: ruby_prompt_info
 ```
 
@@ -153,7 +153,7 @@ You need to load `prompt_info_functions.zsh`
 
 All together it looks like this:
 
-```zsh title="~/.zshrc" showLineNumbers
+```zi title="~/.zshrc" showLineNumbers
 zi snippet OMZL::git.zsh
 zi snippet OMZP::git
 zi snippet OMZL::theme-and-appearance.zsh
@@ -162,7 +162,7 @@ zi snippet OMZL::prompt_info_functions.zsh
 
 Then load the prompt:
 
-```zsh showLineNumbers
+```zi showLineNumbers
 setopt prompt_subst
 zi snippet OMZT::robbyrussell
 ```
@@ -171,26 +171,26 @@ zi snippet OMZT::robbyrussell
 
 Load with OMZ:
 
-```shell title="~/.zshrc"
+```zsh title="~/.zshrc"
 ZSH_THEME="alpharized"
 ```
 
 Load `git` library from OMZ:
 
-```zsh title="~/.zshrc"
+```zi title="~/.zshrc"
 zi snippet OMZL::git.zsh
 ```
 
 Load `git` plugin from OMZ:
 
-```zsh title="~/.zshrc" showLineNumbers
+```zi title="~/.zshrc" showLineNumbers
 zi snippet OMZP::git
 zi cdclear -q
 ```
 
 Then load the prompt:
 
-```zsh title="~/.zshrc" showLineNumbers
+```zi title="~/.zshrc" showLineNumbers
 setopt prompt_subst
 zi light NicoSantangelo/Alpharized
 ```
@@ -199,7 +199,7 @@ zi light NicoSantangelo/Alpharized
 
 ### PZT shorthand syntax {/* #pzt-shorthand-syntax */}
 
-```zsh title="~/.zshrc" showLineNumbers
+```zi title="~/.zshrc" showLineNumbers
 zi snippet <URL>        # Raw syntax with URL
 zi snippet PZT::<PATH>  # Shorthand PZT::         (https://github.com/sorin-ionescu/prezto/tree/master/)
 zi snippet PZTM::<PATH> # Shorthand PZT::modules/ (https://github.com/sorin-ionescu/prezto/blob/master/modules/)
@@ -211,14 +211,14 @@ Importing the [environment](https://github.com/sorin-ionescu/prezto/blob/master/
 
 Raw syntax
 
-```zsh title="~/.zshrc" showLineNumbers
+```zi title="~/.zshrc" showLineNumbers
 zi snippet https://github.com/sorin-ionescu/prezto/blob/master/modules/environment/init.zsh
 zi snippet https://github.com/sorin-ionescu/prezto/blob/master/modules/terminal/init.zsh
 ```
 
 PZT shorthand syntax:
 
-```zsh title="~/.zshrc" showLineNumbers
+```zi title="~/.zshrc" showLineNumbers
 zi snippet PZT::<PATH>
 zi snippet PZT::modules/environment
 zi snippet PZT::modules/terminal
@@ -226,7 +226,7 @@ zi snippet PZT::modules/terminal
 
 PZTM shorthand syntax:
 
-```zsh title="~/.zshrc" showLineNumbers
+```zi title="~/.zshrc" showLineNumbers
 zi snippet PZTM::<PATH>
 zi snippet PZTM::environment
 zi snippet PZTM::terminal
@@ -289,12 +289,9 @@ Available Prezto modules:
 
 Use `blockf` to prevent any unnecessary additions to `fpath`, as Zi manages `fpath`.
 
-:::tip
+:::tip[Zsh completion styles]
 
-What is `zstyle`?
-
-- Official (zsh.sourceforge.net): [zsh/zutil](https://zsh.sourceforge.net/Doc/Release/Zsh-Modules.html#The-zsh_002fzutil-Module)
-- StackExchange: [What does `zstyle` do?][about-zstyle]
+For general `zstyle` guidance, see the Community [Completion Configuration](/community/zsh-guide/completion) guide.
 
 :::
 
@@ -381,7 +378,6 @@ For the `location`: refer <Link to="/docs/guides/syntax/standard#src-pick-multis
 {/* links */}
 {/* external */}
 
-[about-zstyle]: https://unix.stackexchange.com/questions/214657/what-does-zstyle-do
 [nicosantangelo/alpharized]: https://github.com/nicosantangelo/Alpharized
 [omz/clipboard]: https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
 [omz/docker]: https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/docker/completions/_docker

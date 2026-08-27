@@ -50,7 +50,7 @@ zsh-lint-survey path/to/file.zsh another.zsh
 
 #### zsh\-lint
 
-```
+```go
 import "github.com/z-shell/zsh-lint/cmd/zsh-lint"
 ```
 
@@ -62,7 +62,7 @@ Command zsh\-lint performs static analysis of Zsh shell scripts.
 
 #### zsh\-lint\-survey
 
-```
+```go
 import "github.com/z-shell/zsh-lint/cmd/zsh-lint-survey"
 ```
 
@@ -74,7 +74,7 @@ Command zsh\-lint\-survey runs the parser front end across Zsh files and reports
 
 #### survey
 
-```
+```go
 import "github.com/z-shell/zsh-lint/internal/survey"
 ```
 
@@ -90,7 +90,7 @@ This is the reboot's parser\-evaluation surface \(issues \#5, \#8\): it reports 
 
 ##### func Run
 
-```
+```go
 func Run(names []string, w io.Writer) int
 ```
 
@@ -102,7 +102,7 @@ It returns a process exit code: 0 if every file parsed, 1 otherwise.
 
 #### rules
 
-```
+```go
 import "github.com/z-shell/zsh-lint/internal/rules"
 ```
 
@@ -154,7 +154,7 @@ import "github.com/z-shell/zsh-lint/internal/rules"
 
 ##### func Default
 
-```
+```go
 func Default() []analyzer.Rule
 ```
 
@@ -175,13 +175,13 @@ Why: The Zsh manual's Command Substitution section documents both `$()` and grav
 
 Bad:
 
-```
+```zsh
 current=`pwd`
 ```
 
 Good:
 
-```
+```zsh
 current=$(pwd)
 ```
 
@@ -193,14 +193,14 @@ Suppression: Use `# zsh-lint disable=style/backquotes -- <reason>` on the findin
 
 Corpus evidence: The June 12, 2026 LangZsh clean\-baseline run produced zero findings from this rule across the 11 parseable corpus files. This grandfathered rule therefore has no positive corpus citation yet.
 
-```
+```go
 type Backquotes struct{}
 ```
 
 
 ###### func \(Backquotes\) Analyze
 
-```
+```go
 func (r Backquotes) Analyze(ctx *analyzer.Context, node syntax.Node)
 ```
 
@@ -209,7 +209,7 @@ func (r Backquotes) Analyze(ctx *analyzer.Context, node syntax.Node)
 
 ###### func \(Backquotes\) ID
 
-```
+```go
 func (r Backquotes) ID() diag.RuleID
 ```
 
@@ -218,7 +218,7 @@ func (r Backquotes) ID() diag.RuleID
 
 ###### func \(Backquotes\) Name
 
-```
+```go
 func (r Backquotes) Name() string
 ```
 
@@ -239,13 +239,13 @@ Why: The Zsh manual documents that `eval` reads its arguments as shell input and
 
 Bad:
 
-```
+```zsh
 eval "print -r -- $user_input"
 ```
 
 Good:
 
-```
+```zsh
 print -r -- "$user_input"
 ```
 
@@ -257,14 +257,14 @@ Suppression: Use `# zsh-lint disable=security/eval -- <reason>` on the finding l
 
 Corpus evidence: The June 12, 2026 LangZsh clean\-baseline run produced zero findings from this rule across the 11 parseable corpus files. This grandfathered rule therefore has no positive corpus citation yet.
 
-```
+```go
 type EvalUsage struct{}
 ```
 
 
 ###### func \(EvalUsage\) Analyze
 
-```
+```go
 func (r EvalUsage) Analyze(ctx *analyzer.Context, node syntax.Node)
 ```
 
@@ -273,7 +273,7 @@ func (r EvalUsage) Analyze(ctx *analyzer.Context, node syntax.Node)
 
 ###### func \(EvalUsage\) ID
 
-```
+```go
 func (r EvalUsage) ID() diag.RuleID
 ```
 
@@ -282,7 +282,7 @@ func (r EvalUsage) ID() diag.RuleID
 
 ###### func \(EvalUsage\) Name
 
-```
+```go
 func (r EvalUsage) Name() string
 ```
 
@@ -303,7 +303,7 @@ Why: Sourced Zsh plugins must not destructively replace `fpath` \(which removes 
 
 Bad:
 
-```
+```zsh
 #### Destructively overwrites existing autoload paths
 fpath=( "${0:h}/functions" )
 
@@ -313,7 +313,7 @@ fpath+=( "${0:h}/bin" )
 
 Good:
 
-```
+```zsh
 fpath+=( "${0:h}/functions" "${0:h}/completions" )
 
 #### Prepending while preserving existing paths
@@ -328,14 +328,14 @@ Suppression: Use `# zsh-lint disable=plugin/fpath-hygiene -- <reason>` on the fi
 
 Corpus evidence: `z-a-meta-plugins/z-a-meta-plugins.plugin.zsh:12` uses compliant `fpath+=( "${0:h}/functions" )`.
 
-```
+```go
 type FpathHygiene struct{}
 ```
 
 
 ###### func \(FpathHygiene\) Analyze
 
-```
+```go
 func (rule FpathHygiene) Analyze(ctx *analyzer.Context, node syntax.Node)
 ```
 
@@ -344,7 +344,7 @@ func (rule FpathHygiene) Analyze(ctx *analyzer.Context, node syntax.Node)
 
 ###### func \(FpathHygiene\) ID
 
-```
+```go
 func (FpathHygiene) ID() diag.RuleID
 ```
 
@@ -353,7 +353,7 @@ func (FpathHygiene) ID() diag.RuleID
 
 ###### func \(FpathHygiene\) Name
 
-```
+```go
 func (FpathHygiene) Name() string
 ```
 
@@ -374,13 +374,13 @@ Why: The Zsh manual's Complex Commands grammar documents the sh\-compatible `wor
 
 Bad:
 
-```
+```zsh
 function render() { print ok; }
 ```
 
 Good:
 
-```
+```zsh
 render() { print ok; }
 ```
 
@@ -392,14 +392,14 @@ Suppression: Use `# zsh-lint disable=style/function-decl -- <reason>` on the fin
 
 Corpus evidence: The June 12, 2026 LangZsh clean\-baseline run produced zero findings from this rule across the 11 parseable corpus files. This grandfathered rule therefore has no positive corpus citation yet.
 
-```
+```go
 type FuncDeclStyle struct{}
 ```
 
 
 ###### func \(FuncDeclStyle\) Analyze
 
-```
+```go
 func (r FuncDeclStyle) Analyze(ctx *analyzer.Context, node syntax.Node)
 ```
 
@@ -408,7 +408,7 @@ func (r FuncDeclStyle) Analyze(ctx *analyzer.Context, node syntax.Node)
 
 ###### func \(FuncDeclStyle\) ID
 
-```
+```go
 func (r FuncDeclStyle) ID() diag.RuleID
 ```
 
@@ -417,7 +417,7 @@ func (r FuncDeclStyle) ID() diag.RuleID
 
 ###### func \(FuncDeclStyle\) Name
 
-```
+```go
 func (r FuncDeclStyle) Name() string
 ```
 
@@ -438,14 +438,14 @@ Why: Zsh functions inherit the caller's option state. The Zsh manual documents `
 
 Bad:
 
-```
+```zsh
 local -a matches
 matches=( $~pattern )
 ```
 
 Good:
 
-```
+```zsh
 builtin emulate -L zsh
 local -a matches
 matches=( $~pattern )
@@ -459,14 +459,14 @@ Suppression: Use `# zsh-lint disable=plugin/function-scoped-options -- <reason>`
 
 Corpus evidence: Issue \#63 reported missing scoping across z\-a\-meta\-plugins and zsh\-fancy\-completions function files. The analyzer currently flags `zsh-fancy-completions/functions/.completion-prediction` and `zsh-fancy-completions/functions/.force_rehash`. The originally cited `z-a-meta-plugins/functions/.za-meta-plugins-meta-cmd-help-handler` is a fully commented\-out stub and is correctly silent. Compliant `setopt local_options` and `builtin emulate -L zsh` examples exist in the same repositories.
 
-```
+```go
 type FunctionScopedOptions struct{}
 ```
 
 
 ###### func \(FunctionScopedOptions\) Analyze
 
-```
+```go
 func (rule FunctionScopedOptions) Analyze(ctx *analyzer.Context, node syntax.Node)
 ```
 
@@ -475,7 +475,7 @@ func (rule FunctionScopedOptions) Analyze(ctx *analyzer.Context, node syntax.Nod
 
 ###### func \(FunctionScopedOptions\) ID
 
-```
+```go
 func (FunctionScopedOptions) ID() diag.RuleID
 ```
 
@@ -484,7 +484,7 @@ func (FunctionScopedOptions) ID() diag.RuleID
 
 ###### func \(FunctionScopedOptions\) Name
 
-```
+```go
 func (FunctionScopedOptions) Name() string
 ```
 
@@ -505,13 +505,13 @@ Why: The Zsh manual's Conditional Expressions section documents that expansions 
 
 Bad:
 
-```
+```zsh
 if [ "$name" = *.zsh ]; then print match; fi
 ```
 
 Good:
 
-```
+```zsh
 if [[ $name = *.zsh ]]; then print match; fi
 ```
 
@@ -523,14 +523,14 @@ Suppression: Use `# zsh-lint disable=style/prefer-double-brackets -- <reason>` o
 
 Corpus evidence: The June 12, 2026 LangZsh clean\-baseline run produced zero findings from this rule across the 11 parseable corpus files. This grandfathered rule therefore has no positive corpus citation yet.
 
-```
+```go
 type PreferDoubleBrackets struct{}
 ```
 
 
 ###### func \(PreferDoubleBrackets\) Analyze
 
-```
+```go
 func (r PreferDoubleBrackets) Analyze(ctx *analyzer.Context, node syntax.Node)
 ```
 
@@ -539,7 +539,7 @@ func (r PreferDoubleBrackets) Analyze(ctx *analyzer.Context, node syntax.Node)
 
 ###### func \(PreferDoubleBrackets\) ID
 
-```
+```go
 func (r PreferDoubleBrackets) ID() diag.RuleID
 ```
 
@@ -548,7 +548,7 @@ func (r PreferDoubleBrackets) ID() diag.RuleID
 
 ###### func \(PreferDoubleBrackets\) Name
 
-```
+```go
 func (r PreferDoubleBrackets) Name() string
 ```
 
@@ -569,7 +569,7 @@ Why: The Zsh manual's zshparam "Parameters Set By The Shell" section documents t
 
 Bad:
 
-```
+```zsh
 compile_zsh() {
   local ZSH_VERSION="$1"
 }
@@ -577,7 +577,7 @@ compile_zsh() {
 
 Good:
 
-```
+```zsh
 compile_zsh() {
   local target_zsh_version="$1"
 }
@@ -591,14 +591,14 @@ Suppression: Use `# zsh-lint disable=compat/special-param-shadow -- <reason>` on
 
 Corpus evidence: Issue \#64 records `zd/docker/utils.zsh:78`: `local ZSH_VERSION="$1"` inside a helper that takes a target version as its first argument. Deferred issue \#72 tracks bare assignments in function scope and `integer`/`float` declarations; both are out of scope for this rule version.
 
-```
+```go
 type SpecialParamShadow struct{}
 ```
 
 
 ###### func \(SpecialParamShadow\) Analyze
 
-```
+```go
 func (rule SpecialParamShadow) Analyze(ctx *analyzer.Context, node syntax.Node)
 ```
 
@@ -607,7 +607,7 @@ func (rule SpecialParamShadow) Analyze(ctx *analyzer.Context, node syntax.Node)
 
 ###### func \(SpecialParamShadow\) ID
 
-```
+```go
 func (SpecialParamShadow) ID() diag.RuleID
 ```
 
@@ -616,7 +616,7 @@ func (SpecialParamShadow) ID() diag.RuleID
 
 ###### func \(SpecialParamShadow\) Name
 
-```
+```go
 func (SpecialParamShadow) Name() string
 ```
 
@@ -637,14 +637,14 @@ Why: The Zsh Plugin Standard specifies that plugins with persistent side effects
 
 Bad:
 
-```
+```zsh
 #### Plugin installs hook but provides no unload function
 add-zsh-hook precmd _my_precmd
 ```
 
 Good:
 
-```
+```zsh
 add-zsh-hook precmd _my_precmd
 
 my_plugin_unload() {
@@ -663,14 +663,14 @@ Suppression: Use `# zsh-lint disable=plugin/unload-function -- <reason>` on the 
 
 Corpus evidence: `zsh-fancy-completions/lib/state.zsh:72` implements `zsh-fancy-completions_plugin_unload` with full resource restoration and self\-unfunction.
 
-```
+```go
 type UnloadFunction struct{}
 ```
 
 
 ###### func \(UnloadFunction\) Analyze
 
-```
+```go
 func (rule UnloadFunction) Analyze(ctx *analyzer.Context, node syntax.Node)
 ```
 
@@ -679,7 +679,7 @@ func (rule UnloadFunction) Analyze(ctx *analyzer.Context, node syntax.Node)
 
 ###### func \(UnloadFunction\) ID
 
-```
+```go
 func (UnloadFunction) ID() diag.RuleID
 ```
 
@@ -688,7 +688,7 @@ func (UnloadFunction) ID() diag.RuleID
 
 ###### func \(UnloadFunction\) Name
 
-```
+```go
 func (UnloadFunction) Name() string
 ```
 
@@ -709,13 +709,13 @@ Why: The Zsh manual's Parameter Expansion section explains that unquoted paramet
 
 Bad:
 
-```
+```zsh
 print -r -- $value
 ```
 
 Good:
 
-```
+```zsh
 print -r -- "$value"
 ```
 
@@ -727,14 +727,14 @@ Suppression: Use `# zsh-lint disable=quoting/unquoted-var -- <reason>` on the fi
 
 Corpus evidence: Sourced scripts and plugin entrypoints frequently use quoted parameters for scalar configuration and path derivation.
 
-```
+```go
 type UnquotedVar struct{}
 ```
 
 
 ###### func \(UnquotedVar\) Analyze
 
-```
+```go
 func (r UnquotedVar) Analyze(ctx *analyzer.Context, node syntax.Node)
 ```
 
@@ -743,7 +743,7 @@ func (r UnquotedVar) Analyze(ctx *analyzer.Context, node syntax.Node)
 
 ###### func \(UnquotedVar\) ID
 
-```
+```go
 func (r UnquotedVar) ID() diag.RuleID
 ```
 
@@ -752,7 +752,7 @@ func (r UnquotedVar) ID() diag.RuleID
 
 ###### func \(UnquotedVar\) Name
 
-```
+```go
 func (r UnquotedVar) Name() string
 ```
 
@@ -773,13 +773,13 @@ Why: When a Zsh plugin is sourced, positional parameter `$0` evaluates to the na
 
 Bad:
 
-```
+```zsh
 fpath+=( "${0:h}/functions" )
 ```
 
 Good:
 
-```
+```zsh
 0="${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"
 0="${${(M)0:#/*}:-$PWD/$0}"
 fpath+=( "${0:h}/functions" )
@@ -793,14 +793,14 @@ Suppression: Use `# zsh-lint disable=plugin/zero-handling -- <reason>` on the fi
 
 Corpus evidence: `z-a-meta-plugins/z-a-meta-plugins.plugin.zsh:7` uses the compliant `0="${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"` idiom before referencing `${0:h}` on line 12.
 
-```
+```go
 type ZeroHandling struct{}
 ```
 
 
 ###### func \(ZeroHandling\) Analyze
 
-```
+```go
 func (rule ZeroHandling) Analyze(ctx *analyzer.Context, node syntax.Node)
 ```
 
@@ -809,7 +809,7 @@ func (rule ZeroHandling) Analyze(ctx *analyzer.Context, node syntax.Node)
 
 ###### func \(ZeroHandling\) ID
 
-```
+```go
 func (ZeroHandling) ID() diag.RuleID
 ```
 
@@ -818,7 +818,7 @@ func (ZeroHandling) ID() diag.RuleID
 
 ###### func \(ZeroHandling\) Name
 
-```
+```go
 func (ZeroHandling) Name() string
 ```
 

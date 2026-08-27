@@ -19,7 +19,7 @@ import Link from "@docusaurus/Link";
 - Verify the sha256 [checksum][checksum-txt] for file: <kbd>lib/sh/install.sh</kbd>
 - If required append <kbd>-b \<tag></kbd> or <kbd>-b \<branch></kbd> e.g:
 
-```shell
+```sh
 sh -c "$(curl -fsSL get.zshell.dev)" -- -i skip -b main
 ```
 
@@ -30,7 +30,7 @@ sh -c "$(curl -fsSL get.zshell.dev)" -- -i skip -b main
 
 Install and include minimal configuration to the <kbd>.zshrc</kbd>:
 
-```shell
+```sh
 sh -c "$(curl -fsSL get.zshell.dev)" --
 ```
 
@@ -39,7 +39,7 @@ sh -c "$(curl -fsSL get.zshell.dev)" --
 
 Install and include minimal configuration with [loader](#loader):
 
-```shell
+```sh
 sh -c "$(curl -fsSL get.zshell.dev)" -- -a loader
 ```
 
@@ -58,7 +58,7 @@ Then reload the shell with: `exec zsh`. All done!
 
 Clone repository using default or if set <Link to="/docs/guides/customization#customizing-paths">custom</Link> values:
 
-```shell
+```sh
 sh -c "$(curl -fsSL get.zshell.dev)" -- -i skip
 ```
 
@@ -67,7 +67,7 @@ sh -c "$(curl -fsSL get.zshell.dev)" -- -i skip
 
 Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link>:
 
-```shell
+```sh
 sh -c "$(curl -fsSL get.zshell.dev)" -- -a annex
 ```
 
@@ -76,7 +76,7 @@ sh -c "$(curl -fsSL get.zshell.dev)" -- -a annex
 
 Install and include minimal configuration with recommended <Link to="/ecosystem/annexes/overview">annexes</Link> and setup <Link to="https://github.com/z-shell/zunit">z-shell/zunit</Link>:
 
-```shell
+```sh
 sh -c "$(curl -fsSL get.zshell.dev)" -- -a zunit
 ```
 
@@ -157,7 +157,7 @@ Let's glue a toolchain that works for us <Emoji symbol="🚀" label="rocket"/>.
 
 ### <i class="fa-solid fa-list-check"></i>&nbsp;Suggest or request at&nbsp;[playground](https://github.com/z-shell/playground) {/* #suggest-or-request-at-playground */}
 
-```shell
+```sh
 sh -c "$(curl -fsSL get.zshell.dev)" -- -a ???
 ```
 
@@ -165,7 +165,7 @@ sh -c "$(curl -fsSL get.zshell.dev)" -- -a ???
 
 ### <i class="fa-brands fa-docker"></i>&nbsp;[Docker Alpine](https://github.com/z-shell/zd/pkgs/container/zd) {/* #docker-alpine */}
 
-```shell
+```sh
 docker run --rm -it ghcr.io/z-shell/zd:latest
 ```
 

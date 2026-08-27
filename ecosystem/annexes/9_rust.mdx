@@ -32,7 +32,7 @@ The Zi annex provides ice-modifiers `rustup` and `cargo'…'`.
 
 The first one installs rust inside the plugin's folder using the official `rustup` installer and the second one has the following syntax:
 
-```shell
+```zi
 cargo'[{name-of-the-binary-or-path} <-] [[!][c|n|e|o]:]{crate-name} [-> {shim-script-name}]'`
 ```
 
@@ -70,42 +70,42 @@ As it can be seen shim ultimately provides the binary to the command line.
 
 Set up rust and the `lsd` crate with a shim `lsd` exposing the binary:
 
-```zsh showLineNumbers
+```zi showLineNumbers
 zi ice rustup cargo'!lsd'
 zi load z-shell/0
 ```
 
 Set up rust and the `exa` crate with a shim `ls` exposing the `exa` binary:
 
-```zsh showLineNumbers
+```zi showLineNumbers
 zi ice rustup cargo'!exa -> ls'
 zi load z-shell/0
 ```
 
 Set up rust and the `exa` and `lsd` crates:
 
-```zsh showLineNumbers
+```zi showLineNumbers
 zi ice rustup cargo'exa;lsd'
 zi load z-shell/0
 ```
 
 Set up rust, then the `exa` and `lsd` crates, with their binaries exposed by altering `$PATH`:
 
-```zsh showLineNumbers
+```zi showLineNumbers
 zi ice rustup cargo'exa;lsd' as"command" pick"bin/(exa|lsd)"
 zi load z-shell/0
 ```
 
 Set up rust and then the `exa` crate with shim standard error redirected to `/dev/null`:
 
-```zsh showLineNumbers
+```zi showLineNumbers
 zi ice rustup cargo'!E:exa'
 zi load z-shell/0
 ```
 
 Just install rust and make it available globally in the system:
 
-```zsh showLineNumbers
+```zi showLineNumbers
 zi ice id-as"rust" wait"0" lucid rustup as"command" pick"bin/rustc" atload="export \
   CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup"
 zi load z-shell/0
@@ -113,7 +113,7 @@ zi load z-shell/0
 
 A little more complex rustup configuration that uses [bin-gem-node][annex-bin-gem-node] annex and installs the cargo completion provided with rustup, using the [for][for-syntax] syntax:
 
-```zsh showLineNumbers
+```zi showLineNumbers
 zi id-as=rust wait=1 as=null sbin="bin/*" lucid rustup \
   atload="[[ ! -f ${ZI[COMPLETIONS_DIR]}/_cargo ]] && zi creinstall rust; \
   export CARGO_HOME=\$PWD RUSTUP_HOME=\$PWD/rustup" for \
@@ -137,7 +137,7 @@ z-shell/0
 
 Add the following snippet in the `.zshrc` file:
 
-```zsh
+```zi
 zi light z-shell/z-a-rust
 ```
 

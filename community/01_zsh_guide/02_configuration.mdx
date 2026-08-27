@@ -1,0 +1,68 @@
+---
+id: zsh_configuration
+title: "⚙️ Configuration and Options"
+sidebar_position: 2
+slug: /zsh-guide/configuration
+image: /img/png/theme/z/320x320.png
+description: Configure Zsh options, history behavior, and interactive shell preferences.
+keywords:
+  - zsh
+  - configuration
+  - options
+  - history
+---
+
+## Set and unset options {/* #set-and-unset-options */}
+
+Zsh option names are case-insensitive, and underscores are ignored. For example, `allexport` and
+`ALL_EXPORT` refer to the same option. Prefix a name with `no` to invert it, so `setopt no_beep` is
+equivalent to `unsetopt beep`.
+
+See the [Zsh Options manual][zsh-options] for the complete option reference.
+
+## History configuration {/* #history-configuration */}
+
+The following is a practical starting point for interactive history:
+
+```zsh title="~/.zshrc" showLineNumbers
+setopt append_history         # Append history instead of replacing the history file.
+setopt extended_history       # Save timestamps and command durations.
+setopt hist_expire_dups_first # Expire duplicates first when trimming history.
+setopt hist_find_no_dups      # Do not display an entry already found in a search.
+setopt hist_ignore_all_dups   # Remove older duplicates when adding an entry.
+setopt hist_ignore_dups       # Do not record an entry identical to the previous one.
+setopt hist_ignore_space      # Do not record commands that start with a space.
+setopt hist_reduce_blanks     # Remove extra blanks from stored commands.
+setopt hist_save_no_dups      # Do not write duplicate entries to the history file.
+setopt hist_verify            # Load history expansions into the editor before running them.
+
+# Choose one immediate-write mode:
+setopt inc_append_history     # Write each command immediately for independent sessions.
+# setopt share_history        # Import and append commands across active sessions.
+```
+
+:::warning[Choose one history-sharing mode]
+
+Do not enable `INC_APPEND_HISTORY` and `SHARE_HISTORY` together. `SHARE_HISTORY` already appends
+commands incrementally and adds extended timestamps while importing commands from other sessions.
+
+:::
+
+## Other interactive options {/* #other-interactive-options */}
+
+Review each option before enabling it, because options change shell-wide behavior.
+
+```zsh title="~/.zshrc" showLineNumbers
+setopt auto_cd              # Change directory by entering a directory name.
+setopt auto_list            # List choices after an ambiguous completion.
+setopt auto_pushd           # Push the previous directory onto the directory stack.
+setopt bang_hist            # Enable csh-style history expansion with !.
+setopt interactive_comments # Allow comments in interactive shells.
+setopt multios              # Use implicit tees or cats for multiple redirections.
+setopt no_beep              # Do not beep on errors.
+setopt prompt_subst         # Expand parameters and substitutions when drawing the prompt.
+setopt pushd_ignore_dups    # Avoid duplicate entries in the directory stack.
+setopt pushd_minus          # Exchange the meanings of + and - in stack indices.
+```
+
+[zsh-options]: https://zsh.sourceforge.io/Doc/Release/Options.html

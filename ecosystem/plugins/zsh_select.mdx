@@ -46,7 +46,7 @@ Simply copy file `zsh-select` to any `bin` directory such as `/usr/local/bin`.
 
 Add the following to `.zshrc`. The plugin will be loaded next time you start `Zsh`. To update issue `zi update z-shell/zsh-select` from command line.
 
-```zsh title="~/.zshrc"
+```zi title="~/.zshrc"
 zi load z-shell/zsh-select
 ```
 
@@ -55,7 +55,7 @@ zi load z-shell/zsh-select
 
 Add the following to `.zshrc` and issue a `zgen reset` (this assumes that there is a proper `zgen save` construct in `.zshrc`).
 
-```shell title="~/.zshrc"
+```zsh title="~/.zshrc"
 zgen load z-shell/zsh-select
 ```
 
@@ -95,7 +95,7 @@ There are a few environment variables that can be set to alter `zsh-select` beha
 
 The values assigned below are the defaults:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 export ZSHSELECT_BOLD="1"                   # The interface will be drawn in bold font. Use "0" for no bold
 export ZSHSELECT_COLOR_PAIR="white/black"   # Draw in white foreground, black background. Try e.g.: "white/green"
 export ZSHSELECT_BORDER="0"                 # No border around interface, Use "1" for the border

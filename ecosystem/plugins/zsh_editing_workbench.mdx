@@ -38,7 +38,7 @@ Organized shortcuts for various command line editing operations, plus new operat
 
 Add the following to `.zshrc`. The config files will be available in `~/.config/zew`.
 
-```zsh title="~/.zshrc"
+```zi title="~/.zshrc"
 zi load z-shell/zsh-editing-workbench
 ```
 
@@ -52,7 +52,7 @@ Add `zgen load z-shell/zsh-editing-workbench` to `.zshrc` and issue a `zgen rese
 
 After extracting `ZEW` to `{some-directory}` add the following two lines to `~/.zshrc`:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 fpath+=( {some-directory} )
 source "{some-directory}/zsh-editing-workbench.plugin.zsh"
 ```
@@ -67,7 +67,7 @@ source "{some-directory}/zsh-editing-workbench.plugin.zsh"
 
 To make <kbd>Alt</kbd> key work like expected under `XTerm` add `XTerm*metaSendsEscape: true` to your resource file, e.g.:
 
-```shell
+```sh
 echo 'XTerm*metaSendsEscape: true' >> ~/.Xresources
 ```
 
@@ -75,7 +75,7 @@ echo 'XTerm*metaSendsEscape: true' >> ~/.Xresources
 
 To make <kbd>Alt</kbd> key work like expected under `Konsole` add `Konsole*keysym.Meta: Meta` to your resource file, e.g.:
 
-```shell
+```sh
 echo 'Konsole*keysym.Meta: Meta' >> ~/.config/konsolerc
 ```
 

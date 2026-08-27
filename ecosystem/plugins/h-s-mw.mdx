@@ -44,7 +44,7 @@ The plugin allows to search history for multiple keywords, <kbd><kbd>Ctrl</kbd>+
 
 Add the following to your `.zshrc` file:
 
-```zsh title="~/.zshrc"
+```zi title="~/.zshrc"
 zi light z-shell/H-S-MW
 ```
 
@@ -55,7 +55,7 @@ Reload the shell with `exec zsh` or open a new terminal.
 
 Add the following to your `.zshrc` file in the same place you're doing your other `zgen load` calls.
 
-```shell title="~/.zshrc"
+```zsh title="~/.zshrc"
 zgen load z-shell/H-S-MW
 ```
 
@@ -64,14 +64,14 @@ zgen load z-shell/H-S-MW
 
 Clone the repository:
 
-```shell showLineNumbers
+```sh showLineNumbers
 git clone https://github.com/z-shell/H-S-MW.git \
   ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/H-S-MW
 ```
 
 And add `H-S-MW` to your plugin list:
 
-```shell title="~/.zshrc"
+```zsh title="~/.zshrc"
 plugins=(... H-S-MW)
 ```
 
@@ -80,14 +80,14 @@ plugins=(... H-S-MW)
 
 Clone the repository:
 
-```shell showLineNumbers
+```sh showLineNumbers
 git clone https://github.com/z-shell/H-S-MW.git \
   ~/some/path/to/hsmw
 ```
 
 And add the following to your `.zshrc` file:
 
-```shell title="~/.zshrc"
+```zsh title="~/.zshrc"
 source ~/some/path/to/fsh/H-S-MW.plugin.zsh
 ```
 
@@ -200,14 +200,14 @@ If you assign this array in `~/.zshrc` before or after loading `H-S-MW` you will
 
 Sets `path` key – paths that exist will be highlighted with background magenta, foreground white, bold:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -gA HSMW_HIGHLIGHT_STYLES
 HSMW_HIGHLIGHT_STYLES[path]="bg=magenta,fg=white,bold"
 ```
 
 Enable coloring of options of the form "-o" and "--the option", with cyan:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -gA HSMW_HIGHLIGHT_STYLES
 HSMW_HIGHLIGHT_STYLES[single-hyphen-option]="fg=cyan"
 HSMW_HIGHLIGHT_STYLES[double-hyphen-option]="fg=cyan"
@@ -215,7 +215,7 @@ HSMW_HIGHLIGHT_STYLES[double-hyphen-option]="fg=cyan"
 
 Use 256 colors to highlight command separators (like ";" or "&&"):
 
-```shell
+```zsh
 HSMW_HIGHLIGHT_STYLES[commandseparator]="fg=241,bg=17"
 ```
 
@@ -226,7 +226,7 @@ HSMW_HIGHLIGHT_STYLES[commandseparator]="fg=241,bg=17"
 
 Hash holding paths that shouldn't be grepped (globbed) – blacklist for slow disks, mounts, etc.:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -gA FAST_BLIST_PATTERNS
 FAST_BLIST_PATTERNS[/mount/nfs1/*]=1
 FAST_BLIST_PATTERNS[/mount/disk2/*]=1

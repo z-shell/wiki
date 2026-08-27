@@ -85,7 +85,7 @@ Feature highlights include incremental multi-word searching, approximate matchin
 
 Add the following to `.zshrc`. The config files will be in `~/.config/znt`.
 
-```zsh title="~/.zshrc"
+```zi title="~/.zshrc"
 zi load z-shell/zsh-navigation-tools
 ```
 
@@ -94,7 +94,7 @@ zi load z-shell/zsh-navigation-tools
 
 Add the following to `.zshrc` and issue a `zgen reset` (this assumes that there is a proper `zgen save` construct in `.zshrc`).
 
-```shell title="~/.zshrc"
+```zsh title="~/.zshrc"
 zgen load z-shell/zsh-navigation-tools
 ```
 
@@ -105,14 +105,14 @@ The config files will be available in `~/.config/znt`.
 
 After extracting `ZNT` to `{some-directory}` add the following two lines to `~/.zshrc`:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 fpath+=( {some-directory} )
 source "{some-directory}/zsh-navigation-tools.plugin.zsh"
 ```
 
 As you can see, no plugin manager is needed to use the `*.plugin.zsh` file. The above two lines of code are all that almost **all** plugin managers do. What's actually needed is only:
 
-```shell
+```zsh
 source "{some-directory}/zsh-navigation-tools.plugin.zsh"
 ```
 
@@ -134,7 +134,7 @@ Copy (or link) all `n-*` and `znt-*` files to **/usr/share/zsh/site-functions/**
 
 Create aliases to avoid typing the minus sign `-`:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 alias naliases=n-aliases ncd=n-cd nenv=n-env nfunctions=n-functions nhistory=n-history
 alias nkill=n-kill noptions=n-options npanelize=n-panelize nhelp=n-help
 ```
@@ -152,7 +152,7 @@ in `.zshrc` (also recommend `PUSHD_IGNORE_DUPS`). Without the option, `n-cd` wil
   </TabItem>
   <TabItem value="standalone" label="Standalone">
 
-```shell
+```sh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/z-shell/zsh-navigation-tools/main/doc/install.sh)"
 ```
 
@@ -202,7 +202,7 @@ n - panelize.conf;
 
 `n-list.conf` contains main configuration variables:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 # Should the list (text, borders) be drawn in bold
 local bold=0
 
@@ -225,7 +225,7 @@ Read remaining configuration files to see what's in them. Nevertheless, a config
 
 There are `5` standard `.zshrc` configuration variables:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 znt_history_active_text - underline or reverse - how should be active element highlighted
 znt_history_nlist_coloring_pattern - pattern that can be used to colorize elements
 znt_history_nlist_coloring_color - color with which to colorize
@@ -237,7 +237,7 @@ The above variables will work for the `n-history` tool. For other tools, change 
 
 The common configuration of the tools uses variables with `_list_` in them:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 znt_list_bold - should draw text in bold (0 or 1)
 znt_list_colorpair - main pair of colors to be used, e.g "green/black"
 znt_list_border - should draw borders around windows (0 or 1)
@@ -253,7 +253,7 @@ If you used installer then run it again (after the removal of configuration file
 
 The function `n-list` is used as follows:
 
-```shell
+```zsh
 n-list {element1} [element2] ... [elementN]
 ```
 
@@ -261,7 +261,7 @@ This is all that is needed to be done to have the features like ANSI coloring, i
 
 To set up non-selectable entries add their indices into the array `NLIST_NONSELECTABLE_ELEMENTS`:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -a NLIST_NONSELECTABLE_ELEMENTS
 NLIST_NONSELECTABLE_ELEMENTS=( 1 )
 ```
@@ -270,14 +270,14 @@ The result is stored as `$reply[REPLY]` (`$` isn't needed before `REPLY` because
 
 `$REPLY` is the index in that possibly processed array. If `$REPLY` equals `-1` it means that no selection has been made (user quitted via `q` key). To set up entries that can be jumped to with `[`,`]` keys add their indices to the `NLIST_HOP_INDEXES` array:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 typeset -a NLIST_HOP_INDEXES
 NLIST_HOP_INDEXES=( 1 10 )
 ```
 
 `n-list` can automatically colorize entries according to a `Zsh` pattern. The following example will colorize all numbers with blue:
 
-```shell showLineNumbers
+```zsh showLineNumbers
 local NLIST_COLORING_PATTERN="[0-9]##"
 local NLIST_COLORING_COLOR=$'\x1b[00;34m'
 local NLIST_COLORING_END_COLOR=$'\x1b[0m'
@@ -315,13 +315,13 @@ Be aware of [this][l35-l49]
 
 If `TERM=screen-256color` (often a case for `tmux` and `screen` sessions) then `ncv` terminfo capability will have `2`nd bit set. This in general means that the underline won't work. To fix this by creating your own `ncv=0`-equipped terminfo file, run:
 
-```shell
+```sh
 { infocmp -x screen-256color; printf '\t%s\n' 'ncv@,'; } > /tmp/t && tic -x /tmp/t
 ```
 
 A file will be created in the directory `~/.terminfo` and will be automatically used, `tmux` and `screen` will work. Similar is for Linux virtual terminal:
 
-```shell
+```sh
 { infocmp -x linux; printf '\t%s\n' 'ncv@,'; } > /tmp/t && tic -x /tmp/t
 ```
 

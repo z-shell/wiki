@@ -12,6 +12,7 @@ This project follows the organization-wide [Z-Shell Organization Guidelines](htt
 - `pnpm serve` — serve the production build locally for verification.
 - `pnpm clear` — clear Docusaurus cache; use when the site behaves inconsistently after config or theme changes.
 - `pnpm lint` — Unified linting with Trunk (configs in `.trunk/configs/`). Fix with `pnpm lint:fix`.
+- `pnpm validate:code-fences`: require an explicit, supported language on every rendered code block.
 - `pnpm write-heading-ids` — regenerate heading IDs across all docs.
 - Trunk CI runs pre-commit formatting and pre-push linting (config: `.trunk/trunk.yaml`).
 

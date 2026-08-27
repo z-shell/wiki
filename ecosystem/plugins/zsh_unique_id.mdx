@@ -61,7 +61,7 @@ zstyle :plugin:zuid codenames paper metal wood plastic # first 4 shells will hav
 
 Unpack `zsh-unique-id` to the chosen location and add to `.zshrc`:
 
-```shell title="~/.zshrc"
+```zsh title="~/.zshrc"
 source {where-zsh-unique-id-is}/zsh-unique-id.plugin.zsh
 ```
 
@@ -72,7 +72,7 @@ Sourcing is recommended, because it can be done early, at top of zshrc, without 
 
 Add the following to your `.zshrc` file. Zi will clone the plugin the next time you start zsh. To update issue `zi update z-shell/zsh-unique-id`.
 
-```zsh title="~/.zshrc"
+```zi title="~/.zshrc"
 zi load z-shell/zsh-unique-id
 ```
 
@@ -86,7 +86,7 @@ Add `zgen load z-shell/zsh-unique-id` to your `.zshrc` file in the same place yo
 
 Clone the Repository:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 git clone https://github.com/z-shell/zsh-unique-id.git \
   ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-unique-id
 ```
