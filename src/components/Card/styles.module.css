@@ -1,0 +1,38 @@
+/** @format */
+
+.card {
+  composes: card from "../shared/CardGrid.module.css";
+  align-items: flex-start;
+  padding: var(--space-lg);
+  text-align: left;
+}
+
+.icon {
+  composes: cardicon from "../shared/CardGrid.module.css";
+  display: block;
+  margin-bottom: var(--space-sm);
+  object-fit: contain;
+  border-radius: var(--radius-md);
+}
+
+.title {
+  composes: cardtitle from "../shared/CardGrid.module.css";
+  font-size: 1.1rem;
+}
+
+.description {
+  composes: carddesc from "../shared/CardGrid.module.css";
+  flex-grow: 1;
+  margin-bottom: var(--space-md);
+  font-size: 0.875rem;
+}
+
+.cta {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+:global([data-theme="dark"]) .cta {
+  color: hsl(168deg 58% 62%);
+}

@@ -261,9 +261,12 @@ if (!TARGET_FILE) {
           // Match a documented Node version floor, e.g. "Node.js ≥ 20" or
           // "Node >= 20". Any markdown link between the word and the operator is
           // skipped, since the URL itself carries no version.
-          const match = line.match(/Node(?:\.js)?\b[^\n]{0,40}?(?:≥|>=|&gt;=)\s*v?(\d+)/i);
-          if (match && Number(match[1]) < required) {
-            error(`${file}:${index + 1}:1`, `documented Node ${match[1]} is below engines.node (${required})`);
+          const match = line.match(/Node(?:\.js)?\b[^\n]{0,40}?(?:≥|>=|&gt;=)\s*v?(?<version>\d+)/i);
+          if (match?.groups && Number(match.groups.version) < required) {
+            error(
+              `${file}:${index + 1}:1`,
+              `documented Node ${match.groups.version} is below engines.node (${required})`,
+            );
           }
         });
       }
