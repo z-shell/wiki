@@ -35,9 +35,32 @@ test("accepts the repository standard and review workflow", () => {
   assert.deepEqual(validateRepository({standard, workflow}), []);
 });
 
-test("requires the portable core to precede optional profiles", () => {
+test("requires optional interfaces, portable core, and profiles in order", () => {
   const invalid = standard.replace("## Portable core", "## Removed portable core");
-  assert.match(validateStandard(invalid).join("\n"), /Portable core|portable core/);
+  assert.match(validateStandard(invalid).join("\n"), /portable core/);
+});
+
+test("rejects manager-only interfaces inside the portable core", () => {
+  const invalid = standard.replace(
+    "The portable core begins here.",
+    "The portable core begins here and requires PMSPEC.",
+  );
+  assert.match(validateStandard(invalid).join("\n"), /optional manager interface: PMSPEC/);
+});
+
+test("requires the version 2 clean portable contract", () => {
+  const invalid = standard.replace("standard_version: 2", "standard_version: 1");
+  assert.match(validateStandard(invalid).join("\n"), /standard_version: 2/);
+});
+
+test("rejects portable shared Plugins registry creation", () => {
+  const invalid = `${standard}\n\`\`\`zsh\ntypeset -gA Plugins\n\`\`\`\n`;
+  assert.match(validateStandard(invalid).join("\n"), /shared Plugins registry/);
+});
+
+test("rejects legacy alternatives as current conformance", () => {
+  const invalid = `${standard}\nBoth remain valid for conforming plugins.\n`;
+  assert.match(validateStandard(invalid).join("\n"), /legacy alternatives/);
 });
 
 test("requires scoped entrypoint cleanup to preserve loader status", () => {
