@@ -35,9 +35,17 @@ test("accepts the repository standard and review workflow", () => {
   assert.deepEqual(validateRepository({standard, workflow}), []);
 });
 
-test("requires the portable core to precede optional profiles", () => {
+test("requires optional interfaces, portable core, and profiles in order", () => {
   const invalid = standard.replace("## Portable core", "## Removed portable core");
-  assert.match(validateStandard(invalid).join("\n"), /Portable core|portable core/);
+  assert.match(validateStandard(invalid).join("\n"), /portable core/);
+});
+
+test("rejects manager-only interfaces inside the portable core", () => {
+  const invalid = standard.replace(
+    "The portable core begins here.",
+    "The portable core begins here and requires PMSPEC.",
+  );
+  assert.match(validateStandard(invalid).join("\n"), /optional manager interface: PMSPEC/);
 });
 
 test("requires the version 2 clean portable contract", () => {

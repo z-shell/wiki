@@ -45,6 +45,7 @@ const REQUIRED_ANCHORS = [
 const REQUIRED_STANDARD_TEXT = [
   "This is ecosystem guidance, not an official Zsh language specification.",
   "standard_version: 2",
+  "## Optional loader interfaces",
   "## Portable core",
   "## Configuration contract",
   "## Optional manager interoperability profiles",
@@ -163,10 +164,25 @@ export function validateStandard(content) {
     ),
   );
 
+  const interfacesIndex = content.indexOf("## Optional loader interfaces");
   const coreIndex = content.indexOf("## Portable core");
   const profilesIndex = content.indexOf("## Optional manager interoperability profiles");
-  if (coreIndex < 0 || profilesIndex < 0 || coreIndex >= profilesIndex) {
-    errors.push("portable core must appear before optional manager profiles");
+  if (
+    interfacesIndex < 0 ||
+    coreIndex < 0 ||
+    profilesIndex < 0 ||
+    interfacesIndex >= coreIndex ||
+    coreIndex >= profilesIndex
+  ) {
+    errors.push("optional loader interfaces, portable core, and manager profiles must appear in that order");
+  } else {
+    const portableCore = content.slice(coreIndex, profilesIndex);
+    const managerOnlyTokens = ["PMSPEC", "zsh_loaded_plugins", "ZPFX", "@zsh-plugin-"];
+    for (const token of managerOnlyTokens) {
+      if (portableCore.includes(token)) {
+        errors.push(`portable core must not depend on optional manager interface: ${token}`);
+      }
+    }
   }
   errors.push(...validateZleExample(content, "Register an interactive ZLE hook", true));
   errors.push(...validateZleExample(content, "Check an optional feature", false));

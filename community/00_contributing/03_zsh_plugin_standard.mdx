@@ -53,8 +53,10 @@ have these meanings:
   meanings. A documented reason is required when a plugin does not follow a
   **SHOULD** rule.
 - **Portable core** describes manager-independent requirements for a plugin.
-  It includes the numbered interoperability requirements and the architecture,
-  loading, namespace, configuration, lifecycle, and testing contracts below.
+  It is the architecture, loading, namespace, configuration, lifecycle, and
+  testing contract below.
+- **Loader interface** describes an optional facility that a plugin manager may
+  expose. It is not part of portable conformance.
 - **Optional profile** describes conventions implemented by named managers.
   A plugin can use a profile, but must not silently require it.
 
@@ -65,8 +67,8 @@ Version 2 is a clean contract, not a compatibility mode. Older conventions can
 be documented as history, but they are not alternative ways to claim current
 portable conformance.
 
-Each numbered requirement carries a **STATUS** block recording which managers
-implement it, with pinned source citations.
+Each optional loader interface carries a **STATUS** block recording which
+managers implement it, with pinned source citations.
 
 ## What is a Zsh plugin? {/* #what-is-a-zsh-plugin */}
 
@@ -74,40 +76,25 @@ Zsh plugins were first defined in practice by Oh My Zsh. They provide a way to
 package together files that extend or configure the shell's functionality in a
 particular way.
 
-At a simple level, a plugin:
+At a simple level, a plugin is a directory with one documented sourceable Zsh
+entrypoint. It may also contain private sourced libraries, autoload functions,
+completions, user-invoked programs, and documentation. Each directory has the
+execution semantics defined by the portable layout below.
 
-1. Has a directory added to `$fpath`
-   ([Zsh documentation: Autoloading Functions][autoloading-functions]). This is
-   done either by a plugin manager or by the plugin itself; see
-   [requirement 2](#functions-directory) and
-   [requirement 7](#activity-indicator).
+A plugin can be sourced directly without a manager. A framework or manager may
+discover the entrypoint and arrange `fpath`, but the portable plugin must not
+require manager state merely to load or unload.
 
-2. Has its first `*.plugin.zsh` file sourced. The names `*.zsh`, `init.zsh`,
-   and `*.sh` are also seen in the wild, but they are non-standard.
+## Optional loader interfaces {/* #optional-loader-interfaces */}
 
-   2.1. Point 1 allows plugins to provide completions and autoload functions
-   loaded through Zsh's `autoload` mechanism, one function per file.
+The following numbered interfaces document facilities implemented by existing
+plugin managers. They are not portable requirements and a plugin does not need
+to implement or inspect any of them. A plugin that deliberately opts into one
+must feature-test that exact facility, retain its direct-source behavior, and
+test the named manager profile independently.
 
-3. From a broader perspective, a plugin consists of:
-
-   3.1. a directory containing various files: the main script, private sourced
-   libraries, autoload functions, completions, Makefiles, backend programs, and
-   documentation;
-
-   3.2. a sourceable script that obtains the path to its own directory through
-   `$0`, as described in [requirement 1](#zero-handling);
-
-   3.3. a repository on GitHub or another host, identified by two components,
-   **username**/**plugin-name**;
-
-   3.4. a software package containing command line artifacts of any kind, when
-   used with advanced plugin managers that have hooks, can run Makefiles, and
-   can add directories to `$PATH`.
-
-The requirements below codify that definition and the corresponding actions of
-plugin managers.
-
-## Portable core {/* #portable-core */}
+These interfaces are retained as manager interoperability reference, not as a
+legacy conformance mode.
 
 ### 1. Standardized `$0` handling {/* #zero-handling */}
 
@@ -669,6 +656,12 @@ fi
 - **Adoption:** across all 57 plugin and library entrypoints in the z-shell
   organization, `f` is tested 31 times, `b` four times, `P` once, and `X` never.
 
+## Portable core {/* #portable-core */}
+
+The portable core begins here. Conformance does not depend on any interface in
+the preceding optional loader reference. The rules in this section through
+[Tests](#tests) define the manager-independent contract.
+
 ## Entrypoints and repository layout {/* #entrypoints-and-repository-layout */}
 
 Provide one authoritative, sourceable Zsh entrypoint. A file named after the
@@ -685,6 +678,24 @@ Entrypoint discovery is not universal. For example, zcomet has its own ordered
 3. Keep alternate entrypoints, if supplied, as thin wrappers around one
    implementation.
 4. Make repeated loading harmless, or reject it with a clear diagnostic.
+
+Resolve the entrypoint directory from the sourced file, not from the caller's
+working directory. The standard expression accepts an optional manager-supplied
+`ZERO`, preserves ordinary source behavior through `$0`, falls back to `%N`,
+and makes the result absolute without resolving symlinks:
+
+```zsh title="Resolve the authoritative entrypoint"
+local source_path plugin_dir
+source_path="${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"
+plugin_dir=${source_path:a:h}
+```
+
+Use a local parameter inside a scoped loader. Do not overwrite global `0`.
+This form therefore remains valid when `posix_argzero` makes `0` read-only.
+`%N` is not guaranteed to be absolute, which is why the `:a` modifier is
+required. See [the loader interoperability reference](#zero-handling) for
+manager evaluation details and the official
+[Zsh filename modifiers][zsh-modifiers] for `:a`, `:A`, and `:P`.
 
 A maintainable layout is:
 
@@ -719,8 +730,9 @@ different directory name must have equally explicit documented semantics; it
 must not blur eager sourcing and autoloading.
 
 Document which directories a direct-source installation should add to `fpath`
-or `PATH`, and see requirements [2](#functions-directory) and
-[3](#binaries-directory) for the guarded snippets that do it.
+or `PATH`. A plugin may add its own `functions/` or `completions/` directory to
+`fpath` after checking that the exact path is absent. Do not mutate `PATH`
+during ordinary loading; document `bin/` for the user or manager instead.
 
 ## Loading contract and security {/* #loading-contract-and-security */}
 
@@ -729,8 +741,7 @@ plugin must not:
 
 - access the network, or download or install packages;
 - evaluate untrusted text, or text fetched at load time;
-- mutate `PATH` outside the guarded form in
-  [requirement 3](#binaries-directory);
+- mutate `PATH`;
 - write into its own checkout, which may be read-only or manager-controlled;
 - change global options as an incidental effect;
 - change the working directory without restoring it, or disturb the directory
@@ -747,10 +758,8 @@ work at load time.
 explicit user action, such as a command the user runs, not a side effect of
 starting a shell.
 
-**Do not automatically prepend** or append to `PATH`. The only sanctioned
-`path` extension is the capability-guarded `bin/` form in
-[requirement 3](#binaries-directory), and even that yields to any manager
-advertising the capability. Leave `$ZPFX/bin` to the user or the manager.
+**Do not automatically prepend** or append to `PATH`. Document the plugin's
+`bin/` directory for explicit user or manager configuration.
 
 Treat all user-supplied and externally-derived text as untrusted data, never as
 code.
@@ -772,8 +781,8 @@ A **plugin manager** may load a plugin by evaluating its text, for example with
 interface and it belongs to the manager alone: never pass untrusted or
 externally-derived text through it. A manager that evaluates a plugin must
 supply `ZERO`, because evaluated text has no `%N` path of its own to fall back
-on. That obligation is the reason [requirement 1](#zero-handling) reads `ZERO`
-before `%N`.
+on. This optional hand-off is documented in the
+[loader interoperability reference](#zero-handling).
 
 There is no contradiction between the two: a plugin must never evaluate its own
 or another plugin's text, while a manager evaluating a plugin it loaded is a
@@ -902,9 +911,9 @@ same documented configuration model rather than introduce a parallel one.
 ## Completions and `compinit` ownership {/* #completions-and-compinit-ownership */}
 
 Store each native completion in a file named `_command`. Make the directory
-available on `fpath` before completion initialization, either through explicit
-user configuration or manager configuration; see
-[requirement 2](#functions-directory).
+available on `fpath` before completion initialization, either through the
+plugin's exact-path membership check, explicit user configuration, or manager
+configuration.
 
 The plugin should not run `compinit` during ordinary loading. The shell
 configuration, framework, or manager owns completion initialization and should
@@ -935,8 +944,9 @@ Treat every persistent side effect as an owned resource:
 - modules loaded by the plugin and special parameters created by those modules;
 - entries intentionally added to `path`, `fpath`, or other global arrays.
 
-Provide a namespaced cleanup function as described in
-[requirement 4](#unload-function). It must stop only known worker process IDs,
+Provide a namespaced cleanup function whose name is derived from the documented
+project identifier, for example `example_plugin_unload`. It must stop only
+known worker process IDs,
 wait for them when appropriate, close only stored file descriptors, remove only
 named hooks and functions, and tolerate partial initialization.
 
@@ -1003,8 +1013,8 @@ example_prepare_storage() {
 Use cache for reproducible data, state for persistent operational state, and
 data for durable user data. Create directories lazily with restrictive,
 user-appropriate permissions. Do not write into the plugin checkout during
-loading. `$ZPFX`, described in [requirement 8](#global-parameter-with-prefix),
-is a manager installation prefix and is not a substitute for these.
+loading. A manager installation prefix is not a substitute for these user
+directories.
 
 ## Versions and feature compatibility {/* #versions-and-feature-compatibility */}
 
@@ -1045,9 +1055,9 @@ zsh -f -c 'setopt ksharrays shwordsplit globsubst; source ./example.plugin.zsh'
 zsh -f -c 'setopt nofunctionargzero posixargzero; source ./example.plugin.zsh'
 ```
 
-The last line matters for [requirement 1](#zero-handling): under
-`posix_argzero` the parameter `0` is read-only, so a plugin that assigns to it
-fails there.
+The last line verifies the scoped
+[entrypoint form](#entrypoints-and-repository-layout): under `posix_argzero`
+the parameter `0` is read-only, so a plugin that assigns to it fails there.
 
 Run the suite on every supported Zsh version. Add assertions for exported
 functions and parameters, hook registration, repeated loading, explicit
@@ -1285,9 +1295,9 @@ unprefixed `_callback` is not project-owned.
 Do not assign semantic roles through punctuation-only or non-ASCII prefixes.
 Names beginning with `.`, `+`, `/`, or similar role markers are harder to
 autoload, type, search, and represent consistently as file names. Manager API
-names beginning with `@`, such as the optional callbacks in requirements
-[5](#run-on-unload-call) and [6](#run-on-update-call), are manager-owned names,
-not a pattern for plugin-defined functions.
+names beginning with `@`, such as the optional
+[unload](#run-on-unload-call) and [update](#run-on-update-call) callbacks, are
+manager-owned names, not a pattern for plugin-defined functions.
 
 #### Historical function-name prefixes {/* #the-proposed-function-name-prefixes */}
 
@@ -1431,10 +1441,10 @@ Keep real arrays and real hashes whenever order or shape matters.
 
 ## Optional manager interoperability profiles {/* #optional-manager-interoperability-profiles */}
 
-This appendix records how named managers implement the requirements above. It
-does not add anything to the portable core. Detect each facility before using
-it and retain a direct-source fallback. Exact capability strings and behavior
-are manager implementation details, not Zsh guarantees.
+This appendix records how named managers implement the optional loader
+interfaces above. It does not add anything to the portable core. Detect each
+facility before using it and retain direct-source behavior. Exact capability
+strings and behavior are manager implementation details, not Zsh guarantees.
 
 ### Zi profile: canonical for z-shell {/* #zi-profile */}
 
@@ -1496,18 +1506,14 @@ list as a universal capability registry.
 Before publishing a plugin, confirm that:
 
 - one documented entrypoint works with `source` under `zsh -f`;
-- self-location follows [requirement 1](#zero-handling), and the behavior under
-  `posix_argzero` is either supported or documented as unsupported;
-- `functions/` and `bin/` use the guarded forms from requirements
-  [2](#functions-directory) and [3](#binaries-directory);
+- self-location uses the scoped entrypoint form and remains valid under
+  `posix_argzero`;
 - `lib/`, `functions/`, `completions/`, and `bin/` follow their documented
   eager, autoload, completion, and executable profiles;
-- a namespaced unload function exists per [requirement 4](#unload-function),
+- `functions/` and `completions/` use exact `fpath` membership checks, while
+  ordinary loading does not mutate `PATH`;
+- a project-identifier-derived unload function exists,
   and every hook, widget, worker, descriptor, and file has explicit cleanup;
-- no untrusted data reaches the eval-based callbacks in requirements
-  [5](#run-on-unload-call) and [6](#run-on-update-call);
-- every manager capability is feature-tested, and a manager-independent path
-  exists;
 - functions localize options and parameters;
 - the README declares one stable ASCII project identifier and the complete
   public shell surface;
@@ -1526,7 +1532,8 @@ Before publishing a plugin, confirm that:
 - supported Zsh versions and hostile option combinations are tested;
 - a clean-process lifecycle test proves the declared load surface and exact
   ownership-aware restoration after unload; and
-- every optional manager profile has an independent test and source citation.
+- every deliberately supported optional manager interface is feature-tested,
+  has an independent profile test, and retains direct-source behavior.
 
 ## Next Steps {/* #next-steps */}
 
