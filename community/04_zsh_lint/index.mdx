@@ -140,6 +140,15 @@ import "github.com/z-shell/zsh-lint/internal/rules"
   - [func \(r PreferDoubleBrackets\) ID\(\) diag.RuleID](#func-preferdoublebrackets-id)
   - [func \(r PreferDoubleBrackets\) Name\(\) string](#func-preferdoublebrackets-name)
 - [type Profile](#type-profile)
+- [type ProjectUnloadLifecycle](#type-projectunloadlifecycle)
+  - [func \(ProjectUnloadLifecycle\) Analyze\(\_ \*analyzer.Context, \_ syntax.Node\)](#func-projectunloadlifecycle-analyze)
+  - [func \(rule ProjectUnloadLifecycle\) AnalyzeProject\(ctx \*analyzer.ProjectContext\)](#func-projectunloadlifecycle-analyzeproject)
+  - [func \(ProjectUnloadLifecycle\) ID\(\) diag.RuleID](#func-projectunloadlifecycle-id)
+  - [func \(ProjectUnloadLifecycle\) Name\(\) string](#func-projectunloadlifecycle-name)
+- [type RepeatedExternalCommand](#type-repeatedexternalcommand)
+  - [func \(rule RepeatedExternalCommand\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-repeatedexternalcommand-analyze)
+  - [func \(RepeatedExternalCommand\) ID\(\) diag.RuleID](#func-repeatedexternalcommand-id)
+  - [func \(RepeatedExternalCommand\) Name\(\) string](#func-repeatedexternalcommand-name)
 - [type SpecialParamShadow](#type-specialparamshadow)
   - [func \(rule SpecialParamShadow\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-specialparamshadow-analyze)
   - [func \(SpecialParamShadow\) ID\(\) diag.RuleID](#func-specialparamshadow-id)
@@ -667,6 +676,99 @@ const (
 ```
 
 
+##### type ProjectUnloadLifecycle
+
+ProjectUnloadLifecycle checks configured registration and unload presence across every source supplied in one project invocation.
+
+```go
+type ProjectUnloadLifecycle struct{}
+```
+
+
+###### func \(ProjectUnloadLifecycle\) Analyze
+
+```go
+func (ProjectUnloadLifecycle) Analyze(_ *analyzer.Context, _ syntax.Node)
+```
+
+
+
+
+###### func \(ProjectUnloadLifecycle\) AnalyzeProject
+
+```go
+func (rule ProjectUnloadLifecycle) AnalyzeProject(ctx *analyzer.ProjectContext)
+```
+
+
+
+
+###### func \(ProjectUnloadLifecycle\) ID
+
+```go
+func (ProjectUnloadLifecycle) ID() diag.RuleID
+```
+
+
+
+
+###### func \(ProjectUnloadLifecycle\) Name
+
+```go
+func (ProjectUnloadLifecycle) Name() string
+```
+
+
+
+
+##### type RepeatedExternalCommand
+
+RepeatedExternalCommand reports known external commands in completion loops.
+
+ID: `performance/repeated-external-command`
+
+Name: Repeated external command in completion loop
+
+Summary: Reports a conservative allowlist of commands that necessarily create a process when they occur in a loop in a configured completion source.
+
+Why: A loop with N iterations creates N external processes for each reported call. Process creation is the dominant fixed cost even when the command does little work. Hoist invariant work, use Zsh\-native parameter operations, or measure and retain the call when its result genuinely varies per iteration.
+
+Severity: Info. The cost model is certain, but whether it matters depends on iteration count, command work, and the interactive completion workload.
+
+False positives: A command whose result must be recomputed for each item may be intentional. Measure the completion path before changing behavior.
+
+```go
+type RepeatedExternalCommand struct{}
+```
+
+
+###### func \(RepeatedExternalCommand\) Analyze
+
+```go
+func (rule RepeatedExternalCommand) Analyze(ctx *analyzer.Context, node syntax.Node)
+```
+
+
+
+
+###### func \(RepeatedExternalCommand\) ID
+
+```go
+func (RepeatedExternalCommand) ID() diag.RuleID
+```
+
+
+
+
+###### func \(RepeatedExternalCommand\) Name
+
+```go
+func (RepeatedExternalCommand) Name() string
+```
+
+
+
+
 ##### type SpecialParamShadow
 
 SpecialParamShadow reports declarations that shadow parameters set by the shell.
@@ -743,7 +845,7 @@ ID: `plugin/unload-function`
 
 Name: Unload function convention and hygiene
 
-Summary: Checks configured plugin and Zi annex sourced\-library entrypoints that register persistent shell hooks or widgets for a namespaced unload function \(`*_plugin_unload`\), and checks that defined unload functions cleanly unfunction themselves upon completion. Unconfigured analysis retains the legacy path heuristic.
+Summary: Checks configured plugin and Zi annex sourced\-library entrypoints that register persistent shell hooks or widgets for a namespaced unload function \(`*_plugin_unload`\), and checks that defined unload functions cleanly unfunction themselves upon completion. Configured multi\-file invocations aggregate registration and unload presence across the project; unconfigured analysis retains the legacy per\-file path heuristic.
 
 Why: The Zsh Plugin Standard specifies that plugins with persistent side effects \(hooks via `add-zsh-hook`, line\-editor widgets via `add-zle-hook-widget` or `zle -N`\) should provide a namespaced `*_plugin_unload` function so plugin managers and users can cleanly unload the plugin without restarting the shell. The unload function must explicitly remove only its own resources and unfunction itself upon completion. See https://wiki.zshell.dev/community/zsh_plugin_standard#lifecycle-and-resource-ownership.
 
@@ -879,9 +981,9 @@ ID: `plugin/zero-handling`
 
 Name: Zero\-handling idiom in plugin entrypoint
 
-Summary: Reports direct uses of `$0` at the top level of configured plugin and Zi annex sourced\-library entrypoints before `$0` has been initialized using prompt expansions \(`${(%):-%N}` or `${(%):-%x}`\). Unconfigured analysis retains the legacy path heuristic.
+Summary: Reports direct uses of `$0` at the top level of configured plugin and Zi annex sourced\-library entrypoints. Configured analysis also reports assignment to special parameter `0`, because sourced entrypoints must not replace caller state. Unconfigured analysis retains the legacy path heuristic.
 
-Why: When a Zsh plugin is sourced, positional parameter `$0` evaluates to the name of the shell \(`zsh` or `-zsh`\) rather than the path of the sourced script, unless `FUNCTION_ARGZERO` is active. Plugin entrypoints must initialize `$0` using prompt expansion `${(%):-%N}` or `${(%):-%x}` \(optionally with `$ZERO` fallback\) before using `$0` to derive directories or autoload paths. See https://wiki.zshell.dev/community/zsh_plugin_standard#zero-handling.
+Why: When a Zsh plugin is sourced, positional parameter `$0` evaluates to the name of the shell \(`zsh` or `-zsh`\) rather than the path of the sourced script, unless `FUNCTION_ARGZERO` is active. Configured plugin entrypoints must resolve the source path with prompt expansion `${(%):-%N}` or `${(%):-%x}` \(optionally with `$ZERO` fallback\) and pass it into a localized scope instead of assigning to caller\-visible special parameter `0`. See https://wiki.zshell.dev/community/zsh_plugin_standard#zero-handling.
 
 Bad:
 
@@ -889,21 +991,22 @@ Bad:
 fpath+=( "${0:h}/functions" )
 ```
 
-Good:
+Good \(configured sourced entrypoint\):
 
 ```zsh
-0="${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"
-0="${${(M)0:#/*}:-$PWD/$0}"
-fpath+=( "${0:h}/functions" )
+() {
+  local source_path=$1
+  fpath+=( "${source_path:h}/functions" )
+} "${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"
 ```
 
-Severity: Warning. Deriving paths from uninitialized `$0` in a sourced plugin leads to incorrect directory paths or runtime loading failures.
+Severity: Warning. Deriving paths from uninitialized `$0` can load the wrong path; assigning to `0` can replace caller state or fail when `POSIX_ARGZERO` makes it read\-only.
 
 False positives: Scripts intended solely for direct execution \(not sourcing\) or functions where `$0` refers to the function name. Suppress with a reason.
 
 Suppression: Use `# zsh-lint disable=plugin/zero-handling -- <reason>` on the finding line or immediately before the next non\-comment, non\-blank source line.
 
-Corpus evidence: `z-a-meta-plugins/z-a-meta-plugins.plugin.zsh:7` uses the compliant `0="${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"` idiom before referencing `${0:h}` on line 12.
+Corpus evidence: z\-a\-meta\-plugins, zsh\-fancy\-completions, and zsh\-eza use the caller\-preserving anonymous\-function argument pattern.
 
 ```go
 type ZeroHandling struct{}
