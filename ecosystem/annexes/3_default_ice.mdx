@@ -17,13 +17,13 @@ An annex delivers the capability to set **default ices** for the next `zi` comma
 
 set default-ices:
 
-```zsh
+```zi
 zi default-ice lucid from"gh-r"
 ```
 
 this will download from GitHub releases (gh-r) and also use the lucid ice by default:
 
-```zsh showLineNumbers
+```zi showLineNumbers
 zi wait for \
   sbin        junegunn/fzf-bin \
   sbin"**/pk" peco/peco
@@ -39,7 +39,7 @@ The `wait` ice cannot be made default by using this subcommand.
 
 An annex provides a subcommand – `default-ice` which has the following synopsis:
 
-```shell showLineNumbers
+```text showLineNumbers
 — default-ice [ -s | -c | -g | -t | -q | -h ]
 
  [ -s ] — Show currently set default ices
@@ -65,7 +65,7 @@ An annex provides a subcommand – `default-ice` which has the following synopsi
 
 Add the following snippet in the `.zshrc` file:
 
-```zsh
+```zi
 zi light z-shell/z-a-default-ice
 ```
 

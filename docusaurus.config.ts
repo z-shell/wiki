@@ -311,8 +311,7 @@ export default async function createConfigAsync() {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
-        defaultLanguage: "shell",
-        additionalLanguages: ["ini", "vim", "verilog", "diff", "bash"],
+        additionalLanguages: ["ini", "vim", "verilog", "diff", "bash", "docker", "shell-session"],
         magicComments: [
           {
             className: "theme-code-block-highlighted-line",

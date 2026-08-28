@@ -25,13 +25,13 @@ import ChromaFunctionExample from "@site/src/components/Markdown/_chroma_functio
 
 Add the following to your `.zshrc` file.
 
-```zsh
+```zi
 zi light z-shell/F-Sy-H
 ```
 
 Load the plugin in [turbo mode][turbo-mode]:
 
-```zsh title="~/.zshrc" showLineNumbers
+```zi title="~/.zshrc" showLineNumbers
 zi wait lucid for \
   atinit"ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
     z-shell/F-Sy-H \
@@ -46,7 +46,7 @@ zi wait lucid for \
 
 Add the following to your `.zshrc` file in the same place you're doing your other `zgen load` calls in.
 
-```shell
+```zsh
 zgen load z-shell/F-Sy-H
 ```
 
@@ -55,7 +55,7 @@ zgen load z-shell/F-Sy-H
 
 Clone the Repository:
 
-```shell showLineNumbers
+```sh showLineNumbers
 git clone https://github.com/z-shell/F-Sy-H.git \
   ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/F-Sy-H
 ```
@@ -67,14 +67,14 @@ And add `F-Sy-H` to your plugin list.
 
 Clone the Repository.
 
-```shell
+```sh
 git clone https://github.com/z-shell/F-Sy-H.git \
   ~/some/path/to/fsh
 ```
 
 And add the following to your `.zshrc` file.
 
-```shell
+```zsh
 source ~/some/path/to/fsh/F-Sy-H.plugin.zsh
 ```
 
@@ -321,7 +321,7 @@ This document explains to create a detailed highlighting for a **specific progra
 
 So example invocation could look like this:
 
-```shell
+```zsh
 →chroma/-example.ch 1 "grep" "$_start_pos" "$_end_pos"
 ```
 

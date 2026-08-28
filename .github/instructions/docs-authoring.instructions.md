@@ -120,11 +120,16 @@ right highlighting:
 - `bash` — Bash-specific syntax
 - `yaml`, `json`, `diff`, etc. — non-shell formats
 
-Do not use `shell` when the snippet is specifically Zsh, Zi, ZUnit, Bash, or
-POSIX `sh`; reserve it for genuinely shell-agnostic examples.
+Every rendered code fence must declare a language. Do not use the generic
+`shell` label. Use `text` for output with no language syntax and `shell-session`
+for a transcript containing prompts and commands. Structural `mdx-code-block`
+wrappers are exempt.
+
+Run `pnpm validate:code-fences` before pushing. The validator also rejects Zi
+commands labeled as generic Zsh so the custom Zi grammar is applied consistently.
 
 ## Localization Awareness
 
 - Edit only English source files in `docs/`, `community/`, `ecosystem/`.
 - Do not manually edit files under `i18n/`.
-- Some paths are excluded from translation (see `crowdin.yml`): `ecosystem/plugins/**`, `community/gallery/**`, `community/01_zsh_guide/**`.
+- Some paths are excluded from translation (see `crowdin.yml`): `ecosystem/plugins/**`, `community/05_gallery/**`, `community/01_zsh_guide/**`.

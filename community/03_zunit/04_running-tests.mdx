@@ -17,13 +17,13 @@ keywords:
 Run the full suite from the project root (ZUnit picks up `.zunit.yml`
 automatically):
 
-```sh
+```zunit
 zunit
 ```
 
 Pass a specific file, directory, or glob:
 
-```sh
+```zunit
 zunit tests/example.zunit
 zunit tests
 zunit 'tests/**/*.zunit'
@@ -31,7 +31,7 @@ zunit 'tests/**/*.zunit'
 
 ## Synopsis
 
-```
+```zunit
 zunit run [options] [tests...]
 ```
 
@@ -53,7 +53,7 @@ zunit run [options] [tests...]
 
 ## Examples
 
-```sh
+```zunit
 # Stop on first failure
 zunit --fail-fast
 
@@ -71,7 +71,7 @@ zunit --time-limit 10 tests
 
 After a run, ZUnit prints a table to stdout (unless `--tap` is active):
 
-```
+```text
 42 tests run in 1234ms
 
 Results

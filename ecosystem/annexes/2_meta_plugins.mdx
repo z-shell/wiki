@@ -28,20 +28,20 @@ An annex has the curated, optimal [ice-modifiers][] lists automatically applied.
 
 The following snippets are examples of how to install meta-plugins:
 
-```zsh
+```zi
 zi light @annexes
 ```
 
-```zsh
+```zi
 zi light-mode for @annexes @zsh-users @console-tools
 ```
 
-```zsh showLineNumbers
+```zi showLineNumbers
 zi light-mode for z-a-meta-plugins \
   @annexes @ext-git @zsh-users
 ```
 
-```zsh showLineNumbers
+```zi showLineNumbers
 zi light-mode for @annexes \
   skip'zsh-completions' @zsh-users \
   skip'vivid exa tig' @console-tools
@@ -63,6 +63,7 @@ zi light-mode for @annexes \
 | @fuzzy           | [fzf][] (package), [fzy][] (package), [skim][], [peco][]                                                              |
 | @fuzzy-src       | fzf-go, [fzy][], skim-cargo, peco-go                                                                                  |
 | @ohmyzsh-lib     | OMZL::git, OMZL::history, OMZL::vcs_info, OMZL::clipboard, OMZL::completion, OMZL::theme-and-appearance, OMZL::prompt_info_functions, OMZL::termsupport, OMZL::key-bindings, OMZL::compfix, OMZL::directories, OMZL::functions |
+| @prezto          | PZTM::archive, PZTM::directory, PZTM::utility                                                                            |
 | @py-utils        | [pyenv][] (package)                                                                                                   |
 | @romkatv         | [powerlevel10k][]                                                                                                     |
 | @rust-utils      | rust-toolchain, cargo-extensions                                                                                      |
@@ -76,6 +77,14 @@ zi light-mode for @annexes \
 ```mdx-code-block
 </APITable>
 ```
+
+:::info[Zi compatibility]
+
+`@prezto` requires a Zi build with Git sparse-checkout support for GitHub directory snippets, introduced by
+[z-shell/zi#417][zi-git-sparse]. The archive module is installed as a directory snapshot; the directory and utility
+modules remain single-file snippets.
+
+:::
 
 ### Summary of the meta-plugins {/* #summary-of-the-meta-plugins */}
 
@@ -130,7 +139,7 @@ Other unique benefits of the meta-plugins annex:
 
 Add the following snippet in the `.zshrc` file:
 
-```zsh
+```zi
 zi light z-shell/z-a-meta-plugins
 ```
 
@@ -193,3 +202,4 @@ This will register the `skip'…'` ice-modifier.
 [zui]: https://github.com/z-shell/zui
 [zunit]: https://github.com/z-shell/zunit
 [z-shell/zsh-fancy-completions]: https://github.com/z-shell/zsh-fancy-completions
+[zi-git-sparse]: https://github.com/z-shell/zi/pull/417

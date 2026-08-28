@@ -12,6 +12,7 @@ This project follows the organization-wide [Z-Shell Organization Guidelines](htt
 - `pnpm serve` — serve the production build locally for verification.
 - `pnpm clear` — clear Docusaurus cache; use when the site behaves inconsistently after config or theme changes.
 - `pnpm lint` — Unified linting with Trunk (configs in `.trunk/configs/`). Fix with `pnpm lint:fix`.
+- `pnpm validate:code-fences`: require an explicit, supported language on every rendered code block.
 - `pnpm write-heading-ids` — regenerate heading IDs across all docs.
 - Trunk CI runs pre-commit formatting and pre-push linting (config: `.trunk/trunk.yaml`).
 
@@ -35,6 +36,8 @@ This project follows the organization-wide [Z-Shell Organization Guidelines](htt
   - `<Emoji>` — accessible emoji rendering
   - `<GhRepoBadge>` — GitHub repository badges
   - `<ShellCodeCopy>` — copyable shell command blocks
+  - `<CardGrid>` / `<Card>` — responsive landing-page card grids; use these
+    instead of hand-rolling a grid with inline styles
 - Localization uses Crowdin (`crowdin.yml`). Never edit files under `i18n/` directly.
 
 ## Adding New Content or Infrastructure
@@ -83,13 +86,20 @@ full cross-repo checklist.
 
 ### Branching
 
-- `next` — active development. `main` — production.
-- Branch naming: `feature-<id>`, `bug-<id>`, `hotfix-<id>`.
-- Hotfixes branch from `main`; everything else from `next`.
+- `next` — active development. `main` — production. This repository uses the
+  `next` → `main` model per org ADR 0008; branch from and target `next`.
+- Branch naming: `feat/<name>`, `fix/<name>`, `perf/<name>`, `refactor/<name>`,
+  `docs/<name>`, `ci/<name>` — matching the published contributor guide in
+  `community/00_contributing/01_getting_started.mdx`.
+- Hotfixes branch from `main` and target `main`; everything else from `next`.
 
 ## Agent Notes
 
 - Prefer small, scoped edits that match surrounding MDX and TypeScript style.
 - Link to existing docs rather than duplicating long guidance.
-- Scoped instruction files in `.github/instructions/` are auto-applied by file glob — prefer updating those for domain-specific guidance over modifying this file.
+- GitHub Copilot auto-applies matching scoped files in `.github/instructions/`
+  by `applyTo` glob. Other runtimes should follow this `AGENTS.md` and open the
+  linked scoped instructions explicitly unless native discovery has been
+  verified. Prefer updating scoped files for domain-specific guidance over
+  modifying this file.
 - Do not introduce additional global instruction files beyond the documented repo entry points unless explicitly requested.

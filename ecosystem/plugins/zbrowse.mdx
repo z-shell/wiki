@@ -32,7 +32,7 @@ First, install the [z-shell/zui][] plugin - a UI library for Z shell.
 
 Add the following to your `.zshrc`. Zi will handle cloning the plugin for you automatically the next time you start Zsh. To update run `zi update z-shell/zbrowse`.
 
-```zsh title="~/.zshrc"
+```zi title="~/.zshrc"
 zi load z-shell/zbrowse
 ```
 
@@ -41,7 +41,7 @@ zi load z-shell/zbrowse
 
 Add the following to your `.zshrc` file in the same place you're doing your other `zgen load` calls.
 
-```shell title="~/.zshrc"
+```zsh title="~/.zshrc"
 zgen load z-shell/zbrowse.git
 ```
 
@@ -50,7 +50,7 @@ zgen load z-shell/zbrowse.git
 
 Clone the Repository:
 
-```shell title="~/.zshrc" showLineNumbers
+```zsh title="~/.zshrc" showLineNumbers
 git clone https://github.com/z-shell/zbrowse.git \
 ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zbrowse
 ```
@@ -62,7 +62,7 @@ And add `Zbrowse` to your plugin list.
 
 **The plugin is "standalone"**, which means that only sourcing it is needed. So to install, unpack ZBrowse somewhere and add to `.zshrc`:
 
-```shell title="~/.zshrc"
+```zsh title="~/.zshrc"
 source {where-zbrowse-is}/zbrowse.plugin.zsh
 ```
 

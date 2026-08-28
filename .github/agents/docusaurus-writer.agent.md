@@ -177,7 +177,7 @@ If any step fails, fix the issues and re-invoke until all checks pass.
 After Phase 3 passes, check whether the changed files are in a path excluded from translation in `crowdin.yml`:
 
 - `ecosystem/plugins/**` — excluded
-- `community/gallery/**` — excluded
+- `community/05_gallery/**` — excluded
 - `community/01_zsh_guide/**` — excluded
 
 If the changed files are **not** in an excluded path, invoke the **`localization-maintainer`** agent to sync translation keys with Crowdin.

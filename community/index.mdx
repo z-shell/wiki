@@ -2,7 +2,7 @@
 id: community
 slug: /
 title: "👥 Community"
-sidebar_position: 1
+sidebar_position: 0
 image: /img/png/theme/z/320x320.png
 description: Community documentation, guides, and resources for Zsh enthusiasts and Z-Shell contributors.
 keywords:
@@ -15,7 +15,6 @@ keywords:
 
 {/* @format */}
 
-import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
 The Z-Shell community is home to contributors, plugin authors, and Zsh enthusiasts. Find guides, a plugin gallery, community tools, and everything you need to get involved.
@@ -29,46 +28,39 @@ The Z-Shell community is home to contributors, plugin authors, and Zsh enthusias
 </div>
 
 :::info[Get involved]
-Join the [Z-Shell organization](https://github.com/z-shell), help [translate the wiki](https://translate.zshell.dev), or track work in the [Z-Shell Workspace](https://linear.app/ss-o/project/z-shell-workspace-0206c6a7192d).
+Join the [Z-Shell organization](https://github.com/z-shell), help [translate the wiki](https://translate.zshell.dev), or follow active work in [Z-shell Delivery](https://github.com/orgs/z-shell/projects/28).
 :::
 
 ## Community Sections
 
-<div style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1rem", margin: "1.5rem 0"}}>
+<CardGrid>
 
-<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
-  <img src={useBaseUrl("/img/svg/community/contributing-zi.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
-  <strong>Contributing</strong>
-  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Contribute to Zi, create Zsh plugins, improve the docs, or help with project management.</span>
-  <Link to="/community/contributing" style={{marginTop: "auto"}}>Start contributing →</Link>
-</div>
+<Card title="Contributing" to="/community/contributing" icon="/img/svg/community/contributing-zi.svg" cta="Start contributing">
+  Contribute to Zi, create Zsh plugins, improve the docs, or help with project management.
+</Card>
 
-<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
-  <img src={useBaseUrl("/img/svg/cards/history-search.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
-  <strong>ZUnit</strong>
-  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>A unit testing framework for Zsh — write @test blocks, run assertions, and integrate with CI.</span>
-  <Link to="/community/zunit" style={{marginTop: "auto"}}>Explore ZUnit →</Link>
-</div>
+<Card title="Zsh Guide" to="/community/zsh-guide" icon="/img/svg/cards/syntax-highlighting.svg" cta="Configure Zsh">
+  Practical guidance for Zsh options, completion, key bindings, and startup profiling.
+</Card>
 
-<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
-  <img src={useBaseUrl("/img/svg/cards/syntax-highlighting.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
-  <strong>Zsh Lint</strong>
-  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>A standalone semantic analyzer for Zsh scripts with greppable static-analysis diagnostics.</span>
-  <Link to="/community/zsh_lint" style={{marginTop: "auto"}}>Explore Zsh Lint →</Link>
-</div>
+<Card title="Zsh Scripting Handbook" to="/community/zsh_handbook" icon="/img/svg/cards/syntax-highlighting.svg" cta="Read the handbook">
+  Native Zsh idioms and worked techniques: array forms, expansion, pattern matching, and substitutions.
+</Card>
 
-<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
-  <img src={useBaseUrl("/img/svg/cards/meta-plugins.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
-  <strong>Plugin Gallery</strong>
-  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Community-curated collections of plugins, completions, snippets, services, and themes.</span>
-  <Link to="/community/category/-gallery-of-invocations" style={{marginTop: "auto"}}>Browse the gallery →</Link>
-</div>
+<Card title="ZUnit" to="/community/zunit" icon="/img/svg/cards/history-search.svg" cta="Explore ZUnit">
+  A unit testing framework for Zsh: write @test blocks, run assertions, and integrate with CI.
+</Card>
 
-<div style={{border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "10px", padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}>
-  <img src={useBaseUrl("/img/svg/cards/syntax-highlighting.svg")} alt="" width="56" height="56" style={{borderRadius: "8px"}}/>
-  <strong>ZSH Guide &amp; Handbook</strong>
-  <span style={{fontSize: "0.875rem", color: "var(--ifm-color-emphasis-700)"}}>Zsh expansion, scripting handbook, plugin standard, and roadmap for the broader ecosystem.</span>
-  <Link to="/community/zsh_plugin_standard" style={{marginTop: "auto"}}>Read the guides →</Link>
-</div>
+<Card title="Zsh Lint" to="/community/zsh_lint" icon="/img/svg/cards/syntax-highlighting.svg" cta="Explore Zsh Lint">
+  A standalone semantic analyzer for Zsh scripts with greppable static-analysis diagnostics.
+</Card>
 
-</div>
+<Card title="Plugin Gallery" to="/community/category/-gallery-of-invocations" icon="/img/svg/cards/meta-plugins.svg" cta="Browse the gallery">
+  Community-curated collections of plugins, completions, snippets, services, and themes.
+</Card>
+
+<Card title="Zsh Plugin Standard" to="/community/zsh_plugin_standard" icon="/img/svg/community/contributing-plugin-standard.svg" cta="Read the standard">
+  The plugin interoperability contract: what makes a directory a plugin and how managers load it.
+</Card>
+
+</CardGrid>

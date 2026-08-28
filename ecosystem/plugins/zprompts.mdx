@@ -37,7 +37,7 @@ The previews demonstrate:
 
 Add the following to your `.zshrc` file with preferred theme e.g:
 
-```zsh {2} showLineNumbers
+```zi {2} showLineNumbers
 zi nocd for \
   atload'!promptinit; typeset -g PSSHORT=0; prompt sprint3 yellow red green blue' \
     z-shell/zprompts
@@ -48,13 +48,13 @@ zi nocd for \
 
 To use load the plugin:
 
-```shell
+```zsh
 source {where-zprompts-is}/zprompts.plugin.zsh
 ```
 
 and then invoke (to use theme `scala3`) e.g.:
 
-```shell showLineNumbers
+```zsh showLineNumbers
   promptinit
   prompt scala3
 ```
@@ -68,7 +68,7 @@ Please submit your prompt if you find a time to write the `prompt_NAME_setup` fi
 
 Each prompt has its help available, e.g. for the theme `scala`:
 
-```shell title="prompt -h scala"
+```text title="prompt -h scala"
 This prompt is themable. You can invoke it in following way:
 prompt scala <prompt, default is ":: "> <prompt color> <path color> <vcs info color>
 You can provide only N first arguments, N=1..4.

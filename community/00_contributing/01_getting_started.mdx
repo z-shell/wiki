@@ -20,7 +20,11 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
   <img src={useBaseUrl("/img/svg/community/contributing-getting-started.svg")} alt="" width="100" height="100" style={{borderRadius: "16px"}}/>
 </div>
 
-This guide applies to **all repositories** in the Z-Shell organization. Repo-specific additions (zi, wiki, etc.) are documented in their own sub-pages.
+This guide covers the conventions shared across the Z-Shell organization —
+commit format, pull request workflow, and review expectations. Where a
+convention differs per repository, such as the branch model below, the guide
+says so and links the authoritative source. Repo-specific additions (zi, wiki,
+etc.) are documented in their own sub-pages.
 
 ## Prerequisites
 
@@ -41,27 +45,61 @@ git remote add upstream https://github.com/z-shell/<repo>.git
 
 ## Branch Model
 
-All repositories follow the same two-branch model:
+The branch model is **per repository**, not organization-wide. Some repositories
+use a `next` → `main` integration flow; others are trunk-based and take pull
+requests directly on `main`. Check before you branch.
+
+:::warning[Check the repository first]
+
+Opening a pull request against the wrong base is the most common first-time
+contribution mistake. Confirm the repository's development branch before you
+create your branch.
+
+```sh
+# Show the repository's default branch and whether `next` exists
+git remote show upstream | grep -E 'HEAD branch|next'
+```
+
+If a `next` branch exists, branch from and target `next`. If it does not, branch
+from and target `main`.
+
+:::
+
+The authoritative per-repository table lives in
+[ADR 0008 — Branching Model](https://github.com/z-shell/.github/blob/main/decisions/0008-branching-model.md).
+At the time of writing:
+
+| Development branch | Repositories |
+| --- | --- |
+| `next` → `main` | `zi`, `wiki`, `src`, `zsh-eza`, `zsh-lint` |
+| trunk on `main` | `zd`, `zunit`, `zpmod`, packaged `zsh`, `z-a-meta-plugins`, `zsh-fancy-completions`, `.github` |
+
+Consult the ADR rather than this table if the two ever disagree — the ADR is the
+source of truth, and changing a repository's model requires amending it.
+
+### Branch naming
+
+Name your branch for the kind of change it carries:
 
 ```text
-main  ←─── production (tagged releases only)
-  ↑
-next  ←─── integration branch  ← open all PRs here
-  ↑
-  ├── feat/<name>      new features
-  ├── fix/<name>       bug fixes
-  ├── perf/<name>      performance improvements
-  ├── refactor/<name>  code refactors
-  ├── docs/<name>      documentation updates
-  └── ci/<name>        CI / workflow changes
+feat/<name>      new features
+fix/<name>       bug fixes
+perf/<name>      performance improvements
+refactor/<name>  code refactors
+docs/<name>      documentation updates
+ci/<name>        CI / workflow changes
 ```
 
 **Rules:**
 
-1. **Always branch from `next`**: `git checkout -b fix/my-issue next`
-2. **Open PRs targeting `next`** — never target `main` directly
-3. `next` → `main` happens via a release PR once `next` is stable
-4. **Hotfixes** are the only exception — branch from `main` and open a PR against `main`
+1. **Branch from the repository's development branch** — `next` where one
+   exists, otherwise `main`
+2. **Open the pull request against that same branch** — never target `main` in a
+   repository that uses `next`
+3. In `next` → `main` repositories, `next` reaches `main` through a release pull
+   request once `next` is stable
+4. **Hotfixes** are the exception in `next` repositories — branch from `main` and
+   open the pull request against `main`
 
 ## Commit Message Format
 
@@ -96,11 +134,15 @@ BREAKING CHANGE: description of what breaks
 
 - Subject line: imperative mood, ≤ 72 characters, no trailing period
 - Breaking changes: use `!` suffix (`feat!:`) **and** add a `BREAKING CHANGE:` footer
-- **Do not add `Co-authored-by` trailers** — this is enforced by CI
+- `Co-authored-by` trailers must credit a **real human** — including yourself as
+  the pull request author. **Never credit a bot, AI agent, or automation as a
+  co-author.** `z-shell/.github` and `z-shell/zi` enforce this in CI; the other
+  repositories rely on the author until their own check is live
 
 To tidy commits before opening a PR:
 
 ```sh
+# Replace `next` with the repository's development branch where it differs
 git rebase -i $(git merge-base HEAD next)
 ```
 
@@ -114,8 +156,8 @@ git rebase -i $(git merge-base HEAD next)
 
 Before opening a PR:
 
-- [ ] Branched from `next` (or `main` for a hotfix)
-- [ ] PR targets `next`
+- [ ] Branched from the repository's development branch (or `main` for a hotfix)
+- [ ] Pull request targets that same branch
 - [ ] Commits follow Conventional Commits
 - [ ] No secrets or AI config files added
 - [ ] Relevant docs or tests updated
@@ -125,7 +167,9 @@ Before opening a PR:
 
 ```sh
 git fetch upstream
-git rebase upstream/next  # for feature branches
+# Rebase onto the repository's development branch — `next` where one exists,
+# otherwise `main`
+git rebase upstream/next
 ```
 
 ## Discussion First
