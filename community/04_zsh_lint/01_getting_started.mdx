@@ -1,0 +1,78 @@
+---
+id: zsh-lint-getting-started
+title: Getting started
+sidebar_position: 2
+description: Install Zsh Lint v1.1.0 and run a first semantic check.
+keywords:
+  - zsh-lint
+  - installation
+  - quickstart
+  - zsh
+---
+
+## What you need
+
+- Go 1.25 or a compatible version accepted by the module
+- A Zsh source file to inspect
+
+Zsh itself is strongly recommended for a native syntax check, but the linter
+binary is written in Go and does not source or execute the file it analyzes.
+
+## Install a reproducible version
+
+```sh
+go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.1.0
+```
+
+Confirm that your shell can find it:
+
+```sh
+zsh-lint 2>&1 | head -n 1
+```
+
+Seeing the usage line confirms the binary runs. It exits with status 2 because
+no input path was supplied. If the command is not found, use:
+
+```sh
+"$(go env GOPATH)/bin/zsh-lint" 2>&1 | head -n 1
+```
+
+## Make a small input
+
+Save this as `hello.zsh`:
+
+```zsh
+#!/usr/bin/env zsh
+
+emulate -R zsh
+print -r -- "${1:-hello}"
+```
+
+Check native Zsh syntax, then run semantic analysis:
+
+```sh
+zsh -f -n -- hello.zsh
+zsh-lint hello.zsh
+```
+
+No output and exit status 0 means the file parsed and no warning or error was
+reported. A finding looks like this:
+
+```text
+hello.zsh:4:13: [quoting/unquoted-var] Variable expansion should be double-quoted
+```
+
+The bracketed value is the rule ID. Use it to find rule details or write a
+narrow suppression.
+
+## Check more than one file
+
+```sh
+zsh-lint bin/build.zsh functions/example-run example.plugin.zsh
+```
+
+Each argument must be a readable file. Zsh Lint does not recurse through a
+directory or read source from standard input in v1.1.0.
+
+Next, read [Choosing files](./02_choosing_files.mdx) before applying the command
+to a mixed-language repository.

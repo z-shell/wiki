@@ -1,0 +1,83 @@
+---
+id: zsh-lint-project-configuration
+title: Project configuration preview
+sidebar_position: 4
+description: Try the unreleased project and source-profile configuration available on main.
+keywords:
+  - zsh-lint
+  - configuration
+  - plugin
+  - source profiles
+---
+
+:::warning Unreleased feature
+The published v1.1.0 binary does not recognize `--config`. This page documents
+behavior currently on the `main` branch so early testers can provide feedback.
+Do not add it to release-pinned CI until a release includes the option.
+:::
+
+Project configuration gives rules explicit context that one syntax tree cannot
+provide, such as whether a source is an executable, sourced plugin entrypoint,
+autoloaded function, completion, or test fixture. Version 1 does not discover a
+configuration file automatically, so pass `--config` on every invocation.
+
+## Try the standalone example
+
+Build the current source checkout:
+
+```sh
+git clone https://github.com/z-shell/zsh-lint.git
+cd zsh-lint
+go build -o ./zsh-lint ./cmd/zsh-lint
+./zsh-lint --config examples/standalone/zsh-lint.json \
+  examples/standalone/script.zsh
+```
+
+The source checkout's `examples/standalone` and `examples/plugin` directories
+contain the validated examples used on this page. Their delivery is tracked in
+[zsh-lint issue 182](https://github.com/z-shell/zsh-lint/issues/182).
+
+## Minimal configuration
+
+```json
+{
+  "version": 1,
+  "project": {
+    "kind": "application",
+    "minimum_zsh": "5.8",
+    "function_namespaces": []
+  },
+  "sources": [{"root": "script.zsh", "profile": "standalone-executable"}]
+}
+```
+
+Paths are relative to the directory containing the configuration. Every input
+must stay under that directory and match one source root.
+
+## Source profiles
+
+| Profile                 | Use it for                                                            |
+| ----------------------- | --------------------------------------------------------------------- |
+| `standalone-executable` | A script launched as its own process.                                 |
+| `startup-file`          | Files such as `.zshrc` or `.zprofile`.                                |
+| `sourced-library`       | Plugin entrypoints and libraries loaded into an existing shell.       |
+| `autoload-function`     | One function body loaded through Zsh `autoload`.                      |
+| `test-fixture`          | Test inputs that should not inherit production lifecycle assumptions. |
+
+The optional `completion` role is valid only with `autoload-function`.
+
+## Plugin example
+
+```sh
+./zsh-lint --config examples/plugin/zsh-lint.json \
+  examples/plugin/example.plugin.zsh \
+  examples/plugin/functions/example-run \
+  examples/plugin/completions/_example \
+  examples/plugin/tests/example-fixture.zsh
+```
+
+Configured analysis treats the complete explicit input list as one project.
+Files you omit are outside cross-file validation.
+
+For the strict schema and failure contract, see the
+[source-adjacent project configuration contract](https://github.com/z-shell/zsh-lint/blob/main/docs/project/project-configuration.md).

@@ -1,0 +1,80 @@
+---
+id: zsh-lint-ci-and-json
+title: CI and JSON output
+sidebar_position: 6
+description: Run a pinned Zsh Lint release in GitHub Actions and consume JSON diagnostics.
+keywords:
+  - zsh-lint
+  - github actions
+  - ci
+  - json
+---
+
+## A reproducible GitHub Actions job
+
+This example pins the actions and the linter release. Replace the file list
+with the reviewed Zsh inputs in your repository.
+
+```yaml
+name: Zsh checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: "1.25"
+      - name: Install Zsh Lint
+        run: go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.1.0
+      - name: Check native syntax
+        run: zsh -f -n -- scripts/build.zsh example.plugin.zsh
+      - name: Run semantic analysis
+        run: zsh-lint scripts/build.zsh example.plugin.zsh
+```
+
+The native `zsh -n` check remains useful because official Zsh semantics are
+authoritative when a supplemental parser has a coverage gap.
+
+## JSON output
+
+Pass `--format=json` before the paths:
+
+```sh
+zsh-lint --format=json scripts/build.zsh example.plugin.zsh > zsh-lint.json
+```
+
+The output is one versioned JSON object with sorted `diagnostics` and a
+`summary`:
+
+```json
+{
+  "version": 1,
+  "diagnostics": [],
+  "summary": {
+    "files": 2,
+    "diagnostics": 0,
+    "errors": 0,
+    "warnings": 0,
+    "infos": 0,
+    "hints": 0
+  }
+}
+```
+
+Parser failures appear as `parse/error` diagnostics. The exit code does not
+change in JSON mode: 0 means no Warning or Error, 1 means a Warning, Error,
+parser failure, or unreadable input, and 2 means a usage or output error.
+
+Machine consumers should reject a JSON `version` they do not understand.

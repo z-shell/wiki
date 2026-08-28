@@ -2,1049 +2,128 @@
 id: zsh_lint
 title: 🔍 Zsh Lint
 sidebar_position: 1
-description: A Go-based semantic analyzer for Zsh.
+description: Start using Zsh Lint, understand which files it checks, and find focused guides.
 keywords:
   - zsh-lint
-  - linter
   - zsh
-  - go
+  - static analysis
+  - linting
 ---
 
 {/* @format */}
 
-## A Go-based semantic analyzer for Zsh
+`zsh-lint` is a standalone semantic analyzer for Zsh. Give it one or more
+source-file paths and it reports parser errors, correctness problems, and
+advisory findings in a greppable format.
 
-`zsh-lint` is a standalone Go semantic analyzer for Zsh. It parses Zsh sources
-with a real grammar front end and reports greppable diagnostics from its default
-static-analysis rules.
+## Try it in five minutes
 
-### <i class="fa-brands fa-github"></i> [z-shell/zsh-lint][]
-
-### Installation
+Install the current published release with an exact version:
 
 ```sh
-go install github.com/z-shell/zsh-lint/cmd/zsh-lint@latest
+go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.1.0
 ```
 
-### Usage
-
-```sh
-zsh-lint path/to/file.zsh another.zsh
-```
-
-Diagnostics use the `path:line:col: [rule-id] message` format. Parse errors,
-warnings, and errors produce a non-zero exit code.
-
-For parser-gap corpus evaluation without static-analysis rules, use the
-dedicated survey command:
+Then check a file:
 
 ```sh
-zsh-lint-survey path/to/file.zsh another.zsh
-```
-
-### Reference
-
-{/* zsh-lint:generated:start */}
-
-
-
-#### zsh\-lint
-
-```go
-import "github.com/z-shell/zsh-lint/cmd/zsh-lint"
-```
-
-Command zsh\-lint performs static analysis of Zsh shell scripts.
-
-##### Index
-
-
-
-#### zsh\-lint\-survey
-
-```go
-import "github.com/z-shell/zsh-lint/cmd/zsh-lint-survey"
-```
-
-Command zsh\-lint\-survey runs the parser front end across Zsh files and reports parser gaps without evaluating static\-analysis rules.
-
-##### Index
-
-
-
-#### survey
-
-```go
-import "github.com/z-shell/zsh-lint/internal/survey"
-```
-
-Package survey runs the parser front end across a set of Zsh files and reports, per file, whether parsing succeeded. It produces greppable `path:line:col: message` diagnostics for failures and a one\-line summary.
-
-This is the reboot's parser\-evaluation surface \(issues \#5, \#8\): it reports parser outcomes only and intentionally implements no lint rules yet.
-
-##### Index
-
-- [func Run\(names \[\]string, w io.Writer\) int](#func-run)
-
-
-
-##### func Run
-
-```go
-func Run(names []string, w io.Writer) int
-```
-
-Run parses each file in names, writing per\-file status and a summary to w.
-
-Each file produces either an "OK \&lt;path\&gt;" line or a "FAIL \&lt;path\&gt;" line followed by a greppable "\&lt;path\&gt;:\&lt;line\&gt;:\&lt;col\&gt;: \&lt;message\&gt;" diagnostic. A final summary line reports the total number of files surveyed, ok, and failed.
-
-It returns a process exit code: 0 if every file parsed, 1 otherwise.
-
-#### rules
-
-```go
-import "github.com/z-shell/zsh-lint/internal/rules"
-```
-
-##### Index
-
-- [func Default\(\) \[\]analyzer.Rule](#func-default)
-- [func ForProfile\(profile Profile\) \(\[\]analyzer.Rule, error\)](#func-forprofile)
-- [type Backquotes](#type-backquotes)
-  - [func \(r Backquotes\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-backquotes-analyze)
-  - [func \(r Backquotes\) ID\(\) diag.RuleID](#func-backquotes-id)
-  - [func \(r Backquotes\) Name\(\) string](#func-backquotes-name)
-- [type EvalUsage](#type-evalusage)
-  - [func \(r EvalUsage\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-evalusage-analyze)
-  - [func \(r EvalUsage\) ID\(\) diag.RuleID](#func-evalusage-id)
-  - [func \(r EvalUsage\) Name\(\) string](#func-evalusage-name)
-- [type FpathHygiene](#type-fpathhygiene)
-  - [func \(rule FpathHygiene\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-fpathhygiene-analyze)
-  - [func \(FpathHygiene\) ID\(\) diag.RuleID](#func-fpathhygiene-id)
-  - [func \(FpathHygiene\) Name\(\) string](#func-fpathhygiene-name)
-- [type FuncDeclStyle](#type-funcdeclstyle)
-  - [func \(r FuncDeclStyle\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-funcdeclstyle-analyze)
-  - [func \(r FuncDeclStyle\) ID\(\) diag.RuleID](#func-funcdeclstyle-id)
-  - [func \(r FuncDeclStyle\) Name\(\) string](#func-funcdeclstyle-name)
-- [type FunctionNamespace](#type-functionnamespace)
-  - [func \(rule FunctionNamespace\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-functionnamespace-analyze)
-  - [func \(rule FunctionNamespace\) AnalyzeFile\(ctx \*analyzer.Context\)](#func-functionnamespace-analyzefile)
-  - [func \(FunctionNamespace\) ID\(\) diag.RuleID](#func-functionnamespace-id)
-  - [func \(FunctionNamespace\) Name\(\) string](#func-functionnamespace-name)
-- [type FunctionScopedOptions](#type-functionscopedoptions)
-  - [func \(rule FunctionScopedOptions\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-functionscopedoptions-analyze)
-  - [func \(FunctionScopedOptions\) ID\(\) diag.RuleID](#func-functionscopedoptions-id)
-  - [func \(FunctionScopedOptions\) Name\(\) string](#func-functionscopedoptions-name)
-- [type PreferDoubleBrackets](#type-preferdoublebrackets)
-  - [func \(r PreferDoubleBrackets\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-preferdoublebrackets-analyze)
-  - [func \(r PreferDoubleBrackets\) ID\(\) diag.RuleID](#func-preferdoublebrackets-id)
-  - [func \(r PreferDoubleBrackets\) Name\(\) string](#func-preferdoublebrackets-name)
-- [type Profile](#type-profile)
-- [type ProjectUnloadLifecycle](#type-projectunloadlifecycle)
-  - [func \(ProjectUnloadLifecycle\) Analyze\(\_ \*analyzer.Context, \_ syntax.Node\)](#func-projectunloadlifecycle-analyze)
-  - [func \(rule ProjectUnloadLifecycle\) AnalyzeProject\(ctx \*analyzer.ProjectContext\)](#func-projectunloadlifecycle-analyzeproject)
-  - [func \(ProjectUnloadLifecycle\) ID\(\) diag.RuleID](#func-projectunloadlifecycle-id)
-  - [func \(ProjectUnloadLifecycle\) Name\(\) string](#func-projectunloadlifecycle-name)
-- [type RepeatedExternalCommand](#type-repeatedexternalcommand)
-  - [func \(rule RepeatedExternalCommand\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-repeatedexternalcommand-analyze)
-  - [func \(RepeatedExternalCommand\) ID\(\) diag.RuleID](#func-repeatedexternalcommand-id)
-  - [func \(RepeatedExternalCommand\) Name\(\) string](#func-repeatedexternalcommand-name)
-- [type SpecialParamShadow](#type-specialparamshadow)
-  - [func \(rule SpecialParamShadow\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-specialparamshadow-analyze)
-  - [func \(SpecialParamShadow\) ID\(\) diag.RuleID](#func-specialparamshadow-id)
-  - [func \(SpecialParamShadow\) Name\(\) string](#func-specialparamshadow-name)
-- [type UnloadFunction](#type-unloadfunction)
-  - [func \(rule UnloadFunction\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-unloadfunction-analyze)
-  - [func \(UnloadFunction\) ID\(\) diag.RuleID](#func-unloadfunction-id)
-  - [func \(UnloadFunction\) Name\(\) string](#func-unloadfunction-name)
-- [type UnquotedVar](#type-unquotedvar)
-  - [func \(r UnquotedVar\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-unquotedvar-analyze)
-  - [func \(r UnquotedVar\) ID\(\) diag.RuleID](#func-unquotedvar-id)
-  - [func \(r UnquotedVar\) Name\(\) string](#func-unquotedvar-name)
-- [type ZeroHandling](#type-zerohandling)
-  - [func \(rule ZeroHandling\) Analyze\(ctx \*analyzer.Context, node syntax.Node\)](#func-zerohandling-analyze)
-  - [func \(ZeroHandling\) ID\(\) diag.RuleID](#func-zerohandling-id)
-  - [func \(ZeroHandling\) Name\(\) string](#func-zerohandling-name)
-
-
-
-##### func Default
-
-```go
-func Default() []analyzer.Rule
-```
-
-Default returns the default set of static analysis rules.
-
-
-##### func ForProfile
-
-```go
-func ForProfile(profile Profile) ([]analyzer.Rule, error)
-```
-
-ForProfile returns the complete rule set associated with a configured rule profile. Unknown profiles fail explicitly rather than silently disabling configured rules.
-
-
-##### type Backquotes
-
-Backquotes reports grave\-accent command substitutions.
-
-ID: `style/backquotes`
-
-Name: Prefer dollar\-parenthesis command substitution
-
-Summary: Reports the grave\-accent form of command substitution in favor of `$()`.
-
-Why: The Zsh manual's Command Substitution section documents both `$()` and grave accents as supported forms. This rule prefers `$()` as the clearer, readily nestable modern idiom; it does not claim grave accents are invalid Zsh syntax. See https://zsh.sourceforge.io/Doc/Release/Expansion.html#Command-Substitution.
-
-Bad:
-
-```zsh
-current=`pwd`
-```
-
-Good:
-
-```zsh
-current=$(pwd)
-```
-
-Severity: Hint. The forms are semantically supported; this is an idiom and readability preference rather than a correctness diagnostic.
-
-False positives: A project may intentionally preserve historical style or mirror code shared with an environment where that spelling is required.
-
-Suppression: Use `# zsh-lint disable=style/backquotes -- <reason>` on the finding line or immediately before the next non\-comment, non\-blank source line.
-
-Corpus evidence: The June 12, 2026 LangZsh clean\-baseline run produced zero findings from this rule across the 11 parseable corpus files. This grandfathered rule therefore has no positive corpus citation yet.
-
-```go
-type Backquotes struct{}
-```
-
-
-###### func \(Backquotes\) Analyze
-
-```go
-func (r Backquotes) Analyze(ctx *analyzer.Context, node syntax.Node)
-```
-
-
-
-
-###### func \(Backquotes\) ID
-
-```go
-func (r Backquotes) ID() diag.RuleID
-```
-
-
-
-
-###### func \(Backquotes\) Name
-
-```go
-func (r Backquotes) Name() string
-```
-
-
-
-
-##### type EvalUsage
-
-EvalUsage reports calls to the `eval` shell builtin.
-
-ID: `security/eval`
-
-Name: Use of eval
-
-Summary: Reports commands whose literal command name is `eval`.
-
-Why: The Zsh manual documents that `eval` reads its arguments as shell input and executes the resulting commands in the current shell process. Dynamic or untrusted text can therefore become shell syntax rather than inert data. See https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html#index-eval.
-
-Bad:
-
-```zsh
-eval "print -r -- $user_input"
-```
-
-Good:
-
-```zsh
-print -r -- "$user_input"
-```
-
-Severity: Info. Re\-evaluating dynamic input is risky, but deliberate uses such as trusted code generation and compatibility shims are common enough that the pattern is not automatically a bug.
-
-False positives: Static, maintainer\-controlled command strings and deliberate shell\-language adapters may require `eval`. Keep the finding visible unless the trust boundary is documented next to the call.
-
-Suppression: Use `# zsh-lint disable=security/eval -- <reason>` on the finding line or immediately before the next non\-comment, non\-blank source line. A reason is strongly recommended for this security\-category rule.
-
-Corpus evidence: The June 12, 2026 LangZsh clean\-baseline run produced zero findings from this rule across the 11 parseable corpus files. This grandfathered rule therefore has no positive corpus citation yet.
-
-```go
-type EvalUsage struct{}
-```
-
-
-###### func \(EvalUsage\) Analyze
-
-```go
-func (r EvalUsage) Analyze(ctx *analyzer.Context, node syntax.Node)
-```
-
-
-
-
-###### func \(EvalUsage\) ID
-
-```go
-func (r EvalUsage) ID() diag.RuleID
-```
-
-
-
-
-###### func \(EvalUsage\) Name
-
-```go
-func (r EvalUsage) Name() string
-```
-
-
-
-
-##### type FpathHygiene
-
-FpathHygiene checks `fpath` modifications in plugin scripts for safety and best practices.
-
-ID: `plugin/fpath-hygiene`
-
-Name: fpath manipulation hygiene in plugin entrypoints
-
-Summary: In configured plugin and Zi annex sourced\-library entrypoints, detects destructive assignments to `fpath` that overwrite existing autoload paths, additions of non\-function directories \(`bin/`, `tests/`\), and hardcoded user paths. Unconfigured analysis retains its legacy applicability.
-
-Why: Sourced Zsh plugins must not destructively replace `fpath` \(which removes standard system and user function directories\), add hardcoded user machine paths, or add non\-function directories \(`bin/`, `tests/`\) that can trigger completion security audit warnings \(`compaudit`\) or namespace collisions. Plugins should append or prepend relative `functions/` or `completions/` directories. See https://wiki.zshell.dev/community/zsh_plugin_standard#completions-and-compinit-ownership.
-
-Bad:
-
-```zsh
-#### Destructively overwrites existing autoload paths
-fpath=( "${0:h}/functions" )
-
-#### Adds binary directory to fpath
-fpath+=( "${0:h}/bin" )
-```
-
-Good:
-
-```zsh
-fpath+=( "${0:h}/functions" "${0:h}/completions" )
-
-#### Prepending while preserving existing paths
-fpath=( "${0:h}/functions" $fpath )
-```
-
-Severity: Warning for destructive `fpath` overwrites or additions of `bin`/`tests` directories to `fpath`.
-
-False positives: Hermetic test runners or standalone shell bootstrap scripts that deliberately isolate `fpath`. Suppress with a reason.
-
-Suppression: Use `# zsh-lint disable=plugin/fpath-hygiene -- <reason>` on the finding line or immediately before the next non\-comment, non\-blank source line.
-
-Corpus evidence: `z-a-meta-plugins/z-a-meta-plugins.plugin.zsh:12` uses compliant `fpath+=( "${0:h}/functions" )`.
-
-```go
-type FpathHygiene struct{}
-```
-
-
-###### func \(FpathHygiene\) Analyze
-
-```go
-func (rule FpathHygiene) Analyze(ctx *analyzer.Context, node syntax.Node)
-```
-
-
-
-
-###### func \(FpathHygiene\) ID
-
-```go
-func (FpathHygiene) ID() diag.RuleID
-```
-
-
-
-
-###### func \(FpathHygiene\) Name
-
-```go
-func (FpathHygiene) Name() string
-```
-
-
-
-
-##### type FuncDeclStyle
-
-FuncDeclStyle reports function declarations that combine `function` and `()`.
-
-ID: `style/function-decl`
-
-Name: Function declaration style
-
-Summary: Reports declarations written as `function name()` instead of choosing either `name()` or `function name`.
-
-Why: The Zsh manual's Complex Commands grammar documents the sh\-compatible `word ()` form and the Zsh `function word` form as alternatives. Combining both spellings is accepted but redundant, so choosing one form communicates the intended style more clearly. See https://zsh.sourceforge.io/Doc/Release/Shell-Grammar.html#Complex-Commands.
-
-Bad:
-
-```zsh
-function render() { print ok; }
-```
-
-Good:
-
-```zsh
-render() { print ok; }
-```
-
-Severity: Hint. The mixed declaration is valid Zsh and the suggested change is stylistic.
-
-False positives: Generated code or a project\-wide convention may intentionally use the mixed spelling even though Zsh does not require it.
-
-Suppression: Use `# zsh-lint disable=style/function-decl -- <reason>` on the finding line or immediately before the next non\-comment, non\-blank source line.
-
-Corpus evidence: The June 12, 2026 LangZsh clean\-baseline run produced zero findings from this rule across the 11 parseable corpus files. This grandfathered rule therefore has no positive corpus citation yet.
-
-```go
-type FuncDeclStyle struct{}
-```
-
-
-###### func \(FuncDeclStyle\) Analyze
-
-```go
-func (r FuncDeclStyle) Analyze(ctx *analyzer.Context, node syntax.Node)
-```
-
-
-
-
-###### func \(FuncDeclStyle\) ID
-
-```go
-func (r FuncDeclStyle) ID() diag.RuleID
-```
-
-
-
-
-###### func \(FuncDeclStyle\) Name
-
-```go
-func (r FuncDeclStyle) Name() string
-```
-
-
-
-
-##### type FunctionNamespace
-
-FunctionNamespace reports persistent plugin function names outside the configured stable project namespace.
-
-ID: `plugin/function-namespace`
-
-Name: Project\-owned function namespace
-
-Summary: Reports named functions in configured plugin and Zi annex source files, plus effective function names derived from configured autoload file basenames, when they do not use an explicitly declared project namespace.
-
-Why: The Zsh Plugin Standard requires persistent shell\-visible names to use a stable project identifier. Namespacing prevents collisions when unrelated plugins share one shell process. Native completions keep Zsh's `_command` convention, and the established `.`, `→`, `+`, `/`, and `@` role prefixes remain valid before the project namespace. The portable `_example_callback` form is also accepted. See https://wiki.zshell.dev/community/zsh_plugin_standard#names-and-persistent-state and https://wiki.zshell.dev/community/zsh_plugin_standard#standard-function-name-space-prefixes.
-
-Bad:
-
-```zsh
-refresh() { builtin emulate -L zsh; }
-```
-
-Good:
-
-```zsh
-example_refresh() { builtin emulate -L zsh; }
-_example_precmd() { builtin emulate -L zsh; }
-```
-
-Severity: Hint. A mismatched namespace is an interoperability and hygiene concern, not invalid Zsh syntax.
-
-False positives: The rule runs only with version 1 project configuration, a plugin or Zi annex project kind, a sourced\-library or autoload\-function source profile, and at least one explicit function namespace. Completion basenames use `_command` only when the source role is `completion`. Repository names and directory names are never inferred as namespaces.
-
-Suppression: Use `# zsh-lint disable=plugin/function-namespace -- <reason>` on a declaration line or immediately before it. For an autoload basename finding, put the standalone directive in the file header before any source code.
-
-Corpus evidence: `zsh-eza/functions/.zsh-eza` and the `z-a-meta-plugins/functions/.za-meta-plugins-*` files use their configured namespaces. `zsh-fancy-completions/lib/state.zsh` uses its explicit `zfc` namespace. Its five legacy dot\-prefixed autoload basenames \(`.complete_menu`, `.completion-prediction`, `.expand-or-complete-with-dots`, `.force_rehash`, and `.man_glob`\) are classified as true\-positive Hint findings. Advisory rollout does not require renaming those established external interfaces.
-
-```go
-type FunctionNamespace struct{}
-```
-
-
-###### func \(FunctionNamespace\) Analyze
-
-```go
-func (rule FunctionNamespace) Analyze(ctx *analyzer.Context, node syntax.Node)
-```
-
-
-
-
-###### func \(FunctionNamespace\) AnalyzeFile
-
-```go
-func (rule FunctionNamespace) AnalyzeFile(ctx *analyzer.Context)
-```
-
-AnalyzeFile checks the effective function name supplied by an autoload file basename. It deliberately reports an unpositioned diagnostic because no AST token represents that name.
-
-
-###### func \(FunctionNamespace\) ID
-
-```go
-func (FunctionNamespace) ID() diag.RuleID
-```
-
-
-
-
-###### func \(FunctionNamespace\) Name
-
-```go
-func (FunctionNamespace) Name() string
-```
-
-
-
-
-##### type FunctionScopedOptions
-
-FunctionScopedOptions reports autoloadable function files that execute logic before localizing inherited shell options.
-
-ID: `plugin/function-scoped-options`
-
-Name: Function files should scope shell options
-
-Summary: For configured plugin and Zi annex projects, reports autoload function sources when neither `builtin emulate -L zsh` nor `setopt local_options` appears before the first non\-guard top\-level statement. Unconfigured analysis retains the legacy `functions` path heuristic.
-
-Why: Zsh functions inherit the caller's option state. The Zsh manual documents `LOCAL_OPTIONS` as restoring options on function return, while `emulate -L` both selects Zsh emulation and makes option changes local. Without either form, options such as `SH_WORD_SPLIT`, `KSH_ARRAYS`, or `NO_EXTENDED_GLOB` can silently change function behavior. See https://zsh.sourceforge.io/Doc/Release/Options.html#index-LOCAL_005fOPTIONS and https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html#index-emulate.
-
-Bad:
-
-```zsh
-local -a matches
-matches=( $~pattern )
-```
-
-Good:
-
-```zsh
-builtin emulate -L zsh
-local -a matches
-matches=( $~pattern )
-```
-
-Severity: Hint. Missing option scoping enables latent caller\-dependent bugs, but some helper functions intentionally inspect or mutate caller option state.
-
-False positives: Functions that intentionally share caller option state and trivial single\-builtin functions remain findings by design; suppress them with a reason. Files outside a complete `functions` path segment are out of scope. A contiguous prefix of recognized `condition || return` or single\-return `if` guards is accepted before scoping.
-
-Suppression: Use `# zsh-lint disable=plugin/function-scoped-options -- <reason>` on the finding line or immediately before the next non\-comment, non\-blank source line.
-
-Corpus evidence: Issue \#63 reported missing scoping across z\-a\-meta\-plugins and zsh\-fancy\-completions function files. The analyzer currently flags `zsh-fancy-completions/functions/.completion-prediction` and `zsh-fancy-completions/functions/.force_rehash`. The originally cited `z-a-meta-plugins/functions/.za-meta-plugins-meta-cmd-help-handler` is a fully commented\-out stub and is correctly silent. Compliant `setopt local_options` and `builtin emulate -L zsh` examples exist in the same repositories.
-
-```go
-type FunctionScopedOptions struct{}
-```
-
-
-###### func \(FunctionScopedOptions\) Analyze
-
-```go
-func (rule FunctionScopedOptions) Analyze(ctx *analyzer.Context, node syntax.Node)
-```
-
-
-
-
-###### func \(FunctionScopedOptions\) ID
-
-```go
-func (FunctionScopedOptions) ID() diag.RuleID
-```
-
-
-
-
-###### func \(FunctionScopedOptions\) Name
-
-```go
-func (FunctionScopedOptions) Name() string
-```
-
-
-
-
-##### type PreferDoubleBrackets
-
-PreferDoubleBrackets reports `[` and `test` conditional commands.
-
-ID: `style/prefer-double-brackets`
-
-Name: Prefer \[\[ \]\] over \[ \] or test
-
-Summary: Reports literal `[` and `test` command names in favor of Zsh's `[[ ... ]]` compound command.
-
-Why: The Zsh manual's Conditional Expressions section documents that expansions inside `[[ ... ]]` are constrained to one word and do not perform filename generation. With `[` or `test`, normal command\-line globbing can produce multiple words and confuse the test command's syntax. See https://zsh.sourceforge.io/Doc/Release/Conditional-Expressions.html.
-
-Bad:
-
-```zsh
-if [ "$name" = *.zsh ]; then print match; fi
-```
-
-Good:
-
-```zsh
-if [[ $name = *.zsh ]]; then print match; fi
-```
-
-Severity: Hint. `[` and `test` remain valid commands; the rule recommends the safer and more expressive Zsh\-native conditional syntax.
-
-False positives: Scripts intentionally kept portable across POSIX shells, or code that explicitly needs `test` command semantics, should retain the portable form and document the choice.
-
-Suppression: Use `# zsh-lint disable=style/prefer-double-brackets -- <reason>` on the finding line or immediately before the next non\-comment, non\-blank source line.
-
-Corpus evidence: The June 12, 2026 LangZsh clean\-baseline run produced zero findings from this rule across the 11 parseable corpus files. This grandfathered rule therefore has no positive corpus citation yet.
-
-```go
-type PreferDoubleBrackets struct{}
-```
-
-
-###### func \(PreferDoubleBrackets\) Analyze
-
-```go
-func (r PreferDoubleBrackets) Analyze(ctx *analyzer.Context, node syntax.Node)
-```
-
-
-
-
-###### func \(PreferDoubleBrackets\) ID
-
-```go
-func (r PreferDoubleBrackets) ID() diag.RuleID
-```
-
-
-
-
-###### func \(PreferDoubleBrackets\) Name
-
-```go
-func (r PreferDoubleBrackets) Name() string
-```
-
-
-
-
-##### type Profile
-
-Profile identifies one complete, versioned configured rule set. Profile versions are owned by the rule registry and are independent from project configuration schema versions.
-
-```go
-type Profile string
-```
-
-
-
-```go
-const (
-    // ProjectProfileV1 is the first configured Z-Shell project rule profile.
-    ProjectProfileV1 Profile = "z-shell/project@1"
-
-    // CurrentProjectProfile is selected for validated project configurations in
-    // this release.
-    CurrentProjectProfile = ProjectProfileV1
-)
-```
-
-
-##### type ProjectUnloadLifecycle
-
-ProjectUnloadLifecycle checks configured registration and unload presence across every source supplied in one project invocation.
-
-```go
-type ProjectUnloadLifecycle struct{}
-```
-
-
-###### func \(ProjectUnloadLifecycle\) Analyze
-
-```go
-func (ProjectUnloadLifecycle) Analyze(_ *analyzer.Context, _ syntax.Node)
-```
-
-
-
-
-###### func \(ProjectUnloadLifecycle\) AnalyzeProject
-
-```go
-func (rule ProjectUnloadLifecycle) AnalyzeProject(ctx *analyzer.ProjectContext)
-```
-
-
-
-
-###### func \(ProjectUnloadLifecycle\) ID
-
-```go
-func (ProjectUnloadLifecycle) ID() diag.RuleID
-```
-
-
-
-
-###### func \(ProjectUnloadLifecycle\) Name
-
-```go
-func (ProjectUnloadLifecycle) Name() string
-```
-
-
-
-
-##### type RepeatedExternalCommand
-
-RepeatedExternalCommand reports known external commands in completion loops.
-
-ID: `performance/repeated-external-command`
-
-Name: Repeated external command in completion loop
-
-Summary: Reports a conservative allowlist of commands that necessarily create a process when they occur in a loop in a configured completion source.
-
-Why: A loop with N iterations creates N external processes for each reported call. Process creation is the dominant fixed cost even when the command does little work. Hoist invariant work, use Zsh\-native parameter operations, or measure and retain the call when its result genuinely varies per iteration.
-
-Severity: Info. The cost model is certain, but whether it matters depends on iteration count, command work, and the interactive completion workload.
-
-False positives: A command whose result must be recomputed for each item may be intentional. Measure the completion path before changing behavior.
-
-```go
-type RepeatedExternalCommand struct{}
-```
-
-
-###### func \(RepeatedExternalCommand\) Analyze
-
-```go
-func (rule RepeatedExternalCommand) Analyze(ctx *analyzer.Context, node syntax.Node)
-```
-
-
-
-
-###### func \(RepeatedExternalCommand\) ID
-
-```go
-func (RepeatedExternalCommand) ID() diag.RuleID
-```
-
-
-
-
-###### func \(RepeatedExternalCommand\) Name
-
-```go
-func (RepeatedExternalCommand) Name() string
-```
-
-
-
-
-##### type SpecialParamShadow
-
-SpecialParamShadow reports declarations that shadow parameters set by the shell.
-
-ID: `compat/special-param-shadow`
-
-Name: Shadowing special shell parameters
-
-Summary: Reports `local`, `typeset`, `declare`, or `readonly` declarations of a curated set of shell\-set parameters \(for example `ZSH_VERSION`, `OSTYPE`, and `pipestatus`\); explicit non\-local `-g` declarations \(including `readonly -g`\), the `export` builtin, and `typeset`\-family query/display/function modes \(standalone `+`, `-p`/`+p`, `+m`, and `-f`/`+f`\) are excluded. Pattern declarations with `-m` are reported only when an effective `+g` makes matching non\-local parameters local. The rule also stays silent when dynamic option words or the ambient `GLOBAL_EXPORT` option make declaration scope uncertain. Reads are never reported.
-
-Why: The Zsh manual's zshparam "Parameters Set By The Shell" section documents these as shell\-provided state. In a function, `readonly` is `typeset -r` and creates a local binding unless `-g` explicitly selects non\-local behavior. Version probes such as `is-at-least $ZSH_VERSION` are pervasive in plugin code, so a `local ZSH_VERSION=...` in a caller silently feeds the override to all nested code for the lifetime of the scope. At top level, the same declaration form clobbers the shell\-managed outer binding instead of creating a temporary local. Unlike ordinary shadowing, the reader has no declaration of the original to look up \-\- the shell set it. See https://zsh.sourceforge.io/Doc/Release/Parameters.html#Parameters-Set-By-The-Shell.
-
-Bad:
-
-```zsh
-compile_zsh() {
-  local ZSH_VERSION="$1"
-}
-```
-
-Good:
-
-```zsh
-compile_zsh() {
-  local target_zsh_version="$1"
-}
-```
-
-Severity: Warning. The pattern is functional but misleading and can change what nested code observes; deliberate compatibility shims are realistic, so it is suppressible rather than an error.
-
-False positives: Deliberate compatibility shims or test harnesses that fake `ZSH_VERSION` or `OSTYPE` for downstream code are the rule's target behavior made intentional; suppress them with a reason. The rule flags only a curated allowlist of read\-mostly shell\-set parameters and stays silent for reads and the conventionally mutated `path`, `fpath`, `PATH`, `REPLY`, and `match`. The shell\-special `status` and `pipestatus` cases remain included because `local -h status=...` and `local -h pipestatus=(...)` can replace their special behavior with ordinary local bindings.
-
-Suppression: Use `# zsh-lint disable=compat/special-param-shadow -- <reason>` on the finding line or immediately before the next non\-comment, non\-blank source line.
-
-Corpus evidence: Issue \#64 records `zd/docker/utils.zsh:78`: `local ZSH_VERSION="$1"` inside a helper that takes a target version as its first argument. Deferred issue \#72 tracks bare assignments in function scope and `integer`/`float` declarations; both are out of scope for this rule version.
-
-```go
-type SpecialParamShadow struct{}
-```
-
-
-###### func \(SpecialParamShadow\) Analyze
-
-```go
-func (rule SpecialParamShadow) Analyze(ctx *analyzer.Context, node syntax.Node)
-```
-
-
-
-
-###### func \(SpecialParamShadow\) ID
-
-```go
-func (SpecialParamShadow) ID() diag.RuleID
-```
-
-
-
-
-###### func \(SpecialParamShadow\) Name
-
-```go
-func (SpecialParamShadow) Name() string
-```
-
-
-
-
-##### type UnloadFunction
-
-UnloadFunction checks plugin entrypoints for lifecycle unload conventions.
-
-ID: `plugin/unload-function`
-
-Name: Unload function convention and hygiene
-
-Summary: Checks configured plugin and Zi annex sourced\-library entrypoints that register persistent shell hooks or widgets for a namespaced unload function \(`*_plugin_unload`\), and checks that defined unload functions cleanly unfunction themselves upon completion. Configured multi\-file invocations aggregate registration and unload presence across the project; unconfigured analysis retains the legacy per\-file path heuristic.
-
-Why: The Zsh Plugin Standard specifies that plugins with persistent side effects \(hooks via `add-zsh-hook`, line\-editor widgets via `add-zle-hook-widget` or `zle -N`\) should provide a namespaced `*_plugin_unload` function so plugin managers and users can cleanly unload the plugin without restarting the shell. The unload function must explicitly remove only its own resources and unfunction itself upon completion. See https://wiki.zshell.dev/community/zsh_plugin_standard#lifecycle-and-resource-ownership.
-
-Bad:
-
-```zsh
-#### Plugin installs hook but provides no unload function
-add-zsh-hook precmd _my_precmd
-```
-
-Good:
-
-```zsh
-add-zsh-hook precmd _my_precmd
-
-my_plugin_unload() {
-  emulate -L zsh
-  autoload -Uz add-zsh-hook
-  add-zsh-hook -d precmd _my_precmd
-  unfunction _my_precmd my_plugin_unload
-}
-```
-
-Severity: Hint. Missing unload functions or self\-unfunction in unload definitions are lifecycle recommendations. Indiscriminate function wiping is a Warning.
-
-False positives: Plugins intended only for static, once\-per\-session loading without unload support. Suppress with a reason.
-
-Suppression: Use `# zsh-lint disable=plugin/unload-function -- <reason>` on the finding line or immediately before the next non\-comment, non\-blank source line.
-
-Corpus evidence: `zsh-fancy-completions/lib/state.zsh:72` implements `zsh-fancy-completions_plugin_unload` with full resource restoration and self\-unfunction.
-
-```go
-type UnloadFunction struct{}
-```
-
-
-###### func \(UnloadFunction\) Analyze
-
-```go
-func (rule UnloadFunction) Analyze(ctx *analyzer.Context, node syntax.Node)
-```
-
-
-
-
-###### func \(UnloadFunction\) ID
-
-```go
-func (UnloadFunction) ID() diag.RuleID
-```
-
-
-
-
-###### func \(UnloadFunction\) Name
-
-```go
-func (UnloadFunction) Name() string
-```
-
-
-
-
-##### type UnquotedVar
-
-UnquotedVar reports direct, unquoted parameter expansions in command words.
-
-ID: `quoting/unquoted-var`
-
-Name: Unquoted variable expansion
-
-Summary: Reports parameter expansions in command names or arguments that are not enclosed in double quotes.
-
-Why: The Zsh manual's Parameter Expansion section explains that unquoted parameters are not split on whitespace by default, unlike in sh, but null words are still elided; enabling `SH_WORD_SPLIT` also makes unquoted values subject to field splitting. Double quotes preserve an empty scalar as an argument and keep the expansion single\-word under either option state. See https://zsh.sourceforge.io/Doc/Release/Expansion.html#Parameter-Expansion.
-
-Bad:
-
-```zsh
-print -r -- $value
-```
-
-Good:
-
-```zsh
-print -r -- "$value"
-```
-
-Severity: Warning. Losing an empty argument or inheriting `SH_WORD_SPLIT` can change command behavior, while intentional elision remains realistic.
-
-False positives: Explicit native\-Zsh splitting forms such as `${=words}` and flag\-guided array or field splitting are excluded. Other code may intentionally omit an empty argument, rely on `SH_WORD_SPLIT`, or expand a value guaranteed to be non\-empty. Those cases should use a reasoned suppression rather than weakening unrelated diagnostics.
-
-Suppression: Use `# zsh-lint disable=quoting/unquoted-var -- <reason>` on the finding line or immediately before the next non\-comment, non\-blank source line.
-
-Corpus evidence: Sourced scripts and plugin entrypoints frequently use quoted parameters for scalar configuration and path derivation.
-
-```go
-type UnquotedVar struct{}
-```
-
-
-###### func \(UnquotedVar\) Analyze
-
-```go
-func (r UnquotedVar) Analyze(ctx *analyzer.Context, node syntax.Node)
-```
-
-
-
-
-###### func \(UnquotedVar\) ID
-
-```go
-func (r UnquotedVar) ID() diag.RuleID
-```
-
-
-
-
-###### func \(UnquotedVar\) Name
-
-```go
-func (r UnquotedVar) Name() string
-```
-
-
-
-
-##### type ZeroHandling
-
-ZeroHandling reports uninitialized top\-level usage of `$0` in plugin entrypoints.
-
-ID: `plugin/zero-handling`
-
-Name: Zero\-handling idiom in plugin entrypoint
-
-Summary: Reports direct uses of `$0` at the top level of configured plugin and Zi annex sourced\-library entrypoints. Configured analysis also reports assignment to special parameter `0`, because sourced entrypoints must not replace caller state. Unconfigured analysis retains the legacy path heuristic.
-
-Why: When a Zsh plugin is sourced, positional parameter `$0` evaluates to the name of the shell \(`zsh` or `-zsh`\) rather than the path of the sourced script, unless `FUNCTION_ARGZERO` is active. Configured plugin entrypoints must resolve the source path with prompt expansion `${(%):-%N}` or `${(%):-%x}` \(optionally with `$ZERO` fallback\) and pass it into a localized scope instead of assigning to caller\-visible special parameter `0`. See https://wiki.zshell.dev/community/zsh_plugin_standard#zero-handling.
-
-Bad:
-
-```zsh
-fpath+=( "${0:h}/functions" )
-```
-
-Good \(configured sourced entrypoint\):
-
-```zsh
-() {
-  local source_path=$1
-  fpath+=( "${source_path:h}/functions" )
-} "${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"
-```
-
-Severity: Warning. Deriving paths from uninitialized `$0` can load the wrong path; assigning to `0` can replace caller state or fail when `POSIX_ARGZERO` makes it read\-only.
-
-False positives: Scripts intended solely for direct execution \(not sourcing\) or functions where `$0` refers to the function name. Suppress with a reason.
-
-Suppression: Use `# zsh-lint disable=plugin/zero-handling -- <reason>` on the finding line or immediately before the next non\-comment, non\-blank source line.
-
-Corpus evidence: z\-a\-meta\-plugins, zsh\-fancy\-completions, and zsh\-eza use the caller\-preserving anonymous\-function argument pattern.
-
-```go
-type ZeroHandling struct{}
-```
-
-
-###### func \(ZeroHandling\) Analyze
-
-```go
-func (rule ZeroHandling) Analyze(ctx *analyzer.Context, node syntax.Node)
-```
-
-
-
-
-###### func \(ZeroHandling\) ID
-
-```go
-func (ZeroHandling) ID() diag.RuleID
-```
-
-
-
-
-###### func \(ZeroHandling\) Name
-
-```go
-func (ZeroHandling) Name() string
-```
-
-
-
-Generated by [gomarkdoc](https://github.com/princjef/gomarkdoc)
-
-{/* zsh-lint:generated:end */}
-
-{/* end-of-file */}
-{/* links */}
-{/* external */}
-
-[z-shell/zsh-lint]: https://github.com/z-shell/zsh-lint
+zsh-lint path/to/script.zsh
+```
+
+If Go's binary directory is not already on your `PATH`, run the installed
+binary as `"$(go env GOPATH)/bin/zsh-lint"`.
+
+:::important File recognition
+The published CLI does not inspect a shebang, require a `.zsh` extension, scan
+directories, or discover files. Every explicit path is treated as Zsh source.
+An extensionless autoloaded function works when you name it directly, while a
+Bash file is still parsed as Zsh if you pass its path.
+:::
+
+## Choose a guide
+
+<CardGrid>
+
+<Card
+  title="Getting started"
+  to="/community/zsh_lint/zsh-lint-getting-started"
+  icon="/img/svg/cards/packages.svg"
+  cta="Run the first check"
+>
+  Install a pinned release, lint a small script, and understand the result.
+</Card>
+
+<Card
+  title="Choosing files"
+  to="/community/zsh_lint/zsh-lint-choosing-files"
+  icon="/img/svg/cards/history-search.svg"
+  cta="Select inputs"
+>
+  Learn how explicit paths, shebangs, extensions, directories, and mixed shell repositories behave.
+</Card>
+
+<Card
+  title="Project configuration"
+  to="/community/zsh_lint/zsh-lint-project-configuration"
+  icon="/img/svg/cards/annexes.svg"
+  cta="Preview main"
+>
+  Try the unreleased configuration support for plugins and multi-profile projects.
+</Card>
+
+<Card
+  title="Rules and suppressions"
+  to="/community/zsh_lint/zsh-lint-rules-and-suppressions"
+  icon="/img/svg/cards/flexible.svg"
+  cta="Handle findings"
+>
+  Read diagnostics and document intentional exceptions without hiding other rules.
+</Card>
+
+<Card
+  title="CI and JSON"
+  to="/community/zsh_lint/zsh-lint-ci-and-json"
+  icon="/img/svg/cards/ecosystem.svg"
+  cta="Automate checks"
+>
+  Add a reproducible GitHub Actions check and consume structured output.
+</Card>
+
+<Card
+  title="Troubleshooting"
+  to="/community/zsh_lint/zsh-lint-troubleshooting"
+  icon="/img/svg/cards/zi-console.svg"
+  cta="Fix common problems"
+>
+  Resolve install, input, parser, exit-code, and configuration surprises.
+</Card>
+
+<Card
+  title="Parser survey"
+  to="/community/zsh_lint/zsh-lint-parser-survey"
+  icon="/img/svg/cards/speed.svg"
+  cta="Survey a corpus"
+>
+  Use the advanced parser-coverage command without running lint rules.
+</Card>
+
+<Card
+  title="Published rule reference"
+  to="/community/zsh_lint/zsh-lint-rule-reference"
+  icon="/img/svg/cards/syntax-highlighting.svg"
+  cta="Browse rules"
+>
+  See the readable rule set generated from the latest published release.
+</Card>
+
+</CardGrid>
+
+## Published and unreleased behavior
+
+The stable guides describe v1.1.0. The project-configuration guide is clearly
+marked as an unreleased preview of `main`. Automatic file discovery and
+shebang-based classification are not implemented; that design is tracked in
+[zsh-lint issue 183](https://github.com/z-shell/zsh-lint/issues/183).
+
+Source code and development status live in
+[z-shell/zsh-lint](https://github.com/z-shell/zsh-lint).
