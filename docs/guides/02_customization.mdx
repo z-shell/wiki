@@ -38,11 +38,11 @@ source "${ZI[BIN_DIR]}/zi.zsh"
 
 | Hash Field                           | Default                       | Description                                    |
 | ------------------------------------ | ----------------------------- | ---------------------------------------------- |
-| `ZI[HOME_DIR]`                       | `${XDG_DATA_HOME:-$HOME/.local/share}/zi` | Where Zi should create all working directories |
+| `ZI[HOME_DIR]`                       | Legacy `$HOME/.zi`, otherwise XDG data `zi` | Where Zi should create all working directories |
 | `ZI[BIN_DIR]`                        | `$ZI[HOME_DIR]/bin`           | Directory where Zi code resides                |
 | `ZI[COMPLETIONS_DIR]`                | `$ZI[HOME_DIR]/completions`   | Completion working directory                   |
-| `ZI[CACHE_DIR]`                      | `$HOME/.cache/zi`             | Cache directory                                |
-| `ZI[CONFIG_DIR]`                     | `$HOME/.config/zi`            | Directory for configuration files              |
+| `ZI[CACHE_DIR]`                      | `${XDG_CACHE_HOME:-$HOME/.cache}/zi` | Cache directory                           |
+| `ZI[CONFIG_DIR]`                     | `${XDG_CONFIG_HOME:-$HOME/.config}/zi` | Directory for configuration files         |
 | `ZI[MAN_DIR]`                        | `$ZPFX/man`                   | Directory to store manpages                    |
 | `ZI[LOG_DIR]`                        | `$ZI[CACHE_DIR]/log`          | Directory to store log files                   |
 | `ZI[PLUGINS_DIR]`                    | `$ZI[HOME_DIR]/plugins`       | Plugins working directory                      |
@@ -60,24 +60,53 @@ source "${ZI[BIN_DIR]}/zi.zsh"
 If you install with the [loader](/docs/getting_started/installation#loader),
 `init.zsh` sets `ZI[REPOSITORY]`, `ZI[STREAM]`, `ZI[HOME_DIR]`, and
 `ZI[BIN_DIR]` before Zi is cloned, because those four decide what to fetch and
-where. Every other field in this table is owned by `zi.zsh` and derived from
-them.
-
-`ZI[HOME_DIR]` differs by entry point. The loader defaults to
-`${XDG_DATA_HOME:-$HOME/.local/share}/zi`, while `zi.zsh`'s current fallback
-for an unset value is `${HOME}/.zi`. The loader always assigns the value before
-`zi.zsh` runs, so a single session is always consistent, but sourcing `zi.zsh`
-directly without the loader uses the other layout. Set `ZI[HOME_DIR]` yourself
-if you want both entry points to agree.
-
-Zi is adopting XDG-first path resolution. When that lands, these entry points
-converge on the XDG locations the loader already uses, and this table is
-updated with it.
+where. It mirrors the core home resolver. Every other field in this table,
+including cache and configuration, is owned by `zi.zsh`.
 
 To override any field, assign it in your `.zshrc` **before** sourcing the
 loader or `zi.zsh`.
 
 :::
+
+#### Path precedence and XDG validity
+
+Zi resolves paths in this order:
+
+1. A non-empty explicit `ZI[...]` path, or explicit `ZPFX`, wins.
+2. For `ZI[HOME_DIR]`, a recognized legacy `$HOME/.zi` installation remains
+   active so code, plugins, snippets, completions, and modules are not split.
+3. Otherwise Zi uses the matching XDG base when its value is an absolute path.
+4. An unset, empty, or relative XDG value uses the specification fallback:
+   `$HOME/.local/share`, `$HOME/.cache`, or `$HOME/.config`.
+
+Zi does not use `ZDOTDIR` for application data, cache, or configuration. It is
+the home for Zsh startup files, not a Zi storage base. XDG destinations do not
+need to exist in advance; Zi creates its new application roots privately and
+does not change permissions on a pre-existing base directory.
+
+`XDG_ZI_HOME`, `XDG_ZI_CACHE`, and `XDG_ZI_CONFIG` are exported compatibility
+outputs derived from the resolved `ZI[...]` values. They are not configuration
+inputs. Set `ZI[HOME_DIR]`, `ZI[CACHE_DIR]`, or `ZI[CONFIG_DIR]` instead.
+
+#### Legacy and both-present homes
+
+Zi never moves, merges, deletes, or overwrites an installation merely because
+an XDG location is available. If only a recognized `$HOME/.zi` installation
+exists, Zi keeps using it and `zi zstatus` displays a migration hint outside
+the shell startup path.
+
+If both legacy and XDG homes contain Zi data, Zi uses an explicit configuration
+or the sourced `ZI[BIN_DIR]` identity. An external checkout without either
+identity conservatively selects the legacy home. `zi zstatus` reports the
+ambiguity and selected root. To resolve it, set `ZI[HOME_DIR]` before sourcing
+the loader or `zi.zsh`; do not combine roots manually while shells are using
+them.
+
+An automatic migration command is not part of path resolution. Follow
+[z-shell/zi#429](https://github.com/z-shell/zi/issues/429) for the planned
+explicit, recoverable migration workflow. Until it is released, keep a backup
+and treat changing `ZI[HOME_DIR]` as selecting another root, not as moving the
+existing one.
 
 ### <i class="fa-solid fa-sliders"></i> Modify settings {/* #modify-settings */}
 
@@ -128,7 +157,7 @@ zi as'null' wait'1' lucid for \
     tj/git-extras
 ```
 
-The target directory for installed files is `$ZPFX` - `${XDG_DATA_HOME:-$HOME/.local/share}/zi/polaris` by default.
+The target directory for installed files is `$ZPFX` - `${ZI[HOME_DIR]}/polaris` by default.
 
 With [meta-plugins][z-shell/z-a-meta-plugins] consisting of:
 
