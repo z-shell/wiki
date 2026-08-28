@@ -5,6 +5,7 @@ sidebar_position: 3
 slug: /zsh_plugin_standard
 image: /img/png/theme/z/320x320.png
 description: Standards and best practices for creating Zsh plugins.
+standard_version: 2
 toc_max_heading_level: 3
 keywords:
   - zsh
@@ -16,9 +17,10 @@ keywords:
   - zsh-plugin-standard
 ---
 
-This page defines what a Zsh plugin is and how plugins and plugin managers
-interoperate. Following the portable core lets people source your plugin
-directly or load it through different frameworks and plugin managers.
+This page defines what a Zsh plugin is, how it is structured, and how plugins
+and plugin managers interoperate. Following the portable core lets people
+source your plugin directly or load it through different frameworks and plugin
+managers without learning a repository-specific architecture first.
 
 :::note[Status of this document]
 
@@ -43,16 +45,25 @@ Zsh documentation remains authoritative for shell semantics.
 
 ## Conformance language {/* #conformance-language */}
 
-The terms in this page have these meanings:
+This page publishes version 2 of the portable contract. The terms in this page
+have these meanings:
 
 - **Zsh guarantee** describes behavior documented by the current Zsh manual.
-- **Portable core** describes manager-independent recommendations for a plugin.
-  The nine numbered requirements below are the portable core.
+- **MUST**, **MUST NOT**, **SHOULD**, and **MAY** have their usual normative
+  meanings. A documented reason is required when a plugin does not follow a
+  **SHOULD** rule.
+- **Portable core** describes manager-independent requirements for a plugin.
+  It includes the numbered interoperability requirements and the architecture,
+  loading, namespace, configuration, lifecycle, and testing contracts below.
 - **Optional profile** describes conventions implemented by named managers.
   A plugin can use a profile, but must not silently require it.
 
 A portable plugin does not require a manager, a manager-owned global parameter,
 or a manifest. There is no plugin manifest standard defined by this page.
+
+Version 2 is a clean contract, not a compatibility mode. Older conventions can
+be documented as history, but they are not alternative ways to claim current
+portable conformance.
 
 Each numbered requirement carries a **STATUS** block recording which managers
 implement it, with pinned source citations.
@@ -79,8 +90,9 @@ At a simple level, a plugin:
 
 3. From a broader perspective, a plugin consists of:
 
-   3.1. a directory containing various files: the main script, autoload
-   functions, completions, Makefiles, backend programs, documentation;
+   3.1. a directory containing various files: the main script, private sourced
+   libraries, autoload functions, completions, Makefiles, backend programs, and
+   documentation;
 
    3.2. a sourceable script that obtains the path to its own directory through
    `$0`, as described in [requirement 1](#zero-handling);
@@ -679,6 +691,8 @@ A maintainable layout is:
 ```text title="Example plugin layout"
 example/
 ├── example.plugin.zsh       # authoritative entrypoint
+├── lib/                     # optional private, eagerly sourced helpers
+│   └── setup.zsh
 ├── functions/               # optional autoload functions
 │   └── example_command
 ├── completions/             # optional completion functions
@@ -687,6 +701,22 @@ example/
 ├── LICENSE
 └── README.md
 ```
+
+The directory names describe execution, not merely organization:
+
+- `lib/` contains private implementation files that the entrypoint must source
+  eagerly. Do not add it to `fpath`, and do not retain setup-only functions
+  after loading.
+- `functions/` contains functions loaded through Zsh autoload, normally one
+  function per file. Use it for work not needed during every shell startup.
+- `completions/` contains native `_command` completion functions and follows
+  completion-system ownership rules.
+- `bin/` contains programs the user invokes explicitly. Plugin loading must not
+  execute them as initialization.
+
+Omit a directory when the plugin does not need that execution profile. A
+different directory name must have equally explicit documented semantics; it
+must not blur eager sourcing and autoloading.
 
 Document which directories a direct-source installation should add to `fpath`
 or `PATH`, and see requirements [2](#functions-directory) and
@@ -800,12 +830,14 @@ for the specific option set, and the
 
 ## Names and persistent state {/* #names-and-persistent-state */}
 
-Prefix every persistent function, parameter, widget, style context, and other
-shell-visible name with a stable project identifier:
+Choose one stable, portable ASCII project identifier and document it in the
+README. Prefix every persistent function, parameter, widget, style context,
+hook callback, and other shell-visible name with that identifier. Public names
+use `example_...`; private callbacks and state use `_example_...`:
 
 ```zsh title="Use a project namespace"
-typeset -gA EXAMPLE_STATE
-EXAMPLE_STATE[enabled]=1
+typeset -gA _example_state
+_example_state[enabled]=1
 
 example_refresh() {
   emulate -L zsh
@@ -818,10 +850,54 @@ _example_precmd() {
 }
 ```
 
-The established ecosystem conventions for naming and for shared state are
-documented in [Standard parameter naming](#standard-parameter-naming),
-[Standard `Plugins` hash](#standard-plugins-hash), and
-[Standard function name-space prefixes](#standard-function-name-space-prefixes).
+Prefix matching must respect a name boundary. An identifier of `example` owns
+`example_refresh` and `_example_precmd`; it does not own `exampled` merely
+because the bytes begin the same way.
+
+Maintain a documented public shell surface. It lists every public function,
+parameter, widget, style context, hook, alias, path entry, and unload function.
+Everything else must be private, temporary, or local. Loading must not retain
+setup-only functions, and a plugin must not create generic helper names that
+unrelated plugins could reasonably choose.
+
+Zsh has no plugin-local namespace for persistent callbacks, so a small number
+of project-prefixed globals can be necessary. Minimize and explicitly allowlist
+them rather than encoding arrays into one scalar or retaining every helper from
+an eagerly sourced library.
+
+See [Standard parameter naming](#standard-parameter-naming),
+[Shared `Plugins` hash](#standard-plugins-hash),
+[Standard function name-space prefixes](#standard-function-name-space-prefixes),
+and [Preventing parameter pollution](#preventing-parameter-pollution).
+
+## Configuration contract {/* #configuration-contract */}
+
+Public configuration must use one coherent project-owned interface. For
+ordinary declarative Zsh configuration, use a namespaced `zstyle` context:
+
+```zsh title="Configure a plugin through one style context"
+zstyle ':example:config' mode compact
+zstyle ':example:config' features history matching
+```
+
+Read scalar values with `zstyle -s`, arrays with `zstyle -a`, booleans with
+`zstyle -t`, and document defaults and value types. Contexts must begin with
+the project identifier, and a plugin must not reuse another subsystem's style
+context.
+
+Use a project-owned global parameter only when persistent runtime state needs
+a Zsh type or mutation model that styles cannot provide. Such parameters are
+private implementation state, not a second public configuration interface.
+Keep real indexed and associative arrays when their shape matters.
+
+A conforming plugin must not expose a scatter of independent global parameters
+for ordinary settings. It also must not use exported environment variables as
+a substitute for namespacing. Environment variables are appropriate only when
+a value must cross an `exec` boundary or be inherited by a child process.
+
+Runtime commands may provide a public mutation interface when validation,
+atomic updates, or immediate reconfiguration is required. They must write the
+same documented configuration model rather than introduce a parallel one.
 
 ## Completions and `compinit` ownership {/* #completions-and-compinit-ownership */}
 
@@ -856,12 +932,30 @@ Treat every persistent side effect as an owned resource:
 - temporary files, cache files, and lock files;
 - background workers, coprocesses, and timers;
 - file descriptors and signal traps;
+- modules loaded by the plugin and special parameters created by those modules;
 - entries intentionally added to `path`, `fpath`, or other global arrays.
 
 Provide a namespaced cleanup function as described in
 [requirement 4](#unload-function). It must stop only known worker process IDs,
 wait for them when appropriate, close only stored file descriptors, remove only
 named hooks and functions, and tolerate partial initialization.
+
+Capture prior state before the first mutation. During unload, restore a prior
+value only when the current value is still the value the plugin installed. If
+the user or another component changed it after load, preserve the newer value.
+Remove a project-created container only when it is still project-owned and
+empty; never delete state another component subsequently adopted.
+
+An unload contract is exact, not best effort. Test it in a clean `zsh -f`
+process by taking a baseline before load, recording the declared load surface,
+unloading, and comparing the final shell to the baseline. The observation
+harness must initialize any modules or special parameters it needs before the
+baseline so it does not attribute its own effects to the plugin.
+
+At minimum, compare functions, parameters and attributes, aliases, options,
+traps, loaded modules, hooks, widgets, key bindings, styles, `path`, and
+`fpath`. Also test repeated source, partial initialization failure, hostile
+caller options, non-interactive loading, and user changes made after load.
 
 Update and migration work should be explicit commands or manager hooks, not
 ordinary load-time behavior.
@@ -895,9 +989,15 @@ Use the XDG base-directory variables when the platform and user configuration
 provide them:
 
 ```zsh title="Derive project-owned storage paths"
-typeset -g EXAMPLE_CACHE_DIR=${XDG_CACHE_HOME:-$HOME/.cache}/example
-typeset -g EXAMPLE_STATE_DIR=${XDG_STATE_HOME:-$HOME/.local/state}/example
-typeset -g EXAMPLE_DATA_DIR=${XDG_DATA_HOME:-$HOME/.local/share}/example
+example_prepare_storage() {
+  emulate -L zsh
+
+  local cache_dir=${XDG_CACHE_HOME:-$HOME/.cache}/example
+  local state_dir=${XDG_STATE_HOME:-$HOME/.local/state}/example
+  local data_dir=${XDG_DATA_HOME:-$HOME/.local/share}/example
+
+  # Create only the directory needed by the explicit operation.
+}
 ```
 
 Use cache for reproducible data, state for persistent operational state, and
@@ -1003,7 +1103,7 @@ example_plugin_unload() {
   autoload -Uz add-zsh-hook
   add-zsh-hook -d precmd _example_precmd
   unfunction _example_precmd example_plugin_unload
-  unset EXAMPLE_STATE
+  unset _example_state
 }
 ```
 
@@ -1064,67 +1164,31 @@ shell or outside an active widget.
 
 ### Standard parameter naming {/* #standard-parameter-naming */}
 
-There is a convention already present in the Zsh world: name array variables in
-lowercase and scalars in uppercase. It is followed by the Zsh manual and by the
-shell itself, for example the `REPLY` scalar and the `reply` array.
+Use descriptive lowercase names for local parameters and explicit `typeset`,
+`local`, or `integer` declarations for their types. Use the stable project
+identifier for persistent parameters, with a leading underscore for private
+state, such as `_example_state` and `_example_items`.
 
-The requirement for scalars to be uppercase is best kept only for global
-parameters. It is fine to name local parameters inside a function in lowercase
-even when they are scalars.
+Capitalization is not a type system in Zsh. The shell's `REPLY` and `reply`
+conventions remain relevant when implementing APIs that specify those names,
+but a plugin must not rely on capitalization alone to communicate a parameter's
+type or ownership. Declare the type and namespace explicitly.
 
-An extension to the convention is proposed: name associative arrays, that is
-hashes, capitalized, with only the first letter uppercase and the remaining
-letters lowercase. See the [next section](#standard-plugins-hash) for an
-example. Where a name consists of multiple words, capitalize each of them, as
-in `typeset -A MyHash`.
+Native completion functions retain the required `_command` file and function
+naming convention.
 
-This convention increases code readability and brings order to it.
+### Shared `Plugins` hash {/* #standard-plugins-hash */}
 
-:::note[Direction of travel]
+Older z-shell plugins used a shared hash named `Plugins` as a registry for
+plugin paths and state. It has no ownership boundary: one plugin can create the
+parameter, another can add keys, and neither can determine safely whether the
+container should disappear during unload.
 
-Zsh does not attach meaning to capitalization, so this convention is a
-readability aid rather than a language rule. It remains the established
-ecosystem convention and is documented here because published plugins follow
-it. For **new** plugins, prefer descriptive local names and project-prefixed
-globals as described in
-[Names and persistent state](#names-and-persistent-state), and document every
-global a user may configure. Completion functions retain Zsh's established
-`_command` naming, which the completion system requires.
-
-:::
-
-### Standard `Plugins` hash {/* #standard-plugins-hash */}
-
-A plugin often has to declare global parameters that live throughout a Zsh
-session. Following
-[namespace pollution prevention](#preventing-parameter-pollution), the plugin
-can use a hash to store its values. Additionally, plugins can use a single
-shared hash parameter, called `Plugins`, to limit pollution further.
-
-An example value needed by the plugin:
-
-```zsh showLineNumbers title="Record the plugin directory in the shared hash"
-typeset -gA Plugins
-Plugins[MY_PLUGIN_REPO_DIR]="${0:h}"
-```
-
-This way the data of all plugins is kept in a single parameter, available for
-easy examination and overview, for example through `varied Plugins`, without
-polluting the namespace.
-
-:::note[Direction of travel]
-
-This is the established convention and is used widely across the z-shell
-ecosystem, including Zi itself, so it is documented here as the behavior your
-code and its comments refer to.
-
-Because `Plugins` is shared, keys must be globally unique; prefix every key
-with your project identifier as shown above. For **new** plugins, a
-project-owned hash such as `EXAMPLE_STATE` avoids cross-plugin key collisions
-entirely and is the recommended direction. Both remain valid; do not migrate
-working code solely for this.
-
-:::
+A version 2 portable plugin must not create, require, or write this shared
+hash. A plugin manager may maintain its own registry as an optional manager
+profile, but portable plugin code must work without observing or mutating it.
+Use the [configuration contract](#configuration-contract) for public settings
+and project-prefixed typed parameters only for necessary private runtime state.
 
 ### Standard recommended [options][zsh-options] {/* #standard-recommended-optionszsh-options */}
 
@@ -1206,108 +1270,32 @@ natural to localize them in the main function.
 
 ### Standard function name-space prefixes {/* #standard-function-name-space-prefixes */}
 
-The recommendation in this section originates as the subjective opinion of the
-original author. It can evolve; raise remarks in the
-[wiki issue tracker](https://github.com/z-shell/wiki/issues/new). Older copies
-of this page linked `z-shell/zw`, which now redirects to the same tracker.
+Use portable ASCII names derived from the stable project identifier:
 
-#### The problems solved by the proposition {/* #the-problems-solved-by-the-proposition */}
+- `example_action` for a documented public function;
+- `_example_callback` for a private hook, widget, or style callback;
+- `_example_helper` for a private persistent helper when autoloading or later
+  callbacks genuinely require it;
+- `_command` only for the native completion function for `command`.
 
-When adopted, the proposition addresses the following issues:
+Public and private names are part of the same shell command namespace, so the
+underscore marks visibility but does not replace the project identifier. An
+unprefixed `_callback` is not project-owned.
 
-1. Using the underscore `_` to namespace functions is not ideal, because that
-   prefix is already used by completion functions, so the namespace is heavily
-   populated and plugin functions get lost in it.
+Do not assign semantic roles through punctuation-only or non-ASCII prefixes.
+Names beginning with `.`, `+`, `/`, or similar role markers are harder to
+autoload, type, search, and represent consistently as file names. Manager API
+names beginning with `@`, such as the optional callbacks in requirements
+[5](#run-on-unload-call) and [6](#run-on-update-call), are manager-owned names,
+not a pattern for plugin-defined functions.
 
-2. Not using a prefix at all pollutes the command namespace.
+#### Historical function-name prefixes {/* #the-proposed-function-name-prefixes */}
 
-3. It allows quickly discriminating between function types. Seeing the `→`
-   prefix tells the reader it is a hook-type function, while `@` tells them it
-   is an API-like function.
-
-4. It improves the editing experience by letting the author narrow completion
-   candidates. In Vim, typing <kbd>+</kbd> then <kbd>Ctrl-P</kbd> completes
-   only the output functions. The editor has to be configured to accept these
-   characters as part of keywords; for Vim that is
-   `:set isk+=@-@,.,+,/,:`.
-
-#### The Proposed function-name prefixes {/* #the-proposed-function-name-prefixes */}
-
-The proposed standard prefixes are:
-
-1. `.` for regular private functions. Example: `.prompt_zinc_get_value`.
-
-2. `→` for hook-like functions, so it is used for
-   [Zsh hooks](#use-of-add-zsh-hook-to-install-hooks) and
-   [Zle hooks](#use-of-add-zle-hook-widget-to-install-zle-hooks), and for any
-   other custom hook-like mechanism in the plugin. Example:
-   `→prompt_zinc_precmd`.
-
-   2.1. An earlier version of this document recommended a colon (`:`) prefix.
-   That was problematic, because Windows does not allow colons in file names,
-   so such a function could not be named as an autoload file.
-
-   2.2. The arrow has a rationale behind it: it denotes execution **coming
-   back** to the function at a later time, after it has been registered as a
-   callback or handler.
-
-   2.3. The arrow is typeable on most keyboard layouts as
-   <kbd>Right-Alt</kbd>+<kbd>I</kbd>, and can always be copied. Handler
-   functions occur rarely in code.
-
-   2.4. Zsh supports any string as a function name, because any string can be a
-   **file** name. If there were an exception among callable names, it would be
-   impossible to run a script called `→abcd`. There are **no** exceptions; a
-   function can even be named as a sequence of null bytes:
-
-   ```zsh showLineNumbers
-   ❯ $'\0'() { print hello }
-   ❯ $'\0'
-   hello
-   ```
-
-3. `+` for output functions, that is functions printing to standard output,
-   standard error, or a log. Example: `+prompt_zinc_output_segment`.
-
-4. `/` for debugging functions, that is functions that output debug messages or
-   gather debug data. Note that the slash makes such functions impossible to
-   autoload through the `autoload` mechanism. Example: `/prompt_zinc_dmsg`.
-
-5. `@` for API-like functions, that is functions on the boundary of a subsystem
-   exposing a well-defined, generally fixed interface. For example, this page
-   [defines](#run-on-update-call) `@zsh-plugin-run-on-update`, which exposes a
-   plugin manager's functionality in a well-defined way.
-
-:::note[Direction of travel]
-
-This scheme is in wide use across the z-shell ecosystem, including Zi's own
-source, which is why it is documented here rather than dropped.
-
-Two costs are worth knowing before adopting it in a **new** plugin: the `/`
-prefix makes a function impossible to autoload, and `→` is non-ASCII, so it is
-harder to type, grep, and use in file names on some systems. For new code,
-portable ASCII names such as `example_action` and `_example_callback` avoid
-both. Existing code using the prefixes is correct and should not be migrated
-solely for this.
-
-:::
-
-#### Example code utilizing the prefixes {/* #example-code-utilizing-the-prefixes */}
-
-```zsh showLineNumbers title="The prefixes in use"
-.zinc_register_hooks() {
-  add-zsh-hook precmd →zinc_precmd
-  /zinc_dmsg "Installed precmd hook with the result: $?"
-  @zsh-plugin-run-on-unload "add-zsh-hook -d precmd →zinc_precmd"
-  +zinc_print "Zinc initialization complete"
-}
-```
-
-The `@zsh-plugin-run-on-unload` line above is the optional manager callback
-from [requirement 5](#run-on-unload-call). The manager evaluates that string,
-so never pass untrusted or externally-derived data into the call, and keep the
-snippet literal as shown. A named unload function remains the primary
-mechanism; see [requirement 4](#unload-function).
+Earlier revisions proposed symbolic prefixes for private, hook, output,
+debugging, and API functions. The anchor remains so historical source comments
+still reach an explanation, but those prefixes are not part of version 2
+portable conformance. Refactored plugins should replace them with the ASCII
+project-owned forms above.
 
 ### Preventing function pollution {/* #preventing-function-pollution */}
 
@@ -1386,25 +1374,27 @@ When writing a plugin one often needs to keep state during the Zsh session. It
 is natural to use global parameters for this. As the number of parameters
 grows, one may want to limit it.
 
-A single global parameter per plugin can be sufficient for flat scalar state:
+A single private project-owned parameter can be sufficient for flat scalar
+runtime state:
 
 ```zsh showLineNumbers title="One project-owned hash for flat state"
-typeset -gA PlgMap
+typeset -gA _example_state
 
-PlgMap[state]=1
-PlgMap[mode]=fast
+_example_state[loaded]=1
+_example_state[mode]=fast
 ```
 
 This replaces a scatter of individual globals with one inspectable parameter.
-Following the [Standard `Plugins` hash](#standard-plugins-hash) section, a
-plugin can go further and use the shared `Plugins` hash.
+It remains private runtime state and must not become a second public
+configuration interface. Use the [configuration contract](#configuration-contract)
+for user settings.
 
 :::warning[Do not use this to encode arrays or nested structures]
 
 Earlier revisions of this page recommended flattening real arrays and hashes
-into delimiter-encoded keys, such as `PlgMap[some_array__1]`, and described the
-technique as unproblematic. Testing does not support that. Three traps apply,
-verified on Zsh 5.9.2:
+into delimiter-encoded keys, such as `_example_state[some_array__1]`, and
+described the technique as unproblematic. Testing does not support that. Three
+traps apply, verified on Zsh 5.9.2:
 
 1. **Sorting silently misorders the result.** The obvious `(o)` sort is
    lexicographic, which is wrong for numeric indices. Numeric `(on)` is
@@ -1427,7 +1417,8 @@ verified on Zsh 5.9.2:
    is no "read the keys back" shortcut.
 
 3. **The delimiter is ambiguous.** Zsh hash keys accept arbitrary content,
-   `__` included, so `PlgMap[user__name]` and `PlgMap[user__name__first]`
+   `__` included, so `_example_state[user__name]` and
+   `_example_state[user__name__first]`
    cannot be decoded to a unique structure.
 
 Additionally, `${#array}`, `${array[-1]}`, and `${array[2,4]}` all work
@@ -1509,6 +1500,8 @@ Before publishing a plugin, confirm that:
   `posix_argzero` is either supported or documented as unsupported;
 - `functions/` and `bin/` use the guarded forms from requirements
   [2](#functions-directory) and [3](#binaries-directory);
+- `lib/`, `functions/`, `completions/`, and `bin/` follow their documented
+  eager, autoload, completion, and executable profiles;
 - a namespaced unload function exists per [requirement 4](#unload-function),
   and every hook, widget, worker, descriptor, and file has explicit cleanup;
 - no untrusted data reaches the eval-based callbacks in requirements
@@ -1516,14 +1509,23 @@ Before publishing a plugin, confirm that:
 - every manager capability is feature-tested, and a manager-independent path
   exists;
 - functions localize options and parameters;
-- persistent names and state are project-owned;
+- the README declares one stable ASCII project identifier and the complete
+  public shell surface;
+- persistent names and state are project-owned and setup-only helpers do not
+  remain after load;
+- public configuration uses one namespaced style context or a justified
+  runtime command, not scattered global parameters;
+- portable code neither requires nor mutates shared manager or plugin registry
+  parameters;
 - completion initialization remains under user, framework, or manager control;
 - non-interactive loading does not touch ZLE;
 - loading performs no network access, untrusted evaluation, package
   installation, or unguarded `PATH` mutation;
 - cache, state, and data use appropriate user directories;
 - startup cost has been measured with `zsh/zprof` and end-to-end timing;
-- supported Zsh versions and hostile option combinations are tested; and
+- supported Zsh versions and hostile option combinations are tested;
+- a clean-process lifecycle test proves the declared load surface and exact
+  ownership-aware restoration after unload; and
 - every optional manager profile has an independent test and source citation.
 
 ## Next Steps {/* #next-steps */}

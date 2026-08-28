@@ -40,6 +40,21 @@ test("requires the portable core to precede optional profiles", () => {
   assert.match(validateStandard(invalid).join("\n"), /Portable core|portable core/);
 });
 
+test("requires the version 2 clean portable contract", () => {
+  const invalid = standard.replace("standard_version: 2", "standard_version: 1");
+  assert.match(validateStandard(invalid).join("\n"), /standard_version: 2/);
+});
+
+test("rejects portable shared Plugins registry creation", () => {
+  const invalid = `${standard}\n\`\`\`zsh\ntypeset -gA Plugins\n\`\`\`\n`;
+  assert.match(validateStandard(invalid).join("\n"), /shared Plugins registry/);
+});
+
+test("rejects legacy alternatives as current conformance", () => {
+  const invalid = `${standard}\nBoth remain valid for conforming plugins.\n`;
+  assert.match(validateStandard(invalid).join("\n"), /legacy alternatives/);
+});
+
 test("requires scoped entrypoint cleanup to preserve loader status", () => {
   const invalid = standard.replace('return "$loader_status"\n} "$@"', 'return 0\n} "$@"');
   assert.match(validateStandard(invalid).join("\n"), /return the loader status/);

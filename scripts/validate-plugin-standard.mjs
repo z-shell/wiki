@@ -29,6 +29,7 @@ const REQUIRED_ANCHORS = [
   "use-of-add-zle-hook-widget-to-install-zle-hooks",
   "standard-parameter-naming",
   "standard-plugins-hash",
+  "configuration-contract",
   "the-proposed-function-name-prefixes",
   "status--zero-handling-",
   "status--functions-directory-",
@@ -43,7 +44,9 @@ const REQUIRED_ANCHORS = [
 
 const REQUIRED_STANDARD_TEXT = [
   "This is ecosystem guidance, not an official Zsh language specification.",
+  "standard_version: 2",
   "## Portable core",
+  "## Configuration contract",
   "## Optional manager interoperability profiles",
   // Managers are named where a plugin author needs the interop fact, which is
   // the profile appendix, not the page introduction. These pins keep the
@@ -65,6 +68,9 @@ const REQUIRED_STANDARD_TEXT = [
   "zsh/zprof",
   "Do not access the network",
   "Do not automatically prepend",
+  "`lib/` contains private implementation files",
+  "must not create, require, or write this shared hash",
+  "clean-process lifecycle test",
   "There is no plugin manifest standard",
 ];
 
@@ -146,6 +152,9 @@ export function validateStandard(content) {
   if (!/^slug: \/zsh_plugin_standard$/m.test(content)) {
     errors.push("frontmatter must preserve slug: /zsh_plugin_standard");
   }
+  if (!/^standard_version: 2$/m.test(content)) {
+    errors.push("frontmatter must publish standard_version: 2");
+  }
 
   errors.push(...missingText(content, REQUIRED_STANDARD_TEXT, "standard"));
   errors.push(
@@ -175,6 +184,8 @@ export function validateStandard(content) {
     ],
     [/PMSPEC=0fuUpiPs(?!X)/, "must not publish the obsolete PMSPEC value as a universal contract"],
     [/zmodload\s+-e\s+zsh\/zle/, "must load zsh/zle before testing the required ZLE facility"],
+    [/^typeset -gA Plugins$/m, "must not publish shared Plugins registry creation as portable code"],
+    [/Both remain valid/i, "must not preserve incompatible legacy alternatives as current conformance"],
   ];
   for (const [pattern, message] of stalePatterns) {
     if (pattern.test(content)) {
@@ -182,15 +193,8 @@ export function validateStandard(content) {
     }
   }
 
-  // Established ecosystem conventions may be documented, because published
-  // plugins link to these anchors and their code comments must land on prose
-  // that explains the code beneath them. They must never be promoted
-  // unqualified: each one carries a note stating the recommended direction for
-  // new plugins, and the eval-based manager callbacks carry a warning against
-  // passing untrusted data. Publishing the convention without its qualifier is
-  // the regression this guards, not the convention itself.
-  errors.push(...requiresQualifier(content, "typeset -gA Plugins", "Direction of travel", "shared Plugins hash"));
-  errors.push(...requiresQualifier(content, "→prompt_zinc_precmd", "Direction of travel", "function-name prefixes"));
+  // Eval-based manager interfaces remain documented for interoperability, but
+  // each occurrence must retain its nearby trust-boundary qualifier.
   errors.push(
     ...requiresQualifier(content, "@zsh-plugin-run-on-unload ", "never pass untrusted", "eval-based unload callback"),
   );
