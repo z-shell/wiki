@@ -3,10 +3,12 @@ id: zsh-modules
 title: ⚙️ Modules
 sidebar_position: 10
 image: /img/png/theme/z/320x320.png
-description: Plugins & Modules Introduction
+description: Compiled Zsh modules, including zpmod automatic source compilation and profiling
 toc_max_heading_level: 3
 keywords:
   - zsh-modules
+  - zpmod
+  - zsh-performance
 ---
 
 {/* @format */}
@@ -20,16 +22,23 @@ import TabItem from "@theme/TabItem";
 
 - Required Zsh version: >= v5.8.1
 
-[![🍎 Build (MacOS)](https://github.com/z-shell/zpmod/actions/workflows/test-macos.yml/badge.svg)](https://github.com/z-shell/zpmod/actions/workflows/test-macos.yml) [![🐧 Build (Linux)](https://github.com/z-shell/zpmod/actions/workflows/test-linux.yml/badge.svg)](https://github.com/z-shell/zpmod/actions/workflows/test-linux.yml)
+[![CI](https://github.com/z-shell/zpmod/actions/workflows/ci.yml/badge.svg)](https://github.com/z-shell/zpmod/actions/workflows/ci.yml) [![Compatibility](https://github.com/z-shell/zpmod/actions/workflows/compatibility.yml/badge.svg)](https://github.com/z-shell/zpmod/actions/workflows/compatibility.yml)
 
 :::
 
 The module is a binary Zsh module transparently and automatically **compiles sourced scripts** and **measures the time of each script sourcing**.
 
+```text
+source file -> freshness check -> compile or reuse .zwc -> execute -> source-study report
+```
+
+zpmod also provides native builtins for batch path metadata, directory listing, file reading, and record-oriented array input. These helpers
+reduce repeated shell-level filesystem work without requiring a particular plugin manager.
+
 ### Measuring Time of sources {/* #measuring-time-of-sources */}
 
 ```zsh
-zpmod <source-study> [options]
+zpmod source-study [-l]
 ```
 
 > Option -l shows full paths to the files.
@@ -39,6 +48,32 @@ Issue `zpmod source-study` after loading the module at top of `~/.zshrc` to see 
 This feature allows profiling the shell startup. Also, no script can pass through that check and you will obtain a complete list of all loaded scripts, like if Zshell itself was investigating this.
 
 **The list can be surprising** <Emoji symbol="😵‍💫" label="face-with-spiral-eyes"/>
+
+```text
+⏱️    3 ms    plugin-a.plugin.zsh
+⏱️   12 ms    plugin-b.plugin.zsh
+```
+
+The values above illustrate the report format. Actual timings depend on the machine and shell configuration.
+
+### Reproducible benchmark {/* #reproducible-benchmark */}
+
+<img
+  src="https://raw.githubusercontent.com/z-shell/zpmod/a2c9e2310f763098ac3f5de186748367d5d17a56/benchmarks/results/v2.0.6-linux-x86_64/benchmark.svg"
+  alt="Bar chart: median startup time was 11.564 milliseconds for plain source, 13.378 milliseconds for the zpmod first run, 4.082 milliseconds for zpmod warm, and 3.760 milliseconds for manual compiled Zsh files."
+  width="960"
+/>
+
+| Mode | Median | p95 |
+| --- | ---: | ---: |
+| Plain source | 11.564 ms | 13.331 ms |
+| zpmod first run | 13.378 ms | 15.495 ms |
+| zpmod warm | 4.082 ms | 4.210 ms |
+| Manual `.zwc` | 3.760 ms | 3.880 ms |
+
+The v2.0.6 comparison uses one synthetic 40-script workload. The first run includes compilation, the warm run reuses generated `.zwc`
+files, and manual `.zwc` is the native Zsh control. It is not a universal startup-speed claim. Read the [complete benchmark report][] and
+[benchmark methodology][] for the raw context and reproduction commands.
 
 ### Extending Zi reports {/* #extending-zi-reports */}
 
@@ -76,13 +111,8 @@ This command will compile the module and display instructions on what to add to 
   </TabItem>
   <TabItem value="standalone" label="Standalone">
 
-Install just the **standalone** binary which can be used with any other plugin manager.
-
-```sh
-sh <(curl -fsSL https://raw.githubusercontent.com/z-shell/zpmod/main/Scripts/install.sh)
-```
-
-This script will display instructions on what to add to `~/.zshrc`.
+Install zpmod as a system package or build it with the repository's CMake helper. Both paths work without Zi or another plugin manager. See
+the [current standalone installation guide][].
 
   </TabItem>
 </Tabs>
@@ -116,4 +146,7 @@ zi light z-shell/zgdbm
 {/* external */}
 
 [zpmod-repo]: https://github.com/z-shell/zpmod
+[complete benchmark report]: https://github.com/z-shell/zpmod/blob/a2c9e2310f763098ac3f5de186748367d5d17a56/benchmarks/results/v2.0.6-linux-x86_64/benchmark.md
+[benchmark methodology]: https://github.com/z-shell/zpmod/blob/a2c9e2310f763098ac3f5de186748367d5d17a56/benchmarks/README.md
+[current standalone installation guide]: https://github.com/z-shell/zpmod/blob/main/docs/how-to/install-zpmod-with-cmake.md
 [z-shell/zgdbm]: https://github.com/z-shell/zgdbm
