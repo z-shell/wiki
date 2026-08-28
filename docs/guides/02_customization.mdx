@@ -55,6 +55,30 @@ source "${ZI[BIN_DIR]}/zi.zsh"
 </APITable>
 ```
 
+:::info Loader defaults
+
+If you install with the [loader](/docs/getting_started/installation#loader),
+`init.zsh` sets `ZI[REPOSITORY]`, `ZI[STREAM]`, `ZI[HOME_DIR]`, and
+`ZI[BIN_DIR]` before Zi is cloned, because those four decide what to fetch and
+where. Every other field in this table is owned by `zi.zsh` and derived from
+them.
+
+`ZI[HOME_DIR]` differs by entry point. The loader defaults to
+`${XDG_DATA_HOME:-$HOME/.local/share}/zi`, while `zi.zsh`'s current fallback
+for an unset value is `${HOME}/.zi`. The loader always assigns the value before
+`zi.zsh` runs, so a single session is always consistent, but sourcing `zi.zsh`
+directly without the loader uses the other layout. Set `ZI[HOME_DIR]` yourself
+if you want both entry points to agree.
+
+Zi is adopting XDG-first path resolution. When that lands, these entry points
+converge on the XDG locations the loader already uses, and this table is
+updated with it.
+
+To override any field, assign it in your `.zshrc` **before** sourcing the
+loader or `zi.zsh`.
+
+:::
+
 ### <i class="fa-solid fa-sliders"></i> Modify settings {/* #modify-settings */}
 
 ```mdx-code-block
@@ -67,6 +91,7 @@ source "${ZI[BIN_DIR]}/zi.zsh"
 | `ZI[COMPINIT_OPTS]`              | `undefined` | Options for `compinit` call (e.g: done by `zicompinit`), commonly used with `-C` to speed up loading                                                                                                      |
 | `ZI[MUTE_WARNINGS]`              | `undefined` | If set to `1`, mutes some warnings, specifically the `plugin already registered` warning                                                                                                                  |
 | `ZI[PKG_OWNER]`                  | `z-shell`   | Owner of the [packages][] (`zi pack …`)                                                                                                                                                                   |
+| `ZI[LOADER_HISTORY]`             | `1`         | Loader only. Set to `0` before sourcing `init.zsh` to leave `HISTFILE`, `SAVEHIST`, and `HISTSIZE` entirely to your own configuration                                                                     |
 
 ```mdx-code-block
 </APITable>
