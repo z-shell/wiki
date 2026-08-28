@@ -517,7 +517,7 @@ Plugin managers may export the parameter `$ZPFX`, holding a path to a directory
 dedicated to user-land software, giving `$ZPFX/bin`, `$ZPFX/lib`,
 `$ZPFX/share`, and so on. The suggested directory name is `polaris`. Zi uses
 that name and places the directory at
-`${XDG_DATA_HOME:-$HOME/.local/share}/zi/polaris` by default.
+`${ZI[HOME_DIR]}/polaris` by default.
 
 Users can then configure hooks to invoke, for example,
 `make PREFIX=$ZPFX install` on clone and update, to install software such as
@@ -529,7 +529,7 @@ across accounts and machines.
 Facts related to `$ZPFX`:
 
 1. `export ZPFX="$HOME/polaris"`, or
-   `${XDG_DATA_HOME:-$HOME/.local/share}/zi/polaris`
+   `${ZI[HOME_DIR]}/polaris`
 
 2. `make PREFIX=$ZPFX install`
 

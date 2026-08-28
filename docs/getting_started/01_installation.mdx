@@ -46,9 +46,15 @@ sh -c "$(curl -fsSL get.zshell.dev)" -- -a loader
 The installer will download the loader and add the snippet below to the <kbd>.zshrc</kbd> file.
 
 ```zsh showLineNumbers
-if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]]; then
-  source "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" && zzinit
+if [[ -n ${XDG_CONFIG_HOME:-} && $XDG_CONFIG_HOME == /* ]]; then
+  ZI_LOADER_CONFIG_HOME="$XDG_CONFIG_HOME/zi"
+else
+  ZI_LOADER_CONFIG_HOME="$HOME/.config/zi"
 fi
+if [[ -r "$ZI_LOADER_CONFIG_HOME/init.zsh" ]]; then
+  source "$ZI_LOADER_CONFIG_HOME/init.zsh" && zzinit
+fi
+unset ZI_LOADER_CONFIG_HOME
 ```
 
 Then reload the shell with: `exec zsh`. All done!
@@ -95,11 +101,20 @@ sh -c "$(curl -fsSL get.zshell.dev)" -- -a zunit
 
 Set up the install location and create a directory:
 
+The assignment below explicitly selects a fresh XDG-style home. It does not
+migrate an existing `$HOME/.zi` installation. For automatic legacy detection,
+use the loader above or source your existing Zi checkout without overriding
+`ZI[HOME_DIR]`.
+
 ```zsh showLineNumbers
 typeset -Ag ZI
-typeset -gx ZI[HOME_DIR]="${XDG_DATA_HOME:-${HOME}/.local/share}/zi"
-typeset -gx ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
-command mkdir -p "$ZI[BIN_DIR]"
+if [[ -n ${XDG_DATA_HOME:-} && $XDG_DATA_HOME == /* ]]; then
+  ZI[HOME_DIR]="$XDG_DATA_HOME/zi"
+else
+  ZI[HOME_DIR]="$HOME/.local/share/zi"
+fi
+ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
+command mkdir -p -- "${ZI[BIN_DIR]}"
 ```
 
 For security reasons run function <kbd>compaudit</kbd> to check if the [completion system][completion-system] would use files owned by <kbd>root</kbd> or by the current <kbd>user</kbd>, or files in directories that are <kbd>world</kbd> or <kbd>group-writable</kbd>.
@@ -107,9 +122,9 @@ For security reasons run function <kbd>compaudit</kbd> to check if the [completi
 If failed, then set the current user as the owner of directories, then remove group/others write permissions, and clone the repository:
 
 ```zsh showLineNumbers
-compaudit | xargs chown -R "$(whoami)" "$ZI[HOME_DIR]"
-compaudit | xargs chmod -R go-w "$ZI[HOME_DIR]"
-command git clone https://github.com/z-shell/zi.git "$ZI[BIN_DIR]"
+compaudit | xargs chown -R "$(whoami)" "${ZI[HOME_DIR]}"
+compaudit | xargs chmod -R go-w "${ZI[HOME_DIR]}"
+command git clone https://github.com/z-shell/zi.git "${ZI[BIN_DIR]}"
 ```
 
 ### <i class="fas fa-spinner fa-spin"></i> Enable {/* #i-classfas-fa-spinner-fa-spini-enable */}
