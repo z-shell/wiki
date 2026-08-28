@@ -45,61 +45,51 @@ git remote add upstream https://github.com/z-shell/<repo>.git
 
 ## Branch Model
 
-The branch model is **per repository**, not organization-wide. Some repositories
-use a `next` → `main` integration flow; others are trunk-based and take pull
-requests directly on `main`. Check before you branch.
+The organization default is trunk-based development on `main`. Branch from the
+current `main` and open your pull request into `main`.
 
-:::warning[Check the repository first]
+`zi` is the sole named exception. Its ordinary contributions branch from and
+target `next`; a maintainer promotes `next` to stable `main` with a merge
+commit. Do not infer a repository's model merely from whether an old `next`
+reference exists.
 
-Opening a pull request against the wrong base is the most common first-time
-contribution mistake. Confirm the repository's development branch before you
-create your branch.
+:::warning[Check the repository instructions]
 
-```sh
-# Show the repository's default branch and whether `next` exists
-git remote show upstream | grep -E 'HEAD branch|next'
-```
-
-If a `next` branch exists, branch from and target `next`. If it does not, branch
-from and target `main`.
+Opening a pull request against the wrong base is a common first-time
+contribution mistake. Read the owning repository's `AGENTS.md`. Unless it is
+`z-shell/zi`, use `main`.
 
 :::
 
 The authoritative per-repository table lives in
-[ADR 0008 — Branching Model](https://github.com/z-shell/.github/blob/main/decisions/0008-branching-model.md).
+[ADR 0019: Trunk-on-Main Default](https://github.com/z-shell/.github/blob/main/decisions/0019-trunk-on-main-default.md).
 At the time of writing:
 
-| Development branch | Repositories |
+| Integration branch | Repositories |
 | --- | --- |
-| `next` → `main` | `zi`, `wiki`, `src`, `zsh-eza`, `zsh-lint` |
-| trunk on `main` | `zd`, `zunit`, `zpmod`, packaged `zsh`, `z-a-meta-plugins`, `zsh-fancy-completions`, `.github` |
+| trunk on `main` | all repositories except the named exception below |
+| `next` to stable `main` | `zi` |
 
-Consult the ADR rather than this table if the two ever disagree — the ADR is the
+Consult the ADR rather than this table if the two ever disagree; the ADR is the
 source of truth, and changing a repository's model requires amending it.
 
 ### Branch naming
 
-Name your branch for the kind of change it carries:
+Use the issue-linked organization names:
 
 ```text
-feat/<name>      new features
-fix/<name>       bug fixes
-perf/<name>      performance improvements
-refactor/<name>  code refactors
-docs/<name>      documentation updates
-ci/<name>        CI / workflow changes
+feature-<issue>  planned features, documentation, refactors, and maintenance
+bug-<issue>      non-critical bug fixes
+hotfix-<issue>   urgent fixes branched from the stable or deployment ref
 ```
 
 **Rules:**
 
-1. **Branch from the repository's development branch** — `next` where one
-   exists, otherwise `main`
-2. **Open the pull request against that same branch** — never target `main` in a
-   repository that uses `next`
-3. In `next` → `main` repositories, `next` reaches `main` through a release pull
-   request once `next` is stable
-4. **Hotfixes** are the exception in `next` repositories — branch from `main` and
-   open the pull request against `main`
+1. **Branch from current `main`** and open the pull request into `main`.
+2. For `zi` ordinary work only, branch from and target `next`.
+3. For a critical `zi` hotfix, branch from and target `main`; maintainers then
+   merge the hotfix forward into `next` before the next promotion.
+4. Keep the branch short-lived and linked to its owning issue.
 
 ## Commit Message Format
 
@@ -142,8 +132,8 @@ BREAKING CHANGE: description of what breaks
 To tidy commits before opening a PR:
 
 ```sh
-# Replace `next` with the repository's development branch where it differs
-git rebase -i $(git merge-base HEAD next)
+# For zi ordinary work only, replace main with next
+git rebase -i $(git merge-base HEAD main)
 ```
 
 ## What Not to Add
@@ -156,8 +146,8 @@ git rebase -i $(git merge-base HEAD next)
 
 Before opening a PR:
 
-- [ ] Branched from the repository's development branch (or `main` for a hotfix)
-- [ ] Pull request targets that same branch
+- [ ] Branched from current `main` (or `next` for ordinary `zi` work)
+- [ ] Pull request targets `main` (or `next` for ordinary `zi` work)
 - [ ] Commits follow Conventional Commits
 - [ ] No secrets or AI config files added
 - [ ] Relevant docs or tests updated
@@ -167,9 +157,8 @@ Before opening a PR:
 
 ```sh
 git fetch upstream
-# Rebase onto the repository's development branch — `next` where one exists,
-# otherwise `main`
-git rebase upstream/next
+# For zi ordinary work only, replace main with next
+git rebase upstream/main
 ```
 
 ## Discussion First

@@ -3,23 +3,7 @@ name: LLM Corpus Contract
 
 on:
   pull_request:
-    branches: [main, next]
-    paths:
-      - ".github/workflows/llms-corpus.yml"
-      - "community/**"
-      - "content-policy.json"
-      - "crowdin.yml"
-      - "docs/**"
-      - "docusaurus.config.ts"
-      - "ecosystem/**"
-      - "functions/**"
-      - "i18n/**"
-      - "package.json"
-      - "pnpm-lock.yaml"
-      - "scripts/llms/**"
-      - "sidebars.ts"
-      - "static/_headers"
-      - "static/llms.txt"
+    branches: [main]
   workflow_dispatch: {}
 
 permissions:

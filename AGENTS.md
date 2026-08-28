@@ -86,12 +86,13 @@ full cross-repo checklist.
 
 ### Branching
 
-- `next` — active development. `main` — production. This repository uses the
-  `next` → `main` model per org ADR 0008; branch from and target `next`.
-- Branch naming: `feat/<name>`, `fix/<name>`, `perf/<name>`, `refactor/<name>`,
-  `docs/<name>`, `ci/<name>` — matching the published contributor guide in
+- `main` is the integration and production-deployment branch under organization
+  ADR 0019. Branch from current `main` and target `main`.
+- Branch naming: `feature-<issue>`, `bug-<issue>`, or `hotfix-<issue>`, matching
+  the published contributor guide in
   `community/00_contributing/01_getting_started.mdx`.
-- Hotfixes branch from `main` and target `main`; everything else from `next`.
+- Keep pull requests small and keep `main` releasable; deployment remains a
+  separate workflow result after merge.
 
 ## Agent Notes
 

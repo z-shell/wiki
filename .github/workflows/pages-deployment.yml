@@ -21,6 +21,9 @@ jobs:
     name: Deploying
     timeout-minutes: 30
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: "https://wiki.zshell.dev"
     if: github.ref == 'refs/heads/main'
     steps:
       - name: "⤵️  Check out code from GitHub"

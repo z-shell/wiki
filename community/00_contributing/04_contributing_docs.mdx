@@ -156,10 +156,10 @@ Use absolute URLs only for external resources.
 
 ## Branch and PR Workflow
 
-1. Branch from `next`: `git checkout -b docs/my-page next`
+1. Branch from `main`: `git checkout -b feature-123 main`
 2. Make changes to English source files only
 3. Run `pnpm build:en` to catch broken links and MDX errors
-4. Open a PR targeting `next`
+4. Open a PR targeting `main`
 
 :::warning[Never edit `i18n/` files directly]
 Translation files under `i18n/` are managed exclusively through [Crowdin](https://translate.zshell.dev). Manual edits will be overwritten on the next sync.

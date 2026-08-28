@@ -46,7 +46,7 @@ zi/
 git clone https://github.com/<your-username>/zi.git
 cd zi
 git remote add upstream https://github.com/z-shell/zi.git
-git checkout -b feat/my-change next
+git checkout -b feature-123 next
 ```
 
 No build step is required — zi is pure Zsh. To test changes interactively, source
@@ -111,17 +111,20 @@ to discuss the change. Use the appropriate issue template:
 | Feature request | New capability |
 | Annex proposal | Proposing a new annex |
 
-## Release Process
+## Stable Branch Promotion
 
-Zi follows a trunk-based flow:
+Zi is the organization's named persistent-integration exception:
 
-1. All work merges into `next`
-2. When `next` is stable, a release PR merges `next` → `main`
-3. A tag is created on `main` (e.g., `v1.14.0`) — this triggers the release workflow
-4. The installer in `src` is updated to point to the new tag
+1. Ordinary work merges into `next`.
+2. A maintainer opens a promotion pull request from `next` to stable `main`.
+3. Promotion uses **Create a merge commit**, never squash or rebase, so Git
+   ancestry is preserved and no routine back-merge is needed.
+4. A critical hotfix may merge directly into `main`; maintainers merge it
+   forward into `next` before the next promotion.
 
-Maintainers handle the `next` → `main` merge. As a contributor, you only need to
-target `next`.
+`main` is a directly consumable stable ref, not a tag-driven package publication
+boundary. Maintainers handle promotion. As a contributor, target `next` unless
+you are working on an explicitly coordinated critical hotfix.
 
 ## See Also
 

@@ -2,9 +2,9 @@
 name: Trunk Code Quality
 on:
   push:
-    branches: [main, next]
+    branches: [main]
   pull_request:
-    branches: [main, next]
+    branches: [main]
   schedule:
     - cron: "0 6 * * 1"
   workflow_dispatch: {}
