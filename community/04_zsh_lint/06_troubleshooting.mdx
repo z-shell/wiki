@@ -1,0 +1,66 @@
+---
+id: zsh-lint-troubleshooting
+title: Troubleshooting
+sidebar_position: 7
+description: Resolve common Zsh Lint installation, input, parser, and exit-code problems.
+keywords:
+  - zsh-lint
+  - troubleshooting
+  - parser error
+  - exit code
+---
+
+## `zsh-lint: command not found`
+
+Go normally installs binaries under `$(go env GOPATH)/bin`. Add that directory
+to `PATH`, or invoke the binary directly:
+
+```sh
+"$(go env GOPATH)/bin/zsh-lint" path/to/script.zsh
+```
+
+## Passing a directory fails
+
+The published CLI opens each argument as one file. It does not recurse through
+directories. Build an explicit file list as described in
+[Choosing files](./02_choosing_files.mdx).
+
+## A Bash or `sh` file reports strange parse errors
+
+Zsh Lint does not classify dialects from the shebang or extension. Every path
+you pass is parsed as Zsh. Remove non-Zsh files from the input list.
+
+## Valid Zsh reports a parser error
+
+First check the same file with the supported native Zsh version:
+
+```sh
+zsh -f -n -- path/to/script.zsh
+```
+
+If native Zsh accepts it, collect a minimal example and report a parser gap in
+[z-shell/zsh-lint](https://github.com/z-shell/zsh-lint/issues). Do not rewrite
+valid native Zsh only to satisfy a supplemental parser.
+
+## `--config` is rejected
+
+The option is not available in v1.1.0. It currently exists only on `main`; see
+the [project configuration preview](./03_project_configuration.mdx).
+
+## Exit status 1 with no obvious error
+
+Warnings also return status 1. Read the human diagnostics or save JSON and
+inspect the summary:
+
+```sh
+zsh-lint --format=json path/to/script.zsh | jq '.summary'
+```
+
+Because the linter itself exits 1 for findings, append `|| status=$?` only when
+you are deliberately inspecting output. Do not hide the failure in CI.
+
+## An intentional pattern keeps failing
+
+Read the rule, verify that the code is intentional, then add a line-scoped
+suppression with the exact rule ID and a reason. See
+[Rules and suppressions](./04_rules_and_suppressions.mdx).

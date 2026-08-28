@@ -1,0 +1,43 @@
+---
+id: zsh-lint-parser-survey
+title: Parser survey
+sidebar_position: 8
+description: Survey parser coverage across an explicit Zsh corpus without running lint rules.
+keywords:
+  - zsh-lint-survey
+  - parser
+  - corpus
+  - advanced
+---
+
+`zsh-lint-survey` is an advanced companion command for parser evaluation. It
+answers whether the current parser accepts each explicit input. It does not run
+lint rules and should not replace `zsh-lint` in ordinary CI.
+
+## Install and run
+
+```sh
+go install github.com/z-shell/zsh-lint/cmd/zsh-lint-survey@v1.1.0
+zsh-lint-survey scripts/build.zsh functions/example-run
+```
+
+The command prints parser failures in a greppable form and ends with a summary.
+Like the linter, it does not discover files or classify dialects. Supply a
+reviewed Zsh-only list.
+
+## When to use it
+
+- Evaluate parser coverage before adopting the linter across a large corpus.
+- Reduce a native-Zsh construct that the supplemental parser rejects.
+- Track whether a known parser gap remains reproducible after an update.
+
+Always compare a suspected gap with native Zsh:
+
+```sh
+zsh -f -n -- path/to/source
+zsh-lint-survey path/to/source
+```
+
+If the first command succeeds and the survey fails, native Zsh validity takes
+priority. Report the reduced example rather than changing valid code solely for
+the survey.

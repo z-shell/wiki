@@ -1,0 +1,63 @@
+---
+id: zsh-lint-rules-and-suppressions
+title: Rules and suppressions
+sidebar_position: 5
+description: Read Zsh Lint diagnostics and suppress one intentional finding safely.
+keywords:
+  - zsh-lint
+  - rules
+  - suppressions
+  - diagnostics
+---
+
+## Read a diagnostic
+
+Human-readable output uses this shape:
+
+```text
+path:line:column: [rule-id] message
+```
+
+For example:
+
+```text
+lib/render.zsh:8:10: [quoting/unquoted-var] Variable expansion should be double-quoted
+```
+
+The rule ID is stable machine-facing identity. Browse the
+[published rule reference](./08_rule_reference.mdx) for each rule's purpose,
+examples, severity, and suppression form.
+
+Warnings and errors make the command exit 1. Info and Hint findings are still
+reported but do not make the command fail.
+
+## Fix first, suppress only when intentional
+
+A suppression names the exact rule and applies to one source line:
+
+```zsh
+print $words  # zsh-lint disable=quoting/unquoted-var -- intentional word splitting
+```
+
+You can also put it on the preceding comment line. It then applies to the next
+non-comment, non-blank source line:
+
+```zsh
+# zsh-lint disable=quoting/unquoted-var -- intentional word splitting
+print $words
+```
+
+Multiple rule IDs are comma-separated without spaces:
+
+```zsh
+# zsh-lint disable=rule/one,rule/two -- compatibility boundary
+command_to_review
+```
+
+There is no blanket, block-wide, or file-wide disable in the published
+contract. A malformed directive reports `meta/malformed-suppression`. A rule
+ID that suppresses nothing reports `meta/unused-suppression`, which helps keep
+exceptions from becoming stale.
+
+Use a short reason even when it is optional. The reason lets the next reviewer
+decide whether the exception is still valid.

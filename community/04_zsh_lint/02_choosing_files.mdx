@@ -1,0 +1,63 @@
+---
+id: zsh-lint-choosing-files
+title: Choosing files
+sidebar_position: 3
+description: Understand how Zsh Lint selects inputs and safely build an explicit file list.
+keywords:
+  - zsh-lint
+  - shebang
+  - file discovery
+  - zsh files
+---
+
+## The rule is simple
+
+In the published v1.1.0 CLI, every positional argument is a file to parse as
+Zsh. The path is the selection signal.
+
+| Input signal                      | Used to recognize Zsh? | What happens                                             |
+| --------------------------------- | ---------------------- | -------------------------------------------------------- |
+| Explicit file path                | Yes                    | The file is opened and parsed as Zsh.                    |
+| `#!/usr/bin/env zsh` shebang      | No                     | It is ordinary source text to the parser.                |
+| `.zsh` or `.plugin.zsh` extension | No                     | Extensions have no special meaning.                      |
+| Extensionless function name       | No automatic detection | It works when passed explicitly.                         |
+| Directory path                    | No                     | Opening the directory fails; there is no recursive scan. |
+| Standard input                    | No                     | The CLI requires one or more paths.                      |
+
+This means both of these are accepted as inputs:
+
+```sh
+zsh-lint script.zsh
+zsh-lint functions/example-run
+```
+
+It also means `zsh-lint deploy.sh` does not decide whether `deploy.sh` is Zsh,
+Bash, or POSIX shell. If you pass it, the parser applies Zsh semantics.
+
+## Prefer a reviewed input list
+
+For a small project, list the files directly in CI. For a larger project,
+build a list from repository conventions and review what it selects:
+
+```sh
+git ls-files -- '*.zsh' '*.plugin.zsh'
+git ls-files -z -- '*.zsh' '*.plugin.zsh' | xargs -0 -r zsh-lint
+```
+
+The extension patterns do not include extensionless autoloaded functions.
+Add known function directories explicitly, for example:
+
+```sh
+find functions completions -type f -print0 | xargs -0 -r zsh-lint
+```
+
+Do not blindly lint every `*.sh` file in a mixed-shell repository. First
+classify whether each file is native Zsh, Bash, or portable `sh`.
+
+## What is planned
+
+Automatic discovery and classification, including possible shebang and
+extension policies, require an explicit design because real Zsh projects also
+contain extensionless functions, startup files, fixtures, and generated code.
+That work is tracked in
+[zsh-lint issue 183](https://github.com/z-shell/zsh-lint/issues/183).

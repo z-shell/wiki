@@ -1,0 +1,344 @@
+---
+id: zsh-lint-rule-reference
+title: Published rule reference
+sidebar_position: 9
+description: Read the Zsh Lint rules generated from the latest published release.
+keywords:
+  - zsh-lint
+  - rules
+  - reference
+  - diagnostics
+toc_max_heading_level: 3
+---
+
+This page is generated from the documented rules in the latest published
+Zsh Lint release. Start with [Rules and suppressions](./04_rules_and_suppressions.mdx)
+if you are new to diagnostics and intentional exceptions.
+
+Do not hand-edit the marked region. The source repository's release-aligned
+documentation workflow replaces it automatically.
+
+{/* zsh-lint:generated:start */}
+
+:::info Published rule set
+This reference was generated from the published `v1.1.0` release at commit [`fde7795feaa65a222acf42459a26eb0f9271523d`](https://github.com/z-shell/zsh-lint/commit/fde7795feaa65a222acf42459a26eb0f9271523d). It matches the rules users receive from `go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.1.0`.
+:::
+
+## Rules
+
+- [`compat/special-param-shadow`](#rule-compatspecial-param-shadow): Shadowing special shell parameters
+- [`plugin/fpath-hygiene`](#rule-pluginfpath-hygiene): fpath manipulation hygiene in plugin entrypoints
+- [`plugin/function-scoped-options`](#rule-pluginfunction-scoped-options): Function files should scope shell options
+- [`plugin/unload-function`](#rule-pluginunload-function): Unload function convention and hygiene
+- [`plugin/zero-handling`](#rule-pluginzero-handling): Zero-handling idiom in plugin entrypoint
+- [`quoting/unquoted-var`](#rule-quotingunquoted-var): Unquoted variable expansion
+- [`security/eval`](#rule-securityeval): Use of eval
+- [`style/backquotes`](#rule-stylebackquotes): Prefer dollar-parenthesis command substitution
+- [`style/function-decl`](#rule-stylefunction-decl): Function declaration style
+- [`style/prefer-double-brackets`](#rule-styleprefer-double-brackets): Prefer \[\[ \]\] over \[ \] or test
+
+## Rule: `compat/special-param-shadow`
+
+**Name:** Shadowing special shell parameters
+
+**Summary:** Reports `local`, `typeset`, `declare`, or `readonly` declarations of a curated set of shell-set parameters (for example `ZSH_VERSION`, `OSTYPE`, and `pipestatus`); explicit non-local `-g` declarations (including `readonly -g`), the `export` builtin, and `typeset`-family query/display/function modes (standalone `+`, `-p`/`+p`, `+m`, and `-f`/`+f`) are excluded. Pattern declarations with `-m` are reported only when an effective `+g` makes matching non-local parameters local. The rule also stays silent when dynamic option words or the ambient `GLOBAL_EXPORT` option make declaration scope uncertain. Reads are never reported.
+
+Why: The Zsh manual's zshparam "Parameters Set By The Shell" section documents these as shell-provided state. In a function, `readonly` is `typeset -r` and creates a local binding unless `-g` explicitly selects non-local behavior. Version probes such as `is-at-least $ZSH_VERSION` are pervasive in plugin code, so a `local ZSH_VERSION=...` in a caller silently feeds the override to all nested code for the lifetime of the scope. At top level, the same declaration form clobbers the shell-managed outer binding instead of creating a temporary local. Unlike ordinary shadowing, the reader has no declaration of the original to look up -- the shell set it. See https://zsh.sourceforge.io/Doc/Release/Parameters.html#Parameters-Set-By-The-Shell.
+
+**Bad:**
+
+```zsh
+compile_zsh() {
+  local ZSH_VERSION="$1"
+}
+```
+
+**Good:**
+
+```zsh
+compile_zsh() {
+  local target_zsh_version="$1"
+}
+```
+
+**Severity:** Warning. The pattern is functional but misleading and can change what nested code observes; deliberate compatibility shims are realistic, so it is suppressible rather than an error.
+
+False positives: Deliberate compatibility shims or test harnesses that fake `ZSH_VERSION` or `OSTYPE` for downstream code are the rule's target behavior made intentional; suppress them with a reason. The rule flags only a curated allowlist of read-mostly shell-set parameters and stays silent for reads and the conventionally mutated `path`, `fpath`, `PATH`, `REPLY`, and `match`. The shell-special `status` and `pipestatus` cases remain included because `local -h status=...` and `local -h pipestatus=(...)` can replace their special behavior with ordinary local bindings.
+
+**Suppression:** Use `# zsh-lint disable=compat/special-param-shadow -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
+
+Corpus evidence: Issue #64 records `zd/docker/utils.zsh:78`: `local ZSH_VERSION="$1"` inside a helper that takes a target version as its first argument. Deferred issue #72 tracks bare assignments in function scope and `integer`/`float` declarations; both are out of scope for this rule version.
+
+## Rule: `plugin/fpath-hygiene`
+
+**Name:** fpath manipulation hygiene in plugin entrypoints
+
+**Summary:** Detects destructive assignments to `fpath` that overwrite existing autoload paths, additions of non-function directories (`bin/`, `tests/`), and hardcoded user paths.
+
+Why: Sourced Zsh plugins must not destructively replace `fpath` (which removes standard system and user function directories), add hardcoded user machine paths, or add non-function directories (`bin/`, `tests/`) that can trigger completion security audit warnings (`compaudit`) or namespace collisions. Plugins should append or prepend relative `functions/` or `completions/` directories. See https://wiki.zshell.dev/community/zsh_plugin_standard#completions-and-compinit-ownership.
+
+**Bad:**
+
+```zsh
+#### Destructively overwrites existing autoload paths
+fpath=( "${0:h}/functions" )
+
+#### Adds binary directory to fpath
+fpath+=( "${0:h}/bin" )
+```
+
+**Good:**
+
+```zsh
+fpath+=( "${0:h}/functions" "${0:h}/completions" )
+
+#### Prepending while preserving existing paths
+fpath=( "${0:h}/functions" $fpath )
+```
+
+**Severity:** Warning for destructive `fpath` overwrites or additions of `bin`/`tests` directories to `fpath`.
+
+False positives: Hermetic test runners or standalone shell bootstrap scripts that deliberately isolate `fpath`. Suppress with a reason.
+
+**Suppression:** Use `# zsh-lint disable=plugin/fpath-hygiene -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
+
+Corpus evidence: `z-a-meta-plugins/z-a-meta-plugins.plugin.zsh:12` uses compliant `fpath+=( "${0:h}/functions" )`.
+
+## Rule: `plugin/function-scoped-options`
+
+**Name:** Function files should scope shell options
+
+**Summary:** Reports executable files beneath a `functions` directory when neither `builtin emulate -L zsh` nor `setopt local_options` appears before the first non-guard top-level statement.
+
+Why: Zsh functions inherit the caller's option state. The Zsh manual documents `LOCAL_OPTIONS` as restoring options on function return, while `emulate -L` both selects Zsh emulation and makes option changes local. Without either form, options such as `SH_WORD_SPLIT`, `KSH_ARRAYS`, or `NO_EXTENDED_GLOB` can silently change function behavior. See https://zsh.sourceforge.io/Doc/Release/Options.html#index-LOCAL_005fOPTIONS and https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html#index-emulate.
+
+**Bad:**
+
+```zsh
+local -a matches
+matches=( $~pattern )
+```
+
+**Good:**
+
+```zsh
+builtin emulate -L zsh
+local -a matches
+matches=( $~pattern )
+```
+
+**Severity:** Hint. Missing option scoping enables latent caller-dependent bugs, but some helper functions intentionally inspect or mutate caller option state.
+
+False positives: Functions that intentionally share caller option state and trivial single-builtin functions remain findings by design; suppress them with a reason. Files outside a complete `functions` path segment are out of scope. A contiguous prefix of recognized `condition || return` or single-return `if` guards is accepted before scoping.
+
+**Suppression:** Use `# zsh-lint disable=plugin/function-scoped-options -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
+
+Corpus evidence: Issue #63 reported missing scoping across z-a-meta-plugins and zsh-fancy-completions function files. The analyzer currently flags `zsh-fancy-completions/functions/.completion-prediction` and `zsh-fancy-completions/functions/.force_rehash`. The originally cited `z-a-meta-plugins/functions/.za-meta-plugins-meta-cmd-help-handler` is a fully commented-out stub and is correctly silent. Compliant `setopt local_options` and `builtin emulate -L zsh` examples exist in the same repositories.
+
+## Rule: `plugin/unload-function`
+
+**Name:** Unload function convention and hygiene
+
+**Summary:** Checks that plugins registering persistent shell hooks or widgets define a namespaced unload function (`*_plugin_unload`), and that defined unload functions cleanly unfunction themselves upon completion.
+
+Why: The Zsh Plugin Standard specifies that plugins with persistent side effects (hooks via `add-zsh-hook`, line-editor widgets via `add-zle-hook-widget` or `zle -N`) should provide a namespaced `*_plugin_unload` function so plugin managers and users can cleanly unload the plugin without restarting the shell. The unload function must explicitly remove only its own resources and unfunction itself upon completion. See https://wiki.zshell.dev/community/zsh_plugin_standard#lifecycle-and-resource-ownership.
+
+**Bad:**
+
+```zsh
+#### Plugin installs hook but provides no unload function
+add-zsh-hook precmd _my_precmd
+```
+
+**Good:**
+
+```zsh
+add-zsh-hook precmd _my_precmd
+
+my_plugin_unload() {
+  emulate -L zsh
+  autoload -Uz add-zsh-hook
+  add-zsh-hook -d precmd _my_precmd
+  unfunction _my_precmd my_plugin_unload
+}
+```
+
+**Severity:** Hint. Missing unload functions or self-unfunction in unload definitions are lifecycle recommendations. Indiscriminate function wiping is a Warning.
+
+False positives: Plugins intended only for static, once-per-session loading without unload support. Suppress with a reason.
+
+**Suppression:** Use `# zsh-lint disable=plugin/unload-function -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
+
+Corpus evidence: `zsh-fancy-completions/lib/state.zsh:72` implements `zsh-fancy-completions_plugin_unload` with full resource restoration and self-unfunction.
+
+## Rule: `plugin/zero-handling`
+
+**Name:** Zero-handling idiom in plugin entrypoint
+
+**Summary:** Reports direct uses of `$0` at the top level of plugin scripts before `$0` has been initialized using prompt expansions (`${(%):-%N}` or `${(%):-%x}`).
+
+Why: When a Zsh plugin is sourced, positional parameter `$0` evaluates to the name of the shell (`zsh` or `-zsh`) rather than the path of the sourced script, unless `FUNCTION_ARGZERO` is active. Plugin entrypoints must initialize `$0` using prompt expansion `${(%):-%N}` or `${(%):-%x}` (optionally with `$ZERO` fallback) before using `$0` to derive directories or autoload paths. See https://wiki.zshell.dev/community/zsh_plugin_standard#zero-handling.
+
+**Bad:**
+
+```zsh
+fpath+=( "${0:h}/functions" )
+```
+
+**Good:**
+
+```zsh
+0="${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"
+0="${${(M)0:#/*}:-$PWD/$0}"
+fpath+=( "${0:h}/functions" )
+```
+
+**Severity:** Warning. Deriving paths from uninitialized `$0` in a sourced plugin leads to incorrect directory paths or runtime loading failures.
+
+False positives: Scripts intended solely for direct execution (not sourcing) or functions where `$0` refers to the function name. Suppress with a reason.
+
+**Suppression:** Use `# zsh-lint disable=plugin/zero-handling -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
+
+Corpus evidence: `z-a-meta-plugins/z-a-meta-plugins.plugin.zsh:7` uses the compliant `0="${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"` idiom before referencing `${0:h}` on line 12.
+
+## Rule: `quoting/unquoted-var`
+
+**Name:** Unquoted variable expansion
+
+**Summary:** Reports parameter expansions in command names or arguments that are not enclosed in double quotes.
+
+Why: The Zsh manual's Parameter Expansion section explains that unquoted parameters are not split on whitespace by default, unlike in sh, but null words are still elided; enabling `SH_WORD_SPLIT` also makes unquoted values subject to field splitting. Double quotes preserve an empty scalar as an argument and keep the expansion single-word under either option state. See https://zsh.sourceforge.io/Doc/Release/Expansion.html#Parameter-Expansion.
+
+**Bad:**
+
+```zsh
+print -r -- $value
+```
+
+**Good:**
+
+```zsh
+print -r -- "$value"
+```
+
+**Severity:** Warning. Losing an empty argument or inheriting `SH_WORD_SPLIT` can change command behavior, while intentional elision remains realistic.
+
+False positives: Code may intentionally omit an empty argument, deliberately rely on `SH_WORD_SPLIT`, or expand a value guaranteed to be non-empty. Those cases should use a reasoned suppression rather than weakening unrelated diagnostics.
+
+**Suppression:** Use `# zsh-lint disable=quoting/unquoted-var -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
+
+Corpus evidence: Sourced scripts and plugin entrypoints frequently use quoted parameters for scalar configuration and path derivation.
+
+## Rule: `security/eval`
+
+**Name:** Use of eval
+
+**Summary:** Reports commands whose literal command name is `eval`.
+
+Why: The Zsh manual documents that `eval` reads its arguments as shell input and executes the resulting commands in the current shell process. Dynamic or untrusted text can therefore become shell syntax rather than inert data. See https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html#index-eval.
+
+**Bad:**
+
+```zsh
+eval "print -r -- $user_input"
+```
+
+**Good:**
+
+```zsh
+print -r -- "$user_input"
+```
+
+**Severity:** Info. Re-evaluating dynamic input is risky, but deliberate uses such as trusted code generation and compatibility shims are common enough that the pattern is not automatically a bug.
+
+False positives: Static, maintainer-controlled command strings and deliberate shell-language adapters may require `eval`. Keep the finding visible unless the trust boundary is documented next to the call.
+
+**Suppression:** Use `# zsh-lint disable=security/eval -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line. A reason is strongly recommended for this security-category rule.
+
+Corpus evidence: The June 12, 2026 LangZsh clean-baseline run produced zero findings from this rule across the 11 parseable corpus files. This grandfathered rule therefore has no positive corpus citation yet.
+
+## Rule: `style/backquotes`
+
+**Name:** Prefer dollar-parenthesis command substitution
+
+**Summary:** Reports the grave-accent form of command substitution in favor of `$()`.
+
+Why: The Zsh manual's Command Substitution section documents both `$()` and grave accents as supported forms. This rule prefers `$()` as the clearer, readily nestable modern idiom; it does not claim grave accents are invalid Zsh syntax. See https://zsh.sourceforge.io/Doc/Release/Expansion.html#Command-Substitution.
+
+**Bad:**
+
+```zsh
+current=`pwd`
+```
+
+**Good:**
+
+```zsh
+current=$(pwd)
+```
+
+**Severity:** Hint. The forms are semantically supported; this is an idiom and readability preference rather than a correctness diagnostic.
+
+False positives: A project may intentionally preserve historical style or mirror code shared with an environment where that spelling is required.
+
+**Suppression:** Use `# zsh-lint disable=style/backquotes -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
+
+Corpus evidence: The June 12, 2026 LangZsh clean-baseline run produced zero findings from this rule across the 11 parseable corpus files. This grandfathered rule therefore has no positive corpus citation yet.
+
+## Rule: `style/function-decl`
+
+**Name:** Function declaration style
+
+**Summary:** Reports declarations written as `function name()` instead of choosing either `name()` or `function name`.
+
+Why: The Zsh manual's Complex Commands grammar documents the sh-compatible `word ()` form and the Zsh `function word` form as alternatives. Combining both spellings is accepted but redundant, so choosing one form communicates the intended style more clearly. See https://zsh.sourceforge.io/Doc/Release/Shell-Grammar.html#Complex-Commands.
+
+**Bad:**
+
+```zsh
+function render() { print ok; }
+```
+
+**Good:**
+
+```zsh
+render() { print ok; }
+```
+
+**Severity:** Hint. The mixed declaration is valid Zsh and the suggested change is stylistic.
+
+False positives: Generated code or a project-wide convention may intentionally use the mixed spelling even though Zsh does not require it.
+
+**Suppression:** Use `# zsh-lint disable=style/function-decl -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
+
+Corpus evidence: The June 12, 2026 LangZsh clean-baseline run produced zero findings from this rule across the 11 parseable corpus files. This grandfathered rule therefore has no positive corpus citation yet.
+
+## Rule: `style/prefer-double-brackets`
+
+**Name:** Prefer \[\[ \]\] over \[ \] or test
+
+**Summary:** Reports literal `[` and `test` command names in favor of Zsh's `[[ ... ]]` compound command.
+
+Why: The Zsh manual's Conditional Expressions section documents that expansions inside `[[ ... ]]` are constrained to one word and do not perform filename generation. With `[` or `test`, normal command-line globbing can produce multiple words and confuse the test command's syntax. See https://zsh.sourceforge.io/Doc/Release/Conditional-Expressions.html.
+
+**Bad:**
+
+```zsh
+if [ "$name" = *.zsh ]; then print match; fi
+```
+
+**Good:**
+
+```zsh
+if [[ $name = *.zsh ]]; then print match; fi
+```
+
+**Severity:** Hint. `[` and `test` remain valid commands; the rule recommends the safer and more expressive Zsh-native conditional syntax.
+
+False positives: Scripts intentionally kept portable across POSIX shells, or code that explicitly needs `test` command semantics, should retain the portable form and document the choice.
+
+**Suppression:** Use `# zsh-lint disable=style/prefer-double-brackets -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
+
+Corpus evidence: The June 12, 2026 LangZsh clean-baseline run produced zero findings from this rule across the 11 parseable corpus files. This grandfathered rule therefore has no positive corpus citation yet.
+
+{/* zsh-lint:generated:end */}
