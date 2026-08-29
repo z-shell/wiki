@@ -81,6 +81,29 @@ source ~/some/path/to/fsh/F-Sy-H.plugin.zsh
   </TabItem>
 </Tabs>
 
+## Compatibility and loading {/* #compatibility-and-loading */}
+
+F-Sy-H uses the portable project identifier `f-sy-h` and supports Zsh 5.8 or newer. Its authoritative
+entrypoint is `F-Sy-H.plugin.zsh`. Direct sourcing and plugin-manager loading both add the repository root and
+its `functions` directory to `fpath`, allowing command-specific chroma functions to autoload.
+
+Loading wraps ZLE widgets, installs a `preexec` hook, loads required Zsh modules, and defines the `f-sy-h`
+alias when the theme manager is enabled. It performs no network request and does not create the cache
+directory. The explicit `fast-theme` command creates that directory when it needs to write theme state.
+
+Existing `current_theme.zsh` and `theme_overlay.zsh` files under `$FAST_WORK_DIR` are sourced during loading as
+user-managed configuration. Recursive highlighting uses the secondary theme shipped with the checked-out
+plugin version or an explicitly generated `secondary_theme.local.zsh`. Legacy `secondary_theme.zsh` cache
+files are ignored. Highlighting a typed `source` command checks whether its target is a readable regular file
+but does not copy or compile that target.
+
+:::warning
+
+F-Sy-H does not yet provide exact unload restoration. Track the lifecycle work in
+[F-Sy-H issue #54](https://github.com/z-shell/F-Sy-H/issues/54).
+
+:::
+
 ## Performance {/* #performance */}
 
 Performance differences can be observed in this Asciinema recording, where a `10 kB` function is being edited.
@@ -139,13 +162,15 @@ File name `overlay.ini` is treated specially.
 When specifying a path, the following short-hands can be used:
 
 ```ini showLineNumbers
-XDG:    = ~/.config/fsh (respects $XDG_CONFIG_HOME env var)
-LOCAL:  = /usr/local/share/fsh/
-HOME:   = ~/.fsh/
-OPT:    = /opt/local/share/fsh/
+CONFIG: = ${XDG_CONFIG_HOME:-$HOME/.config}/f-sy-h/
+CACHE:  = ${XDG_CACHE_HOME:-$HOME/.cache}/f-sy-h/
+LOCAL:  = /usr/local/share/f-sy-h/
+HOME:   = $HOME/.f-sy-h/
+OPT:    = /opt/local/share/f-sy-h/
 ```
 
-So for example, issue `fast-theme XDG:overlay` to load `~/.config/fsh/overlay.ini` as an overlay. The `.ini` extension is optional.
+For example, use `fast-theme CONFIG:overlay` to load
+`${XDG_CONFIG_HOME:-$HOME/.config}/f-sy-h/overlay.ini` as an overlay. The `.ini` extension is optional.
 
 #### Secondary theme {/* #secondary-theme */}
 
@@ -289,7 +314,9 @@ The [chromas][f-sy-h-chromas] are set in [fast-highlight#L174][fast-highlight-ch
 
 Set `$FAST_WORK_DIR` before loading the plugin to have e.g. processed theme files (ready to load, in Zsh format, not INI) kept under a specified location. This is handy if e.g. you install Fast-Syntax-Highlighting system-wide (e.g. from AUR on ArchLinux) and want to have a per-user theme setup.
 
-You can use "~" in the path, e.g. `FAST_WORK_DIR=~/.fsh` and also the `XDG:`, `LOCAL:`, `OPT:`, etc. short-hands, so e.g. `FAST_WORK_DIR=XDG` or `FAST_WORK_DIR=XDG:` is allowed (in this case it will be changed to `$HOME/.config/fsh` by default by F-Sy-H loader).
+You can use `~` in the path, for example `FAST_WORK_DIR=~/.f-sy-h`. The `CONFIG:`, `CACHE:`, `LOCAL:`,
+`HOME:`, and `OPT:` shorthands use the locations documented in the theme guide above. Set `FAST_WORK_DIR`
+before loading the plugin.
 
 ### Chroma guide for F-Sy-H {/* #chroma-guide-for-f-sy-h */}
 
