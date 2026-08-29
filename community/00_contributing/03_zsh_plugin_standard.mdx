@@ -96,18 +96,17 @@ test the named manager profile independently.
 These interfaces are retained as manager interoperability reference, not as a
 legacy conformance mode.
 
-### 1. Standardized `$0` handling {/* #zero-handling */}
+### 1. Standardized source-path handoff {/* #zero-handling */}
 
-To get the plugin's location, plugins should do:
+Portable plugins use the [canonical scoped loader](#entrypoints-and-repository-layout)
+defined in the portable core. Its final argument is evaluated at the sourced
+file's call site, before the anonymous loader function begins:
 
-```zsh showLineNumbers title="Canonical self-location"
-0="${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"
-0="${0:a}"
+```zsh title="Manager-compatible source-path handoff"
+"${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"
 ```
 
-Then use `${0:h}` to get the plugin's directory.
-
-The first line will:
+The expression will:
 
 1. Be backward compatible with normal `$0` setting and usage.
 
@@ -123,7 +122,7 @@ The first line will:
    must never evaluate its own or another plugin's text this way, and must
    never pass untrusted data through such a call.
 
-3. Use `$0` if it does not contain the path to the Zsh binary.
+3. Use `$0` if it differs from `ZSH_ARGZERO`, the shell invocation name.
 
    3.1. A plugin manager can still set `$0`, although this is more difficult:
    it requires `unsetopt function_argzero` before sourcing the plugin script,
@@ -133,29 +132,37 @@ The first line will:
    the path to the Zsh binary rather than the plugin script, unless overwritten
    by a `0=…` assignment.
 
-4. Use the `%N` prompt expansion flag, which reports the name of the script,
-   sourced file, or function currently being executed. See the official
+4. Fall back to the `%N` prompt expansion flag, which reports the name of the
+   script, sourced file, or function currently being executed. See the official
    [`%N` definition][zsh-percent-n]. It reports the execution name or path, and
-   is **not guaranteed to be absolute**, which is why the second line below
-   exists. A plugin manager cannot alter it, so no advanced loading is possible
-   through it, but plain plugin-file sourcing without a plugin manager is saved
-   from breaking. It is a good last-resort fallback.
+   is **not guaranteed to be absolute**. A plugin manager cannot alter it, so
+   no advanced loading is possible through it, but plain plugin-file sourcing
+   without a plugin manager is saved from breaking.
 
-The second line makes the path absolute. The `:a` modifier resolves `.` and
-`..` components and makes a relative path absolute without resolving symlinks;
-see [Zsh filename modifiers][zsh-modifiers]. Use `:A` or `:P` only when you
+Keep this expression after the anonymous function's closing brace. Inside that
+function, `%N` is `(anon)`, not the sourced file path. The loader receives the
+value as `$1`, normalizes it with `:a`, and stores it in a readonly local
+parameter. The `:a` modifier resolves `.` and `..` components and makes a
+relative path absolute without resolving symlinks; see
+[Zsh filename modifiers][zsh-modifiers]. Use `:A` or `:P` only when you
 intentionally want symlink resolution.
 
+Do not assign the result to special parameter `0`. Keeping it in loader-local
+state preserves the caller and remains valid when `posix_argzero` makes `0`
+read-only.
+
 The goal is flexibility. The essential motivation is to support manager-side
-`eval "$(<plugin)"` loading and to keep working under `setopt no_function_argzero`,
-with `posix_argzero` handled as described below.
+`eval "$(<plugin)"` loading while working under `no_function_argzero` and
+`posix_argzero`.
 
 #### Use in standalone scripts {/* #zero-handling-standalone-scripts */}
 
-The same idiom works in a standalone script, one run through a `#!` line, to
-find the directory the script file resides in. Verified on Zsh 5.9.2 when
-invoked by absolute path, from an unrelated working directory, by relative
-path, and through a symlink.
+The same call-site expression works in a standalone script, one run through a
+`#!` line, to find the directory the script file resides in. A standalone
+process does not need the anonymous loader merely to protect its caller, but it
+must still store the result in a purpose-specific parameter rather than
+repurposing `0`. Verified on Zsh 5.9.2 when invoked by absolute path, from an
+unrelated working directory, by relative path, and through a symlink.
 
 Two differences apply outside a plugin manager:
 
@@ -164,11 +171,11 @@ Two differences apply outside a plugin manager:
   resolves to the directory holding the **link**, not the target. Use `:A` when
   you want the target's directory.
 
-:::warning[`%N` inside a function is a name, not a path]
+:::warning[`%N` must remain at the sourced-file call site]
 
-Do not convert a plugin or script into a function and expect self-location to
-keep working. Inside a function, `%N` expands to the **function name**, so the
-idiom silently resolves against the current directory instead of failing:
+Inside a function, `%N` expands to the **function name**. Moving the fallback
+into the loader body would therefore resolve against the current directory
+instead of failing:
 
 ```shell-session
 $ zsh -f -c 'f() { print -r -- ${(%):-%N} }; f'
@@ -177,56 +184,26 @@ $ zsh -f -c 'myplugin() { print -r -- ${${(%):-%N}:a:h} }; myplugin'
 /current/working/directory        # not the plugin directory
 ```
 
-Earlier revisions speculated that a manager might convert a plugin to a
-function. Treat that as an unsupported loading mode: a plugin body that needs
-its own location must be sourced or executed, not wrapped in a function.
+The canonical loader avoids this trap by evaluating the handoff expression
+after the closing brace, while Zsh is still executing the sourced file.
 
 :::
 
 :::note[Change from earlier revisions]
 
-Earlier revisions used `0="${${(M)0:#/*}:-$PWD/$0}"` for the second line. The
-`:a` modifier supersedes it and is also correct when `PWD` has changed since
-the plugin was loaded.
-
-:::
-
-The assignment uses quoting to make it resilient to the combination of the
-`GLOB_SUBST` and `GLOB_ASSIGN` options. It is a standard snippet of code, so it
-has to work everywhere.
-
-The quoting is required **here specifically** because this runs at the top
-level of a sourced entrypoint, where no emulation is in effect and the caller's
-options apply. Inside a function that has established `emulate -L zsh`, those
-two options are off and assignments generally do not need the same defensive
-quoting. That is a property of the emulation, not a licence to drop quoting in
-general; see `zsh/quoting/quote-boundaries` in the
-[Zsh Scripting Standard][zsh-scripting-standard], which is `required` and owns
-the general rule.
-
-:::warning[`posix_argzero` makes `0` read-only]
-
-Earlier revisions of this page claimed that `setopt posix_argzero` is detected
-by the snippet above. That is incorrect. Under `posix_argzero` the parameter
-`0` is read-only, so the assignment aborts before any detection can happen:
+Earlier revisions assigned the resolved path to `0`, then made it absolute
+with either `$PWD` or `:a`. That mutation could replace caller state and fails
+when `posix_argzero` makes `0` read-only:
 
 ```shell-session
-$ zsh -f -c 'setopt posixargzero; typeset -p 0'
+$ zsh -f -c 'setopt posix_argzero; typeset -p 0'
 typeset 0=zsh
-$ zsh -f -c 'setopt posixargzero; 0=x'
+$ zsh -f -c 'setopt posix_argzero; 0=x'
 zsh:1: read-only variable: 0
 ```
 
-If your plugin must survive `posix_argzero`, do not assign to `0` at all. Store
-the location in a project-owned parameter instead:
-
-```zsh showLineNumbers title="Self-location without assigning to 0"
-typeset -g EXAMPLE_PLUGIN_DIR=${${(%):-%N}:a:h}
-```
-
-This form is correct under default options, under `no_function_argzero`, and
-under `posix_argzero`. It does not support the `ZERO` manager hand-off, so use
-it when option resilience matters more than manager-assisted loading.
+The scoped loader supersedes those forms while retaining the `ZERO` manager
+handoff.
 
 :::
 
@@ -685,17 +662,24 @@ working directory. The standard expression accepts an optional manager-supplied
 and makes the result absolute without resolving symlinks:
 
 ```zsh title="Resolve the authoritative entrypoint"
-local source_path plugin_dir
-source_path="${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"
-plugin_dir=${source_path:a:h}
+() {
+  builtin emulate -L zsh
+
+  local -r source_path=${1:a}
+  local -r plugin_dir=${source_path:h}
+
+  # Plugin initialization.
+} "${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"
 ```
 
-Use a local parameter inside a scoped loader. Do not overwrite global `0`.
-This form therefore remains valid when `posix_argzero` makes `0` read-only.
-`%N` is not guaranteed to be absolute, which is why the `:a` modifier is
-required. See [the loader interoperability reference](#zero-handling) for
-manager evaluation details and the official
-[Zsh filename modifiers][zsh-modifiers] for `:a`, `:A`, and `:P`.
+The anonymous function provides local scope, and `emulate -L zsh` establishes
+native Zsh option behavior while localizing option, pattern, and trap changes.
+`local -r` makes the two path invariants explicit and readonly. Zsh parses
+`local name=value` as a declaration assignment, so the unquoted scalar value
+remains one word. Keep the complete source-path expression at the call site;
+see [the loader interoperability reference](#zero-handling) for manager
+evaluation details and the official [Zsh filename modifiers][zsh-modifiers]
+for `:a`, `:A`, and `:P`.
 
 A maintainable layout is:
 
