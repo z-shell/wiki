@@ -1,0 +1,162 @@
+---
+id: messages
+title: "💬 Zi messages"
+sidebar_position: 5
+image: /img/png/theme/z/320x320.png
+description: Render reliable, styled Zi messages and progress updates.
+keywords:
+  - messages
+  - output
+  - colors
+  - formatting
+  - auto
+---
+
+`+zi-message` is Zi's public message renderer. It preserves message text,
+applies optional semantic markup, and writes the result to one selected file
+descriptor. Safe automatic formatting is enabled by default.
+
+```zsh
++zi-message "Installed z-shell/zi in 245ms"
++zi-message --level=success "Update completed"
++zi-message "{warn}Warning:{rst} configuration is missing"
+```
+
+Use `+zi-progress` for a replaceable progress line. It shares the same
+renderer and options, but terminates output with a carriage return instead of
+a newline.
+
+```zsh
++zi-progress "Downloading 42%"
+```
+
+## Automatic formatting
+
+The default `safe` mode recognizes forms whose meaning does not depend on the
+current directory or mutable shell state:
+
+- URLs with a scheme, including paths, queries, and fragments
+- Zi commands and built-in ice modifiers
+- integers, decimals, and durations ending in `ms`, `s`, `m`, `h`, or `d`
+- balanced single-quoted, double-quoted, and backtick spans
+
+Safe mode deliberately leaves ambiguous text such as `owner/repo`, `usr/bin`,
+`1..2`, and `...` unchanged. This makes the default predictable across
+machines and shell sessions.
+
+```zsh
++zi-message --auto=safe "Fetch https://example.com/a?q=1 in 12.5ms"
+```
+
+The `contextual` mode additionally recognizes registered annex commands and
+ices, shell commands, aliases, reserved words, functions, installed plugin
+IDs, known OMZ and PZT aliases, and existing paths. Its output can therefore
+change with `$PATH`, the current directory, installed plugins, or loaded shell
+state.
+
+```zsh
++zi-message --auto=contextual "Run my-function on ./local-file"
+```
+
+Disable automatic formatting for a call with `--auto=off`. Configure the
+default for all calls with `zstyle`:
+
+```zsh
+zstyle ':zi:message' auto safe
+# Other values: contextual, off
+```
+
+The inline tags `{auto}`, `{contextual}`, and `{no-auto}` change the mode for
+the following span. `{auto}` means safe mode. An explicit style tag takes
+precedence over automatic formatting until `{rst}` or another automatic-mode
+tag resumes automatic formatting.
+
+## Options
+
+| Option | Effect |
+| --- | --- |
+| `-n` | Do not append the normal `+zi-message` newline. |
+| `-l` | Join separate message operands with newlines instead of spaces. |
+| `-u FD` or `-uFD` | Write the complete message to file descriptor `FD`. |
+| `--auto=off\|safe\|contextual` | Select automatic formatting for this call. |
+| `--color=auto\|always\|never` | Select the color policy for this call. |
+| `--level=plain\|debug\|info\|warn\|error\|success` | Apply a semantic base style. |
+| `--literal` | Disable all markup parsing while preserving the input bytes. |
+| `--` | End option parsing. Use it before data that may begin with `-`. |
+
+The compatibility option `-r` is accepted and has no additional effect,
+because output is always emitted literally rather than through Zsh prompt
+expansion.
+
+Separate operands are joined with one space by default. Existing whitespace
+inside each operand, including tabs and newlines, is preserved. The renderer
+does not interpret `%F`, `%B`, backslashes, command substitutions, or parameter
+syntax.
+
+For dynamic text that must not be interpreted as Zi markup, combine
+`--literal` and `--`:
+
+```zsh
++zi-message --literal -- "$value"
+```
+
+`--literal` preserves control bytes too. If `$value` comes from an untrusted
+source, sanitize or reject terminal control characters before displaying it.
+
+## Markup
+
+A markup tag has the form `{name}`. Unknown tags remain literal, so ordinary
+brace text is not silently deleted.
+
+Common semantic style tags include:
+
+| Purpose | Tags |
+| --- | --- |
+| Commands and options | `{cmd}`, `{bcmd}`, `{ice}`, `{opt}`, `{flag}` |
+| Objects and paths | `{pname}`, `{pid}`, `{file}`, `{dir}`, `{url}` |
+| Data | `{data}`, `{data2}`, `{num}`, `{time}`, `{version}`, `{var}` |
+| Status | `{info}`, `{warn}`, `{error}`, `{failure}`, `{happy}`, `{note}` |
+| Quoting and emphasis | `{apo}`, `{quo}`, `{bapo}`, `{b}`, `{u}`, `{it}`, `{faint}` |
+| Reset | `{rst}` |
+
+`{pid}` is an alias for `{pname}`. Existing Zi palette names exposed as
+`ZI[col-NAME]` also work as `{NAME}`.
+
+Structural tags insert characters rather than selecting a style:
+
+| Tag | Output |
+| --- | --- |
+| `{nl}` | Newline |
+| `{tab}` | Spaced tab |
+| `{bspc}` | Backspace |
+| `{bar}`, `{th-bar}` | Terminal-width horizontal rule |
+| `{…}`, `{-…}` | Ellipsis forms |
+| `{ndsh}`, `{mdsh}`, `{mmdsh}` | Dash forms |
+| `{lr}`, `{↔}` | Left-right marker |
+
+Unicode structural tags use ASCII fallbacks when the active locale is not
+UTF-8.
+
+## Color policy and destinations
+
+The default `auto` color policy emits ANSI color only when the selected output
+descriptor is a terminal, the terminal reports color support, `TERM` is not
+`dumb`, and `NO_COLOR` is unset. Zi uses a compatible basic palette for
+terminals reporting fewer than 256 colors.
+
+```zsh
+zstyle ':zi:message' color auto
+# Other values: always, never
+```
+
+`--color=always` is an explicit per-call override, including when `NO_COLOR`
+is set. `--color=never` guarantees plain output. The reset sequence, message
+body, and terminator are all written to the same selected descriptor; Zi does
+not leak a newline or reset to standard output.
+
+```zsh
++zi-message -u2 --level=error "Update failed"
+```
+
+Invalid options, modes, levels, and descriptors return status `2`. A write
+failure returns the underlying output error status.
