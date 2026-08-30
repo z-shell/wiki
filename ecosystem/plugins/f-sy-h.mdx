@@ -81,6 +81,24 @@ source ~/some/path/to/fsh/F-Sy-H.plugin.zsh
   </TabItem>
 </Tabs>
 
+## Compatibility and loading {/* #compatibility-and-loading */}
+
+F-Sy-H uses the portable project identifier `fsh` and supports Zsh 5.8 or newer. Its authoritative entrypoint
+is `F-Sy-H.plugin.zsh`. Direct sourcing and plugin-manager loading expose the public `fsh_theme` and
+`fsh_plugin_unload` functions. The `functions/`, `completions/`, and private `chroma/` directories are added to
+`fpath` when absent.
+
+Interactive loading wraps ZLE widgets, installs a `preexec` hook, and loads the required Zsh modules.
+Non-interactive loading defines the shell API without changing widgets or installing the hook. The plugin has
+no public aliases or public parameters.
+
+Loading performs no network request and does not create the theme work directory. The explicit `fsh_theme`
+command creates storage only when it persists theme state. Saved `current_theme.ini`, `theme_overlay.ini`, and
+`secondary_theme.local.ini` files are parsed as data; legacy executable `*.zsh` theme caches are ignored.
+
+`fsh_plugin_unload` removes plugin-owned hooks, widgets, functions, parameters, modules, and `fpath` entries.
+State changed by another component after loading is preserved.
+
 ## Performance {/* #performance */}
 
 Performance differences can be observed in this Asciinema recording, where a `10 kB` function is being edited.
@@ -98,7 +116,11 @@ Performance differences can be observed in this Asciinema recording, where a `10
 
 ### Themes {/* #themes */}
 
-Switch themes via `fast-theme {theme-name}`.
+List the shipped themes and their declared backgrounds:
+
+```zsh
+fsh_theme --list
+```
 
 <Player
   src="/cdn/cast/513093.cast"
@@ -109,17 +131,94 @@ Switch themes via `fast-theme {theme-name}`.
   fit={false}
 />
 
-Run `fast-theme -t {theme-name}` option to obtain the snippet above.
+Apply a theme and place the sample snippet above on the command line:
 
-Run `fast-theme -l` to list available themes.
+```zsh
+fsh_theme --test clean
+```
+
+Apply a theme without the sample:
+
+```zsh
+fsh_theme clean
+```
 
 #### Theme guide for F-Sy-H {/* #theme-guide-for-f-sy-h */}
 
-To select a theme using `fast-theme`. F-Sy-H currently has 11 themes basic [INI files][ini-files] where each key is a _style_, they can be listed with `fast-theme -l`.
+Themes are declarative [INI files][ini-files]. Start from a shipped theme so required styles and current
+fallbacks are retained:
 
-Besides shipped themes, users can point this tool to any other theme, by simple `fast-theme ~/mytheme.ini`. To obtain a template to work on when creating your theme, issue `fast-theme --copy-shipped-theme {theme-name}`.
+```zsh
+theme_dir=${XDG_CONFIG_HOME:-$HOME/.config}/f-sy-h
+mkdir -p -- "$theme_dir"
+fsh_theme --copy-shipped-theme default "$theme_dir/custom"
+# Edit custom.ini, then apply it.
+fsh_theme "$theme_dir/custom.ini"
+```
 
-To alter just a few styles and not create a whole new theme, use **overlay**. What is an overlay? It is in the same format as a full theme but can have only a few styles defined, and these styles will overwrite styles in the main theme.
+The shipped set is discovered at runtime, so use `fsh_theme --list` instead of relying on a hardcoded count.
+
+##### Rendering contract {/* #rendering-contract */}
+
+Shipped themes declare their rendering assumptions:
+
+```ini showLineNumbers
+[theme]
+palette = xterm-256
+foreground = #ffffff
+background = #000000
+```
+
+`palette` is either `xterm-256`, with exact `#rrggbb` foreground and background values, or
+`terminal-ansi16`, with both values set to `default`. External themes may omit the complete `[theme]` section
+for compatibility, but a partial metadata declaration is invalid.
+
+A style value is a comma-separated combination of:
+
+| Form       | Accepted values                                                                                 |
+| ---------- | ----------------------------------------------------------------------------------------------- |
+| Named      | `red`, `green`, `blue`, `yellow`, `cyan`, `magenta`, `black`, `white`, or `default`              |
+| Indexed    | `0` through `255`                                                                               |
+| Truecolor  | Six-digit `#rrggbb`                                                                             |
+| Background | `bg:` before any named, indexed, or truecolor value                                             |
+| Attribute  | `bold`, `blink`, `conceal`, `reverse`, `standout`, `underline`, each `no-` form, or `none`       |
+
+For example, `#ff0055,bold` sets a truecolor foreground and `bg:17,underline` combines an indexed background
+with an attribute.
+
+##### Styles and fallbacks {/* #styles-and-fallbacks */}
+
+Theme sections group styles by where they apply:
+
+| Section           | Style group                                                  |
+| ----------------- | ------------------------------------------------------------ |
+| `[base]`          | General tokens, separators, diagnostics, and recursive input |
+| `[command-point]` | Commands, aliases, functions, keywords, and shell syntax     |
+| `[paths]`         | Paths, directories, separators, and globbing                 |
+| `[brackets]`      | Paired brackets and nesting levels                           |
+| `[arguments]`     | Options and quoted arguments                                 |
+| `[in-string]`     | Escapes and expansions inside strings                        |
+| `[other]`         | Variables, assignments, and history expansion               |
+| `[math]`          | Arithmetic variables, numbers, and errors                    |
+| `[for-loop]`      | Loop variables, numbers, operators, and separators           |
+| `[case]`          | Case inputs, parentheses, and conditions                     |
+
+The exhaustive style order and each style's fallback chain live in the
+[canonical theme schema][theme-schema]. A missing style follows that declared chain and then `default`.
+Use [the default shipped theme][default-theme] as the complete authoring template instead of copying a style
+table from documentation.
+
+From an F-Sy-H checkout, the [theme validator][theme-validator] checks value syntax, required styles, metadata,
+contrast, semantic distinguishability, and colour-vision-deficiency separation:
+
+```zsh
+zsh -f tools/validate-themes.zsh /path/to/theme.ini
+```
+
+##### Overlays and paths {/* #overlays-and-paths */}
+
+An overlay uses the same format but declares only the styles it replaces. A theme path whose base name
+contains `overlay` is treated as a partial overlay.
 
 Example overlay file:
 
@@ -134,43 +233,44 @@ function       = green
 command        = 180
 ```
 
-File name `overlay.ini` is treated specially.
+Theme paths accept these shorthands:
 
-When specifying a path, the following short-hands can be used:
+| Shorthand | Location                                          |
+| --------- | ------------------------------------------------- |
+| `CONFIG:` | `${XDG_CONFIG_HOME:-$HOME/.config}/f-sy-h/`       |
+| `CACHE:`  | `${XDG_CACHE_HOME:-$HOME/.cache}/f-sy-h/`         |
+| `LOCAL:`  | `/usr/local/share/f-sy-h/`                        |
+| `HOME:`   | `$HOME/.f-sy-h/`                                  |
+| `OPT:`    | `/opt/local/share/f-sy-h/`                        |
 
-```ini showLineNumbers
-XDG:    = ~/.config/fsh (respects $XDG_CONFIG_HOME env var)
-LOCAL:  = /usr/local/share/fsh/
-HOME:   = ~/.fsh/
-OPT:    = /opt/local/share/fsh/
-```
-
-So for example, issue `fast-theme XDG:overlay` to load `~/.config/fsh/overlay.ini` as an overlay. The `.ini` extension is optional.
+For example, use `fsh_theme CONFIG:overlay` to load
+`${XDG_CONFIG_HOME:-$HOME/.config}/f-sy-h/overlay.ini` as an overlay. The `.ini` extension is optional.
 
 #### Secondary theme {/* #secondary-theme */}
 
-Each theme has a key `secondary`, e.g. for theme `free`:
+The optional `secondary` key names a theme used for recursively highlighted `eval` arguments and command
+substitutions. For example, the default theme uses `free`:
 
 ```ini showLineNumbers
-; free.ini
+; default.ini
 [base]
 default          = none
-unknown-token    = red,bold
+unknown-token    = 210,bold
 ; ...
-; ...
-; ...
-secondary        = zdharma
+secondary        = free
 ```
 
-A secondary theme (`zdharma` in the example) will be used for highlighting of argument for `eval` and of `$( ... )` interior (i.e. of the interior of command substitution). Recursive highlighting uses the alternate theme to make the highlighted code distinct:
+Recursive highlighting can use the alternate palette to distinguish embedded code:
 
 <ImgShow width={960} height={25} img="/img/plugins/fsh/cmdsubst.png" alt="Syntax highlighting command substitution" />
 
-In the above screen-shot the interior of `$( ... )` uses different colors than the rest of the code. Example for `eval`:
+In the above screen-shot the interior of `$( ... )` uses different colors than the rest of the code. Example
+for `eval`:
 
 <ImgShow width={518} height={49} img="/img/plugins/fsh/eval_cmp.png" alt="Syntax highlighting eval" />
 
-The first line doesn't use recursive highlighting, highlights the `eval` argument as a regular string. The second line switches the theme to `zdharma` and does full recursive highlighting of the eval argument.
+The first line highlights the `eval` argument as a regular string. The second line uses recursive highlighting
+with the configured secondary theme.
 
 ### Variables {/* #variables */}
 
@@ -287,9 +387,14 @@ The [chromas][f-sy-h-chromas] are set in [fast-highlight#L174][fast-highlight-ch
 
 ### Custom Working Directory {/* #custom-working-directory */}
 
-Set `$FAST_WORK_DIR` before loading the plugin to have e.g. processed theme files (ready to load, in Zsh format, not INI) kept under a specified location. This is handy if e.g. you install Fast-Syntax-Highlighting system-wide (e.g. from AUR on ArchLinux) and want to have a per-user theme setup.
+Set the theme work directory before loading the plugin:
 
-You can use "~" in the path, e.g. `FAST_WORK_DIR=~/.fsh` and also the `XDG:`, `LOCAL:`, `OPT:`, etc. short-hands, so e.g. `FAST_WORK_DIR=XDG` or `FAST_WORK_DIR=XDG:` is allowed (in this case it will be changed to `$HOME/.config/fsh` by default by F-Sy-H loader).
+```zsh
+zstyle ':fsh:config' work-dir "${XDG_CACHE_HOME:-$HOME/.cache}/f-sy-h"
+```
+
+The default is `${XDG_CACHE_HOME:-$HOME/.cache}/f-sy-h`. `fsh_theme` stores parsed INI state there only when
+an explicit theme command needs to persist a main theme, overlay, or local secondary theme.
 
 ### Chroma guide for F-Sy-H {/* #chroma-guide-for-f-sy-h */}
 
@@ -342,3 +447,6 @@ Big-loop will be doing such calls for the user, after occurring a specific chrom
 [z-shell/f-sy-h]: https://github.com/z-shell/F-Sy-H
 [f-sy-h-chromas]: https://github.com/z-shell/F-Sy-H/tree/main/chroma
 [ini-files]: https://github.com/z-shell/F-Sy-H/tree/main/themes
+[theme-schema]: https://github.com/z-shell/F-Sy-H/blob/main/lib/theme-schema.zsh
+[default-theme]: https://github.com/z-shell/F-Sy-H/blob/main/themes/default.ini
+[theme-validator]: https://github.com/z-shell/F-Sy-H/blob/main/tools/validate-themes.zsh
