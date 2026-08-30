@@ -14,7 +14,6 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import ImgShow from "@site/src/components/ImgShow";
 import Player from "@site/src/components/Player";
-import ChromaFunctionExample from "@site/src/components/Markdown/_chroma_function_example.mdx";
 
 ## <i class="fa-brands fa-github"></i> [z-shell/f-sy-h][] {/* #i-classfa-brands-fa-githubi-z-shellf-sy-h */}
 
@@ -373,7 +372,7 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
 <ImgShow width={1103} height={600} img="/img/cast/gif/fsh/fsh-sh-c.gif" alt="Syntax highlighting sh -c" />
 
-The [chromas][f-sy-h-chromas] are set in [fast-highlight#L174][fast-highlight-chromas].
+The [Chroma registry][chroma-registry] maps command names to their handlers.
 
 ### Fpath highlighting {/* #fpath-highlighting */}
 
@@ -404,7 +403,7 @@ an explicit theme command needs to persist a main theme, overlay, or local secon
 
 ### Chroma guide for F-Sy-H {/* #chroma-guide-for-f-sy-h */}
 
-This document explains to create a detailed highlighting for a **specific program**.
+This guide explains how to create detailed highlighting for a **specific program**.
 
 #### Keywords {/* #keywords */}
 
@@ -433,14 +432,118 @@ This document explains to create a detailed highlighting for a **specific progra
 So example invocation could look like this:
 
 ```zsh
-→chroma/-example.ch 1 "grep" "$_start_pos" "$_end_pos"
+_fsh_chroma_example 1 "grep" "$_start_pos" "$_end_pos"
 ```
 
 Big-loop will be doing such calls for the user, after occurring a specific chroma-enabled command (like e.g. `awk`), and then until chroma will detect the end of this chroma-enabled command (end of the whole invocation, with arguments, etc.; in other words, when e.g. new line or `;`-character occurs, etc.).
 
 #### Example of chroma function {/* #example-of-chroma-function */}
 
-<ChromaFunctionExample />
+Use the shipped [`_fsh_chroma_example`][chroma-example] as the current template. It contains the supported
+function arguments, state handling, return statuses, and highlighting update sequence in one source file.
+
+#### Declarative Chroma definitions {/* #declarative-chroma-definitions */}
+
+Git and Zi use declarative associative arrays instead of handwritten token loops. Their definitions live in
+[`chroma/_fsh_chroma_git`][chroma-git-definition] and
+[`chroma/_fsh_chroma_zi`][chroma-zi-definition]. The shared
+[`_fsh_chroma_main` parser][chroma-main] reads an array named `_fsh_chroma_<name>_def`, and the registry selects
+it with `_fsh_chroma_main%<name>`.
+
+The format is maintainer-facing Zsh source. Definition files are trusted code because validation sources them
+to obtain the associative array and its handler functions.
+
+##### Top-level entries {/* #chroma-definition-top-level-entries */}
+
+| Entry                     | Meaning                                                                                     |
+| ------------------------- | ------------------------------------------------------------------------------------------- |
+| `subcommands`             | A Zsh pattern, or `::function` returning the patterns in `reply`                            |
+| `subcmd:NULL`             | Nodes active before a recognized subcommand                                                 |
+| `subcmd:<selector>`       | `//`-separated nodes active for one subcommand or a parenthesized `|` pattern               |
+| `subcmd:*`                | Catch-all nodes for recognized subcommands without a more specific entry                    |
+| `subcmd-hook`             | A function called after a subcommand is recognized                                          |
+| `subcommands-blacklist`   | A comma-separated list of subcommands that return to the normal highlighter                 |
+| `<LABEL>_<POSITION>_...`  | A node describing an option or positional argument                                          |
+
+Each referenced node must be a key in the same definition array.
+
+##### Node names and positions {/* #chroma-definition-node-names */}
+
+A node name has this form:
+
+```text
+LABEL_POSITION_KIND[MODIFIER]
+```
+
+- `POSITION` is a decimal argument position or `#` for any position. A recognized subcommand is not counted.
+- `KIND` is `opt` for a token beginning with `-`, or `arg` for a positional token.
+- `0_opt` handles options before the first positional argument. Later options can use their current numeric
+  position or `#`.
+- A trailing `*` lets matching continue to the next candidate node. Without it, the first matching node wins.
+- A trailing `^` marks an option node that can add or delete active nodes.
+
+For example, `URL_1_arg` handles the first argument after a subcommand, while `FILE_#_arg` can handle any
+positional argument.
+
+##### Records and delimiters {/* #chroma-definition-records */}
+
+Route entries list nodes with `//`:
+
+```zsh
+subcmd:clone "CLONE_0_opt // URL_1_arg // DIRECTORY_2_arg // NO_MATCH_#_opt"
+```
+
+An option node contains one or more selector clauses separated by `||`. `<<>>` separates the selector from
+the action for the option and, when present, a second action for its value:
+
+```zsh
+CLONE_0_opt "
+  (--depth=|-b|--branch=)
+    <<>> NO-OP // ::_fsh_chroma_option_action
+    <<>> __style=\${_fsh_theme_name}optarg-string // NO-OP
+  || (--quiet|-q)
+    <<>> NO-OP // ::_fsh_chroma_option_action"
+```
+
+An argument node contains one action record. An optional Zsh pattern before `:::::` limits the record to an
+expected value:
+
+```zsh
+URL_1_arg "NO-OP // ::_fsh_chroma_verify_url"
+MODE_2_arg "(fast|safe) ::::: __style=\${_fsh_theme_name}subcommand // NO-OP"
+```
+
+Every action record has `ACTION // HANDLER`. The supported action vocabulary is `NO-OP` or
+`__style=<style-name>`. A handler is `NO-OP` or `::function`; the function receives the subcommand, start,
+end, and token values. Referenced handlers must be defined by the parser or the definition file.
+
+Directive clauses change the active node list. For option selectors, append `:add` or `:del` to the selector:
+
+```zsh
+"MODE_0_opt^" "
+  --safe <<>> NO-OP // ::_fsh_chroma_option_action
+  || --safe:add <<>> SAFE_FILE_1_arg // NO_MATCH_#_arg
+  || --safe:del <<>> DEFAULT_FILE_1_arg"
+```
+
+Argument records place the operation after another `<<>>`:
+
+```zsh
+COMMAND_1_arg "run ::::: __style=\${_fsh_theme_name}subcommand // NO-OP <<>>
+  add:RUN_TARGET_2_arg // NO_MATCH_#_arg"
+```
+
+##### Validate definitions {/* #validate-chroma-definitions */}
+
+From an F-Sy-H checkout, validate every declarative definition:
+
+```zsh
+zsh -f tools/validate-chromas.zsh
+```
+
+The validator rejects malformed records, unsupported actions, undefined handlers, and references to undefined
+nodes. CI runs the same check. A nested source format or generated associative array is intentionally not part
+of the contract; add one only if direct maintenance of these two arrays becomes a measured problem.
 
 {/* end-of-file */}
 {/* links */}
@@ -449,9 +552,13 @@ Big-loop will be doing such calls for the user, after occurring a specific chrom
 
 {/* external */}
 
-[fast-highlight-chromas]: https://github.com/z-shell/F-Sy-H/blob/main/functions/fast-highlight#L174
 [z-shell/f-sy-h]: https://github.com/z-shell/F-Sy-H
 [f-sy-h-chromas]: https://github.com/z-shell/F-Sy-H/tree/main/chroma
+[chroma-registry]: https://github.com/z-shell/F-Sy-H/blob/main/lib/highlight.zsh
+[chroma-example]: https://github.com/z-shell/F-Sy-H/blob/main/chroma/_fsh_chroma_example
+[chroma-main]: https://github.com/z-shell/F-Sy-H/blob/main/chroma/_fsh_chroma_main
+[chroma-git-definition]: https://github.com/z-shell/F-Sy-H/blob/main/chroma/_fsh_chroma_git
+[chroma-zi-definition]: https://github.com/z-shell/F-Sy-H/blob/main/chroma/_fsh_chroma_zi
 [ini-files]: https://github.com/z-shell/F-Sy-H/tree/main/themes
 [theme-schema]: https://github.com/z-shell/F-Sy-H/blob/main/lib/theme-schema.zsh
 [default-theme]: https://github.com/z-shell/F-Sy-H/blob/main/themes/default.ini
