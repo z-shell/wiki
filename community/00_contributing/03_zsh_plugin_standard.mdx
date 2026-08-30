@@ -874,9 +874,11 @@ zstyle ':example:config' features history matching
 ```
 
 Read scalar values with `zstyle -s`, arrays with `zstyle -a`, booleans with
-`zstyle -t`, and document defaults and value types. Contexts must begin with
-the project identifier, and a plugin must not reuse another subsystem's style
-context.
+`zstyle -t`, and document defaults, value types, accepted values, and when each
+setting is read. Supply defaults as local lookup fallbacks rather than
+registering them in the global style database, where an exact default could
+override a broader user pattern. Contexts must begin with the project
+identifier, and a plugin must not reuse another subsystem's style context.
 
 Use a project-owned global parameter only when persistent runtime state needs
 a Zsh type or mutation model that styles cannot provide. Such parameters are
@@ -891,6 +893,47 @@ a value must cross an `exec` boundary or be inherited by a child process.
 Runtime commands may provide a public mutation interface when validation,
 atomic updates, or immediate reconfiguration is required. They must write the
 same documented configuration model rather than introduce a parallel one.
+
+### Organizing plugin configuration {/* #organizing-plugin-configuration */}
+
+The file in which a user stores plugin configuration is not part of portable
+conformance. Users with a small configuration may keep style declarations in
+`.zshrc`. To keep that startup file concise, the recommended companion file is:
+
+```text title="Recommended plugin configuration file"
+${ZDOTDIR:-${XDG_CONFIG_HOME:-$HOME/.config}/zsh}/plugin-config.zsh
+```
+
+[`ZDOTDIR`][zsh-zdotdir] keeps the file beside an intentionally relocated Zsh
+configuration. When `ZDOTDIR` is unset, the path follows the
+[XDG user-configuration location][xdg-basedir]. The name describes the file's
+purpose; `zstyle` is the configuration mechanism, not the subject of the file.
+
+Source the file from `.zshrc` before loading a plugin manager or directly
+sourcing plugins, because a plugin may read its settings once during
+initialization:
+
+```zsh title="Load plugin configuration before plugins"
+source -- "${ZDOTDIR:-${XDG_CONFIG_HOME:-$HOME/.config}/zsh}/plugin-config.zsh"
+
+# Load the plugin manager and plugins after this point.
+```
+
+Group declarations by project identifier and keep a repository or
+documentation link plus any useful local note beside each group:
+
+```zsh title="Group settings by plugin"
+# example/example
+# https://github.com/example/example
+# Use the compact display; the documented default is full.
+zstyle ':example:config' mode compact
+```
+
+The shell configuration owns this file. A plugin must not locate or source it.
+When one file becomes difficult to maintain, users may split it into
+`plugin-config.d/<project>.zsh` fragments and source them in deterministic
+order before loading plugins. This is an optional organization technique, not
+a portable plugin interface.
 
 ## Completions and `compinit` ownership {/* #completions-and-compinit-ownership */}
 
@@ -1546,10 +1589,14 @@ Before publishing a plugin, confirm that:
 [zsh-zle-hook-widget]: https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#index-add_002dzle_002dhook_002dwidget
 [zsh-compinit]: https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Use-of-compinit
 [zsh-zprof]: https://zsh.sourceforge.io/Doc/Release/Zsh-Modules.html#The-zsh_002fzprof-Module
+[zsh-zdotdir]: https://zsh.sourceforge.io/Doc/Release/Parameters.html#index-ZDOTDIR
 [autoloading-functions]: https://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions
 [special-widgets]: https://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Special-Widgets
 [zsh-options]: https://zsh.sourceforge.io/Doc/Release/Options.html
 [builtin-commands]: https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html
+
+{/* External standards */}
+[xdg-basedir]: https://specifications.freedesktop.org/basedir/0.8/
 
 {/* Active manager and framework repositories */}
 [zi-repository]: https://github.com/z-shell/zi
