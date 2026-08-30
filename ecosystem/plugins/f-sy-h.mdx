@@ -215,6 +215,12 @@ contrast, semantic distinguishability, and colour-vision-deficiency separation:
 zsh -f tools/validate-themes.zsh /path/to/theme.ini
 ```
 
+The validator's JSON Lines record includes a `nearcolor256` object. It maps each distinct truecolor style
+literal to the xterm-256 index selected by the installed [`zsh/nearcolor` module][zsh-nearcolor], or is empty
+when the theme has no truecolor styles. F-Sy-H attempts to load this optional module when the terminal does not
+advertise truecolor support. The approximation excludes terminal-defined indices 0 through 15 because their
+colours are not predictable, and automatic truecolor detection remains terminal-dependent.
+
 ##### Overlays and paths {/* #overlays-and-paths */}
 
 An overlay uses the same format but declares only the styles it replaces. A theme path whose base name
@@ -450,3 +456,4 @@ Big-loop will be doing such calls for the user, after occurring a specific chrom
 [theme-schema]: https://github.com/z-shell/F-Sy-H/blob/main/lib/theme-schema.zsh
 [default-theme]: https://github.com/z-shell/F-Sy-H/blob/main/themes/default.ini
 [theme-validator]: https://github.com/z-shell/F-Sy-H/blob/main/tools/validate-themes.zsh
+[zsh-nearcolor]: https://zsh.sourceforge.io/Doc/Release/Zsh-Modules.html#The-zsh_002fnearcolor-Module
