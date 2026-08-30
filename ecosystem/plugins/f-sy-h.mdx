@@ -374,6 +374,20 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
 The [Chroma registry][chroma-registry] maps command names to their handlers.
 
+Inspect that mapping with `fsh_chroma list`:
+
+```text
+COMMAND  TARGET                   KIND       STATUS
+docker   _fsh_chroma_docker       dedicated  ready
+npm      _fsh_chroma_subcommand   generic    ready
+```
+
+`dedicated` means the command has a command-specific handler or parser. `generic` means it uses the shared
+`_fsh_chroma_subcommand` fallback, which highlights the first non-option word as a subcommand but does not
+validate it or parse command-specific options. Registry totals therefore include lightweight generic entries
+and must not be read as a count of dedicated command coverage. `STATUS` reports whether each target is
+`ready`, `missing`, or intentionally `disabled`.
+
 ### Fpath highlighting {/* #fpath-highlighting */}
 
 <ImgShow width={1535} height={728} img="/img/cast/gif/fsh/fsh-fpath.gif" alt="Syntax highlighting fpath" />
