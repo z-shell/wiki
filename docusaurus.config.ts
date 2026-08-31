@@ -70,7 +70,6 @@ export default async function createConfigAsync() {
     ],
     i18n: {defaultLocale: "en", locales: ["en"]},
     markdown: {mermaid: true, emoji: true, format: "detect", hooks: {onBrokenMarkdownLinks: "warn"}},
-    themes: ["@docusaurus/theme-mermaid"],
     customFields: {fontAwesomeStylesheet},
     storage: {
       type: "localStorage",

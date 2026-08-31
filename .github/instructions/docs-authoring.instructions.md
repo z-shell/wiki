@@ -122,9 +122,9 @@ component only when Markdown cannot express the interaction.
 | Context, advice, or risk       | `:::tip`, `:::info`, `:::warning`, or `:::danger` | Information whose callout level changes how readers act                   | Repeating ordinary body text or decorating every section |
 | Optional or advanced detail    | `<details>` with a one-line `<summary>`           | Long output, troubleshooting detail, or secondary explanation             | Required steps or information every reader needs         |
 | Equivalent alternatives        | `<Tabs>` and `<TabItem>`                          | Operating systems, package managers, or genuinely interchangeable methods | Sequential steps or unrelated topics                     |
-| Process or relationship        | Mermaid diagram                                   | Flows and relationships that are clearer visually than as prose           | A linear list that is already clear in a few sentences   |
-| Literal quotation              | Markdown blockquote (`>`)                         | Attributed quotations                                                     | Callouts; use an admonition instead                      |
-| Navigation choices             | `<CardGrid>` and `<Card>`                         | Landing-page links to peer sections                                       | Ordinary paragraphs or isolated links                    |
+
+| Literal quotation | Markdown blockquote (`>`) | Attributed quotations | Callouts; use an admonition instead |
+| Navigation choices | `<CardGrid>` and `<Card>` | Landing-page links to peer sections | Ordinary paragraphs or isolated links |
 
 ### Presentation rules
 
@@ -141,9 +141,7 @@ component only when Markdown cannot express the interaction.
   Markdown rather than text.
 - Give related tab groups a stable `groupId`. Do not use `lazy` when hidden tab
   content must remain searchable or indexable.
-- Give Mermaid diagrams `accTitle` and `accDescr` accessibility directives,
-  accompany them with a prose sentence that communicates the same conclusion,
-  and never rely on color alone to convey meaning.
+
 - Use code-block `title="..."` when a filename or role matters, highlight only
   the lines under discussion, and reserve `showLineNumbers` for longer blocks
   that the prose references by line.

@@ -14,7 +14,7 @@ export const SUPPORTED_LANGUAGES = new Set([
   "ini",
   "json",
   "jsx",
-  "mermaid",
+
   "mdx",
   "sh",
   "shell-session",

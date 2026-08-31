@@ -120,7 +120,6 @@ comprehension or scanning.
 | Advice, context, risk, or danger                 | Docusaurus admonition                   |
 | Optional or advanced explanation                 | `<details>` with a one-line `<summary>` |
 | Equivalent operating-system or tool instructions | `<Tabs>` and `<TabItem>`                |
-| Process or relationship that is clearer visually | Mermaid diagram plus a prose summary    |
 | Landing-page navigation                          | `<CardGrid>` and `<Card>`               |
 
 Do not use tables for long prose or sequential procedures, tabs for sequential
@@ -173,23 +172,6 @@ zi light z-shell/F-Sy-H
 Add `title="path/to/file"` when a filename matters. Highlight only the lines
 being discussed, and reserve `showLineNumbers` for longer examples referenced by
 line number.
-
-### Mermaid diagrams
-
-Mermaid is available for flows and relationships that are harder to understand
-as prose. The following diagram shows that English MDX must pass local checks
-before it reaches pull-request review:
-
-```mermaid
-flowchart LR
-  accTitle: Documentation review workflow
-  accDescr: English MDX passes lint and build checks before pull-request review.
-  Source[English MDX] --> Check[Lint and build]
-  Check --> Review[Pull request]
-```
-
-Keep diagrams small, label nodes in plain language, explain their conclusion in
-text, and never rely on color alone to communicate meaning.
 
 ### Links
 
