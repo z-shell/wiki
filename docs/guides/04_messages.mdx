@@ -73,16 +73,16 @@ tag resumes automatic formatting.
 
 ## Options
 
-| Option | Effect |
-| --- | --- |
-| `-n` | Do not append the normal `+zi-message` newline. |
-| `-l` | Join separate message operands with newlines instead of spaces. |
-| `-u FD` or `-uFD` | Write the complete message to file descriptor `FD`. |
-| `--auto=off\|safe\|contextual` | Select automatic formatting for this call. |
-| `--color=auto\|always\|never` | Select the color policy for this call. |
-| `--level=plain\|debug\|info\|warn\|error\|success` | Apply a semantic base style. |
-| `--literal` | Disable all markup parsing while preserving the input bytes. |
-| `--` | End option parsing. Use it before data that may begin with `-`. |
+| Option                                             | Effect                                                          |
+| -------------------------------------------------- | --------------------------------------------------------------- |
+| `-n`                                               | Do not append the normal `+zi-message` newline.                 |
+| `-l`                                               | Join separate message operands with newlines instead of spaces. |
+| `-u FD` or `-uFD`                                  | Write the complete message to file descriptor `FD`.             |
+| `--auto=off\|safe\|contextual`                     | Select automatic formatting for this call.                      |
+| `--color=auto\|always\|never`                      | Select the color policy for this call.                          |
+| `--level=plain\|debug\|info\|warn\|error\|success` | Apply a semantic base style.                                    |
+| `--literal`                                        | Disable all markup parsing while preserving the input bytes.    |
+| `--`                                               | End option parsing. Use it before data that may begin with `-`. |
 
 The compatibility option `-r` is accepted and has no additional effect,
 because output is always emitted literally rather than through Zsh prompt
@@ -110,29 +110,29 @@ brace text is not silently deleted.
 
 Common semantic style tags include:
 
-| Purpose | Tags |
-| --- | --- |
-| Commands and options | `{cmd}`, `{bcmd}`, `{ice}`, `{opt}`, `{flag}` |
-| Objects and paths | `{pname}`, `{pid}`, `{file}`, `{dir}`, `{url}` |
-| Data | `{data}`, `{data2}`, `{num}`, `{time}`, `{version}`, `{var}` |
-| Status | `{info}`, `{warn}`, `{error}`, `{failure}`, `{happy}`, `{note}` |
-| Quoting and emphasis | `{apo}`, `{quo}`, `{bapo}`, `{b}`, `{u}`, `{it}`, `{faint}` |
-| Reset | `{rst}` |
+| Purpose              | Tags                                                            |
+| -------------------- | --------------------------------------------------------------- |
+| Commands and options | `{cmd}`, `{bcmd}`, `{ice}`, `{opt}`, `{flag}`                   |
+| Objects and paths    | `{pname}`, `{pid}`, `{file}`, `{dir}`, `{url}`                  |
+| Data                 | `{data}`, `{data2}`, `{num}`, `{time}`, `{version}`, `{var}`    |
+| Status               | `{info}`, `{warn}`, `{error}`, `{failure}`, `{happy}`, `{note}` |
+| Quoting and emphasis | `{apo}`, `{quo}`, `{bapo}`, `{b}`, `{u}`, `{it}`, `{faint}`     |
+| Reset                | `{rst}`                                                         |
 
 `{pid}` is an alias for `{pname}`. Existing Zi palette names exposed as
 `ZI[col-NAME]` also work as `{NAME}`.
 
 Structural tags insert characters rather than selecting a style:
 
-| Tag | Output |
-| --- | --- |
-| `{nl}` | Newline |
-| `{tab}` | Spaced tab |
-| `{bspc}` | Backspace |
-| `{bar}`, `{th-bar}` | Terminal-width horizontal rule |
-| `{…}`, `{-…}` | Ellipsis forms |
-| `{ndsh}`, `{mdsh}`, `{mmdsh}` | Dash forms |
-| `{lr}`, `{↔}` | Left-right marker |
+| Tag                           | Output                         |
+| ----------------------------- | ------------------------------ |
+| `{nl}`                        | Newline                        |
+| `{tab}`                       | Spaced tab                     |
+| `{bspc}`                      | Backspace                      |
+| `{bar}`, `{th-bar}`           | Terminal-width horizontal rule |
+| `{…}`, `{-…}`                 | Ellipsis forms                 |
+| `{ndsh}`, `{mdsh}`, `{mmdsh}` | Dash forms                     |
+| `{lr}`, `{↔}`                 | Left-right marker              |
 
 Unicode structural tags use ASCII fallbacks when the active locale is not
 UTF-8.

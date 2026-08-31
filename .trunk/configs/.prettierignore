@@ -5,3 +5,4 @@ i18n/
 static/
 pnpm-lock.yaml
 wrangler.jsonc
+functions/worker-env.d.ts

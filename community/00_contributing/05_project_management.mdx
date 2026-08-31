@@ -19,7 +19,13 @@ import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
 <div style={{float: "right", marginLeft: "1.5rem", marginBottom: "1rem"}}>
-  <img src={useBaseUrl("/img/svg/community/contributing-project-management.svg")} alt="" width="100" height="100" style={{borderRadius: "16px"}}/>
+  <img
+    src={useBaseUrl("/img/svg/community/contributing-project-management.svg")}
+    alt=""
+    width="100"
+    height="100"
+    style={{borderRadius: "16px"}}
+  />
 </div>
 
 ## Project Tracker
@@ -28,10 +34,7 @@ GitHub issues and pull requests are the authoritative record for all work in the
 Z-Shell organization. Open issues are tracked across repositories in
 **Z-shell Delivery**, GitHub Project 28:
 
-<Link
-  className="button button--primary button--lg"
-  to="https://github.com/orgs/z-shell/projects/28"
->
+<Link className="button button--primary button--lg" to="https://github.com/orgs/z-shell/projects/28">
   Open Z-shell Delivery →
 </Link>
 
@@ -45,13 +48,13 @@ issue thread, which remains where discussion, implementation, and review happen.
 The board separates workstreams into views so unrelated work does not compete
 for attention:
 
-| View | Contents |
-| --- | --- |
-| **Human delivery** | Ordinary bugs, features, maintenance, and documentation |
-| **Automation** | Bot dashboards and recurring automation records |
-| **Dependency maintenance** | Routine dependency updates and dashboards |
-| **Security** | Security work requiring maintainer attention |
-| **Administrative** | Organization and repository governance |
+| View                       | Contents                                                |
+| -------------------------- | ------------------------------------------------------- |
+| **Human delivery**         | Ordinary bugs, features, maintenance, and documentation |
+| **Automation**             | Bot dashboards and recurring automation records         |
+| **Dependency maintenance** | Routine dependency updates and dashboards               |
+| **Security**               | Security work requiring maintainer attention            |
+| **Administrative**         | Organization and repository governance                  |
 
 ### What Happens After You File
 
@@ -129,12 +132,12 @@ not `type: bug`. Spaced variants are legacy and are being retired.
 
 ### What the namespaces mean
 
-| Namespace | Answers | Examples |
-| --- | --- | --- |
-| `type:` | What kind of work is this? | `type:bug`, `type:feature`, `type:docs`, `type:question`, `type:maintenance` |
-| `area:` | Which part of the ecosystem does it touch? | `area:zi`, `area:plugin`, `area:annex`, `area:package`, `area:docs`, `area:ci` |
-| `status:` | What is blocking progress? | `status:triage`, `status:blocked` |
-| `priority:` | How urgently is it needed? | `priority:high` |
+| Namespace   | Answers                                    | Examples                                                                       |
+| ----------- | ------------------------------------------ | ------------------------------------------------------------------------------ |
+| `type:`     | What kind of work is this?                 | `type:bug`, `type:feature`, `type:docs`, `type:question`, `type:maintenance`   |
+| `area:`     | Which part of the ecosystem does it touch? | `area:zi`, `area:plugin`, `area:annex`, `area:package`, `area:docs`, `area:ci` |
+| `status:`   | What is blocking progress?                 | `status:triage`, `status:blocked`                                              |
+| `priority:` | How urgently is it needed?                 | `priority:high`                                                                |
 
 Standalone modifiers carry no namespace: `regression`, `security`,
 `performance`, `breaking-change`, `needs-info`, `duplicate`, `invalid`, and
@@ -142,12 +145,12 @@ Standalone modifiers carry no namespace: `regression`, `security`,
 
 ### Labels worth watching as a contributor
 
-| Label | Meaning |
-| --- | --- |
-| `good first issue` | Well-scoped starter task — a good place to begin |
-| `help wanted` | Maintainers would welcome outside help |
-| `needs-info` | Waiting on more detail before work can continue |
-| `status:blocked` | Cannot proceed until an external dependency or decision changes |
+| Label              | Meaning                                                         |
+| ------------------ | --------------------------------------------------------------- |
+| `good first issue` | Well-scoped starter task — a good place to begin                |
+| `help wanted`      | Maintainers would welcome outside help                          |
+| `needs-info`       | Waiting on more detail before work can continue                 |
+| `status:blocked`   | Cannot proceed until an external dependency or decision changes |
 
 ### Label Rollout
 

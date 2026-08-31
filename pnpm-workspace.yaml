@@ -1,9 +1,11 @@
-onlyBuiltDependencies:
-  - "@swc/core"
-  - core-js
-  - core-js-pure
-  - sharp
-  - unrs-resolver
+allowBuilds:
+  "@swc/core": true
+  core-js: true
+  core-js-pure: true
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
+  workerd: true
 
 # Packages that are always optional but never useful in this environment
 ignoredOptionalDependencies:
@@ -20,12 +22,24 @@ overrides:
   js-yaml: "4.3.1"
   nanoid: "3.3.18"
   postcss: "8.5.23"
+  sharp: "0.35.3"
   webpackbar: "^7.0.0"
   serialize-javascript: "7.0.5"
   uuid: "14.0.0"
+
+patchedDependencies:
+  image-size@2.0.2: patches/image-size@2.0.2.patch
+
+# image-size is archived and has no fixed release. These advisories are covered
+# by the local patch above and by scripts/image-size-security.test.mjs.
+audit:
+  ignore:
+    - GHSA-5p2g-fcmc-qvqq
+    - GHSA-w3rx-r6r6-pgpr
 
 # Allow ESLint 10 (current stable) for plugins whose declared peer range
 # predates it but which work fine with it. Removes install-time peer warnings.
 peerDependencyRules:
   allowedVersions:
+    "@typescript-eslint/utils>eslint": "^10"
     "eslint-plugin-jsx-a11y>eslint": "^10"

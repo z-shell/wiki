@@ -18,7 +18,13 @@ import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
 <div style={{float: "right", marginLeft: "1.5rem", marginBottom: "1rem"}}>
-  <img src={useBaseUrl("/img/svg/community/contributing-zi.svg")} alt="" width="100" height="100" style={{borderRadius: "16px"}}/>
+  <img
+    src={useBaseUrl("/img/svg/community/contributing-zi.svg")}
+    alt=""
+    width="100"
+    height="100"
+    style={{borderRadius: "16px"}}
+  />
 </div>
 
 Thank you for contributing to zi! This page covers the guidelines specific to the
@@ -76,13 +82,13 @@ Tests live in `tests/`. Add or update tests when your change affects behavior.
 In addition to the [standard commit types](getting_started#commit-message-format),
 prefer these scopes when relevant:
 
-| Scope | Covers |
-| --- | --- |
-| `core` | `lib/zsh/zi.zsh` and `lib/zsh/zi-*.zsh` |
-| `install` | installer scripts in `src` |
-| `ci` | GitHub Actions workflows |
-| `docs` | repository-level documentation |
-| `annex` | annex API surface changes |
+| Scope     | Covers                                  |
+| --------- | --------------------------------------- |
+| `core`    | `lib/zsh/zi.zsh` and `lib/zsh/zi-*.zsh` |
+| `install` | installer scripts in `src`              |
+| `ci`      | GitHub Actions workflows                |
+| `docs`    | repository-level documentation          |
+| `annex`   | annex API surface changes               |
 
 Examples:
 
@@ -95,21 +101,22 @@ docs(ci): document workflow trigger conditions
 ## What Not to Add to Zi
 
 :::warning[Off-limits]
+
 - `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.cursorrules`, or any AI-specific config files
 - Secrets, credentials, or tokens of any kind
 - Files unrelated to the plugin manager itself
-:::
+  :::
 
 ## Opening Issues
 
 Before starting significant work, [open an issue](https://github.com/z-shell/zi/issues/new/choose)
 to discuss the change. Use the appropriate issue template:
 
-| Template | When to use |
-| --- | --- |
-| Bug report | Reproducible misbehavior |
-| Feature request | New capability |
-| Annex proposal | Proposing a new annex |
+| Template        | When to use              |
+| --------------- | ------------------------ |
+| Bug report      | Reproducible misbehavior |
+| Feature request | New capability           |
+| Annex proposal  | Proposing a new annex    |
 
 ## Stable Branch Promotion
 

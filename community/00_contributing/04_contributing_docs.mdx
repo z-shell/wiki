@@ -19,7 +19,13 @@ keywords:
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
 <div style={{float: "right", marginLeft: "1.5rem", marginBottom: "1rem"}}>
-  <img src={useBaseUrl("/img/svg/community/contributing-docs.svg")} alt="" width="100" height="100" style={{borderRadius: "16px"}}/>
+  <img
+    src={useBaseUrl("/img/svg/community/contributing-docs.svg")}
+    alt=""
+    width="100"
+    height="100"
+    style={{borderRadius: "16px"}}
+  />
 </div>
 
 The wiki is a [Docusaurus 3](https://docusaurus.io/) site. All source files are
@@ -28,8 +34,8 @@ the source language; translations are managed via [Crowdin](https://translate.zs
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) ≥ 22
-- [pnpm](https://pnpm.io/) ≥ 10
+- [Node.js](https://nodejs.org/) 24 LTS
+- [pnpm](https://pnpm.io/) 11
 
 ## Local Development
 
@@ -42,25 +48,25 @@ pnpm start            # dev server at http://localhost:3000
 
 Other useful commands:
 
-| Command | Purpose |
-| --- | --- |
-| `pnpm build` | Full production build |
-| `pnpm build:en` | English-only build (faster for docs-only checks) |
-| `pnpm serve` | Serve the production build locally |
-| `pnpm clear` | Clear Docusaurus cache (use when the site behaves oddly) |
-| `pnpm lint` | Run all linters (ESLint + Stylelint via Trunk) |
-| `pnpm lint:fix` | Auto-fix linting issues |
-| `pnpm write-heading-ids` | Regenerate heading IDs across all docs |
+| Command                  | Purpose                                                  |
+| ------------------------ | -------------------------------------------------------- |
+| `pnpm build`             | Full production build                                    |
+| `pnpm build:en`          | English-only build (faster for docs-only checks)         |
+| `pnpm serve`             | Serve the production build locally                       |
+| `pnpm clear`             | Clear Docusaurus cache (use when the site behaves oddly) |
+| `pnpm lint`              | Run Trunk linters and formatting checks                  |
+| `pnpm lint:fix`          | Auto-fix linting issues                                  |
+| `pnpm write-heading-ids` | Regenerate heading IDs across all docs                   |
 
 ## Content Roots
 
 The wiki has three independent docs roots:
 
-| Directory | URL Prefix | Purpose |
-| --- | --- | --- |
-| `docs/` | `/docs` | Core documentation, getting started, guides |
+| Directory    | URL Prefix   | Purpose                                      |
+| ------------ | ------------ | -------------------------------------------- |
+| `docs/`      | `/docs`      | Core documentation, getting started, guides  |
 | `community/` | `/community` | Community guides, Zsh plugin standard, tools |
-| `ecosystem/` | `/ecosystem` | Annexes, packages, plugins |
+| `ecosystem/` | `/ecosystem` | Annexes, packages, plugins                   |
 
 ## File Naming Conventions
 
@@ -101,6 +107,25 @@ Required for every new directory:
 
 ## MDX Authoring Patterns
 
+### Choose the simplest useful presentation
+
+Start with ordinary Markdown and add a richer element only when it improves
+comprehension or scanning.
+
+| Need                                             | Use                                     |
+| ------------------------------------------------ | --------------------------------------- |
+| Short comparison or reference matrix             | GFM table with compact cells            |
+| Steps that must happen in order                  | Numbered list                           |
+| Work readers can complete                        | GFM task list (`- [ ]`)                 |
+| Advice, context, risk, or danger                 | Docusaurus admonition                   |
+| Optional or advanced explanation                 | `<details>` with a one-line `<summary>` |
+| Equivalent operating-system or tool instructions | `<Tabs>` and `<TabItem>`                |
+| Landing-page navigation                          | `<CardGrid>` and `<Card>`               |
+
+Do not use tables for long prose or sequential procedures, tabs for sequential
+steps, task boxes as decorative bullets, or raw HTML for layout. Blockquotes are
+for attributed quotations; use admonitions for callouts.
+
 ### Admonitions
 
 Use Docusaurus admonitions for callouts instead of blockquotes:
@@ -127,12 +152,12 @@ Critical warning.
 
 These components are available in every `.mdx` file without importing:
 
-| Component | Usage |
-| --- | --- |
-| `<Highlight color="...">text</Highlight>` | Colored text spans |
-| `<Emoji symbol="🎉" label="party"/>` | Accessible emoji |
-| `<GhRepoBadge repo="z-shell/zi"/>` | GitHub repo badge |
-| `<ShellCodeCopy>command</ShellCodeCopy>` | Copyable shell command |
+| Component                                 | Usage                  |
+| ----------------------------------------- | ---------------------- |
+| `<Highlight color="...">text</Highlight>` | Colored text spans     |
+| `<Emoji symbol="🎉" label="party"/>`      | Accessible emoji       |
+| `<GhRepoBadge repo="z-shell/zi"/>`        | GitHub repo badge      |
+| `<ShellCodeCopy>command</ShellCodeCopy>`  | Copyable shell command |
 
 ### Code Blocks
 
@@ -143,6 +168,10 @@ Use language identifiers and `showLineNumbers` when helpful:
 zi light z-shell/F-Sy-H
 ```
 ````
+
+Add `title="path/to/file"` when a filename matters. Highlight only the lines
+being discussed, and reserve `showLineNumbers` for longer examples referenced by
+line number.
 
 ### Links
 

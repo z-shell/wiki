@@ -1,16 +1,23 @@
 extends:
   - stylelint-config-standard
   - stylelint-config-css-modules
-plugins:
-  - stylelint-color-format
 rules:
   no-descending-specificity: true
   declaration-block-no-duplicate-custom-properties: true
   declaration-block-no-duplicate-properties: true
   keyframe-declaration-no-important: true
   color-no-invalid-hex: true
-  color-format/format:
-    format: hsl
+  color-no-hex: true
+  color-function-notation: modern
+  function-disallowed-list:
+    - rgb
+    - rgba
+    - hwb
+    - lab
+    - lch
+    - oklab
+    - oklch
+    - color
   selector-pseudo-class-no-unknown:
     - true
     - ignorePseudoClasses:

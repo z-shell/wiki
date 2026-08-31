@@ -30,6 +30,7 @@
 *.xml     text
 *.lock    text -diff
 pnpm-lock.yaml text -diff
+functions/worker-env.d.ts text -diff -whitespace linguist-generated=true
 
 # Static Assets & Graphics
 *.png     binary

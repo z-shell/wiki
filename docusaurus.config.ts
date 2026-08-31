@@ -97,7 +97,7 @@ export default async function createConfigAsync() {
     },
     plugins: [
       [
-        "content-docs",
+        "@docusaurus/plugin-content-docs",
         {
           id: "community",
           path: "community",
@@ -115,7 +115,7 @@ export default async function createConfigAsync() {
         } satisfies DocsOptions,
       ],
       [
-        "content-docs",
+        "@docusaurus/plugin-content-docs",
         {
           id: "ecosystem",
           path: "ecosystem",

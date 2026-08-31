@@ -14,6 +14,7 @@ export const SUPPORTED_LANGUAGES = new Set([
   "ini",
   "json",
   "jsx",
+
   "mdx",
   "sh",
   "shell-session",
@@ -25,7 +26,7 @@ export const SUPPORTED_LANGUAGES = new Set([
   "zunit",
 ]);
 
-function listMarkdownFiles(root) {
+export function listMarkdownFiles(root) {
   const files = [];
   const pending = CONTENT_ROOTS.map((contentRoot) => path.join(root, contentRoot));
 

@@ -7,7 +7,7 @@ import {parse} from "yaml";
 
 import {buildReviewBody} from "./open-plugin-standard-review.mjs";
 
-export const STANDARD_PATH = "community/00_contributing/03_zsh_plugin_standard.mdx";
+export const STANDARD_PATH = "community/03_zsh_plugin_standard.mdx";
 export const WORKFLOW_PATH = ".github/workflows/plugin-standard-review.yml";
 
 const GITHUB_TOKEN_EXPRESSION = "$" + "{{ github.token }}";
@@ -358,18 +358,8 @@ export function validateWorkflow(content) {
     },
     {
       name: "Set up pnpm",
-      keys: ["name", "uses"],
-      uses: /^pnpm\/action-setup@[0-9a-f]{40}$/,
-    },
-    {
-      name: "Set up Node.js",
       keys: ["name", "uses", "with"],
-      uses: /^actions\/setup-node@[0-9a-f]{40}$/,
-    },
-    {
-      name: "Install dependencies",
-      keys: ["name", "run"],
-      run: "pnpm install --frozen-lockfile",
+      uses: /^pnpm\/setup@[0-9a-f]{40}$/,
     },
     {
       name: "Install Zsh",
@@ -416,14 +406,14 @@ export function validateWorkflow(content) {
     }
   }
 
-  const [, , setupNodeStep, , , , issueStep] = steps;
+  const [, setupPnpmStep, , , issueStep] = steps;
   if (
-    !isRecord(setupNodeStep) ||
-    !hasExactKeys(setupNodeStep.with, ["node-version", "cache"]) ||
-    setupNodeStep.with["node-version"] !== "22" ||
-    setupNodeStep.with.cache !== "pnpm"
+    !isRecord(setupPnpmStep) ||
+    !hasExactKeys(setupPnpmStep.with, ["cache", "require-lockfile"]) ||
+    setupPnpmStep.with.cache !== true ||
+    setupPnpmStep.with["require-lockfile"] !== true
   ) {
-    errors.push("Node setup must use Node 22 with the pnpm cache");
+    errors.push("pnpm setup must install the declared runtime with cache and lockfile enforcement");
   }
 
   if (

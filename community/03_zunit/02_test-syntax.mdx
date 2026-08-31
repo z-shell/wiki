@@ -97,6 +97,7 @@ Runs a command and captures its output and exit code without failing the test:
 ```
 
 After `run`:
+
 - `$state` — the exit code of the command
 - `$output` — full stdout (and stderr) as a string
 - `$lines` — array of output lines
@@ -137,11 +138,11 @@ Explicit test outcome shortcuts:
 }
 ```
 
-| Function | Exit code | Effect |
-|---|---|---|
-| `pass` | 0 | Marks test as passed immediately |
-| `fail <msg>` | 1 | Marks test as failed with message |
-| `error <msg>` | 78 | Marks test as errored with message |
-| `skip <msg>` | 48 | Marks test as skipped with reason |
+| Function      | Exit code | Effect                             |
+| ------------- | --------- | ---------------------------------- |
+| `pass`        | 0         | Marks test as passed immediately   |
+| `fail <msg>`  | 1         | Marks test as failed with message  |
+| `error <msg>` | 78        | Marks test as errored with message |
+| `skip <msg>`  | 48        | Marks test as skipped with reason  |
 
 {/* end-of-file */}

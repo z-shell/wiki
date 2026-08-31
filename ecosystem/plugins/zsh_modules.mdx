@@ -64,12 +64,12 @@ The values above illustrate the report format. Actual timings depend on the mach
   width="960"
 />
 
-| Mode | Median | p95 |
-| --- | ---: | ---: |
-| Plain source | 11.564 ms | 13.331 ms |
+| Mode            |    Median |       p95 |
+| --------------- | --------: | --------: |
+| Plain source    | 11.564 ms | 13.331 ms |
 | zpmod first run | 13.378 ms | 15.495 ms |
-| zpmod warm | 4.082 ms | 4.210 ms |
-| Manual `.zwc` | 3.760 ms | 3.880 ms |
+| zpmod warm      |  4.082 ms |  4.210 ms |
+| Manual `.zwc`   |  3.760 ms |  3.880 ms |
 
 The v2.0.6 comparison uses one synthetic 40-script workload. The first run includes compilation, the warm run reuses generated `.zwc`
 files, and manual `.zwc` is the native Zsh control. It is not a universal startup-speed claim. Read the [complete benchmark report][] and

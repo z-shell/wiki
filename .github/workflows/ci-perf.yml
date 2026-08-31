@@ -15,6 +15,7 @@ on:
       - "sidebars.ts"
       - "package.json"
       - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
       - "docusaurus.config.ts"
       - "functions/**"
       - "scripts/llms/**"
@@ -52,12 +53,11 @@ jobs:
         with:
           fetch-depth: 0
       - name: "📦 Setup pnpm"
-        uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
-      - name: "⎔ Setup node"
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        uses: pnpm/setup@703c52620218391530e48b9e8870d5c0082e1b9b # v2.1.0
         with:
-          node-version: "22"
-          cache: "pnpm"
+          cache: true
+          install: false
+          require-lockfile: true
       - uses: preactjs/compressed-size-action@f322c295dde06a1cb7ccaef105732dd8a726d1d9 # 2.10.0
         with:
           install-script: pnpm i --frozen-lockfile
@@ -80,15 +80,10 @@ jobs:
         with:
           fetch-depth: 0
       - name: "📦 Setup pnpm"
-        uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
-      - name: "⎔ Setup node"
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        uses: pnpm/setup@703c52620218391530e48b9e8870d5c0082e1b9b # v2.1.0
         with:
-          node-version: "22"
-          cache: "pnpm"
-      - run: pnpm i --frozen-lockfile
-        env:
-          NODE_ENV: development
+          cache: true
+          require-lockfile: true
       # Ensure build with a cold cache does not increase too much
       - name: "Build (cold cache)"
         run: pnpm build:en
