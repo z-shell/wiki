@@ -174,13 +174,13 @@ for compatibility, but a partial metadata declaration is invalid.
 
 A style value is a comma-separated combination of:
 
-| Form       | Accepted values                                                                                 |
-| ---------- | ----------------------------------------------------------------------------------------------- |
-| Named      | `red`, `green`, `blue`, `yellow`, `cyan`, `magenta`, `black`, `white`, or `default`              |
-| Indexed    | `0` through `255`                                                                               |
-| Truecolor  | Six-digit `#rrggbb`                                                                             |
-| Background | `bg:` before any named, indexed, or truecolor value                                             |
-| Attribute  | `bold`, `blink`, `conceal`, `reverse`, `standout`, `underline`, each `no-` form, or `none`       |
+| Form       | Accepted values                                                                            |
+| ---------- | ------------------------------------------------------------------------------------------ |
+| Named      | `red`, `green`, `blue`, `yellow`, `cyan`, `magenta`, `black`, `white`, or `default`        |
+| Indexed    | `0` through `255`                                                                          |
+| Truecolor  | Six-digit `#rrggbb`                                                                        |
+| Background | `bg:` before any named, indexed, or truecolor value                                        |
+| Attribute  | `bold`, `blink`, `conceal`, `reverse`, `standout`, `underline`, each `no-` form, or `none` |
 
 For example, `#ff0055,bold` sets a truecolor foreground and `bg:17,underline` combines an indexed background
 with an attribute.
@@ -197,7 +197,7 @@ Theme sections group styles by where they apply:
 | `[brackets]`      | Paired brackets and nesting levels                           |
 | `[arguments]`     | Options and quoted arguments                                 |
 | `[in-string]`     | Escapes and expansions inside strings                        |
-| `[other]`         | Variables, assignments, and history expansion               |
+| `[other]`         | Variables, assignments, and history expansion                |
 | `[math]`          | Arithmetic variables, numbers, and errors                    |
 | `[for-loop]`      | Loop variables, numbers, operators, and separators           |
 | `[case]`          | Case inputs, parentheses, and conditions                     |
@@ -240,13 +240,13 @@ command        = 180
 
 Theme paths accept these shorthands:
 
-| Shorthand | Location                                          |
-| --------- | ------------------------------------------------- |
-| `CONFIG:` | `${XDG_CONFIG_HOME:-$HOME/.config}/f-sy-h/`       |
-| `CACHE:`  | `${XDG_CACHE_HOME:-$HOME/.cache}/f-sy-h/`         |
-| `LOCAL:`  | `/usr/local/share/f-sy-h/`                        |
-| `HOME:`   | `$HOME/.f-sy-h/`                                  |
-| `OPT:`    | `/opt/local/share/f-sy-h/`                        |
+| Shorthand | Location                                    |
+| --------- | ------------------------------------------- |
+| `CONFIG:` | `${XDG_CONFIG_HOME:-$HOME/.config}/f-sy-h/` |
+| `CACHE:`  | `${XDG_CACHE_HOME:-$HOME/.cache}/f-sy-h/`   |
+| `LOCAL:`  | `/usr/local/share/f-sy-h/`                  |
+| `HOME:`   | `$HOME/.f-sy-h/`                            |
+| `OPT:`    | `/opt/local/share/f-sy-h/`                  |
 
 For example, use `fsh_theme CONFIG:overlay` to load
 `${XDG_CONFIG_HOME:-$HOME/.config}/f-sy-h/overlay.ini` as an overlay. The `.ini` extension is optional.
@@ -374,6 +374,20 @@ Comparing to the project `zsh-users/zsh-syntax-highlighting` (the upper line):
 
 The [Chroma registry][chroma-registry] maps command names to their handlers.
 
+Inspect that mapping with `fsh_chroma list`:
+
+```text
+COMMAND  TARGET                   KIND       STATUS
+docker   _fsh_chroma_docker       dedicated  ready
+npm      _fsh_chroma_subcommand   generic    ready
+```
+
+`dedicated` means the command has a command-specific handler or parser. `generic` means it uses the shared
+`_fsh_chroma_subcommand` fallback, which highlights the first non-option word as a subcommand but does not
+validate it or parse command-specific options. Registry totals therefore include lightweight generic entries
+and must not be read as a count of dedicated command coverage. `STATUS` reports whether each target is
+`ready`, `missing`, or intentionally `disabled`.
+
 ### Fpath highlighting {/* #fpath-highlighting */}
 
 <ImgShow width={1535} height={728} img="/img/cast/gif/fsh/fsh-fpath.gif" alt="Syntax highlighting fpath" />
@@ -455,15 +469,15 @@ to obtain the associative array and its handler functions.
 
 ##### Top-level entries {/* #chroma-definition-top-level-entries */}
 
-| Entry                     | Meaning                                                                                     |
-| ------------------------- | ------------------------------------------------------------------------------------------- |
-| `subcommands`             | A Zsh pattern, or `::function` returning the patterns in `reply`                            |
-| `subcmd:NULL`             | Nodes active before a recognized subcommand                                                 |
-| `subcmd:<selector>`       | `//`-separated nodes active for one subcommand or a parenthesized `|` pattern               |
-| `subcmd:*`                | Catch-all nodes for recognized subcommands without a more specific entry                    |
-| `subcmd-hook`             | A function called after a subcommand is recognized                                          |
-| `subcommands-blacklist`   | A comma-separated list of subcommands that return to the normal highlighter                 |
-| `<LABEL>_<POSITION>_...`  | A node describing an option or positional argument                                          |
+| Entry                    | Meaning                                                                                       |
+| ------------------------ | --------------------------------------------------------------------------------------------- |
+| `subcommands`            | A Zsh pattern, or `::function` returning the patterns in `reply`                              |
+| `subcmd:NULL`            | Nodes active before a recognized subcommand                                                   |
+| `subcmd:<selector>`      | `//`-separated nodes active for one subcommand or a parenthesized <code>&#124;</code> pattern |
+| `subcmd:*`               | Catch-all nodes for recognized subcommands without a more specific entry                      |
+| `subcmd-hook`            | A function called after a subcommand is recognized                                            |
+| `subcommands-blacklist`  | A comma-separated list of subcommands that return to the normal highlighter                   |
+| `<LABEL>_<POSITION>_...` | A node describing an option or positional argument                                            |
 
 Each referenced node must be a key in the same definition array.
 
