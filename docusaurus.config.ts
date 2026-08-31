@@ -70,6 +70,7 @@ export default async function createConfigAsync() {
     ],
     i18n: {defaultLocale: "en", locales: ["en"]},
     markdown: {mermaid: true, emoji: true, format: "detect", hooks: {onBrokenMarkdownLinks: "warn"}},
+    themes: ["@docusaurus/theme-mermaid"],
     customFields: {fontAwesomeStylesheet},
     storage: {
       type: "localStorage",
@@ -97,7 +98,7 @@ export default async function createConfigAsync() {
     },
     plugins: [
       [
-        "content-docs",
+        "@docusaurus/plugin-content-docs",
         {
           id: "community",
           path: "community",
@@ -115,7 +116,7 @@ export default async function createConfigAsync() {
         } satisfies DocsOptions,
       ],
       [
-        "content-docs",
+        "@docusaurus/plugin-content-docs",
         {
           id: "ecosystem",
           path: "ecosystem",

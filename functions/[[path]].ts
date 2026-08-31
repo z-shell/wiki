@@ -1,9 +1,4 @@
 import contentPolicy from "../content-policy.json";
-import type {PagesFunction} from "@cloudflare/workers-types";
-
-interface Env {
-  ASSETS_BUCKET: R2Bucket;
-}
 
 const immutableAssetPrefixes = ["/assets/", "/cdn/", "/img/"];
 const asciicastContentType = "text/plain; charset=utf-8";

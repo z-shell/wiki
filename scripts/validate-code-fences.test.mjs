@@ -18,7 +18,18 @@ test("parses backtick and tilde fences with metadata", () => {
 });
 
 test("accepts exact supported languages and structural MDX fences", () => {
-  const source = ["```zsh", "print -r -- hello", "```", "```mdx-code-block", "<Component>", "```"].join("\n");
+  const source = [
+    "```zsh",
+    "print -r -- hello",
+    "```",
+    "```mermaid",
+    "flowchart LR",
+    "  A --> B",
+    "```",
+    "```mdx-code-block",
+    "<Component>",
+    "```",
+  ].join("\n");
 
   assert.deepEqual(validateCodeFences(source), []);
 });

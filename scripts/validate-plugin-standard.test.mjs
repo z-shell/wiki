@@ -124,14 +124,14 @@ test("rejects removal of scheduled issue creation", () => {
 
 test("rejects validation before repository setup", () => {
   const parsed = parse(workflow);
-  const [validateStep] = parsed.jobs.review.steps.splice(5, 1);
+  const [validateStep] = parsed.jobs.review.steps.splice(3, 1);
   parsed.jobs.review.steps.unshift(validateStep);
   assert.match(validateWorkflow(JSON.stringify(parsed)).join("\n"), /step 1/);
 });
 
 test("rejects removal of Zsh provisioning", () => {
   const parsed = parse(workflow);
-  parsed.jobs.review.steps.splice(4, 1);
+  parsed.jobs.review.steps.splice(2, 1);
   assert.match(validateWorkflow(JSON.stringify(parsed)).join("\n"), /complete required step sequence/);
 });
 
@@ -145,15 +145,15 @@ test("rejects mutation of Zsh provisioning", () => {
 
 test("rejects Zsh provisioning after deterministic validation", () => {
   const parsed = parse(workflow);
-  const [zshStep] = parsed.jobs.review.steps.splice(4, 1);
-  parsed.jobs.review.steps.splice(5, 0, zshStep);
-  assert.match(validateWorkflow(JSON.stringify(parsed)).join("\n"), /step 5 must be Install Zsh/);
+  const [zshStep] = parsed.jobs.review.steps.splice(2, 1);
+  parsed.jobs.review.steps.splice(3, 0, zshStep);
+  assert.match(validateWorkflow(JSON.stringify(parsed)).join("\n"), /step 3 must be Install Zsh/);
 });
 
 test("rejects extra triggers and skippable required steps", () => {
   const parsed = parse(workflow);
   parsed.on.push = {};
-  parsed.jobs.review.steps[5].if = false;
+  parsed.jobs.review.steps[3].if = false;
   const errors = validateWorkflow(JSON.stringify(parsed)).join("\n");
   assert.match(errors, /exactly schedule and workflow_dispatch/);
   assert.match(errors, /must not be skipped/);
@@ -173,7 +173,7 @@ test("rejects behavior-changing workflow mapping fields", () => {
   parsed.on.schedule[0].timezone = "Europe/London";
   parsed.jobs.review.strategy = {matrix: {node: [22]}};
   parsed.jobs.review.steps[0].with = {repository: "other/repository"};
-  parsed.jobs.review.steps[6].env.NODE_OPTIONS = "--import=./other.mjs";
+  parsed.jobs.review.steps[4].env.NODE_OPTIONS = "--import=./other.mjs";
   const errors = validateWorkflow(JSON.stringify(parsed)).join("\n");
   assert.match(errors, /07:23 UTC/);
   assert.match(errors, /review job must contain only/);
@@ -183,11 +183,11 @@ test("rejects behavior-changing workflow mapping fields", () => {
 
 test("returns validation errors for non-mapping required steps", () => {
   const parsed = parse(workflow);
-  parsed.jobs.review.steps[2] = null;
-  parsed.jobs.review.steps[6] = "invalid";
+  parsed.jobs.review.steps[1] = null;
+  parsed.jobs.review.steps[4] = "invalid";
   const errors = validateWorkflow(JSON.stringify(parsed)).join("\n");
 
-  assert.match(errors, /Node setup must use Node 22/);
+  assert.match(errors, /pnpm setup must install the declared runtime/);
   assert.match(errors, /repository-scoped GitHub token/);
 });
 

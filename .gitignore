@@ -132,8 +132,5 @@ web_modules/
 gha-creds-*.json
 .wrangler/
 
-# Wrangler-generated types (regenerate with: pnpm wrangler:types)
-functions/worker-env.d.ts
-
 # Automated Codebase Scans
 .codebase-scan.txt

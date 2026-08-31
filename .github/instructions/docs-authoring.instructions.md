@@ -53,7 +53,7 @@ keywords:
 
 Run `pnpm validate:frontmatter` before pushing to catch any missing fields.
 
-When editing `community/00_contributing/03_zsh_plugin_standard.mdx`, also run
+When editing `community/03_zsh_plugin_standard.mdx`, also run
 `pnpm validate:plugin-standard`. This checks the portable-core/profile boundary,
 legacy route anchors, safety guidance, and the semiannual review workflow
 contract.
@@ -107,6 +107,53 @@ Only import what is used on the page.
 - Use `<kbd>` for keyboard/command sequences.
 - Heading IDs are managed by `pnpm write-heading-ids`; add explicit `{#custom-id}` only when needed.
 - For HTML elements in MDX (`<kbd>`, `<details>`, `<samp>`, `<dl>`, etc.), refer to the [GitHub Flavored Markdown spec](https://github.github.com/gfm/#raw-html) for supported tags.
+
+## GFM and Docusaurus Affordances
+
+Use the simplest format that makes the information easier to scan or understand.
+Prefer Markdown and GitHub Flavored Markdown (GFM) over JSX; introduce an MDX
+component only when Markdown cannot express the interaction.
+
+| Reader need                    | Preferred form                                    | Use it for                                                                | Do not use it for                                        |
+| ------------------------------ | ------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------- |
+| Comparison or reference matrix | GFM table                                         | Two to four short, consistently shaped columns                            | Long prose, multi-step procedures, or large code samples |
+| Ordered procedure              | Numbered list                                     | Actions that must happen in sequence                                      | Unordered collections or conceptual overviews            |
+| Completion checklist           | GFM task list (`- [ ]`)                           | Work readers can actually complete or verify                              | Decorative feature lists                                 |
+| Context, advice, or risk       | `:::tip`, `:::info`, `:::warning`, or `:::danger` | Information whose callout level changes how readers act                   | Repeating ordinary body text or decorating every section |
+| Optional or advanced detail    | `<details>` with a one-line `<summary>`           | Long output, troubleshooting detail, or secondary explanation             | Required steps or information every reader needs         |
+| Equivalent alternatives        | `<Tabs>` and `<TabItem>`                          | Operating systems, package managers, or genuinely interchangeable methods | Sequential steps or unrelated topics                     |
+| Process or relationship        | Mermaid diagram                                   | Flows and relationships that are clearer visually than as prose           | A linear list that is already clear in a few sentences   |
+| Literal quotation              | Markdown blockquote (`>`)                         | Attributed quotations                                                     | Callouts; use an admonition instead                      |
+| Navigation choices             | `<CardGrid>` and `<Card>`                         | Landing-page links to peer sections                                       | Ordinary paragraphs or isolated links                    |
+
+### Presentation rules
+
+- Start each page and major section with the outcome or purpose before details.
+- Use sentence-case headings and descriptive link text. Do not use bold text as a
+  substitute for a heading and do not use bare URLs when a meaningful label is
+  available.
+- Keep paragraphs focused; split a paragraph when it changes subject or grows
+  beyond roughly five sentences.
+- Keep tables compact and scannable. If a cell needs paragraphs, nested lists,
+  or substantial code, use headings or definition-style prose instead.
+- Keep `<summary>` on one line and leave blank lines around Markdown nested in
+  `<details>`, `<Tabs>`, `<TabItem>`, or other JSX containers so MDX parses it as
+  Markdown rather than text.
+- Give related tab groups a stable `groupId`. Do not use `lazy` when hidden tab
+  content must remain searchable or indexable.
+- Give Mermaid diagrams `accTitle` and `accDescr` accessibility directives,
+  accompany them with a prose sentence that communicates the same conclusion,
+  and never rely on color alone to convey meaning.
+- Use code-block `title="..."` when a filename or role matters, highlight only
+  the lines under discussion, and reserve `showLineNumbers` for longer blocks
+  that the prose references by line.
+- Use raw HTML only for semantic elements that Markdown does not provide. Do not
+  use raw HTML or inline styles to create layout.
+
+Prettier owns MDX layout, including table alignment, list spacing, and JSX
+wrapping. Run `pnpm lint` after authoring and `pnpm lint:fix` to apply safe
+formatting fixes. A production build remains required because formatting cannot
+prove that an MDX component renders correctly.
 
 ## Code Blocks
 

@@ -544,20 +544,20 @@ Do not run this during normal plugin loading, and do not add `$ZPFX/bin` to
 
 Each numbered requirement above constitutes a capability of the plugin manager.
 It makes sense for those capabilities to be discoverable. The global parameter
-`PMSPEC`, from *plugin-manager specification*, holds Latin letters, each
+`PMSPEC`, from _plugin-manager specification_, holds Latin letters, each
 telling the plugin that the manager supports a given feature:
 
-| Letter | Capability | Requirement |
-| :----: | ---------- | ----------- |
-| `0` | provides the `ZERO` parameter | [1](#zero-handling) |
-| `f` | supports the `functions/` subdirectory | [2](#functions-directory) |
-| `b` | supports the `bin/` subdirectory | [3](#binaries-directory) |
-| `u` | calls the unload function | [4](#unload-function) |
-| `U` | provides `@zsh-plugin-run-on-unload` | [5](#run-on-unload-call) |
-| `p` | provides `@zsh-plugin-run-on-update` | [6](#run-on-update-call) |
-| `i` | provides the `zsh_loaded_plugins` indicator | [7](#activity-indicator) |
-| `P` | provides the `ZPFX` global parameter | [8](#global-parameter-with-prefix) |
-| `s` | provides `PMSPEC` itself, so it is always present | this requirement |
+| Letter | Capability                                        | Requirement                        |
+| :----: | ------------------------------------------------- | ---------------------------------- |
+|  `0`   | provides the `ZERO` parameter                     | [1](#zero-handling)                |
+|  `f`   | supports the `functions/` subdirectory            | [2](#functions-directory)          |
+|  `b`   | supports the `bin/` subdirectory                  | [3](#binaries-directory)           |
+|  `u`   | calls the unload function                         | [4](#unload-function)              |
+|  `U`   | provides `@zsh-plugin-run-on-unload`              | [5](#run-on-unload-call)           |
+|  `p`   | provides `@zsh-plugin-run-on-update`              | [6](#run-on-update-call)           |
+|  `i`   | provides the `zsh_loaded_plugins` indicator       | [7](#activity-indicator)           |
+|  `P`   | provides the `ZPFX` global parameter              | [8](#global-parameter-with-prefix) |
+|  `s`   | provides `PMSPEC` itself, so it is always present | this requirement                   |
 
 The plugin verifies support by testing for the letter:
 
@@ -588,11 +588,11 @@ you need, and provide a manager-independent path.
 
 Observed values:
 
-| Manager | `PMSPEC` |
-| ------- | -------- |
-| Zi | `0fuUpiPsX` |
-| Zinit | `0uUpiPsf` |
-| zcomet | `0fbuiPs` |
+| Manager | `PMSPEC`    |
+| ------- | ----------- |
+| Zi      | `0fuUpiPsX` |
+| Zinit   | `0uUpiPsf`  |
+| zcomet  | `0fbuiPs`   |
 
 Zi's `X` has no definition in any published source and no consumer anywhere in
 the z-shell organization. Treat it as an unallocated Zi extension observed in

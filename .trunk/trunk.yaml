@@ -50,6 +50,25 @@ lint:
     - shfmt@3.6.0
     - frontmatter-linter@SYSTEM
   definitions:
+    # Trunk's upstream prettier definition does not know about this repo's
+    # custom `mdx` file type, so without this the formatter silently claims
+    # zero .mdx files and documentation formatting remains unenforced.
+    - name: prettier
+      files:
+        [
+          typescript,
+          yaml,
+          css,
+          postcss,
+          sass,
+          html,
+          markdown,
+          mdx,
+          json,
+          javascript,
+          graphql,
+          prettier_supported_configs,
+        ]
     # This repository is consumed as a submodule, so `.git` is a file whose
     # gitdir is relative to the superproject. Trunk's sandbox copy breaks that
     # relative path, so anchor the command at the real workspace.

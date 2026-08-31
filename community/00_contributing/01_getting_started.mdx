@@ -17,7 +17,13 @@ keywords:
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
 <div style={{float: "right", marginLeft: "1.5rem", marginBottom: "1rem"}}>
-  <img src={useBaseUrl("/img/svg/community/contributing-getting-started.svg")} alt="" width="100" height="100" style={{borderRadius: "16px"}}/>
+  <img
+    src={useBaseUrl("/img/svg/community/contributing-getting-started.svg")}
+    alt=""
+    width="100"
+    height="100"
+    style={{borderRadius: "16px"}}
+  />
 </div>
 
 This guide covers the conventions shared across the Z-Shell organization —
@@ -65,10 +71,10 @@ The authoritative per-repository table lives in
 [ADR 0019: Trunk-on-Main Default](https://github.com/z-shell/.github/blob/main/decisions/0019-trunk-on-main-default.md).
 At the time of writing:
 
-| Integration branch | Repositories |
-| --- | --- |
-| trunk on `main` | all repositories except the named exception below |
-| `next` to stable `main` | `zi` |
+| Integration branch      | Repositories                                      |
+| ----------------------- | ------------------------------------------------- |
+| trunk on `main`         | all repositories except the named exception below |
+| `next` to stable `main` | `zi`                                              |
 
 Consult the ADR rather than this table if the two ever disagree; the ADR is the
 source of truth, and changing a repository's model requires amending it.
@@ -108,17 +114,17 @@ BREAKING CHANGE: description of what breaks
 
 ### Allowed Types
 
-| Type | Purpose |
-| --- | --- |
-| `feat` | New feature |
-| `fix` | Bug fix |
-| `perf` | Performance improvement |
+| Type       | Purpose                              |
+| ---------- | ------------------------------------ |
+| `feat`     | New feature                          |
+| `fix`      | Bug fix                              |
+| `perf`     | Performance improvement              |
 | `refactor` | Code restructure, no behavior change |
-| `docs` | Documentation only |
-| `test` | Test additions or corrections |
-| `ci` | CI/CD pipeline changes |
-| `chore` | Routine maintenance |
-| `revert` | Revert a previous commit |
+| `docs`     | Documentation only                   |
+| `test`     | Test additions or corrections        |
+| `ci`       | CI/CD pipeline changes               |
+| `chore`    | Routine maintenance                  |
+| `revert`   | Revert a previous commit             |
 
 ### Rules
 
