@@ -21,14 +21,19 @@ documentation workflow replaces it automatically.
 {/* zsh-lint:generated:start */}
 
 :::info Published rule set
-This reference was generated from the published `v1.1.0` release at commit [`fde7795feaa65a222acf42459a26eb0f9271523d`](https://github.com/z-shell/zsh-lint/commit/fde7795feaa65a222acf42459a26eb0f9271523d). It matches the rules users receive from `go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.1.0`.
+This reference was generated from the published `v1.2.0` release at commit [`33bce8041faa1395455562c5a558a063ccdcc441`](https://github.com/z-shell/zsh-lint/commit/33bce8041faa1395455562c5a558a063ccdcc441). It matches the rules users receive from `go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.2.0`.
 :::
 
 ## Rules
 
 - [`compat/special-param-shadow`](#rule-compatspecial-param-shadow): Shadowing special shell parameters
+- [`performance/repeated-external-command`](#rule-performancerepeated-external-command): Repeated external command in completion loop
 - [`plugin/fpath-hygiene`](#rule-pluginfpath-hygiene): fpath manipulation hygiene in plugin entrypoints
+- [`plugin/function-namespace`](#rule-pluginfunction-namespace): Project-owned function namespace
 - [`plugin/function-scoped-options`](#rule-pluginfunction-scoped-options): Function files should scope shell options
+- [`plugin/load-only-helper`](#rule-pluginload-only-helper): Remove load-only helper functions
+- [`plugin/persistent-parameter-namespace`](#rule-pluginpersistent-parameter-namespace): Private project-owned persistent parameter namespace
+- [`plugin/shared-plugins-registry`](#rule-pluginshared-plugins-registry): No shared Plugins registry mutation
 - [`plugin/unload-function`](#rule-pluginunload-function): Unload function convention and hygiene
 - [`plugin/zero-handling`](#rule-pluginzero-handling): Zero-handling idiom in plugin entrypoint
 - [`quoting/unquoted-var`](#rule-quotingunquoted-var): Unquoted variable expansion
@@ -69,11 +74,23 @@ False positives: Deliberate compatibility shims or test harnesses that fake `ZSH
 
 Corpus evidence: Issue #64 records `zd/docker/utils.zsh:78`: `local ZSH_VERSION="$1"` inside a helper that takes a target version as its first argument. Deferred issue #72 tracks bare assignments in function scope and `integer`/`float` declarations; both are out of scope for this rule version.
 
+## Rule: `performance/repeated-external-command`
+
+**Name:** Repeated external command in completion loop
+
+**Summary:** Reports a conservative allowlist of commands that necessarily create a process when they occur in a loop in a configured completion source.
+
+Why: A loop with N iterations creates N external processes for each reported call. Process creation is the dominant fixed cost even when the command does little work. Hoist invariant work, use Zsh-native parameter operations, or measure and retain the call when its result genuinely varies per iteration.
+
+**Severity:** Info. The cost model is certain, but whether it matters depends on iteration count, command work, and the interactive completion workload.
+
+False positives: A command whose result must be recomputed for each item may be intentional. Measure the completion path before changing behavior.
+
 ## Rule: `plugin/fpath-hygiene`
 
 **Name:** fpath manipulation hygiene in plugin entrypoints
 
-**Summary:** Detects destructive assignments to `fpath` that overwrite existing autoload paths, additions of non-function directories (`bin/`, `tests/`), and hardcoded user paths.
+**Summary:** In configured plugin and Zi annex sourced-library entrypoints, detects destructive assignments to `fpath` that overwrite existing autoload paths, additions of non-function directories (`bin/`, `tests/`), and hardcoded user paths. Unconfigured analysis retains its legacy applicability.
 
 Why: Sourced Zsh plugins must not destructively replace `fpath` (which removes standard system and user function directories), add hardcoded user machine paths, or add non-function directories (`bin/`, `tests/`) that can trigger completion security audit warnings (`compaudit`) or namespace collisions. Plugins should append or prepend relative `functions/` or `completions/` directories. See https://wiki.zshell.dev/community/zsh_plugin_standard#completions-and-compinit-ownership.
 
@@ -104,11 +121,40 @@ False positives: Hermetic test runners or standalone shell bootstrap scripts tha
 
 Corpus evidence: `z-a-meta-plugins/z-a-meta-plugins.plugin.zsh:12` uses compliant `fpath+=( "${0:h}/functions" )`.
 
+## Rule: `plugin/function-namespace`
+
+**Name:** Project-owned function namespace
+
+**Summary:** Reports named functions in configured plugin and Zi annex source files, plus effective function names derived from configured autoload file basenames, when they do not use the declared project identifier.
+
+Why: The Zsh Plugin Standard requires persistent shell-visible names to use a stable project identifier. Namespacing prevents collisions when unrelated plugins share one shell process. Native completions keep Zsh's `_command` convention. Public functions use `example_...`; private functions use `_example_...`. Symbolic role prefixes are deliberately not accepted by the version 2 project profile. See https://wiki.zshell.dev/community/zsh_plugin_standard#names-and-persistent-state and https://wiki.zshell.dev/community/zsh_plugin_standard#standard-function-name-space-prefixes.
+
+**Bad:**
+
+```zsh
+refresh() { builtin emulate -L zsh; }
+```
+
+**Good:**
+
+```zsh
+example_refresh() { builtin emulate -L zsh; }
+_example_precmd() { builtin emulate -L zsh; }
+```
+
+**Severity:** Hint. A mismatched namespace is an interoperability and hygiene concern, not invalid Zsh syntax.
+
+False positives: The rule runs only with version 2 project configuration, a plugin or Zi annex project kind, a sourced-library or autoload-function source profile, and one explicit project identifier. Completion basenames use `_command` only when the source role is `completion`. Repository names and directory names are never inferred as identifiers.
+
+**Suppression:** Use `# zsh-lint disable=plugin/function-namespace -- <reason>` on a declaration line or immediately before it. For an autoload basename finding, put the standalone directive in the file header before any source code.
+
+Corpus evidence: The configured organization corpus records nonconforming symbolic and multi-prefix names as issue-backed migration findings until each owning project adopts the version 2 portable contract.
+
 ## Rule: `plugin/function-scoped-options`
 
 **Name:** Function files should scope shell options
 
-**Summary:** Reports executable files beneath a `functions` directory when neither `builtin emulate -L zsh` nor `setopt local_options` appears before the first non-guard top-level statement.
+**Summary:** For configured plugin and Zi annex projects, reports autoload function sources when neither `builtin emulate -L zsh` nor `setopt local_options` appears before the first non-guard top-level statement. Unconfigured analysis retains the legacy `functions` path heuristic.
 
 Why: Zsh functions inherit the caller's option state. The Zsh manual documents `LOCAL_OPTIONS` as restoring options on function return, while `emulate -L` both selects Zsh emulation and makes option changes local. Without either form, options such as `SH_WORD_SPLIT`, `KSH_ARRAYS`, or `NO_EXTENDED_GLOB` can silently change function behavior. See https://zsh.sourceforge.io/Doc/Release/Options.html#index-LOCAL_005fOPTIONS and https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html#index-emulate.
 
@@ -135,11 +181,101 @@ False positives: Functions that intentionally share caller option state and triv
 
 Corpus evidence: Issue #63 reported missing scoping across z-a-meta-plugins and zsh-fancy-completions function files. The analyzer currently flags `zsh-fancy-completions/functions/.completion-prediction` and `zsh-fancy-completions/functions/.force_rehash`. The originally cited `z-a-meta-plugins/functions/.za-meta-plugins-meta-cmd-help-handler` is a fully commented-out stub and is correctly silent. Compliant `setopt local_options` and `builtin emulate -L zsh` examples exist in the same repositories.
 
+## Rule: `plugin/load-only-helper`
+
+**Name:** Remove load-only helper functions
+
+**Summary:** Reports a provably load-only private helper that remains defined after initialization.
+
+Why: Every persistent function expands the plugin's process-wide public or private shell surface and its unload obligations. Standard 2 requires a plugin to remove helpers that exist only to initialize persistent state. See https://wiki.zshell.dev/community/zsh_plugin_standard#lifecycle-and-resource-ownership.
+
+**Bad:**
+
+```zsh
+_example_setup() { typeset -g _example_ready=1; }
+_example_setup
+```
+
+**Good:**
+
+```zsh
+_example_setup() { typeset -g _example_ready=1; }
+_example_setup
+unfunction _example_setup
+```
+
+**Severity:** Hint. A retained helper is namespace and lifecycle debt, not a direct runtime failure.
+
+False positives: The rule is intentionally conservative. It requires a private project prefix, a setup/init/load/register/bootstrap role word, a load-scope call, no call from a persistent function, and no exact load-scope `unfunction`. Helpers whose future use cannot be disproved remain silent.
+
+**Suppression:** Use `# zsh-lint disable=plugin/load-only-helper -- <reason>` on the declaration line or immediately before it.
+
+Corpus evidence: The repository fixtures model load-only initialization; issue #187 adds this rule before wider organization migration so new helpers do not become persistent debt.
+
+## Rule: `plugin/persistent-parameter-namespace`
+
+**Name:** Private project-owned persistent parameter namespace
+
+**Summary:** Reports persistent parameters that do not use the configured project's `_project_name_...` private namespace.
+
+Why: Shell parameters share one process-wide namespace. Standard 2 routes public configuration through `:project-identifier:config` zstyles and reserves global parameters for necessary private typed state with one clear owner. See https://wiki.zshell.dev/community/zsh_plugin_standard#configuration-contract.
+
+**Bad:**
+
+```zsh
+typeset -g FEATURE_ENABLED=1
+```
+
+**Good:**
+
+```zsh
+typeset -gi _example_feature_enabled=1
+zstyle ':example:config' feature-enabled yes
+```
+
+**Severity:** Warning. An unowned global can collide with another plugin or user parameter and makes cleanup ambiguous.
+
+False positives: The standard process-wide parameters `path`, `PATH`, `fpath`, `FPATH`, and `module_path` are exempt because portable plugins can own and restore entries in those shared ordered collections. Dynamic local parameters inside functions remain silent unless explicitly declared `-g`.
+
+**Suppression:** Use `# zsh-lint disable=plugin/persistent-parameter-namespace -- <reason>` on the finding line or immediately before it.
+
+Corpus evidence: z-a-meta-plugins#54, zsh-fancy-completions#59, and zsh-eza#119 track current unnamespaced configured-corpus parameters.
+
+## Rule: `plugin/shared-plugins-registry`
+
+**Name:** No shared Plugins registry mutation
+
+**Summary:** Reports declarations, assignments, and indexed writes to the ownerless global `Plugins` parameter in configured portable plugin and Zi annex source.
+
+Why: Zsh Plugin Standard 2 requires every persistent parameter to have one project owner. A shared global registry has no portable ownership or unload contract. Plugin managers can maintain manager-owned registries outside the portable plugin source. See https://wiki.zshell.dev/community/zsh_plugin_standard#names-and-persistent-state.
+
+**Bad:**
+
+```zsh
+typeset -gA Plugins
+Plugins[example]=$PWD
+```
+
+**Good:**
+
+```zsh
+typeset -gA _example_state
+_example_state[plugin_dir]=$PWD
+```
+
+**Severity:** Warning. The shared write creates cross-plugin state with no stable owner, but managers may provide a similarly named private registry outside portable source.
+
+False positives: None in a Standard 2 portable source mapping. Manager-only integration belongs in a separately classified source and remains silent.
+
+**Suppression:** Use `# zsh-lint disable=plugin/shared-plugins-registry -- <reason>` on the finding line or immediately before it.
+
+Corpus evidence: z-a-meta-plugins#54, zsh-fancy-completions#59, and zsh-eza#119 track removal of current configured-corpus writes.
+
 ## Rule: `plugin/unload-function`
 
 **Name:** Unload function convention and hygiene
 
-**Summary:** Checks that plugins registering persistent shell hooks or widgets define a namespaced unload function (`*_plugin_unload`), and that defined unload functions cleanly unfunction themselves upon completion.
+**Summary:** Checks configured plugin and Zi annex sourced-library entrypoints that register persistent shell hooks or widgets for a namespaced unload function (`*_plugin_unload`), and checks that defined unload functions cleanly unfunction themselves upon completion. Configured multi-file invocations aggregate registration and unload presence across the project; unconfigured analysis retains the legacy per-file path heuristic.
 
 Why: The Zsh Plugin Standard specifies that plugins with persistent side effects (hooks via `add-zsh-hook`, line-editor widgets via `add-zle-hook-widget` or `zle -N`) should provide a namespaced `*_plugin_unload` function so plugin managers and users can cleanly unload the plugin without restarting the shell. The unload function must explicitly remove only its own resources and unfunction itself upon completion. See https://wiki.zshell.dev/community/zsh_plugin_standard#lifecycle-and-resource-ownership.
 
@@ -169,15 +305,15 @@ False positives: Plugins intended only for static, once-per-session loading with
 
 **Suppression:** Use `# zsh-lint disable=plugin/unload-function -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
 
-Corpus evidence: `zsh-fancy-completions/lib/state.zsh:72` implements `zsh-fancy-completions_plugin_unload` with full resource restoration and self-unfunction.
+Static boundary: This rule proves only unload entrypoint presence and narrow syntax hygiene. Exact ownership-aware restoration requires a clean-process runtime test and is outside static analysis.
 
 ## Rule: `plugin/zero-handling`
 
 **Name:** Zero-handling idiom in plugin entrypoint
 
-**Summary:** Reports direct uses of `$0` at the top level of plugin scripts before `$0` has been initialized using prompt expansions (`${(%):-%N}` or `${(%):-%x}`).
+**Summary:** Reports direct uses of `$0` at the top level of configured plugin and Zi annex sourced-library entrypoints. Configured analysis also reports assignment to special parameter `0`, because sourced entrypoints must not replace caller state. Unconfigured analysis retains the legacy path heuristic.
 
-Why: When a Zsh plugin is sourced, positional parameter `$0` evaluates to the name of the shell (`zsh` or `-zsh`) rather than the path of the sourced script, unless `FUNCTION_ARGZERO` is active. Plugin entrypoints must initialize `$0` using prompt expansion `${(%):-%N}` or `${(%):-%x}` (optionally with `$ZERO` fallback) before using `$0` to derive directories or autoload paths. See https://wiki.zshell.dev/community/zsh_plugin_standard#zero-handling.
+Why: When a Zsh plugin is sourced, positional parameter `$0` evaluates to the name of the shell (`zsh` or `-zsh`) rather than the path of the sourced script, unless `FUNCTION_ARGZERO` is active. Configured plugin entrypoints must resolve the source path with prompt expansion `${(%):-%N}` or `${(%):-%x}` (optionally with `$ZERO` fallback) and pass it into a localized scope instead of assigning to caller-visible special parameter `0`. See https://wiki.zshell.dev/community/zsh_plugin_standard#zero-handling.
 
 **Bad:**
 
@@ -185,21 +321,22 @@ Why: When a Zsh plugin is sourced, positional parameter `$0` evaluates to the na
 fpath+=( "${0:h}/functions" )
 ```
 
-**Good:**
+Good (configured sourced entrypoint):
 
 ```zsh
-0="${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"
-0="${${(M)0:#/*}:-$PWD/$0}"
-fpath+=( "${0:h}/functions" )
+() {
+  local source_path=$1
+  fpath+=( "${source_path:h}/functions" )
+} "${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"
 ```
 
-**Severity:** Warning. Deriving paths from uninitialized `$0` in a sourced plugin leads to incorrect directory paths or runtime loading failures.
+**Severity:** Warning. Deriving paths from uninitialized `$0` can load the wrong path; assigning to `0` can replace caller state or fail when `POSIX_ARGZERO` makes it read-only.
 
 False positives: Scripts intended solely for direct execution (not sourcing) or functions where `$0` refers to the function name. Suppress with a reason.
 
 **Suppression:** Use `# zsh-lint disable=plugin/zero-handling -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
 
-Corpus evidence: `z-a-meta-plugins/z-a-meta-plugins.plugin.zsh:7` uses the compliant `0="${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"` idiom before referencing `${0:h}` on line 12.
+Corpus evidence: z-a-meta-plugins, zsh-fancy-completions, and zsh-eza use the caller-preserving anonymous-function argument pattern.
 
 ## Rule: `quoting/unquoted-var`
 
@@ -223,7 +360,7 @@ print -r -- "$value"
 
 **Severity:** Warning. Losing an empty argument or inheriting `SH_WORD_SPLIT` can change command behavior, while intentional elision remains realistic.
 
-False positives: Code may intentionally omit an empty argument, deliberately rely on `SH_WORD_SPLIT`, or expand a value guaranteed to be non-empty. Those cases should use a reasoned suppression rather than weakening unrelated diagnostics.
+False positives: Explicit native-Zsh splitting forms such as `${=words}` and flag-guided array or field splitting are excluded. Other code may intentionally omit an empty argument, rely on `SH_WORD_SPLIT`, or expand a value guaranteed to be non-empty. Those cases should use a reasoned suppression rather than weakening unrelated diagnostics.
 
 **Suppression:** Use `# zsh-lint disable=quoting/unquoted-var -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
 
