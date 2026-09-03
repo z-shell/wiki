@@ -133,6 +133,41 @@ zi load some/plugin
 
 Check out the project which fully implements this idea, [z-a-submods][submods]. It e.g. also implements the `atpull` hook, i.e. supports the automatic update of the submodules. The `z-a-*` prefix is recommended for projects which indicate annexes.
 
+## Unregistering an annex {/* #unregistering-an-annex */}
+
+An annex that follows the [Zsh Plugin Standard][zsh-plugin-standard] unload contract removes its handler functions when it is unloaded. Removing a handler without also removing its registration leaves Zi dispatching to a function that no longer exists, so the registration has to go first:
+
+`@zi-unregister-annex`:
+
+```zi showLineNumbers
+myproject_plugin_unload() {
+  @zi-unregister-annex myproject hook:atclone
+  unfunction →za-myproject-atclone-handler \
+    →za-myproject-atclone-help-handler \
+    myproject_plugin_unload
+}
+```
+
+The general syntax mirrors the registration call, using the same project name and hook type that were given to `@zi-register-annex`:
+
+```zi showLineNumbers
+@zi-unregister-annex {project-name} { hook: < hook-type >| subcommand: < subcommand-name > }
+```
+
+Unregistering something that was never registered is a no-op, not an error, so an unload function does not need to guard the call.
+
+:::warning
+
+Removing a handler without unregistering it corrupts later loads. Zi calls the stored handler unconditionally, a missing function returns `127`, and Zi folds that error into its return value and shifts its argument list. Every plugin loaded afterwards in that session is affected, and the first one fails with `Error: No plugin or snippet ID given.`
+
+:::
+
+:::info
+
+The ice-modifiers an annex contributed at registration are not withdrawn. Registration appends them to a shared list without recording which annex contributed which entry, so a leftover ice name stays recognised but dispatches to nothing.
+
+:::
+
 ## Summary {/* #summary */}
 
 There are 2 or 3 subtypes for each of the hooks:
@@ -148,6 +183,7 @@ There are 2 or 3 subtypes for each of the hooks:
 [command]: /docs/guides/commands
 [ice-modifiers]: /docs/guides/syntax/ice-modifiers
 [the-proposed-function-name-prefixes]: /community/zsh_plugin_standard#the-proposed-function-name-prefixes
+[zsh-plugin-standard]: /community/zsh_plugin_standard#unload-function
 
 {/* external */}
 
