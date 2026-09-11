@@ -89,7 +89,7 @@ there are no findings, say so and identify remaining evidence gaps. Report
 which checks actually ran and their outcomes.
 
 During a health evaluation, also follow the
-[review-readiness procedure](https://github.com/z-shell/.github/blob/main/runbooks/org-review.md#repository-health-review-readiness).
+[review-readiness procedure](https://github.com/z-shell/.github/blob/0258173641bffb1c0fe736de1a5d10b68cc7dacf/runbooks/org-review.md#repository-health-review-readiness).
 Check this skill's validity, provenance, source drift, and suitability against
 the repository's actual components and instructions. Missing or unsuitable
 guidance is a remediation finding, not authorization to install or rewrite it.
