@@ -2,8 +2,8 @@
 description: Review pull requests, diffs, and code changes using repository contracts and checks, or assess review readiness during repository-health evaluations. Produce evidence-based findings without authorizing fixes or external writes.
 metadata:
   github-path: .github/skills/code-review
-  github-pinned: 0258173641bffb1c0fe736de1a5d10b68cc7dacf
-  github-ref: 0258173641bffb1c0fe736de1a5d10b68cc7dacf
+  github-pinned: e1f8f6c1c9dd61e87f2e5f44ef6285992b8b892d
+  github-ref: e1f8f6c1c9dd61e87f2e5f44ef6285992b8b892d
   github-repo: https://github.com/z-shell/.github
   github-tree-sha: a4e535bccfd3d2d4035e332030d08deda0d91632
 name: code-review
@@ -89,7 +89,7 @@ there are no findings, say so and identify remaining evidence gaps. Report
 which checks actually ran and their outcomes.
 
 During a health evaluation, also follow the
-[review-readiness procedure](https://github.com/z-shell/.github/blob/0258173641bffb1c0fe736de1a5d10b68cc7dacf/runbooks/org-review.md#repository-health-review-readiness).
+[review-readiness procedure](https://github.com/z-shell/.github/blob/main/runbooks/org-review.md#repository-health-review-readiness).
 Check this skill's validity, provenance, source drift, and suitability against
 the repository's actual components and instructions. Missing or unsuitable
 guidance is a remediation finding, not authorization to install or rewrite it.
