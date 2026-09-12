@@ -33,7 +33,7 @@ Designed to glue everything together. 🔗
 
 ✴️ [🌀 Meta-plugins](/search?q=meta+plugins) installs a group of complex plugins via a simple label, curated and optimal settings which are automatically applied.
 
-✴️ [🌀 Packages](/ecosystem/packages/synopsis) offloads from complex configurations and stores them as an easy swap & share profiles.
+✴️ [🌀 Packages](/ecosystem/packages/guide) offloads from complex configurations and stores them as an easy swap & share profiles.
 
 ✴️ [🌀 Annexes](/ecosystem/annexes/overview) are extensions that are installed when required to provide additional functionality, and capabilities.
 
