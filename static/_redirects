@@ -2,3 +2,9 @@
 /ecosystem/plugins/zsh_lint/ /community/zsh_lint 301
 /docs/category/%EF%B8%8F-syntax /docs/guides/syntax 301
 /docs/category/%EF%B8%8F-syntax/ /docs/guides/syntax 301
+/ecosystem/packages/usage /ecosystem/packages 301
+/ecosystem/packages/usage/ /ecosystem/packages 301
+/ecosystem/packages/synopsis /ecosystem/packages/guide 301
+/ecosystem/packages/synopsis/ /ecosystem/packages/guide 301
+/ecosystem/category/-packages /ecosystem/packages 301
+/ecosystem/category/-packages/ /ecosystem/packages 301

@@ -1,0 +1,739 @@
+---
+id: packages
+slug: /packages
+title: "📦 Packages"
+sidebar_position: 1
+hide_table_of_contents: true
+image: /img/png/theme/z/320x320.png
+description: Browse Zi packages, compare installation profiles, and copy the command for your setup.
+keywords:
+  - zi packages
+  - package catalog
+  - installation profiles
+---
+
+import PackageCard from "@site/src/components/PackageCard";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Find a tool, open its card, and choose an installation profile. Zi packages provide reusable configurations for installing software and setting up your shell.
+
+New to packages? Read the [Package guide](/ecosystem/packages/guide) for setup, profiles, updates, and adding a package.
+
+:::info[Before installing]
+
+Load [Zi](/docs/getting_started/installation) first. Many packages also need [bin-gem-node][] or other tools listed in their cards. Review the package repository and your platform requirements before running an installation command.
+
+:::
+
+## Browse packages {/* #package-repositories */}
+
+<span id="package-profiles" />
+
+<CardGrid>
+
+<PackageCard name="any-gem" description="Install Ruby gems locally with executable shims." sources={["Gem"]}>
+
+:::info[Before you install]
+
+Requires Ruby, RubyGems, and [bin-gem-node][]. Set `GEM` to the gem you want and use a distinct `id-as` for each installation kept in `.zshrc`.
+
+:::
+
+:::warning[Additional current prerequisite]
+
+The [package manifest](https://github.com/z-shell/any-gem/blob/1acfc73f56c4fcb0c0d4705bcb532f0ebc67ca0e/package.json) also declares npm as a prerequisite. Zi enforces that declaration even though this recipe installs gems, so npm must currently be available too.
+
+:::
+
+#### Install with Zi {/* #any-gem-installation */}
+
+```zi title="Installation command"
+zi id-as=ruby-on-rails pack param='GEM -> rails' for any-gem
+```
+
+</PackageCard>
+
+<PackageCard name="any-node" description="Install Node modules locally with executable shims." sources={["Node"]}>
+
+:::info[Before you install]
+
+Requires Node.js, npm, and [bin-gem-node][]. Set `MOD` to the module you want; additional modules use `MOD2`, `MOD3`, and so on.
+
+:::
+
+#### Install with Zi {/* #any-node-installation */}
+
+```zi title="Installation command"
+zi id-as=doctoc pack param='MOD -> doctoc' for any-node
+```
+
+Use a distinct `id-as` for each installation kept in `.zshrc`.
+
+</PackageCard>
+
+<PackageCard name="apr" description="Apache Portable Runtime library for portable applications." sources={["Source tarball"]} legacyId="apache-portable-runtime-apr-library">
+
+:::info[Before you install]
+
+Requires the [readurl](/ecosystem/annexes/readurl) annex and a C build toolchain.
+
+:::
+
+Download, build and install the latest Apache Portable Runtime.
+
+#### Install with Zi {/* #apr-installation */}
+
+```zi title="Installation command"
+zi pack for apr
+```
+
+</PackageCard>
+
+<PackageCard name="asciidoctor" description="Convert AsciiDoc documents to HTML, DocBook, and other formats." sources={["Gem"]} legacyId="asciidoctor-markdown-processor">
+
+:::info[Before you install]
+
+Requires Ruby, RubyGems, and [bin-gem-node][].
+
+:::
+
+Download the Gem of asciidoctor locally with the [bin-gem-node][] annex.
+
+:::tip
+
+Using the `@` prefix because of collision with the as'' ice.
+
+:::
+
+#### Install with Zi {/* #asciidoctor-installation */}
+
+```zi title="Installation command"
+zi pack for @asciidoctor
+```
+
+</PackageCard>
+
+<PackageCard name="brew-completions" description="Bring Homebrew's Zsh completions under Zi's control." sources={["Local files"]}>
+
+:::info[Before you install]
+
+Requires `brew` in `PATH` and completion files in `share/zsh/site-functions` beneath the Homebrew prefix. The recipe discovers that prefix with `brew --prefix`.
+
+:::
+
+#### Install with Zi {/* #brew-completions-installation */}
+
+```zi title="Installation command"
+zi pack for brew-completions
+```
+
+Initialize the [Zsh completion system](/docs/getting_started/installation) after loading your completion packages.
+
+</PackageCard>
+
+<PackageCard name="dircolors-material" description="Material colors for directory listings and Zsh completions." sources={["Git"]} legacyId="dircolors-material-color-scheme">
+
+:::info[Before you install]
+
+Requires GNU `dircolors` and `sed` (GNU-prefixed tools on macOS).
+
+:::
+
+#### Installation profiles {/* #dircolors-material-installation */}
+
+<Tabs groupId="package-dircolors-material">
+<TabItem value="default" label="Default"  default>
+
+Download the default profile.
+
+```zi title="Installation command"
+zi pack for dircolors-material
+```
+
+</TabItem>
+<TabItem value="no-zsh-completion" label="No completion">
+
+Download the "no-zsh-completion" profile.
+
+```zi title="Installation command"
+zi pack"no-zsh-completion" for dircolors-material
+```
+
+</TabItem>
+<TabItem value="no-color-swap" label="No color swap">
+
+Download the "no-color-swaps" profile.
+
+```zi title="Installation command"
+zi pack"no-color-swaps" for dircolors-material
+```
+
+</TabItem>
+<TabItem value="minimal" label="Minimal">
+
+Download the minimal profile without altering the original theme.
+
+```zi title="Installation command"
+zi pack"minimal" for dircolors-material
+```
+
+</TabItem>
+</Tabs>
+
+</PackageCard>
+
+<PackageCard name="doctoc" description="Generate a table of contents for Markdown documents." sources={["Node"]} legacyId="doctoc-markdown-processor">
+
+:::info[Before you install]
+
+Requires Node.js, npm, and [bin-gem-node][].
+
+:::
+
+Install doctoc locally through npm.
+
+#### Install with Zi {/* #doctoc-installation */}
+
+```zi title="Installation command"
+zi pack for doctoc
+```
+
+</PackageCard>
+
+<PackageCard name="ecs-cli" description="Work with Amazon ECS using the ECS command-line interface." sources={["Binary"]} legacyId="aws-ecs-cli">
+
+:::info[Before you install]
+
+The package selects an AMD64 binary for Linux or macOS. The shim profile requires [bin-gem-node][].
+
+:::
+
+#### Installation profiles {/* #ecs-cli-installation */}
+
+<Tabs groupId="package-ecs-cli">
+<TabItem value="default" label="Default" default>
+
+Download the binary of the Amazon-ECS-CLI command.
+
+```zi title="Installation command"
+zi pack for ecs-cli
+```
+
+</TabItem>
+<TabItem value="bin-gem-node" label="Shims">
+
+Download the ECS-CLI binary with the use of the bin-gem-node annex.
+
+```zi title="Installation command"
+zi pack"bgn" for ecs-cli
+```
+
+</TabItem>
+</Tabs>
+
+</PackageCard>
+
+<PackageCard name="firefox-dev" description="Firefox Developer Edition with web development tools." sources={["Binary"]} legacyId="firefox-developer-edition">
+
+:::info[Before you install]
+
+The download recipe selects Linux or macOS. Check the upstream platform requirements before installing; the shim profile requires [bin-gem-node][].
+
+:::
+
+#### Installation profiles {/* #firefox-dev-installation */}
+
+<Tabs groupId="package-firefox-dev">
+<TabItem value="default" label="Default" default>
+
+Download the firefox-dev latest binary.
+
+```zi title="Installation command"
+zi pack for firefox-dev
+```
+
+</TabItem>
+<TabItem value="bin-gem-node" label="Shims">
+
+Download the firefox-dev latest binary with use of the [bin-gem-node][] annex.
+
+```zi title="Installation command"
+zi pack"bgn" for firefox-dev
+```
+
+</TabItem>
+</Tabs>
+
+</PackageCard>
+
+<PackageCard name="fzf" description="An interactive command-line fuzzy finder." sources={["Git", "Binary"]} legacyId="fzf-command-line-fuzzy-finder">
+
+:::info[Before you install]
+
+Git profiles build from source and require Go, Make, and `cp`. Shim profiles require [bin-gem-node][].
+
+:::
+
+#### Installation profiles {/* #fzf-installation */}
+
+<Tabs groupId="package-fzf">
+<TabItem value="default" label="Default" default>
+
+Build from Git with the default profile.
+
+```zi title="Installation command"
+zi pack for fzf
+```
+
+</TabItem>
+<TabItem value="key-bindings" label="Key bindings">
+
+Build from Git and enable Zsh key bindings.
+
+```zi title="Installation command"
+zi pack"default+keys" for fzf
+```
+
+</TabItem>
+<TabItem value="bin-gem-node" label="Shims">
+
+Download the package with the [bin-gem-node][] annex.
+
+```zi title="Installation command"
+zi pack"bgn" for fzf
+```
+
+</TabItem>
+<TabItem value="bin-gem-node+key-bindings" label="Shims + keys">
+
+Download the package with the [bin-gem-node][] annex and with the key bindings.
+
+:::tip
+
+The "+keys" variants are available for each profile.
+
+:::
+
+```zi title="Installation command"
+zi pack"bgn+keys" for fzf
+```
+
+</TabItem>
+<TabItem value="bin-gem-node+git" label="Shims + Git">
+
+Download with the [bin-gem-node][] annex from GitHub repository.
+
+```zi title="Installation command"
+zi pack"bgn" git for fzf
+```
+
+</TabItem>
+<TabItem value="binary" label="Binary">
+
+Download the binary from the GitHub releases.
+
+```zi title="Installation command"
+zi pack"binary" for fzf
+```
+
+</TabItem>
+<TabItem value="bin-gem-node+binary" label="Binary + shims">
+
+Download the binary from the GitHub releases and install using [bin-gem-node][] + shims.
+
+```zi title="Installation command"
+zi pack"bgn-binary" for fzf
+```
+
+</TabItem>
+</Tabs>
+
+</PackageCard>
+
+<PackageCard name="fzy" description="A small, fast fuzzy finder for the command line." sources={["Git"]} legacyId="fzy-command-line-fuzzy-finder">
+
+:::info[Before you install]
+
+Requires a C compiler, Make, and `cp`. Shim profiles require [bin-gem-node][].
+
+:::
+
+#### Installation profiles {/* #fzy-installation */}
+
+<Tabs groupId="package-fzy">
+<TabItem value="default" label="Default" default>
+
+Download the package with the default profile.
+
+```zi title="Installation command"
+zi pack for fzy
+```
+
+</TabItem>
+<TabItem value="bin-gem-node" label="Shims">
+
+Download the package with the [bin-gem-node][] annex.
+
+```zi title="Installation command"
+zi pack"bgn" for fzy
+```
+
+</TabItem>
+<TabItem value="bin-gem-node+git" label="Shims + Git">
+
+Download with the [bin-gem-node][] annex from GitHub repository.
+
+```zi title="Installation command"
+zi pack"bgn" git for fzy
+```
+
+</TabItem>
+<TabItem value="default+override" label="Default Override">
+
+Download normal ice list and override atclone'' ice to skip the contrib scripts
+
+```zi title="Installation command"
+zi pack"bgn" atclone'' for fzy
+```
+
+</TabItem>
+</Tabs>
+
+</PackageCard>
+
+<PackageCard name="github-issues" description="Display shell notifications for GitHub issues." sources={["Git", "Legacy manifest"]}>
+
+:::info[Before you install]
+
+This is the notification half of a two-package setup. Load [github-issues-srv](#github-issues-srv) as well to retrieve updates.
+
+:::
+
+:::warning[Zi branch compatibility]
+
+This package still uses `zplugin-ices` in its [manifest](https://github.com/z-shell/github-issues/blob/8dd8e6153bfdd9f8c05cc5615c9b3e673e9134e1/package.json). Zi's stable `main` parser accepts the legacy layout, but the current `next` parser requires `zi-ices`. The commands below describe the legacy recipe and are not compatible with `next` until the package metadata is updated.
+
+:::
+
+#### Installation profiles {/* #github-issues-installation */}
+
+<Tabs groupId="package-github-issues">
+<TabItem value="default" label="Default" default>
+
+Display notifications with the default message prefix.
+
+```zi title="Installation command"
+zi pack for @github-issues
+```
+
+</TabItem>
+<TabItem value="compact-message" label="Compact message">
+
+Omit the `New issue:` prefix.
+
+```zi title="Installation command"
+zi pack"compact-message" for @github-issues
+```
+
+</TabItem>
+</Tabs>
+
+</PackageCard>
+
+<PackageCard name="github-issues-srv" description="Retrieve GitHub issue updates for shell notifications." sources={["Git", "Legacy manifest"]}>
+
+:::info[Before you install]
+
+Runs the retrieval service used by [github-issues](#github-issues). The upstream setup polls GitHub in the background, with a documented default interval of two minutes. Review the [upstream configuration](https://github.com/z-shell/zsh-github-issues#readme) before enabling it.
+
+:::
+
+:::warning[Zi branch compatibility]
+
+The [manifest](https://github.com/z-shell/github-issues-srv/blob/c41290a52998793793da5aca0212fab7ac7146e8/package.json) uses the legacy `zplugin-ices` layout. The following command is intended for Zi's stable `main` parser; it is not compatible with the current `next` parser until the metadata is updated.
+
+:::
+
+#### Install with Zi {/* #github-issues-srv-installation */}
+
+```zi title="Installation command"
+zi pack for @github-issues-srv
+```
+
+</PackageCard>
+
+<PackageCard name="ls_colors" description="File-type colors for directory listings and Zsh completions." sources={["Git"]} legacyId="ls_colors-color-scheme">
+
+:::info[Before you install]
+
+Requires GNU `dircolors` and `sed` (GNU-prefixed tools on macOS).
+
+:::
+
+#### Installation profiles {/* #ls_colors-installation */}
+
+<Tabs groupId="package-ls_colors">
+<TabItem value="default" label="Default" default>
+
+Download the default profile.
+
+```zi title="Installation command"
+zi pack for ls_colors
+```
+
+</TabItem>
+<TabItem value="no-zsh-completion" label="No completion">
+
+Download the "no-zsh-completion" profile.
+
+```zi title="Installation command"
+zi pack"no-zsh-completion" for ls_colors
+```
+
+</TabItem>
+<TabItem value="no-dir-color-swap" label="No color swap">
+
+Download the "no-dir-color-swap" profile.
+
+```zi title="Installation command"
+zi pack"no-dir-color-swap" for ls_colors
+```
+
+</TabItem>
+</Tabs>
+
+</PackageCard>
+
+<PackageCard name="nb" description="Take notes, bookmark, and archive with Git-backed storage." sources={["Git"]} legacyId="nb-pkg-profile">
+
+:::info[Before you install]
+
+Requires Bash and [bin-gem-node][]. See the package repository for optional tools used by individual features.
+
+:::
+
+The default profile exposes `nb` through [bin-gem-node][] shims.
+
+#### Install with Zi {/* #nb-installation */}
+
+```zi title="Installation command"
+zi pack for nb
+```
+
+</PackageCard>
+
+<PackageCard name="pyenv" description="Install and switch between Python versions." sources={["Git"]} legacyId="pyenv-pkg-profile">
+
+:::info[Before you install]
+
+Requires Bash and [bin-gem-node][]. Building Python versions also requires the dependencies listed in the [pyenv documentation](https://github.com/pyenv/pyenv#installation).
+
+:::
+
+#### Installation profiles {/* #pyenv-installation */}
+
+<Tabs groupId="package-pyenv">
+<TabItem value="default" label="Default" default>
+
+Clone pyenv and initialize it in Zsh.
+
+```zi title="Installation command"
+zi pack for pyenv
+```
+
+</TabItem>
+<TabItem value="bin-gem-node" label="Shims">
+
+Clone pyenv and expose its command through [bin-gem-node][] shims.
+
+```zi title="Installation command"
+zi pack"bgn" for pyenv
+```
+
+</TabItem>
+<TabItem value="bin-gem-node+git" label="Shims + Git">
+
+Download with the [bin-gem-node][] annex from GitHub repository.
+
+```zi title="Installation command"
+zi pack"bgn" git for pyenv
+```
+
+</TabItem>
+</Tabs>
+
+</PackageCard>
+
+<PackageCard name="remark" description="Process Markdown and produce HTML or manual pages." sources={["Node"]} legacyId="remark-markdown-processor">
+
+:::info[Before you install]
+
+Requires Node.js, npm, and [bin-gem-node][].
+
+:::
+
+#### Installation profiles {/* #remark-installation */}
+
+<Tabs groupId="package-remark">
+<TabItem value="default" label="Default" default>
+
+Download the Node package of remark-CLI, remark-man and remark-HTML
+
+```zi title="Installation command"
+zi pack for remark
+```
+
+</TabItem>
+<TabItem value="man-only" label="Man only">
+
+Download the Node package of remark-CLI and remark-man
+
+```zi title="Installation command"
+zi pack"man-only" for remark
+```
+
+</TabItem>
+<TabItem value="html-only" label="HTML only">
+
+Download the Node package of remark-CLI and remark-HTML
+
+```zi title="Installation command"
+zi pack"html-only" for remark
+```
+
+</TabItem>
+</Tabs>
+
+</PackageCard>
+
+<PackageCard name="subversion" description="The Apache Subversion version-control client." sources={["Source tarball"]}>
+
+:::info[Before you install]
+
+Requires [APR](#apr), the [readurl](/ecosystem/annexes/readurl) annex, and a C build toolchain.
+
+:::
+
+Download, build and install the latest Subversion.
+
+:::tip
+
+Dependency of Subversion: [APR][]
+
+:::
+
+#### Install with Zi {/* #subversion-installation */}
+
+```zi title="Installation command"
+zi pack for subversion
+```
+
+</PackageCard>
+
+<PackageCard name="system-completions" description="Manage the system's stock Zsh completions with Zi." sources={["Local files"]}>
+
+:::info[Before you install]
+
+This recipe imports existing completions from `/usr/share/zsh/functions/Completion/*`. It requires that directory layout; it is not suitable unchanged for systems that store completions elsewhere.
+
+:::
+
+#### Install with Zi {/* #system-completions-installation */}
+
+```zi title="Installation command"
+zi pack for system-completions
+```
+
+Initialize the [Zsh completion system](/docs/getting_started/installation) after loading your completion packages. You can then manage individual completions with Zi's `cenable` and `cdisable` commands.
+
+</PackageCard>
+
+<PackageCard name="zsh" description="Build Zsh from its source mirror." sources={["Git"]} legacyId="zsh-mirror-of-zsh-users">
+
+:::info[Before you install]
+
+Requires a C compiler, Make, and the upstream Zsh build prerequisites. Yodl is needed to build manual pages.
+
+:::
+
+#### Installation profiles {/* #zsh-installation */}
+
+<Tabs groupId="package-zsh">
+<TabItem value="default" label="Default" default>
+
+Install the newest Zsh.
+
+```zi title="Installation command"
+zi pack for zsh
+```
+
+</TabItem>
+<TabItem value="specific-version" label="Specific version">
+
+Install preferred Zsh version.
+
+```zi title="Installation command"
+zi pack"5.9" for zsh
+zi pack"5.8.1" for zsh
+zi pack"5.8" for zsh
+zi pack"5.7.1" for zsh
+zi pack"5.6.2" for zsh
+zi pack"5.5.1" for zsh
+zi pack"5.4.2" for zsh
+zi pack"5.3.1" for zsh
+```
+
+</TabItem>
+</Tabs>
+
+</PackageCard>
+
+<PackageCard name="zsh-bin" description="Prebuilt, relocatable Zsh with rootless installation options." sources={["Git", "Binary"]} legacyId="statically-linked-hermetic-relocatable-zsh">
+
+:::info[Before you install]
+
+The default profile writes to `/usr/local` and attempts to register a login shell. Choose **Rootless** for a user-local installation or **Shims** with [bin-gem-node][].
+
+:::
+
+#### Installation profiles {/* #zsh-bin-installation */}
+
+<Tabs groupId="package-zsh-bin">
+<TabItem value="default" label="Default" default>
+
+Requires **root** access to install Zsh at `/usr/local` and will attempt to register it as a login shell.
+
+```zi title="Installation command"
+zi pack for zsh-bin
+```
+
+</TabItem>
+<TabItem value="bin-gem-node" label="Shims">
+
+Does not require **root** access, when install using [bin-gem-node][] to set shims.
+
+```zi title="Installation command"
+zi pack"bgn" for zsh-bin
+```
+
+</TabItem>
+<TabItem value="rootless" label="Rootless">
+
+Does not require **root** access, will install to `~/.local`.
+
+```zi title="Installation command"
+zi pack"rootless" for zsh-bin
+```
+
+</TabItem>
+</Tabs>
+
+</PackageCard>
+
+</CardGrid>
+
+Find more packages in the [Z-Shell package repositories](https://github.com/search?q=topic%3Azpackage+org%3Az-shell&type=Repositories).
+
+[bin-gem-node]: /ecosystem/annexes/bin-gem-node
+[APR]: https://github.com/z-shell/apr

@@ -1,0 +1,94 @@
+---
+id: guide
+slug: /packages/guide
+title: Package guide
+sidebar_position: 2
+image: /img/png/theme/z/320x320.png
+description: Learn how Zi packages work, choose installation profiles, update tools, and add a package definition.
+keywords:
+  - zi packages
+  - installation profiles
+  - package definitions
+---
+
+Zi packages bundle a software source and a set of [ice modifiers](/docs/guides/syntax/ice-modifiers) into a reusable installation recipe. Instead of repeating a long configuration, choose a package and a profile.
+
+[Browse the package catalog](/ecosystem/packages) to find a tool and its installation commands.
+
+## Before you start
+
+Load [Zi](/docs/getting_started/installation) in Zsh before running package commands. Install the annexes and system tools required by the selected profile; the catalog lists these beside each package.
+
+The [bin-gem-node](/ecosystem/annexes/bin-gem-node) annex provides Node and Gem installation support and executable shims. A shim forwards a command to a program installed inside a package directory. Some recipes instead add a directory to `PATH` or install into Zi's `$ZPFX` prefix.
+
+## Install a package {/* #introductory-example */}
+
+For example, install the default `fzf` profile:
+
+```zi
+zi pack for fzf
+```
+
+The package definition supplies the download and build configuration. The current default profile builds from Git and needs Go and Make; the [fzf card](/ecosystem/packages#fzf) also offers a binary profile.
+
+## Choose a profile
+
+Every package has a `default` profile. Additional profiles can change the source, enable shell integration, or expose commands through shims:
+
+```zi
+zi pack"binary" for fzf
+```
+
+Profiles are package-specific. Use the names shown in that package's card rather than assuming that every package supports `binary`, `bgn`, or the same version numbers.
+
+You can override an individual ice modifier alongside `pack`, but first check the package definition: its installation and update hooks may rely on each other.
+
+Package names that collide with an ice-modifier prefix need an `@` prefix, for example:
+
+```zi
+zi pack for @asciidoctor
+```
+
+## Install Node modules or Ruby gems {/* #the-any-gem-and-any-node-packages */}
+
+The [any-node](/ecosystem/packages#any-node) and [any-gem](/ecosystem/packages#any-gem) packages accept the module or gem name as a parameter. Their catalog cards include commands and current prerequisites.
+
+When keeping such a command in `.zshrc`, give each installation a stable, distinct `id-as` value. Zi then identifies the installed package when the shell starts again.
+
+## Update and remove packages
+
+Use the installed package ID with Zi's usual commands. For the default `fzf` installation:
+
+```zi
+zi update fzf
+```
+
+Updating follows the recipe, so it may rebuild software or run installation hooks again. If you supplied `id-as`, use that ID instead of the recipe name.
+
+To remove an installation:
+
+```zi
+zi delete fzf
+```
+
+Review the package's installation effects before removal. Files written outside its directory, including system-wide files, may need separate cleanup.
+
+## Benefits and trade-offs {/* #pros-of-using-the-zi-package-for-regular-software-installations */}
+
+- **Reusable setup:** the recipe carries its source, build steps, and shell integration in one place.
+- **Choice of installation:** profiles may offer source builds, binaries, or shims without duplicating the full ice list.
+- **Local installation:** many recipes install beneath your home directory. This is not universal: the default `zsh-bin` profile writes to `/usr/local` and attempts to register a login shell.
+- **Dependencies and maintenance:** packages can require compilers, external tools, or annexes. Recipes and upstream downloads can change independently; a package listing is not a guarantee that every platform or Zi branch is supported.
+- **Executable recipes:** install and update hooks run commands in your environment. Review the package repository before using a recipe or overriding its hooks.
+
+## Add a package {/* #adding-your-package */}
+
+A Zi package repository contains a `package.json` with source metadata under `zsh-data.plugin-info` and named profiles under `zsh-data.zi-ices`. Start with a small existing definition such as [doctoc's package.json](https://github.com/z-shell/doctoc/blob/main/package.json).
+
+1. Describe the upstream software and its source in the package metadata.
+2. Define a `default` profile in `zi-ices`, using the same ice modifiers you would pass to Zi. Add other profiles only for supported alternatives.
+3. Declare required tools and annexes, and document platform limitations and installation effects.
+4. Validate installation, updates, and removal in an isolated environment before publishing the recipe.
+5. For discovery under the Z-Shell organization, coordinate with its maintainers. For another owner, see [`ZI[PKG_OWNER]`](/docs/guides/customization#modify-settings).
+
+Use current `zi-ices` metadata when creating a package. Legacy recipes using `zplugin-ices` are not compatible with Zi's current `next` parser.

@@ -1,5 +1,16 @@
 {
   "version": 1,
-  "include": ["/*"],
-  "exclude": ["/ecosystem/plugins/zsh_lint", "/ecosystem/plugins/zsh_lint/"]
+  "include": [
+    "/*"
+  ],
+  "exclude": [
+    "/ecosystem/plugins/zsh_lint",
+    "/ecosystem/plugins/zsh_lint/",
+    "/ecosystem/packages/usage",
+    "/ecosystem/packages/usage/",
+    "/ecosystem/packages/synopsis",
+    "/ecosystem/packages/synopsis/",
+    "/ecosystem/category/-packages",
+    "/ecosystem/category/-packages/"
+  ]
 }

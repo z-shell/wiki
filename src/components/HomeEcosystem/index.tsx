@@ -38,7 +38,7 @@ const ITEMS: EcosystemItem[] = [
       id: "homepage.eco.packages.desc",
       message: "Pre-configured definitions that simplify complex setups.",
     }),
-    link: "/ecosystem/packages/synopsis",
+    link: "/ecosystem/packages",
   },
   {
     icon: "/img/svg/cards/syntax-highlighting.svg",
