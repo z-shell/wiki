@@ -44,8 +44,10 @@ valid native Zsh only to satisfy a supplemental parser.
 
 ## `--config` is rejected
 
-The option is not available in v1.1.0. It currently exists only on `main`; see
-the [project configuration preview](./03_project_configuration.mdx).
+The option needs v1.2.0 or newer, and automatic discovery plus `--no-config`
+need v1.3.0; an older pinned binary prints the usage line instead. Upgrade the
+pin, then see
+[Project configuration](./03_project_configuration.mdx).
 
 ## Exit status 1 with no obvious error
 

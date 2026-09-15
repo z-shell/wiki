@@ -1,8 +1,8 @@
 ---
 id: zsh-lint-project-configuration
-title: Project configuration preview
+title: Project configuration
 sidebar_position: 4
-description: Try the unreleased project and source-profile configuration available on main.
+description: Describe a project and its source profiles in zsh-lint.json so rules get the context one file cannot provide.
 keywords:
   - zsh-lint
   - configuration
@@ -10,46 +10,72 @@ keywords:
   - source profiles
 ---
 
-:::warning Unreleased feature
-The published v1.1.0 binary does not recognize `--config`. This page documents
-behavior currently on the `main` branch so early testers can provide feedback.
-Do not add it to release-pinned CI until a release includes the option.
+:::info Available since v1.3.0
+Project configuration and automatic `zsh-lint.json` discovery are part of the
+published v1.3.0 CLI. v1.2.0 accepts `--config` but has neither discovery nor
+`--no-config`; v1.1.0 rejects `--config`.
 :::
 
 Project configuration gives rules explicit context that one syntax tree cannot
 provide, such as whether a source is an executable, sourced plugin entrypoint,
-autoloaded function, completion, or test fixture. Version 1 does not discover a
-configuration file automatically, so pass `--config` on every invocation.
+autoloaded function, completion, or test fixture.
+
+## How a configuration is found
+
+When `--config` is omitted, the CLI starts in each input file's directory and
+walks toward the filesystem root, using the nearest `zsh-lint.json`. Inputs
+found under the same configuration are analyzed together as one project; inputs
+under different configurations stay separate. A file with no configuration
+above it, or one that matches no configured source root, uses the default rule
+set.
+
+| Option          | Effect                                                          |
+| --------------- | --------------------------------------------------------------- |
+| (none)          | Discover the nearest `zsh-lint.json` for every input.           |
+| `--config PATH` | Use one explicit configuration for every input; skip discovery. |
+| `--no-config`   | Disable discovery and keep the unconfigured default rule set.   |
+
+`--config` and `--no-config` are mutually exclusive.
 
 ## Try the standalone example
 
-Build the current source checkout:
+The source checkout's `examples/standalone` and `examples/plugin` directories
+contain the validated examples used on this page:
 
 ```sh
 git clone https://github.com/z-shell/zsh-lint.git
 cd zsh-lint
-go build -o ./zsh-lint ./cmd/zsh-lint
-./zsh-lint --config examples/standalone/zsh-lint.json \
-  examples/standalone/script.zsh
+zsh-lint examples/standalone/script.zsh
 ```
 
-The source checkout's `examples/standalone` and `examples/plugin` directories
-contain the validated examples used on this page. Their delivery is tracked in
-[zsh-lint issue 182](https://github.com/z-shell/zsh-lint/issues/182).
+Discovery picks up `examples/standalone/zsh-lint.json`. The explicit form gives
+the same result:
+
+```sh
+zsh-lint --config examples/standalone/zsh-lint.json \
+  examples/standalone/script.zsh
+```
 
 ## Minimal configuration
 
 ```json
 {
-  "version": 1,
+  "version": 2,
   "project": {
     "kind": "application",
     "minimum_zsh": "5.8",
-    "function_namespaces": []
+    "identifier": "example-application"
   },
   "sources": [{"root": "script.zsh", "profile": "standalone-executable"}]
 }
 ```
+
+`project.identifier` is the one portable project identifier: lowercase ASCII
+letters, digits, and hyphens, starting and ending with a letter. Namespace
+rules derive shell-visible prefixes from it by replacing hyphens with
+underscores; nothing is inferred from a repository or directory name.
+`project.kind` is one of `plugin`, `theme`, `zi-annex`, `module`, `library`,
+`tool`, or `application`.
 
 Paths are relative to the directory containing the configuration. Every input
 must stay under that directory and match one source root.
@@ -69,9 +95,8 @@ The optional `completion` role is valid only with `autoload-function`.
 ## Plugin example
 
 ```sh
-./zsh-lint --config examples/plugin/zsh-lint.json \
-  examples/plugin/example.plugin.zsh \
-  examples/plugin/functions/example-run \
+zsh-lint examples/plugin/example.plugin.zsh \
+  examples/plugin/functions/example_run \
   examples/plugin/completions/_example \
   examples/plugin/tests/example-fixture.zsh
 ```
