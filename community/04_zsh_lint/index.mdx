@@ -21,7 +21,7 @@ advisory findings in a greppable format.
 Install the current published release with an exact version:
 
 ```sh
-go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.1.0
+go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.3.0
 ```
 
 Then check a file:
@@ -35,7 +35,9 @@ binary as `"$(go env GOPATH)/bin/zsh-lint"`.
 
 :::important File recognition
 The published CLI does not inspect a shebang, require a `.zsh` extension, scan
-directories, or discover files. Every explicit path is treated as Zsh source.
+directories, or discover source files. Every explicit path is treated as Zsh
+source. Only the `zsh-lint.json` project configuration is discovered
+automatically; see [Project configuration](./03_project_configuration.mdx).
 An extensionless autoloaded function works when you name it directly, while a
 Bash file is still parsed as Zsh if you pass its path.
 :::
@@ -69,9 +71,9 @@ For parser-only corpus evaluation without lint rules, use the advanced
   title="Project configuration"
   to="/community/zsh_lint/zsh-lint-project-configuration"
   icon="/img/svg/cards/annexes.svg"
-  cta="Preview main"
+  cta="Configure a project"
 >
-  Try the unreleased configuration support for plugins and multi-profile projects.
+  Describe plugins and multi-profile projects in a `zsh-lint.json` that the CLI discovers automatically.
 </Card>
 
 <Card
@@ -121,11 +123,11 @@ For parser-only corpus evaluation without lint rules, use the advanced
 
 </CardGrid>
 
-## Published and unreleased behavior
+## Published behavior
 
-The stable guides describe v1.1.0. The project-configuration guide is clearly
-marked as an unreleased preview of `main`. Automatic file discovery and
-shebang-based classification are not implemented; that design is tracked in
+The guides describe v1.3.0, which includes project configuration and automatic
+`zsh-lint.json` discovery. Automatic source-file discovery and shebang-based
+classification are not implemented; that design is tracked in
 [zsh-lint issue 183](https://github.com/z-shell/zsh-lint/issues/183).
 
 Source code and development status live in

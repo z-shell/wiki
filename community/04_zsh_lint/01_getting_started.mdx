@@ -2,7 +2,7 @@
 id: zsh-lint-getting-started
 title: Getting started
 sidebar_position: 2
-description: Install Zsh Lint v1.1.0 and run a first semantic check.
+description: Install Zsh Lint v1.3.0 and run a first semantic check.
 keywords:
   - zsh-lint
   - installation
@@ -21,7 +21,7 @@ binary is written in Go and does not source or execute the file it analyzes.
 ## Install a reproducible version
 
 ```sh
-go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.1.0
+go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.3.0
 ```
 
 Confirm that your shell can find it:
@@ -72,7 +72,7 @@ zsh-lint bin/build.zsh functions/example-run example.plugin.zsh
 ```
 
 Each argument must be a readable file. Zsh Lint does not recurse through a
-directory or read source from standard input in v1.1.0.
+directory or read source from standard input in v1.3.0.
 
 Next, read [Choosing files](./02_choosing_files.mdx) before applying the command
 to a mixed-language repository.
