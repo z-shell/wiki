@@ -3,10 +3,11 @@ id: meta-plugins
 title: "🌀 Meta Plugins"
 sidebar_position: 2
 image: /img/png/theme/z/320x320.png
-description: Annex meta-plugins documentation
+description: Curated plugin groups for Zi, the current catalog, and the migration guide for retired labels
 keywords:
   - annex
   - meta-plugins
+  - migration
 ---
 
 import Tabs from "@theme/Tabs";
@@ -14,13 +15,13 @@ import TabItem from "@theme/TabItem";
 import Link from "@docusaurus/Link";
 import APITable from "@site/src/components/APITable";
 
-An annex has the curated, optimal [ice-modifiers][] lists automatically applied. For more details refer to [z-a-meta-plugins.plugin.zsh][] file.
+The annex maps short labels to groups of plugins and applies a curated ice list to each member. The labels and their ice lists live in the [z-a-meta-plugins.plugin.zsh][] file; this page documents the current catalog and is the [migration guide](#migration-from-earlier-catalogs) that the annex links when a label changed meaning.
 
 :::tip
 
-- To create your group of plugins as meta-plugins propose them in a new [issue][issues/new]
-- Prefix `@` used to avoid syntax conflicts, e.g: `zi light @<meta-plugin-name>`
-- Before installing any plugin visit the original repository where available to verify that system is supported and meets other requirements
+- Propose a new group in a new [issue][issues/new]
+- The `@` prefix avoids syntax conflicts, e.g. `zi light @<meta-plugin-name>`
+- Before installing any plugin, visit its repository to verify that your system is supported and meets other requirements
 
 :::
 
@@ -37,54 +38,48 @@ zi light-mode for @annexes @zsh-users @console-tools
 ```
 
 ```zi showLineNumbers
-zi light-mode for z-a-meta-plugins \
+zi light-mode for z-shell/z-a-meta-plugins \
   @annexes @ext-git @zsh-users
 ```
 
 ```zi showLineNumbers
 zi light-mode for @annexes \
   skip'zsh-completions' @zsh-users \
-  skip'vivid exa tig' @console-tools
+  skip'eza ripgrep' @console-tools
 ```
 
+The `skip'…'` ice removes members from the group that follows it. A token matches a member by its full ID (`sharkdp/fd`), by its repository name (`fd`) or by a nested label (`fuzzy` inside `@ext-git`). A token that names a member of a nested label is forwarded to that label, so `skip'fzf' @ext-git` loads the Git tools without fzf. A token that matches nothing is reported with a link to this page; see [Migration from earlier catalogs](#migration-from-earlier-catalogs) for the labels that changed.
+
 ## Available meta-plugins {/* #available-meta-plugins */}
+
+Members are listed in loading order. The "Requires" column names what must be present before the group loads; the annex checks it and refuses the group with a message instead of installing half of it.
 
 ```mdx-code-block
 <APITable>
 ```
 
-| Meta-plugin name | Consisting plugins                                                                                                                                                                                                             |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| @annexes         | [bin-gem-node][], [readurl][], [patch-dl][], [rust][], [default-ice][], [unscope][]                                                                                                                                            |
-| @annexes+        | @annexes + [submods][], [test][]                                                                                                                                                                                               |
-| @console-tools   | [dircolors-material][] (package), [fd][], [bat][], [hexyl][], [hyperfine][], [vivid][], [exa][], [ripgrep][], [tig][]                                                                                                          |
-| @developer-tools | [color][], [revolver][], [zunit][], [gitignore.plugin.zsh][], [tig][]                                                                                                                                                          |
-| @ext-git         | [git-open][], [git-recent][], [git-my][], [git-quick-stats][], [git-now][], [git-extras][], [forgit][]                                                                                                                         |
-| @fuzzy           | [fzf][] (package), [fzy][] (package), [skim][], [peco][]                                                                                                                                                                       |
-| @fuzzy-src       | fzf-go, [fzy][], skim-cargo, peco-go                                                                                                                                                                                           |
-| @ohmyzsh-lib     | OMZL::git, OMZL::history, OMZL::vcs_info, OMZL::clipboard, OMZL::completion, OMZL::theme-and-appearance, OMZL::prompt_info_functions, OMZL::termsupport, OMZL::key-bindings, OMZL::compfix, OMZL::directories, OMZL::functions |
-| @prezto          | PZTM::archive, PZTM::directory, PZTM::utility                                                                                                                                                                                  |
-| @py-utils        | [pyenv][] (package)                                                                                                                                                                                                            |
-| @romkatv         | [powerlevel10k][]                                                                                                                                                                                                              |
-| @rust-utils      | rust-toolchain, cargo-extensions                                                                                                                                                                                               |
-| @sharkdp         | [fd][], [bat][], [hexyl][], [hyperfine][], [vivid][]                                                                                                                                                                           |
-| @z-shell         | [F-Sy-H][], [H-S-MW][], [zsh-diff-so-fancy][]                                                                                                                                                                                  |
-| @z-shell+        | [zsh-select][], [zconvey][], [zui][], [zflai][]                                                                                                                                                                                |
-| @zsh-users       | [zsh-syntax-highlighting][], [zsh-autosuggestions][], [zsh-completions][]                                                                                                                                                      |
-| @zsh-users+fast  | [F-Sy-H][], [zsh-autosuggestions][], [zsh-completions][], [z-shell/zsh-fancy-completions][]                                                                                                                                    |
-| @zunit           | [color][], [revolver][], [zunit][]                                                                                                                                                                                             |
+| Meta-plugin     | Members                                                                                                                                                                                                                                                                                                | Requires                                                                       | Purpose                                                                                |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
+| @annexes        | [bin-gem-node][], [readurl][], [patch-dl][], [rust][]                                                                                                                                                                                                                                                  | Nothing                                                                        | The four installer annexes that other groups and recipes on this page rely on          |
+| @zsh-users      | [zsh-completions][], [zsh-autosuggestions][], [zsh-syntax-highlighting][]                                                                                                                                                                                                                              | Nothing                                                                        | The standard interactive editing profile; load it last                                 |
+| @zsh-users+fast | [zsh-completions][], [zsh-autosuggestions][], [F-Sy-H][]                                                                                                                                                                                                                                               | Nothing                                                                        | The same profile with F-Sy-H as the highlighter                                        |
+| @console-tools  | [fd][], [bat][], [eza][], [ripgrep][]                                                                                                                                                                                                                                                                  | eza from a system package on platforms other than Linux x86_64                 | Release binaries of the core command-line tools; a member on `PATH` is not reinstalled |
+| @console-style  | [zsh-eza][]                                                                                                                                                                                                                                                                                            | `eza` on `PATH`: load @console-tools first or install it from a system package | `ls` aliases built on eza                                                              |
+| @fuzzy          | [fzf][] (package, `native+keys` profile)                                                                                                                                                                                                                                                               | Nothing                                                                        | The fzf release binary with shell integration and key bindings                         |
+| @fuzzy-src      | [fzf][] (package, `default+keys` profile, `fzf-go` ID)                                                                                                                                                                                                                                                 | Go, make; not together with @fuzzy                                             | fzf built from source                                                                  |
+| @ext-git        | @fuzzy, [forgit][], [git-open][]                                                                                                                                                                                                                                                                       | Nothing                                                                        | Interactive Git helpers that share the fzf backend                                     |
+| @zsh-tools      | [zui][], [zsh-cmd-architect][], [zsh-editing-workbench][], [zbrowse][]                                                                                                                                                                                                                                 | Nothing                                                                        | Zsh toolchain for creators and tinkerers                                               |
+| @zunit          | [zunit][]                                                                                                                                                                                                                                                                                              | Nothing                                                                        | The test framework with its bundled helper libraries                                   |
+| @node-utils     | [n][]                                                                                                                                                                                                                                                                                                  | Nothing                                                                        | Node version management with `N_PREFIX` outside plugin storage                         |
+| @rust-utils     | `cargo-extensions`: cargo-expand, cargo-audit                                                                                                                                                                                                                                                          | [rust][] annex and an existing Rust toolchain                                  | Optional cargo extensions built with your toolchain                                    |
+| @py-utils       | [pyenv][] (package)                                                                                                                                                                                                                                                                                    | Nothing                                                                        | pyenv with shell initialization; keep `PYENV_ROOT` if it already points elsewhere      |
+| @prezto         | PZTM::archive, PZTM::directory, PZTM::utility                                                                                                                                                                                                                                                          | Zi with Git sparse-checkout snippets ([z-shell/zi#417][zi-git-sparse])         | A few Prezto modules                                                                   |
+| @ohmyzsh-lib    | OMZL::async_prompt.zsh, OMZL::git.zsh, OMZL::history.zsh, OMZL::vcs_info.zsh, OMZL::clipboard.zsh, OMZL::completion.zsh, OMZL::theme-and-appearance.zsh, OMZL::prompt_info_functions.zsh, OMZL::functions.zsh, OMZL::termsupport.zsh, OMZL::key-bindings.zsh, OMZL::compfix.zsh, OMZL::directories.zsh | Nothing                                                                        | The Oh My Zsh library files with their prerequisites in the right order                |
+| @romkatv        | [powerlevel10k][]                                                                                                                                                                                                                                                                                      | Nothing                                                                        | The prompt, sourcing `~/.p10k.zsh` when present                                        |
 
 ```mdx-code-block
 </APITable>
 ```
-
-:::info[Zi compatibility]
-
-`@prezto` requires a Zi build with Git sparse-checkout support for GitHub directory snippets, introduced by
-[z-shell/zi#417][zi-git-sparse]. The archive module is installed as a directory snapshot; the directory and utility
-modules remain single-file snippets.
-
-:::
 
 ### Summary of the meta-plugins {/* #summary-of-the-meta-plugins */}
 
@@ -98,11 +93,11 @@ It consumes time to:
 <APITable>
 ```
 
-| Problem                                               | Solution                                                                                                                                                                                                                                                                               |
-| :---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| (1) _finding new plugins_                             | The annex contains a curated, broad list of plugins, e.g.: all the console tools like `fd`, `fzf`, `exa`, `ripgrep`, etc.,                                                                                                                                                             |
-| (2) _reconstructing the findings in new environments_ | It's easy to say and memorize e.g.: `zi for console-tools` – one label pulls a group of plugins and also the curated, optimal, default ice lists for each of them,                                                                                                                     |
-| (3) _constant increase of complexity of the commands_ | The provided, hopefully, best/optimal ices for each plugin are handled transparently and automatically; care is given to each ice list so that the plugin loads without any glitches (e.g.: without the "No files for compilation found." message and other, even such slight issues). |
+| Problem                                               | Solution                                                                                                                                                                                                                                                     |
+| :---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| (1) _finding new plugins_                             | The annex contains a curated list of plugins, e.g. the console tools `fd`, `bat`, `eza` and `ripgrep`.                                                                                                                                                       |
+| (2) _reconstructing the findings in new environments_ | It's easy to say and memorize e.g. `zi light @console-tools`: one label pulls a group of plugins and also the curated default ice list for each of them.                                                                                                     |
+| (3) _constant increase of complexity of the commands_ | The provided ices for each plugin are handled transparently and automatically; care is given to each ice list so that the plugin loads without any glitches (e.g. without the "No files for compilation found." message and other, even such slight issues). |
 
 ```mdx-code-block
 </APITable>
@@ -114,11 +109,11 @@ Other unique benefits of the meta-plugins annex:
 <APITable>
 ```
 
-| Benefit                                                     | Description                                                                                                                                                                                                                                                                                                           |
-| :---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Plugin dependencies                                         | The meta-plugins implement a dependency mechanism: selecting a from-source built [ogham/exa][exa] will automatically pull in also the Rust compiler (available under the meta-plugin name: `rust-toolchain`).                                                                                                         |
-| Flexible disabling of chosen sub-plugins in any meta-plugin | A meta-plugin can contain many sub-plugins and it's possible to skip installing some of them by the **skip'plugin-1 plugin-2…'** ice, e.g.: `zi skip'ripgrep fd' for console-tools`. This way despite that some of the meta plugins are broad the user still has control over what's and how much is being installed. |
-| Common from-source meta plugins                             | For the plugins that provide the binary programs it is often the case that a meta-plugin exists that'll build the program from the source (e.g.: **fuzzy** meta-plugin and its **fuzzy-src** counterpart). This might be handy e.g.: if there's no binary for our machine.                                            |
+| Benefit                                                     | Description                                                                                                                                                                                                                                                                                |
+| :---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Provisioning checks                                         | A group whose recipes need an installer annex, a toolchain or a binary on `PATH` is refused with a message that names the missing piece, instead of failing halfway. @annexes loads the four installer annexes in one step.                                                                |
+| Flexible disabling of chosen sub-plugins in any meta-plugin | A meta-plugin can contain many sub-plugins and it's possible to skip installing some of them by the **skip'plugin-1 plugin-2…'** ice, e.g. `zi skip'ripgrep fd' light @console-tools`. This way, despite some meta-plugins being broad, the user still has control over what is installed. |
+| Common from-source meta plugins                             | For the plugins that provide binary programs it is often the case that a meta-plugin exists that builds the program from source (e.g. the **fuzzy** meta-plugin and its **fuzzy-src** counterpart). This is handy when there is no release binary for your machine.                        |
 
 ```mdx-code-block
 </APITable>
@@ -148,58 +143,296 @@ zi light z-shell/z-a-meta-plugins
 
 This will register the `skip'…'` ice-modifier.
 
+## Migration from earlier catalogs {/* #migration-from-earlier-catalogs */}
+
+The catalog was rebuilt in [z-a-meta-plugins#84][annex-84]: every group was audited, members that were archived, duplicated or broken were removed, and three author-named labels were retired. A startup file written for the earlier catalog keeps working, but the annex now tells you what changed:
+
+- A retired label (`@z-shell`, `@z-shell+`, `@sharkdp`) installs nothing, keeps the requests that follow it and prints a notice once per session with a link to this page.
+- A deprecated label (`@annexes+`) still loads, with the same once-per-session notice.
+- A `skip'…'` token that matches no member of its group is reported on every load, together with the group's current members.
+
+Each subsection below lists what the label used to install, what it does now, why, and the exact command for anything that is no longer part of the group. The ice lists are the ones the annex used before the cleanup, so a recovered plugin loads the same way it did. Every command was run once against the current annex; the run log is attached to [wiki#919][wiki-919].
+
+Before running a recovery command:
+
+- Commands with `sbin` or `null` need the [bin-gem-node][] annex and commands with `cargo'…'` need the [rust][] annex. `zi light @annexes` loads both.
+- An ID that starts like an ice name (`sharkdp/…` and `sh`, `git-quick-stats/…` and `git`, `cargo-…` and `cargo`) is read by Zi as an ice; the `@` prefix on such IDs marks them as plugins and is not a meta-plugin label.
+- Release downloads with `from'gh-r'` select an asset by target triple. The annex resolves it from `$OSTYPE/$CPUTYPE`; replace `x86_64-unknown-linux-musl` in the commands below with your row:
+
+| `$OSTYPE` / `$CPUTYPE`           | Target triple                |
+| -------------------------------- | ---------------------------- |
+| `linux*` / `x86_64`              | `x86_64-unknown-linux-musl`  |
+| `linux*` / `aarch64` or `arm64`  | `aarch64-unknown-linux-musl` |
+| `darwin*` / `x86_64`             | `x86_64-apple-darwin`        |
+| `darwin*` / `aarch64` or `arm64` | `aarch64-apple-darwin`       |
+
+### @z-shell {/* #migrate-z-shell */}
+
+- Previously: [F-Sy-H][], [H-S-MW][], [zsh-diff-so-fancy][].
+- Now: retired; the label installs nothing and prints a notice once per session.
+- Reason: an author-named bundle mixed a highlighter, a history widget and a Git pager that have nothing to do with each other ([z-a-meta-plugins#77][annex-77]).
+
+F-Sy-H is the highlighter of `@zsh-users+fast`; load that profile, or F-Sy-H alone. Load the other two members explicitly:
+
+```zi
+zi lucid for z-shell/F-Sy-H
+zi lucid compile'functions/h*~*.zwc' for z-shell/H-S-MW
+zi lucid as'program' pick'bin/diff-so-fancy' atpull'git submodule update --init --recursive' for z-shell/zsh-diff-so-fancy
+```
+
+### @z-shell+ {/* #migrate-z-shell+ */}
+
+- Previously: [zsh-select][], [zconvey][], [zui][], [zflai][].
+- Now: retired; the label installs nothing and prints a notice once per session.
+- Reason: the bundle put specialized tools behind a default label ([z-a-meta-plugins#78][annex-78]). zui is a member of `@zsh-tools`.
+
+```zi
+zi lucid blockf for z-shell/zui
+zi lucid for z-shell/zsh-select
+zi lucid sbin'cmds/zc-bg-notify;cmds/plg-zsh-notify' for z-shell/zconvey
+zi lucid for z-shell/zflai
+```
+
+The zconvey command needs the bin-gem-node annex for `sbin`.
+
+### @sharkdp {/* #migrate-sharkdp */}
+
+- Previously: [fd][], [bat][], [hexyl][], [hyperfine][], [vivid][].
+- Now: retired; the label installs nothing and prints a notice once per session.
+- Reason: the tools were split by workflow instead of by author ([z-a-meta-plugins#79][annex-79]). fd and bat are members of `@console-tools`.
+
+```zi
+zi lucid as'program' from'gh-r' bpick'*x86_64-unknown-linux-musl.tar.gz' pick'hexyl-*/hexyl' for @sharkdp/hexyl
+zi lucid as'program' from'gh-r' bpick'*x86_64-unknown-linux-musl.tar.gz' pick'hyperfine-*/hyperfine' for @sharkdp/hyperfine
+zi lucid as'program' from'gh-r' bpick'*x86_64-unknown-linux-musl.tar.gz' pick'vivid-*/vivid' for @sharkdp/vivid
+```
+
+Replace the target triple with your row from the table above. hexyl and hyperfine publish no Linux ARM64 asset; install them from a system package there.
+
+### @annexes+ {/* #migrate-annexes+ */}
+
+- Previously: `@annexes` plus [submods][], [default-ice][], [test][], [unscope][] and [eval][].
+- Now: deprecated; loads exactly what `@annexes` loads, with a notice once per session.
+- Reason: the optional annexes are capabilities to select individually, not a default bundle ([z-a-meta-plugins#61][annex-61]).
+
+Replace the label with `@annexes` and load the optional annexes you use:
+
+```zi
+zi lucid compile'functions/.*submods*~*.zwc' for z-shell/z-a-submods
+zi lucid for z-shell/z-a-default-ice
+zi lucid for z-shell/z-a-test
+zi lucid for z-shell/z-a-unscope
+zi lucid compile'functions/.*ev*~*.zwc' for z-shell/z-a-eval
+```
+
+### @console-tools {/* #migrate-console-tools */}
+
+- Previously: fd, bat, hexyl, hyperfine, exa, ripgrep.
+- Now: [fd][], [bat][], [eza][], [ripgrep][].
+- Reason: exa is archived and eza is its maintained fork; hexyl and hyperfine moved out of the default group ([z-a-meta-plugins#64][annex-64]).
+
+Rename `skip'exa'` to `skip'eza'`. A `skip` token naming hexyl, hyperfine or exa now matches nothing and is reported; remove it. To keep hexyl or hyperfine, use the commands under [@sharkdp](#migrate-sharkdp). eza publishes a release binary for Linux x86_64 only; on other platforms install it from a system package before loading the group, or add `skip'eza'`.
+
+### @console-style {/* #migrate-console-style */}
+
+- Previously: [dircolors-material][] (package), [vivid][].
+- Now: [zsh-eza][], the `ls` aliases built on eza; the group requires `eza` on `PATH`.
+- Reason: two color providers in one group overrode each other ([z-a-meta-plugins#65][annex-65]).
+
+Drop the label if you do not want the aliases. To keep the previous members:
+
+```zi
+zi lucid pack for dircolors-material
+zi lucid as'program' from'gh-r' bpick'*x86_64-unknown-linux-musl.tar.gz' pick'vivid-*/vivid' for @sharkdp/vivid
+```
+
+### @zsh-users+fast {/* #migrate-zsh-users+fast */}
+
+- Previously: F-Sy-H, zsh-autosuggestions, zsh-completions, [zsh-fancy-completions][].
+- Now: [zsh-completions][], [zsh-autosuggestions][], [F-Sy-H][], in the order completion setup requires.
+- Reason: the extra completion set is optional and its ownership of completion initialization conflicted with zsh-completions ([z-a-meta-plugins#63][annex-63]).
+
+To keep zsh-fancy-completions, load it before the profile:
+
+```zi
+zi lucid compile'{lib/*.zsh*~*.zwc,functions/{.*,*}*~*.zwc}' for z-shell/zsh-fancy-completions
+```
+
+### @fuzzy {/* #migrate-fuzzy */}
+
+- Previously: fzf, fzy, skim, peco.
+- Now: [fzf][] only, the `native+keys` package profile.
+- Reason: four competing finders installed four sets of key bindings; the skim recipe called an install script that upstream removed ([z-a-meta-plugins#66][annex-66]).
+
+The removed finders have no annex recipe. Install [skim][], [fzy][] or [peco][] from a system package or by following the instructions in their repositories.
+
+### @fuzzy-src {/* #migrate-fuzzy-src */}
+
+- Previously: fzf-go, fzy, skim-cargo, peco-go.
+- Now: [fzf][] built from source, the `default+keys` package profile under the `fzf-go` ID.
+- Reason: one backend per group, and the group refuses to load next to `@fuzzy` ([z-a-meta-plugins#67][annex-67]).
+
+The removed source builds have no annex recipe; see [@fuzzy](#migrate-fuzzy) for the upstream projects.
+
+### @ext-git {/* #migrate-ext-git */}
+
+- Previously: git-open, git-recent, git-my, git-quick-stats, git-now, git-extras, forgit, gitignore.plugin.zsh, tig.
+- Now: `@fuzzy`, [forgit][], [git-open][].
+- Reason: the group was rebuilt around tools that share the fzf backend; the others are unrelated to each other and two of them need a build toolchain ([z-a-meta-plugins#68][annex-68]).
+
+Load the bin-gem-node annex first (`zi light @annexes`), then the tools you use:
+
+```zi
+zi lucid null sbin for paulirish/git-recent
+zi lucid null sbin for davidosomething/git-my
+zi lucid null sbin atload'export _MENU_THEME=legacy;' for @git-quick-stats/git-quick-stats
+zi lucid null sbin for iwata/git-now
+zi lucid as'completion' blockf atclone'cp -vf etc/git-extras-completion.zsh _git-extras-completion' atpull'%atclone' make'PREFIX=$ZPFX MANPREFIX=$ZPFX/man/man1' nocompile for tj/git-extras
+zi lucid for voronkovich/gitignore.plugin.zsh
+zi lucid binary as'program' atclone'make configure; ./configure' atpull'%atclone' make'prefix=$ZPFX install' for jonas/tig
+```
+
+git-extras needs `make`; tig needs `make`, `autoconf` and the ncurses headers.
+
+### @rust-utils {/* #migrate-rust-utils */}
+
+- Previously: `rust-toolchain` (a rustup-managed toolchain inside plugin storage) and eight cargo extensions.
+- Now: `cargo-extensions`, which builds cargo-expand and cargo-audit with the toolchain already on your `PATH`.
+- Reason: a toolchain owned by the plugin manager shadowed the user's rustup and every extension was compiled on first load ([z-a-meta-plugins#72][annex-72]).
+
+Install the toolchain with [rustup][]. For any other extension, use the `cargo'…'` ice of the [rust][] annex with the crate name, for example:
+
+```zi
+zi lucid as'program' cargo'cargo-outdated' pick'bin/cargo-outdated' teleid'z-shell/0' for @cargo-outdated
+```
+
+### @zunit {/* #migrate-zunit */}
+
+- Previously: color, revolver, zunit from the archived `zdharma` organization.
+- Now: [zunit][], which bundles the helper libraries it needs.
+- Reason: the framework moved to `z-shell/zunit` and builds its own dependencies ([z-a-meta-plugins#70][annex-70]).
+
+Nothing to do; `skip'color'` or `skip'revolver'` now matches nothing and is reported.
+
+### Labels that kept their members {/* #migrate-unchanged-labels */}
+
+`@zsh-users`, `@zsh-tools`, `@node-utils`, `@py-utils`, `@prezto`, `@ohmyzsh-lib` and `@romkatv` received recipe fixes only. `@py-utils` keeps a `PYENV_ROOT` that is already set; export it before the group if your interpreters live outside `~/.pyenv`.
+
+### Recipes that belonged to no label {/* #migrate-orphan-recipes */}
+
+The annex also carried ice lists for plugins that no label selected. They were removed with the retired labels; load any of them explicitly:
+
+```zi
+zi lucid null sbin for Fakerr/git-recall
+zi lucid pack for @github-issues
+zi lucid pack atinit'GIT_PROJECTS=z-shell/zi GIT_SLEEP_TIME=700;' for @github-issues-srv
+zi lucid for hlissner/zsh-autopair
+zi lucid for urbainvaes/fzf-marks
+zi lucid for z-shell/zi-console
+zi lucid for z-shell/zsh-navigation-tools
+zi lucid for z-shell/zsh-unique-id
+zi lucid for z-shell/z-a-linkbin
+zi lucid compile'functions/.*lman*~*.zwc' for z-shell/z-a-linkman
+zi lucid for z-shell/z-a-man
+```
+
+Two of these print a message that is not caused by the recipe: z-a-man reports that its `hpricot` gem fails to build on Ruby 3.4 and loads without it, and `@github-issues-srv` prints "needs to be loaded as service" during its first installation because the profile's `service''` ice applies from the next shell on.
+
+### Worked example {/* #migration-worked-example */}
+
+A startup file written for the earlier catalog:
+
+```zi showLineNumbers
+zi lucid for light-mode \
+  skip'ripgrep peco tig bat exa hexil hyperfine fd' @console-tools \
+  skip'dircolors-material' @console-style \
+  skip'F-Sy-H' @z-shell \
+  @romkatv \
+  @zsh-users+fast
+```
+
+Line by line:
+
+1. `skip'ripgrep peco tig bat exa hexil hyperfine fd' @console-tools` installed hexyl only: `hexil` matched nothing and `peco` and `tig` were never members. On the current catalog it installs eza and reports five unmatched tokens. Replace it with the hexyl command from [@sharkdp](#migrate-sharkdp), and keep `skip'ripgrep bat fd' @console-tools` only if you want eza.
+2. `skip'dircolors-material' @console-style` installed vivid. The group now provides eza aliases and requires eza, so replace it with the vivid command from [@console-style](#migrate-console-style).
+3. `skip'F-Sy-H' @z-shell` installed H-S-MW and zsh-diff-so-fancy. The label is retired; use the two commands from [@z-shell](#migrate-z-shell).
+4. `@romkatv` is unchanged.
+5. `@zsh-users+fast` no longer includes zsh-fancy-completions; add the command from [@zsh-users+fast](#migrate-zsh-users+fast) before the profile if you want it back.
+
+The same startup file for the current catalog, with `light-mode` applied to every entry:
+
+```zi showLineNumbers
+zi lucid light-mode for \
+  as'program' from'gh-r' bpick'*x86_64-unknown-linux-musl.tar.gz' pick'hexyl-*/hexyl' @sharkdp/hexyl \
+  as'program' from'gh-r' bpick'*x86_64-unknown-linux-musl.tar.gz' pick'vivid-*/vivid' @sharkdp/vivid \
+  compile'functions/h*~*.zwc' z-shell/H-S-MW \
+  as'program' pick'bin/diff-so-fancy' atpull'git submodule update --init --recursive' z-shell/zsh-diff-so-fancy \
+  @romkatv \
+  @zsh-users+fast
+```
+
 {/* end-of-file */}
 {/* links */}
 
-[ice-modifiers]: /docs/guides/syntax/ice-modifiers
-
 {/* external */}
 
+[annex-61]: https://github.com/z-shell/z-a-meta-plugins/issues/61
+[annex-63]: https://github.com/z-shell/z-a-meta-plugins/issues/63
+[annex-64]: https://github.com/z-shell/z-a-meta-plugins/issues/64
+[annex-65]: https://github.com/z-shell/z-a-meta-plugins/issues/65
+[annex-66]: https://github.com/z-shell/z-a-meta-plugins/issues/66
+[annex-67]: https://github.com/z-shell/z-a-meta-plugins/issues/67
+[annex-68]: https://github.com/z-shell/z-a-meta-plugins/issues/68
+[annex-70]: https://github.com/z-shell/z-a-meta-plugins/issues/70
+[annex-72]: https://github.com/z-shell/z-a-meta-plugins/issues/72
+[annex-77]: https://github.com/z-shell/z-a-meta-plugins/issues/77
+[annex-78]: https://github.com/z-shell/z-a-meta-plugins/issues/78
+[annex-79]: https://github.com/z-shell/z-a-meta-plugins/issues/79
+[annex-84]: https://github.com/z-shell/z-a-meta-plugins/pull/84
 [bat]: https://github.com/sharkdp/bat
 [bin-gem-node]: https://github.com/z-shell/z-a-bin-gem-node
-[color]: https://github.com/z-shell/src/blob/d38202ee20efeec42900ce26f747a3024028845f/public/zsh/snippets/color.zsh
 [default-ice]: https://github.com/z-shell/z-a-default-ice
 [dircolors-material]: https://github.com/z-shell/dircolors-material
-[exa]: https://github.com/ogham/exa
+[eval]: https://github.com/z-shell/z-a-eval
+[eza]: https://github.com/eza-community/eza
 [f-sy-h]: https://github.com/z-shell/F-Sy-H
 [fd]: https://github.com/sharkdp/fd
 [forgit]: https://github.com/wfxr/forgit
 [fzf]: https://github.com/z-shell/fzf
-[fzy]: https://github.com/z-shell/fzy
-[git-extras]: https://github.com/tj/git-extras
-[git-my]: https://github.com/davidosomething/git-my
-[git-now]: https://github.com/iwata/git-now
+[fzy]: https://github.com/jhawthorn/fzy
 [git-open]: https://github.com/paulirish/git-open
-[git-quick-stats]: https://github.com/arzzen/git-quick-stats
-[git-recent]: https://github.com/paulirish/git-recent
-[gitignore.plugin.zsh]: https://github.com/voronkovich/gitignore.plugin.zsh
 [h-s-mw]: https://github.com/z-shell/H-S-MW
 [hexyl]: https://github.com/sharkdp/hexyl
 [hyperfine]: https://github.com/sharkdp/hyperfine
 [issues/new]: https://github.com/z-shell/z-a-meta-plugins/issues/new
+[n]: https://github.com/tj/n
 [patch-dl]: https://github.com/z-shell/z-a-patch-dl
 [peco]: https://github.com/peco/peco
 [powerlevel10k]: https://github.com/romkatv/powerlevel10k
 [pyenv]: https://github.com/z-shell/pyenv
 [readurl]: https://github.com/z-shell/z-a-readurl
-[revolver]: https://github.com/z-shell/src/blob/d38202ee20efeec42900ce26f747a3024028845f/public/zsh/snippets/revolver
 [ripgrep]: https://github.com/BurntSushi/ripgrep
 [rust]: https://github.com/z-shell/z-a-rust
-[skim]: https://github.com/lotabout/skim
+[rustup]: https://rustup.rs
+[skim]: https://github.com/skim-rs/skim
 [submods]: https://github.com/z-shell/z-a-submods
 [test]: https://github.com/z-shell/z-a-test
-[tig]: https://github.com/jonas/tig
 [unscope]: https://github.com/z-shell/z-a-unscope
 [vivid]: https://github.com/sharkdp/vivid
+[wiki-919]: https://github.com/z-shell/wiki/issues/919
 [z-a-meta-plugins.plugin.zsh]: https://github.com/z-shell/z-a-meta-plugins/blob/main/z-a-meta-plugins.plugin.zsh
+[zbrowse]: https://github.com/z-shell/zbrowse
 [zconvey]: https://github.com/z-shell/zconvey
 [zflai]: https://github.com/z-shell/zflai
+[zi-git-sparse]: https://github.com/z-shell/zi/pull/417
 [zsh-autosuggestions]: https://github.com/zsh-users/zsh-autosuggestions
+[zsh-cmd-architect]: https://github.com/z-shell/zsh-cmd-architect
 [zsh-completions]: https://github.com/zsh-users/zsh-completions
 [zsh-diff-so-fancy]: https://github.com/z-shell/zsh-diff-so-fancy
+[zsh-editing-workbench]: https://github.com/z-shell/zsh-editing-workbench
+[zsh-eza]: https://github.com/z-shell/zsh-eza
+[zsh-fancy-completions]: https://github.com/z-shell/zsh-fancy-completions
 [zsh-select]: https://github.com/z-shell/zsh-select
 [zsh-syntax-highlighting]: https://github.com/zsh-users/zsh-syntax-highlighting
 [zui]: https://github.com/z-shell/zui
 [zunit]: https://github.com/z-shell/zunit
-[z-shell/zsh-fancy-completions]: https://github.com/z-shell/zsh-fancy-completions
-[zi-git-sparse]: https://github.com/z-shell/zi/pull/417
