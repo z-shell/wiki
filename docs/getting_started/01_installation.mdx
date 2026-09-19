@@ -90,7 +90,7 @@ sh -c "$(curl -fsSL get.zshell.dev)" -- -a zunit
   </TabItem>
   <TabItem value="agent" label="Agent">
 
-Let an AI coding agent install Zi through the installer, never by editing <kbd>.zshrc</kbd> by hand. The [zi-install skill][zi-install-skill] in z-shell/.github is the machine-readable form of this tab: agents with skill support can install it with `gh skill install z-shell/.github .github/skills/zi-install --dir .github/skills`, and every other agent gets the instruction block at the end of this tab.
+Let an AI coding agent install Zi through the installer, never by editing <kbd>.zshrc</kbd> by hand. The [zi-install skill][zi-install-skill] in z-shell/.github is the machine-readable form of this tab: agents with skill support install a reviewed commit of it with `gh skill install z-shell/.github .github/skills/zi-install --pin <commit> --dir .github/skills`, so a later change to the skill cannot alter what an installed copy does, and every other agent gets the instruction block at the end of this tab.
 
 The machine needs <kbd>zsh</kbd>, <kbd>git</kbd>, and <kbd>curl</kbd> or <kbd>wget</kbd>. Fetch the installer to a file, verify the file, then run it. Do not use `sh -c "$(curl ...)"` on a user's behalf: a failed fetch inside the substitution becomes an empty script that still exits 0, and an existing installation then passes verification although nothing ran.
 
@@ -98,10 +98,10 @@ The machine needs <kbd>zsh</kbd>, <kbd>git</kbd>, and <kbd>curl</kbd> or <kbd>wg
 tmp="$(mktemp -d)" && curl -fsSL https://get.zshell.dev -o "$tmp/install.sh" && curl -fsSL https://raw.githubusercontent.com/z-shell/src/main/public/checksum.txt -o "$tmp/checksum.txt"
 ```
 
-With <kbd>wget</kbd>, replace each `curl -fsSL <url> -o <file>` with `wget -qO <file> <url>`. The `public/sh/install.sh` line of the published [checksum][checksum-txt] must equal the digest of the fetched file. Use `shasum -a 256` where `sha256sum` is absent, and stop on a mismatch or a missing line:
+With <kbd>wget</kbd>, replace each `curl -fsSL <url> -o <file>` with `wget -qO <file> <url>`. The `public/sh/install.sh` line of the published [checksum][checksum-txt] must equal the digest of the fetched file. The command uses `sha256sum` and falls back to `shasum -a 256` where it is absent, as on macOS; with neither tool, or on a mismatch or a missing line, it prints nothing and the agent must stop:
 
 ```sh
-expected="$(awk '$2 == "public/sh/install.sh" { print $1 }' "$tmp/checksum.txt")" && actual="$(sha256sum "$tmp/install.sh" | awk '{ print $1 }')" && [ -n "$expected" ] && [ "$expected" = "$actual" ] && echo 'checksum ok'
+expected="$(awk '$2 == "public/sh/install.sh" { print $1 }' "$tmp/checksum.txt")" && actual="$({ sha256sum "$tmp/install.sh" 2>/dev/null || shasum -a 256 "$tmp/install.sh"; } | awk '{ print $1 }')" && [ -n "$expected" ] && [ "$expected" = "$actual" ] && echo 'checksum ok'
 ```
 
 Run only after `checksum ok`, with one of the two supported profiles. Both run without a terminal and read nothing from standard input.
@@ -149,7 +149,7 @@ print "loader ok"
 '
 ```
 
-Verify the install-only profile with the checkout directory the installer printed: after `Successfully installed at` on a fresh install, or after `Updating (z-shell/zi) plugin manager at` on a rerun. Do not guess it, since it may be a legacy <kbd>~/.zi</kbd>, an explicit `ZI_HOME`, or the XDG data home, and the printed directory already includes the `bin` checkout name:
+Verify the install-only profile with the checkout directory the installer printed: after `Successfully installed at` on a fresh install, or after `Updating (z-shell/zi) plugin manager at` on a rerun. Do not guess it, since it may be a legacy <kbd>~/.zi</kbd>, an explicit `ZI_HOME`, or the XDG data home, and the printed directory already includes the `bin` checkout name. The fresh-install line currently ends with a period after the directory ([z-shell/src#215](https://github.com/z-shell/src/issues/215)); that period is not part of the path:
 
 ```zsh
 zsh -f -c 'builtin source "$1" && zi -h' zsh "<printed directory>/zi.zsh" >/dev/null && echo 'zi ok'
@@ -167,7 +167,7 @@ https://github.com/z-shell/.github/blob/main/.github/skills/zi-install/SKILL.md
 - Run as my user, never as root or with sudo. Keep my ZDOTDIR, XDG_CONFIG_HOME, and XDG_DATA_HOME as they are; do not set ZI_HOME unless I asked. If ZDOTDIR or ZI_HOME is set to a relative path, stop and ask me.
 - Do not start an interactive shell (exec zsh, zsh -i, zsh -l) while installing.
 - If the installer refuses, or says .zshrc already sources Zi, stop and show me its message. Do not edit files to work around it.
-- When done, verify exactly as the skill describes (zsh -ic 'zi -h', then the loader probe; for install-only, zi.zsh under the directory the installer printed) and show me the output.
+- When done, verify exactly as the skill describes (zsh -ic 'zi -h', then the loader probe; for install-only, zi.zsh under the directory the installer printed, without the trailing period on that line) and show me the output.
 ```
 
   </TabItem>
