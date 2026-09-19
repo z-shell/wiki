@@ -6,6 +6,7 @@ image: /img/png/theme/z/320x320.png
 description: Installation Guide
 keywords:
   - install
+  - agent
 ---
 
 import Tabs from "@theme/Tabs";
@@ -84,6 +85,89 @@ Install and include minimal configuration with recommended <Link to="/ecosystem/
 
 ```sh
 sh -c "$(curl -fsSL get.zshell.dev)" -- -a zunit
+```
+
+  </TabItem>
+  <TabItem value="agent" label="Agent">
+
+Let an AI coding agent install Zi through the installer, never by editing <kbd>.zshrc</kbd> by hand. The [zi-install skill][zi-install-skill] in z-shell/.github is the machine-readable form of this tab: agents with skill support install a reviewed commit of it with `gh skill install z-shell/.github .github/skills/zi-install --pin <commit> --dir .github/skills`, so a later change to the skill cannot alter what an installed copy does, and every other agent gets the instruction block at the end of this tab.
+
+The machine needs <kbd>zsh</kbd>, <kbd>git</kbd>, and <kbd>curl</kbd> or <kbd>wget</kbd>. Fetch the installer to a file, verify the file, then run it. Do not use `sh -c "$(curl ...)"` on a user's behalf: a failed fetch inside the substitution becomes an empty script that still exits 0, and an existing installation then passes verification although nothing ran.
+
+```sh
+tmp="$(mktemp -d)" && curl -fsSL https://get.zshell.dev -o "$tmp/install.sh" && curl -fsSL https://raw.githubusercontent.com/z-shell/src/main/public/checksum.txt -o "$tmp/checksum.txt"
+```
+
+With <kbd>wget</kbd>, replace each `curl -fsSL <url> -o <file>` with `wget -qO <file> <url>`. The `public/sh/install.sh` line of the published [checksum][checksum-txt] must equal the digest of the fetched file. The command uses `sha256sum` and falls back to `shasum -a 256` where it is absent, as on macOS; with neither tool, or on a mismatch or a missing line, it prints nothing and the agent must stop:
+
+```sh
+expected="$(awk '$2 == "public/sh/install.sh" { print $1 }' "$tmp/checksum.txt")" && actual="$({ sha256sum "$tmp/install.sh" 2>/dev/null || shasum -a 256 "$tmp/install.sh"; } | awk '{ print $1 }')" && [ -n "$expected" ] && [ "$expected" = "$actual" ] && echo 'checksum ok'
+```
+
+Run only after `checksum ok`, with one of the two supported profiles. Both run without a terminal and read nothing from standard input.
+
+Loader profile: installs Zi, places the [loader](#loader) in the configuration home, and appends the loader snippet to <kbd>.zshrc</kbd>:
+
+```sh
+sh "$tmp/install.sh" -a loader
+```
+
+Install only: clones Zi into its home and leaves <kbd>.zshrc</kbd> untouched, for setups where the user integrates Zi later:
+
+```sh
+sh "$tmp/install.sh" -i skip
+```
+
+Rules the agent must follow:
+
+- Drive the installer with its flags (`-a loader`, `-i skip`, `-b <branch>`). Do not write to <kbd>.zshrc</kbd> or to the Zi configuration home yourself. The installer owns the integration block, detects an existing one, and a rerun updates the checkout and appends nothing.
+- Respect the user's environment. The installer edits `${ZDOTDIR:-$HOME}/.zshrc` and honours `XDG_CONFIG_HOME` and `XDG_DATA_HOME` only when their values are absolute paths. Do not export new values to force a location, and do not set `ZI_HOME` unless the user asked for a specific root. If `ZDOTDIR` or `ZI_HOME` is set to a relative path, stop and ask: the installer changes directory before it uses them.
+- Run as the user who owns the shell. Never run the installer as <kbd>root</kbd> or through <kbd>sudo</kbd>: the checkout then lands in root's home, or leaves root-owned files that the user's shell cannot update.
+- Do not start an interactive shell while installing (`exec zsh`, `zsh -i`, or `zsh -l`). The installer needs none, and a shell that waits for a prompt blocks the agent. Verification below uses one fresh `zsh -ic` invocation that exits on its own.
+- Read the result instead of assuming it. For the loader profile, exit 0 plus the line `Loader added` is the evidence that the block was written; the closing `Successfully installed` banner alone is not, and `Skipped all annexes` is expected output for both profiles. Stop and report on these lines: `Seems that .zshrc already sources Zi` means an integration exists and the block was not written, `cannot be fast-forwarded` means the checkout has local commits or changes (the installer prints `git status` and leaves it untouched), and `Invalid -b value` means the branch name was rejected. Do not work around these by editing files.
+
+Verify the loader profile in two steps; neither applies to install-only, which leaves <kbd>.zshrc</kbd> untouched. A fresh interactive shell proves that the user's own startup loads Zi:
+
+```zsh
+zsh -ic 'zi -h' >/dev/null && echo 'zi ok'
+```
+
+That cannot tell which integration answered, so the probe below sources the installed loader in a clean shell, runs `zzinit`, and requires it to remove itself and its helpers, which the loader does only after a successful run. Expect `loader ok`; report any other line verbatim:
+
+```zsh
+zsh -f -c '
+unfunction zzinit _zi_err _zi_fetch _zi_check_stream _zi_setup _zi_source _zi_comps _zi_pmod 2>/dev/null
+typeset -gA ZI
+if [[ -n ${XDG_CONFIG_HOME:-} && $XDG_CONFIG_HOME == /* ]]; then d="$XDG_CONFIG_HOME/zi"; else d="$HOME/.config/zi"; fi
+source "$d/init.zsh" || { print "loader missing"; exit 1 }
+(( ${+functions[zzinit]} )) || { print "loader defined no zzinit"; exit 1 }
+zzinit || { print "zzinit failed"; exit 1 }
+for f in zzinit _zi_err _zi_fetch _zi_check_stream _zi_setup _zi_source _zi_comps _zi_pmod; do
+  (( ${+functions[$f]} )) && { print "helper not removed: $f"; exit 1 }
+done
+print "loader ok"
+'
+```
+
+Verify the install-only profile with this check only, using the checkout directory the installer printed: after `Successfully installed at` on a fresh install, or after `Updating (z-shell/zi) plugin manager at` on a rerun. Do not guess it, since it may be a legacy <kbd>~/.zi</kbd>, an explicit `ZI_HOME`, or the XDG data home, and the printed directory already includes the `bin` checkout name. The fresh-install line currently ends with a period after the directory ([z-shell/src#215](https://github.com/z-shell/src/issues/215)); that period is not part of the path:
+
+```zsh
+zsh -f -c 'builtin source "$1" && zi -h' zsh "<printed directory>/zi.zsh" >/dev/null && echo 'zi ok'
+```
+
+Hand this block to an agent that cannot load the skill:
+
+```text title="Instructions for the agent"
+Install the Zi plugin manager for Zsh on this machine by following the zi-install skill:
+https://github.com/z-shell/.github/blob/main/.github/skills/zi-install/SKILL.md
+
+- Profile: loader ("-a loader"). Use "-i skip" instead if I asked for install-only. Add "-b <branch>" only if I named a branch.
+- Fetch the installer from https://get.zshell.dev to a file, verify its sha256 against the public/sh/install.sh line of https://raw.githubusercontent.com/z-shell/src/main/public/checksum.txt, and only then run the file. Never run sh -c "$(curl ...)".
+- Never write to ~/.zshrc, $ZDOTDIR/.zshrc, or the Zi configuration home yourself. The installer owns them.
+- Run as my user, never as root or with sudo. Keep my ZDOTDIR, XDG_CONFIG_HOME, and XDG_DATA_HOME as they are; do not set ZI_HOME unless I asked. If ZDOTDIR or ZI_HOME is set to a relative path, stop and ask me.
+- Do not start an interactive shell (exec zsh, zsh -i, zsh -l) while installing.
+- If the installer refuses, or says .zshrc already sources Zi, stop and show me its message. Do not edit files to work around it.
+- When done, verify exactly as the skill describes and show me the output. Loader: zsh -ic 'zi -h', then the loader probe. Install-only: only that zi.zsh exists under the directory the installer printed (without the trailing period on that line); the loader checks do not apply.
 ```
 
   </TabItem>
@@ -238,6 +322,7 @@ The module transparently and automatically compiles sourced scripts and lists of
 {/* external */}
 
 [checksum-txt]: https://raw.githubusercontent.com/z-shell/src/main/public/checksum.txt
+[zi-install-skill]: https://github.com/z-shell/.github/blob/main/.github/skills/zi-install/SKILL.md
 [completion-system]: https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Use-of-compinit
 [discuss]: https://github.com/orgs/z-shell/discussions/new
 [dockerfile]: https://github.com/robobenklein/configs/blob/master/Dockerfile
