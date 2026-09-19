@@ -6,6 +6,7 @@ image: /img/png/theme/z/320x320.png
 description: Installation Guide
 keywords:
   - install
+  - agent
 ---
 
 import Tabs from "@theme/Tabs";
@@ -84,6 +85,65 @@ Install and include minimal configuration with recommended <Link to="/ecosystem/
 
 ```sh
 sh -c "$(curl -fsSL get.zshell.dev)" -- -a zunit
+```
+
+  </TabItem>
+  <TabItem value="agent" label="Agent">
+
+Let an AI coding agent install Zi through the installer, never by editing <kbd>.zshrc</kbd> by hand. Copy the instruction block at the end of this tab into the agent's prompt, or point the agent at this tab.
+
+The machine needs <kbd>zsh</kbd>, <kbd>git</kbd>, and <kbd>curl</kbd> or <kbd>wget</kbd>. Two profiles are supported for agents. Both run without a terminal and read nothing from standard input.
+
+Loader profile: installs Zi, places the [loader](#loader) in the configuration home, and appends the loader snippet to <kbd>.zshrc</kbd>:
+
+```sh
+sh -c "$(curl -fsSL get.zshell.dev)" -- -a loader
+```
+
+Install only: clones Zi into its home and leaves <kbd>.zshrc</kbd> untouched, for setups where the user integrates Zi later:
+
+```sh
+sh -c "$(curl -fsSL get.zshell.dev)" -- -i skip
+```
+
+Rules the agent must follow:
+
+- Drive the installer with its flags (`-a loader`, `-i skip`, `-b <branch>`). Do not write to <kbd>.zshrc</kbd> or to the Zi configuration home yourself. The installer owns the integration block, detects an existing one, and a rerun appends nothing.
+- Respect the user's environment. The installer edits `${ZDOTDIR:-$HOME}/.zshrc` and honours `XDG_CONFIG_HOME` and `XDG_DATA_HOME` only when their values are absolute paths. Do not export new values to force a location, and do not set `ZI_HOME` unless the user asked for a specific root.
+- Run as the user who owns the shell. Never run the installer as <kbd>root</kbd> or through <kbd>sudo</kbd>: the checkout then lands in root's home, or leaves root-owned files that the user's shell cannot update.
+- Do not start an interactive shell while installing (`exec zsh`, `zsh -i`, or `zsh -l`). The installer needs none, and a shell that waits for a prompt blocks the agent. Verification below uses one fresh `zsh -ic` invocation that exits on its own.
+- Stop and report when the installer refuses or skips: an existing Zi integration was detected, the checkout cannot be fast-forwarded (the installer prints `git status` and leaves the checkout untouched), or the `-b` value is not a valid branch name. Do not work around these by editing files.
+
+Verify the loader profile with a fresh shell. Both conditions must hold: `zi` is defined, and `zzinit` is gone, because the loader removes `zzinit` and its helpers only after a successful run:
+
+```zsh
+zsh -ic 'zi -h' >/dev/null && echo "zi ok"
+zsh -ic '(( ${+functions[zi]} && ! ${+functions[zzinit]} )) && print "loader ok" || { print -u2 "zzinit did not complete"; exit 1 }'
+```
+
+Verify the install-only profile with the path the installer printed after `Successfully installed at`, since it may be a legacy <kbd>~/.zi</kbd>, an explicit `ZI_HOME`, or the XDG data home:
+
+```zsh
+zsh -f -c 'builtin source "$1" && zi -h' zsh "<printed path>/zi.zsh" >/dev/null && echo "zi ok"
+```
+
+Hand this block to the agent. It points at the <kbd>zi-install</kbd> skill, the machine-readable companion of this tab, tracked in [z-shell/.github#636](https://github.com/z-shell/.github/issues/636) until it is published:
+
+```text title="Instructions for the agent"
+Install the Zi plugin manager for Zsh on this machine.
+
+- Use only the official installer, non-interactively:
+    sh -c "$(curl -fsSL get.zshell.dev)" -- -a loader
+  Use "-- -i skip" instead if I asked for install-only. Add "-b <branch>" only if I named a branch.
+- Never write to ~/.zshrc, $ZDOTDIR/.zshrc, or the Zi configuration home yourself. The installer owns them.
+- Run as my user, never as root or with sudo. Keep my ZDOTDIR, XDG_CONFIG_HOME, and XDG_DATA_HOME as they are; do not set ZI_HOME unless I asked.
+- Do not start an interactive shell (exec zsh, zsh -i, zsh -l) while installing.
+- If the installer refuses or reports an existing integration, stop and show me its message. Do not edit files to work around it.
+- When done, verify with a fresh shell and show me the output:
+    zsh -ic 'zi -h' >/dev/null && echo "zi ok"
+    zsh -ic '(( ${+functions[zi]} && ! ${+functions[zzinit]} )) && print "loader ok" || { print -u2 "zzinit did not complete"; exit 1 }'
+  For install-only, source <printed path>/zi.zsh in "zsh -f -c" and run "zi -h" instead.
+- Reference: https://wiki.zshell.dev/docs/getting_started/installation (Agent tab). If the zi-install skill from z-shell/.github is available, follow it.
 ```
 
   </TabItem>
