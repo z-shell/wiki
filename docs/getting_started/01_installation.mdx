@@ -178,6 +178,12 @@ https://github.com/z-shell/.github/blob/main/.github/skills/zi-install/SKILL.md
 
 :::
 
+:::note Automation and TUI
+
+For automation or terminal interfaces driving `setup.sh`, the additive `setup.sh apply --events DIR` option is optional. It creates a private new absolute directory and publishes atomic numbered `zi-setup-event-v1` event directories with started and terminal state for active operations. Human stdout/stderr remains for people rather than machine decisions. Consumers must treat process completion as authoritative and tolerate a missing terminal event if a cancellation signal interrupts event publication itself; staging cleanup and exit 6 still apply.
+
+:::
+
 ## <i class="fas fa-spinner fa-spin"></i> Manual Setup {/* #manual-setup */}
 
 :::tip[Related]
