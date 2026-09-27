@@ -994,6 +994,8 @@ traps, loaded modules, hooks, widgets, key bindings, styles, `path`, and
 `fpath`. Also test repeated source, partial initialization failure, hostile
 caller options, non-interactive loading, and user changes made after load.
 
+In a separate clean-shell case, load, unload, and load again. Prove that the second load restores the same declared load surface as the first and that the restored resources perform their intended behavior. Resource presence or a successful return status alone is insufficient; observe the effect of a restored handler, hook, widget, or other resource.
+
 Update and migration work should be explicit commands or manager hooks, not
 ordinary load-time behavior.
 
