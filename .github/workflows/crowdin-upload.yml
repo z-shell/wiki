@@ -8,8 +8,9 @@ on:
     # strings `write-translations` extracts into i18n/en/ from code, theme
     # config, sidebars, category files and the Docusaurus version. Page bodies
     # under community/ and ecosystem/ are not mapped, so only their category
-    # files trigger. A category labelled by its directory name (no category
-    # file) is sent on the next run; every run regenerates everything.
+    # files trigger. A category labelled by its index doc or directory name
+    # (no category file) is sent on the next run; every run regenerates
+    # everything.
     paths:
       - "docs/**"
       - "community/**/_category_.*"
