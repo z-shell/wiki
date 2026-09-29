@@ -9,8 +9,8 @@ on:
     # config, sidebars, category files and the Docusaurus version. Page bodies
     # under community/ and ecosystem/ are not mapped, so only their category
     # files trigger. A category labelled by its index doc or directory name
-    # (no category file) is sent on the next run; every run regenerates
-    # everything.
+    # (no category file, or one without a label) is sent on the next run;
+    # every run regenerates everything.
     paths:
       - "docs/**"
       - "community/**/_category_.*"
