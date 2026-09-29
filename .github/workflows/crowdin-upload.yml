@@ -6,15 +6,19 @@ on:
     branches: [main]
     # Only what reaches a mapped crowdin.yml source: docs/ itself, and the UI
     # strings `write-translations` extracts into i18n/en/ from code, theme
-    # config, sidebars and category labels. Page bodies under community/ and
-    # ecosystem/ are not mapped, so only their category files trigger.
+    # config, sidebars, category files and the Docusaurus version. Page bodies
+    # under community/ and ecosystem/ are not mapped, so only their category
+    # files trigger. A category labelled by its directory name (no category
+    # file) is sent on the next run; every run regenerates everything.
     paths:
       - "docs/**"
-      - "community/**/_category_.json"
-      - "ecosystem/**/_category_.json"
+      - "community/**/_category_.*"
+      - "ecosystem/**/_category_.*"
       - "src/**"
       - "docusaurus.config.ts"
       - "sidebars.ts"
+      - "package.json"
+      - "pnpm-lock.yaml"
       - "crowdin.yml"
       - ".github/workflows/crowdin-upload.yml"
   workflow_dispatch: {}
@@ -26,11 +30,6 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: false
 
-env:
-  GITHUB_TOKEN: ${{ secrets.ORG_TOKEN }}
-  CROWDIN_PROJECT: ${{ secrets.CROWDIN_PROJECT }}
-  CROWDIN_TOKEN: ${{ secrets.CROWDIN_TOKEN }}
-
 jobs:
   upload:
     runs-on: ubuntu-latest
@@ -41,6 +40,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          persist-credentials: false
       - name: "📦 Setup pnpm"
         uses: pnpm/setup@703c52620218391530e48b9e8870d5c0082e1b9b # v2.1.0
         with:
@@ -53,8 +53,14 @@ jobs:
         run: |
           rm -rf i18n/en
           pnpm write-translations --locale en
+      # Secrets reach only this step: the steps above run dependency install
+      # scripts and the site's config and plugins. An upload-only run needs no
+      # GitHub token (the action reads one only to push or open a pull request).
       - name: "🚀 Crowdin Upload"
         uses: crowdin/github-action@e4a6c1338b4063c77d46a81875265f9e8bd76f95 # v3.0.0
+        env:
+          CROWDIN_PROJECT: ${{ secrets.CROWDIN_PROJECT }}
+          CROWDIN_TOKEN: ${{ secrets.CROWDIN_TOKEN }}
         with:
           upload_sources: true
           upload_translations: false
