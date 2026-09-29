@@ -4,12 +4,24 @@ name: Crowdin Upload
 on:
   push:
     branches: [main]
+    # Only what reaches a mapped crowdin.yml source: docs/ itself, and the UI
+    # strings `write-translations` extracts into i18n/en/ from code, theme
+    # config, sidebars, category files and the Docusaurus version. Page bodies
+    # under community/ and ecosystem/ are not mapped, so only their category
+    # files trigger. A category labelled by its index doc or directory name
+    # (no category file, or one without a label) is sent on the next run;
+    # every run regenerates everything.
     paths:
       - "docs/**"
-      - "blog/**"
-      - "community/**"
-      - "ecosystem/**"
-      - "src/pages/**"
+      - "community/**/_category_.*"
+      - "ecosystem/**/_category_.*"
+      - "src/**"
+      - "docusaurus.config.ts"
+      - "sidebars.ts"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "crowdin.yml"
+      - ".github/workflows/crowdin-upload.yml"
   workflow_dispatch: {}
 
 permissions:
@@ -19,13 +31,45 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: false
 
-env:
-  GITHUB_TOKEN: ${{ secrets.ORG_TOKEN }}
-  CROWDIN_PROJECT: ${{ secrets.CROWDIN_PROJECT }}
-  CROWDIN_TOKEN: ${{ secrets.CROWDIN_TOKEN }}
-
 jobs:
+  # Runs dependency install scripts and the site's config and plugins, so it
+  # gets no secrets and no environment; it only produces the source strings.
+  generate:
+    name: Generate English source strings
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: "⤵️ Check out code from GitHub"
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: "📦 Setup pnpm"
+        uses: pnpm/setup@703c52620218391530e48b9e8870d5c0082e1b9b # v2.1.0
+        with:
+          cache: true
+          require-lockfile: true
+      # The committed i18n/en/ files are not kept current by hand. Regenerate
+      # them from scratch so new labels and strings are sent and removed ones
+      # are not (write-translations only appends to an existing file).
+      - name: "🔄 Regenerate English source strings"
+        run: |
+          rm -rf i18n/en
+          pnpm write-translations --locale en
+      - name: "📤 Keep the generated strings"
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: i18n-en
+          path: i18n/en/
+          if-no-files-found: error
+          retention-days: 1
+
+  # Holds the Crowdin secrets and runs no repository code: a fresh checkout
+  # supplies crowdin.yml, and the only input from the job above is JSON data.
+  # An upload-only run needs no GitHub token (the action reads one only to
+  # push or open a pull request).
   upload:
+    name: Upload to Crowdin
+    needs: generate
     runs-on: ubuntu-latest
     environment: Crowdin
     timeout-minutes: 10
@@ -33,9 +77,20 @@ jobs:
       - name: "⤵️ Check out code from GitHub"
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          fetch-depth: 0
+          persist-credentials: false
+      # Replace the committed files so only the generated set is sent.
+      - name: "🧹 Remove the committed English strings"
+        run: rm -rf i18n/en
+      - name: "📥 Download the generated strings"
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: i18n-en
+          path: i18n/en/
       - name: "🚀 Crowdin Upload"
         uses: crowdin/github-action@e4a6c1338b4063c77d46a81875265f9e8bd76f95 # v3.0.0
+        env:
+          CROWDIN_PROJECT: ${{ secrets.CROWDIN_PROJECT }}
+          CROWDIN_TOKEN: ${{ secrets.CROWDIN_TOKEN }}
         with:
           upload_sources: true
           upload_translations: false

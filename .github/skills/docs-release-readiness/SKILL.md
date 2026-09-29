@@ -79,14 +79,15 @@ Review the diff for unexpected ID changes that could break existing links.
 
 ### 7. Translation Readiness
 
-For files under a source that `crowdin.yml` maps and does not exclude, and for changes to sidebar or category labels in any content root (extracted into `i18n/en/`):
+This applies to files under a source that `crowdin.yml` maps and does not exclude, and to category labels in any content root (the `label` in a `_category_` file, else the `sidebar_label` or title of the category's index doc, else the directory name, plus generated-index text). The Crowdin Upload workflow extracts those labels into `i18n/en/` and uploads them on push to `main`. A label taken from an index doc or a directory name does not itself trigger the workflow; it is sent with the next triggered or dispatched run. Uploads happen only while the workflow is enabled; check with `gh workflow list --all -R z-shell/wiki`, and while it is disabled use the manual upload path in the localization-maintainer agent. To see the keys a change adds or removes, regenerate from scratch and compare with the committed files (a plain `write-translations` only appends, so it hides removed keys and mixes in older drift), then discard the result:
 
 ```sh
-pnpm write-translations
-pnpm crowdin:check
+rm -rf i18n/en && pnpm write-translations --locale en
+git diff -- i18n/en
+git checkout -- i18n/en
 ```
 
-Report any new untranslated keys.
+`pnpm crowdin:check` lints `crowdin.yml` and shows translation progress in the live project, not the local files. Report the new keys; the workflow, or the manual upload path, sends its own regenerated copy.
 
 ### 8. Lint
 
