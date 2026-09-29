@@ -79,7 +79,7 @@ Review the diff for unexpected ID changes that could break existing links.
 
 ### 7. Translation Readiness
 
-For files under a source that `crowdin.yml` maps and does not exclude, and for changes to sidebar or category labels in any content root (extracted into `i18n/en/`):
+For files under a source that `crowdin.yml` maps and does not exclude, and for changes to category labels (`_category_.json`) in any content root, which the Crowdin Upload workflow extracts into `i18n/en/` and uploads on push to `main`. Run locally to check the keys a change adds:
 
 ```sh
 pnpm write-translations

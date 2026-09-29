@@ -4,12 +4,19 @@ name: Crowdin Upload
 on:
   push:
     branches: [main]
+    # Only what reaches a mapped crowdin.yml source: docs/ itself, and the UI
+    # strings `write-translations` extracts into i18n/en/ from code, theme
+    # config, sidebars and category labels. Page bodies under community/ and
+    # ecosystem/ are not mapped, so only their category files trigger.
     paths:
       - "docs/**"
-      - "blog/**"
-      - "community/**"
-      - "ecosystem/**"
-      - "src/pages/**"
+      - "community/**/_category_.json"
+      - "ecosystem/**/_category_.json"
+      - "src/**"
+      - "docusaurus.config.ts"
+      - "sidebars.ts"
+      - "crowdin.yml"
+      - ".github/workflows/crowdin-upload.yml"
   workflow_dispatch: {}
 
 permissions:
@@ -34,6 +41,18 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+      - name: "📦 Setup pnpm"
+        uses: pnpm/setup@703c52620218391530e48b9e8870d5c0082e1b9b # v2.1.0
+        with:
+          cache: true
+          require-lockfile: true
+      # The committed i18n/en/ files are not kept current by hand. Regenerate
+      # them from scratch so new labels and strings are sent and removed ones
+      # are not (write-translations only appends to an existing file).
+      - name: "🔄 Regenerate English source strings"
+        run: |
+          rm -rf i18n/en
+          pnpm write-translations --locale en
       - name: "🚀 Crowdin Upload"
         uses: crowdin/github-action@e4a6c1338b4063c77d46a81875265f9e8bd76f95 # v3.0.0
         with:
