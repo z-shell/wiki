@@ -79,7 +79,7 @@ Review the diff for unexpected ID changes that could break existing links.
 
 ### 7. Translation Readiness
 
-For files in translated paths (not excluded by `crowdin.yml`):
+For files under a source that `crowdin.yml` maps and does not exclude, and for changes to sidebar or category labels in any content root (extracted into `i18n/en/`):
 
 ```sh
 pnpm write-translations

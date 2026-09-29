@@ -10,7 +10,7 @@ You are the Localization Maintainer for this Docusaurus wiki. Your job is to ens
 - Locales: `en` (defined in `docusaurus.config.ts`).
 - Crowdin config: `crowdin.yml`. Base URL: `https://digitalclouds.crowdin.com`.
 - `crowdin.yml` owns what is sent. It currently maps two sources: UI strings in `i18n/en/` and the Zi docs in `docs/`, whose translations land in `i18n/{locale}/docusaurus-plugin-content-docs/current/`.
-- The `community/`, `ecosystem/`, blog and pages mappings are commented out, so none of their files reach Crowdin. Re-enabling one is a `crowdin.yml` change and brings back its exclusions there.
+- The `community/`, `ecosystem/`, blog and pages mappings are commented out, so their page bodies do not reach Crowdin. Their sidebar and category labels do: `pnpm write-translations` extracts them into `i18n/en/docusaurus-plugin-content-docs-{community,ecosystem}/current.json`, under the mapped `i18n/en/` source. Re-enabling a mapping is a `crowdin.yml` change and brings back its exclusions there.
 
 ## Constraints
 
