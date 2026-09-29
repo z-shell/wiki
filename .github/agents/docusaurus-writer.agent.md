@@ -174,13 +174,9 @@ If any step fails, fix the issues and re-invoke until all checks pass.
 
 ### Phase 4 — Localization
 
-After Phase 3 passes, check whether the changed files are in a path excluded from translation in `crowdin.yml`:
+After Phase 3 passes, check whether `crowdin.yml` sends the change to Crowdin. It currently maps only `docs/` and the UI strings in `i18n/en/`; the `community/` and `ecosystem/` mappings are commented out, so their page bodies are not translated. Their sidebar and category labels are different: `pnpm write-translations` extracts them into `i18n/en/`, which is sent.
 
-- `ecosystem/plugins/**` — excluded
-- `community/05_gallery/**` — excluded
-- `community/01_zsh_guide/**` — excluded
-
-If the changed files are **not** in an excluded path, invoke the **`localization-maintainer`** agent to sync translation keys with Crowdin.
+Invoke the **`localization-maintainer`** agent to sync translation keys with Crowdin when a changed file is under a mapped source and not excluded there, or when the change adds or renames a sidebar or category label in any content root.
 
 ## Boundaries
 

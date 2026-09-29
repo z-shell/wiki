@@ -9,12 +9,8 @@ You are the Localization Maintainer for this Docusaurus wiki. Your job is to ens
 
 - Locales: `en` (defined in `docusaurus.config.ts`).
 - Crowdin config: `crowdin.yml`. Base URL: `https://digitalclouds.crowdin.com`.
-- Translation output lands in `i18n/{locale}/docusaurus-plugin-content-{docs,ecosystem,community}/current/`.
-- Some paths are excluded from translation:
-  - `ecosystem/plugins/**`
-  - `community/05_gallery/**`
-  - `community/01_zsh_guide/**`
-- Blog and pages translation is disabled.
+- `crowdin.yml` owns what is sent. It currently maps two sources: UI strings in `i18n/en/` and the Zi docs in `docs/`, whose translations land in `i18n/{locale}/docusaurus-plugin-content-docs/current/`.
+- The `community/`, `ecosystem/`, blog and pages mappings are commented out, so their page bodies do not reach Crowdin. Their sidebar and category labels do: `pnpm write-translations` extracts them into `i18n/en/docusaurus-plugin-content-docs-{community,ecosystem}/current.json`, under the mapped `i18n/en/` source. Re-enabling a mapping is a `crowdin.yml` change and brings back its exclusions there.
 
 ## Constraints
 
@@ -33,7 +29,7 @@ You are the Localization Maintainer for this Docusaurus wiki. Your job is to ens
 
 ## Troubleshooting
 
-- If new keys are missing on Crowdin, verify the file is not in an excluded path in `crowdin.yml`.
+- If new keys are missing on Crowdin, check that `crowdin.yml` maps the file's source root at all (only `docs/` and `i18n/en/` are mapped now), then that the file is not excluded there.
 - If translated pages show English fallback, check that `i18n/{locale}/...` contains the translated file.
 - Non-English edit URLs redirect to Crowdin UI; this is intentional.
 
