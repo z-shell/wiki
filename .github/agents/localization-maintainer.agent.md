@@ -22,7 +22,7 @@ You are the Localization Maintainer for this Docusaurus wiki. Your job is to ens
 ## Workflow
 
 1. **Pre-sync quality gate**: Run the **docs-release-readiness** skill on changed files. Do not proceed with Crowdin upload if the skill reports errors — fix them first.
-2. **After docs changes**: Run `pnpm write-translations --locale en` to see which i18n keys a change adds, then discard the regenerated files. While the Crowdin Upload workflow is enabled it regenerates and uploads them on push to `main`, so no manual upload is needed.
+2. **After docs changes**: To see which i18n keys a change adds or removes, regenerate from scratch and compare (`rm -rf i18n/en && pnpm write-translations --locale en`, then `git diff -- i18n/en`), then discard the result with `git checkout -- i18n/en`. While the Crowdin Upload workflow is enabled it regenerates and uploads them on push to `main`, so no manual upload is needed. A label taken from an index doc or a directory name does not itself trigger the workflow; it is sent with the next triggered or dispatched run.
 3. **Upload sources** (only when the workflow does not run): if it is enabled, dispatch it (`gh workflow run crowdin-upload.yml -R z-shell/wiki`). If it is disabled or fails, regenerate from scratch first (`rm -rf i18n/en && pnpm write-translations --locale en`), then `pnpm crowdin:upload`, then discard the regenerated files.
 4. **Full sync** (upload + download): `pnpm crowdin:sync` regenerates over the committed `i18n/en/` and so re-sends stale keys; regenerate from scratch as in step 3 first.
 5. **Check status**: Run `pnpm crowdin:check` to lint and review translation progress.
