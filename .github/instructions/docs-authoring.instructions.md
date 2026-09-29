@@ -177,4 +177,4 @@ commands labeled as generic Zsh so the custom Zi grammar is applied consistently
 
 - Edit only English source files in `docs/`, `community/`, `ecosystem/`.
 - Do not manually edit files under `i18n/`.
-- Some paths are excluded from translation (see `crowdin.yml`): `ecosystem/plugins/**`, `community/05_gallery/**`, `community/01_zsh_guide/**`.
+- Only sources `crowdin.yml` maps are translated: currently `docs/` and the UI strings in `i18n/en/`. The `community/` and `ecosystem/` mappings are commented out there, so those pages are not sent to Crowdin.
