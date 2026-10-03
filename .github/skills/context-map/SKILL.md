@@ -1,15 +1,11 @@
 ---
 name: context-map
-description: "Generate a map of all files relevant to a task before making changes"
+description: "Map z-shell wiki files, dependencies and tests for a requested investigation or a change whose scope needs clarification."
 ---
 
 # Context Map
 
-Before implementing any changes, analyze the codebase and create a context map.
-
-## Task
-
-{{task_description}}
+Use the user's current task. Inspect relevant repository files and map dependencies when this helps establish scope; a routine focused edit does not require a separate map or approval stage.
 
 ## Instructions
 
@@ -54,4 +50,4 @@ Before implementing any changes, analyze the codebase and create a context map.
 - [ ] Configuration changes required
 ```
 
-Do not proceed with implementation until this map is reviewed.
+If the request is only for a map, report it without implementation. Otherwise continue within the existing authorized scope; ask only when the map reveals a material decision or expansion needing approval.
