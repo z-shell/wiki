@@ -6,6 +6,8 @@ argument-hint: "Optional: specific files or directories to check"
 
 # Docs Release Readiness
 
+Review is read-only with respect to source files. Inspect the checkout status and command side effects first. Builds may create ignored artifacts; generators, dependency installation, source repairs and external actions need the corresponding scope. Preserve pre-existing changes. Report a check as unavailable when its prerequisites are absent.
+
 ## When to Use
 
 - Before merging a docs PR
@@ -59,13 +61,7 @@ For any new directories, confirm `_category_.json` exists with:
 
 ### 4. Heading IDs
 
-Run heading ID generation after heading changes:
-
-```sh
-pnpm write-heading-ids
-```
-
-Review the diff for unexpected ID changes that could break existing links.
+Inspect changed headings and existing anchors for broken links. To compare generated IDs, run `pnpm write-heading-ids` only in a disposable export of the reviewed revision, including the intended uncommitted changes when those are the review target. Compare its output with that exact input. Do not generate into the user's checkout during review. Applying generated changes is a separate, authorized repair.
 
 ### 5. Cross-Links
 
@@ -79,15 +75,11 @@ Review the diff for unexpected ID changes that could break existing links.
 
 ### 7. Translation Readiness
 
-This applies to files under a source that `crowdin.yml` maps and does not exclude, and to category labels in any content root (the `label` in a `_category_` file, else the `sidebar_label` or title of the category's index doc, else the directory name, plus generated-index text). The Crowdin Upload workflow extracts those labels into `i18n/en/` and uploads them on push to `main`. A label taken from an index doc or a directory name does not itself trigger the workflow; it is sent with the next triggered or dispatched run. Uploads happen only while the workflow is enabled; check with `gh workflow list --all -R z-shell/wiki`, and while it is disabled use the manual upload path in the localization-maintainer agent. To see the keys a change adds or removes, regenerate from scratch and compare with the committed files (a plain `write-translations` only appends, so it hides removed keys and mixes in older drift), then discard the result:
+Inspect the current `crowdin.yml` mappings and exclusions, category-label sources, and Crowdin workflow triggers. Report which changed content reaches translation and whether the configured upload workflow is enabled. Workflow inspection does not authorize dispatch or upload.
 
-```sh
-rm -rf i18n/en && pnpm write-translations --locale en
-git diff -- i18n/en
-git checkout -- i18n/en
-```
+For a generated-key comparison, use a disposable export of the exact review target. Omit `i18n/en/` while creating that export, then run `pnpm write-translations --locale en` there and compare the generated files with the reviewed originals. A plain run over existing translations only appends and can hide removed keys. Keep generated output in scratch; never remove or restore the user's `i18n/en/` to make a review fixture. If dependencies or safe isolation are unavailable, report generation as unverified.
 
-`pnpm crowdin:check` lints `crowdin.yml` and shows translation progress in the live project, not the local files. Report the new keys; the workflow, or the manual upload path, sends its own regenerated copy.
+`pnpm crowdin:check` contacts the live project and does not validate the local generated files. Report locally verified keys separately from live-service results. Uploads and workflow dispatch follow the localization-maintainer procedure only when explicitly authorized.
 
 ### 8. Lint
 
