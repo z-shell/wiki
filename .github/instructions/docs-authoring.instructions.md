@@ -3,7 +3,11 @@ description: "Use when creating, editing, or reorganizing MDX documentation page
 applyTo: "{docs,community,ecosystem}/**/*.mdx"
 ---
 
+<!-- PROJECT KNOWLEDGE {"project_revision":"8de78c6b9d658dbf8ce73fdc4f84c0778d12cbc9","project_source_blob":"c759eb00c300a37b34f3bb1681fb082f6dfe7c14","repository":"z-shell/wiki","revision":"162f6f91401925a4c56691a3155cda842967d444","source":"knowledge/domains/documentation/wiki-authoring.md","source_blob":"2a5c18f3d7c30f9b50d874ab6c8722316c6ac445","target":".github/instructions/docs-authoring.instructions.md"} -->
+
 # Docs Authoring
+
+This organization source supplies complete native project guidance through the approved records in `knowledge/project-delivery.json`. Edit the organization source, then publish and approve its revision before regenerating a project consumer; the generated consumer is not independently editable. Project instructions retain their existing authoring ownership until approved source publication, complete delivery and compatibility checks pass. Reconciled against project revision `8de78c6b9d658dbf8ce73fdc4f84c0778d12cbc9` of `z-shell/wiki`; repository-relative file, script and command paths below refer to that project unless they name `z-shell/.github`.
 
 ## Content Root Selection
 
@@ -122,9 +126,8 @@ component only when Markdown cannot express the interaction.
 | Context, advice, or risk       | `:::tip`, `:::info`, `:::warning`, or `:::danger` | Information whose callout level changes how readers act                   | Repeating ordinary body text or decorating every section |
 | Optional or advanced detail    | `<details>` with a one-line `<summary>`           | Long output, troubleshooting detail, or secondary explanation             | Required steps or information every reader needs         |
 | Equivalent alternatives        | `<Tabs>` and `<TabItem>`                          | Operating systems, package managers, or genuinely interchangeable methods | Sequential steps or unrelated topics                     |
-
-| Literal quotation | Markdown blockquote (`>`) | Attributed quotations | Callouts; use an admonition instead |
-| Navigation choices | `<CardGrid>` and `<Card>` | Landing-page links to peer sections | Ordinary paragraphs or isolated links |
+| Literal quotation              | Markdown blockquote (`>`)                         | Attributed quotations                                                     | Callouts; use an admonition instead                      |
+| Navigation choices             | `<CardGrid>` and `<Card>`                         | Landing-page links to peer sections                                       | Ordinary paragraphs or isolated links                    |
 
 ### Presentation rules
 

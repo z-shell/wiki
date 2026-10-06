@@ -36,12 +36,4 @@ Invoke the `docusaurus-writer` agent and provide:
 
 ### Choosing the content root
 
-Before creating a page, select the root:
-
-- Zi plugin-manager user docs → `docs/`.
-- Community content (contributing, handbook, tools such as ZUnit and Zsh Lint) → `community/`.
-- Third-party ecosystem (annexes, packages, plugins) → `ecosystem/`.
-- Admin / tooling / operational / infrastructure → **not the wiki**; these are
-  runbooks for `z-shell/.github/runbooks/`.
-
-Never put maintainer/operational documentation anywhere in the wiki.
+Before creating a page, select the root with the Content Root Selection table in `docs-authoring.instructions.md`. Maintainer, operational and infrastructure documentation never goes on the wiki.

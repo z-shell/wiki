@@ -87,8 +87,7 @@ content root using the scope rule above, then review and update these files so
 guidance stays current:
 
 - `AGENTS.md` (this file): content-root scope and conventions.
-- `.github/instructions/docs-authoring.instructions.md` — Content Root Selection.
-- `.github/instructions/agent-docusaurus-writer.instructions.md` — root selection.
+- `.github/instructions/docs-authoring.instructions.md` — Content Root Selection. This file is generated: edit its source, `knowledge/domains/documentation/wiki-authoring.md` in `z-shell/.github`, and regenerate it rather than editing it here.
 
 See the org runbook `runbooks/instruction-update.md` in `z-shell/.github` for the
 full cross-repo checklist.
