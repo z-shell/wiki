@@ -1,7 +1,7 @@
 name: "💡 Feature request"
 description: Suggest an idea for this project
 title: "[feat]: "
-labels: ["feature-request 💡"]
+labels: ["type:feature"]
 assignees: ["ss-o"]
 body:
   - type: markdown
@@ -26,7 +26,9 @@ body:
     id: additional
     attributes:
       label: Additional Context
-      description: "List any other information that is relevant to your issue. Stack traces, related issues, suggestions on how to add, use case, Stack Overflow links, forum links, screenshots, OS if applicable, etc."
+      description:
+        "List any other information that is relevant to your issue. Stack traces, related issues, suggestions on how to add, use case, Stack Overflow links, forum links, screenshots, OS if applicable,
+        etc."
     validations:
       required: false
   - type: checkboxes
@@ -36,18 +38,18 @@ body:
         If you feel like you could contribute to this issue, please check the box below. This would tell us and other people looking for contributions that someone's working on it.
         If you do check this box, please send a pull request within 7 days so we can still delegate this to someone else.
       options:
-        - label: I'd be willing to address this documentation request myself.
+        - label: I'd be willing to implement this feature myself.
   - type: checkboxes
     attributes:
       label: Have you read the Contributing Guidelines?
       options:
-        - label: I have read the [Contributing Guidelines](https://github.com/z-shell/community/blob/main/docs/CONTRIBUTING_GUIDELINES.md).
+        - label: I have read the [Contributing Guidelines](https://github.com/z-shell/.github/blob/main/.github/CONTRIBUTING.md).
           required: true
   - type: checkboxes
     attributes:
       label: Are you familiar with the Contributor Covenant Code of Conduct?
       options:
-        - label: I have read the [Contributor Covenant Code of Conduct](https://github.com/z-shell/zi/blob/main/docs/CODE_OF_CONDUCT.md).
+        - label: I have read the [Contributor Covenant Code of Conduct](https://github.com/z-shell/.github/blob/main/.github/CODE_OF_CONDUCT.md).
           required: true
   - type: input
     id: contact
