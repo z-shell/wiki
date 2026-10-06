@@ -1,7 +1,7 @@
 name: "📚 Documentation"
 description: The issue request for changes in documentation
 title: "[docs]: "
-labels: ["documentation 📝"]
+labels: ["type:docs", "area:docs"]
 assignees: ["ss-o"]
 body:
   - type: markdown
@@ -31,7 +31,7 @@ body:
       label: Select the area that is associated with this issue.
       multiple: true
       options:
-        - ZI (this repository)
+        - General
         - Annexes
         - Plugins
         - Packages
@@ -48,7 +48,7 @@ body:
     attributes:
       label: Have you read the Contributing Guidelines?
       options:
-        - label: I have read the [Contributing Guidelines](https://github.com/z-shell/community/blob/main/docs/CONTRIBUTING_GUIDELINES.md).
+        - label: I have read the [Contributing Guidelines](https://github.com/z-shell/.github/blob/main/.github/CONTRIBUTING.md).
           required: true
   - type: checkboxes
     attributes:
