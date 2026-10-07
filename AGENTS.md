@@ -34,7 +34,7 @@ Before acting, select every surface below whose tasks and file patterns both mat
 - `.github/skills/editorconfig/SKILL.md`: tasks `repository-bootstrap`; files `**`
 - `.github/skills/ui-design/SKILL.md`: tasks `implementation`; files `src/**/*.{css,module.css}`, `src/**/*.tsx`
 - `.github/skills/what-context-needed/SKILL.md`: tasks `context-engineering`; files `**`
-- `.github/skills/code-review/SKILL.md`: tasks `code-review`, `review-readiness`, `organization-review`, `project-health`, `repository-health`, `repository-health-audit`, `repository-health-check`; files `**`; organization skill vendored at approved revision `5593b7d28430`
+- `.github/skills/code-review/SKILL.md`: tasks `code-review`, `review-readiness`, `organization-review`, `project-health`, `repository-health`, `repository-health-audit`, `repository-health-check`; files `**`; organization skill vendored at approved revision `ede9ed985dd2`
 
 Organization-wide surfaces are routed by the [organization manifest](https://github.com/z-shell/.github/blob/main/.github/instruction-surfaces.json). This block is delivered and verified under [decision 0031](https://github.com/z-shell/.github/blob/main/decisions/0031-per-repository-instruction-routing-delivery.md).
 
