@@ -91,4 +91,4 @@ A Zi package repository contains a `package.json` with source metadata under `zs
 4. Validate installation, updates, and removal in an isolated environment before publishing the recipe.
 5. For discovery under the Z-Shell organization, coordinate with its maintainers. For another owner, see [`ZI[PKG_OWNER]`](/docs/guides/customization#modify-settings).
 
-Use current `zi-ices` metadata when creating a package. Legacy recipes using `zplugin-ices` are not compatible with Zi's current `next` parser.
+Use current `zi-ices` metadata when creating a package. Zi's current `main` reader accepts legacy `zplugin-ices` when `zi-ices` is absent, but the package contract and validator require `zi-ices` for new definitions.

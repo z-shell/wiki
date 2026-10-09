@@ -33,17 +33,18 @@ Thank you for contributing to zi! This page covers the guidelines specific to th
 
 ## Repository Overview
 
-Zi is a Zsh plugin manager written entirely in Zsh. The source lives in `lib/zsh/`
-with the main entry point at `lib/zsh/zi.zsh`. The installer lives in
+Zi is a Zsh plugin manager written entirely in Zsh. The entry point is `zi.zsh`
+at the repository root, with sourced implementation in `lib/zsh/`. The installer lives in
 [`z-shell/src`](https://github.com/z-shell/src).
 
 ```text
 zi/
+  zi.zsh            ← plugin manager entry point
   lib/zsh/          ← core plugin manager source
   docs/             ← repository-level docs (CONTRIBUTING.md, man page)
-  tests/            ← ZUnit test suite
+  tests/            ← focused Zsh regressions
   .github/
-    workflows/      ← CI workflows (syntax check, ZUnit, CodeQL)
+    workflows/      ← CI workflows and full stable qualification
 ```
 
 ## Setting Up Locally
@@ -52,7 +53,8 @@ zi/
 git clone https://github.com/<your-username>/zi.git
 cd zi
 git remote add upstream https://github.com/z-shell/zi.git
-git checkout -b feature-123 next
+git fetch upstream
+git checkout -b feature-123 upstream/main
 ```
 
 No build step is required — zi is pure Zsh. To test changes interactively, source
@@ -60,35 +62,38 @@ the modified files in a Zsh session:
 
 ```zsh
 zsh
-source lib/zsh/zi.zsh
+source zi.zsh
 ```
 
 ## Running Tests
 
-Zi uses [ZUnit](https://github.com/z-shell/zunit) for tests:
+Run native syntax checks and the focused Zsh regressions affected by your change:
 
-```zunit
-# Run all tests
-zunit
-
-# Run a single test file
-zunit tests/install.zunit
+```zsh
+zsh -f -n zi.zsh
+zsh -f tests/ice-tokenizer.zsh
+zsh -f tests/ci-registration.zsh
 ```
 
-Tests live in `tests/`. Add or update tests when your change affects behavior.
+Read each test before running it and isolate inherited installation prefixes
+such as `ZPFX`. The [contribution guide](https://github.com/z-shell/zi/blob/main/docs/CONTRIBUTING.md)
+and [Zsh workflow](https://github.com/z-shell/zi/blob/main/.github/workflows/zsh-n.yml)
+define the suite. Full stable qualification also runs the ZD integration suite,
+clean startup, and real-object lifecycle checks. Add or update focused tests
+when your change affects behavior.
 
 ## Zi-Specific Commit Scopes
 
 In addition to the [standard commit types](getting_started#commit-message-format),
 prefer these scopes when relevant:
 
-| Scope     | Covers                                  |
-| --------- | --------------------------------------- |
-| `core`    | `lib/zsh/zi.zsh` and `lib/zsh/zi-*.zsh` |
-| `install` | installer scripts in `src`              |
-| `ci`      | GitHub Actions workflows                |
-| `docs`    | repository-level documentation          |
-| `annex`   | annex API surface changes               |
+| Scope     | Covers                                     |
+| --------- | ------------------------------------------ |
+| `core`    | `zi.zsh` and its `lib/zsh/` implementation |
+| `install` | installer scripts in `src`                 |
+| `ci`      | GitHub Actions workflows                   |
+| `docs`    | repository-level documentation             |
+| `annex`   | annex API surface changes                  |
 
 Examples:
 
@@ -118,20 +123,21 @@ to discuss the change. Use the appropriate issue template:
 | Feature request | New capability           |
 | Annex proposal  | Proposing a new annex    |
 
-## Stable Branch Promotion
+## Protected main contributions {/* #stable-branch-promotion */}
 
-Zi is the organization's named persistent-integration exception:
+Branch from current `main` and open your pull request into protected `main`:
 
-1. Ordinary work merges into `next`.
-2. A maintainer opens a promotion pull request from `next` to stable `main`.
-3. Promotion uses **Create a merge commit**, never squash or rebase, so Git
-   ancestry is preserved and no routine back-merge is needed.
-4. A critical hotfix may merge directly into `main`; maintainers merge it
-   forward into `next` before the next promotion.
+1. Keep feature, fix, and hotfix branches short-lived and linked to an issue.
+2. Every merge must pass full stable qualification and the required review.
+3. Ordinary pull requests use squash merge. Historical promotion ancestry
+   remains preserved in `main`.
 
-`main` is a directly consumable stable ref, not a tag-driven package publication
-boundary. Maintainers handle promotion. As a contributor, target `next` unless
-you are working on an explicitly coordinated critical hotfix.
+`main` remains the directly consumable stable ref. Signed version milestones
+are separate maintainer actions on the qualified current `main` commit; merging
+a pull request does not create a release. See
+[ADR 0039](https://github.com/z-shell/.github/blob/main/decisions/0039-zi-main-integration-and-signed-milestones.md)
+and the [contribution guide](https://github.com/z-shell/zi/blob/main/docs/CONTRIBUTING.md)
+for the current contract.
 
 ## See Also
 
