@@ -54,16 +54,16 @@ git remote add upstream https://github.com/z-shell/<repo>.git
 The organization default is trunk-based development on `main`. Branch from the
 current `main` and open your pull request into `main`.
 
-`zi` is the sole named exception. Its ordinary contributions branch from and
-target `next`; a maintainer promotes `next` to stable `main` with a merge
-commit. Do not infer a repository's model merely from whether an old `next`
-reference exists.
+Zi uses protected `main` with full stable qualification before every merge.
+Its former `next` integration model is retired under
+[ADR 0039](https://github.com/z-shell/.github/blob/main/decisions/0039-zi-main-integration-and-signed-milestones.md).
+An old `next` reference does not change the contribution target.
 
 :::warning[Check the repository instructions]
 
 Opening a pull request against the wrong base is a common first-time
-contribution mistake. Read the owning repository's `AGENTS.md`. Unless it is
-`z-shell/zi`, use `main`.
+contribution mistake. Read the owning repository's contribution guidance and
+`AGENTS.md`, and use `main`.
 
 :::
 
@@ -71,10 +71,9 @@ The authoritative per-repository table lives in
 [ADR 0019: Trunk-on-Main Default](https://github.com/z-shell/.github/blob/main/decisions/0019-trunk-on-main-default.md).
 At the time of writing:
 
-| Integration branch      | Repositories                                      |
-| ----------------------- | ------------------------------------------------- |
-| trunk on `main`         | all repositories except the named exception below |
-| `next` to stable `main` | `zi`                                              |
+| Integration branch | Repositories                     |
+| ------------------ | -------------------------------- |
+| trunk on `main`    | all repositories, including `zi` |
 
 Consult the ADR rather than this table if the two ever disagree; the ADR is the
 source of truth, and changing a repository's model requires amending it.
@@ -92,10 +91,9 @@ hotfix-<issue>   urgent fixes branched from the stable or deployment ref
 **Rules:**
 
 1. **Branch from current `main`** and open the pull request into `main`.
-2. For `zi` ordinary work only, branch from and target `next`.
-3. For a critical `zi` hotfix, branch from and target `main`; maintainers then
-   merge the hotfix forward into `next` before the next promotion.
-4. Keep the branch short-lived and linked to its owning issue.
+2. Keep the branch short-lived and linked to its owning issue.
+3. For Zi, every merge must pass full stable qualification. Hotfixes use the
+   same protected `main` path.
 
 ## Commit Message Format
 
@@ -138,7 +136,6 @@ BREAKING CHANGE: description of what breaks
 To tidy commits before opening a PR:
 
 ```sh
-# For zi ordinary work only, replace main with next
 git rebase -i $(git merge-base HEAD main)
 ```
 
@@ -152,8 +149,8 @@ git rebase -i $(git merge-base HEAD main)
 
 Before opening a PR:
 
-- [ ] Branched from current `main` (or `next` for ordinary `zi` work)
-- [ ] Pull request targets `main` (or `next` for ordinary `zi` work)
+- [ ] Branched from current `main`
+- [ ] Pull request targets `main`
 - [ ] Commits follow Conventional Commits
 - [ ] No secrets or AI config files added
 - [ ] Relevant docs or tests updated
@@ -163,7 +160,6 @@ Before opening a PR:
 
 ```sh
 git fetch upstream
-# For zi ordinary work only, replace main with next
 git rebase upstream/main
 ```
 

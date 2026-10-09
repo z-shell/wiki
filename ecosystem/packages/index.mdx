@@ -410,9 +410,9 @@ This is the notification half of a two-package setup. Load [github-issues-srv](#
 
 :::
 
-:::warning[Zi branch compatibility]
+:::info[Legacy metadata]
 
-This package still uses `zplugin-ices` in its [manifest](https://github.com/z-shell/github-issues/blob/8dd8e6153bfdd9f8c05cc5615c9b3e673e9134e1/package.json). Zi's stable `main` parser accepts the legacy layout, but the current `next` parser requires `zi-ices`. The commands below describe the legacy recipe and are not compatible with `next` until the package metadata is updated.
+This package uses `zplugin-ices` in its [manifest](https://github.com/z-shell/github-issues/blob/8dd8e6153bfdd9f8c05cc5615c9b3e673e9134e1/package.json). Zi's current `main` reader accepts this legacy spelling when `zi-ices` is absent. Use `zi-ices` when authoring new package metadata.
 
 :::
 
@@ -449,9 +449,9 @@ Runs the retrieval service used by [github-issues](#github-issues). The upstream
 
 :::
 
-:::warning[Zi branch compatibility]
+:::info[Legacy metadata]
 
-The [manifest](https://github.com/z-shell/github-issues-srv/blob/c41290a52998793793da5aca0212fab7ac7146e8/package.json) uses the legacy `zplugin-ices` layout. The following command is intended for Zi's stable `main` parser; it is not compatible with the current `next` parser until the metadata is updated.
+The [manifest](https://github.com/z-shell/github-issues-srv/blob/c41290a52998793793da5aca0212fab7ac7146e8/package.json) uses the legacy `zplugin-ices` spelling. Zi's current `main` reader accepts it when `zi-ices` is absent; new package metadata should use `zi-ices`.
 
 :::
 
