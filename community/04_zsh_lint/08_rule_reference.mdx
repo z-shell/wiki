@@ -21,7 +21,7 @@ documentation workflow replaces it automatically.
 {/* zsh-lint:generated:start */}
 
 :::info Published rule set
-This reference was generated from the published `v1.3.0` release at commit [`999cb76cc65ef6af56c0ae65ab0f3622eb527944`](https://github.com/z-shell/zsh-lint/commit/999cb76cc65ef6af56c0ae65ab0f3622eb527944). It matches the rules users receive from `go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.3.0`.
+This reference was generated from the published `v1.4.0` release at commit [`aff60185cddb4b829f39f2db82aae9fc7bce3e7d`](https://github.com/z-shell/zsh-lint/commit/aff60185cddb4b829f39f2db82aae9fc7bce3e7d). It matches the rules users receive from `go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.4.0`.
 :::
 
 ## Rules
@@ -33,6 +33,7 @@ This reference was generated from the published `v1.3.0` release at commit [`999
 - [`plugin/function-scoped-options`](#rule-pluginfunction-scoped-options): Function files should scope shell options
 - [`plugin/load-only-helper`](#rule-pluginload-only-helper): Remove load-only helper functions
 - [`plugin/persistent-parameter-namespace`](#rule-pluginpersistent-parameter-namespace): Private project-owned persistent parameter namespace
+- [`plugin/project-unload-lifecycle`](#rule-pluginproject-unload-lifecycle): Project-wide unload entrypoint presence
 - [`plugin/shared-plugins-registry`](#rule-pluginshared-plugins-registry): No shared Plugins registry mutation
 - [`plugin/unload-function`](#rule-pluginunload-function): Unload function convention and hygiene
 - [`plugin/zero-handling`](#rule-pluginzero-handling): Zero-handling idiom in plugin entrypoint
@@ -80,7 +81,7 @@ Corpus evidence: Issue #64 records `zd/docker/utils.zsh:78`: `local ZSH_VERSION=
 
 **Summary:** Reports a conservative allowlist of commands that necessarily create a process when they occur in a loop in a configured completion source.
 
-Why: A loop with N iterations creates N external processes for each reported call. Process creation is the dominant fixed cost even when the command does little work. Hoist invariant work, use Zsh-native parameter operations, or measure and retain the call when its result genuinely varies per iteration.
+Why: A loop with N iterations creates N external processes for each reported call. Process creation is the dominant fixed cost even when the command does little work. Hoist invariant work, use Zsh-native parameter operations, or measure and retain the call when its result genuinely varies per iteration. Zsh invokes a shell function or builtin of that name first; only when neither exists does it search `$path` and execute the program found there. See https://zsh.sourceforge.io/Doc/Release/Command-Execution.html#Command-Execution.
 
 **Severity:** Info. The cost model is certain, but whether it matters depends on iteration count, command work, and the interactive completion workload.
 
@@ -241,6 +242,39 @@ False positives: The standard process-wide parameters `path`, `PATH`, `fpath`, `
 
 Corpus evidence: z-a-meta-plugins#54, zsh-fancy-completions#59, and zsh-eza#119 track current unnamespaced configured-corpus parameters.
 
+## Rule: `plugin/project-unload-lifecycle`
+
+**Name:** Project-wide unload entrypoint presence
+
+**Summary:** Reports each persistent hook or widget registration (`add-zsh-hook`, `add-zle-hook-widget`, `zle -N`) in configured plugin and Zi annex sourced-library sources when no configured source in the same invocation defines a `*_plugin_unload` function.
+
+Why: The Zsh Plugin Standard requires a plugin with persistent side effects to provide a namespaced unload function. A project may register a hook in its entrypoint and define the unload function in another source, so presence is checked across the whole configured project rather than per file. See https://wiki.zshell.dev/community/zsh_plugin_standard#lifecycle-and-resource-ownership.
+
+**Bad:**
+
+```zsh
+#### example.plugin.zsh; no configured source defines an unload function
+add-zsh-hook precmd _example_precmd
+```
+
+**Good:**
+
+```zsh
+#### example.plugin.zsh
+add-zsh-hook precmd _example_precmd
+
+#### functions/example_plugin_unload, a configured source of the same project
+example_plugin_unload() { ... }
+```
+
+**Severity:** Hint. Static presence of an unload entrypoint is a lifecycle recommendation; it does not prove runtime restoration.
+
+False positives: Plugins intended only for once-per-session loading without unload support. Suppress with a reason.
+
+**Suppression:** Use `# zsh-lint disable=plugin/project-unload-lifecycle -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
+
+Corpus evidence: See `plugin/unload-function`; this rule applies the same convention across configured project sources (docs/project/project-configuration.md).
+
 ## Rule: `plugin/shared-plugins-registry`
 
 **Name:** No shared Plugins registry mutation
@@ -344,7 +378,7 @@ Corpus evidence: z-a-meta-plugins, zsh-fancy-completions, and zsh-eza use the ca
 
 **Name:** Unquoted variable expansion
 
-**Summary:** Reports parameter expansions in command names or arguments that are not enclosed in double quotes.
+**Summary:** Reports standalone unquoted parameter expansions in command arguments that may lose an empty value, with element-preserving advice for declared arrays.
 
 Why: The Zsh manual's Parameter Expansion section explains that unquoted parameters are not split on whitespace by default, unlike in sh, but null words are still elided; enabling `SH_WORD_SPLIT` also makes unquoted values subject to field splitting. Double quotes preserve an empty scalar as an argument and keep the expansion single-word under either option state. See https://zsh.sourceforge.io/Doc/Release/Expansion.html#Parameter-Expansion.
 
@@ -360,9 +394,9 @@ print -r -- $value
 print -r -- "$value"
 ```
 
-**Severity:** Warning. Losing an empty argument or inheriting `SH_WORD_SPLIT` can change command behavior, while intentional elision remains realistic.
+**Severity:** Info. Losing an empty argument can change command behavior, but intentional elision and values guaranteed to be non-empty are common.
 
-False positives: Explicit native-Zsh splitting forms such as `${=words}` and flag-guided array or field splitting are excluded. Other code may intentionally omit an empty argument, rely on `SH_WORD_SPLIT`, or expand a value guaranteed to be non-empty. Those cases should use a reasoned suppression rather than weakening unrelated diagnostics.
+False positives: Explicit native-Zsh splitting forms such as `${=words}`, flag-guided array or field splitting, and glob substitution `${~pattern}` (whose value must stay unquoted to match as a pattern) are excluded. Compound words, command names, and arguments of `:` are also excluded. Code may intentionally omit an empty argument or expand a value guaranteed to be non-empty; suppress those cases with a reason. Array advice uses only earlier declarations in the same lexical function or file scope, without resolving dynamic caller scope or declarations in other files.
 
 **Suppression:** Use `# zsh-lint disable=quoting/unquoted-var -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
 
