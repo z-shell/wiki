@@ -27,7 +27,8 @@ walks toward the filesystem root, using the nearest `zsh-lint.json`. Inputs
 found under the same configuration are analyzed together as one project; inputs
 under different configurations stay separate. A file with no configuration
 above it, or one that matches no configured source root, uses the default rule
-set.
+set. Certain rules, such as `quoting/unquoted-var`, report only for sources
+that belong to a configured project.
 
 | Option          | Effect                                                          |
 | --------------- | --------------------------------------------------------------- |
