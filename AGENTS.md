@@ -127,9 +127,10 @@ full cross-repo checklist.
 
 - `main` is the integration and production-deployment branch under organization
   ADR 0019. Branch from current `main` and target `main`.
-- Branch naming: `feature-<issue>`, `bug-<issue>`, or `hotfix-<issue>`, matching
-  the published contributor guide in
-  `community/00_contributing/01_getting_started.mdx`.
+- Branch naming: `feature-<issue>`, `bug-<issue>` or `hotfix-<issue>` with an
+  optional `-<slug>`, or `<type>/<slug>`, as `commit-lint.yml` enforces and the
+  published contributor guide in
+  `community/00_contributing/01_getting_started.mdx` describes.
 - Keep pull requests small and keep `main` releasable; deployment remains a
   separate workflow result after merge.
 
