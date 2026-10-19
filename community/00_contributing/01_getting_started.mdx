@@ -80,13 +80,19 @@ source of truth, and changing a repository's model requires amending it.
 
 ### Branch naming
 
-Use the issue-linked organization names:
+Use an issue-linked organization name, optionally followed by a lowercase
+`-<slug>` such as `feature-668-pull-requests`:
 
 ```text
 feature-<issue>  planned features, documentation, refactors, and maintenance
 bug-<issue>      non-critical bug fixes
 hotfix-<issue>   urgent fixes branched from the stable or deployment ref
 ```
+
+The `<type>/<slug>` form, with a Conventional Commits type such as
+`docs/pull-requests-runbook`, is accepted too. Each repository's commit-lint
+workflow checks the name, and a repository may narrow it: F-Sy-H accepts only
+`feature-<issue>`, `bug-<issue>` and `hotfix-<issue>`.
 
 **Rules:**
 
