@@ -21,7 +21,7 @@ advisory findings in a greppable format.
 Install the current published release with an exact version:
 
 ```sh
-go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.3.0
+go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.6.0
 ```
 
 Then check a file:
@@ -121,13 +121,22 @@ For parser-only corpus evaluation without lint rules, use the advanced
   See the readable rule set generated from the latest published release.
 </Card>
 
+<Card
+  title="MCP server"
+  to="/community/zsh_lint/zsh-lint-mcp-server"
+  icon="/img/svg/cards/meta-plugins.svg"
+  cta="Serve analysis"
+>
+  Run the stdio JSON-RPC server to provide static diagnostics and native syntax checks to MCP clients.
+</Card>
+
 </CardGrid>
 
 ## Published behavior
 
-The guides describe v1.3.0, which includes project configuration and automatic
-`zsh-lint.json` discovery. Automatic source-file discovery and shebang-based
-classification are not implemented; that design is tracked in
+The guides describe v1.6.0, which includes project configuration, automatic
+`zsh-lint.json` discovery, and an MCP server. Automatic source-file discovery
+and shebang-based classification are not implemented; that design is tracked in
 [zsh-lint issue 183](https://github.com/z-shell/zsh-lint/issues/183).
 
 Source code and development status live in

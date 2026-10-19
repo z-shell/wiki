@@ -2,7 +2,7 @@
 id: zsh-lint-getting-started
 title: Getting started
 sidebar_position: 2
-description: Install Zsh Lint v1.3.0 and run a first semantic check.
+description: Install Zsh Lint v1.6.0 and run a first semantic check.
 keywords:
   - zsh-lint
   - installation
@@ -12,7 +12,7 @@ keywords:
 
 ## What you need
 
-- Go 1.25 or a compatible version accepted by the module
+- Go 1.27 or a compatible version accepted by the module
 - A Zsh source file to inspect
 
 Zsh itself is strongly recommended for a native syntax check, but the linter
@@ -21,20 +21,22 @@ binary is written in Go and does not source or execute the file it analyzes.
 ## Install a reproducible version
 
 ```sh
-go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.3.0
+go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.6.0
 ```
 
 Confirm that your shell can find it:
 
 ```sh
-zsh-lint 2>&1 | head -n 1
+zsh-lint --help
 ```
 
-Seeing the usage line confirms the binary runs. It exits with status 2 because
-no input path was supplied. If the command is not found, use:
+In v1.6.0, `-h` and `--help` print usage and options to standard output and
+exit 0. Running `zsh-lint` without arguments prints the usage line to standard
+error and exits with status 2 because no input path was supplied. If the
+command is not found, use:
 
 ```sh
-"$(go env GOPATH)/bin/zsh-lint" 2>&1 | head -n 1
+"$(go env GOPATH)/bin/zsh-lint" --help
 ```
 
 ## Make a small input
@@ -56,14 +58,19 @@ zsh-lint hello.zsh
 ```
 
 No output and exit status 0 means the file parsed and no warning or error was
-reported. A finding looks like this:
+reported.
+
+A finding names its location and rule. For example, if line 4 were
+`print -r -- $name` in a configured project, Zsh Lint would report:
 
 ```text
 hello.zsh:4:13: [quoting/unquoted-var] Variable expansion should be double-quoted
 ```
 
 The bracketed value is the rule ID. Use it to find rule details or write a
-narrow suppression.
+narrow suppression. In v1.6.0, `quoting/unquoted-var` reports only for sources
+under a [project configuration](./03_project_configuration.mdx), at Info
+severity, so this finding alone leaves the exit status at 0.
 
 ## Check more than one file
 
@@ -72,7 +79,8 @@ zsh-lint bin/build.zsh functions/example-run example.plugin.zsh
 ```
 
 Each argument must be a readable file. Zsh Lint does not recurse through a
-directory or read source from standard input in v1.3.0.
+directory or read source from standard input in v1.6.0.
 
 Next, read [Choosing files](./02_choosing_files.mdx) before applying the command
-to a mixed-language repository.
+to a mixed-language repository, or see [MCP server](./09_mcp_server.mdx) to integrate
+`zsh-lint` into editor and assistant workflows.

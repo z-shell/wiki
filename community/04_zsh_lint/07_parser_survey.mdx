@@ -17,11 +17,20 @@ lint rules and should not replace `zsh-lint` in ordinary CI.
 ## Install and run
 
 ```sh
-go install github.com/z-shell/zsh-lint/cmd/zsh-lint-survey@v1.3.0
+go install github.com/z-shell/zsh-lint/cmd/zsh-lint-survey@v1.6.0
 zsh-lint-survey scripts/build.zsh functions/example-run
 ```
 
-The command prints parser failures in a greppable form and ends with a summary.
+The command checks each file with the parser front end, prints `OK` or `FAIL`
+for each input, and ends with a summary count:
+
+```text
+OK   scripts/build.zsh
+OK   functions/example-run
+
+2 file(s) surveyed, 2 ok, 0 failed
+```
+
 Like the linter, it does not discover files or classify dialects. Supply a
 reviewed Zsh-only list.
 

@@ -1,0 +1,140 @@
+---
+id: zsh-lint-mcp-server
+title: MCP server
+sidebar_position: 10
+description: Connect zsh-lint to MCP clients over stdio for static diagnostics and native Zsh syntax checks.
+keywords:
+  - zsh-lint
+  - mcp
+  - model context protocol
+  - static analysis
+  - syntax check
+---
+
+`zsh-lint` includes a local Model Context Protocol (MCP) server that provides
+static semantic analysis and native Zsh syntax validation to MCP clients over
+standard input and output.
+
+## How it works
+
+Start the server with the `mcp` subcommand from the working directory against
+which relative paths should resolve:
+
+```sh
+zsh-lint mcp
+```
+
+The server communicates using newline-delimited JSON-RPC 2.0 on standard input
+and standard output. Standard output carries protocol messages only; server
+logging is written to standard error.
+
+Configure an MCP client to launch the server by specifying the command `zsh-lint`
+with the argument list `["mcp"]`. The command does not install an HTTP listener,
+write configuration files, or perform automatic client registration.
+
+To select a specific Zsh binary for native syntax checks, pass `--zsh PATH`:
+
+```sh
+zsh-lint mcp --zsh /path/to/zsh
+```
+
+To display usage information without starting the server, pass `-h` or `--help`:
+
+```sh
+zsh-lint mcp --help
+```
+
+Like the main CLI, `-h` and `--help` print usage to standard output and exit 0.
+Startup usage errors exit with status 2, and closing standard input (EOF) shuts
+down the server normally.
+
+## Available tools
+
+The server registers exactly two tools: `zsh_lint` and `zsh_syntax`. Both tools
+require explicit file paths resolved against the server working directory. They do
+not accept directory paths, inline source text, or recursive globs.
+
+### `zsh_lint`
+
+`zsh_lint` runs static analysis and emits diagnostics in the version 1 JSON
+envelope used by `zsh-lint --format=json`.
+
+#### Arguments
+
+- `files` (array of strings, required): Non-empty array of file paths to analyze.
+- `config` (string, optional): Path to an explicit `zsh-lint.json` configuration file.
+- `no_config` (boolean, optional, default `false`): Disables automatic `zsh-lint.json` discovery.
+
+`config` and `no_config: true` are mutually exclusive. When neither is provided,
+the server walks up the directory hierarchy from each input file to discover the
+nearest `zsh-lint.json`. Files analyzed together in one call share project rule
+scope.
+
+#### Results
+
+Analyzer findings, including parser errors reported under the reserved rule
+`parse/error`, are returned as successful tool results (`isError: false`) with
+the diagnostic envelope in `structuredContent` and serialized in the text content
+block.
+
+Unreadable inputs, non-regular files, or configuration errors return an error
+result (`isError: true`) with actionable error text. When partial diagnostics
+exist alongside a configuration discovery failure, the result includes the
+diagnostic envelope followed by the error text. Without diagnostics, the error
+text is the only content block.
+
+### `zsh_syntax`
+
+`zsh_syntax` validates file syntax with native Zsh using two complementary
+checks: a syntax pass (`zsh -f -n -- FILE`) and compilation
+(`zcompile -U -R`).
+
+#### Arguments
+
+- `files` (array of strings, required): Non-empty array of file paths to check.
+
+This tool does not use `zsh-lint.json` configuration.
+
+#### Evaluation and results
+
+The server locates `zsh` on `PATH` by default, or uses the path supplied via
+`--zsh` at startup. If native Zsh is missing from `PATH`, only `zsh_syntax`
+fails; static analysis with `zsh_lint` continues to function.
+
+Compilation writes to a disposable temporary directory, which is removed when
+the call finishes. No `.zwc` file is written beside an input.
+
+A file is considered valid (`valid: true`) only when both checks complete with
+empty standard error. Exit status alone does not determine validity because
+valid Zsh constructs such as negation (`! true`) exit with status 1 under
+`zsh -f -n` despite having valid syntax.
+
+The result contains a `files` array matching the input order:
+
+```json
+{
+  "files": [
+    {
+      "file": "script.zsh",
+      "valid": true,
+      "syntax": {"stderr": "", "exit_code": 0},
+      "compile": {"stderr": "", "exit_code": 0}
+    }
+  ]
+}
+```
+
+Files with syntax errors return `valid: false` within a successful tool call.
+Infrastructure errors such as missing input files, execution failures, or
+timeouts return `isError: true`.
+
+## Security and execution boundaries
+
+Static analysis performed by `zsh_lint` does not source or execute inspected files.
+
+Native syntax checks executed by `zsh_syntax` do not run the input program,
+but the system `zshenv` startup file still runs, and native parsing is not a
+sandbox for hostile source. Use the native checks only with trusted input files,
+a trusted Zsh executable and trusted system startup configuration.
+Both tools report read-only and idempotent hints because their intended effect
+is analysis.

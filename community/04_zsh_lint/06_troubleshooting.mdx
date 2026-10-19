@@ -45,9 +45,24 @@ valid native Zsh only to satisfy a supplemental parser.
 ## `--config` is rejected
 
 The option needs v1.2.0 or newer, and automatic discovery plus `--no-config`
-need v1.3.0; an older pinned binary prints the usage line instead. Upgrade the
-pin, then see
-[Project configuration](./03_project_configuration.mdx).
+need v1.3.0; an older pinned binary reports `flag provided but not defined` and
+prints the usage line to standard error with exit status 2. Upgrade the pin,
+then see [Project configuration](./03_project_configuration.mdx).
+
+## Checking usage and options
+
+Pass `-h` or `--help` to inspect usage for `zsh-lint` or `zsh-lint mcp`:
+
+```sh
+zsh-lint --help
+zsh-lint mcp --help
+```
+
+In v1.6.0, `-h` and `--help` print usage and available options to standard
+output and exit 0 without running analysis or starting the server. Before
+v1.6.0, they printed `flag: help requested` to standard error and exited with
+status 2. Other usage errors, such as unknown flags or missing arguments,
+print to standard error and exit with status 2.
 
 ## Exit status 1 with no obvious error
 
