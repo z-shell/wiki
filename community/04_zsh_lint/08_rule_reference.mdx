@@ -21,7 +21,7 @@ documentation workflow replaces it automatically.
 {/* zsh-lint:generated:start */}
 
 :::info Published rule set
-This reference was generated from the published `v1.3.0` release at commit [`999cb76cc65ef6af56c0ae65ab0f3622eb527944`](https://github.com/z-shell/zsh-lint/commit/999cb76cc65ef6af56c0ae65ab0f3622eb527944). It matches the rules users receive from `go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.3.0`.
+This reference was generated from the published `v1.6.0` release at commit [`f6341241c398fd2a784452e75895dafb06186bbc`](https://github.com/z-shell/zsh-lint/commit/f6341241c398fd2a784452e75895dafb06186bbc). It matches the rules users receive from `go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.6.0`.
 :::
 
 ## Rules
@@ -33,6 +33,7 @@ This reference was generated from the published `v1.3.0` release at commit [`999
 - [`plugin/function-scoped-options`](#rule-pluginfunction-scoped-options): Function files should scope shell options
 - [`plugin/load-only-helper`](#rule-pluginload-only-helper): Remove load-only helper functions
 - [`plugin/persistent-parameter-namespace`](#rule-pluginpersistent-parameter-namespace): Private project-owned persistent parameter namespace
+- [`plugin/project-unload-lifecycle`](#rule-pluginproject-unload-lifecycle): Project-wide unload entrypoint presence
 - [`plugin/shared-plugins-registry`](#rule-pluginshared-plugins-registry): No shared Plugins registry mutation
 - [`plugin/unload-function`](#rule-pluginunload-function): Unload function convention and hygiene
 - [`plugin/zero-handling`](#rule-pluginzero-handling): Zero-handling idiom in plugin entrypoint
@@ -66,9 +67,9 @@ compile_zsh() {
 }
 ```
 
-**Severity:** Warning. The pattern is functional but misleading and can change what nested code observes; deliberate compatibility shims are realistic, so it is suppressible rather than an error.
+**Severity:** Warning. The pattern is functional but misleading and can change what nested code observes; deliberate compatibility shims are realistic, so it is suppressible rather than an error. An initialized function-local OSTYPE in test source is Info: platform simulation deliberately changes what nested code observes. Explicit test-fixture metadata takes precedence; unconfigured source uses exact test/tests path components, ignoring case.
 
-False positives: Deliberate compatibility shims or test harnesses that fake `ZSH_VERSION` or `OSTYPE` for downstream code are the rule's target behavior made intentional; suppress them with a reason. The rule flags only a curated allowlist of read-mostly shell-set parameters and stays silent for reads and the conventionally mutated `path`, `fpath`, `PATH`, `REPLY`, and `match`. The shell-special `status` and `pipestatus` cases remain included because `local -h status=...` and `local -h pipestatus=(...)` can replace their special behavior with ordinary local bindings.
+False positives: Deliberate compatibility shims or test harnesses that fake `ZSH_VERSION` or `OSTYPE` for downstream code are the rule's target behavior made intentional; initialized local OSTYPE in test source is informational, while other intentional overrides may be suppressed with a reason. The test-path fallback is a heuristic, not proof of intent. Production profiles, top-level declarations and valueless locals retain Warning. The rule flags only a curated allowlist of read-mostly shell-set parameters and stays silent for reads and the conventionally mutated `path`, `fpath`, `PATH`, `REPLY`, and `match`. The shell-special `status` and `pipestatus` cases remain included because `local -h status=...` and `local -h pipestatus=(...)` can replace their special behavior with ordinary local bindings.
 
 **Suppression:** Use `# zsh-lint disable=compat/special-param-shadow -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
 
@@ -80,7 +81,7 @@ Corpus evidence: Issue #64 records `zd/docker/utils.zsh:78`: `local ZSH_VERSION=
 
 **Summary:** Reports a conservative allowlist of commands that necessarily create a process when they occur in a loop in a configured completion source.
 
-Why: A loop with N iterations creates N external processes for each reported call. Process creation is the dominant fixed cost even when the command does little work. Hoist invariant work, use Zsh-native parameter operations, or measure and retain the call when its result genuinely varies per iteration.
+Why: A loop with N iterations creates N external processes for each reported call. Process creation is the dominant fixed cost even when the command does little work. Hoist invariant work, use Zsh-native parameter operations, or measure and retain the call when its result genuinely varies per iteration. Zsh invokes a shell function or builtin of that name first; only when neither exists does it search `$path` and execute the program found there. See https://zsh.sourceforge.io/Doc/Release/Command-Execution.html#Command-Execution.
 
 **Severity:** Info. The cost model is certain, but whether it matters depends on iteration count, command work, and the interactive completion workload.
 
@@ -90,9 +91,9 @@ False positives: A command whose result must be recomputed for each item may be 
 
 **Name:** fpath manipulation hygiene in plugin entrypoints
 
-**Summary:** In configured plugin and Zi annex sourced-library entrypoints, detects destructive assignments to `fpath` that overwrite existing autoload paths, additions of non-function directories (`bin/`, `tests/`), and hardcoded user paths. Unconfigured analysis retains its legacy applicability.
+**Summary:** Checks array `fpath` and scalar `FPATH` assignments, declarations, and `set -A fpath` for destructive literal replacements, non-function directories (`bin/`, `tests/`), and user-specific paths including `~/`. Configured analysis checks executed plugin and Zi annex sourced-library entrypoints; unconfigured analysis also visits named functions, but skips exact test/tests path components, ignoring case. Explicit configured profiles take precedence over that path heuristic. Function-local search paths are not caller mutations.
 
-Why: Sourced Zsh plugins must not destructively replace `fpath` (which removes standard system and user function directories), add hardcoded user machine paths, or add non-function directories (`bin/`, `tests/`) that can trigger completion security audit warnings (`compaudit`) or namespace collisions. Plugins should append or prepend relative `functions/` or `completions/` directories. See https://wiki.zshell.dev/community/zsh_plugin_standard#completions-and-compinit-ownership.
+Why: Sourced Zsh plugins must not destructively replace `fpath` (which removes standard system and user function directories), add hardcoded user machine paths, or add non-function directories (`bin/`, `tests/`) that can trigger completion security audit warnings (`compaudit`) or namespace collisions. Plugins should append or prepend relative `functions/` or `completions/` directories. See https://wiki.zshell.dev/community/zsh_plugin_standard#completions-and-compinit-ownership. The tied array/scalar pair and `set -A` semantics are documented at https://zsh.sourceforge.io/Doc/Release/Parameters.html#index-fpath and https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html#index-set.
 
 **Bad:**
 
@@ -115,7 +116,7 @@ fpath=( "${0:h}/functions" $fpath )
 
 **Severity:** Warning for destructive `fpath` overwrites or additions of `bin`/`tests` directories to `fpath`.
 
-False positives: Hermetic test runners or standalone shell bootstrap scripts that deliberately isolate `fpath`. Suppress with a reason.
+False positives: Standalone shell bootstrap scripts can deliberately replace the search path; suppress with a reason. Whole parameter expansions may hold saved or filtered paths, including copies prepared in another file. The rule does not infer destructive replacement from those unknown values, but still checks literal directory hazards. This can miss unsafe dynamic replacements.
 
 **Suppression:** Use `# zsh-lint disable=plugin/fpath-hygiene -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
 
@@ -144,7 +145,7 @@ _example_precmd() { builtin emulate -L zsh; }
 
 **Severity:** Hint. A mismatched namespace is an interoperability and hygiene concern, not invalid Zsh syntax.
 
-False positives: The rule runs only with version 2 project configuration, a plugin or Zi annex project kind, a sourced-library or autoload-function source profile, and one explicit project identifier. Completion basenames use `_command` only when the source role is `completion`. The exact `<identifier>_plugin_unload` loader hook retains the literal project identifier, including hyphens, for manager interoperability. Repository names and directory names are never inferred as identifiers.
+False positives: The rule runs only with version 2 project configuration, a plugin or Zi annex project kind, a sourced-library or autoload-function source profile, and one explicit project identifier. Completion basenames use `_command` only when the source role is `completion`. The exact `<identifier>_plugin_unload` loader hook retains the literal project identifier, including hyphens, for manager interoperability. Repository names and directory names are never inferred as identifiers. Native hook, trap and special ZLE callback names, and prompt\_&lt;theme&gt;\_setup, retain their caller-defined interfaces. Arbitrary zle-\* names and hook-like helpers are not exempt. See https://zsh.sourceforge.io/Doc/Release/Functions.html#Special-Functions, https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html#Special-Widgets and https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#Writing-Themes.
 
 **Suppression:** Use `# zsh-lint disable=plugin/function-namespace -- <reason>` on a declaration line or immediately before it. For an autoload basename finding, put the standalone directive in the file header before any source code.
 
@@ -156,7 +157,7 @@ Corpus evidence: The configured organization corpus records nonconforming symbol
 
 **Summary:** For configured plugin and Zi annex projects, reports autoload function sources when neither `builtin emulate -L zsh` nor `setopt local_options` appears before the first non-guard top-level statement. Unconfigured analysis retains the legacy `functions` path heuristic.
 
-Why: Zsh functions inherit the caller's option state. The Zsh manual documents `LOCAL_OPTIONS` as restoring options on function return, while `emulate -L` both selects Zsh emulation and makes option changes local. Without either form, options such as `SH_WORD_SPLIT`, `KSH_ARRAYS`, or `NO_EXTENDED_GLOB` can silently change function behavior. See https://zsh.sourceforge.io/Doc/Release/Options.html#index-LOCAL_005fOPTIONS and https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html#index-emulate.
+Why: Zsh functions inherit the caller's option state. The Zsh manual documents `LOCAL_OPTIONS` as restoring options on function return, while `emulate -L` both selects Zsh emulation and makes option changes local. Without either form, options such as `SH_WORD_SPLIT`, `KSH_ARRAYS`, or `NO_EXTENDED_GLOB` can silently change function behavior. See https://zsh.sourceforge.io/Doc/Release/Options.html#index-LOCAL_005fOPTIONS and https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html#index-emulate. Autoload file bodies and single same-name definitions follow https://zsh.sourceforge.io/Doc/Release/Functions.html#Autoloading-Functions. First-line `#compdef` callbacks with underscore names run in the completion system's option environment; see https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Autoloaded-files.
 
 **Bad:**
 
@@ -175,9 +176,9 @@ matches=( $~pattern )
 
 **Severity:** Hint. Missing option scoping enables latent caller-dependent bugs, but some helper functions intentionally inspect or mutate caller option state.
 
-False positives: Functions that intentionally share caller option state and trivial single-builtin functions remain findings by design; suppress them with a reason. Files outside a complete `functions` path segment are out of scope. A contiguous prefix of recognized `condition || return` or single-return `if` guards is accepted before scoping.
+False positives: Functions that intentionally share caller option state and trivial single-builtin functions remain findings by design; suppress them with a reason. Files outside a complete `functions` path segment are out of scope. A single same-name wrapper is checked inside its body; bare autoload bodies still need scoping. Underscore names alone and `#autoload` tags do not exempt files. A contiguous prefix of recognized `condition || return` or single-return `if` guards is accepted before scoping. Dynamic arguments remain findings, including `${=${options[xtrace]:#off}:+-o xtrace}`: its word splitting depends on inherited IFS, so it can make emulate fail before options are localized. This rule does not prove the IFS precondition. The exact xtrace initializer receives an IFS-specific explanation; use the static `builtin emulate -L zsh` baseline instead. Other dynamic arguments retain the conservative generic finding, even if a caller can prove them safe. See https://zsh.sourceforge.io/Doc/Release/Expansion.html#Parameter-Expansion.
 
-**Suppression:** Use `# zsh-lint disable=plugin/function-scoped-options -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
+**Suppression:** Use `# zsh-lint disable=plugin/function-scoped-options -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line. A same-name wrapper also retains a directive targeting its declaration; a directive inside the wrapper can target the reported body statement.
 
 Corpus evidence: Issue #63 reported missing scoping across z-a-meta-plugins and zsh-fancy-completions function files. The analyzer currently flags `zsh-fancy-completions/functions/.completion-prediction` and `zsh-fancy-completions/functions/.force_rehash`. The originally cited `z-a-meta-plugins/functions/.za-meta-plugins-meta-cmd-help-handler` is a fully commented-out stub and is correctly silent. Compliant `setopt local_options` and `builtin emulate -L zsh` examples exist in the same repositories.
 
@@ -241,6 +242,40 @@ False positives: The standard process-wide parameters `path`, `PATH`, `fpath`, `
 
 Corpus evidence: z-a-meta-plugins#54, zsh-fancy-completions#59, and zsh-eza#119 track current unnamespaced configured-corpus parameters.
 
+## Rule: `plugin/project-unload-lifecycle`
+
+**Name:** Project-wide unload entrypoint presence
+
+**Summary:** Reports each persistent hook or widget registration (`add-zsh-hook`, `add-zle-hook-widget`, `zle -N`, or an append to a \*\_functions array) in configured plugin and Zi annex sourced-library sources when no configured source in the same invocation defines a `*_plugin_unload` function or supplies that basename as an autoload-function source. Autoload file bodies acquire their function name from the filename; see https://zsh.sourceforge.io/Doc/Release/Functions.html#Autoloading-Functions.
+
+Why: The Zsh Plugin Standard requires a plugin with persistent side effects to provide a namespaced unload function. A project may register a hook in its entrypoint and define the unload function in another source, so presence is checked across the whole configured project rather than per file. See https://wiki.zshell.dev/community/zsh_plugin_standard#lifecycle-and-resource-ownership.
+
+**Bad:**
+
+```zsh
+#### example.plugin.zsh; no configured source defines an unload function
+add-zsh-hook precmd _example_precmd
+```
+
+**Good:**
+
+```zsh
+#### example.plugin.zsh
+add-zsh-hook precmd _example_precmd
+
+#### functions/example_plugin_unload, a configured source of the same project
+builtin emulate -L zsh
+unfunction example_plugin_unload
+```
+
+**Severity:** Hint. Static presence of an unload entrypoint is a lifecycle recommendation; it does not prove runtime restoration.
+
+False positives: Plugins intended only for once-per-session loading without unload support. Suppress with a reason.
+
+**Suppression:** Use `# zsh-lint disable=plugin/project-unload-lifecycle -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
+
+Corpus evidence: See `plugin/unload-function`; this rule applies the same convention across configured project sources (docs/project/project-configuration.md).
+
 ## Rule: `plugin/shared-plugins-registry`
 
 **Name:** No shared Plugins registry mutation
@@ -265,7 +300,7 @@ _example_state[plugin_dir]=$PWD
 
 **Severity:** Warning. The shared write creates cross-plugin state with no stable owner, but managers may provide a similarly named private registry outside portable source.
 
-False positives: None in a Standard 2 portable source mapping. Manager-only integration belongs in a separately classified source and remains silent.
+False positives: None in a Standard 2 portable source mapping. Manager-only integration belongs in a separately classified source and remains silent. Declaration printing is read-only and does not create a function-local parameter: https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html#index-typeset.
 
 **Suppression:** Use `# zsh-lint disable=plugin/shared-plugins-registry -- <reason>` on the finding line or immediately before it.
 
@@ -275,22 +310,23 @@ Corpus evidence: z-a-meta-plugins#54, zsh-fancy-completions#59, and zsh-eza#119 
 
 **Name:** Unload function convention and hygiene
 
-**Summary:** Checks configured plugin and Zi annex sourced-library entrypoints that register persistent shell hooks or widgets for a namespaced unload function (`*_plugin_unload`), and checks that defined unload functions cleanly unfunction themselves upon completion. Configured multi-file invocations aggregate registration and unload presence across the project; unconfigured analysis retains the legacy per-file path heuristic.
+**Summary:** Checks that each namespaced unload function (`*_plugin_unload`) in plugin and Zi annex sourced-library entrypoints unfunctions itself upon completion and does not wipe global functions indiscriminately. Unconfigured analysis checks only \*.plugin.zsh, \*.zsh-theme and init.zsh entrypoints. Whether a plugin that registers persistent hooks or widgets defines an unload function at all is checked only for configured projects, by `plugin/project-unload-lifecycle`: one unconfigured file cannot show whether the plugin supports unloading or defines its unload function in another source.
 
-Why: The Zsh Plugin Standard specifies that plugins with persistent side effects (hooks via `add-zsh-hook`, line-editor widgets via `add-zle-hook-widget` or `zle -N`) should provide a namespaced `*_plugin_unload` function so plugin managers and users can cleanly unload the plugin without restarting the shell. The unload function must explicitly remove only its own resources and unfunction itself upon completion. See https://wiki.zshell.dev/community/zsh_plugin_standard#lifecycle-and-resource-ownership.
+Why: The Zsh Plugin Standard specifies that plugins with persistent side effects (hooks via `add-zsh-hook`, line-editor widgets via `add-zle-hook-widget` or `zle -N`, and hook-array appends) should provide a namespaced `*_plugin_unload` function so plugin managers and users can cleanly unload the plugin without restarting the shell. The unload function must explicitly remove only its own resources and unfunction itself upon completion. See https://wiki.zshell.dev/community/zsh_plugin_standard#lifecycle-and-resource-ownership.
 
 **Bad:**
 
 ```zsh
-#### Plugin installs hook but provides no unload function
-add-zsh-hook precmd _my_precmd
+#### Unload function removes its hook but never unfunctions itself
+my_plugin_unload() {
+  add-zsh-hook -d precmd _my_precmd
+  unfunction _my_precmd
+}
 ```
 
 **Good:**
 
 ```zsh
-add-zsh-hook precmd _my_precmd
-
 my_plugin_unload() {
   emulate -L zsh
   autoload -Uz add-zsh-hook
@@ -299,21 +335,23 @@ my_plugin_unload() {
 }
 ```
 
-**Severity:** Hint. Missing unload functions or self-unfunction in unload definitions are lifecycle recommendations. Indiscriminate function wiping is a Warning.
+**Severity:** Hint. A missing self-unfunction in an unload definition is a lifecycle recommendation. Indiscriminate function wiping is a Warning.
 
-False positives: Plugins intended only for static, once-per-session loading without unload support. Suppress with a reason.
+False positives: An unload function that removes itself indirectly, for example through a helper, is reported as missing its self-unfunction. The unconfigured entrypoint names are a heuristic; explicit configuration selects source profiles. Suppress with a reason.
 
 **Suppression:** Use `# zsh-lint disable=plugin/unload-function -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
 
-Static boundary: This rule proves only unload entrypoint presence and narrow syntax hygiene. Exact ownership-aware restoration requires a clean-process runtime test and is outside static analysis.
+Corpus evidence: Before #668 this rule also reported missing unload presence without configuration. After #623 limited it to entrypoints, 64 external findings remained; all 20 sampled (Oh My Zsh, Prezto and F-Sy-H entrypoints) were judged static-loading false positives, as was the 1 remaining organization finding, an F-Sy-H entrypoint whose unload function lives in another file. Presence therefore moved entirely to configured analysis.
+
+Static boundary: This rule proves only narrow syntax hygiene of unload definitions. Exact ownership-aware restoration requires a clean-process runtime test and is outside static analysis.
 
 ## Rule: `plugin/zero-handling`
 
 **Name:** Zero-handling idiom in plugin entrypoint
 
-**Summary:** Reports direct uses of `$0` at the top level of configured plugin and Zi annex sourced-library entrypoints. Configured analysis also reports assignment to special parameter `0`, because sourced entrypoints must not replace caller state. Unconfigured analysis retains the legacy path heuristic.
+**Summary:** Reports direct uses of `$0` at the top level of configured plugin and Zi annex sourced-library entrypoints. Configured analysis also reports assignment to special parameter `0`, because sourced entrypoints must not replace caller state. Unconfigured sources remain silent: their execution profile and the caller's option state are unknown. The `${0:#$ZSH_ARGZERO}` filter is accepted.
 
-Why: When a Zsh plugin is sourced, positional parameter `$0` evaluates to the name of the shell (`zsh` or `-zsh`) rather than the path of the sourced script, unless `FUNCTION_ARGZERO` is active. Configured plugin entrypoints must resolve the source path with prompt expansion `${(%):-%N}` or `${(%):-%x}` (optionally with `$ZERO` fallback) and pass it into a localized scope instead of assigning to caller-visible special parameter `0`. See https://wiki.zshell.dev/community/zsh_plugin_standard#zero-handling.
+Why: Native Zsh enables `FUNCTION_ARGZERO` by default, temporarily setting `$0` to the sourced filename or function name on entry. A caller that disables it can leave `$0` holding the shell or caller name instead; the option state at entry cannot be inferred from the source alone. See https://zsh.sourceforge.io/Doc/Release/Options.html#Scripts-and-Functions. Configured plugin entrypoints must resolve the source path with prompt expansion `${(%):-%N}` or `${(%):-%x}` (optionally with `$ZERO` fallback) and pass it into a localized scope instead of assigning to caller-visible special parameter `0`. See https://wiki.zshell.dev/community/zsh_plugin_standard#zero-handling.
 
 **Bad:**
 
@@ -334,7 +372,7 @@ Good (configured sourced entrypoint):
 
 **Severity:** Warning. Deriving paths from uninitialized `$0` can load the wrong path; assigning to `0` can replace caller state or fail when `POSIX_ARGZERO` makes it read-only.
 
-False positives: Scripts intended solely for direct execution (not sourcing) or functions where `$0` refers to the function name. Suppress with a reason.
+False positives: A native sourced script may legitimately use `$0` as its filename, and an autoload body may use it as its function name. Those uses are not plugin-entrypoint contract violations without an explicit configured sourced-library profile. Function definitions and other configured profiles remain silent.
 
 **Suppression:** Use `# zsh-lint disable=plugin/zero-handling -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
 
@@ -344,7 +382,7 @@ Corpus evidence: z-a-meta-plugins, zsh-fancy-completions, and zsh-eza use the ca
 
 **Name:** Unquoted variable expansion
 
-**Summary:** Reports parameter expansions in command names or arguments that are not enclosed in double quotes.
+**Summary:** In configured projects, reports standalone unquoted parameter expansions in command arguments that may lose an empty value, with element-preserving advice for declared arrays.
 
 Why: The Zsh manual's Parameter Expansion section explains that unquoted parameters are not split on whitespace by default, unlike in sh, but null words are still elided; enabling `SH_WORD_SPLIT` also makes unquoted values subject to field splitting. Double quotes preserve an empty scalar as an argument and keep the expansion single-word under either option state. See https://zsh.sourceforge.io/Doc/Release/Expansion.html#Parameter-Expansion.
 
@@ -360,9 +398,11 @@ print -r -- $value
 print -r -- "$value"
 ```
 
-**Severity:** Warning. Losing an empty argument or inheriting `SH_WORD_SPLIT` can change command behavior, while intentional elision remains realistic.
+**Severity:** Info. Losing an empty argument can change command behavior, but intentional elision and values guaranteed to be non-empty are common.
 
-False positives: Explicit native-Zsh splitting forms such as `${=words}` and flag-guided array or field splitting are excluded. Other code may intentionally omit an empty argument, rely on `SH_WORD_SPLIT`, or expand a value guaranteed to be non-empty. Those cases should use a reasoned suppression rather than weakening unrelated diagnostics.
+Configuration: The rule reports only for sources with project configuration. Without it, one file cannot show whether a value may be empty, and sampled precision was 1 in 34 on organization code and 0 in 20 on third-party code (#614, #705).
+
+False positives: Explicit native-Zsh splitting forms such as `${=words}`, flag-guided array or field splitting, and glob substitution `${~pattern}` (whose value must stay unquoted to match as a pattern) are excluded. Compound words, command names, and arguments of `:` are also excluded. Expansions that can never be empty are skipped: `${x:+word}` and `${x+word}`, which elide on purpose and would pass an empty argument if quoted; `${x:-word}` and `${x:=word}` with a non-empty literal word; `${x:?word}`, which fails instead of expanding empty; names declared integer or float earlier in the same function or file scope, unless that scope unsets them; and the read-only numeric parameters `PPID`, `ZSH_SUBSHELL` and `TTYIDLE`. Code may intentionally omit an empty argument or expand a value guaranteed to be non-empty; suppress those cases with a reason. Array advice uses only earlier declarations in the same lexical function or file scope, without resolving dynamic caller scope or declarations in other files. A declaration or unset inside a command substitution counts only within that substitution, which runs in a subshell.
 
 **Suppression:** Use `# zsh-lint disable=quoting/unquoted-var -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
 
@@ -372,7 +412,7 @@ Corpus evidence: Sourced scripts and plugin entrypoints frequently use quoted pa
 
 **Name:** Use of eval
 
-**Summary:** Reports commands whose literal command name is `eval`.
+**Summary:** Reports commands that run the `eval` builtin, including after the precommand modifiers `-`, `builtin`, `exec`, `noglob` and `nocorrect`. A name after `command` is not reported, because Zsh then runs only an external command.
 
 Why: The Zsh manual documents that `eval` reads its arguments as shell input and executes the resulting commands in the current shell process. Dynamic or untrusted text can therefore become shell syntax rather than inert data. See https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html#index-eval.
 
