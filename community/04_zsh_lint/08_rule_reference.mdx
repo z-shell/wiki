@@ -21,7 +21,7 @@ documentation workflow replaces it automatically.
 {/* zsh-lint:generated:start */}
 
 :::info Published rule set
-This reference was generated from the published `v1.6.0` release at commit [`f6341241c398fd2a784452e75895dafb06186bbc`](https://github.com/z-shell/zsh-lint/commit/f6341241c398fd2a784452e75895dafb06186bbc). It matches the rules users receive from `go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.6.0`.
+This reference was generated from the published `v1.6.1` release at commit [`136df813e37d0ec48573929489b44c1841af57ee`](https://github.com/z-shell/zsh-lint/commit/136df813e37d0ec48573929489b44c1841af57ee). It matches the rules users receive from `go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.6.1`.
 :::
 
 ## Rules
@@ -47,7 +47,7 @@ This reference was generated from the published `v1.6.0` release at commit [`f63
 
 **Name:** Shadowing special shell parameters
 
-**Summary:** Reports `local`, `typeset`, `declare`, or `readonly` declarations of a curated set of shell-set parameters (for example `ZSH_VERSION`, `OSTYPE`, and `pipestatus`); explicit non-local `-g` declarations (including `readonly -g`), the `export` builtin, and `typeset`-family query/display/function modes (standalone `+`, `-p`/`+p`, `+m`, and `-f`/`+f`) are excluded. Pattern declarations with `-m` are reported only when an effective `+g` makes matching non-local parameters local. The rule also stays silent when dynamic option words or the ambient `GLOBAL_EXPORT` option make declaration scope uncertain. Reads are never reported.
+**Summary:** Reports `local`, `typeset`, `declare`, or `readonly` declarations of a curated set of shell-set parameters (for example `ZSH_VERSION`, `OSTYPE`, and `pipestatus`); explicit non-local `-g` declarations (including `readonly -g`), the `export` builtin, and `typeset`-family query/display/function modes (standalone `+`, `-p`/`+p`, `+m`, and `-f`/`+f`) are excluded. Pattern declarations with `-m` are reported only when an effective `+g` makes matching non-local parameters local. The rule also stays silent when dynamic option words or the ambient `GLOBAL_EXPORT` option make declaration scope uncertain. Reads are never reported. Ordinary builtin calls after precommand modifiers use the same scope and display-mode checks; dynamic values do not need to be evaluated to recognize a static parameter name. An ordinary operand can disappear during expansion, so recognizing its name is a potential declaration, not value-flow proof.
 
 Why: The Zsh manual's zshparam "Parameters Set By The Shell" section documents these as shell-provided state. In a function, `readonly` is `typeset -r` and creates a local binding unless `-g` explicitly selects non-local behavior. Version probes such as `is-at-least $ZSH_VERSION` are pervasive in plugin code, so a `local ZSH_VERSION=...` in a caller silently feeds the override to all nested code for the lifetime of the scope. At top level, the same declaration form clobbers the shell-managed outer binding instead of creating a temporary local. Unlike ordinary shadowing, the reader has no declaration of the original to look up -- the shell set it. See https://zsh.sourceforge.io/Doc/Release/Parameters.html#Parameters-Set-By-The-Shell.
 
@@ -91,7 +91,7 @@ False positives: A command whose result must be recomputed for each item may be 
 
 **Name:** fpath manipulation hygiene in plugin entrypoints
 
-**Summary:** Checks array `fpath` and scalar `FPATH` assignments, declarations, and `set -A fpath` for destructive literal replacements, non-function directories (`bin/`, `tests/`), and user-specific paths including `~/`. Configured analysis checks executed plugin and Zi annex sourced-library entrypoints; unconfigured analysis also visits named functions, but skips exact test/tests path components, ignoring case. Explicit configured profiles take precedence over that path heuristic. Function-local search paths are not caller mutations.
+**Summary:** Checks array `fpath` and scalar `FPATH` assignments, declarations, and `set -A fpath` for destructive literal replacements, non-function directories (`bin/`, `tests/`), and user-specific paths including `~/`. Configured analysis checks executed plugin and Zi annex sourced-library entrypoints; unconfigured analysis also visits named functions, but skips exact test/tests path components, ignoring case. Explicit configured profiles take precedence over that path heuristic. Function-local search paths are not caller mutations. Ordinary declaration-builtin calls after precommand modifiers are included. Their scalar operands retain ordinary expansion semantics. These calls never prove localization or suppress later findings; a later write to an ordinary local search path can therefore remain a conservative false positive.
 
 Why: Sourced Zsh plugins must not destructively replace `fpath` (which removes standard system and user function directories), add hardcoded user machine paths, or add non-function directories (`bin/`, `tests/`) that can trigger completion security audit warnings (`compaudit`) or namespace collisions. Plugins should append or prepend relative `functions/` or `completions/` directories. See https://wiki.zshell.dev/community/zsh_plugin_standard#completions-and-compinit-ownership. The tied array/scalar pair and `set -A` semantics are documented at https://zsh.sourceforge.io/Doc/Release/Parameters.html#index-fpath and https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html#index-set.
 
@@ -217,7 +217,7 @@ Corpus evidence: The repository fixtures model load-only initialization; issue #
 
 **Name:** Private project-owned persistent parameter namespace
 
-**Summary:** Reports persistent parameters that do not use the configured project's `_project_name_...` private namespace.
+**Summary:** Reports persistent parameters that do not use the configured project's `_project_name_...` private namespace. This includes ordinary declaration-builtin calls after precommand modifiers, without treating their arguments as reserved-word array assignments.
 
 Why: Shell parameters share one process-wide namespace. Standard 2 routes public configuration through `:project-identifier:config` zstyles and reserves global parameters for necessary private typed state with one clear owner. See https://wiki.zshell.dev/community/zsh_plugin_standard#configuration-contract.
 
@@ -280,7 +280,7 @@ Corpus evidence: See `plugin/unload-function`; this rule applies the same conven
 
 **Name:** No shared Plugins registry mutation
 
-**Summary:** Reports declarations, assignments, and indexed writes to the ownerless global `Plugins` parameter in configured portable plugin and Zi annex source.
+**Summary:** Reports declarations, assignments, and indexed writes to the ownerless global `Plugins` parameter in configured portable plugin and Zi annex source. Declaration builtins after precommand modifiers are included; print-only forms remain read-only. Ordinary calls add findings only and never prove localization for suppressing a later write.
 
 Why: Zsh Plugin Standard 2 requires every persistent parameter to have one project owner. A shared global registry has no portable ownership or unload contract. Plugin managers can maintain manager-owned registries outside the portable plugin source. See https://wiki.zshell.dev/community/zsh_plugin_standard#names-and-persistent-state.
 
@@ -300,7 +300,7 @@ _example_state[plugin_dir]=$PWD
 
 **Severity:** Warning. The shared write creates cross-plugin state with no stable owner, but managers may provide a similarly named private registry outside portable source.
 
-False positives: None in a Standard 2 portable source mapping. Manager-only integration belongs in a separately classified source and remains silent. Declaration printing is read-only and does not create a function-local parameter: https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html#index-typeset.
+False positives: None in a Standard 2 portable source mapping. Manager-only integration belongs in a separately classified source and remains silent. Declaration printing is read-only and does not create a function-local parameter: https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html#index-typeset. A later write after an ordinary local declaration can remain a conservative false positive because ordinary calls are not used as localization proof.
 
 **Suppression:** Use `# zsh-lint disable=plugin/shared-plugins-registry -- <reason>` on the finding line or immediately before it.
 
@@ -349,7 +349,7 @@ Static boundary: This rule proves only narrow syntax hygiene of unload definitio
 
 **Name:** Zero-handling idiom in plugin entrypoint
 
-**Summary:** Reports direct uses of `$0` at the top level of configured plugin and Zi annex sourced-library entrypoints. Configured analysis also reports assignment to special parameter `0`, because sourced entrypoints must not replace caller state. Unconfigured sources remain silent: their execution profile and the caller's option state are unknown. The `${0:#$ZSH_ARGZERO}` filter is accepted.
+**Summary:** Reports direct uses of `$0` at the top level of configured plugin and Zi annex sourced-library entrypoints. Configured analysis also reports assignment to special parameter `0`, because sourced entrypoints must not replace caller state. Unconfigured sources remain silent: their execution profile and the caller's option state are unknown. The `${0:#$ZSH_ARGZERO}` filter is accepted. Assignment operands of declaration builtins are included, both directly and after precommand modifiers; print-only declarations remain read-only. These added declaration findings do not initialize flow state or suppress existing later reads, even when the operand is a static scalar assignment.
 
 Why: Native Zsh enables `FUNCTION_ARGZERO` by default, temporarily setting `$0` to the sourced filename or function name on entry. A caller that disables it can leave `$0` holding the shell or caller name instead; the option state at entry cannot be inferred from the source alone. See https://zsh.sourceforge.io/Doc/Release/Options.html#Scripts-and-Functions. Configured plugin entrypoints must resolve the source path with prompt expansion `${(%):-%N}` or `${(%):-%x}` (optionally with `$ZERO` fallback) and pass it into a localized scope instead of assigning to caller-visible special parameter `0`. See https://wiki.zshell.dev/community/zsh_plugin_standard#zero-handling.
 
@@ -402,7 +402,7 @@ print -r -- "$value"
 
 Configuration: The rule reports only for sources with project configuration. Without it, one file cannot show whether a value may be empty, and sampled precision was 1 in 34 on organization code and 0 in 20 on third-party code (#614, #705).
 
-False positives: Explicit native-Zsh splitting forms such as `${=words}`, flag-guided array or field splitting, and glob substitution `${~pattern}` (whose value must stay unquoted to match as a pattern) are excluded. Compound words, command names, and arguments of `:` are also excluded. Expansions that can never be empty are skipped: `${x:+word}` and `${x+word}`, which elide on purpose and would pass an empty argument if quoted; `${x:-word}` and `${x:=word}` with a non-empty literal word; `${x:?word}`, which fails instead of expanding empty; names declared integer or float earlier in the same function or file scope, unless that scope unsets them; and the read-only numeric parameters `PPID`, `ZSH_SUBSHELL` and `TTYIDLE`. Code may intentionally omit an empty argument or expand a value guaranteed to be non-empty; suppress those cases with a reason. Array advice uses only earlier declarations in the same lexical function or file scope, without resolving dynamic caller scope or declarations in other files. A declaration or unset inside a command substitution counts only within that substitution, which runs in a subshell.
+False positives: Explicit native-Zsh splitting forms such as `${=words}`, flag-guided array or field splitting, and glob substitution `${~pattern}` (whose value must stay unquoted to match as a pattern) are excluded. Compound words, command names, and arguments of `:` are also excluded. Expansions that can never be empty are skipped: `${x:+word}` and `${x+word}`, which elide on purpose and would pass an empty argument if quoted; `${x:-word}` and `${x:=word}` with a non-empty literal word; `${x:?word}`, which fails instead of expanding empty; names declared integer or float earlier in the same function or file scope, unless that scope unsets them; and the read-only numeric parameters `PPID`, `ZSH_SUBSHELL` and `TTYIDLE`. Code may intentionally omit an empty argument or expand a value guaranteed to be non-empty; suppress those cases with a reason. Single-element subscripts use scalar advice; ranges, reverse and chained subscripts preserve the selection. Array advice uses only earlier declarations in the same lexical function or file scope, without resolving dynamic caller scope or declarations in other files. A declaration or unset inside a command substitution counts only within that substitution, which runs in a subshell.
 
 **Suppression:** Use `# zsh-lint disable=quoting/unquoted-var -- <reason>` on the finding line or immediately before the next non-comment, non-blank source line.
 
