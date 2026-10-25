@@ -2,7 +2,7 @@
 id: zsh-lint-getting-started
 title: Getting started
 sidebar_position: 2
-description: Install Zsh Lint v1.6.0 and run a first semantic check.
+description: Install Zsh Lint v1.6.1 and run a first semantic check.
 keywords:
   - zsh-lint
   - installation
@@ -21,7 +21,7 @@ binary is written in Go and does not source or execute the file it analyzes.
 ## Install a reproducible version
 
 ```sh
-go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.6.0
+go install github.com/z-shell/zsh-lint/cmd/zsh-lint@v1.6.1
 ```
 
 Confirm that your shell can find it:
@@ -30,7 +30,7 @@ Confirm that your shell can find it:
 zsh-lint --help
 ```
 
-In v1.6.0, `-h` and `--help` print usage and options to standard output and
+In v1.6.1, `-h` and `--help` print usage and options to standard output and
 exit 0. Running `zsh-lint` without arguments prints the usage line to standard
 error and exits with status 2 because no input path was supplied. If the
 command is not found, use:
@@ -68,7 +68,7 @@ hello.zsh:4:13: [quoting/unquoted-var] Variable expansion should be double-quote
 ```
 
 The bracketed value is the rule ID. Use it to find rule details or write a
-narrow suppression. In v1.6.0, `quoting/unquoted-var` reports only for sources
+narrow suppression. In v1.6.1, `quoting/unquoted-var` reports only for sources
 under a [project configuration](./03_project_configuration.mdx), at Info
 severity, so this finding alone leaves the exit status at 0.
 
@@ -79,7 +79,7 @@ zsh-lint bin/build.zsh functions/example-run example.plugin.zsh
 ```
 
 Each argument must be a readable file. Zsh Lint does not recurse through a
-directory or read source from standard input in v1.6.0.
+directory or read source from standard input in v1.6.1.
 
 Next, read [Choosing files](./02_choosing_files.mdx) before applying the command
 to a mixed-language repository, or see [MCP server](./09_mcp_server.mdx) to integrate
